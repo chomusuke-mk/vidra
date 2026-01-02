@@ -157,7 +157,8 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
       });
 
       await _restoreDownloadedUpdateState();
-      await _refreshUpdateInfo();
+      // Automatic check: respect throttle window.
+      await _refreshUpdateInfo(ignoreThrottle: false);
     } catch (error) {
       debugPrint('Failed to bootstrap updater: $error');
     }
@@ -167,7 +168,8 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
     final actionState = _resolveActionState(isLatest: !outdated);
     switch (actionState) {
       case _UpdateActionState.refresh:
-        unawaited(_refreshUpdateInfo());
+        // Manual refresh: always hit the network and update last-check timestamp.
+        unawaited(_refreshUpdateInfo(ignoreThrottle: true));
         return;
       case _UpdateActionState.downloadUpdate:
         unawaited(_downloadUpdate());
@@ -216,7 +218,7 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
     return localizations.ui(AppStringKey.backendStatusPrimaryUpToDate);
   }
 
-  Future<void> _refreshUpdateInfo() async {
+  Future<void> _refreshUpdateInfo({required bool ignoreThrottle}) async {
     final current = _currentAppVersion;
     if (current == null || current.trim().isEmpty) {
       return;
@@ -235,8 +237,9 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
     final now = _releaseUpdater.now();
     final last = ReleaseUpdateCache.readLastCheck(prefs);
 
-    // Throttle applies to both automatic and manual checks.
-    if (last != null &&
+    // Automatic checks are throttled; manual refresh can bypass.
+    if (!ignoreThrottle &&
+        last != null &&
         now.difference(last) < GitHubReleaseUpdater.throttleWindow) {
       final cached = ReleaseUpdateCache.read(prefs, currentVersion: current);
       if (mounted) {
