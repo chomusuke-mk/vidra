@@ -47,6 +47,17 @@ Place the files with **exact** names in the following locations:
 	- `linux/ffmpeg/ffprobe`
 	- Ensure they are executable: `chmod +x linux/ffmpeg/ffmpeg linux/ffmpeg/ffprobe`
 
+- **Android**
+	- Download the Android artifacts from https://github.com/chomusuke-mk/vidra-ffmpeg.
+	- Rename them to **exactly**:
+		- `libffmpeg.so`
+		- `libffprobe.so`
+	- Place them under these ABI folders:
+		- `android/app/src/main/jniLibs/arm64-v8a/`
+		- `android/app/src/main/jniLibs/armeabi-v7a/`
+		- `android/app/src/main/jniLibs/x86/`
+		- `android/app/src/main/jniLibs/x86_64/`
+
 ## Quick start
 
 ### 1. Bootstrap the Python backend
