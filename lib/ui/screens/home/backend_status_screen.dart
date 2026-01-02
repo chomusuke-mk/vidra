@@ -1,5 +1,6 @@
 import 'dart:async';
-import 'dart:io' show File, Platform, HttpException;
+import 'dart:io' show Directory, File, Platform, HttpException;
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
@@ -11,6 +12,7 @@ import 'package:crypto/crypto.dart' as crypto;
 import 'package:convert/convert.dart' show AccumulatorSink;
 import 'package:open_file/open_file.dart';
 import 'package:path/path.dart' as p;
+import 'package:path_provider/path_provider.dart';
 import 'package:vidra/constants/app_strings.dart';
 import 'package:vidra/config/backend_config.dart';
 import 'package:vidra/i18n/delegates/vidra_localizations.dart';
@@ -74,6 +76,8 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
   bool _isRefreshing = false;
   String? _updateErrorMessage;
 
+  String? _downloadedSha256;
+
   final GitHubReleaseUpdater _releaseUpdater = GitHubReleaseUpdater(
     owner: 'chomusuke-mk',
     repo: 'vidra',
@@ -83,6 +87,20 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
   ReleaseUpdateInfo? _latestRelease;
   String? _downloadedInstallerPath;
   double? _downloadProgress;
+
+  static const String _kDownloadedUpdateCompleted =
+      'vidra.app_update.download.completed';
+  static const String _kDownloadedUpdateFolder =
+      'vidra.app_update.download.folder';
+  static const String _kDownloadedUpdateFileName =
+      'vidra.app_update.download.file_name';
+  static const String _kDownloadedUpdateSha256 =
+      'vidra.app_update.download.sha256';
+  static const String _kDownloadedUpdateLatestVersion =
+      'vidra.app_update.download.latest_version';
+  static const String _kDownloadedUpdateTag = 'vidra.app_update.download.tag';
+  static const String _kDownloadedUpdateShaRecordPath =
+      'vidra.app_update.download.sha_record_path';
 
   void _syncGlobalUpdateIndicator() {
     final indicator = BackendUpdateIndicator.instance;
@@ -117,6 +135,8 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
       setState(() {
         _currentAppVersion = info.version;
       });
+
+      await _restoreDownloadedUpdateState();
       await _refreshUpdateInfo();
     } catch (error) {
       debugPrint('Failed to bootstrap updater: $error');
@@ -205,6 +225,7 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
           _isRefreshing = false;
         });
       }
+      await _reconcileDownloadedUpdateWithLatestRelease();
       _syncGlobalUpdateIndicator();
       return;
     }
@@ -238,6 +259,7 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
         _updateErrorMessage = error.toString();
       });
     } finally {
+      await _reconcileDownloadedUpdateWithLatestRelease();
       _syncGlobalUpdateIndicator();
       if (mounted && _isRefreshing) {
         setState(() {
@@ -283,10 +305,27 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
       return;
     }
 
-    final finalPath = p.join(downloadsDir, info.assetName);
+    final prefs = await SharedPreferences.getInstance();
+    final folderName = _createBaseUpdateFolderName(info.latestVersion);
+    final updateFolderPath = await _createUniqueFolder(
+      downloadsDir,
+      folderName,
+    );
+    final finalPath = p.join(updateFolderPath, info.assetName);
     final tempPath = '$finalPath.partial';
     final outFile = File(tempPath);
     await outFile.parent.create(recursive: true);
+
+    await _persistDownloadedUpdateState(
+      prefs,
+      completed: false,
+      folderPath: updateFolderPath,
+      fileName: info.assetName,
+      sha256: info.sha256,
+      latestVersion: info.latestVersion,
+      tag: info.tag,
+      shaRecordPath: null,
+    );
 
     try {
       final client = http.Client();
@@ -336,6 +375,25 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
         }
         await outFile.rename(finalPath);
 
+        final shaRecordPath = await _writeShaRecord(
+          tag: info.tag,
+          latestVersion: info.latestVersion,
+          assetName: info.assetName,
+          sha256: computed,
+          downloadFolderPath: updateFolderPath,
+        );
+
+        await _persistDownloadedUpdateState(
+          prefs,
+          completed: true,
+          folderPath: updateFolderPath,
+          fileName: info.assetName,
+          sha256: computed,
+          latestVersion: info.latestVersion,
+          tag: info.tag,
+          shaRecordPath: shaRecordPath,
+        );
+
         // Authenticode validation intentionally disabled.
       } finally {
         client.close();
@@ -348,6 +406,7 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
         _isDownloadingUpdate = false;
         _isInstallReady = true;
         _downloadedInstallerPath = finalPath;
+        _downloadedSha256 = info.sha256;
         _downloadProgress = null;
       });
       _syncGlobalUpdateIndicator();
@@ -365,9 +424,14 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
       setState(() {
         _isDownloadingUpdate = false;
         _isInstallReady = false;
+        _downloadedInstallerPath = null;
+        _downloadedSha256 = null;
         _downloadProgress = null;
         _updateErrorMessage = error.toString();
       });
+      try {
+        await _clearDownloadedUpdateState(prefs);
+      } catch (_) {}
       _syncGlobalUpdateIndicator();
     }
   }
@@ -376,6 +440,37 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
     final localizations = VidraLocalizations.of(context);
     final path = _downloadedInstallerPath;
     if (path == null || path.trim().isEmpty) {
+      return;
+    }
+
+    final expected = _downloadedSha256;
+    if (expected == null || expected.trim().isEmpty) {
+      await _invalidateDownloadedInstaller(
+        'No se encontró el checksum esperado del instalador. Vuelve a descargar.',
+      );
+      return;
+    }
+
+    final installerFile = File(path);
+    if (!await installerFile.exists()) {
+      await _invalidateDownloadedInstaller(
+        'El instalador ya no existe en la carpeta de descargas. Vuelve a descargar.',
+      );
+      return;
+    }
+
+    try {
+      final actual = await _computeSha256ForFile(installerFile);
+      if (actual.toLowerCase() != expected.toLowerCase()) {
+        await _invalidateDownloadedInstaller(
+          'El instalador fue modificado o está corrupto. Vuelve a descargar.',
+        );
+        return;
+      }
+    } catch (_) {
+      await _invalidateDownloadedInstaller(
+        'No se pudo validar el instalador. Vuelve a descargar.',
+      );
       return;
     }
 
@@ -390,6 +485,203 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
     _syncGlobalUpdateIndicator();
     _showSnack(localizations.ui(AppStringKey.backendStatusSnackInstalling));
     await OpenFile.open(path);
+  }
+
+  Future<void> _invalidateDownloadedInstaller(String message) async {
+    final prefs = await SharedPreferences.getInstance();
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _isInstallReady = false;
+      _downloadedInstallerPath = null;
+      _downloadedSha256 = null;
+      _updateErrorMessage = message;
+    });
+    await _clearDownloadedUpdateState(prefs);
+    _syncGlobalUpdateIndicator();
+    if (mounted) {
+      _showSnack(message);
+    }
+  }
+
+  Future<String> _computeSha256ForFile(File file) async {
+    final digestSink = AccumulatorSink<crypto.Digest>();
+    final hasher = crypto.sha256.startChunkedConversion(digestSink);
+    await for (final chunk in file.openRead()) {
+      hasher.add(chunk);
+    }
+    hasher.close();
+    return digestSink.events.single.toString();
+  }
+
+  String _createBaseUpdateFolderName(String latestVersion) {
+    final normalized = _sanitizeFolderSegment(latestVersion.trim());
+    final suffix = normalized.isEmpty ? 'unknown' : normalized;
+    return 'vidra-update-$suffix';
+  }
+
+  String _sanitizeFolderSegment(String input) {
+    final buffer = StringBuffer();
+    for (final codeUnit in input.codeUnits) {
+      final ch = String.fromCharCode(codeUnit);
+      final ok = RegExp(r'[A-Za-z0-9._-]').hasMatch(ch);
+      buffer.write(ok ? ch : '_');
+    }
+    return buffer.toString();
+  }
+
+  Future<String> _createUniqueFolder(String parentDir, String baseName) async {
+    final basePath = p.join(parentDir, baseName);
+    final base = Directory(basePath);
+    if (!await base.exists()) {
+      await base.create(recursive: true);
+      return base.path;
+    }
+
+    final rng = Random.secure();
+    for (var i = 0; i < 10; i++) {
+      final suffix = rng.nextInt(0x7fffffff).toRadixString(16).padLeft(8, '0');
+      final candidate = Directory('$basePath-$suffix');
+      if (!await candidate.exists()) {
+        await candidate.create(recursive: true);
+        return candidate.path;
+      }
+    }
+    final millis = DateTime.now().millisecondsSinceEpoch;
+    final fallback = Directory('$basePath-$millis');
+    await fallback.create(recursive: true);
+    return fallback.path;
+  }
+
+  Future<String> _writeShaRecord({
+    required String tag,
+    required String latestVersion,
+    required String assetName,
+    required String sha256,
+    required String downloadFolderPath,
+  }) async {
+    final supportDir = await getApplicationSupportDirectory();
+    final recordDir = Directory(p.join(supportDir.path, 'updates'));
+    await recordDir.create(recursive: true);
+
+    final safeVersion = _sanitizeFolderSegment(latestVersion.trim());
+    final recordPath = p.join(
+      recordDir.path,
+      'vidra-update-$safeVersion.sha256',
+    );
+    final content = [
+      'version=$latestVersion',
+      'tag=$tag',
+      'asset=$assetName',
+      'sha256=${sha256.toLowerCase()}',
+      'download_folder=$downloadFolderPath',
+      'timestamp=${DateTime.now().toUtc().toIso8601String()}',
+      '',
+    ].join('\n');
+    await File(recordPath).writeAsString(content, flush: true);
+    return recordPath;
+  }
+
+  Future<void> _persistDownloadedUpdateState(
+    SharedPreferences prefs, {
+    required bool completed,
+    required String folderPath,
+    required String fileName,
+    required String sha256,
+    required String latestVersion,
+    required String tag,
+    required String? shaRecordPath,
+  }) async {
+    await prefs.setBool(_kDownloadedUpdateCompleted, completed);
+    await prefs.setString(_kDownloadedUpdateFolder, folderPath);
+    await prefs.setString(_kDownloadedUpdateFileName, fileName);
+    await prefs.setString(_kDownloadedUpdateSha256, sha256);
+    await prefs.setString(_kDownloadedUpdateLatestVersion, latestVersion);
+    await prefs.setString(_kDownloadedUpdateTag, tag);
+    if (shaRecordPath != null && shaRecordPath.trim().isNotEmpty) {
+      await prefs.setString(_kDownloadedUpdateShaRecordPath, shaRecordPath);
+    }
+  }
+
+  Future<void> _clearDownloadedUpdateState(SharedPreferences prefs) async {
+    await prefs.remove(_kDownloadedUpdateCompleted);
+    await prefs.remove(_kDownloadedUpdateFolder);
+    await prefs.remove(_kDownloadedUpdateFileName);
+    await prefs.remove(_kDownloadedUpdateSha256);
+    await prefs.remove(_kDownloadedUpdateLatestVersion);
+    await prefs.remove(_kDownloadedUpdateTag);
+    await prefs.remove(_kDownloadedUpdateShaRecordPath);
+  }
+
+  Future<void> _restoreDownloadedUpdateState() async {
+    final prefs = await SharedPreferences.getInstance();
+    final completed = prefs.getBool(_kDownloadedUpdateCompleted) ?? false;
+    if (!completed) {
+      return;
+    }
+    final folder = prefs.getString(_kDownloadedUpdateFolder);
+    final fileName = prefs.getString(_kDownloadedUpdateFileName);
+    final sha = prefs.getString(_kDownloadedUpdateSha256);
+    if (folder == null || fileName == null || sha == null) {
+      await _clearDownloadedUpdateState(prefs);
+      return;
+    }
+
+    final path = p.join(folder, fileName);
+    final file = File(path);
+    if (!await file.exists()) {
+      await _clearDownloadedUpdateState(prefs);
+      return;
+    }
+
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _downloadedInstallerPath = path;
+      _downloadedSha256 = sha;
+      _isInstallReady = true;
+    });
+    _syncGlobalUpdateIndicator();
+  }
+
+  Future<void> _reconcileDownloadedUpdateWithLatestRelease() async {
+    if (!_isInstallReady) {
+      return;
+    }
+    final latest = _latestRelease;
+    if (latest == null || !latest.isUpdateAvailable) {
+      final prefs = await SharedPreferences.getInstance();
+      await _clearDownloadedUpdateState(prefs);
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _isInstallReady = false;
+        _downloadedInstallerPath = null;
+        _downloadedSha256 = null;
+      });
+      return;
+    }
+
+    // If the cached download doesn't match the latest resolved asset, force re-download.
+    if (_downloadedInstallerPath == null || _downloadedSha256 == null) {
+      return;
+    }
+    if (p.basename(_downloadedInstallerPath!) != latest.assetName ||
+        _downloadedSha256!.toLowerCase() != latest.sha256.toLowerCase()) {
+      final prefs = await SharedPreferences.getInstance();
+      await _clearDownloadedUpdateState(prefs);
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _isInstallReady = false;
+        _downloadedInstallerPath = null;
+        _downloadedSha256 = null;
+      });
+    }
   }
 
   void _showSnack(String message) {

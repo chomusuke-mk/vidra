@@ -29,6 +29,12 @@ jobs:
       should_build: ${{ steps.versions.outputs.should_build }}
       release_assets_present: ${{ steps.versions.outputs.release_assets_present }}
       ffmpeg_tag: ${{ steps.vidra_ffmpeg.outputs.ffmpeg_tag }}
+      ffmpeg_windows_zip: ${{ steps.vidra_ffmpeg.outputs.ffmpeg_windows_zip }}
+      ffmpeg_linux_zip: ${{ steps.vidra_ffmpeg.outputs.ffmpeg_linux_zip }}
+      ffmpeg_android_arm64_v8a_zip: ${{ steps.vidra_ffmpeg.outputs.ffmpeg_android_arm64_v8a_zip }}
+      ffmpeg_android_armeabi_v7a_zip: ${{ steps.vidra_ffmpeg.outputs.ffmpeg_android_armeabi_v7a_zip }}
+      ffmpeg_android_x86_zip: ${{ steps.vidra_ffmpeg.outputs.ffmpeg_android_x86_zip }}
+      ffmpeg_android_x86_64_zip: ${{ steps.vidra_ffmpeg.outputs.ffmpeg_android_x86_64_zip }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -58,7 +64,8 @@ jobs:
           import json
           import urllib.request
 
-          url = 'https://api.github.com/repos/chomusuke-mk/vidra-ffmpeg/releases/latest'
+          repo = os.environ.get('VIDRA_FFMPEG_REPO', 'chomusuke-mk/vidra-ffmpeg')
+          url = f'https://api.github.com/repos/{repo}/releases/latest'
           headers = {'Accept': 'application/vnd.github+json'}
           token = os.environ.get('GITHUB_TOKEN')
           if token:
@@ -67,9 +74,75 @@ jobs:
           with urllib.request.urlopen(req) as r:
             data = json.load(r)
 
-          tag = data.get('tag_name')
+          assets = data.get('assets') or []
+          update_asset = None
+          for asset in assets:
+            if isinstance(asset, dict) and asset.get('name') == '_update':
+              update_asset = asset
+              break
+
+          update_map = {}
+          if update_asset and update_asset.get('browser_download_url'):
+            update_url = update_asset['browser_download_url']
+            req2 = urllib.request.Request(update_url, headers=headers)
+            with urllib.request.urlopen(req2) as r:
+              update_text = r.read().decode('utf-8', 'replace')
+            for raw_line in update_text.splitlines():
+              line = raw_line.strip()
+              if not line or line.startswith('#'):
+                continue
+              if '=' not in line:
+                continue
+              k, v = line.split('=', 1)
+              k = k.strip()
+              v = v.strip()
+              if k:
+                update_map[k] = v
+
+          tag = (update_map.get('tag') or data.get('tag_name') or '').strip()
           if not tag:
-            raise SystemExit('Could not resolve vidra-ffmpeg latest release tag_name')
+            raise SystemExit('Could not resolve vidra-ffmpeg latest release tag')
+
+          def _variants(s: str):
+            s = s.strip()
+            if not s:
+              return []
+            swapped = s.replace('-', '_') if '-' in s else s.replace('_', '-')
+            if swapped == s:
+              return [s]
+            return [s, swapped]
+
+          def _resolve_file(system_id: str) -> str:
+            # Prefer direct file.* mapping.
+            for v in _variants(system_id):
+              val = update_map.get(f'file.{v}')
+              if val and val.strip():
+                return val.strip()
+
+            # Then try upgrade.* => file.* (canonical id).
+            to_id = None
+            for v in _variants(system_id):
+              val = update_map.get(f'upgrade.{v}')
+              if val and val.strip():
+                to_id = val.strip()
+                break
+            if to_id:
+              for v in _variants(to_id):
+                val = update_map.get(f'file.{v}')
+                if val and val.strip():
+                  return val.strip()
+
+            return ''
+
+          outputs = {
+            'ffmpeg_tag': tag,
+            'ffmpeg_windows_zip': _resolve_file('windows') or f'{tag}-windows.zip',
+            'ffmpeg_linux_zip': _resolve_file('linux') or f'{tag}-linux.zip',
+            'ffmpeg_android_arm64_v8a_zip': _resolve_file('android-arm64-v8a') or f'{tag}-android-arm64-v8a.zip',
+            'ffmpeg_android_armeabi_v7a_zip': _resolve_file('android-armeabi-v7a') or f'{tag}-android-armeabi-v7a.zip',
+            'ffmpeg_android_x86_zip': _resolve_file('android-x86') or f'{tag}-android-x86.zip',
+            'ffmpeg_android_x86_64_zip': _resolve_file('android-x86_64') or f'{tag}-android-x86_64.zip',
+          }
 
           # GitHub Actions output
           github_output = os.environ.get('GITHUB_OUTPUT')
@@ -77,7 +150,8 @@ jobs:
             raise SystemExit('Missing GITHUB_OUTPUT environment variable')
 
           with open(github_output, 'a', encoding='utf-8') as f:
-            f.write(f"ffmpeg_tag={tag}\n")
+            for k, v in outputs.items():
+              f.write(f"{k}={v}\n")
           print(f"Resolved vidra-ffmpeg tag: {tag}")
           PY
 
@@ -94,6 +168,10 @@ jobs:
       YTDLP_VERSION: ${{ needs.resolve-versions.outputs.ytdlp }}
       YTDLPEJS_VERSION: ${{ needs.resolve-versions.outputs.ytdlpejs }}
       FFMPEG_TAG: ${{ needs.resolve-versions.outputs.ffmpeg_tag }}
+      FFMPEG_ANDROID_ARM64_V8A_ZIP: ${{ needs.resolve-versions.outputs.ffmpeg_android_arm64_v8a_zip }}
+      FFMPEG_ANDROID_ARMEABI_V7A_ZIP: ${{ needs.resolve-versions.outputs.ffmpeg_android_armeabi_v7a_zip }}
+      FFMPEG_ANDROID_X86_ZIP: ${{ needs.resolve-versions.outputs.ffmpeg_android_x86_zip }}
+      FFMPEG_ANDROID_X86_64_ZIP: ${{ needs.resolve-versions.outputs.ffmpeg_android_x86_64_zip }}
       GRADLE_USER_HOME: ${{ github.workspace }}/.gradle
     steps:
       - name: Checkout
@@ -120,10 +198,20 @@ jobs:
           suffix_by_abi[x86]="android-x86"
           suffix_by_abi[x86_64]="android-x86_64"
 
+          declare -A file_by_abi
+          file_by_abi[arm64-v8a]="${FFMPEG_ANDROID_ARM64_V8A_ZIP:-}"
+          file_by_abi[armeabi-v7a]="${FFMPEG_ANDROID_ARMEABI_V7A_ZIP:-}"
+          file_by_abi[x86]="${FFMPEG_ANDROID_X86_ZIP:-}"
+          file_by_abi[x86_64]="${FFMPEG_ANDROID_X86_64_ZIP:-}"
+
           for abi in arm64-v8a armeabi-v7a x86 x86_64; do
             suffix="${suffix_by_abi[$abi]}"
-            zip_path="$cache_dir/${tag}-${suffix}.zip"
-            url="https://github.com/${repo}/releases/download/${tag}/${tag}-${suffix}.zip"
+            file="${file_by_abi[$abi]}"
+            if [ -z "$file" ]; then
+              file="${tag}-${suffix}.zip"
+            fi
+            zip_path="$cache_dir/${file}"
+            url="https://github.com/${repo}/releases/download/${tag}/${file}"
 
             if [ ! -f "$zip_path" ]; then
               echo "Downloading $url"
@@ -135,27 +223,28 @@ jobs:
             out_dir="android/app/src/main/jniLibs/${abi}"
             mkdir -p "$out_dir"
 
-            ZIP_PATH="$zip_path" OUT_DIR="$out_dir" python - <<'PY'
-            import os
-            import shutil
-            import tempfile
-            import zipfile
+          python - "$zip_path" "$out_dir" <<'PY'
+          import os
+          import shutil
+          import sys
+          import tempfile
+          import zipfile
 
-            zip_path = os.environ['ZIP_PATH']
-            out_dir = os.environ['OUT_DIR']
+          zip_path = sys.argv[1]
+          out_dir = sys.argv[2]
 
-            with zipfile.ZipFile(zip_path) as z:
-              names = {i.filename for i in z.infolist() if not i.is_dir()}
-              for required in ('ffmpeg', 'ffprobe'):
-                if required not in names:
-                  raise SystemExit(f"{zip_path} missing {required}; found: {sorted(names)}")
+          with zipfile.ZipFile(zip_path) as z:
+            names = {i.filename for i in z.infolist() if not i.is_dir()}
+            for required in ('ffmpeg', 'ffprobe'):
+              if required not in names:
+                raise SystemExit(f"{zip_path} missing {required}; found: {sorted(names)}")
 
-              with tempfile.TemporaryDirectory() as tmp:
-                z.extract('ffmpeg', tmp)
-                z.extract('ffprobe', tmp)
-                shutil.copyfile(os.path.join(tmp, 'ffmpeg'), os.path.join(out_dir, 'libffmpeg.so'))
+            with tempfile.TemporaryDirectory() as tmp:
+              z.extract('ffmpeg', tmp)
+              z.extract('ffprobe', tmp)
+              shutil.copyfile(os.path.join(tmp, 'ffmpeg'), os.path.join(out_dir, 'libffmpeg.so'))
                 shutil.copyfile(os.path.join(tmp, 'ffprobe'), os.path.join(out_dir, 'libffprobe.so'))
-            PY
+              PY
           done
 
       - name: Aggressive disk cleanup
@@ -241,6 +330,7 @@ jobs:
       YTDLP_VERSION: ${{ needs.resolve-versions.outputs.ytdlp }}
       YTDLPEJS_VERSION: ${{ needs.resolve-versions.outputs.ytdlpejs }}
       FFMPEG_TAG: ${{ needs.resolve-versions.outputs.ffmpeg_tag }}
+      FFMPEG_WINDOWS_ZIP: ${{ needs.resolve-versions.outputs.ffmpeg_windows_zip }}
       WINDOWS_SIGNING_PFX: ${{ secrets.WINDOWS_SIGNING_PFX }}
       WINDOWS_SIGNING_PASSWORD: ${{ secrets.WINDOWS_SIGNING_PASSWORD }}
       PFX_PATH: ''
@@ -263,8 +353,13 @@ jobs:
           $cacheDir = ".cache\\vidra-ffmpeg"
           New-Item -ItemType Directory -Path $cacheDir -Force | Out-Null
 
-          $zipPath = Join-Path $cacheDir "$tag-windows.zip"
-          $url = "https://github.com/$repo/releases/download/$tag/$tag-windows.zip"
+          $file = "$env:FFMPEG_WINDOWS_ZIP"
+          if ([string]::IsNullOrWhiteSpace($file)) {
+            $file = "$tag-windows.zip"
+          }
+
+          $zipPath = Join-Path $cacheDir $file
+          $url = "https://github.com/$repo/releases/download/$tag/$file"
 
           if (-not (Test-Path $zipPath)) {
             Write-Host "Downloading $url"
@@ -392,6 +487,7 @@ jobs:
       YTDLP_VERSION: ${{ needs.resolve-versions.outputs.ytdlp }}
       YTDLPEJS_VERSION: ${{ needs.resolve-versions.outputs.ytdlpejs }}
       FFMPEG_TAG: ${{ needs.resolve-versions.outputs.ffmpeg_tag }}
+      FFMPEG_LINUX_ZIP: ${{ needs.resolve-versions.outputs.ffmpeg_linux_zip }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -411,8 +507,13 @@ jobs:
           cache_dir=".cache/vidra-ffmpeg"
           mkdir -p "$cache_dir"
 
-          zip_path="$cache_dir/${tag}-linux.zip"
-          url="https://github.com/${repo}/releases/download/${tag}/${tag}-linux.zip"
+          file="${FFMPEG_LINUX_ZIP:-}"
+          if [ -z "$file" ]; then
+            file="${tag}-linux.zip"
+          fi
+
+          zip_path="$cache_dir/${file}"
+          url="https://github.com/${repo}/releases/download/${tag}/${file}"
           if [ ! -f "$zip_path" ]; then
             echo "Downloading $url"
             curl -L --retry 3 --retry-delay 2 -o "$zip_path" "$url"

@@ -255,19 +255,20 @@ class GitHubReleaseUpdater {
     // - map via upgrade.<from>=<to>
     // - resolve filename via file.<to>=<asset_filename>
     final systemId = await _detectSystemId(platform);
-    final toId = (updateMap['upgrade.$systemId'] ?? systemId).trim();
-    final direct = updateMap['file.$toId']?.trim();
-    if (direct != null && direct.isNotEmpty) {
-      return direct;
+    final resolved = _resolveMappedFilename(updateMap, systemId);
+    if (resolved != null) {
+      return resolved;
     }
 
     // Fallback for when system id isn't known or not present in mapping.
     final platformFallbackId = _fallbackIdForPlatform(platform);
-    final toFallback =
-        (updateMap['upgrade.$platformFallbackId'] ?? platformFallbackId).trim();
-    final fromFallback = updateMap['file.$toFallback']?.trim();
-    if (fromFallback != null && fromFallback.isNotEmpty) {
-      return fromFallback;
+    final platformResolved = _resolveMappedFilename(
+      updateMap,
+      platformFallbackId,
+      platformAlias: _platformAlias(platform),
+    );
+    if (platformResolved != null) {
+      return platformResolved;
     }
 
     // Legacy scheme: asset-* keys (kept for compatibility with older releases).
@@ -293,6 +294,127 @@ class GitHubReleaseUpdater {
       case TargetPlatform.fuchsia:
         throw UnsupportedError('Platform not supported for self-update');
     }
+  }
+
+  static String _platformAlias(TargetPlatform platform) {
+    switch (platform) {
+      case TargetPlatform.windows:
+        return 'windows';
+      case TargetPlatform.linux:
+        return 'linux';
+      case TargetPlatform.android:
+        return 'android';
+      case TargetPlatform.iOS:
+      case TargetPlatform.macOS:
+      case TargetPlatform.fuchsia:
+        throw UnsupportedError('Platform not supported for self-update');
+    }
+  }
+
+  static String? _resolveMappedFilename(
+    Map<String, String> updateMap,
+    String systemId, {
+    String? platformAlias,
+  }) {
+    String? tryGet(String key) {
+      final raw = updateMap[key];
+      if (raw == null) return null;
+      final trimmed = raw.trim();
+      return trimmed.isEmpty ? null : trimmed;
+    }
+
+    String? resolveFileForId(String id) {
+      for (final variant in _idVariants(id)) {
+        final file = tryGet('file.$variant');
+        if (file != null) {
+          return file;
+        }
+      }
+      return null;
+    }
+
+    String? resolveUpgradeTarget(String id) {
+      for (final variant in _idVariants(id)) {
+        final toId = tryGet('upgrade.$variant');
+        if (toId != null) {
+          return toId;
+        }
+      }
+      return null;
+    }
+
+    // 1) Direct file.<id>
+    final direct = resolveFileForId(systemId);
+    if (direct != null) {
+      return direct;
+    }
+
+    // 2) upgrade.<id> => file.<to>
+    final toId = resolveUpgradeTarget(systemId) ?? systemId;
+    final mapped = resolveFileForId(toId);
+    if (mapped != null) {
+      return mapped;
+    }
+
+    // 3) Optional platform alias (windows/linux/android)
+    if (platformAlias != null && platformAlias.trim().isNotEmpty) {
+      final alias = platformAlias.trim();
+      final aliasDirect = resolveFileForId(alias);
+      if (aliasDirect != null) {
+        return aliasDirect;
+      }
+      final aliasTo = resolveUpgradeTarget(alias) ?? alias;
+      final aliasMapped = resolveFileForId(aliasTo);
+      if (aliasMapped != null) {
+        return aliasMapped;
+      }
+    }
+
+    return null;
+  }
+
+  static List<String> _idVariants(String id) {
+    final trimmed = id.trim();
+    if (trimmed.isEmpty) {
+      return const <String>[];
+    }
+
+    final out = <String>{trimmed};
+
+    // Common aliases for our internal ids.
+    switch (trimmed) {
+      case 'windows_x64':
+        out.addAll(<String>['windows', 'windows-x64']);
+        break;
+      case 'windows_x86':
+        out.addAll(<String>['windows-x86']);
+        break;
+      case 'windows_arm64':
+        out.addAll(<String>['windows-arm64']);
+        break;
+      case 'linux_x64':
+        out.addAll(<String>['linux', 'linux-x64']);
+        break;
+      case 'android_arm64_v8a':
+        out.addAll(<String>['android-arm64-v8a', 'android_arm64_v8a']);
+        break;
+      case 'android_armeabi_v7a':
+        out.addAll(<String>['android-armeabi-v7a', 'android_armeabi_v7a']);
+        break;
+      case 'android_x86':
+        out.addAll(<String>['android-x86', 'android_x86']);
+        break;
+      case 'android_x86_64':
+        out.addAll(<String>['android-x86_64', 'android_x86_64']);
+        break;
+    }
+
+    // If upstream uses hyphens, also accept underscore forms.
+    if (trimmed.contains('-')) {
+      out.add(trimmed.replaceAll('-', '_'));
+    }
+
+    return out.toList(growable: false);
   }
 
   static String _fallbackIdForPlatform(TargetPlatform platform) {
