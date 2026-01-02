@@ -222,7 +222,6 @@ jobs:
 
             out_dir="android/app/src/main/jniLibs/${abi}"
             mkdir -p "$out_dir"
-
             python - "$zip_path" "$out_dir" <<'PY'
             import os
             import shutil
