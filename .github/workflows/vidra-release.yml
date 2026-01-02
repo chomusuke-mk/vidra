@@ -6,7 +6,7 @@ name: Vidra Cross-Platform Releases
   workflow_dispatch:
     inputs:
       force_build:
-        description: 'Build even if should_build=false'
+        description: 'Force build even if no version changes detected'
         required: false
         default: false
         type: boolean
