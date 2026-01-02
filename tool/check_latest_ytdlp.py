@@ -2,9 +2,10 @@
 """Resolve latest yt-dlp/yt-dlp-ejs versions and emit CI-friendly outputs.
 
 The script prints key=value lines and can also append them to the GitHub
-Actions output file when --github-output is provided. It additionally checks
-whether the currently pinned versions in a requirements file match the latest
-PyPI releases to decide if a rebuild should be triggered.
+Actions output file when --github-output is provided.
+
+Build decisions are based on comparing the latest PyPI versions against the
+versions recorded in the most recent GitHub Release `_update` asset.
 """
 
 from __future__ import annotations
@@ -147,17 +148,6 @@ def list_release_versions(repo: Optional[str], token: Optional[str]) -> Sequence
     return versions
 
 
-def read_pinned(requirements_path: pathlib.Path) -> Tuple[Optional[str], Optional[str]]:
-    text = requirements_path.read_text(encoding="utf-8")
-
-    def find(pkg: str) -> Optional[str]:
-        pattern = rf"^{re.escape(pkg)}==([\w.-]+)$"
-        match = re.search(pattern, text, flags=re.MULTILINE)
-        return match.group(1) if match else None
-
-    return find("yt-dlp"), find("yt-dlp-ejs")
-
-
 def read_app_version(pubspec_path: pathlib.Path) -> str:
     text = pubspec_path.read_text(encoding="utf-8")
     match = re.search(r"^version:\s*([\w.-]+)", text, flags=re.MULTILINE)
@@ -183,6 +173,11 @@ def parse_build(version_str: str) -> int:
         return int(version_str.split("+")[1])
     except ValueError:
         return 0
+
+
+def major_minor(version_str: str) -> Tuple[int, int]:
+    major, minor, _patch = normalize_version(version_str)
+    return major, minor
 
 
 def next_patch(base: Tuple[int, int, int], existing: Sequence[str]) -> str:
@@ -236,7 +231,6 @@ def main() -> int:
     latest_ytdlp = fetch_latest("yt-dlp")
     latest_ytdlpejs = fetch_latest("yt-dlp-ejs")
 
-    pinned_ytdlp, pinned_ytdlpejs = read_pinned(args.requirements)
     pubspec_version_str = read_app_version(args.pubspec)
     base_version_parts = normalize_version(pubspec_version_str)
     pubspec_build = parse_build(pubspec_version_str)
@@ -247,26 +241,47 @@ def main() -> int:
         args.github_repo, github_token
     )
 
-    # Primary signal: compare against the versions actually used in the most
-    # recent published release (from the `_update` asset).
-    deps_changed_vs_release = (
-        prev_ytdlp is not None and prev_ytdlp != latest_ytdlp
-    ) or (prev_ytdlpejs is not None and prev_ytdlpejs != latest_ytdlpejs)
+    prev_version_source = prev_version_with_build or prev_tag or ""
+    prev_major_minor = major_minor(prev_version_source) if prev_version_source else None
+    pubspec_major_minor = major_minor(pubspec_version_str)
 
-    # Fallback: compare pinned requirements (useful when no previous release exists
-    # or when older releases didn't include yt-dlp keys in `_update`).
-    deps_changed_vs_pins = (pinned_ytdlp != latest_ytdlp) or (
-        pinned_ytdlpejs != latest_ytdlpejs
+    has_previous_release = prev_tag is not None
+
+    # Primary signal: compare against the versions recorded in the most recent
+    # published release (from the `_update` asset). If we cannot read those keys,
+    # err on the side of building.
+    deps_changed = (
+        not has_previous_release
+        or prev_ytdlp is None
+        or prev_ytdlpejs is None
+        or prev_ytdlp != latest_ytdlp
+        or prev_ytdlpejs != latest_ytdlpejs
     )
 
-    deps_changed = deps_changed_vs_release or deps_changed_vs_pins
+    # Secondary signal: allow builds when the *major/minor* version changes.
+    # We intentionally ignore patch-only bumps (1.0.1 -> 1.0.2) when deps didn't
+    # change, to avoid generating redundant releases.
+    major_minor_bumped = (
+        prev_major_minor is None or pubspec_major_minor > prev_major_minor
+    )
+
+    base_formatted = format_version(base_version_parts)
 
     if deps_changed:
         candidate_version = next_patch(base_version_parts, existing_versions)
-    else:
-        base_formatted = format_version(base_version_parts)
+    elif major_minor_bumped:
         if base_formatted in existing_versions:
             candidate_version = next_patch(base_version_parts, existing_versions)
+        else:
+            candidate_version = base_formatted
+    else:
+        # No dependency change and no major/minor bump:
+        # keep the latest release tag (from `_update`) as the candidate.
+        if prev_tag and re.match(r"^\d+\.\d+\.\d+$", prev_tag):
+            candidate_version = prev_tag
+        elif existing_versions:
+            # Existing versions are returned newest-first by the GitHub API.
+            candidate_version = existing_versions[0]
         else:
             candidate_version = base_formatted
 
@@ -278,10 +293,16 @@ def main() -> int:
         args.github_repo, candidate_version, github_token
     )
 
+    # Build rules:
+    # - If there is no previous release with `_update`, always build.
+    # - Otherwise build if yt-dlp / yt-dlp-ejs changed.
+    # - Or build if major/minor increased in pubspec vs last release.
+    # - Otherwise, only rebuild if the current release assets are incomplete.
     should_build = (
-        deps_changed
+        not has_previous_release
+        or deps_changed
+        or major_minor_bumped
         or not release_assets_present
-        or candidate_version not in existing_versions
     )
 
     timestamp = datetime.now(timezone.utc).isoformat()
