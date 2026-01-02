@@ -177,11 +177,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Prepare vidra-ffmpeg cache dir
+        shell: bash
+        run: mkdir -p .cache/vidra-ffmpeg
+
       - name: Cache vidra-ffmpeg downloads
         uses: actions/cache@v4
         with:
           path: .cache/vidra-ffmpeg
-          key: vidra-ffmpeg-${{ needs.resolve-versions.outputs.ffmpeg_tag }}-${{ runner.os }}
+          key: vidra-ffmpeg-${{ needs.resolve-versions.outputs.ffmpeg_tag }}-Android
 
       - name: Install vidra-ffmpeg binaries (Android)
         shell: bash
@@ -335,11 +339,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Prepare vidra-ffmpeg cache dir
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path .cache\vidra-ffmpeg -Force | Out-Null
+
       - name: Cache vidra-ffmpeg downloads
         uses: actions/cache@v4
         with:
           path: .cache/vidra-ffmpeg
-          key: vidra-ffmpeg-${{ needs.resolve-versions.outputs.ffmpeg_tag }}-${{ runner.os }}
+          key: vidra-ffmpeg-${{ needs.resolve-versions.outputs.ffmpeg_tag }}-Windows
 
       - name: Install vidra-ffmpeg binaries (Windows)
         shell: pwsh
@@ -488,11 +497,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Prepare vidra-ffmpeg cache dir
+        shell: bash
+        run: mkdir -p .cache/vidra-ffmpeg
+
       - name: Cache vidra-ffmpeg downloads
         uses: actions/cache@v4
         with:
           path: .cache/vidra-ffmpeg
-          key: vidra-ffmpeg-${{ needs.resolve-versions.outputs.ffmpeg_tag }}-${{ runner.os }}
+          key: vidra-ffmpeg-${{ needs.resolve-versions.outputs.ffmpeg_tag }}-Linux
 
       - name: Install vidra-ffmpeg binaries (Linux)
         shell: bash
