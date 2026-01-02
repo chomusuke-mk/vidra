@@ -222,7 +222,7 @@ jobs:
 
             out_dir="android/app/src/main/jniLibs/${abi}"
             mkdir -p "$out_dir"
-            python - "$zip_path" "$out_dir" <<'PY_SCRIPT'
+            python - "$zip_path" "$out_dir" <<'PY'
           import os
           import shutil
           import sys
@@ -240,7 +240,7 @@ jobs:
               z.extract('ffprobe', tmp)
               shutil.copyfile(os.path.join(tmp, 'ffmpeg'), os.path.join(out_dir, 'libffmpeg.so'))
               shutil.copyfile(os.path.join(tmp, 'ffprobe'), os.path.join(out_dir, 'libffprobe.so'))
-          PY_SCRIPT
+          PY
           done
 
       - name: Aggressive disk cleanup
