@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Ofbrekke by flater",
+    "description": "Brekt it ynlaadproses ôf as in flater optreedt."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Ofbrekke op net beskikber fragmint",
+    "description": "Brekt de ynlaad ôf as in fragmint net beskikber is."
+  },
+  "add_headers": {
+    "name": "Oanfoljende kopteksten",
+    "description": "Oanfoljende kopteksten om yn netwurkoanfragen op te nimmen."
+  },
+  "audio_format": {
+    "name": "Audio Format",
+    "description": "Opmaak fan de konvertearre audio (mp3, flac, opus, ensfh.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Foarkar audio taalkoade."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams",
+    "description": "Stelt it kombinearjen fan meardere audiostreamen mooglik."
+  },
+  "audio_quality": {
+    "name": "Audio kwaliteit",
+    "description": "Audio kwaliteit (0 bêste, 10 minste)."
+  },
+  "batch_file": {
+    "name": "Batch triem",
+    "description": "Paad nei in bestân mei URL's om te downloaden."
+  },
+  "break_on_existing": {
+    "name": "Brek op besteande",
+    "description": "Stopt mei downloaden as it bestân al bestiet."
+  },
+  "concurrent_fragments": {
+    "name": "Konkurrente fragminten",
+    "description": "Oantal simultane fragminten om te downloaden (standert 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Miniatueren konvertearje",
+    "description": "Konvertearje thumbnails nei it opjûne formaat."
+  },
+  "cookies": {
+    "name": "Koekjes",
+    "description": "Netscape opmakke bestân om cookies út te lêzen en koekje yn te dumpen"
+  },
+  "cookies_from_browser": {
+    "name": "Koekjes fan Browser",
+    "description": "Ymportearret cookies út de opjûne browser."
+  },
+  "download_archive": {
+    "name": "Download argyf",
+    "description": "Paad nei bestân om ynladen ID's op te nimmen om duplikaten te foarkommen."
+  },
+  "embed_chapters": {
+    "name": "Ynbêde haadstikken",
+    "description": "Embeds haadstikken yn it definitive bestân."
+  },
+  "embed_info_json": {
+    "name": "Ynfo JSON ynfoegje",
+    "description": "Ynsletten ynfo JSON yn it definitive bestân."
+  },
+  "embed_metadata": {
+    "name": "Metadata ynfoegje",
+    "description": "Embeds metadata yn it definitive bestân."
+  },
+  "embed_subs": {
+    "name": "Ynbêde ûndertitels",
+    "description": "Embeds ûndertitels yn it definitive bestân."
+  },
+  "embed_thumbnail": {
+    "name": "Miniatuer ynbêde",
+    "description": "Embed de thumbnail yn it lêste bestân."
+  },
+  "enable_file_urls": {
+    "name": "Triem-URL's ynskeakelje",
+    "description": "Aktivearret it brûken fan triem URL's foar lokale triemmen."
+  },
+  "extract_audio": {
+    "name": "Audio útpakke",
+    "description": "Ekstrakt audio út ynladen fideo's (brûkt ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Extractor besyket op 'e nij",
+    "description": "Oantal opnij besykjen op extractor flaters."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg Lokaasje",
+    "description": "Paad nei de FFmpeg binêre."
+  },
+  "file_access_retries": {
+    "name": "Triem tagong besyket opnij",
+    "description": "Oantal opnij besykjen op flaters foar triem tagong."
+  },
+  "fixup": {
+    "name": "Fixup",
+    "description": "Korrigeart automatysk bekende fouten yn it fideobestân."
+  },
+  "font_size": {
+    "name": "Lettertype Grutte",
+    "description": "Lettertypegrutte brûkt yn 'e applikaasje."
+  },
+  "force_ipv4": {
+    "name": "Force IPv4",
+    "description": "Twingt it gebrûk fan IPv4 foar netwurkferbiningen."
+  },
+  "force_ipv6": {
+    "name": "Force IPv6",
+    "description": "Twingt it gebrûk fan IPv6 foar netwurkferbiningen."
+  },
+  "force_overwrites": {
+    "name": "Force oerskriuwt",
+    "description": "Oerskriuwt besteande bestannen sûnder te freegjen."
+  },
+  "format": {
+    "name": "Formaat",
+    "description": "Fideoformaatkoade(s) om te downloaden."
+  },
+  "fragment_retries": {
+    "name": "Fragmint opnij besykjen",
+    "description": "Oantal opnij besykjen op fragmint download flaters."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo ferifikaasje proxy",
+    "description": "Proxy-tsjinner om te brûken foar geo-ferifikaasje."
+  },
+  "ignore_errors": {
+    "name": "Negearje flaters",
+    "description": "Negearje downloadflaters en trochgean mei de folgjende fideo."
+  },
+  "impersonate": {
+    "name": "Imitearje",
+    "description": "Klant om te imitearjen (chrome, chrome-110, chrome: windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Hâld fragminten",
+    "description": "Hâldt de ynladen fragminten nei it gearfoegjen."
+  },
+  "language": {
+    "name": "Taal",
+    "description": "Taal fan 'e applikaasje."
+  },
+  "limit_rate": {
+    "name": "Limit Rate",
+    "description": "Beheint de ynlaadsnelheid (bygelyks 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "Live fan Start",
+    "description": "Download live fideo's fan it begjin ôf."
+  },
+  "merge_output_format": {
+    "name": "Video Format",
+    "description": "Finale fideoformaat as gefolch fan gearfoegjen fan streamen."
+  },
+  "output": {
+    "name": "Utfier sjabloan",
+    "description": "Utfier triemnamme sjabloan."
+  },
+  "password": {
+    "name": "Wachtwurd",
+    "description": "Wachtwurd foar autentikaasje."
+  },
+  "paths": {
+    "name": "Paden",
+    "description": "Mappen om ferskate soarten bestannen op te slaan."
+  },
+  "playlist": {
+    "name": "Playlist",
+    "description": "Jout oan of de folsleine playlist of ien fideo downloade moat."
+  },
+  "prefer_insecure": {
+    "name": "Foarkar Unfeilich",
+    "description": "Brûkt HTTP-ferbining ynstee fan HTTPS (allinich YouTube)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Proxy-tsjinner om te brûken foar netwurkoanfragen."
+  },
+  "remux_video": {
+    "name": "Remux Video",
+    "description": "Feroaret de fideokontainer sûnder opnij te kodearjen."
+  },
+  "retries": {
+    "name": "Opnij besykjen",
+    "description": "Oantal opnij besykjen op downloadflaters."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Oerslaan Playlist nei flaters",
+    "description": "Skipt de rest fan 'e playlist oer nei in bepaald oantal flaters."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Timeout foar socketferbiningen yn sekonden."
+  },
+  "source_address": {
+    "name": "Boarne Adres",
+    "description": "Klant IP-adres om oan te binen by it meitsjen fan ferbiningen."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Markearret segminten út SponsorBlock kategoryen."
+  },
+  "sub_format": {
+    "name": "Undertitelformaat",
+    "description": "Koade(n) foar ûndertitelformaat om te downloaden."
+  },
+  "sub_langs": {
+    "name": "Undertiteltalen",
+    "description": "Talen fan de ûndertitels om te downloaden."
+  },
+  "theme_dark": {
+    "name": "Dark Tema",
+    "description": "Tema fan 'e applikaasje."
+  },
+  "twofactor": {
+    "name": "Twa-faktor autentikaasje",
+    "description": "Twa-faktor autentikaasjekoade."
+  },
+  "use_extractors": {
+    "name": "Brûk Extractors",
+    "description": "Nammen fan extractors om te brûken (komma skieden).(\"all\",\"standert\",\"ein\",reguliere ekspresje)"
+  },
+  "username": {
+    "name": "Brûkersnamme",
+    "description": "Brûkersnamme foar autentikaasje."
+  },
+  "video_multistreams": {
+    "name": "Fideo Multistreams",
+    "description": "Stelt it kombinearjen fan meardere fideostreamen mooglik."
+  },
+  "video_password": {
+    "name": "Video Wachtwurd",
+    "description": "Wachtwurd foar wachtwurdbeskerme fideo's."
+  },
+  "video_resolution": {
+    "name": "Resolúsje",
+    "description": "Foarkar video resolúsje"
+  },
+  "video_subtitles": {
+    "name": "Subtitles",
+    "description": "Foarkar fideo ûndertitels"
+  },
+  "wait_for_video": {
+    "name": "Wachtsje op fideo",
+    "description": "Wachtet oant in plande fideo beskikber wurdt foardat it ynladen wurdt."
+  },
+  "write_auto_subs": {
+    "name": "Download automatyske ûndertitels",
+    "description": "Skriuwt beskikbere automatyske ûndertitels."
+  },
+  "write_subs": {
+    "name": "Download ûndertitels",
+    "description": "Skriuwt beskikbere hânlieding ûndertiteling."
+  },
+  "write_thumbnail": {
+    "name": "Skriuw Miniatuer",
+    "description": "Besparret de fideo-miniatuer op skiif."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Skriuwt metadata nei it bestânssysteem xattrs."
+  },
+  "xff": {
+    "name": "X-Forwarded-For",
+    "description": "Stelt de X-Forwarded-For-koptekst yn om lokaasje te simulearjen."
+  }
+}

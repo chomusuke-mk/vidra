@@ -1,0 +1,47 @@
+Vidra Source-Available Collaboration License (VSACL)
+Version 1.0 — 25 November 2025
+
+Copyright © 2025 chomusuke.dev
+Contact: 7k9mc4urn@mozmail.com
+
+1. Purpose
+This license lets you inspect, run, and contribute to Vidra while keeping official builds under the control of chomusuke.dev. It balances transparency with brand protection and honors the third-party licensing obligations listed in THIRD_PARTY_LICENSES.md.
+
+2. Grant of Rights
+Subject to the terms below, you receive a limited, non-exclusive, non-transferable, revocable license to:
+- Clone and locally store this repository for evaluation, testing, or personal learning.
+- Build and run Vidra privately on hardware you control.
+- Create local modifications as needed for testing or to prepare contributions.
+- Submit issues, pull requests, review feedback, and other collaboration artifacts to the upstream repository or to any communication channel controlled by chomusuke.dev.
+
+3. Restrictions
+You may not:
+- Publish, mirror, or distribute this repository or any derivative (including public forks on Git hosting services) without written permission from chomusuke.dev.
+- Host Vidra as a public-facing service, sell access to it, or bundle it within another commercial or open-source product.
+- Remove, obfuscate, or alter copyright notices, branding, or references to third-party licenses.
+- Use project assets (names, logos, icons, binaries) to imply endorsement, affiliation, or product parity.
+These restrictions survive termination and apply to any portion of the codebase, including modified versions.
+
+4. Third-Party Components
+Vidra includes dependencies governed by their own licenses, as cataloged in THIRD_PARTY_LICENSES.md. Those upstream licenses apply independently and may grant you additional permissions or impose extra obligations. Compliance with every applicable third-party license is your responsibility.
+
+5. Contributions
+By submitting a pull request, issue attachment, patch, or other contribution, you:
+- Affirm that you have the right to share the content and that it is free of undisclosed third-party claims.
+- License the contribution to chomusuke.dev under the same VSACL terms plus an irrevocable right to redistribute the contribution as part of Vidra (including proprietary distributions) without additional compensation.
+- Agree that discussions and review artifacts may be retained for project history.
+If you need a separate contributor agreement, contact the email above before submitting code.
+
+6. Termination
+Any breach of these terms automatically terminates your license. Upon termination you must delete all local copies (except as required to comply with third-party licenses). chomusuke.dev may issue written reinstatements at their discretion.
+
+7. Warranty Disclaimer & Liability
+VIDRA IS PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO TITLE, NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL CHOMUSUKE.DEV BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING OUT OF OR IN CONNECTION WITH THIS SOFTWARE OR ITS USE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+8. Governing Law & Venue
+These terms are governed by the laws applicable in the jurisdiction chosen by chomusuke.dev, excluding conflict-of-law principles. Any dispute shall be resolved exclusively in courts of competent jurisdiction selected by chomusuke.dev. You consent to that venue and waive objections to personal jurisdiction.
+
+9. Contact & Custom Licenses
+For written waivers, commercial licenses, security reports, or any request outside the scope of this license, email 7k9mc4urn@mozmail.com.
+
+By cloning, building, or contributing to Vidra you acknowledge that you have read and agree to this license.

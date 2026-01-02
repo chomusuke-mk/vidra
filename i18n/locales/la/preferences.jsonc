@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Error in abort",
+    "description": "Aborts download processum si error sit."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Abort in Unavailable Fragment",
+    "description": "Abortum download si fragmentum est unavailable."
+  },
+  "add_headers": {
+    "name": "Additional capitis",
+    "description": "Additional capitis ad includere in retis petitiones."
+  },
+  "audio_format": {
+    "name": "Audio Format",
+    "description": "Forma audio convertentis (mp3, flac, opus, etc.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Praetulerim audio linguam codicem."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams",
+    "description": "Fluminum audio coniunctione multa concedit."
+  },
+  "audio_quality": {
+    "name": "Audio Quality",
+    "description": "Audio qualitatem (0 optimum, 10 pessimum)."
+  },
+  "batch_file": {
+    "name": "Fasciculus batch",
+    "description": "Iter ad fasciculi delata continentem ad delacionem."
+  },
+  "break_on_existing": {
+    "name": "Frange in C",
+    "description": "Desinit downloading si tabella iam exstat."
+  },
+  "concurrent_fragments": {
+    "name": "Concurrent Fragmenta",
+    "description": "Numerus fragmentorum simultaneorum ad download (per annum 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Converte Thumbnails",
+    "description": "Converte ailnthubms ad certa forma."
+  },
+  "cookies": {
+    "name": "Crustulae",
+    "description": "File formatae Netscape crustulum e et TUBER crustulum hydria in legere"
+  },
+  "cookies_from_browser": {
+    "name": "Crustulae ex Pasco",
+    "description": "Crustula ex certo navigatro importat."
+  },
+  "download_archive": {
+    "name": "Download Archive",
+    "description": "Iter ad lima ut IDs notare downloaded ad duplicata vitanda."
+  },
+  "embed_chapters": {
+    "name": "Embed Chapters",
+    "description": "Insunt capitula ultima in fasciculo."
+  },
+  "embed_info_json": {
+    "name": "Embed Info JSON",
+    "description": "Embeds info JSON in tabula ultima."
+  },
+  "embed_metadata": {
+    "name": "Embed Metadata",
+    "description": "Metadata in tabella finali embeds."
+  },
+  "embed_subs": {
+    "name": "Embed Subtitles",
+    "description": "Subtitles in tabella finali insculpta."
+  },
+  "embed_thumbnail": {
+    "name": "Embed Thumbnail",
+    "description": "In finalem fasciculum involvit thumbnail."
+  },
+  "enable_file_urls": {
+    "name": "Admitte File delata",
+    "description": "Usum dat documenti delata pro files locali."
+  },
+  "extract_audio": {
+    "name": "Extract Audio",
+    "description": "Extracta audio e videos downloaded (usibus ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Extractor Retries",
+    "description": "Numerus retries in extrahentium erroribus."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg Location",
+    "description": "Iter binarii ad FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "File Access retries",
+    "description": "Numerus retries in file accessus errorum."
+  },
+  "fixup": {
+    "name": "Fixup",
+    "description": "Automatarie vitia nota in tabella video."
+  },
+  "font_size": {
+    "name": "Font Size",
+    "description": "Magnitudo fontis usus in applicatione."
+  },
+  "force_ipv4": {
+    "name": "Force IPv4",
+    "description": "Cogit usum IPv4 ad nexus retis."
+  },
+  "force_ipv6": {
+    "name": "Force IPv6",
+    "description": "Cogit usum IPv6 ad nexus retis."
+  },
+  "force_overwrites": {
+    "name": "Force Overwrites",
+    "description": "Overwrites existentium files sine rogabat."
+  },
+  "format": {
+    "name": "Forma",
+    "description": "Video format codicem (s) ut download."
+  },
+  "fragment_retries": {
+    "name": "Fragment Retries",
+    "description": "Numerus retries in fragmento download errores."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo comprobatio proxy",
+    "description": "Procuratorium servo uti ad geo-verificationem."
+  },
+  "ignore_errors": {
+    "name": "Errores ignorare",
+    "description": "Ignorare download errores ac pergere cum proximo video."
+  },
+  "impersonate": {
+    "name": "Personate",
+    "description": "Cliens personatus (chrome, chrome-110, chrome: fenestrae-X)."
+  },
+  "keep_fragments": {
+    "name": "Serva Fragmenta",
+    "description": "Servat downloaded fragmenta post bus."
+  },
+  "language": {
+    "name": "Linguae",
+    "description": "Linguam spectat."
+  },
+  "limit_rate": {
+    "name": "Finis Rate",
+    "description": "Celeritatem download limitat (exampla, 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "Vivamus a Satus",
+    "description": "Vivamus a mauris mauris."
+  },
+  "merge_output_format": {
+    "name": "Vide Format",
+    "description": "Forma video finalis resultans ex fluminibus bus."
+  },
+  "output": {
+    "name": "Output Template",
+    "description": "Output name template."
+  },
+  "password": {
+    "name": "Password",
+    "description": "Signum authenticationis."
+  },
+  "paths": {
+    "name": "semitae",
+    "description": "Pellentesque ut nisi nibh."
+  },
+  "playlist": {
+    "name": "Playlist",
+    "description": "Indicat utrum electronicam tabulam integram electronicam deponere an unum video."
+  },
+  "prefer_insecure": {
+    "name": "Malo Insecure",
+    "description": "Utitur HTTP connexione pro HTTPS (YouTube tantum)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Procuratorium servo utendum pro retis postulationibus."
+  },
+  "remux_video": {
+    "name": "Remux Video",
+    "description": "Mutat continens video sine re- descriptam."
+  },
+  "retries": {
+    "name": "Retries",
+    "description": "Numerus retries in errorum download."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip Playlist post errores",
+    "description": "Reliquos fabulae post aliquot errores omittit."
+  },
+  "socket_timeout": {
+    "name": "Tabule Vicis",
+    "description": "Timeout pro nervum nexus in secundis."
+  },
+  "source_address": {
+    "name": "Source Oratio",
+    "description": "IP oratio cliens ligare ad hospites faciendos."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Notae segmenta ex categoriis SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Forma subtilissima",
+    "description": "Subtitle forma code(s) ut download."
+  },
+  "sub_langs": {
+    "name": "Subtitle Linguae",
+    "description": "Linguae titulorum to download."
+  },
+  "theme_dark": {
+    "name": "Dark Theme",
+    "description": "Thema applicationis."
+  },
+  "twofactor": {
+    "name": "Duo-factor authenticitate",
+    "description": "Authenticatio duplex codice factor."
+  },
+  "use_extractors": {
+    "name": "Usus Extractors",
+    "description": "Nomina extractorum ad usum (comma separata)."
+  },
+  "username": {
+    "name": "Username",
+    "description": "Usoris authenticas."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams",
+    "description": "Plures rivos video coniungendo permittit."
+  },
+  "video_password": {
+    "name": "Video Password",
+    "description": "Tessera pro tesserae videos conservata."
+  },
+  "video_resolution": {
+    "name": "Resolution",
+    "description": "Maluit video resolutio"
+  },
+  "video_subtitles": {
+    "name": "Subtitles",
+    "description": "Maluit video subtitles"
+  },
+  "wait_for_video": {
+    "name": "Exspecta Video",
+    "description": "Expectat scheduled video ut praesto ante demptionem fiant."
+  },
+  "write_auto_subs": {
+    "name": "Download Auto Subtitles",
+    "description": "Scribit available subtitles in latae sententiae."
+  },
+  "write_subs": {
+    "name": "Download Subtitles",
+    "description": "Scribit available manualibus titulis."
+  },
+  "write_thumbnail": {
+    "name": "Scribere Thumbnail",
+    "description": "Servat video thumbnail ad disci."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Scribit metadata ad filesystem xattrs."
+  },
+  "xff": {
+    "name": "X Tractum-enim",
+    "description": "Ponit X Tractum-Nam header ad simulare locum."
+  }
+}

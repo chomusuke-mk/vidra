@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Xatodan voz keching",
+    "description": "Agar xato yuz bersa, yuklab olish jarayonini bekor qiladi."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Mavjud bo'lmagan bo'laklarga olib boring",
+    "description": "Agar parcha mavjud bo'lmasa, yuklab olishni bekor qiladi."
+  },
+  "add_headers": {
+    "name": "Qo'shimcha sarlavhalar",
+    "description": "Tarmoq so'rovlarida qo'shimcha sarlavhalar kiritish."
+  },
+  "audio_format": {
+    "name": "Audio format",
+    "description": "Hisoblangan audio (MP3, FLACT, OPUS va boshqalar)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Tanlangan audio tili kodi."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multsream",
+    "description": "Bir nechta audio oqimlarni birlashtirishga imkon beradi."
+  },
+  "audio_quality": {
+    "name": "Audio sifati",
+    "description": "Audio sifati (0 eng yaxshi, eng yomon)."
+  },
+  "batch_file": {
+    "name": "Partiya fayli",
+    "description": "Yuklab olish uchun URL manzillarini o'z ichiga olgan faylga yo'l."
+  },
+  "break_on_existing": {
+    "name": "Mavjud bo'lgan tanaffus",
+    "description": "Agar fayl allaqachon mavjud bo'lsa, yuklab olishni to'xtatadi."
+  },
+  "concurrent_fragments": {
+    "name": "Keling, kelishmovchiliklar",
+    "description": "Yuklab olish uchun bir vaqtning o'zida bir vaqtning o'zida bo'laklar soni (standart 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Eskizlarni aylantiring",
+    "description": "Tovushlarni belgilangan formatga o'zgartiring."
+  },
+  "cookies": {
+    "name": "Pishiriq",
+    "description": "Netscape formatlangan fayl Cookie-fayllardan pechene-ni o'qing va sotish"
+  },
+  "cookies_from_browser": {
+    "name": "Brauzerdan cookie fayllari",
+    "description": "Belgilangan brauzerdan cookie fayllarini import qiladi."
+  },
+  "download_archive": {
+    "name": "Arxivni yuklab oling",
+    "description": "Dublikatlarni oldini olish uchun yozib olingan identifikatorlarni yozib oling."
+  },
+  "embed_chapters": {
+    "name": "O'tkazib beriladigan boblarni yashirib",
+    "description": "Bo'limlarni yakuniy faylga joylashtiradi."
+  },
+  "embed_info_json": {
+    "name": "Info Jsonni joylashtirish",
+    "description": "Info Jonni oxirgi faylga joylashtiradi."
+  },
+  "embed_metadata": {
+    "name": "Metadata-ni joylashtirdi",
+    "description": "Metadatani yakuniy faylga joylashtiradi."
+  },
+  "embed_subs": {
+    "name": "Subtitrlarni joylashtiradi",
+    "description": "Pastki faylga subtitrlarni joylashtiradi."
+  },
+  "embed_thumbnail": {
+    "name": "Eskizni joylashtiring",
+    "description": "Eskizni oxirgi faylga joylashtiradi."
+  },
+  "enable_file_urls": {
+    "name": "Fayl URL manzillarini yoqish",
+    "description": "Mahalliy fayllar uchun fayl URL manzillaridan foydalanish imkoniyatini beradi."
+  },
+  "extract_audio": {
+    "name": "Ajrating Audio",
+    "description": "Yuklab olingan videolarni (FFMPEGdan foydalanadi) audio ekstrakti."
+  },
+  "extractor_retries": {
+    "name": "Ekstraktor qayta urinadi",
+    "description": "Qo'shimcha xatolar bo'yicha davom etadigan narsalar soni."
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG manzil",
+    "description": "FFMPEG ikkilikka yo'l."
+  },
+  "file_access_retries": {
+    "name": "Faylga kirish tezligi",
+    "description": "Fayl kirish xatolariga tezkor javoblar soni."
+  },
+  "fixup": {
+    "name": "Tuzoq",
+    "description": "Avtomatik ravishda ma'lum kamchiliklarni video faylida tuzatadi."
+  },
+  "font_size": {
+    "name": "Shrift hajmi",
+    "description": "Arizada ishlatiladigan shrift hajmi."
+  },
+  "force_ipv4": {
+    "name": "Kuchlar IPv4",
+    "description": "Tarmoq ulanishlari uchun IPv4 dan foydalanishni majbur qiladi."
+  },
+  "force_ipv6": {
+    "name": "Kuch iPv6",
+    "description": "Tarmoq ulanishlari uchun IPv6 dan foydalanishni majbur qiladi."
+  },
+  "force_overwrites": {
+    "name": "Kuchlar ustidan yozish",
+    "description": "Mavjud fayllarni so'ramasdan yozing."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Yuklab olish uchun video formatlash kodi (lar)."
+  },
+  "fragment_retries": {
+    "name": "Parrada qayg'uradi",
+    "description": "Freymentni qayta tayyorlash soni Yuklab olish xatolari."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Tasdiqlash proksi",
+    "description": "Geo-tekshiruv uchun foydalanish uchun proksi server."
+  },
+  "ignore_errors": {
+    "name": "Xatolarga e'tibor bermang",
+    "description": "Yuklab olish xatolarini e'tiborsiz qoldiring va keyingi videoni davom eting."
+  },
+  "impersonate": {
+    "name": "O'zini tutmoq",
+    "description": "Mijoz (Chrome, Chrome-110, Chrome: Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Bo'laklarni ushlab turing",
+    "description": "Birlashtirishdan keyin yuklab olingan parchalarni saqlaydi."
+  },
+  "language": {
+    "name": "Til",
+    "description": "Arizaning tili."
+  },
+  "limit_rate": {
+    "name": "Cheklov stavkasi",
+    "description": "Yuklab olish tezligini cheklaydi (E.G., 50k, 4.2 m)."
+  },
+  "live_from_start": {
+    "name": "Boshlanishdan jonli",
+    "description": "Yuklab olish STARTdan jonli video."
+  },
+  "merge_output_format": {
+    "name": "Video format",
+    "description": "Birja oqimlaridan kelib chiqqan yakuniy video format."
+  },
+  "output": {
+    "name": "Chiqish shabloni",
+    "description": "Chiqish fayl nomi shablon."
+  },
+  "password": {
+    "name": "Parol",
+    "description": "Autentifikatsiya qilish uchun parol."
+  },
+  "paths": {
+    "name": "Yo'llar",
+    "description": "Turli xil fayllarni saqlash uchun kataloglar."
+  },
+  "playlist": {
+    "name": "Pleylist",
+    "description": "To'liq pleylist yoki bitta videoni yuklab olish kerakligini ko'rsatadi."
+  },
+  "prefer_insecure": {
+    "name": "Xavfsizlikni afzal ko'radi",
+    "description": "Https (youtube faqat) o'rniga HTTP ulanishidan foydalanadi."
+  },
+  "proxy": {
+    "name": "Proksi",
+    "description": "Tarmoq so'rovlari uchun foydalanish uchun proksi server."
+  },
+  "remux_video": {
+    "name": "Remyu video",
+    "description": "Video idishni qayta kodlashsiz o'zgartiradi."
+  },
+  "retries": {
+    "name": "Qayta chopish",
+    "description": "Yuklab olish xatolariga tezkor javoblar soni."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Xatolardan keyin pleylistni o'tkazib yuboring",
+    "description": "Ma'lum bir bir qator xatolardan keyin pleylilanuvchini o'tkazib yuboring."
+  },
+  "socket_timeout": {
+    "name": "Saker vaqti",
+    "description": "Soket ulanishlari uchun bir necha soniya ichida."
+  },
+  "source_address": {
+    "name": "Manba manzili",
+    "description": "Mijoz IP manzilini bog'lashda bog'lash uchun."
+  },
+  "sponsorblock_mark": {
+    "name": "Homorblock belgisi",
+    "description": "Speblok toifalaridagi segmentlarni belgilaydi."
+  },
+  "sub_format": {
+    "name": "Subtitle format",
+    "description": "Yuklab olish uchun subtitle format kodini (lar)."
+  },
+  "sub_langs": {
+    "name": "SUBTITE tillari",
+    "description": "Subtitrlar tillari yuklab olish."
+  },
+  "theme_dark": {
+    "name": "Qorong'i mavzusi",
+    "description": "Ariza mavzusi."
+  },
+  "twofactor": {
+    "name": "Ikki faktorli autentifikatsiya",
+    "description": "Ikki faktor autentifikatsiya kodi."
+  },
+  "use_extractors": {
+    "name": "Ekstraktorlardan foydalaning",
+    "description": "Qo'shimcha qismlardan foydalanish uchun ekstraktor nomlari (vergul ajratilgan). (\"Hammasi\", \"OLDAD\", \"OELD\", Oddiy iborani tanlang."
+  },
+  "username": {
+    "name": "Foydalanuvchi nomi",
+    "description": "Autentifikatsiya uchun foydalanuvchi nomi."
+  },
+  "video_multistreams": {
+    "name": "Video Ko'pchilik",
+    "description": "Bir nechta video oqimlarini birlashtirishga imkon beradi."
+  },
+  "video_password": {
+    "name": "Video paroli",
+    "description": "Parol bilan himoyalangan videolar uchun parol."
+  },
+  "video_resolution": {
+    "name": "Hal qilish",
+    "description": "Tanlangan video o'lchamlari"
+  },
+  "video_subtitles": {
+    "name": "Subtitrlar",
+    "description": "Afzallangan video subtitrlar"
+  },
+  "wait_for_video": {
+    "name": "Videoni kuting",
+    "description": "Yuklab olishdan oldin rejalashtirilgan videoni kutadi."
+  },
+  "write_auto_subs": {
+    "name": "Avtoulov subtitrlarini yuklab oling",
+    "description": "Mavjud avtomatik subtitrlarni yozadi."
+  },
+  "write_subs": {
+    "name": "Yuklab olish subtitrlar",
+    "description": "Mavjud qo'llanma subtitrlarini yozadi."
+  },
+  "write_thumbnail": {
+    "name": "Eskizni yozing",
+    "description": "Videoni eskizni diskka saqlaydi."
+  },
+  "xattrs": {
+    "name": "Xattrlar",
+    "description": "Metadata fayl tizimlari xattrlariga yozadi."
+  },
+  "xff": {
+    "name": "X-yo'naltirilgan-uchun",
+    "description": "Joylashuvni simulyatsiya qilish uchun X-yo'naltirilgan-forum sarlavhasini o'rnatadi."
+  }
+}

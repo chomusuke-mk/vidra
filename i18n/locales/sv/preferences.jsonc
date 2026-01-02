@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Avbryt vid fel",
+    "description": "Avbryter nedladdningsprocessen om ett fel uppstår."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Avbryt på otillgängligt fragment",
+    "description": "Avbryter nedladdningen om ett fragment inte är tillgängligt."
+  },
+  "add_headers": {
+    "name": "Ytterligare rubriker",
+    "description": "Ytterligare rubriker att inkludera i nätverksbegäranden."
+  },
+  "audio_format": {
+    "name": "Ljudformat",
+    "description": "Format för det konverterade ljudet (mp3, flac, opus, etc.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Föredragen språkkod för ljud."
+  },
+  "audio_multistreams": {
+    "name": "Ljud multiströmmar",
+    "description": "Tillåter att kombinera flera ljudströmmar."
+  },
+  "audio_quality": {
+    "name": "Ljudkvalitet",
+    "description": "Ljudkvalitet (0 bästa, 10 sämsta)."
+  },
+  "batch_file": {
+    "name": "Batch-fil",
+    "description": "Sökväg till en fil som innehåller URL:er att ladda ner."
+  },
+  "break_on_existing": {
+    "name": "Bryt på existerande",
+    "description": "Avbryter nedladdningen om filen redan finns."
+  },
+  "concurrent_fragments": {
+    "name": "Samtidiga fragment",
+    "description": "Antal samtidiga fragment att ladda ner (standard 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Konvertera miniatyrer",
+    "description": "Konvertera miniatyrer till det angivna formatet."
+  },
+  "cookies": {
+    "name": "Småkakor",
+    "description": "Netscape-formaterad fil att läsa cookies från och dumpa kakburken i"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies från webbläsaren",
+    "description": "Importerar cookies från den angivna webbläsaren."
+  },
+  "download_archive": {
+    "name": "Ladda ner arkiv",
+    "description": "Sökväg till fil för att registrera nedladdade ID:n för att undvika dubbletter."
+  },
+  "embed_chapters": {
+    "name": "Bädda in kapitel",
+    "description": "Bäddar in kapitel i den slutliga filen."
+  },
+  "embed_info_json": {
+    "name": "Bädda in info JSON",
+    "description": "Bäddar in information JSON i den slutliga filen."
+  },
+  "embed_metadata": {
+    "name": "Bädda in metadata",
+    "description": "Bäddar in metadata i den slutliga filen."
+  },
+  "embed_subs": {
+    "name": "Bädda in undertexter",
+    "description": "Bäddar in undertexter i den slutliga filen."
+  },
+  "embed_thumbnail": {
+    "name": "Bädda in miniatyrbild",
+    "description": "Bäddar in miniatyrbilden i den slutliga filen."
+  },
+  "enable_file_urls": {
+    "name": "Aktivera filwebbadresser",
+    "description": "Möjliggör användning av fil-URL:er för lokala filer."
+  },
+  "extract_audio": {
+    "name": "Extrahera ljud",
+    "description": "Extraherar ljud från nedladdade videor (använder ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Extraktorn försöker igen",
+    "description": "Antal återförsök på extraktionsfel."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg Plats",
+    "description": "Sökväg till FFmpeg-binären."
+  },
+  "file_access_retries": {
+    "name": "Filåtkomst Försök igen",
+    "description": "Antal återförsök på filåtkomstfel."
+  },
+  "fixup": {
+    "name": "Fixa",
+    "description": "Korrigerar automatiskt kända fel i videofilen."
+  },
+  "font_size": {
+    "name": "Fontstorlek",
+    "description": "Teckenstorlek som används i applikationen."
+  },
+  "force_ipv4": {
+    "name": "Forcera IPv4",
+    "description": "Framtvingar användningen av IPv4 för nätverksanslutningar."
+  },
+  "force_ipv6": {
+    "name": "Forcera IPv6",
+    "description": "Framtvingar användningen av IPv6 för nätverksanslutningar."
+  },
+  "force_overwrites": {
+    "name": "Tvinga överskrivningar",
+    "description": "Skriver över befintliga filer utan att fråga."
+  },
+  "format": {
+    "name": "Formatera",
+    "description": "Videoformatkod(er) att ladda ner."
+  },
+  "fragment_retries": {
+    "name": "Fragment Försök igen",
+    "description": "Antal återförsök på fragmentnedladdningsfel."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Verification Proxy",
+    "description": "Proxyserver att använda för geoverifiering."
+  },
+  "ignore_errors": {
+    "name": "Ignorera fel",
+    "description": "Ignorera nedladdningsfel och fortsätt med nästa video."
+  },
+  "impersonate": {
+    "name": "Imitera",
+    "description": "Klient att imitera (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Behåll fragment",
+    "description": "Behåller de nedladdade fragmenten efter sammanslagning."
+  },
+  "language": {
+    "name": "Språk",
+    "description": "Språket för ansökan."
+  },
+  "limit_rate": {
+    "name": "Begränsa hastighet",
+    "description": "Begränsar nedladdningshastigheten (t.ex. 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "Live från start",
+    "description": "Laddar ner livevideor från början."
+  },
+  "merge_output_format": {
+    "name": "Videoformat",
+    "description": "Slutligt videoformat som är resultatet av sammanslagna strömmar."
+  },
+  "output": {
+    "name": "Utdatamall",
+    "description": "Utdatafilnamnsmall."
+  },
+  "password": {
+    "name": "Lösenord",
+    "description": "Lösenord för autentisering."
+  },
+  "paths": {
+    "name": "stigar",
+    "description": "Kataloger för att spara olika typer av filer."
+  },
+  "playlist": {
+    "name": "Spellista",
+    "description": "Anger om hela spellistan eller en enskild video ska laddas ned."
+  },
+  "prefer_insecure": {
+    "name": "Föredrar osäker",
+    "description": "Använder HTTP-anslutning istället för HTTPS (endast YouTube)."
+  },
+  "proxy": {
+    "name": "Ombud",
+    "description": "Proxyserver att använda för nätverksbegäranden."
+  },
+  "remux_video": {
+    "name": "Remux video",
+    "description": "Ändrar videobehållaren utan omkodning."
+  },
+  "retries": {
+    "name": "Försöker igen",
+    "description": "Antal återförsök på nedladdningsfel."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Hoppa över spellista efter fel",
+    "description": "Hoppar över resten av spellistan efter ett visst antal fel."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Timeout för uttagsanslutningar i sekunder."
+  },
+  "source_address": {
+    "name": "Källadress",
+    "description": "Klientens IP-adress att binda till vid anslutningar."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Markerar segment från SponsorBlock-kategorier."
+  },
+  "sub_format": {
+    "name": "Undertextformat",
+    "description": "Undertextformat kod(er) att ladda ner."
+  },
+  "sub_langs": {
+    "name": "Undertextspråk",
+    "description": "Språk för undertexter att ladda ner."
+  },
+  "theme_dark": {
+    "name": "mörkt tema",
+    "description": "Temat för ansökan."
+  },
+  "twofactor": {
+    "name": "Tvåfaktorsautentisering",
+    "description": "Tvåfaktors autentiseringskod."
+  },
+  "use_extractors": {
+    "name": "Använd extraktorer",
+    "description": "Namn på extraktorer som ska användas (kommaseparerade).(\"alla\",\"standard\",\"slut\",reguljärt uttryck)"
+  },
+  "username": {
+    "name": "Användarnamn",
+    "description": "Användarnamn för autentisering."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams",
+    "description": "Tillåter att kombinera flera videoströmmar."
+  },
+  "video_password": {
+    "name": "Videolösenord",
+    "description": "Lösenord för lösenordsskyddade videor."
+  },
+  "video_resolution": {
+    "name": "Upplösning",
+    "description": "Föredragen videoupplösning"
+  },
+  "video_subtitles": {
+    "name": "Undertexter",
+    "description": "Föredragna videoundertexter"
+  },
+  "wait_for_video": {
+    "name": "Vänta på video",
+    "description": "Väntar på att en schemalagd video blir tillgänglig innan den laddas ned."
+  },
+  "write_auto_subs": {
+    "name": "Ladda ner automatiska undertexter",
+    "description": "Skriver tillgängliga automatiska undertexter."
+  },
+  "write_subs": {
+    "name": "Ladda ner undertexter",
+    "description": "Skriver tillgängliga manuella undertexter."
+  },
+  "write_thumbnail": {
+    "name": "Skriv miniatyrbild",
+    "description": "Sparar videominiatyren på disken."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Skriver metadata till filsystemet xattrs."
+  },
+  "xff": {
+    "name": "X-Forwarded-For",
+    "description": "Ställer in X-Forwarded-For-huvudet för att simulera plats."
+  }
+}

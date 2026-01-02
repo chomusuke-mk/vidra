@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Hata Durumunda İptal Et",
+    "description": "Bir hata oluşursa indirme işlemini iptal eder."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Kullanılamayan Parçayı İptal Et",
+    "description": "Bir parça mevcut değilse indirmeyi iptal eder."
+  },
+  "add_headers": {
+    "name": "Ek Başlıklar",
+    "description": "Ağ isteklerine eklenecek ek başlıklar."
+  },
+  "audio_format": {
+    "name": "Ses Formatı",
+    "description": "Dönüştürülen sesin formatı (mp3, flac, opus vb.)."
+  },
+  "audio_language": {
+    "name": "Ses",
+    "description": "Tercih edilen ses dili kodu."
+  },
+  "audio_multistreams": {
+    "name": "Çoklu Ses Akışları",
+    "description": "Birden fazla ses akışını birleştirmeye izin verir."
+  },
+  "audio_quality": {
+    "name": "Ses Kalitesi",
+    "description": "Ses kalitesi (0 en iyi, 10 en kötü)."
+  },
+  "batch_file": {
+    "name": "Toplu Dosya",
+    "description": "İndirilecek URL'leri içeren dosyanın yolu."
+  },
+  "break_on_existing": {
+    "name": "Mevcutta Ara",
+    "description": "Dosya zaten mevcutsa indirmeyi durdurur."
+  },
+  "concurrent_fragments": {
+    "name": "Eşzamanlı Parçalar",
+    "description": "İndirilecek eşzamanlı parça sayısı (varsayılan 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Küçük Resimleri Dönüştür",
+    "description": "Küçük resimleri belirtilen formata dönüştürün."
+  },
+  "cookies": {
+    "name": "Çerezler",
+    "description": "Çerezleri okumak ve çerez kavanozunu boşaltmak için Netscape formatlı dosya"
+  },
+  "cookies_from_browser": {
+    "name": "Tarayıcıdan Gelen Çerezler",
+    "description": "Belirtilen tarayıcıdan çerezleri içe aktarır."
+  },
+  "download_archive": {
+    "name": "Arşivi İndir",
+    "description": "Kopyaların önlenmesi amacıyla indirilen kimliklerin kaydedileceği dosya yolu."
+  },
+  "embed_chapters": {
+    "name": "Bölümleri Göm",
+    "description": "Bölümleri son dosyaya gömer."
+  },
+  "embed_info_json": {
+    "name": "Bilgi JSON'u Yerleştir",
+    "description": "JSON bilgisini son dosyaya gömer."
+  },
+  "embed_metadata": {
+    "name": "Meta Verileri Göm",
+    "description": "Meta verileri son dosyaya gömer."
+  },
+  "embed_subs": {
+    "name": "Altyazıları Göm",
+    "description": "Altyazıları son dosyaya gömer."
+  },
+  "embed_thumbnail": {
+    "name": "Küçük Resmi Yerleştir",
+    "description": "Küçük resmi son dosyaya gömer."
+  },
+  "enable_file_urls": {
+    "name": "Dosya URL'lerini Etkinleştir",
+    "description": "Yerel dosyalar için dosya URL'lerinin kullanımını etkinleştirir."
+  },
+  "extract_audio": {
+    "name": "Sesi Çıkart",
+    "description": "İndirilen videolardan sesi çıkarır (ffmpeg kullanır)."
+  },
+  "extractor_retries": {
+    "name": "Çıkarıcı Yeniden Denemeleri",
+    "description": "Çıkarıcı hatalarında yeniden deneme sayısı."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg Konumu",
+    "description": "FFmpeg ikili dosyasının yolu."
+  },
+  "file_access_retries": {
+    "name": "Dosya Erişimi Yeniden Denemeleri",
+    "description": "Dosya erişim hatalarında yeniden deneme sayısı."
+  },
+  "fixup": {
+    "name": "Düzeltme",
+    "description": "Video dosyasındaki bilinen hataları otomatik olarak düzeltir."
+  },
+  "font_size": {
+    "name": "Yazı Tipi Boyutu",
+    "description": "Uygulamada kullanılan yazı tipi boyutu."
+  },
+  "force_ipv4": {
+    "name": "IPv4'ü zorla",
+    "description": "Ağ bağlantıları için IPv4 kullanımını zorlar."
+  },
+  "force_ipv6": {
+    "name": "IPv6'yı zorla",
+    "description": "Ağ bağlantıları için IPv6 kullanımını zorlar."
+  },
+  "force_overwrites": {
+    "name": "Üzerine Yazmayı Zorla",
+    "description": "Sormadan mevcut dosyaların üzerine yazar."
+  },
+  "format": {
+    "name": "Biçim",
+    "description": "İndirilecek video formatı kodları."
+  },
+  "fragment_retries": {
+    "name": "Parça Yeniden Denemeleri",
+    "description": "Parça indirme hatalarında yeniden deneme sayısı."
+  },
+  "geo_verification_proxy": {
+    "name": "Coğrafi Doğrulama Proxy'si",
+    "description": "Coğrafi doğrulama için kullanılacak proxy sunucusu."
+  },
+  "ignore_errors": {
+    "name": "Hataları Yoksay",
+    "description": "İndirme hatalarını göz ardı edin ve sonraki videoyla devam edin."
+  },
+  "impersonate": {
+    "name": "Başkasının kimliğine bürün",
+    "description": "Kimliğine bürünülecek istemci (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Parçaları Tut",
+    "description": "İndirilen parçaları birleştirme sonrasında tutar."
+  },
+  "language": {
+    "name": "Dil",
+    "description": "Uygulamanın dili."
+  },
+  "limit_rate": {
+    "name": "Limit Oranı",
+    "description": "İndirme hızını sınırlar (ör. 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "Başlangıçtan itibaren Canlı",
+    "description": "Canlı videoları baştan indirir."
+  },
+  "merge_output_format": {
+    "name": "Video Formatı",
+    "description": "Akışların birleştirilmesinden kaynaklanan son video formatı."
+  },
+  "output": {
+    "name": "Çıktı Şablonu",
+    "description": "Dosya adı şablonunun çıktısını alın."
+  },
+  "password": {
+    "name": "Şifre",
+    "description": "Kimlik doğrulama için şifre."
+  },
+  "paths": {
+    "name": "Yollar",
+    "description": "Farklı dosya türlerini kaydetmek için dizinler."
+  },
+  "playlist": {
+    "name": "Çalma listesi",
+    "description": "Oynatma listesinin tamamının mı yoksa tek bir videonun mu indirileceğini belirtir."
+  },
+  "prefer_insecure": {
+    "name": "Güvensizi Tercih Edin",
+    "description": "HTTPS yerine HTTP bağlantısını kullanır (yalnızca YouTube)."
+  },
+  "proxy": {
+    "name": "vekil",
+    "description": "Ağ istekleri için kullanılacak proxy sunucusu."
+  },
+  "remux_video": {
+    "name": "Remux Videosu",
+    "description": "Video kapsayıcısını yeniden kodlamadan değiştirir."
+  },
+  "retries": {
+    "name": "Yeniden denemeler",
+    "description": "İndirme hatalarında yeniden deneme sayısı."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Hatalardan Sonra Oynatma Listesini Atla",
+    "description": "Belirli sayıda hatadan sonra oynatma listesinin geri kalanını atlar."
+  },
+  "socket_timeout": {
+    "name": "Soket Zaman Aşımı",
+    "description": "Soket bağlantılarında saniye cinsinden zaman aşımı."
+  },
+  "source_address": {
+    "name": "Kaynak Adresi",
+    "description": "Bağlantı kurarken bağlanılacak istemci IP adresi."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlok İşareti",
+    "description": "SponsorBlock kategorilerinden segmentleri işaretler."
+  },
+  "sub_format": {
+    "name": "Altyazı Formatı",
+    "description": "İndirilecek altyazı formatı kodları."
+  },
+  "sub_langs": {
+    "name": "Altyazı Dilleri",
+    "description": "İndirilecek altyazı dilleri."
+  },
+  "theme_dark": {
+    "name": "Koyu Tema",
+    "description": "Uygulamanın teması."
+  },
+  "twofactor": {
+    "name": "İki Faktörlü Kimlik Doğrulama",
+    "description": "İki faktörlü kimlik doğrulama kodu."
+  },
+  "use_extractors": {
+    "name": "Çıkarıcıları Kullan",
+    "description": "Kullanılacak çıkarıcıların adları (virgülle ayrılmış).(\"tümü\", \"varsayılan\", \"son\", normal ifade)"
+  },
+  "username": {
+    "name": "Kullanıcı adı",
+    "description": "Kimlik doğrulama için kullanıcı adı."
+  },
+  "video_multistreams": {
+    "name": "Video Çoklu Akışları",
+    "description": "Birden fazla video akışını birleştirmeye izin verir."
+  },
+  "video_password": {
+    "name": "Video Şifresi",
+    "description": "Parola korumalı videolar için parola."
+  },
+  "video_resolution": {
+    "name": "Çözünürlük",
+    "description": "Tercih edilen video çözünürlüğü"
+  },
+  "video_subtitles": {
+    "name": "Altyazılar",
+    "description": "Tercih edilen video altyazıları"
+  },
+  "wait_for_video": {
+    "name": "Videoyu Bekleyin",
+    "description": "İndirmeden önce planlanmış bir videonun kullanılabilir olmasını bekler."
+  },
+  "write_auto_subs": {
+    "name": "Otomatik Altyazıları İndir",
+    "description": "Mevcut otomatik altyazıları yazar."
+  },
+  "write_subs": {
+    "name": "Altyazıları İndir",
+    "description": "Mevcut manuel altyazıları yazar."
+  },
+  "write_thumbnail": {
+    "name": "Küçük Resim Yaz",
+    "description": "Video küçük resmini diske kaydeder."
+  },
+  "xattrs": {
+    "name": "XAttr'ler",
+    "description": "Meta verileri xattrs dosya sistemine yazar."
+  },
+  "xff": {
+    "name": "X-İletilen-For",
+    "description": "Konumu simüle etmek için X-Forwarded-For başlığını ayarlar."
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Hủy bỏ khi có lỗi",
+    "description": "Hủy bỏ quá trình tải xuống nếu xảy ra lỗi."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Hủy bỏ trên đoạn không có sẵn",
+    "description": "Hủy bỏ việc tải xuống nếu một đoạn không có sẵn."
+  },
+  "add_headers": {
+    "name": "Tiêu đề bổ sung",
+    "description": "Các tiêu đề bổ sung để đưa vào yêu cầu mạng."
+  },
+  "audio_format": {
+    "name": "Định dạng âm thanh",
+    "description": "Định dạng của âm thanh được chuyển đổi (mp3, flac, opus, v.v.)."
+  },
+  "audio_language": {
+    "name": "Âm thanh",
+    "description": "Mã ngôn ngữ âm thanh ưa thích."
+  },
+  "audio_multistreams": {
+    "name": "Đa luồng âm thanh",
+    "description": "Cho phép kết hợp nhiều luồng âm thanh."
+  },
+  "audio_quality": {
+    "name": "Chất lượng âm thanh",
+    "description": "Chất lượng âm thanh (0 tốt nhất, 10 tệ nhất)."
+  },
+  "batch_file": {
+    "name": "Tệp hàng loạt",
+    "description": "Đường dẫn đến tệp chứa URL để tải xuống."
+  },
+  "break_on_existing": {
+    "name": "Phá vỡ hiện tại",
+    "description": "Dừng tải xuống nếu tệp đã tồn tại."
+  },
+  "concurrent_fragments": {
+    "name": "Các mảnh đồng thời",
+    "description": "Số đoạn đồng thời cần tải xuống (mặc định 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Chuyển đổi hình thu nhỏ",
+    "description": "Chuyển đổi hình thu nhỏ sang định dạng được chỉ định."
+  },
+  "cookies": {
+    "name": "Cookie",
+    "description": "Tệp được định dạng Netscape để đọc cookie từ và đổ cookie vào"
+  },
+  "cookies_from_browser": {
+    "name": "Cookie từ trình duyệt",
+    "description": "Nhập cookie từ trình duyệt được chỉ định."
+  },
+  "download_archive": {
+    "name": "Tải xuống kho lưu trữ",
+    "description": "Đường dẫn đến tệp để ghi lại ID đã tải xuống để tránh trùng lặp."
+  },
+  "embed_chapters": {
+    "name": "Nhúng chương",
+    "description": "Nhúng các chương vào tập tin cuối cùng."
+  },
+  "embed_info_json": {
+    "name": "Nhúng thông tin JSON",
+    "description": "Nhúng thông tin JSON vào tệp cuối cùng."
+  },
+  "embed_metadata": {
+    "name": "Nhúng siêu dữ liệu",
+    "description": "Nhúng siêu dữ liệu vào tệp cuối cùng."
+  },
+  "embed_subs": {
+    "name": "Nhúng phụ đề",
+    "description": "Nhúng phụ đề vào tập tin cuối cùng."
+  },
+  "embed_thumbnail": {
+    "name": "Nhúng hình thu nhỏ",
+    "description": "Nhúng hình thu nhỏ vào tập tin cuối cùng."
+  },
+  "enable_file_urls": {
+    "name": "Bật URL tệp",
+    "description": "Cho phép sử dụng URL tệp cho các tệp cục bộ."
+  },
+  "extract_audio": {
+    "name": "Trích xuất âm thanh",
+    "description": "Trích xuất âm thanh từ video đã tải xuống (sử dụng ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Thử lại trình trích xuất",
+    "description": "Số lần thử lại về lỗi giải nén."
+  },
+  "ffmpeg_location": {
+    "name": "Vị trí FFmpeg",
+    "description": "Đường dẫn đến tệp nhị phân FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Thử lại quyền truy cập tệp",
+    "description": "Số lần thử lại về lỗi truy cập tệp."
+  },
+  "fixup": {
+    "name": "Sửa chữa",
+    "description": "Tự động sửa các lỗi đã biết trong tệp video."
+  },
+  "font_size": {
+    "name": "Cỡ chữ",
+    "description": "Cỡ chữ được sử dụng trong ứng dụng."
+  },
+  "force_ipv4": {
+    "name": "Buộc IPv4",
+    "description": "Buộc sử dụng IPv4 cho các kết nối mạng."
+  },
+  "force_ipv6": {
+    "name": "Buộc IPv6",
+    "description": "Buộc sử dụng IPv6 cho các kết nối mạng."
+  },
+  "force_overwrites": {
+    "name": "Buộc ghi đè",
+    "description": "Ghi đè lên các tập tin hiện có mà không cần hỏi."
+  },
+  "format": {
+    "name": "Định dạng",
+    "description": "(Các) mã định dạng video để tải xuống."
+  },
+  "fragment_retries": {
+    "name": "Thử lại mảnh",
+    "description": "Số lần thử lại khi xảy ra lỗi tải xuống đoạn."
+  },
+  "geo_verification_proxy": {
+    "name": "Proxy xác minh địa lý",
+    "description": "Máy chủ proxy để sử dụng để xác minh địa lý."
+  },
+  "ignore_errors": {
+    "name": "Bỏ qua lỗi",
+    "description": "Bỏ qua lỗi tải xuống và tiếp tục với video tiếp theo."
+  },
+  "impersonate": {
+    "name": "Mạo danh",
+    "description": "Ứng dụng khách cần mạo danh (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Giữ mảnh vỡ",
+    "description": "Giữ các đoạn đã tải xuống sau khi hợp nhất."
+  },
+  "language": {
+    "name": "Ngôn ngữ",
+    "description": "Ngôn ngữ của ứng dụng."
+  },
+  "limit_rate": {
+    "name": "Tỷ lệ giới hạn",
+    "description": "Giới hạn tốc độ tải xuống (ví dụ: 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "Trực tiếp từ đầu",
+    "description": "Tải xuống video trực tiếp ngay từ đầu."
+  },
+  "merge_output_format": {
+    "name": "Định dạng Video",
+    "description": "Định dạng video cuối cùng do việc hợp nhất các luồng."
+  },
+  "output": {
+    "name": "Mẫu đầu ra",
+    "description": "Mẫu tên tệp đầu ra."
+  },
+  "password": {
+    "name": "Mật khẩu",
+    "description": "Mật khẩu để xác thực."
+  },
+  "paths": {
+    "name": "Đường dẫn",
+    "description": "Thư mục để lưu các loại tập tin khác nhau."
+  },
+  "playlist": {
+    "name": "Danh sách phát",
+    "description": "Cho biết nên tải xuống toàn bộ danh sách phát hay một video duy nhất."
+  },
+  "prefer_insecure": {
+    "name": "Thích không an toàn hơn",
+    "description": "Sử dụng kết nối HTTP thay vì HTTPS (chỉ YouTube)."
+  },
+  "proxy": {
+    "name": "ủy quyền",
+    "description": "Máy chủ proxy để sử dụng cho các yêu cầu mạng."
+  },
+  "remux_video": {
+    "name": "Video phối lại",
+    "description": "Thay đổi vùng chứa video mà không cần mã hóa lại."
+  },
+  "retries": {
+    "name": "Thử lại",
+    "description": "Số lần thử lại do lỗi tải xuống."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Bỏ qua danh sách phát sau khi có lỗi",
+    "description": "Bỏ qua phần còn lại của danh sách phát sau một số lỗi nhất định."
+  },
+  "socket_timeout": {
+    "name": "Hết thời gian chờ ổ cắm",
+    "description": "Thời gian chờ cho các kết nối ổ cắm tính bằng giây."
+  },
+  "source_address": {
+    "name": "Địa chỉ nguồn",
+    "description": "Địa chỉ IP của máy khách để liên kết khi thực hiện kết nối."
+  },
+  "sponsorblock_mark": {
+    "name": "Nhà tài trợBlock Mark",
+    "description": "Đánh dấu các phân đoạn từ danh mục Nhà tài trợ."
+  },
+  "sub_format": {
+    "name": "Định dạng phụ đề",
+    "description": "(Các) mã định dạng phụ đề để tải xuống."
+  },
+  "sub_langs": {
+    "name": "Ngôn ngữ phụ đề",
+    "description": "Ngôn ngữ của phụ đề để tải xuống."
+  },
+  "theme_dark": {
+    "name": "Chủ đề tối",
+    "description": "Chủ đề của ứng dụng."
+  },
+  "twofactor": {
+    "name": "Xác thực hai yếu tố",
+    "description": "Mã xác thực hai yếu tố."
+  },
+  "use_extractors": {
+    "name": "Sử dụng máy chiết",
+    "description": "Tên của trình trích xuất sẽ sử dụng (được phân tách bằng dấu phẩy).(\"all\",\"default\",\"end\",biểu thức chính quy)"
+  },
+  "username": {
+    "name": "Tên người dùng",
+    "description": "Tên người dùng để xác thực."
+  },
+  "video_multistreams": {
+    "name": "Đa luồng video",
+    "description": "Cho phép kết hợp nhiều luồng video."
+  },
+  "video_password": {
+    "name": "Mật khẩu Video",
+    "description": "Mật khẩu cho video được bảo vệ bằng mật khẩu."
+  },
+  "video_resolution": {
+    "name": "Nghị quyết",
+    "description": "Độ phân giải video ưa thích"
+  },
+  "video_subtitles": {
+    "name": "phụ đề",
+    "description": "Phụ đề video ưa thích"
+  },
+  "wait_for_video": {
+    "name": "Chờ video",
+    "description": "Chờ video đã lên lịch sẵn có trước khi tải xuống."
+  },
+  "write_auto_subs": {
+    "name": "Tải xuống phụ đề tự động",
+    "description": "Viết phụ đề tự động có sẵn."
+  },
+  "write_subs": {
+    "name": "Tải xuống phụ đề",
+    "description": "Viết phụ đề thủ công có sẵn."
+  },
+  "write_thumbnail": {
+    "name": "Viết hình thu nhỏ",
+    "description": "Lưu hình thu nhỏ video vào đĩa."
+  },
+  "xattrs": {
+    "name": "XAttr",
+    "description": "Ghi siêu dữ liệu vào hệ thống tập tin xattrs."
+  },
+  "xff": {
+    "name": "X-Chuyển tiếp-Cho",
+    "description": "Đặt tiêu đề X-Forwarded-For để mô phỏng vị trí."
+  }
+}

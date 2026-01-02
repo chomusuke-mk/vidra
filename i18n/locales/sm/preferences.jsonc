@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Tatala i luga o le sese",
+    "description": "Faʻalavelave le faʻagaioiga o le faʻagaioiga pe a tupu se mea sese."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Tatala i luga o le le avanoa",
+    "description": "E tatala le download pe a le avanoa se fasi."
+  },
+  "add_headers": {
+    "name": "O isi ulutala",
+    "description": "Isi ulutala e aofia ai i le fesoʻotaʻiga talosaga."
+  },
+  "audio_format": {
+    "name": "Audio Meaalofa",
+    "description": "Faʻatulagaina o tagata liliu mai (MP3, Flac, optus, ma isi."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Fiafia i le gagana leo leo."
+  },
+  "audio_multistreams": {
+    "name": "Audio Vaiotele",
+    "description": "Faataga tuʻufaʻatasia le tele o taʻitaʻi leo."
+  },
+  "audio_quality": {
+    "name": "Audio uiga",
+    "description": "Audio lelei (0 sili, 10 sili ona lelei)."
+  },
+  "batch_file": {
+    "name": "Faila faila",
+    "description": "Auala i se faila o loʻo i ai urls e download."
+  },
+  "break_on_existing": {
+    "name": "Malepe i le oi ai nei",
+    "description": "Taofi downloading pe a fai o le faila ua uma ona i ai."
+  },
+  "concurrent_fragments": {
+    "name": "Tulaga maualuga",
+    "description": "Aofai o mea e tutusa ai le download (faaletonu 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Liliu Atalii",
+    "description": "Liliu faʻamau i le faʻaupuga faʻapitoa."
+  },
+  "cookies": {
+    "name": "Kuki",
+    "description": "Netscape Faatulagaina faila e faitau ai kuki mai ma dump kuki jear i"
+  },
+  "cookies_from_browser": {
+    "name": "Kuki mai browser",
+    "description": "Faaulufaleina kuki mai le mea taua."
+  },
+  "download_archive": {
+    "name": "Sii mai Archive",
+    "description": "Auala e faila ai i faʻamaumauga download ID e aloese ai mai ni kopi."
+  },
+  "embed_chapters": {
+    "name": "Oded mataupu",
+    "description": "O loʻo talia mataupu i totonu o le faila mulimuli."
+  },
+  "embed_info_json": {
+    "name": "Faʻapipiʻi le faʻamatalaga JSON",
+    "description": "Fetaui i luga o le JSON i le faila mulimuli."
+  },
+  "embed_metadata": {
+    "name": "Fusi metadata",
+    "description": "Ata mai metadata i le faila mulimuli."
+  },
+  "embed_subs": {
+    "name": "Fusi mautotogi",
+    "description": "Opoina pusa i totonu o le faila mulimuli."
+  },
+  "embed_thumbnail": {
+    "name": "Faʻapipiʻi Tumbnail",
+    "description": "O loʻo fusu i le faʻaliliuga i le faila mulimuli."
+  },
+  "enable_file_urls": {
+    "name": "Mafai faila faila",
+    "description": "Mafai ai le faʻaaogaina o faila faila mo faila i le lotoifale."
+  },
+  "extract_audio": {
+    "name": "Aveese leo",
+    "description": "Aveese leo mai download vitio (faʻaaogaina FFMEG)."
+  },
+  "extractor_retries": {
+    "name": "Ua toe taumafai",
+    "description": "Numera o le toe taumafai i luga o mea sese."
+  },
+  "ffmpeg_location": {
+    "name": "FFMORG nofoaga",
+    "description": "Auala i le FFRAME BIRO."
+  },
+  "file_access_retries": {
+    "name": "Faiva avanoa toe taumafai",
+    "description": "Aofai o resees on faila faaaoga mea sese."
+  },
+  "fixup": {
+    "name": "Faaleaogaina",
+    "description": "Otometi ona faʻasaʻoina sese sese i le ata vitio."
+  },
+  "font_size": {
+    "name": "Tele le tele",
+    "description": "O le tele o le tele na faʻaaogaina i totonu o le tusi talosaga."
+  },
+  "force_ipv4": {
+    "name": "Malosi IPv4",
+    "description": "Faʻamalosia le faʻaaogaina o le IPV4 mo fesoʻotaʻiga fesoʻotaʻiga."
+  },
+  "force_ipv6": {
+    "name": "Malosi ipv6",
+    "description": "Faʻamalosia le faʻaaogaina o le IPV6 mo fesoʻotaʻiga fesoʻotaʻiga."
+  },
+  "force_overwrites": {
+    "name": "Malosi le malosi",
+    "description": "O loʻo iai ni faila o loʻo iai nei e aunoa ma le fesili."
+  },
+  "format": {
+    "name": "Togafiti",
+    "description": "Vitio Matuti code (s) e download ai."
+  },
+  "fragment_retries": {
+    "name": "Fanua toe taumafai",
+    "description": "Numera o le toe taumafai i fasi mea sese."
+  },
+  "geo_verification_proxy": {
+    "name": "GEO faʻamaonia sui sui",
+    "description": "Proxy server e faʻaaoga mo geo-faʻamaonia."
+  },
+  "ignore_errors": {
+    "name": "Le amanaiaina mea sese",
+    "description": "Le amanaiaina mea sese ma faaauau pea i le isi vitio."
+  },
+  "impersonate": {
+    "name": "Lē aoga",
+    "description": "Tagata o tausia e faʻatatau i (Chrome, Chrome-110, chrome: faʻamalama-pupuni-10)."
+  },
+  "keep_fragments": {
+    "name": "Tausia fasipepa",
+    "description": "Taofia le download o mea na gaosia pe a uma le tuʻufaʻatasia."
+  },
+  "language": {
+    "name": "Gagana",
+    "description": "Gagana o le talosaga."
+  },
+  "limit_rate": {
+    "name": "Tapulaa fua faatatau",
+    "description": "Faʻatapulaʻaina le saoasaoa saoasaoa (E.G., 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Ola mai Amata",
+    "description": "Download mai ni ata tifaga mai le amataga."
+  },
+  "merge_output_format": {
+    "name": "Ata vitio",
+    "description": "O ata muamua vitio e mafua mai i le ogatotonu o auala."
+  },
+  "output": {
+    "name": "Galuega faatino",
+    "description": "OFFURTAL MONELETNARETE VITIF."
+  },
+  "password": {
+    "name": "Numera e le iloa e sesi",
+    "description": "Upu faataga mo le faamaoniaina."
+  },
+  "paths": {
+    "name": "Auala",
+    "description": "Faatonu e sefe ai ituaiga eseese o faila."
+  },
+  "playlist": {
+    "name": "Taalo i luga",
+    "description": "Faʻailoa pe o le downloadina o le atoa playlist poʻo se ata e tasi."
+  },
+  "prefer_insecure": {
+    "name": "Fiafia i le le saogalemu",
+    "description": "Faaaogaina http sootaga nai lo le HTTPS (YouTube na o)."
+  },
+  "proxy": {
+    "name": "Sui sui",
+    "description": "Proxy server e faʻaaoga mo fesoʻotaʻiga fesoʻotaʻiga."
+  },
+  "remux_video": {
+    "name": "Reurux vitio",
+    "description": "Suia le ata vitio e aunoa ma le taofi."
+  },
+  "retries": {
+    "name": "Toe taumafai",
+    "description": "Aofai o toe taumafai i luga o mea sese."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip Playlist pe a uma mea sese",
+    "description": "Skips le vaega o totoe o le playlist ina ua mavae se tele o mea sese."
+  },
+  "socket_timeout": {
+    "name": "Socy taimi",
+    "description": "Taimi mo socy fesoʻotaʻiga i sekone."
+  },
+  "source_address": {
+    "name": "FESOASOANI FESOASOANI",
+    "description": "Tagata Aʻoga IP tuatusi e fusifusia i le taimi e faia ai fesoʻotaʻiga."
+  },
+  "sponsorblock_mark": {
+    "name": "Spissorblock faailoga",
+    "description": "Faʻailoga o faʻailoga mai le auvae o loʻo i ai vaega."
+  },
+  "sub_format": {
+    "name": "Vaega o le subtitle",
+    "description": "Subtotle form code (s) e download."
+  },
+  "sub_langs": {
+    "name": "Great Gagana",
+    "description": "Gagana o ulutala e download ai."
+  },
+  "theme_dark": {
+    "name": "Aurome Autu",
+    "description": "Autu o le tusi talosaga."
+  },
+  "twofactor": {
+    "name": "Lua-mea moni",
+    "description": "Lua-mea moni faʻamaonia code."
+  },
+  "use_extractors": {
+    "name": "Faʻaoga tagata",
+    "description": "Igoa o Exprackers e faʻaaoga (koma vavaeʻese). (\"Uma\", \"Depalling\", \""
+  },
+  "username": {
+    "name": "Username",
+    "description": "Igoa ole igoa mo le faamaoniaina."
+  },
+  "video_multistreams": {
+    "name": "Vitio siosiomaga",
+    "description": "Faataga tuʻufaʻatasia le tele o avanoa vitio."
+  },
+  "video_password": {
+    "name": "Vitio upu faataga",
+    "description": "Upu faataga mo upu faataga-puipuia vitio."
+  },
+  "video_resolution": {
+    "name": "Iugafono",
+    "description": "Filifiliga o ata vitio"
+  },
+  "video_subtitles": {
+    "name": "Topipalaina",
+    "description": "Manatu o Siva Auds Autu"
+  },
+  "wait_for_video": {
+    "name": "Faatali mo Vitio",
+    "description": "Faatali mo se fuafuaga fuafuaina e maua aʻo leʻi lafoina."
+  },
+  "write_auto_subs": {
+    "name": "Sii mai Auto Repitles",
+    "description": "Tusi e maua fua faatatau."
+  },
+  "write_subs": {
+    "name": "Sii maia ulutala",
+    "description": "Tusi tusi lesona o iai."
+  },
+  "write_thumbnail": {
+    "name": "Tusi le Ata Mumnaul",
+    "description": "Sefe le vitio ata i le disk."
+  },
+  "xattrs": {
+    "name": "Xattrs",
+    "description": "Tusia metadata i le faila faila xattrs."
+  },
+  "xff": {
+    "name": "X-luma-mo",
+    "description": "Faʻatulaga le X-tuʻu-mo le ulu atu e faʻataʻitaʻi nofoaga."
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Nutraukti dėl klaidos",
+    "description": "Atsisiuntimo procesas nutraukiamas, jei įvyksta klaida."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Nutraukti nepasiekiamą fragmentą",
+    "description": "Atsisiuntimas nutraukiamas, jei fragmentas nepasiekiamas."
+  },
+  "add_headers": {
+    "name": "Papildomos antraštės",
+    "description": "Papildomos antraštės, kurias reikia įtraukti į tinklo užklausas."
+  },
+  "audio_format": {
+    "name": "Garso formatas",
+    "description": "Konvertuoto garso formatas (mp3, flac, opus ir kt.)."
+  },
+  "audio_language": {
+    "name": "Garsas",
+    "description": "Pageidaujamos garso kalbos kodas."
+  },
+  "audio_multistreams": {
+    "name": "Daugiasluoksniai garso įrašai",
+    "description": "Leidžia sujungti kelis garso srautus."
+  },
+  "audio_quality": {
+    "name": "Garso kokybė",
+    "description": "Garso kokybė (0 geriausios, 10 prasčiausios)."
+  },
+  "batch_file": {
+    "name": "Paketinis failas",
+    "description": "Kelias į failą, kuriame yra atsisiuntimo URL."
+  },
+  "break_on_existing": {
+    "name": "Pertrauka apie esamą",
+    "description": "Sustabdo atsisiuntimą, jei failas jau yra."
+  },
+  "concurrent_fragments": {
+    "name": "Lygiagrečiai vykstantys fragmentai",
+    "description": "Vienu metu atsisiunčiamų fragmentų skaičius (numatytasis 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Konvertuoti miniatiūras",
+    "description": "Konvertuoti miniatiūras į nurodytą formatą."
+  },
+  "cookies": {
+    "name": "Slapukai",
+    "description": "„Netscape“ formato failas, skirtas nuskaityti slapukus ir į jį įdėti slapukų stiklainį"
+  },
+  "cookies_from_browser": {
+    "name": "Slapukai iš naršyklės",
+    "description": "Importuoja slapukus iš nurodytos naršyklės."
+  },
+  "download_archive": {
+    "name": "Atsisiųskite archyvą",
+    "description": "Failo kelias, skirtas įrašyti atsisiųstus ID, kad būtų išvengta dublikatų."
+  },
+  "embed_chapters": {
+    "name": "Įterpti skyrius",
+    "description": "Įterpia skyrius į galutinį failą."
+  },
+  "embed_info_json": {
+    "name": "Įterpti informacijos JSON",
+    "description": "Įterpia informacijos JSON į galutinį failą."
+  },
+  "embed_metadata": {
+    "name": "Įterpti metaduomenis",
+    "description": "Įterpia metaduomenis į galutinį failą."
+  },
+  "embed_subs": {
+    "name": "Įterpti subtitrus",
+    "description": "Įterpia subtitrus į galutinį failą."
+  },
+  "embed_thumbnail": {
+    "name": "Įterpti miniatiūrą",
+    "description": "Į galutinį failą įterpia miniatiūrą."
+  },
+  "enable_file_urls": {
+    "name": "Įgalinti failų URL",
+    "description": "Leidžia naudoti failų URL vietiniams failams."
+  },
+  "extract_audio": {
+    "name": "Ištraukite garso įrašą",
+    "description": "Ištraukia garsą iš atsisiųstų vaizdo įrašų (naudoja ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Ištraukiklis pakartotinai",
+    "description": "Bandymų dėl ištraukimo klaidų skaičius."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg vieta",
+    "description": "Kelias į FFmpeg dvejetainį failą."
+  },
+  "file_access_retries": {
+    "name": "Prieiga prie failų iš naujo",
+    "description": "Bandymų dėl prieigos prie failų klaidų skaičius."
+  },
+  "fixup": {
+    "name": "Pataisymas",
+    "description": "Automatiškai ištaiso žinomas vaizdo failo klaidas."
+  },
+  "font_size": {
+    "name": "Šrifto dydis",
+    "description": "Programoje naudojamas šrifto dydis."
+  },
+  "force_ipv4": {
+    "name": "Priversti IPv4",
+    "description": "Priverčia tinklo ryšiams naudoti IPv4."
+  },
+  "force_ipv6": {
+    "name": "Priversti IPv6",
+    "description": "Priverčia tinklo ryšiams naudoti IPv6."
+  },
+  "force_overwrites": {
+    "name": "Priverstinis perrašymas",
+    "description": "Neprašant perrašo esamus failus."
+  },
+  "format": {
+    "name": "Formatas",
+    "description": "Atsisiųsti vaizdo įrašo formato kodas (-ai)."
+  },
+  "fragment_retries": {
+    "name": "Fragmento bandymai",
+    "description": "Bandymų dėl fragmentų atsisiuntimo klaidų skaičius."
+  },
+  "geo_verification_proxy": {
+    "name": "Geografinio patvirtinimo tarpinis serveris",
+    "description": "Tarpinis serveris, naudojamas geografiniam patvirtinimui."
+  },
+  "ignore_errors": {
+    "name": "Ignoruoti klaidas",
+    "description": "Nepaisykite atsisiuntimo klaidų ir tęskite kitą vaizdo įrašą."
+  },
+  "impersonate": {
+    "name": "Apsimesti",
+    "description": "Klientas, kuriuo apsimetinėjama (chromas, chromas-110, chromas: langai-10)."
+  },
+  "keep_fragments": {
+    "name": "Laikykite fragmentus",
+    "description": "Po sujungimo išsaugo atsisiųstus fragmentus."
+  },
+  "language": {
+    "name": "Kalba",
+    "description": "Programos kalba."
+  },
+  "limit_rate": {
+    "name": "Ribinė norma",
+    "description": "Apribojamas atsisiuntimo greitis (pvz., 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "Tiesiogiai nuo pradžios",
+    "description": "Nuo pat pradžių atsisiunčia tiesioginius vaizdo įrašus."
+  },
+  "merge_output_format": {
+    "name": "Vaizdo įrašo formatas",
+    "description": "Galutinis vaizdo įrašo formatas, gautas sujungus srautus."
+  },
+  "output": {
+    "name": "Išvesties šablonas",
+    "description": "Išvesties failo pavadinimo šablonas."
+  },
+  "password": {
+    "name": "Slaptažodis",
+    "description": "Slaptažodis autentifikavimui."
+  },
+  "paths": {
+    "name": "Keliai",
+    "description": "Katalogai įvairių tipų failams išsaugoti."
+  },
+  "playlist": {
+    "name": "Grojaraštis",
+    "description": "Nurodo, ar atsisiųsti visą grojaraštį, ar vieną vaizdo įrašą."
+  },
+  "prefer_insecure": {
+    "name": "Pirmenybę teikia nesaugumui",
+    "description": "Vietoj HTTPS naudojamas HTTP ryšys (tik „YouTube“)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Tarpinis serveris, naudojamas tinklo užklausoms."
+  },
+  "remux_video": {
+    "name": "Remux vaizdo įrašas",
+    "description": "Pakeičia vaizdo įrašo sudėtinį rodinį be pakartotinio kodavimo."
+  },
+  "retries": {
+    "name": "Bandymai pakartoti",
+    "description": "Bandymų dėl atsisiuntimo klaidų skaičius."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Praleisti grojaraštį po klaidų",
+    "description": "Po tam tikro klaidų skaičiaus praleidžiama likusi grojaraščio dalis."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Lizdų jungčių skirtasis laikas sekundėmis."
+  },
+  "source_address": {
+    "name": "Šaltinio adresas",
+    "description": "Kliento IP adresas, prie kurio reikia prisijungti užmezgant ryšius."
+  },
+  "sponsorblock_mark": {
+    "name": "Rėmėjo bloko ženklas",
+    "description": "Žymi segmentus iš SponsorBlock kategorijų."
+  },
+  "sub_format": {
+    "name": "Subtitrų formatas",
+    "description": "Subtitrų formato kodas (-ai), kurį norite atsisiųsti."
+  },
+  "sub_langs": {
+    "name": "Subtitrų kalbos",
+    "description": "Subtitrų kalbos atsisiųsti."
+  },
+  "theme_dark": {
+    "name": "Tamsi tema",
+    "description": "Paraiškos tema."
+  },
+  "twofactor": {
+    "name": "Dviejų veiksnių autentifikavimas",
+    "description": "Dviejų veiksnių autentifikavimo kodas."
+  },
+  "use_extractors": {
+    "name": "Naudokite ištraukiklius",
+    "description": "Naudojamų ištraukėjų pavadinimai (atskirti kableliais).(\"visi\", \"numatytasis\", \"pabaiga\", reguliarioji išraiška)"
+  },
+  "username": {
+    "name": "Vartotojo vardas",
+    "description": "Vartotojo vardas autentifikavimui."
+  },
+  "video_multistreams": {
+    "name": "Multistreams vaizdo įrašai",
+    "description": "Leidžia sujungti kelis vaizdo srautus."
+  },
+  "video_password": {
+    "name": "Vaizdo įrašo slaptažodis",
+    "description": "Slaptažodžiu apsaugotų vaizdo įrašų slaptažodis."
+  },
+  "video_resolution": {
+    "name": "Rezoliucija",
+    "description": "Pageidautina vaizdo raiška"
+  },
+  "video_subtitles": {
+    "name": "Subtitrai",
+    "description": "Pageidautini vaizdo įrašo subtitrai"
+  },
+  "wait_for_video": {
+    "name": "Palaukite vaizdo įrašo",
+    "description": "Prieš atsisiunčiant laukiama, kol suplanuotas vaizdo įrašas taps pasiekiamas."
+  },
+  "write_auto_subs": {
+    "name": "Atsisiųsti automatinius subtitrus",
+    "description": "Rašo turimus automatinius subtitrus."
+  },
+  "write_subs": {
+    "name": "Atsisiųsti subtitrus",
+    "description": "Rašo turimus rankinius subtitrus."
+  },
+  "write_thumbnail": {
+    "name": "Rašyti miniatiūrą",
+    "description": "Vaizdo įrašo miniatiūra išsaugoma diske."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Rašo metaduomenis į failų sistemą xattrs."
+  },
+  "xff": {
+    "name": "X-Persiųsta-Už",
+    "description": "Nustato X-Forwarded-For antraštę, kad imituotų vietą."
+  }
+}

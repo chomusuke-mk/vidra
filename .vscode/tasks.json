@@ -1,0 +1,200 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "$schema": "vscode://schemas/tasks",
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Flutter: Clean Android (gradlew clean)",
+      "type": "shell",
+      "windows": {
+        "command": "./gradlew"
+      },
+      "linux": {
+        "command": "./gradlew"
+      },
+      "osx": {
+        "command": "./gradlew"
+      },
+      "args": [
+        "clean"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/android",
+        "env": {
+          "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages"
+        }
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Prepare: Create site-packages directory",
+      "type": "process",
+      "command": "bash",
+      "windows": {
+        "command": "cmd",
+        "args": [
+          "/c",
+          "if not exist ${workspaceFolder}\\build\\site-packages mkdir ${workspaceFolder}\\build\\site-packages"
+        ]
+      },
+      "linux": {
+        "command": "bash",
+        "args": [
+          "-c",
+          "mkdir -p \"${workspaceFolder}/build/site-packages\""
+        ]
+      },
+      "osx": {
+        "command": "bash",
+        "args": [
+          "-c",
+          "mkdir -p \"${workspaceFolder}/build/site-packages\""
+        ]
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "never",
+        "panel": "shared",
+        "clear": false
+      },
+    },
+    {
+      "label": "Serious Python: Package Android App",
+      "type": "process",
+      "command": "dart",
+      "args": [
+        "run",
+        "serious_python:main",
+        "package",
+        "app/src",
+        "--requirements",
+        "-rapp/requirements.txt",
+        "-p",
+        "Android",
+        "--verbose",
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages",
+        }
+      },
+      "dependsOn": [
+        "Prepare: Create site-packages directory"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Zip App",
+      "type": "process",
+      "command": "dart",
+      "args": [
+        "run",
+        "serious_python:main",
+        "package",
+        "app/src",
+        "-p",
+        "Android" //generico, no instala dependencias
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages"
+        }
+      },
+      "dependsOn": [
+        "Prepare: Create site-packages directory"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Serious Python: Package Windows App",
+      "type": "process",
+      "command": "dart",
+      "args": [
+        "run",
+        "serious_python:main",
+        "package",
+        "app/src",
+        "--requirements",
+        "-rapp/requirements.txt",
+        "-p",
+        "Windows",
+        "--verbose",
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages",
+          "SERIOUS_PYTHON_ALLOW_SOURCE_DISTRIBUTIONS ": "false"
+        }
+      },
+      "dependsOn": [
+        "Prepare: Create site-packages directory"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Serious Python: Package Linux App",
+      "type": "process",
+      "command": "dart",
+      "args": [
+        "run",
+        "serious_python:main",
+        "package",
+        "app/src",
+        "--requirements",
+        "-rapp/requirements.txt",
+        "-p",
+        "Linux",
+        "--verbose",
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build Android APK (Flutter)",
+      "type": "process",
+      "command": "flutter",
+      "args": [
+        "build",
+        "apk",
+        "--release",
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages"
+        },
+      },
+      "dependsOn": [
+        "Prepare: Create site-packages directory"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+  ]
+}

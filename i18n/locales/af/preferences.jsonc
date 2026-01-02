@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Stop by fout",
+    "description": "Staak die aflaaiproses as 'n fout voorkom."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Stop op onbeskikbare fragment",
+    "description": "Staak die aflaai as 'n fragment nie beskikbaar is nie."
+  },
+  "add_headers": {
+    "name": "Bykomende opskrifte",
+    "description": "Bykomende opskrifte om by netwerkversoeke in te sluit."
+  },
+  "audio_format": {
+    "name": "Oudio-formaat",
+    "description": "Formaat van die omgeskakelde oudio (mp3, flac, opus, ens.)."
+  },
+  "audio_language": {
+    "name": "Oudio",
+    "description": "Voorkeur-oudiotaalkode."
+  },
+  "audio_multistreams": {
+    "name": "Oudio Multistrome",
+    "description": "Laat die kombinasie van verskeie oudiostrome toe."
+  },
+  "audio_quality": {
+    "name": "Oudio kwaliteit",
+    "description": "Oudiokwaliteit (0 beste, 10 slegste)."
+  },
+  "batch_file": {
+    "name": "Batch lêer",
+    "description": "Pad na 'n lêer wat URL's bevat om af te laai."
+  },
+  "break_on_existing": {
+    "name": "Breek op Bestaande",
+    "description": "Hou op om af te laai as die lêer reeds bestaan."
+  },
+  "concurrent_fragments": {
+    "name": "Gelyktydige Fragmente",
+    "description": "Aantal gelyktydige fragmente om af te laai (verstek 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Skakel kleinkiekies om",
+    "description": "Skakel duimnaels om na die gespesifiseerde formaat."
+  },
+  "cookies": {
+    "name": "Koekies",
+    "description": "Netscape-geformateerde lêer om koekies uit te lees en koekiehouer in te gooi"
+  },
+  "cookies_from_browser": {
+    "name": "Koekies van blaaier",
+    "description": "Voer koekies in vanaf die gespesifiseerde blaaier."
+  },
+  "download_archive": {
+    "name": "Laai Argief af",
+    "description": "Pad na lêer om afgelaaide ID's aan te teken om duplikate te vermy."
+  },
+  "embed_chapters": {
+    "name": "Sluit hoofstukke in",
+    "description": "Sluit hoofstukke in in die finale lêer."
+  },
+  "embed_info_json": {
+    "name": "Sluit inligting JSON in",
+    "description": "Sluit inligting JSON in in die finale lêer."
+  },
+  "embed_metadata": {
+    "name": "Sluit metadata in",
+    "description": "Sluit metadata in in die finale lêer."
+  },
+  "embed_subs": {
+    "name": "Sluit onderskrifte in",
+    "description": "Sluit onderskrifte in in die finale lêer."
+  },
+  "embed_thumbnail": {
+    "name": "Sluit kleinkiekie in",
+    "description": "Sluit die duimnael in die finale lêer in."
+  },
+  "enable_file_urls": {
+    "name": "Aktiveer lêer-URL's",
+    "description": "Aktiveer die gebruik van lêer-URL's vir plaaslike lêers."
+  },
+  "extract_audio": {
+    "name": "Onttrek oudio",
+    "description": "Onttrek oudio van afgelaaide video's (gebruik ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Uittrekker probeer weer",
+    "description": "Aantal herprobasies op onttrekkingsfoute."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg Ligging",
+    "description": "Pad na die FFmpeg binêre."
+  },
+  "file_access_retries": {
+    "name": "Lêertoegang herprobeer",
+    "description": "Aantal herprobasies op lêertoegangsfoute."
+  },
+  "fixup": {
+    "name": "Herstel",
+    "description": "Korrigeer outomaties bekende foute in die videolêer."
+  },
+  "font_size": {
+    "name": "Lettergrootte",
+    "description": "Lettergrootte wat in die toepassing gebruik word."
+  },
+  "force_ipv4": {
+    "name": "Dwing IPv4",
+    "description": "Forseer die gebruik van IPv4 vir netwerkverbindings."
+  },
+  "force_ipv6": {
+    "name": "Dwing IPv6",
+    "description": "Forseer die gebruik van IPv6 vir netwerkverbindings."
+  },
+  "force_overwrites": {
+    "name": "Dwing oorskryf",
+    "description": "Oorskryf bestaande lêers sonder om te vra."
+  },
+  "format": {
+    "name": "Formaat",
+    "description": "Videoformaatkode(s) om af te laai."
+  },
+  "fragment_retries": {
+    "name": "Fragment herprobeer",
+    "description": "Aantal herprobasies op fragmentaflaaifoute."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Verifikasie Proxy",
+    "description": "Instaanbediener om vir geo-verifikasie te gebruik."
+  },
+  "ignore_errors": {
+    "name": "Ignoreer foute",
+    "description": "Ignoreer aflaaifoute en gaan voort met die volgende video."
+  },
+  "impersonate": {
+    "name": "Verpersoonlik",
+    "description": "Kliënt om na te doen (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Hou Fragmente",
+    "description": "Hou die afgelaaide fragmente na samesmelting."
+  },
+  "language": {
+    "name": "Taal",
+    "description": "Taal van die aansoek."
+  },
+  "limit_rate": {
+    "name": "Beperk Tarief",
+    "description": "Beperk die aflaaispoed (bv. 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "Regstreeks van die begin af",
+    "description": "Laai regstreekse video's van die begin af af."
+  },
+  "merge_output_format": {
+    "name": "Video-formaat",
+    "description": "Finale videoformaat as gevolg van samesmelting van strome."
+  },
+  "output": {
+    "name": "Uitset sjabloon",
+    "description": "Uitvoer lêernaam sjabloon."
+  },
+  "password": {
+    "name": "Wagwoord",
+    "description": "Wagwoord vir verifikasie."
+  },
+  "paths": {
+    "name": "Paadjies",
+    "description": "Gidse om verskillende tipes lêers te stoor."
+  },
+  "playlist": {
+    "name": "Snitlys",
+    "description": "Dui aan of die volledige snitlys of 'n enkele video afgelaai moet word."
+  },
+  "prefer_insecure": {
+    "name": "Verkies onseker",
+    "description": "Gebruik HTTP-verbinding in plaas van HTTPS (slegs YouTube)."
+  },
+  "proxy": {
+    "name": "Volmag",
+    "description": "Instaanbediener om vir netwerkversoeke te gebruik."
+  },
+  "remux_video": {
+    "name": "Remux video",
+    "description": "Verander die videohouer sonder herkodering."
+  },
+  "retries": {
+    "name": "Herprobeer",
+    "description": "Aantal herprobasies op aflaaifoute."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Slaan snitlys oor na foute",
+    "description": "Slaan die res van die snitlys oor na 'n sekere aantal foute."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Time-out vir sokverbindings in sekondes."
+  },
+  "source_address": {
+    "name": "Bronadres",
+    "description": "Kliënt-IP-adres om aan te bind wanneer verbindings gemaak word."
+  },
+  "sponsorblock_mark": {
+    "name": "BorgBlokkeermerk",
+    "description": "Merk segmente van SponsorBlock-kategorieë."
+  },
+  "sub_format": {
+    "name": "Onderskrifformaat",
+    "description": "Onderskrifformaatkode(s) om af te laai."
+  },
+  "sub_langs": {
+    "name": "Ondertiteltale",
+    "description": "Tale van die onderskrifte om af te laai."
+  },
+  "theme_dark": {
+    "name": "Donker Tema",
+    "description": "Tema van die aansoek."
+  },
+  "twofactor": {
+    "name": "Twee-faktor-verifikasie",
+    "description": "Twee-faktor verifikasie kode."
+  },
+  "use_extractors": {
+    "name": "Gebruik Extractors",
+    "description": "Name van onttrekkers om te gebruik (komma-geskei).(\"alles\",\"verstek\",\"einde\",gereelde uitdrukking)"
+  },
+  "username": {
+    "name": "Gebruikersnaam",
+    "description": "Gebruikersnaam vir verifikasie."
+  },
+  "video_multistreams": {
+    "name": "Video Multistrome",
+    "description": "Laat die kombinasie van verskeie videostrome toe."
+  },
+  "video_password": {
+    "name": "Video wagwoord",
+    "description": "Wagwoord vir wagwoordbeskermde video's."
+  },
+  "video_resolution": {
+    "name": "Resolusie",
+    "description": "Voorkeur video resolusie"
+  },
+  "video_subtitles": {
+    "name": "Onderskrifte",
+    "description": "Voorkeur video-onderskrifte"
+  },
+  "wait_for_video": {
+    "name": "Wag vir video",
+    "description": "Wag vir 'n geskeduleerde video om beskikbaar te word voordat dit afgelaai word."
+  },
+  "write_auto_subs": {
+    "name": "Laai outomatiese onderskrifte af",
+    "description": "Skryf beskikbare outomatiese onderskrifte."
+  },
+  "write_subs": {
+    "name": "Laai onderskrifte af",
+    "description": "Skryf beskikbare handmatige onderskrifte."
+  },
+  "write_thumbnail": {
+    "name": "Skryf Kleinkiekie",
+    "description": "Stoor die video-kleinkiekie op skyf."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Skryf metadata na die lêerstelsel xattrs."
+  },
+  "xff": {
+    "name": "X-aangestuur-Vir",
+    "description": "Stel die X-Forwarded-For-kopskrif om ligging te simuleer."
+  }
+}

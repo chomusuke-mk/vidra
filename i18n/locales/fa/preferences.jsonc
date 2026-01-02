@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "لغو روی خطا",
+    "description": "در صورت بروز خطا، فرآیند دانلود را متوقف می کند."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "لغو در قطعه ناموفق",
+    "description": "اگر قطعه ای در دسترس نباشد، دانلود را لغو می کند."
+  },
+  "add_headers": {
+    "name": "سرصفحه های اضافی",
+    "description": "هدرهای اضافی برای درج در درخواست های شبکه."
+  },
+  "audio_format": {
+    "name": "فرمت صوتی",
+    "description": "فرمت صدای تبدیل شده (mp3، flac، opus، و غیره)."
+  },
+  "audio_language": {
+    "name": "صوتی",
+    "description": "کد زبان صوتی ترجیحی."
+  },
+  "audio_multistreams": {
+    "name": "چند جریان صوتی",
+    "description": "اجازه می دهد تا چندین جریان صوتی را ترکیب کنید."
+  },
+  "audio_quality": {
+    "name": "کیفیت صدا",
+    "description": "کیفیت صدا (0 بهترین، 10 بدترین)."
+  },
+  "batch_file": {
+    "name": "فایل دسته ای",
+    "description": "مسیر فایل حاوی آدرس های اینترنتی برای دانلود."
+  },
+  "break_on_existing": {
+    "name": "شکستن در موجود",
+    "description": "اگر فایل از قبل وجود داشته باشد، دانلود متوقف می شود."
+  },
+  "concurrent_fragments": {
+    "name": "قطعات همزمان",
+    "description": "تعداد قطعات همزمان برای دانلود (پیش فرض 1)."
+  },
+  "convert_thumbnails": {
+    "name": "تبدیل ریز عکسها",
+    "description": "ریز عکسها را به فرمت مشخص شده تبدیل کنید."
+  },
+  "cookies": {
+    "name": "کوکی ها",
+    "description": "فایل قالب‌بندی شده Netscape برای خواندن کوکی‌ها و ریختن کوکی‌ها در آن"
+  },
+  "cookies_from_browser": {
+    "name": "کوکی ها از مرورگر",
+    "description": "کوکی ها را از مرورگر مشخص شده وارد می کند."
+  },
+  "download_archive": {
+    "name": "دانلود آرشیو",
+    "description": "مسیر فایل برای ثبت شناسه های دانلود شده برای جلوگیری از تکراری."
+  },
+  "embed_chapters": {
+    "name": "جاسازی فصل ها",
+    "description": "فصل ها را در فایل نهایی جاسازی می کند."
+  },
+  "embed_info_json": {
+    "name": "جاسازی اطلاعات JSON",
+    "description": "اطلاعات JSON را در فایل نهایی جاسازی می کند."
+  },
+  "embed_metadata": {
+    "name": "تعبیه متادیتا",
+    "description": "متادیتا را در فایل نهایی جاسازی می کند."
+  },
+  "embed_subs": {
+    "name": "تعبیه زیرنویس",
+    "description": "زیرنویس ها را در فایل نهایی جاسازی می کند."
+  },
+  "embed_thumbnail": {
+    "name": "تعبیه تصویر کوچک",
+    "description": "تصویر کوچک را در فایل نهایی جاسازی می کند."
+  },
+  "enable_file_urls": {
+    "name": "URL های فایل را فعال کنید",
+    "description": "استفاده از URL های فایل را برای فایل های محلی فعال می کند."
+  },
+  "extract_audio": {
+    "name": "استخراج صدا",
+    "description": "صدا را از ویدیوهای دانلود شده استخراج می کند (از ffmpeg استفاده می کند)."
+  },
+  "extractor_retries": {
+    "name": "استخراج کننده دوباره تلاش می کند",
+    "description": "تعداد تلاش های مجدد در مورد خطاهای استخراج کننده."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg Location",
+    "description": "مسیر باینری FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "دسترسی به فایل دوباره تلاش می کند",
+    "description": "تعداد تلاش های مجدد در مورد خطاهای دسترسی به فایل."
+  },
+  "fixup": {
+    "name": "تعمیر",
+    "description": "به طور خودکار عیوب شناخته شده در فایل ویدیویی را تصحیح می کند."
+  },
+  "font_size": {
+    "name": "اندازه فونت",
+    "description": "اندازه فونت مورد استفاده در برنامه"
+  },
+  "force_ipv4": {
+    "name": "IPv4 را اجباری کنید",
+    "description": "استفاده از IPv4 را برای اتصالات شبکه مجبور می کند."
+  },
+  "force_ipv6": {
+    "name": "IPv6 را اجباری کنید",
+    "description": "استفاده از IPv6 را برای اتصالات شبکه مجبور می کند."
+  },
+  "force_overwrites": {
+    "name": "بازنویسی اجباری",
+    "description": "فایل های موجود را بدون درخواست بازنویسی می کند."
+  },
+  "format": {
+    "name": "قالب",
+    "description": "کد(های) فرمت ویدیو برای دانلود."
+  },
+  "fragment_retries": {
+    "name": "قطعه دوباره تلاش می کند",
+    "description": "تعداد تلاش های مجدد در مورد خطاهای دانلود قطعه."
+  },
+  "geo_verification_proxy": {
+    "name": "پروکسی تأیید جغرافیایی",
+    "description": "سرور پروکسی برای استفاده برای تأیید جغرافیایی."
+  },
+  "ignore_errors": {
+    "name": "نادیده گرفتن خطاها",
+    "description": "خطاهای دانلود را نادیده بگیرید و با ویدیوی بعدی ادامه دهید."
+  },
+  "impersonate": {
+    "name": "جعل هویت",
+    "description": "مشتری برای جعل هویت (chrome، chrome-110، chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "قطعات را نگه دارید",
+    "description": "قطعات دانلود شده را پس از ادغام نگه می دارد."
+  },
+  "language": {
+    "name": "زبان",
+    "description": "زبان برنامه"
+  },
+  "limit_rate": {
+    "name": "نرخ محدود",
+    "description": "سرعت دانلود را محدود می کند (به عنوان مثال، 50K، 4.2M)."
+  },
+  "live_from_start": {
+    "name": "زنده از ابتدا",
+    "description": "ویدیوهای زنده را از ابتدا دانلود می کند."
+  },
+  "merge_output_format": {
+    "name": "فرمت ویدئو",
+    "description": "فرمت نهایی ویدیویی حاصل از ادغام جریان ها."
+  },
+  "output": {
+    "name": "قالب خروجی",
+    "description": "قالب نام فایل خروجی"
+  },
+  "password": {
+    "name": "رمز عبور",
+    "description": "رمز عبور برای احراز هویت"
+  },
+  "paths": {
+    "name": "مسیرها",
+    "description": "دایرکتوری هایی برای ذخیره انواع مختلف فایل ها."
+  },
+  "playlist": {
+    "name": "لیست پخش",
+    "description": "نشان می دهد که آیا لیست پخش کامل یا یک ویدیو دانلود شود."
+  },
+  "prefer_insecure": {
+    "name": "ناامن را ترجیح می دهند",
+    "description": "از اتصال HTTP به جای HTTPS (فقط YouTube) استفاده می کند."
+  },
+  "proxy": {
+    "name": "پروکسی",
+    "description": "سرور پروکسی برای استفاده برای درخواست های شبکه."
+  },
+  "remux_video": {
+    "name": "ویدیو ریموکس",
+    "description": "ظرف ویدیو را بدون رمزگذاری مجدد تغییر می‌دهد."
+  },
+  "retries": {
+    "name": "دوباره تلاش می کند",
+    "description": "تعداد دفعات تکرار خطاهای دانلود."
+  },
+  "skip_playlist_after_errors": {
+    "name": "رد شدن از لیست پخش پس از خطاها",
+    "description": "پس از تعداد معینی خطا از بقیه لیست پخش رد می شود."
+  },
+  "socket_timeout": {
+    "name": "مهلت زمانی سوکت",
+    "description": "وقفه برای اتصالات سوکت در چند ثانیه."
+  },
+  "source_address": {
+    "name": "آدرس منبع",
+    "description": "آدرس IP مشتری برای اتصال به هنگام برقراری اتصال."
+  },
+  "sponsorblock_mark": {
+    "name": "علامت گذاری SponsorBlock",
+    "description": "بخش‌هایی را از دسته‌های SponsorBlock علامت‌گذاری می‌کند."
+  },
+  "sub_format": {
+    "name": "فرمت زیرنویس",
+    "description": "کد(های) فرمت زیرنویس برای دانلود."
+  },
+  "sub_langs": {
+    "name": "زبان های زیرنویس",
+    "description": "زبان های زیرنویس برای دانلود."
+  },
+  "theme_dark": {
+    "name": "تم تاریک",
+    "description": "موضوع برنامه."
+  },
+  "twofactor": {
+    "name": "احراز هویت دو مرحله ای",
+    "description": "کد احراز هویت دو مرحله ای"
+  },
+  "use_extractors": {
+    "name": "از استخراج کننده ها استفاده کنید",
+    "description": "نام استخراج کننده های مورد استفاده (با کاما از هم جدا شده اند). (\"همه\"، \"پیش فرض\"، \"پایان\"، عبارت منظم)"
+  },
+  "username": {
+    "name": "نام کاربری",
+    "description": "نام کاربری برای احراز هویت"
+  },
+  "video_multistreams": {
+    "name": "چند جریانی ویدیویی",
+    "description": "امکان ترکیب چند جریان ویدئو را فراهم می کند."
+  },
+  "video_password": {
+    "name": "رمز عبور ویدیو",
+    "description": "رمز عبور برای ویدیوهای محافظت شده با رمز عبور."
+  },
+  "video_resolution": {
+    "name": "قطعنامه",
+    "description": "وضوح ویدیوی ترجیحی"
+  },
+  "video_subtitles": {
+    "name": "زیرنویس",
+    "description": "زیرنویس ویدیوی ترجیحی"
+  },
+  "wait_for_video": {
+    "name": "منتظر ویدیو باشید",
+    "description": "قبل از دانلود منتظر می ماند تا یک ویدیوی برنامه ریزی شده در دسترس قرار گیرد."
+  },
+  "write_auto_subs": {
+    "name": "دانلود زیرنویس خودکار",
+    "description": "زیرنویس‌های خودکار موجود را می‌نویسد."
+  },
+  "write_subs": {
+    "name": "دانلود زیرنویس",
+    "description": "زیرنویس های دستی موجود را می نویسد."
+  },
+  "write_thumbnail": {
+    "name": "تصویر بند انگشتی را بنویسید",
+    "description": "تصویر کوچک ویدیو را در دیسک ذخیره می کند."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "متادیتا را در سیستم فایل xattrs می نویسد."
+  },
+  "xff": {
+    "name": "X-Forwarded-For",
+    "description": "هدر X-Forwarded-For را برای شبیه سازی مکان تنظیم می کند."
+  }
+}

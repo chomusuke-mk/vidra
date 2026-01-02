@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Prekini zbog pogreške",
+    "description": "Prekida proces preuzimanja ako dođe do pogreške."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Prekid zbog nedostupnog fragmenta",
+    "description": "Prekida preuzimanje ako fragment nije dostupan."
+  },
+  "add_headers": {
+    "name": "Dodatna zaglavlja",
+    "description": "Dodatna zaglavlja za uključivanje u mrežne zahtjeve."
+  },
+  "audio_format": {
+    "name": "Audio Format",
+    "description": "Format konvertiranog zvuka (mp3, flac, opus, itd.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Preferirani kod audio jezika."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams",
+    "description": "Omogućuje kombiniranje više audio tokova."
+  },
+  "audio_quality": {
+    "name": "Kvaliteta zvuka",
+    "description": "Kvaliteta zvuka (0 najboljih, 10 najgorih)."
+  },
+  "batch_file": {
+    "name": "Skupna datoteka",
+    "description": "Put do datoteke koja sadrži URL-ove za preuzimanje."
+  },
+  "break_on_existing": {
+    "name": "Prekid postojećeg",
+    "description": "Zaustavlja preuzimanje ako datoteka već postoji."
+  },
+  "concurrent_fragments": {
+    "name": "Istodobni fragmenti",
+    "description": "Broj simultanih fragmenata za preuzimanje (zadano 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Pretvori sličice",
+    "description": "Pretvorite sličice u navedeni format."
+  },
+  "cookies": {
+    "name": "Kolačići",
+    "description": "Datoteka formatirana u Netscapeu za čitanje kolačića i izbacivanje posude za kolačiće"
+  },
+  "cookies_from_browser": {
+    "name": "Kolačići iz preglednika",
+    "description": "Uvozi kolačiće iz navedenog preglednika."
+  },
+  "download_archive": {
+    "name": "Preuzmite arhivu",
+    "description": "Put do datoteke za snimanje preuzetih ID-ova kako bi se izbjegli duplikati."
+  },
+  "embed_chapters": {
+    "name": "Ugradite poglavlja",
+    "description": "Ugrađuje poglavlja u konačnu datoteku."
+  },
+  "embed_info_json": {
+    "name": "Ugradite informacije JSON",
+    "description": "Ugrađuje informacijski JSON u konačnu datoteku."
+  },
+  "embed_metadata": {
+    "name": "Ugradi metapodatke",
+    "description": "Ugrađuje metapodatke u konačnu datoteku."
+  },
+  "embed_subs": {
+    "name": "Ugradite titlove",
+    "description": "Ugrađuje titlove u konačnu datoteku."
+  },
+  "embed_thumbnail": {
+    "name": "Ugradi sličicu",
+    "description": "Ugrađuje sličicu u konačnu datoteku."
+  },
+  "enable_file_urls": {
+    "name": "Omogući URL-ove datoteka",
+    "description": "Omogućuje korištenje URL-ova datoteka za lokalne datoteke."
+  },
+  "extract_audio": {
+    "name": "Ekstrakt zvuka",
+    "description": "Izdvaja zvuk iz preuzetih videozapisa (koristi ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Ponovni pokušaji ekstraktora",
+    "description": "Broj ponovnih pokušaja kod pogrešaka ekstraktora."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg Lokacija",
+    "description": "Put do binarne datoteke FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Ponovni pokušaji pristupa datoteci",
+    "description": "Broj ponovnih pokušaja pogrešaka pristupa datoteci."
+  },
+  "fixup": {
+    "name": "Popravak",
+    "description": "Automatski ispravlja poznate greške u video datoteci."
+  },
+  "font_size": {
+    "name": "Veličina fonta",
+    "description": "Veličina fonta koja se koristi u aplikaciji."
+  },
+  "force_ipv4": {
+    "name": "Forsiraj IPv4",
+    "description": "Prisilno koristi IPv4 za mrežne veze."
+  },
+  "force_ipv6": {
+    "name": "Forsiraj IPv6",
+    "description": "Prisilno koristi IPv6 za mrežne veze."
+  },
+  "force_overwrites": {
+    "name": "Prisilno prepisuje",
+    "description": "Prepisuje postojeće datoteke bez pitanja."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Kodovi video formata za preuzimanje."
+  },
+  "fragment_retries": {
+    "name": "Ponovni pokušaji fragmenta",
+    "description": "Broj ponovnih pokušaja kod pogrešaka preuzimanja fragmenata."
+  },
+  "geo_verification_proxy": {
+    "name": "Proxy za geo provjeru",
+    "description": "Proxy poslužitelj koji se koristi za geografsku provjeru."
+  },
+  "ignore_errors": {
+    "name": "Ignoriraj pogreške",
+    "description": "Zanemarite pogreške preuzimanja i nastavite sa sljedećim videozapisom."
+  },
+  "impersonate": {
+    "name": "Predstavljati",
+    "description": "Klijent za oponašanje (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Zadrži fragmente",
+    "description": "Čuva preuzete fragmente nakon spajanja."
+  },
+  "language": {
+    "name": "Jezik",
+    "description": "Jezik prijave."
+  },
+  "limit_rate": {
+    "name": "Ograničena stopa",
+    "description": "Ograničava brzinu preuzimanja (npr. 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "Uživo od početka",
+    "description": "Preuzima video zapise uživo od samog početka."
+  },
+  "merge_output_format": {
+    "name": "Video format",
+    "description": "Konačni video format koji je rezultat spajanja streamova."
+  },
+  "output": {
+    "name": "Izlazni predložak",
+    "description": "Predložak naziva izlazne datoteke."
+  },
+  "password": {
+    "name": "Lozinka",
+    "description": "Lozinka za autentifikaciju."
+  },
+  "paths": {
+    "name": "Staze",
+    "description": "Direktoriji za spremanje različitih vrsta datoteka."
+  },
+  "playlist": {
+    "name": "Popis pjesama",
+    "description": "Označava hoće li se preuzeti cijeli popis za reprodukciju ili jedan videozapis."
+  },
+  "prefer_insecure": {
+    "name": "Radije nesigurno",
+    "description": "Koristi HTTP vezu umjesto HTTPS-a (samo YouTube)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Proxy poslužitelj za korištenje za mrežne zahtjeve."
+  },
+  "remux_video": {
+    "name": "Remux Video",
+    "description": "Mijenja video spremnik bez ponovnog kodiranja."
+  },
+  "retries": {
+    "name": "Ponovni pokušaji",
+    "description": "Broj ponovnih pokušaja kod pogrešaka preuzimanja."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Preskoči popis za reprodukciju nakon pogrešaka",
+    "description": "Preskače ostatak popisa za reprodukciju nakon određenog broja pogrešaka."
+  },
+  "socket_timeout": {
+    "name": "Istek vremena utičnice",
+    "description": "Istek vremena za spajanje utičnica u sekundama."
+  },
+  "source_address": {
+    "name": "Izvorna adresa",
+    "description": "IP adresa klijenta za vezanje prilikom povezivanja."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Označava segmente iz kategorija SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Format podnaslova",
+    "description": "Kod(ovi) formata podnaslova za preuzimanje."
+  },
+  "sub_langs": {
+    "name": "jezici titlova",
+    "description": "Jezici titlova za preuzimanje."
+  },
+  "theme_dark": {
+    "name": "Tamna tema",
+    "description": "Tema aplikacije."
+  },
+  "twofactor": {
+    "name": "Autentifikacija u dva faktora",
+    "description": "Kod za provjeru autentičnosti u dva faktora."
+  },
+  "use_extractors": {
+    "name": "Koristite ekstraktore",
+    "description": "Nazivi ekstraktora za korištenje (odvojeni zarezima).(\"sve\",\"zadano\",\"kraj\",regularni izraz)"
+  },
+  "username": {
+    "name": "Korisničko ime",
+    "description": "Korisničko ime za autentifikaciju."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams",
+    "description": "Omogućuje kombiniranje više video streamova."
+  },
+  "video_password": {
+    "name": "Video lozinka",
+    "description": "Lozinka za videozapise zaštićene lozinkom."
+  },
+  "video_resolution": {
+    "name": "Rezolucija",
+    "description": "Preferirana video rezolucija"
+  },
+  "video_subtitles": {
+    "name": "titlovi",
+    "description": "Preferirani video titlovi"
+  },
+  "wait_for_video": {
+    "name": "Pričekajte video",
+    "description": "Prije preuzimanja čeka da zakazani videozapis postane dostupan."
+  },
+  "write_auto_subs": {
+    "name": "Preuzmite automatske titlove",
+    "description": "Zapisuje dostupne automatske titlove."
+  },
+  "write_subs": {
+    "name": "Preuzmite titlove",
+    "description": "Zapisuje dostupne ručne titlove."
+  },
+  "write_thumbnail": {
+    "name": "Napiši sličicu",
+    "description": "Sprema sličicu videozapisa na disk."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Zapisuje metapodatke u datotečni sustav xattrs."
+  },
+  "xff": {
+    "name": "X-Proslijeđeno-Za",
+    "description": "Postavlja zaglavlje X-Forwarded-For za simulaciju lokacije."
+  }
+}

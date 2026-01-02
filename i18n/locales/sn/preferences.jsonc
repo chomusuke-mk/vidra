@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Kubvisa pane kukanganisa",
+    "description": "Bvisa maitiro ekurodha kana kukanganisa kukaitika."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Kubvisa pamutsipa zvisingawanikwe",
+    "description": "Bvisa iyo download kana chidimbu chisingawanikwe."
+  },
+  "add_headers": {
+    "name": "Zvimwe musoro",
+    "description": "Mamwe mapenzi ekusanganisira mumakungwa eNetwork."
+  },
+  "audio_format": {
+    "name": "Audio fomati",
+    "description": "Chimiro cheiyo yakashandurwa Audio (Mp3, FLAC, Opus, nezvimwewo)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Sarudza kodhi yemitauro yemutauro."
+  },
+  "audio_multistreams": {
+    "name": "Audio multisms",
+    "description": "Inobvumira kusanganisa akawanda Audio hova."
+  },
+  "audio_quality": {
+    "name": "Audio mhando",
+    "description": "Audio mhando (0 yakanakisa, gumi yakaipisisa)."
+  },
+  "batch_file": {
+    "name": "Batch faira",
+    "description": "Nzira yekuenda faira ine URL kuendesa."
+  },
+  "break_on_existing": {
+    "name": "Kupaza zviripo",
+    "description": "Inomira kurodha kana iyo faira ratovepo."
+  },
+  "concurrent_fragments": {
+    "name": "Concrumrt zvidimbu",
+    "description": "Nhamba yezvimiro zvakangoitika kuti utore (default 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Chinja zviyero",
+    "description": "Chinja zviyero kune yakatarwa chimiro."
+  },
+  "cookies": {
+    "name": "Cookies",
+    "description": "Netscape Yakagadziriswa Faira kuverenga makuki kubva uye kurasa cookie jar mukati"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies kubva kuBrowser",
+    "description": "Import's makuki kubva kune yakataurwa browser."
+  },
+  "download_archive": {
+    "name": "Download Archive",
+    "description": "Nzira yekufaira yekurekodha yakadhindwa ID"
+  },
+  "embed_chapters": {
+    "name": "Embed zvitsauko",
+    "description": "Embeds zvitsauko mufaira rekupedzisira."
+  },
+  "embed_info_json": {
+    "name": "Embed info Json",
+    "description": "Embeds info json mune yekupedzisira faira."
+  },
+  "embed_metadata": {
+    "name": "Embed metadata",
+    "description": "Embeds metadata mune yekupedzisira faira."
+  },
+  "embed_subs": {
+    "name": "Embed subtitles",
+    "description": "Embeds subtitles mune yekupedzisira faira."
+  },
+  "embed_thumbnail": {
+    "name": "Embed Thumbnail",
+    "description": "Imbeds iyo thumbnail mune yekupedzisira faira."
+  },
+  "enable_file_urls": {
+    "name": "Gonesa URLS yefaira",
+    "description": "Inogonesa kushandiswa kwezviuru zvefaira kwemafaira emuno."
+  },
+  "extract_audio": {
+    "name": "Kuwana Audio",
+    "description": "Kunobuda Audio kubva kuDhaward Vhidhiyo (inoshandisa FFMPEG)."
+  },
+  "extractor_retries": {
+    "name": "Extractor anodzokorora",
+    "description": "Nhamba yekudzokorora pane inobvisa zvikanganiso."
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG Nzvimbo",
+    "description": "Nzira yekuenda kuFFMPEG Binary."
+  },
+  "file_access_retries": {
+    "name": "Faira yekuwana retries",
+    "description": "Nhamba yekudzokorora pane faira kuwana zvikanganiso."
+  },
+  "fixup": {
+    "name": "Fixup",
+    "description": "Otomatiki akanyatso zivikanwa zvikanganiso muvhidhiyo faira."
+  },
+  "font_size": {
+    "name": "Saizi yeFont",
+    "description": "Kukura kweFont kunoshandiswa mukushandisa."
+  },
+  "force_ipv4": {
+    "name": "Simba IPv4",
+    "description": "Masimba mashandisirwo eIPV4 nekuda kwekubatana network."
+  },
+  "force_ipv6": {
+    "name": "Kumanikidza IPv6",
+    "description": "Masimba mashandisirwo eIPV6 kune Network Kubatanidza."
+  },
+  "force_overwrites": {
+    "name": "Kumanikidza kuwanda",
+    "description": "Kukurira mafaira aripo asingabvunze."
+  },
+  "format": {
+    "name": "Chimiro",
+    "description": "Vhidhiyo fomati kodhi (s) kurodha."
+  },
+  "fragment_retries": {
+    "name": "Chidimbu chinodzokororwa",
+    "description": "Nhamba yekudzoreredza muchidimbu kurodha zvikanganiso."
+  },
+  "geo_verification_proxy": {
+    "name": "GEO Verified Profence",
+    "description": "Proxy server yekushandisa yeGeo-Verified."
+  },
+  "ignore_errors": {
+    "name": "Gadzirira zvikanganiso",
+    "description": "Regedza kurodha zvikanganiso uye uenderere mberi nevhidhiyo inotevera."
+  },
+  "impersonate": {
+    "name": "Tempers",
+    "description": "Mutengi kutevedzera (chrome, chrome-110, chrome: windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Chengetedza zvidimbu",
+    "description": "Inochengeta zvidimbu zvakadzvanywa mushure mekubatanidzwa."
+  },
+  "language": {
+    "name": "Mutauro",
+    "description": "Mutauro wekushandisa."
+  },
+  "limit_rate": {
+    "name": "Limit Rate",
+    "description": "Inokanda kumhanya kwekurodha (i.e., 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Rarama kubva kutanga",
+    "description": "Downloads vanogara mavhidhiyo kubva pakutanga."
+  },
+  "merge_output_format": {
+    "name": "Vhidhiyo fomati",
+    "description": "Yekupedzisira vhidhiyo fomati inokonzeresa kubva mukubatanidza hova dzemvura."
+  },
+  "output": {
+    "name": "Template inobuda",
+    "description": "Output Filename template."
+  },
+  "password": {
+    "name": "Pasiwedhi",
+    "description": "Password yekuzvisimbisa."
+  },
+  "paths": {
+    "name": "Nzira",
+    "description": "Madhairekitori ekuchengetedza mhando dzakasiyana dzefaira."
+  },
+  "playlist": {
+    "name": "Playlist",
+    "description": "Inoratidza kana kurodha iyo yakazara playlist kana imwe vhidhiyo."
+  },
+  "prefer_insecure": {
+    "name": "Sarudza kusagadzikana",
+    "description": "Inoshandisa http yekubatanidza panzvimbo yeHTTPS (Youtube chete)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Proxy server yekushandisa kune Network zvikumbiro."
+  },
+  "remux_video": {
+    "name": "Remux vhidhiyo",
+    "description": "Inoshandura mudziyo wevhidhiyo pasina kupindirana."
+  },
+  "retries": {
+    "name": "Dzokorora",
+    "description": "Nhamba yekudzokorora pane kudhanilodha zvikanganiso."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip Playlist Mushure mekukanganisa",
+    "description": "Svetukira mamwe mabasa ekureva mushure meimwe nhamba yezvikanganiso."
+  },
+  "socket_timeout": {
+    "name": "Socket Nguva",
+    "description": "Nguva yekuenda kweSocket kubatana mumasekondi."
+  },
+  "source_address": {
+    "name": "Kwayedza kero",
+    "description": "Vatengi IP Kero yekusunga kusvika pakugadzira kubatana."
+  },
+  "sponsorblock_mark": {
+    "name": "Sponsorblock Mako",
+    "description": "Mamakisi emakiromita kubva kuSponsorblock mapoka."
+  },
+  "sub_format": {
+    "name": "Subtitle Fomati",
+    "description": "Subtitle Fomati CODE (s) kuti utorezve."
+  },
+  "sub_langs": {
+    "name": "Subtitle Mitauro",
+    "description": "Mitauro yezvidimbu zvekutora."
+  },
+  "theme_dark": {
+    "name": "Theme dingindira",
+    "description": "Dingindira rekushandisa."
+  },
+  "twofactor": {
+    "name": "Maviri-echinhu chokwadi",
+    "description": "Maviri-factor echokwadi kodhi kodhi."
+  },
+  "use_extractors": {
+    "name": "Shandisa extractors",
+    "description": "Mazita okunze kushandisa (comma akapatsanurwa). (\"Zvese\", \"default\", \"kupera\", kutaura kwekugara"
+  },
+  "username": {
+    "name": "Username",
+    "description": "Username yekuzvisimbisa."
+  },
+  "video_multistreams": {
+    "name": "Vhidhiyo Multisms",
+    "description": "Inobvumira kusanganisa yakawanda vhidhiyo mirezi."
+  },
+  "video_password": {
+    "name": "Vhidhiyo password",
+    "description": "Password ye password password-yakachengetedzwa."
+  },
+  "video_resolution": {
+    "name": "Resolution",
+    "description": "Yakasarudzika Vhidhiyo Kugadziriswa"
+  },
+  "video_subtitles": {
+    "name": "Subtitles",
+    "description": "Yakasarudzika Vhidhiyo Subtitles"
+  },
+  "wait_for_video": {
+    "name": "Mirira vhidhiyo",
+    "description": "Inomirira vhidhiyo yakarongwa kuti iwanikwe usati wadhanilodha."
+  },
+  "write_auto_subs": {
+    "name": "Dhawunirodha Auto Subtitles",
+    "description": "Anonyora anowanikwa otomatiki zvinyorwa."
+  },
+  "write_subs": {
+    "name": "Dhawunirodha Subtitles",
+    "description": "Anonyora kuti awanikwe zvinyorwa zvinyorwa."
+  },
+  "write_thumbnail": {
+    "name": "Nyora zvigunwe",
+    "description": "Inochengetedza vhidhiyo thumbnail kune disk."
+  },
+  "xattrs": {
+    "name": "Xatrs",
+    "description": "Inonyora metadata kune iyo fairaystem xattrs."
+  },
+  "xff": {
+    "name": "X-Yakatumirwa-ye",
+    "description": "Inomisa X-Yakatumirwa-kune musoro kuti utarise nzvimbo."
+  }
+}

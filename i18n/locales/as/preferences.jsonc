@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "ভুলৰ ওপৰত Abort",
+    "description": "যদি কোনো ভুল হয় তেন্তে ডাউনলোড প্ৰক্ৰিয়াটো এবৰ্ট কৰে।"
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "অনুপলব্ধ খণ্ডৰ ওপৰত এবৰ্ট",
+    "description": "এটা খণ্ড উপলব্ধ নহ'লে ডাউনলোডটো এবৰ্ট কৰে।"
+  },
+  "add_headers": {
+    "name": "অতিৰিক্ত হেডাৰ",
+    "description": "নে'টৱৰ্ক অনুৰোধসমূহত অন্তৰ্ভুক্ত কৰিবলগীয়া অতিৰিক্ত হেডাৰসমূহ।"
+  },
+  "audio_format": {
+    "name": "অডিঅ' বিন্যাস",
+    "description": "ৰূপান্তৰিত অডিঅ'ৰ ফৰ্মেট (MP3, FLAC, OPUS, ইত্যাদি)।"
+  },
+  "audio_language": {
+    "name": "অডিঅ'",
+    "description": "পছন্দৰ অডিঅ' ভাষা ক'ড।"
+  },
+  "audio_multistreams": {
+    "name": "Audio MultiStreams",
+    "description": "একাধিক অডিঅ' ষ্ট্ৰিম একত্ৰিত কৰাৰ অনুমতি দিয়ে।"
+  },
+  "audio_quality": {
+    "name": "অডিঅ' মান",
+    "description": "অডিঅ’ মান (০ শ্ৰেষ্ঠ, ১০ টা বেয়া)।"
+  },
+  "batch_file": {
+    "name": "বেচ ফাইল",
+    "description": "ডাউনলোড কৰিবলৈ URL সমূহ থকা এটা ফাইললৈ পথ।"
+  },
+  "break_on_existing": {
+    "name": "বিদ্যমানৰ ওপৰত ব্ৰেক কৰক",
+    "description": "ফাইলটো ইতিমধ্যে আছে নেকি ডাউনল'ড কৰা বন্ধ কৰে।"
+  },
+  "concurrent_fragments": {
+    "name": "সমকালীন খণ্ডসমূহ",
+    "description": "ডাউনলোড কৰিবলৈ একেলগে খণ্ডৰ সংখ্যা (অবিকল্পিত ১)।"
+  },
+  "convert_thumbnails": {
+    "name": "থাম্বনেইলসমূহ ৰূপান্তৰ কৰক",
+    "description": "থাম্বনেইলসমূহক ধাৰ্য্য কৰা বিন্যাসলৈ ৰূপান্তৰ কৰক।"
+  },
+  "cookies": {
+    "name": "কুকিজ",
+    "description": "কুকিজ পঢ়িবলৈ নেটস্কেপ ফৰ্মেট কৰা ফাইল"
+  },
+  "cookies_from_browser": {
+    "name": "ব্ৰাউজাৰৰ পৰা কুকীজ",
+    "description": "নিৰ্দিষ্ট ব্ৰাউজাৰৰ পৰা কুকীজ আমদানি কৰে।"
+  },
+  "download_archive": {
+    "name": "ডাউনলোড Archive",
+    "description": "ডুপ্লিকেট এৰাই চলিবলৈ ডাউনলোড কৰা ID সমূহ ৰেকৰ্ড কৰিবলৈ ফাইল কৰিবলৈ পথ।"
+  },
+  "embed_chapters": {
+    "name": "এম্বেড অধ্যায়সমূহ",
+    "description": "চূড়ান্ত ফাইলত অধ্যায়সমূহ এম্বেড কৰে।"
+  },
+  "embed_info_json": {
+    "name": "Embed Info Json",
+    "description": "চূড়ান্ত ফাইলত json এম্বেড কৰে।"
+  },
+  "embed_metadata": {
+    "name": "এম্বেড মেটাডাটা",
+    "description": "চূড়ান্ত ফাইলত মেটাডাটা এম্বেড কৰে।"
+  },
+  "embed_subs": {
+    "name": "এম্বেড ছাবটাইটেল",
+    "description": "চূড়ান্ত ফাইলত উপশিৰোনামা এম্বেড কৰে।"
+  },
+  "embed_thumbnail": {
+    "name": "এম্বেড থাম্বনেইল",
+    "description": "থাম্বনেইলক চূড়ান্ত ফাইলত এম্বেড কৰে।"
+  },
+  "enable_file_urls": {
+    "name": "ফাইল URLসমূহ সামৰ্থবান কৰক",
+    "description": "স্থানীয় নথিপত্ৰসমূহৰ বাবে ফাইল URLসমূহৰ ব্যৱহাৰ সামৰ্থবান কৰে।"
+  },
+  "extract_audio": {
+    "name": "অডিঅ' এক্সট্ৰেক্ট কৰক",
+    "description": "ডাউনলোড কৰা ভিডিঅ'ৰ পৰা অডিঅ' এক্সট্ৰেক্ট কৰে (FFMPEG ব্যৱহাৰ কৰে)।"
+  },
+  "extractor_retries": {
+    "name": "Extractor পুনরায়",
+    "description": "এক্সট্ৰেক্টৰৰ ভুলৰ ওপৰত পুনৰ চেষ্টা কৰাৰ সংখ্যা।"
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG অৱস্থান",
+    "description": "FFMPEG বাইনাৰীলৈ পথ।"
+  },
+  "file_access_retries": {
+    "name": "ফাইল অভিগম পুনৰ চেষ্টা কৰক",
+    "description": "ফাইল অভিগম ভুলৰ ওপৰত পুনৰ চেষ্টাৰ সংখ্যা।"
+  },
+  "fixup": {
+    "name": "Fixup",
+    "description": "ভিডিঅ' ফাইলত থকা জনা দোষসমূহ স্বয়ংক্ৰিয়ভাৱে শুধৰাই দিয়ে।"
+  },
+  "font_size": {
+    "name": "ফন্টৰ আকাৰ",
+    "description": "এপ্লিকেচনত ব্যৱহৃত ফন্টৰ আকাৰ।"
+  },
+  "force_ipv4": {
+    "name": "বল IPv4",
+    "description": "নে'টৱৰ্ক সংযোগসমূহৰ বাবে IPv4 ব্যৱহাৰ কৰিবলৈ বাধ্য কৰে।"
+  },
+  "force_ipv6": {
+    "name": "বল IPv6",
+    "description": "নে'টৱৰ্ক সংযোগসমূহৰ বাবে IPv6 ব্যৱহাৰ কৰিবলৈ বাধ্য কৰে।"
+  },
+  "force_overwrites": {
+    "name": "বলবৎ হোৱা বল",
+    "description": "নুসুধাকৈয়ে বৰ্তমানৰ ফাইলসমূহ অভাৰৰাইট কৰে।"
+  },
+  "format": {
+    "name": "বিন্যাস",
+    "description": "ভিডিঅ' ফৰ্মেট ক'ড(সমূহ) ডাউনলোড কৰিবলৈ।"
+  },
+  "fragment_retries": {
+    "name": "খণ্ড পুনঃব্যৱসায়িক",
+    "description": "ফ্ৰেগমেণ্ট ডাউনলোডৰ ভুলৰ ওপৰত পুনৰ চেষ্টা কৰাৰ সংখ্যা।"
+  },
+  "geo_verification_proxy": {
+    "name": "জিঅ' পৰীক্ষণ প্ৰক্সি",
+    "description": "জিঅ'-পৰীক্ষাৰ বাবে ব্যৱহাৰ কৰিবলে প্ৰক্সি চাৰ্ভাৰ।"
+  },
+  "ignore_errors": {
+    "name": "ভুলসমূহ আওকাণ কৰক",
+    "description": "ডাউনলোড ভুলসমূহ আওকাণ কৰক আৰু পৰৱৰ্তী ভিডিঅ'টোৰ সৈতে আগবাঢ়ি যাওক।"
+  },
+  "impersonate": {
+    "name": "Ispersonate",
+    "description": "ক্লায়েন্ট কৰিবলৈ (Chrome, Chrome-110, Chrome:Windows-10)।"
+  },
+  "keep_fragments": {
+    "name": "খণ্ডসমূহ ৰাখক",
+    "description": "মাৰ্জাৰ পিছত ডাউনলোড কৰা খণ্ডবোৰ ৰাখে।"
+  },
+  "language": {
+    "name": "ভাষা",
+    "description": "আবেদনৰ ভাষা।"
+  },
+  "limit_rate": {
+    "name": "সীমাৰ হাৰ",
+    "description": "ডাউনলোডৰ গতি (যেনে, 50k, 4.2m) সীমিত কৰে।"
+  },
+  "live_from_start": {
+    "name": "আৰম্ভণিৰ পৰা লাইভ",
+    "description": "আৰম্ভণিৰে পৰাই লাইভ ভিডিঅ' ডাউনলোড কৰে।"
+  },
+  "merge_output_format": {
+    "name": "ভিডিঅ' বিন্যাস",
+    "description": "ষ্ট্ৰিমসমূহ মাৰ্জ কৰাৰ ফলত হোৱা চূড়ান্ত ভিডিঅ' ফৰ্মেট।"
+  },
+  "output": {
+    "name": "আউটপুট টেমপ্লেট",
+    "description": "আউটপুট ফাইলনাম সাঁচ।"
+  },
+  "password": {
+    "name": "পাছৱৰ্ড",
+    "description": "প্ৰমাণীকৰণৰ বাবে গুপ্তশব্দ।"
+  },
+  "paths": {
+    "name": "পথসমূহ",
+    "description": "বিভিন্ন ধৰণৰ ফাইলসমূহ সংৰক্ষণ কৰিবলে ডাইৰেকটৰিসমূহ।"
+  },
+  "playlist": {
+    "name": "প্লেলিষ্ট",
+    "description": "সম্পূৰ্ণ প্লেলিষ্ট বা এটা ভিডিঅ' ডাউনলোড কৰিব লাগে নে নাই তাক সূচায়।"
+  },
+  "prefer_insecure": {
+    "name": "অসুৰক্ষিত পছন্দ",
+    "description": "https ৰ পৰিবৰ্তে HTTP সংযোগ ব্যৱহাৰ কৰে (কেৱল YouTube) ।"
+  },
+  "proxy": {
+    "name": "প্ৰক্সি",
+    "description": "নে'টৱৰ্ক অনুৰোধসমূহৰ বাবে ব্যৱহাৰ কৰিবলে প্ৰক্সি চাৰ্ভাৰ।"
+  },
+  "remux_video": {
+    "name": "Remux Video",
+    "description": "পুনৰ এনকোডিং নকৰাকৈ ভিডিঅ’ কণ্টেইনাৰ সলনি কৰে।"
+  },
+  "retries": {
+    "name": "পুনৰ চেষ্টা কৰক",
+    "description": "ডাউনলোড ভুলৰ ওপৰত পুনৰ চেষ্টাৰ সংখ্যা।"
+  },
+  "skip_playlist_after_errors": {
+    "name": "ভুলৰ পিছত প্লেলিষ্ট এৰি দিয়ক",
+    "description": "এটা নিৰ্দিষ্ট সংখ্যক ভুলৰ পিছত প্লেলিষ্টৰ বাকী অংশ এৰি দিয়ে।"
+  },
+  "socket_timeout": {
+    "name": "চকেট সময়সীমা",
+    "description": "ছেকেণ্ডত চকেট সংযোগৰ বাবে সময়সীমা।"
+  },
+  "source_address": {
+    "name": "উৎস ঠিকনা",
+    "description": "ক্লাএন্ট IP ঠিকনা সংযোগ কৰা সময়ত বান্ধ খাবলৈ।"
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "SponsorBlock শ্ৰেণীৰ পৰা খণ্ডসমূহ চিহ্নিত কৰে।"
+  },
+  "sub_format": {
+    "name": "উপশিৰোনামা বিন্যাস",
+    "description": "Subtitle ফৰ্মেট ক'ড(সমূহ) ডাউনলোড কৰিবলৈ।"
+  },
+  "sub_langs": {
+    "name": "উপশিৰোনামা ভাষাসমূহ",
+    "description": "ডাউনলোড কৰিবলৈ উপশিৰোনামাসমূহৰ ভাষাসমূহ।"
+  },
+  "theme_dark": {
+    "name": "ডাৰ্ক থিম",
+    "description": "আবেদনৰ থিম।"
+  },
+  "twofactor": {
+    "name": "দুটা-কাৰক প্ৰমাণীকৰণ",
+    "description": "দুটা-কাৰক প্ৰমাণীকৰণ ক'ড।"
+  },
+  "use_extractors": {
+    "name": "Extractors ব্যৱহাৰ কৰক",
+    "description": "ব্যৱহাৰ কৰিবলগীয়া এক্সট্ৰেক্টৰৰ নাম (কমা পৃথক কৰা হৈছে)।(\"সকলো\",\"অবিকল্পিত\",\",\",নিয়মীয়া অভিব্যক্তি)"
+  },
+  "username": {
+    "name": "ব্যৱহাৰকাৰীৰ নাম",
+    "description": "প্ৰমাণীকৰণৰ বাবে ব্যৱহাৰকাৰীৰ নাম।"
+  },
+  "video_multistreams": {
+    "name": "Video MultiStreams",
+    "description": "একাধিক ভিডিঅ' ষ্ট্ৰিম একত্ৰিত কৰাৰ অনুমতি দিয়ে।"
+  },
+  "video_password": {
+    "name": "ভিডিঅ' গুপ্তশব্দ",
+    "description": "পাছৱৰ্ড-সুৰক্ষিত ভিডিঅ'ৰ বাবে পাছৱৰ্ড।"
+  },
+  "video_resolution": {
+    "name": "সংকল্প",
+    "description": "পছন্দৰ ভিডিঅ' ৰিজ'লিউচন"
+  },
+  "video_subtitles": {
+    "name": "উপশিৰোনামা",
+    "description": "পছন্দৰ ভিডিঅ' উপশিৰোনামা"
+  },
+  "wait_for_video": {
+    "name": "ভিডিঅ'ৰ বাবে অপেক্ষা কৰক",
+    "description": "ডাউনলোড কৰাৰ আগতে এটা নিৰ্ধাৰিত ভিডিঅ’ উপলব্ধ হ’বলৈ অপেক্ষা কৰে।"
+  },
+  "write_auto_subs": {
+    "name": "ডাউনলোড Auto subtitles",
+    "description": "উপলব্ধ স্বয়ংক্ৰিয় উপশিৰোনামা লিখে।"
+  },
+  "write_subs": {
+    "name": "ডাউনলোড Subtitles",
+    "description": "উপলব্ধ মেনুৱেল উপশিৰোনামা লিখে।"
+  },
+  "write_thumbnail": {
+    "name": "থাম্বনেইল লিখক",
+    "description": "ভিডিঅ' থাম্বনেইল ডিস্কত সংৰক্ষণ কৰে।"
+  },
+  "xattrs": {
+    "name": "Xattrs",
+    "description": "Metadata নথিপত্ৰপ্ৰণালী XATTRS লৈ লিখে।"
+  },
+  "xff": {
+    "name": "X-forwarded-for",
+    "description": "অৱস্থান অনুকৰণ কৰিবলে x-forwarded-for হেডাৰ সংহতি কৰে।"
+  }
+}

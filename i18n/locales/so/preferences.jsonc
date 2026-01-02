@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Khaladaad ku saabsan qalad",
+    "description": "Joojiya habka soo dejinta haddii qalad dhacdo."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Ka soo baxaan qayb aan la heli karin",
+    "description": "Joojiso soo dejinta haddii jajab aan la heli karin."
+  },
+  "add_headers": {
+    "name": "Madaxa dheeraadka ah",
+    "description": "Madaxa dheeraadka ah ee lagu daro codsiyada shabakadda."
+  },
+  "audio_format": {
+    "name": "Qaabka maqalka",
+    "description": "Qaabka maqalka loo beddelay (mp3, flac, opus, iwm.)."
+  },
+  "audio_language": {
+    "name": "Cod maqal ah",
+    "description": "Lambarka luuqada maqalka ah ee la doorbido."
+  },
+  "audio_multistreams": {
+    "name": "Maqalka maqalka badan",
+    "description": "Waxay u oggolaaneysaa isku-darka durdurrada maqalka badan."
+  },
+  "audio_quality": {
+    "name": "Tayada maqalka",
+    "description": "Tayada maqalka (0 ugu fiican, 10 ugu xun)."
+  },
+  "batch_file": {
+    "name": "Fayl dufcad ah",
+    "description": "Dariiqa loo maro faylka ay ku jiraan URLs si aad u soo dejiso."
+  },
+  "break_on_existing": {
+    "name": "Jebinta jira",
+    "description": "Joojiya soo dejinta haddii faylka horey u jiray."
+  },
+  "concurrent_fragments": {
+    "name": "Jag goos goos goos ah",
+    "description": "Tirada jajabyada isku mar ah ee la soo dejiyo (sida caadiga ah 1)."
+  },
+  "convert_thumbnails": {
+    "name": "U beddelo thumbnails",
+    "description": "U beddelo thumbnails qaabka loo cayimay."
+  },
+  "cookies": {
+    "name": "Kukiyada",
+    "description": "Feyl la sameeyay oo loo qorsheeyay si loo akhriyo buskudka oo ku tuuji weelka cookie"
+  },
+  "cookies_from_browser": {
+    "name": "Kukiyada biraawsarka",
+    "description": "Soo dejinta cookies-ka biraawsarka la cayimay."
+  },
+  "download_archive": {
+    "name": "Soo dejiso kaydka",
+    "description": "Dariiqa lagu fayl gareeyo si loo duubo aqoonsiyo la soo degsaday si looga fogaado nuqul."
+  },
+  "embed_chapters": {
+    "name": "Cutubyada ku dheji cutubyada",
+    "description": "Ku dheji cutubyada faylka ugu dambeeya."
+  },
+  "embed_info_json": {
+    "name": "Macluumaadka ku dheji json",
+    "description": "Ku dheji INFO JSON galay faylka ugu dambeeya."
+  },
+  "embed_metadata": {
+    "name": "Ku dheji metadata",
+    "description": "Ku dheji metadata faylka ugu dambeeya."
+  },
+  "embed_subs": {
+    "name": "Xog-dhexaad ah",
+    "description": "Ku dheji koobitir faylka ugu dambeeya."
+  },
+  "embed_thumbnail": {
+    "name": "Ku dheji thumbnail",
+    "description": "Ku dheji thumbnail galay faylka ugu dambeeya."
+  },
+  "enable_file_urls": {
+    "name": "U oggolow URLs faylka",
+    "description": "Waxay awood u siineysaa adeegsiga URLs faylka ee feylasha maxalliga ah."
+  },
+  "extract_audio": {
+    "name": "Soo saarida maqalka",
+    "description": "Soo-saar maqal oo laga soo dejiyo fiidiyowyo la soo degsaday (adeegsada FFMPEG)."
+  },
+  "extractor_retries": {
+    "name": "Soo-saaridda dib u soo celinta",
+    "description": "Tirada dib u soo celinta ee khaladaadka soo-saareyaasha."
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG meesha",
+    "description": "Jidka loo maro binary ffmpeg."
+  },
+  "file_access_retries": {
+    "name": "Faylka Helitaanka Faylka",
+    "description": "Tirada dib u soo celinta khaladaadka helitaanka faylka."
+  },
+  "fixup": {
+    "name": "Hagaajinta",
+    "description": "Si otomaatig ah ayaa u saxay ciladaha caanka ah ee faylka fiidiyowga ah."
+  },
+  "font_size": {
+    "name": "Cabir font",
+    "description": "Cabbirka font ee loo adeegsaday arjiga."
+  },
+  "force_ipv4": {
+    "name": "Xoog ipv4",
+    "description": "Ku xoogeeya adeegsiga IPV4 ee isku xirka shabakadda."
+  },
+  "force_ipv6": {
+    "name": "Xoog ipv6",
+    "description": "Ku xoogeeya adeegsiga IPV6 ee isku xirka shabakadda."
+  },
+  "force_overwrites": {
+    "name": "Xoogga",
+    "description": "Waxay ku dhaafeysaa faylasha jira ee aan wax weydiisan."
+  },
+  "format": {
+    "name": "Khiddad",
+    "description": "Qaabka (yada) qaabka fiidiyowga si loo soo dejiyo."
+  },
+  "fragment_retries": {
+    "name": "Farascaha jajab",
+    "description": "Tirada dib u soo celinta ee ku saabsan jajabka kala soocidda khaladaadka."
+  },
+  "geo_verification_proxy": {
+    "name": "Wakiilka Xaqiijinta Geo",
+    "description": "Server wakiil ah oo loo adeegsado xaqiijinta juquraafi."
+  },
+  "ignore_errors": {
+    "name": "Iska indha tiraan khaladaadka",
+    "description": "Iska indho tir khaladaadka soo degsan oo ku sii wad fiidiyowga soo socda."
+  },
+  "impersonate": {
+    "name": "Iska imaalid",
+    "description": "Macmiil inuu iska dhigto (chrome, chrome-110, chrome: Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Jajabyada ka dhig",
+    "description": "Waxay ilaalisaa jajabyada la soo degsaday ka dib isku darka."
+  },
+  "language": {
+    "name": "Af",
+    "description": "Luqadda arjiga."
+  },
+  "limit_rate": {
+    "name": "Xaddiga xaddiga",
+    "description": "Waxay xadidaysaa xawaaraha soo dejinta (E.G., 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "Leedahay bilow bilow",
+    "description": "Soo dejiso fiidiyowyada tooska ah ee bilowga."
+  },
+  "merge_output_format": {
+    "name": "Qaabka fiidiyowga",
+    "description": "Qaab-dhismeedka Fiidiyowga ee kama dambaysta ah ee ka dhashay qulqulka durdurrada."
+  },
+  "output": {
+    "name": "Shaxanka wax soo saarka",
+    "description": "Wax soo saarka shayga wax soo saarka."
+  },
+  "password": {
+    "name": "Eray sir",
+    "description": "Erayga sirta ah ee xaqiijinta."
+  },
+  "paths": {
+    "name": "Waddooyin",
+    "description": "Tusaha si loo badbaadiyo noocyo kala duwan oo faylal ah."
+  },
+  "playlist": {
+    "name": "Liita taariikh",
+    "description": "Waxay muujineysaa in la soo dejiyo liistada ciyaarta oo dhammaystiran ama fiidiyow keliya."
+  },
+  "prefer_insecure": {
+    "name": "Doorbido amni xumo",
+    "description": "Wuxuu adeegsadaa isku xirka http halkii laga isticmaali lahaa https (youtube oo keliya)."
+  },
+  "proxy": {
+    "name": "21Ynimo",
+    "description": "Server wakiil ah oo loo adeegsado codsiyada shabakadda."
+  },
+  "remux_video": {
+    "name": "Repux Video",
+    "description": "Wuxuu beddelaa weelka fiidiyowga iyada oo aan dib loo soo celin."
+  },
+  "retries": {
+    "name": "Wax-ka-qabasho",
+    "description": "Tirada dib u soo celinta ee qalad soo dejinta."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Ka bood liistada ka dib qaladaad",
+    "description": "Ku bood boodhka inteeda kale ka dib markii khaladaad cayiman ka dib."
+  },
+  "socket_timeout": {
+    "name": "Waqtiga fadhiga",
+    "description": "Waqti loogu talagalay isku xirnaanta godadka ee ilbiriqsiyo gudahood."
+  },
+  "source_address": {
+    "name": "Cinwaanka isha",
+    "description": "Cinwaanka IP-ga IP si uu u xidho markii la sameynayo xiriiro."
+  },
+  "sponsorblock_mark": {
+    "name": "MarkBrock Mark",
+    "description": "Ka kooban qaybaha qaybaha kafaala-qaadeyaasha."
+  },
+  "sub_format": {
+    "name": "Qaabka hoosaadka",
+    "description": "Qaabka loo yaqaan 'Subtetle' si loo soo dejiyo."
+  },
+  "sub_langs": {
+    "name": "Luuqa-dhaanta",
+    "description": "Luuqadaha kooxo-hoosaadka si loo soo dejiyo."
+  },
+  "theme_dark": {
+    "name": "Mowduuc mugdi ah",
+    "description": "Mawduuca arjiga."
+  },
+  "twofactor": {
+    "name": "Xaqiijinta laba qaybood",
+    "description": "Xeerka Xaqiijinta Laba-Factor."
+  },
+  "use_extractors": {
+    "name": "Adeegso soo-saareyaasha",
+    "description": "Magacyada soo-saarka si loo isticmaalo (comma oo kala go'ay)."
+  },
+  "username": {
+    "name": "Isticmaale",
+    "description": "Magaca isticmaale ee xaqiijinta."
+  },
+  "video_multistreams": {
+    "name": "Fiidiyowyada Fiidiyowga",
+    "description": "Waxay u oggolaaneysaa isku-darka durdurro badan oo fiidiyow ah."
+  },
+  "video_password": {
+    "name": "Furaha fiidiyowga",
+    "description": "Erayga sirta ah ee fiidiyowyada sirta ah ee la ilaaliyo."
+  },
+  "video_resolution": {
+    "name": "Qaalkarka",
+    "description": "Xallinta fiidiyowga ee la doorbido"
+  },
+  "video_subtitles": {
+    "name": "Subtitles",
+    "description": "Xirmooyinka fiidiyowga ee la doorbido"
+  },
+  "wait_for_video": {
+    "name": "Sug fiidiyaha",
+    "description": "Waxay sugayaan fiidiyow loo qorsheeyay in la helo ka hor intaadan soo dejin."
+  },
+  "write_auto_subs": {
+    "name": "Download Subsottittittingles",
+    "description": "Ayuu qoray wargayska tooska ah ee la heli karo."
+  },
+  "write_subs": {
+    "name": "Soo dejiso Subsittitles",
+    "description": "Wuxuu qorayaa cinwaannada buugaagta ee la heli karo."
+  },
+  "write_thumbnail": {
+    "name": "Qor thumbnail",
+    "description": "Waxay keydisaa thumbnail fiidiyowga ah diskka."
+  },
+  "xattrs": {
+    "name": "Xittrrs",
+    "description": "Waxay ku qortaa Metadhata si ay u hesho xattrs-ka."
+  },
+  "xff": {
+    "name": "X-rome-for",
+    "description": "Wuxuu dhistaa cinwaanka-dib-u-dhigga ee ku yaal meesha ku habboon."
+  }
+}

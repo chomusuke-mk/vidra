@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Avorta per error",
+    "description": "Avorta el procés de descàrrega si es produeix un error."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Avorta en un fragment no disponible",
+    "description": "Avorta la baixada si un fragment no està disponible."
+  },
+  "add_headers": {
+    "name": "Capçaleres addicionals",
+    "description": "Capçaleres addicionals per incloure a les sol·licituds de xarxa."
+  },
+  "audio_format": {
+    "name": "Format d'àudio",
+    "description": "Format de l'àudio convertit (mp3, flac, opus, etc.)."
+  },
+  "audio_language": {
+    "name": "Àudio",
+    "description": "Codi d'idioma d'àudio preferit."
+  },
+  "audio_multistreams": {
+    "name": "Multistreams d'àudio",
+    "description": "Permet combinar múltiples fluxos d'àudio."
+  },
+  "audio_quality": {
+    "name": "Qualitat d'àudio",
+    "description": "Qualitat d'àudio (0 millor, 10 pitjor)."
+  },
+  "batch_file": {
+    "name": "Fitxer per lots",
+    "description": "Camí a un fitxer que conté URL per descarregar."
+  },
+  "break_on_existing": {
+    "name": "Trenca en l'existent",
+    "description": "Atura la baixada si el fitxer ja existeix."
+  },
+  "concurrent_fragments": {
+    "name": "Fragments concurrents",
+    "description": "Nombre de fragments simultanis per descarregar (per defecte 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Converteix miniatures",
+    "description": "Converteix les miniatures al format especificat."
+  },
+  "cookies": {
+    "name": "Galetes",
+    "description": "Fitxer amb format Netscape per llegir les galetes i abocar-hi el pot de galetes"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies del navegador",
+    "description": "Importa galetes des del navegador especificat."
+  },
+  "download_archive": {
+    "name": "Descarregar Arxiu",
+    "description": "Camí al fitxer per gravar els ID descarregats per evitar duplicats."
+  },
+  "embed_chapters": {
+    "name": "Insereix capítols",
+    "description": "Incrusta els capítols al fitxer final."
+  },
+  "embed_info_json": {
+    "name": "Insereix informació JSON",
+    "description": "Incrusta informació JSON al fitxer final."
+  },
+  "embed_metadata": {
+    "name": "Insereix metadades",
+    "description": "Incrusta metadades al fitxer final."
+  },
+  "embed_subs": {
+    "name": "Insereix subtítols",
+    "description": "Incrusta els subtítols al fitxer final."
+  },
+  "embed_thumbnail": {
+    "name": "Insereix una miniatura",
+    "description": "Incrusta la miniatura al fitxer final."
+  },
+  "enable_file_urls": {
+    "name": "Activa els URL dels fitxers",
+    "description": "Permet l'ús d'URL de fitxer per a fitxers locals."
+  },
+  "extract_audio": {
+    "name": "Extracció d'àudio",
+    "description": "Extreu àudio dels vídeos baixats (utilitza ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Reintents de l'extractor",
+    "description": "Nombre de reintents d'errors de l'extractor."
+  },
+  "ffmpeg_location": {
+    "name": "Ubicació de FFmpeg",
+    "description": "Camí al binari FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Reintents d'accés a fitxers",
+    "description": "Nombre de reintents d'errors d'accés a fitxers."
+  },
+  "fixup": {
+    "name": "Arreglament",
+    "description": "Corregeix automàticament els errors coneguts al fitxer de vídeo."
+  },
+  "font_size": {
+    "name": "Mida de la lletra",
+    "description": "Mida de lletra utilitzada a l'aplicació."
+  },
+  "force_ipv4": {
+    "name": "Força IPv4",
+    "description": "Força l'ús d'IPv4 per a connexions de xarxa."
+  },
+  "force_ipv6": {
+    "name": "Força IPv6",
+    "description": "Força l'ús d'IPv6 per a connexions de xarxa."
+  },
+  "force_overwrites": {
+    "name": "Força sobreescritures",
+    "description": "Sobreescriu els fitxers existents sense demanar-ho."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Codi(s) de format de vídeo per descarregar."
+  },
+  "fragment_retries": {
+    "name": "Reintents de fragments",
+    "description": "Nombre de reintents d'errors de descàrrega de fragments."
+  },
+  "geo_verification_proxy": {
+    "name": "Proxy de verificació geogràfica",
+    "description": "Servidor intermediari que s'utilitzarà per a la verificació geogràfica."
+  },
+  "ignore_errors": {
+    "name": "Ignora els errors",
+    "description": "Ignoreu els errors de baixada i continueu amb el següent vídeo."
+  },
+  "impersonate": {
+    "name": "Suplantar la identitat",
+    "description": "Client per suplantar la identitat (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Guarda fragments",
+    "description": "Conserva els fragments descarregats després de la fusió."
+  },
+  "language": {
+    "name": "Llengua",
+    "description": "Idioma de l'aplicació."
+  },
+  "limit_rate": {
+    "name": "Tarifa límit",
+    "description": "Limita la velocitat de descàrrega (p. ex., 50 K, 4,2 M)."
+  },
+  "live_from_start": {
+    "name": "En directe des de l'inici",
+    "description": "Baixa vídeos en directe des del principi."
+  },
+  "merge_output_format": {
+    "name": "Format de vídeo",
+    "description": "Format de vídeo final resultant de la fusió de fluxos."
+  },
+  "output": {
+    "name": "Plantilla de sortida",
+    "description": "Plantilla de nom de fitxer de sortida."
+  },
+  "password": {
+    "name": "Contrasenya",
+    "description": "Contrasenya per a l'autenticació."
+  },
+  "paths": {
+    "name": "Camins",
+    "description": "Directoris per guardar diferents tipus de fitxers."
+  },
+  "playlist": {
+    "name": "Llista de reproducció",
+    "description": "Indica si s'ha de baixar la llista de reproducció completa o un sol vídeo."
+  },
+  "prefer_insecure": {
+    "name": "Prefereix insegur",
+    "description": "Utilitza la connexió HTTP en lloc d'HTTPS (només a YouTube)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Servidor intermediari per utilitzar-lo per a sol·licituds de xarxa."
+  },
+  "remux_video": {
+    "name": "Vídeo Remux",
+    "description": "Canvia el contenidor de vídeo sense tornar a codificar."
+  },
+  "retries": {
+    "name": "Reintents",
+    "description": "Nombre de reintents amb errors de descàrrega."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Omet la llista de reproducció després dels errors",
+    "description": "Omet la resta de la llista de reproducció després d'un cert nombre d'errors."
+  },
+  "socket_timeout": {
+    "name": "Temps d'espera del sòcol",
+    "description": "Temps d'espera per a les connexions de socket en segons."
+  },
+  "source_address": {
+    "name": "Adreça font",
+    "description": "Adreça IP del client amb la qual s'ha d'enllaçar quan es realitzin connexions."
+  },
+  "sponsorblock_mark": {
+    "name": "PatrocinaBlock Mark",
+    "description": "Marca els segments de les categories de SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Format de subtítols",
+    "description": "Codi(s) de format de subtítols per descarregar."
+  },
+  "sub_langs": {
+    "name": "Idiomes de subtítols",
+    "description": "Idiomes dels subtítols per descarregar."
+  },
+  "theme_dark": {
+    "name": "Tema fosc",
+    "description": "Tema de l'aplicació."
+  },
+  "twofactor": {
+    "name": "Autenticació de dos factors",
+    "description": "Codi d'autenticació de dos factors."
+  },
+  "use_extractors": {
+    "name": "Utilitzeu extractors",
+    "description": "Noms dels extractors a utilitzar (separats per comes).(\"tots\",\"predeterminat\",\"final\",expressió regular)"
+  },
+  "username": {
+    "name": "Nom d'usuari",
+    "description": "Nom d'usuari per a l'autenticació."
+  },
+  "video_multistreams": {
+    "name": "Multistreams de vídeo",
+    "description": "Permet combinar múltiples fluxos de vídeo."
+  },
+  "video_password": {
+    "name": "Contrasenya de vídeo",
+    "description": "Contrasenya per a vídeos protegits amb contrasenya."
+  },
+  "video_resolution": {
+    "name": "Resolució",
+    "description": "Resolució de vídeo preferida"
+  },
+  "video_subtitles": {
+    "name": "Subtítols",
+    "description": "Subtítols de vídeo preferits"
+  },
+  "wait_for_video": {
+    "name": "Espereu el vídeo",
+    "description": "Espera que un vídeo programat estigui disponible abans de baixar-lo."
+  },
+  "write_auto_subs": {
+    "name": "Descarrega els subtítols automàtics",
+    "description": "Escriu els subtítols automàtics disponibles."
+  },
+  "write_subs": {
+    "name": "Descarrega els subtítols",
+    "description": "Escriu els subtítols manuals disponibles."
+  },
+  "write_thumbnail": {
+    "name": "Escriu una miniatura",
+    "description": "Desa la miniatura del vídeo al disc."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Escriu metadades al sistema de fitxers xattrs."
+  },
+  "xff": {
+    "name": "X-Reenviat-Per",
+    "description": "Estableix la capçalera X-Forwarded-For per simular la ubicació."
+  }
+}

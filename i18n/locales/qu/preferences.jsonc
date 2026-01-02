@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Pantasqamanta abort .",
+    "description": "Abortos chay descarga ruwayta sichus huk pantay ruwakun."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Mana tarikuq fragmentopi abort .",
+    "description": "Abortos chay descargata sichus huk fragmento mana tarikunchu."
+  },
+  "add_headers": {
+    "name": "Uma .",
+    "description": "Llika mañakuykunapi churanapaq umalliqkuna yapasqa."
+  },
+  "audio_format": {
+    "name": "Audio nisqa formato .",
+    "description": "Formato de la audio convertido (MP3, FLAC, opus, etc.)."
+  },
+  "audio_language": {
+    "name": "Audio .",
+    "description": "Aswan allin uyarinapaq simipa codigon."
+  },
+  "audio_multistreams": {
+    "name": "Audio multiestreams .",
+    "description": "achka uyarina mayukunata huñuyta saqin."
+  },
+  "audio_quality": {
+    "name": "uyarinapaq allin kaynin .",
+    "description": "calidad de audio (0 mejor, 10 peor)."
+  },
+  "batch_file": {
+    "name": "huñu willañiqi .",
+    "description": "URL nisqakuna uraykachinapaq URL nisqa willañiqiman ñan."
+  },
+  "break_on_existing": {
+    "name": "kunan kaqkunapi pakiy .",
+    "description": "Willañiqip kasqanña kaptinqa uraykachiyta sayachin."
+  },
+  "concurrent_fragments": {
+    "name": "Concurrentes Fragmentos .",
+    "description": "Yupay fragmentos simultáneos nisqamanta uraykachinapaq (ñawpaqmanta 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Thumbnails nisqakunata tikray .",
+    "description": "Huch'uy qillqakunata nisqa formatoman tikray."
+  },
+  "cookies": {
+    "name": "Galletas .",
+    "description": "Netscape formato archivo cookiekuna ñawirinapaq chaymanta cookie jar kaqmanta ."
+  },
+  "cookies_from_browser": {
+    "name": "Navegadormanta cookiekuna .",
+    "description": "Willasqa maskaqmanta cookiekuna hawaman yaykun."
+  },
+  "download_archive": {
+    "name": "Descargar Archivo .",
+    "description": "ñan willañiqiman qillqanapaq uraykachisqa ID nisqakunata mana iskay kuti ruwasqa kananpaq."
+  },
+  "embed_chapters": {
+    "name": "Embed Capítulos .",
+    "description": "Capítulos nisqakunata qhipa kaq willañiqiman churan."
+  },
+  "embed_info_json": {
+    "name": "Embed Info json .",
+    "description": "Info jsonta qhipa kaq willañiqiman churay."
+  },
+  "embed_metadata": {
+    "name": "Metadatos de embados .",
+    "description": "Tukupay willañiqiman metadatukunata churan."
+  },
+  "embed_subs": {
+    "name": "Subtítulos Embed .",
+    "description": "Qhipa kaq willañiqiman subtítulos nisqakunata churan."
+  },
+  "embed_thumbnail": {
+    "name": "Embed Thumbnail .",
+    "description": "Qhipa kaq willañiqiman uchuy siq'ita churan."
+  },
+  "enable_file_urls": {
+    "name": "Willañiqip URL nisqakunata .",
+    "description": "Llaqta willañiqikunapaq willañiqi URL nisqakunata llamk'achiyta atichin."
+  },
+  "extract_audio": {
+    "name": "AUDIO ARREGO .",
+    "description": "Extractos de audio de videos descargados (usos FFMPEG)."
+  },
+  "extractor_retries": {
+    "name": "Extractor 10.",
+    "description": "Extractor pantaykunapi kutichiy yupaykuna."
+  },
+  "ffmpeg_location": {
+    "name": "FFMMPEG Ubicación .",
+    "description": "FFMPEG iskayniyuq ñanman ñan."
+  },
+  "file_access_retries": {
+    "name": "Willayta Yaykuna Waqaychasqa .",
+    "description": "Willayta yaykuna pantaykunapi kutin kutin kutin."
+  },
+  "fixup": {
+    "name": "Fixup .",
+    "description": "Kikinmanta video willakuypi riqsisqa pantaykunata allichan."
+  },
+  "font_size": {
+    "name": "Fuentepa sayaynin .",
+    "description": "Aplicación nisqapi llamk’achisqa letrapa sayaynin."
+  },
+  "force_ipv4": {
+    "name": "Fuerza IPv4.",
+    "description": "Llika tinkiykuna IPv4 llamk'ayta kallpachan."
+  },
+  "force_ipv6": {
+    "name": "Fuerza IPv6.",
+    "description": "Llika tinkiykuna IPv6 llamk'ayta kallpachan."
+  },
+  "force_overwrites": {
+    "name": "Fuerza sobrewrite .",
+    "description": "Mana tapuspalla kachkaq willañiqikunata qillqan."
+  },
+  "format": {
+    "name": "Formato .",
+    "description": "Video formato(s) uraykachinapaq."
+  },
+  "fragment_retries": {
+    "name": "Fragmento Retries .",
+    "description": "Yupay kutichiykuna fragmento uraykachiy pantaykunapi."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Verificación Proxy .",
+    "description": "proxy sirwiq geo-verificación kaqpaq llamk'achinapaq."
+  },
+  "ignore_errors": {
+    "name": "Pantasqakunata mana qhaway .",
+    "description": "Mana imapas uraykachiy pantaykunata mana qhaway hinaspa qatiq videowan hinalla puriy."
+  },
+  "impersonate": {
+    "name": "iMesonar .",
+    "description": "Cliente kaqman rikch'akuqman (Chromo, Chrome-110, Chrome:Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Fragmentos nisqakunata waqaychay .",
+    "description": "Huñunakuymanta qhipaman uraykachisqa t’aqakunata waqaychan."
+  },
+  "language": {
+    "name": "Simi",
+    "description": "Aplicación nisqapa simin."
+  },
+  "limit_rate": {
+    "name": "Tasa de límite .",
+    "description": "Limita la velocidad de descarga (e.g., 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Kawsaymanta Kawsay .",
+    "description": "Qallariymantapacha kawsaq videokunata uraykachiy."
+  },
+  "merge_output_format": {
+    "name": "Video nisqa formato .",
+    "description": "Tukupay video formato nisqa, mayukuna hukllanakuymanta lluqsimun."
+  },
+  "output": {
+    "name": "Plantilla de salida .",
+    "description": "Plantilla de nombre de archivo de salida."
+  },
+  "password": {
+    "name": "Kichana",
+    "description": "Yaykuna rimay chiqapchaypaq."
+  },
+  "paths": {
+    "name": "Ñankuna .",
+    "description": "Huk rikchaq qillqakunata waqaychaypaq directoriokuna."
+  },
+  "playlist": {
+    "name": "Lista de reproducción .",
+    "description": "Willanmi hunt’asqa pukllay listata otaq huk videollata uraykachiyta."
+  },
+  "prefer_insecure": {
+    "name": "Aswan allinqa mana seguro .",
+    "description": "HTTP tinkiyta HTTPS kaqpa rantinpi (YouTube sapalla) llamk'achin."
+  },
+  "proxy": {
+    "name": "Proxy .",
+    "description": "Llika mañakuykunapaq llamk'achinapaq proxy sirwiq."
+  },
+  "remux_video": {
+    "name": "Remux video .",
+    "description": "Video waqaychanata mana musuqmanta codificaspa tikran."
+  },
+  "retries": {
+    "name": "Retries .",
+    "description": "Hayk'a kutichiykunata uraykachiy pantaykunapi."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Pantasqakuna qhipaman pukllay lista salta .",
+    "description": "Salta puchuq lista de reproducción kaqmanta huk yupay pantaykunamanta qhipaman."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout .",
+    "description": "Tiempo de tiempo para conexiones de socket en segundos."
+  },
+  "source_address": {
+    "name": "Pukyukunap tiyaynin .",
+    "description": "Cliente IP tiyapuy tinkiykuna ruwachkaspa wataypaq."
+  },
+  "sponsorblock_mark": {
+    "name": "PatrocinadorBlock Mark .",
+    "description": "PatrocinadorBlock categorías nisqamanta segmentokunata marcan."
+  },
+  "sub_format": {
+    "name": "Subtítulo nisqa formato .",
+    "description": "subtítulo formato código(s) uraykachinapaq."
+  },
+  "sub_langs": {
+    "name": "Subtítulo simikuna .",
+    "description": "Simikuna subtítulos nisqakuna uraykachinapaq."
+  },
+  "theme_dark": {
+    "name": "Tuta Tema .",
+    "description": "Tema de la aplicación nisqamanta."
+  },
+  "twofactor": {
+    "name": "Iskay factor autenticación .",
+    "description": "iskay factor chiqapchaypa codigon."
+  },
+  "use_extractors": {
+    "name": "Extractores nisqawan yanapachikuy .",
+    "description": "Sutikuna hurquqkunap sutinta llamk'achinapaq (comma t'aqasqa).(\"llapan\",\"default\"\"\"tukuy\", regular expresión)"
+  },
+  "username": {
+    "name": "Usuario suti .",
+    "description": "Usuario suti autenticaciónpaq."
+  },
+  "video_multistreams": {
+    "name": "Video Multiestreos .",
+    "description": "achka video mayukunata huñuyta saqin."
+  },
+  "video_password": {
+    "name": "Video contraseña .",
+    "description": "Yaykuna rimay harkasqa videokunapaq yaykuna rimay."
+  },
+  "video_resolution": {
+    "name": "Kamachiynin",
+    "description": "Aswan munasqa video resolución ."
+  },
+  "video_subtitles": {
+    "name": "Subtítulos .",
+    "description": "Aswan allin video subtítulos ."
+  },
+  "wait_for_video": {
+    "name": "Videota suyay .",
+    "description": "Suyanmi huk video programasqa kananpaq manaraq uraykachichkaspa."
+  },
+  "write_auto_subs": {
+    "name": "Auto subtítulos nisqakunata uraykachiy .",
+    "description": "Qillqan subtítulos automáticos disponibles."
+  },
+  "write_subs": {
+    "name": "Subtítulos nisqakunata uraykachiy .",
+    "description": "Qillqasqakuna tarikuq manual subtítulos."
+  },
+  "write_thumbnail": {
+    "name": "Qillqay Thumbnail .",
+    "description": "Discoman video uchuy qillqata waqaychan."
+  },
+  "xattrs": {
+    "name": "Xattrs .",
+    "description": "Willañiqi llikata xattrrs nisqa willañiqiman qillqan."
+  },
+  "xff": {
+    "name": "x-awpaqta-forwarded .",
+    "description": "X-forwarded-para umalliqta churan maypi kasqanmanta simulananpaq."
+  }
+}

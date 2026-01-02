@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Manala ny fahadisoana",
+    "description": "Ampidiro ny dingana download raha misy ny lesoka."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Manalavitra ny sombin-javatra tsy misy",
+    "description": "Ampidiro ny fisintonana raha tsy misy sombin-javatra."
+  },
+  "add_headers": {
+    "name": "Lohateny fanampiny",
+    "description": "Lohateny fanampiny hampidirina amin'ny fangatahana tambajotra."
+  },
+  "audio_format": {
+    "name": "Audio Format",
+    "description": "Format ny Audio Covereded (mp3, flac, opus, sns)."
+  },
+  "audio_language": {
+    "name": "teny",
+    "description": "Fehezan-tariby fiteny audio."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams",
+    "description": "Mamela ny hampifangaro renirano am-peo maro."
+  },
+  "audio_quality": {
+    "name": "Calanjany Audio",
+    "description": "Kalitao audio (0 tsara indrindra, 10 ratsy indrindra)."
+  },
+  "batch_file": {
+    "name": "Batch File",
+    "description": "Làlana mankany amin'ny rakitra misy URL hisintona."
+  },
+  "break_on_existing": {
+    "name": "Break on efa misy",
+    "description": "Mijanona misintona raha efa misy ny rakitra."
+  },
+  "concurrent_fragments": {
+    "name": "Sombintsombiny",
+    "description": "Isan'ny sombin-javatra miaraka mba hisintona (default 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Ampifamadiho ny ankihibe",
+    "description": "Ampifamadiho ny felam-bato amin'ny endrika voafaritra."
+  },
+  "cookies": {
+    "name": "mofomamy",
+    "description": "Rakitra netscape namaky ny famakiana mofomamy avy amin'ny mofomamy sy ny mofomamy mofomamy ao anaty"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies avy amin'ny browser",
+    "description": "Manafatra mofomamy amin'ny browser voafaritra."
+  },
+  "download_archive": {
+    "name": "Ampidino ny Archive",
+    "description": "Làlana mankany amin'ny rakitra mba handraisana an-tsoratra ny IDs misintona mba hialana amin'ny dika."
+  },
+  "embed_chapters": {
+    "name": "Fametahana toko",
+    "description": "Ny fametahana toko amin'ny rakitra farany."
+  },
+  "embed_info_json": {
+    "name": "Fampahalalana momba ny JSON",
+    "description": "EMBEDS INFO JSON ao anaty rakitra farany."
+  },
+  "embed_metadata": {
+    "name": "Embata Metadata",
+    "description": "EMBED METADATA ao anaty rakitra farany."
+  },
+  "embed_subs": {
+    "name": "Fametahana dikanteny",
+    "description": "Mametaka dikanteny amin'ny rakitra farany."
+  },
+  "embed_thumbnail": {
+    "name": "Namboarina ny diera",
+    "description": "Mametaka ny fihenam-bidy ao anaty rakitra farany."
+  },
+  "enable_file_urls": {
+    "name": "Ampiasao ny URL rakitra",
+    "description": "Mamela ny fampiasana URL rakitra ho an'ny rakitra eo an-toerana."
+  },
+  "extract_audio": {
+    "name": "Extract Audio",
+    "description": "Esory ny sary avy amin'ny horonantsary misintona (mampiasa FFMPEG)."
+  },
+  "extractor_retries": {
+    "name": "Famerenam-bokatra",
+    "description": "Isan'ny fisaraham-bato amin'ny hadisoana fanampiny."
+  },
+  "ffmpeg_location": {
+    "name": "Toerana FFMPEG",
+    "description": "Lalana mankany amin'ny Binary FFMPEG."
+  },
+  "file_access_retries": {
+    "name": "Risitry ny fidirana amin'ny rakitra",
+    "description": "Isan'ny fisotroan-dresaka amin'ny hadisoana miditra amin'ny rakitra."
+  },
+  "fixup": {
+    "name": "Fixup",
+    "description": "Manitsy mandeha ho azy ireo lesoka fantatra amin'ny rakitra video."
+  },
+  "font_size": {
+    "name": "Habe font",
+    "description": "Habe misy endrika ampiasaina amin'ny fampiharana."
+  },
+  "force_ipv4": {
+    "name": "Force IPv4",
+    "description": "Manery ny fampiasana ny IPv4 ho an'ny fifandraisana tambajotra."
+  },
+  "force_ipv6": {
+    "name": "Force IPv6",
+    "description": "Manery ny fampiasana ny IPv6 ho an'ny fifandraisana tambajotra."
+  },
+  "force_overwrites": {
+    "name": "Force Overwrites",
+    "description": "Overwrites ireo rakitra misy tsy misy manontany."
+  },
+  "format": {
+    "name": "endrika",
+    "description": "Kaody format (s) mba hampidinana."
+  },
+  "fragment_retries": {
+    "name": "Famerenam-bokatra amin'ny stries",
+    "description": "Isan'ny fisaraham-bato amin'ny sombintsombiny fampidinana hadisoana."
+  },
+  "geo_verification_proxy": {
+    "name": "Proxy Verification Geo",
+    "description": "Mpizara proxy hampiasaina amin'ny fanamarinana geo-fanamarinana."
+  },
+  "ignore_errors": {
+    "name": "Aza hadino ny lesoka",
+    "description": "Aza atao tsinontsinona ny fampidinana ny fampidinana ary tohizo ny horonantsary manaraka."
+  },
+  "impersonate": {
+    "name": "hiseho ho",
+    "description": "Mpanjifa tsy hampiorina (Chrome, Chrome-110, Chrome: Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Tazano ny sombintsombiny",
+    "description": "Mitazona ny sombintsombiny azo alaina rehefa avy mitambatra."
+  },
+  "language": {
+    "name": "Fiteny",
+    "description": "Fiteny amin'ny fampiharana."
+  },
+  "limit_rate": {
+    "name": "Famerana ny tahan'ny",
+    "description": "Mametra ny hafainganam-pandeha (e.g., 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Velona manomboka amin'ny fanombohana",
+    "description": "Misintona horonantsary mivantana hatramin'ny voalohany."
+  },
+  "merge_output_format": {
+    "name": "Video Format",
+    "description": "Format an-tsary farany vokatry ny fampifangaroana renirano."
+  },
+  "output": {
+    "name": "Endrik'anarana amin'ny teny frantsay",
+    "description": "Fomba famoahana filename."
+  },
+  "password": {
+    "name": "Password",
+    "description": "Teny miafina ho fanamarinana."
+  },
+  "paths": {
+    "name": "Lalana",
+    "description": "Directories mba hamonjy karazana rakitra samihafa."
+  },
+  "playlist": {
+    "name": "ny filaharan-kira",
+    "description": "Manondro raha ny hisintonana ny playlist feno na horonan-tsary tokana."
+  },
+  "prefer_insecure": {
+    "name": "Aleony tsy milamina",
+    "description": "Mampiasa fifandraisana http fa tsy HTTPS (YouTube irery ihany)."
+  },
+  "proxy": {
+    "name": "taratasy fanomezam-pahefana",
+    "description": "Proxy Server hampiasaina amin'ny fangatahana tambajotra."
+  },
+  "remux_video": {
+    "name": "Video REMUX",
+    "description": "Manova ny boaty horonantsary tsy misy fanodinana indray."
+  },
+  "retries": {
+    "name": "Répertoire",
+    "description": "Isan'ny fisaraham-bazana amin'ny fampidinana hadisoana."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip Playlist taorian'ny hadisoana",
+    "description": "Mametaveta ny sisa amin'ny lisitry ny lisitra aorian'ny hadisoana maromaro."
+  },
+  "socket_timeout": {
+    "name": "Fotoam-pialan-tsasatra",
+    "description": "Fotoam-potoana ho an'ny fifamatorana sokitra ao anatin'ny segondra."
+  },
+  "source_address": {
+    "name": "Adiresy loharano",
+    "description": "Ny adiresy IP Client dia hamatotra amin'ny fifandraisana."
+  },
+  "sponsorblock_mark": {
+    "name": "Sponsorblock Mark",
+    "description": "SEGMENT STSS avy amin'ny sokajy Sponsorblock."
+  },
+  "sub_format": {
+    "name": "Format format",
+    "description": "Kaody Formal Code (s) hisintona."
+  },
+  "sub_langs": {
+    "name": "Dikan-teny",
+    "description": "Teny fiteny subtitles hisintona."
+  },
+  "theme_dark": {
+    "name": "Lohahevitra maizina",
+    "description": "Lohahevitry ny fampiharana."
+  },
+  "twofactor": {
+    "name": "Fanamarinana roa-factor",
+    "description": "Fehezan-dalàna fanamarinana roa."
+  },
+  "use_extractors": {
+    "name": "Mampiasà mpitsabo",
+    "description": "Anaran'ny mpitsabo ampiasaina (comma misaraka). (\"All\", \"default\", \"faran'ny\", fitenenana mahazatra)"
+  },
+  "username": {
+    "name": "Anaran'ny mpampiasa",
+    "description": "Username for auteshentication."
+  },
+  "video_multistreams": {
+    "name": "Horonan-tsary multistreams",
+    "description": "Mamela ny hampifangaro renirano Video marobe."
+  },
+  "video_password": {
+    "name": "Teny miafina",
+    "description": "Teny miafina ho an'ireo horonantsary miaro ny tenimiafina."
+  },
+  "video_resolution": {
+    "name": "vahaolana",
+    "description": "Fanapahan-kevitra momba ny horonantsary tianao"
+  },
+  "video_subtitles": {
+    "name": "dikan'teny",
+    "description": "Sokajy horonantsary tiana"
+  },
+  "wait_for_video": {
+    "name": "Andraso ny horonan-tsary",
+    "description": "Miandry ny horonantsary voatondro ho azo alohan'ny fisintonana."
+  },
+  "write_auto_subs": {
+    "name": "Ampidino ny subtitles auto",
+    "description": "Manoratra dikanteny mandeha ho azy."
+  },
+  "write_subs": {
+    "name": "Misintona dikanteny",
+    "description": "Manoratra dikanteny an-tsoratra misy."
+  },
+  "write_thumbnail": {
+    "name": "Manorata tsipika",
+    "description": "Mamonjy ny sary an-tsary ho an'ny kapila."
+  },
+  "xattrs": {
+    "name": "Xattrs",
+    "description": "Manoratra Metadata any amin'ny FilesySEM XATTRS."
+  },
+  "xff": {
+    "name": "X-alefore-for",
+    "description": "Mametraka ny X-alefore-ho an'ny loham-pianakaviana ho simulate toerana."
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Ĉesu pro Eraro",
+    "description": "Ĉesigas la elŝutan procezon se okazas eraro."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Ĉesu ĉe Nehavebla Fragmento",
+    "description": "Ĉesigas la elŝuton se fragmento ne disponeblas."
+  },
+  "add_headers": {
+    "name": "Pliaj Kapoj",
+    "description": "Pliaj kaplinioj por inkludi en retaj petoj."
+  },
+  "audio_format": {
+    "name": "Audio Formato",
+    "description": "Formato de la konvertita audio (mp3, flac, opus, ktp.)."
+  },
+  "audio_language": {
+    "name": "Aŭdio",
+    "description": "Preferata sonlingva kodo."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams",
+    "description": "Ebligas kombini plurajn sonfluojn."
+  },
+  "audio_quality": {
+    "name": "Audio Kvalito",
+    "description": "Aŭdkvalito (0 plej bona, 10 plej malbona)."
+  },
+  "batch_file": {
+    "name": "Batch Dosiero",
+    "description": "Vojo al dosiero enhavanta URL-ojn por elŝuti."
+  },
+  "break_on_existing": {
+    "name": "Rompo sur Ekzistanta",
+    "description": "Ĉesas elŝuti se la dosiero jam ekzistas."
+  },
+  "concurrent_fragments": {
+    "name": "Samtempaj Fragmentoj",
+    "description": "Nombro de samtempaj fragmentoj por elŝuti (defaŭlte 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Konverti Bildetojn",
+    "description": "Konvertu bildetojn al la specifita formato."
+  },
+  "cookies": {
+    "name": "Kuketoj",
+    "description": "Netscape formatita dosiero por legi kuketojn de kaj forĵeti kuketojn enen"
+  },
+  "cookies_from_browser": {
+    "name": "Kuketoj de Retumilo",
+    "description": "Importas kuketojn el la specifita retumilo."
+  },
+  "download_archive": {
+    "name": "Elŝutu Arkivon",
+    "description": "Vojo al dosiero por registri elŝutitajn identigilojn por eviti duplikatojn."
+  },
+  "embed_chapters": {
+    "name": "Enigi Ĉapitrojn",
+    "description": "Enigas ĉapitrojn en la finan dosieron."
+  },
+  "embed_info_json": {
+    "name": "Enigi informojn JSON",
+    "description": "Enigas informojn JSON en la finan dosieron."
+  },
+  "embed_metadata": {
+    "name": "Enigi metadatumojn",
+    "description": "Enigas metadatenojn en la finan dosieron."
+  },
+  "embed_subs": {
+    "name": "Enigi Subtekstojn",
+    "description": "Enigas subtekstojn en la finan dosieron."
+  },
+  "embed_thumbnail": {
+    "name": "Enigi Bildeton",
+    "description": "Enigas la bildeton en la finan dosieron."
+  },
+  "enable_file_urls": {
+    "name": "Ebligu Dosierajn URLojn",
+    "description": "Ebligas la uzon de dosier-URLoj por lokaj dosieroj."
+  },
+  "extract_audio": {
+    "name": "Ekstrakti Aŭdio",
+    "description": "Eltiras audio de elŝutitaj filmetoj (uzas ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Ekstraktilo Reprovas",
+    "description": "Nombro da reprovoj pri ekstraktaj eraroj."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg Loko",
+    "description": "Vojo al la duuma FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Dosiera Aliro Provoj",
+    "description": "Nombro da provoj pri eraroj de aliro al dosieroj."
+  },
+  "fixup": {
+    "name": "Riparado",
+    "description": "Aŭtomate korektas konatajn erarojn en la videodosiero."
+  },
+  "font_size": {
+    "name": "Tiparo Grandeco",
+    "description": "Tipara grandeco uzata en la aplikaĵo."
+  },
+  "force_ipv4": {
+    "name": "Forto IPv4",
+    "description": "Devigas la uzon de IPv4 por retaj konektoj."
+  },
+  "force_ipv6": {
+    "name": "Devigu IPv6",
+    "description": "Devigas la uzon de IPv6 por retaj konektoj."
+  },
+  "force_overwrites": {
+    "name": "Forto Overwrites",
+    "description": "Anstataŭigas ekzistantajn dosierojn sen demandi."
+  },
+  "format": {
+    "name": "Formato",
+    "description": "Vidformatkodo(j) por elŝuti."
+  },
+  "fragment_retries": {
+    "name": "Fragmentaj Provoj",
+    "description": "Nombro da reprovoj pri fragmentaj elŝutaj eraroj."
+  },
+  "geo_verification_proxy": {
+    "name": "Prokurilo pri Geo-Konfirmo",
+    "description": "Prokura servilo por uzi por geokontrolo."
+  },
+  "ignore_errors": {
+    "name": "Ignoru Erarojn",
+    "description": "Ignoru elŝutajn erarojn kaj daŭrigu kun la sekva video."
+  },
+  "impersonate": {
+    "name": "Imi personigi",
+    "description": "Kliento parodigi (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Konservu Fragmentojn",
+    "description": "Konservas la elŝutitajn fragmentojn post kunfandado."
+  },
+  "language": {
+    "name": "Lingvo",
+    "description": "Lingvo de la aplikaĵo."
+  },
+  "limit_rate": {
+    "name": "Limiga Indico",
+    "description": "Limigas la elŝutan rapidon (ekz. 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "Vivu de Komenco",
+    "description": "Elŝutas vivajn filmetojn de la komenco."
+  },
+  "merge_output_format": {
+    "name": "Video Formato",
+    "description": "Fina videoformato rezultanta el kunfandado de riveretoj."
+  },
+  "output": {
+    "name": "Eligo Ŝablono",
+    "description": "Eliga dosiernomo ŝablono."
+  },
+  "password": {
+    "name": "Pasvorto",
+    "description": "Pasvorto por aŭtentigo."
+  },
+  "paths": {
+    "name": "Vojetoj",
+    "description": "Dosierujoj por konservi malsamajn specojn de dosieroj."
+  },
+  "playlist": {
+    "name": "Ludlisto",
+    "description": "Indikas ĉu elŝuti la kompletan ludliston aŭ ununuran videon."
+  },
+  "prefer_insecure": {
+    "name": "Preferas Nesekura",
+    "description": "Uzas HTTP-konekton anstataŭ HTTPS (nur YouTube)."
+  },
+  "proxy": {
+    "name": "Prokurilo",
+    "description": "Prokura servilo por uzi por retaj petoj."
+  },
+  "remux_video": {
+    "name": "Remukso-Video",
+    "description": "Ŝanĝas la videoujon sen rekodigo."
+  },
+  "retries": {
+    "name": "Reprovoj",
+    "description": "Nombro da provoj pri elŝutaj eraroj."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Saltu Ludliston Post Eraroj",
+    "description": "Saltas la reston de la ludlisto post certa nombro da eraroj."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Tempo por socket-konektoj en sekundoj."
+  },
+  "source_address": {
+    "name": "Fonta Adreso",
+    "description": "Klienta IP-adreso al kiu ligiĝos kiam faras konektojn."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Markas segmentojn de SponsorBlock-kategorioj."
+  },
+  "sub_format": {
+    "name": "Subtitola Formato",
+    "description": "Subtitolaj formato-kodo(j) por elŝuti."
+  },
+  "sub_langs": {
+    "name": "Subtitolaj Lingvoj",
+    "description": "Lingvoj de la subtekstoj por elŝuti."
+  },
+  "theme_dark": {
+    "name": "Malhela Temo",
+    "description": "Temo de la aplikaĵo."
+  },
+  "twofactor": {
+    "name": "Dufaktora Aŭtentigo",
+    "description": "Dufaktora aŭtentikigkodo."
+  },
+  "use_extractors": {
+    "name": "Uzu Eltirilojn",
+    "description": "Nomoj de ekstraktiloj por uzi (komo apartigitaj). (\"ĉiuj\",\"defaŭlta\",\"fino\",regula esprimo)"
+  },
+  "username": {
+    "name": "Uzantnomo",
+    "description": "Uzantnomo por aŭtentikigo."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams",
+    "description": "Ebligas kombini plurajn videofluojn."
+  },
+  "video_password": {
+    "name": "Video Pasvorto",
+    "description": "Pasvorto por pasvorte protektitaj filmetoj."
+  },
+  "video_resolution": {
+    "name": "Rezolucio",
+    "description": "Preferata video-rezolucio"
+  },
+  "video_subtitles": {
+    "name": "Subtekstoj",
+    "description": "Preferataj videosubtekstoj"
+  },
+  "wait_for_video": {
+    "name": "Atendu Videon",
+    "description": "Atendas ke planita video fariĝos disponebla antaŭ elŝuto."
+  },
+  "write_auto_subs": {
+    "name": "Elŝutu Aŭtomatajn Subtitolojn",
+    "description": "Skribas disponeblajn aŭtomatajn subtekstojn."
+  },
+  "write_subs": {
+    "name": "Elŝutu Subtekstojn",
+    "description": "Skribas disponeblajn manajn subtekstojn."
+  },
+  "write_thumbnail": {
+    "name": "Skribu Bildeton",
+    "description": "Konservas la videobildeton al disko."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Skribas metadatenojn al la dosiersistemo xattrs."
+  },
+  "xff": {
+    "name": "X-Plusendita-Por",
+    "description": "Agordas la kaplinion X-Forwarded-For por simuli lokon."
+  }
+}

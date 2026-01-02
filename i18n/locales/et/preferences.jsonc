@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Katkesta vea korral",
+    "description": "Tõrke ilmnemisel katkestab allalaadimise."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Katkesta kättesaamatu fragmendi puhul",
+    "description": "Katkestab allalaadimise, kui fragment pole saadaval."
+  },
+  "add_headers": {
+    "name": "Täiendavad päised",
+    "description": "Täiendavad päised võrgupäringutesse lisamiseks."
+  },
+  "audio_format": {
+    "name": "Helivorming",
+    "description": "Teisendatud heli formaat (mp3, flac, oopus jne)."
+  },
+  "audio_language": {
+    "name": "Heli",
+    "description": "Eelistatud helikeele kood."
+  },
+  "audio_multistreams": {
+    "name": "Heli mitmevood",
+    "description": "Võimaldab kombineerida mitut helivoogu."
+  },
+  "audio_quality": {
+    "name": "Heli kvaliteet",
+    "description": "Heli kvaliteet (0 parimat, 10 halvimat)."
+  },
+  "batch_file": {
+    "name": "Pakettfail",
+    "description": "Allalaaditavaid URL-e sisaldava faili tee."
+  },
+  "break_on_existing": {
+    "name": "Paus olemasolevast",
+    "description": "Peatab allalaadimise, kui fail on juba olemas."
+  },
+  "concurrent_fragments": {
+    "name": "Samaaegsed fragmendid",
+    "description": "Samaaegselt allalaaditavate fragmentide arv (vaikimisi 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Teisenda pisipildid",
+    "description": "Teisendage pisipildid määratud vormingusse."
+  },
+  "cookies": {
+    "name": "Küpsised",
+    "description": "Netscape-vormingus fail küpsiste lugemiseks ja küpsisepurgi sisestamiseks"
+  },
+  "cookies_from_browser": {
+    "name": "Küpsised brauserist",
+    "description": "Impordib küpsised määratud brauserist."
+  },
+  "download_archive": {
+    "name": "Laadige arhiiv alla",
+    "description": "Tee failini allalaaditud ID-de salvestamiseks, et vältida dubleerimist."
+  },
+  "embed_chapters": {
+    "name": "Manusta peatükid",
+    "description": "Manustab peatükid lõplikku faili."
+  },
+  "embed_info_json": {
+    "name": "Manusta teabe JSON",
+    "description": "Manustab teabe JSON-i lõplikku faili."
+  },
+  "embed_metadata": {
+    "name": "Manusta metaandmed",
+    "description": "Manustab metaandmed lõplikku faili."
+  },
+  "embed_subs": {
+    "name": "Subtiitrite manustamine",
+    "description": "Manustab subtiitrid lõplikku faili."
+  },
+  "embed_thumbnail": {
+    "name": "Manusta pisipilt",
+    "description": "Manustab pisipildi lõplikku faili."
+  },
+  "enable_file_urls": {
+    "name": "Luba faili URL-id",
+    "description": "Võimaldab kohalike failide jaoks failide URL-ide kasutamist."
+  },
+  "extract_audio": {
+    "name": "Ekstraktige heli",
+    "description": "Eraldab allalaaditud videotest heli (kasutab ffmpeg-i)."
+  },
+  "extractor_retries": {
+    "name": "Ekstraktor proovib uuesti",
+    "description": "Ekstraktori vigade korduskatsete arv."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpegi asukoht",
+    "description": "Tee FFmpegi kahendfaili."
+  },
+  "file_access_retries": {
+    "name": "Failijuurdepääsu korduskatsed",
+    "description": "Failijuurdepääsuvigade korduskatsete arv."
+  },
+  "fixup": {
+    "name": "Parandamine",
+    "description": "Parandab automaatselt teadaolevad vead videofailis."
+  },
+  "font_size": {
+    "name": "Fondi suurus",
+    "description": "Rakenduses kasutatud fondi suurus."
+  },
+  "force_ipv4": {
+    "name": "Sunni IPv4",
+    "description": "Sunnib võrguühenduste jaoks kasutama IPv4."
+  },
+  "force_ipv6": {
+    "name": "Sunni IPv6",
+    "description": "Sunnib võrguühenduste jaoks kasutama IPv6."
+  },
+  "force_overwrites": {
+    "name": "Sunni ülekirjutamine",
+    "description": "Kirjutab olemasolevad failid küsimata üle."
+  },
+  "format": {
+    "name": "Vorming",
+    "description": "Videovormingu koodid allalaadimiseks."
+  },
+  "fragment_retries": {
+    "name": "Fragmendi korduskatsed",
+    "description": "Katsete arv fragmentide allalaadimise vigade korral."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo kinnitamise puhverserver",
+    "description": "Geograafiliseks kinnitamiseks kasutatav puhverserver."
+  },
+  "ignore_errors": {
+    "name": "Ignoreeri vigu",
+    "description": "Ignoreeri allalaadimisvigu ja jätka järgmise videoga."
+  },
+  "impersonate": {
+    "name": "Esineda kellegi teisena",
+    "description": "Klient, mida kehastada (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Hoidke fragmente",
+    "description": "Säilitab allalaaditud fragmendid pärast ühendamist."
+  },
+  "language": {
+    "name": "Keel",
+    "description": "Rakenduse keel."
+  },
+  "limit_rate": {
+    "name": "Piirmäär",
+    "description": "Piirab allalaadimiskiirust (nt 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "Otseülekanne algusest peale",
+    "description": "Laadib algusest peale alla otsevideod."
+  },
+  "merge_output_format": {
+    "name": "Video formaat",
+    "description": "Voogude ühendamise tulemusel saadud lõplik videovorming."
+  },
+  "output": {
+    "name": "Väljundmall",
+    "description": "Väljundi failinime mall."
+  },
+  "password": {
+    "name": "Parool",
+    "description": "Parool autentimiseks."
+  },
+  "paths": {
+    "name": "Rajad",
+    "description": "Kataloogid erinevat tüüpi failide salvestamiseks."
+  },
+  "playlist": {
+    "name": "Esitusloend",
+    "description": "Näitab, kas laadida alla terve esitusloend või üks video."
+  },
+  "prefer_insecure": {
+    "name": "Eelista ebaturvalist",
+    "description": "Kasutab HTTPS-i asemel HTTP-ühendust (ainult YouTube)."
+  },
+  "proxy": {
+    "name": "Puhverserver",
+    "description": "Võrgupäringute jaoks kasutatav puhverserver."
+  },
+  "remux_video": {
+    "name": "Remux Video",
+    "description": "Muudab video konteinerit ilma uuesti kodeerimata."
+  },
+  "retries": {
+    "name": "Proovib uuesti",
+    "description": "Allalaadimisvigade korral korduskatsete arv."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Jäta esitusloend vahele pärast vigu",
+    "description": "Jätab ülejäänud esitusloendi vahele pärast teatud arvu vigu."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Pistikupesaühenduste ajalõpp sekundites."
+  },
+  "source_address": {
+    "name": "Allika aadress",
+    "description": "Kliendi IP-aadress, millega ühendust luuakse."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Märgib segmente SponsorBlocki kategooriatest."
+  },
+  "sub_format": {
+    "name": "Subtiitrite formaat",
+    "description": "Allalaaditavad subtiitrite vormingu koodid."
+  },
+  "sub_langs": {
+    "name": "Subtiitrite keeled",
+    "description": "Allalaaditavate subtiitrite keeled."
+  },
+  "theme_dark": {
+    "name": "Tume teema",
+    "description": "Rakenduse teema."
+  },
+  "twofactor": {
+    "name": "Kahefaktoriline autentimine",
+    "description": "Kahefaktoriline autentimiskood."
+  },
+  "use_extractors": {
+    "name": "Kasutage ekstraktorid",
+    "description": "Kasutatavate ekstraktijate nimed (komadega eraldatud).(\"kõik\",\"vaikeväärtus\",\"lõpp\",regulaaravaldis)"
+  },
+  "username": {
+    "name": "Kasutajanimi",
+    "description": "Kasutajanimi autentimiseks."
+  },
+  "video_multistreams": {
+    "name": "Video mitme voogu",
+    "description": "Võimaldab kombineerida mitut videovoogu."
+  },
+  "video_password": {
+    "name": "Video parool",
+    "description": "Parool parooliga kaitstud videote jaoks."
+  },
+  "video_resolution": {
+    "name": "Resolutsioon",
+    "description": "Eelistatud video eraldusvõime"
+  },
+  "video_subtitles": {
+    "name": "Subtiitrid",
+    "description": "Eelistatud video subtiitrid"
+  },
+  "wait_for_video": {
+    "name": "Oodake videot",
+    "description": "Ootab enne allalaadimist, kuni ajastatud video on saadaval."
+  },
+  "write_auto_subs": {
+    "name": "Laadige alla automaatsed subtiitrid",
+    "description": "Kirjutab saadaolevad automaatsed subtiitrid."
+  },
+  "write_subs": {
+    "name": "Laadige alla subtiitrid",
+    "description": "Kirjutab saadaolevad manuaalsed subtiitrid."
+  },
+  "write_thumbnail": {
+    "name": "Kirjutage pisipilt",
+    "description": "Salvestab video pisipildi kettale."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Kirjutab metaandmed failisüsteemi xattrs."
+  },
+  "xff": {
+    "name": "X-Forwarded-For",
+    "description": "Määrab päise X-Forwarded-For asukoha simuleerimiseks."
+  }
+}

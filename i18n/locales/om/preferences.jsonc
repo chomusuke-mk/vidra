@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Dogoggora irratti ulfa baasuu .",
+    "description": "Yoo dogongorri uumame adeemsa download ulfa baasa."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Caccabaa hin argamne irratti ulfa baasuu .",
+    "description": "Yoo ciccitaan hin argamne download ulfa baasu."
+  },
+  "add_headers": {
+    "name": "Mataduree dabalataa .",
+    "description": "Mataduree dabalataa gaaffii networkii keessatti hammachuudhaaf."
+  },
+  "audio_format": {
+    "name": "bifa sagalee .",
+    "description": "bifa sagalee jijjiirame (MP3, FLAC, OPUS, fi kkf)."
+  },
+  "audio_language": {
+    "name": "Sagalee .",
+    "description": "Koodii afaan sagalee filatamaa."
+  },
+  "audio_multistreams": {
+    "name": "Sagaleewwan hedduu .",
+    "description": "yaa'a sagalee hedduu walitti makuuf hayyama."
+  },
+  "audio_quality": {
+    "name": "Qulqullina sagalee .",
+    "description": "Qulqullina sagalee (0 best, 10 hamaa)."
+  },
+  "batch_file": {
+    "name": "Faayila tuuta .",
+    "description": "Karaa gara faayilii URL of keessaa qabutti karaa biraatti geessu."
+  },
+  "break_on_existing": {
+    "name": "Kan jiru irratti cabsi .",
+    "description": "Yoo faayilli duraan jiraate buufachuuf dhaaba."
+  },
+  "concurrent_fragments": {
+    "name": "Caccabaa walfaana .",
+    "description": "Lakkoofsa ciccitaa yeroo tokkotti buufachuuf (durtii 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Suuraa xiqqaa jijjiiri .",
+    "description": "Xiqqaa gara bifa ifteessameetti jijjiiri."
+  },
+  "cookies": {
+    "name": "Kukiiwwan .",
+    "description": "Faayila NETSCAPE kan kukiiwwan dubbisuu fi kukii qamadii keessaa dubbisuuf ."
+  },
+  "cookies_from_browser": {
+    "name": "Kuukii biraawzari irraa .",
+    "description": "Kuukii biraawzari ifteessame irraa galcha."
+  },
+  "download_archive": {
+    "name": "Kuusaa buufadhaa .",
+    "description": "Dachaa akka hin taaneef IDwwan buufaman waraabuuf gara faayilii faayila."
+  },
+  "embed_chapters": {
+    "name": "Boqonnaawwan Embed .",
+    "description": "Boqonnaawwan gara faayilii dhumaa keessa galcha."
+  },
+  "embed_info_json": {
+    "name": "Info embed JSON .",
+    "description": "Info JSON faayilii dhumaa keessa galcha."
+  },
+  "embed_metadata": {
+    "name": "Meetadaataa ukkaamfame .",
+    "description": "Meetadaataa gara faayilii dhumaa keessa galcha."
+  },
+  "embed_subs": {
+    "name": "Mata dureewwan xiqqaa embed .",
+    "description": "Faayila dhumaa keessatti mata duree xiqqaa ukkaamsa."
+  },
+  "embed_thumbnail": {
+    "name": "Suuraa xiqqaa embed .",
+    "description": "Suuraa xiqqaa faayilii dhumaa keessa galcha."
+  },
+  "enable_file_urls": {
+    "name": "URL faayilii dandeessisi .",
+    "description": "Fayyadama URL faayilii faayilii naannoo dandeessisa."
+  },
+  "extract_audio": {
+    "name": "Sagalee baasuu .",
+    "description": "Viidiyoowwan buufaman keessaa sagalee baafata (ffmpeg fayyadama)."
+  },
+  "extractor_retries": {
+    "name": "Yaaliin irra deebi'uu extractor .",
+    "description": "Lakkoofsa irra deebiin dogongora baasuu irratti."
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG Bakka .",
+    "description": "Karaa gara ffmpeg binary."
+  },
+  "file_access_retries": {
+    "name": "Faayilii qaqqabummaa irra deebiin yaa'u .",
+    "description": "Lakkoofsa irra deebiin dogongora qaqqabummaa faayilii irratti."
+  },
+  "fixup": {
+    "name": "Fixup .",
+    "description": "Faayila viidiyoo keessatti dogoggora beekamaa ta'e ofumaan sirreessa."
+  },
+  "font_size": {
+    "name": "Guddina Qubee .",
+    "description": "Hammangaa qubee iyyannoo keessatti fayyadamu."
+  },
+  "force_ipv4": {
+    "name": "humna IPv4.",
+    "description": "IPv4 walitti hidhamiinsa neetworkiidhaaf dirqisiisa."
+  },
+  "force_ipv6": {
+    "name": "humna IPv6.",
+    "description": "IPv6 walitti hidhamiinsa neetworkiidhaaf dirqisiisa."
+  },
+  "force_overwrites": {
+    "name": "humna irra barreessuu .",
+    "description": "Faayilota jiran osoo hin gaafatin irra barreessa."
+  },
+  "format": {
+    "name": "Foormaatii .",
+    "description": "Koodii(wwan) bifa viidiyoo buufachuuf."
+  },
+  "fragment_retries": {
+    "name": "Retries ciccitaa .",
+    "description": "Lakkoofsa irra deebi'amee dogongora download fragment irratti."
+  },
+  "geo_verification_proxy": {
+    "name": "Bakka bu'aa mirkaneessa GEO .",
+    "description": "Tarjaa bakka bu'aa GEO-VERIFI kanneeniif fayyadamuuf."
+  },
+  "ignore_errors": {
+    "name": "Dogoggora bira darbuu .",
+    "description": "Dogoggora download tuffadhuu viidiyoo itti aanu itti fufi."
+  },
+  "impersonate": {
+    "name": "fakkeessaa .",
+    "description": "Maamila gara fakkeessuutti (kiroomii, kiroomii-110, kiroomii:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Caccabaa qabadhu .",
+    "description": "Erga walitti makamanii booda caccabaa buufame ni eega."
+  },
+  "language": {
+    "name": "Afaan",
+    "description": "Afaan application."
+  },
+  "limit_rate": {
+    "name": "Sadarkaa daangaa .",
+    "description": "Saffisa buufachuu (fkn, 50K, 4.2m) daangessuu."
+  },
+  "live_from_start": {
+    "name": "Jalqabarraa kaasee kallattiin",
+    "description": "Jalqabarraa kaasee viidiyoo kallattiin download godha."
+  },
+  "merge_output_format": {
+    "name": "bifa viidiyoo .",
+    "description": "bifa viidiyoo dhumaa kan dhangala'aa walitti makamuu irraa maddu."
+  },
+  "output": {
+    "name": "Unka Bu'aa .",
+    "description": "Unka Maqaa Faayilii fi Baasaa."
+  },
+  "password": {
+    "name": "Jecha iccitii",
+    "description": "Jecha icciitii mirkaneessuuf."
+  },
+  "paths": {
+    "name": "Daandiiwwan .",
+    "description": "Galmeewwan gosoota faayiloota adda addaa qusachuuf."
+  },
+  "playlist": {
+    "name": "Tarree taphaa .",
+    "description": "Playlist guutuu ykn viidiyoo tokko buufachuuf agarsiisa."
+  },
+  "prefer_insecure": {
+    "name": "Naasuu dhabuu filadha .",
+    "description": "bakka HTTPS (YouTube qofa) walitti hidhamiinsa HTTP fayyadama."
+  },
+  "proxy": {
+    "name": "Bakka bu'aa .",
+    "description": "Proxy Server gaaffii networkiif fayyadamuuf."
+  },
+  "remux_video": {
+    "name": "Viidiyoo Remux .",
+    "description": "Qabduu viidiyoo osoo irra deebi'anii hin encoding jijjiira."
+  },
+  "retries": {
+    "name": "Yaaliin irra deebiin .",
+    "description": "Lakkoofsa dogongora download irratti irra deebi'anii yaalu."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Dogoggora booda tarreeffama taphaa darbi .",
+    "description": "Dogoggora lakkoofsa murtaa'e booda tarree tapha hafe darba."
+  },
+  "socket_timeout": {
+    "name": "Socket timeout .",
+    "description": "Yeroon walitti hidhamiinsa socket sekondii keessatti."
+  },
+  "source_address": {
+    "name": "Teessoo madda .",
+    "description": "Teessoo IP maamilaa yeroo walqabsiisa uumu itti hidhu."
+  },
+  "sponsorblock_mark": {
+    "name": "IspoonsaraBlock Mark .",
+    "description": "Kutaalee gosoota IspoonsaraBlock irraa mallatteessu."
+  },
+  "sub_format": {
+    "name": "Akkaataa mata duree xiqqaa .",
+    "description": "Koodii(wwan) mata duree xiqqaa buufachuuf."
+  },
+  "sub_langs": {
+    "name": "Afaanota mata duree xiqqaa .",
+    "description": "Afaanota mata duree xiqqaa buufachuuf."
+  },
+  "theme_dark": {
+    "name": "Mata duree dukkanaa'aa .",
+    "description": "Mata duree iyyannoo."
+  },
+  "twofactor": {
+    "name": "Mirkaneessaa sababoota lamaa .",
+    "description": "Koodii Mirkaneessuu sababoota lamaa."
+  },
+  "use_extractors": {
+    "name": "Extractors fayyadamuu .",
+    "description": "Maqaa baafattoota fayyadamuu (komaara adda baafame).(\"Hunda\",\"Default\",\"end\",Ibsa idilee)"
+  },
+  "username": {
+    "name": "Maqaa fayyadamaa .",
+    "description": "Maqaa fayyadamaa mirkaneessuuf."
+  },
+  "video_multistreams": {
+    "name": "Viidiyoowwan hedduu .",
+    "description": "Viidiyoo hedduu walitti makuuf hayyama."
+  },
+  "video_password": {
+    "name": "Jecha icciitii viidiyoo .",
+    "description": "Jecha icciitii viidiyoo jecha icciitiitiin eegameef."
+  },
+  "video_resolution": {
+    "name": "Xumura",
+    "description": "Furmaata Viidiyoo Filatamaa ."
+  },
+  "video_subtitles": {
+    "name": "mata duree xiqqaa .",
+    "description": "Video subtitles filatamaa ta'e ."
+  },
+  "wait_for_video": {
+    "name": "Viidiyoo eegaa .",
+    "description": "Viidiyoo beellamame tokko buufachuu dura akka argamu eega."
+  },
+  "write_auto_subs": {
+    "name": "Download Auto subtitles .",
+    "description": "mata duree xiqqaa ofumaan argamu barreessa."
+  },
+  "write_subs": {
+    "name": "Download subtitles .",
+    "description": "Qaamota xiqqaa maanuwaalii jiran barreessa."
+  },
+  "write_thumbnail": {
+    "name": "Barreeffama xiqqaa barreessuu .",
+    "description": "Viidiyoo suuraa xiqqaa gara diskitti qusata."
+  },
+  "xattrs": {
+    "name": "XATTRS .",
+    "description": "meetadaataa gara sirna faayilii Xattrs barreessa."
+  },
+  "xff": {
+    "name": "X-fuulduratti-forannoo .",
+    "description": "Mataduree X-forward-for bakka fakkeessuuf saaga."
+  }
+}

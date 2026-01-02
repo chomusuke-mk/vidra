@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Kore i te he",
+    "description": "Ka haria te tukanga tango mai mena ka puta he hapa."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Kore i te wahanga kaore i te waatea",
+    "description": "Ka haria te tango mai mena kaore i te waatea tetahi waahanga."
+  },
+  "add_headers": {
+    "name": "Header taapiri",
+    "description": "Ko nga upoko taapiri kia whakauruhia ki nga tono whatunga."
+  },
+  "audio_format": {
+    "name": "Hōputu oro",
+    "description": "Hōputu o te oro hurihuri (mp3, Flac, Opus, etc.)."
+  },
+  "audio_language": {
+    "name": "Oro",
+    "description": "Waehere reo oro."
+  },
+  "audio_multistreams": {
+    "name": "Te musistreams multioms",
+    "description": "Taea te whakakotahi i nga awa oro maha."
+  },
+  "audio_quality": {
+    "name": "Te kounga oro",
+    "description": "Te kounga oro (0 pai, 10 tino kino)."
+  },
+  "batch_file": {
+    "name": "Kōnae puranga",
+    "description": "Ara ki te konae kei roto i nga URL hei tango."
+  },
+  "break_on_existing": {
+    "name": "Pakaru tonu",
+    "description": "Ka mutu te tango mai mena kei te noho kē te konae."
+  },
+  "concurrent_fragments": {
+    "name": "Nga moti o te waa",
+    "description": "Te maha o nga kongakonga o te waa ki te tango (taunoa 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Tahuri karakōnui",
+    "description": "Ka hurihia nga karakōnui ki te hōputu kua tohua."
+  },
+  "cookies": {
+    "name": "Pihikete",
+    "description": "Kōnae whakahōputu Netscape ki te pānui pihikete mai me te dump bukie Jar i"
+  },
+  "cookies_from_browser": {
+    "name": "Pihikete mai i te kaitirotiro",
+    "description": "Ka kawemai i nga pihikete mai i te pūtirotiro kua tohua."
+  },
+  "download_archive": {
+    "name": "Tangohia te Archive",
+    "description": "Te huarahi ki te konae ki te tuhi i nga ID kua tohua kia kore ai e kape."
+  },
+  "embed_chapters": {
+    "name": "Whakanohia nga upoko",
+    "description": "Whakauruhia nga upoko ki roto i te konae whakamutunga."
+  },
+  "embed_info_json": {
+    "name": "He Korero Korero JSO",
+    "description": "Whakauruhia nga korero a JSo ki roto i te konae whakamutunga."
+  },
+  "embed_metadata": {
+    "name": "Whakauru metadata",
+    "description": "Whakauru ki te metadata ki te konae whakamutunga."
+  },
+  "embed_subs": {
+    "name": "Whakanohia nga taarua",
+    "description": "Whakauruhia nga taarua ki roto i te konae whakamutunga."
+  },
+  "embed_thumbnail": {
+    "name": "Whakanohia te karakōnui",
+    "description": "Whakauruhia te karakōnui ki te konae whakamutunga."
+  },
+  "enable_file_urls": {
+    "name": "Whakahohehia nga URL konae",
+    "description": "Ka taea e te whakamahi te URL konae mo nga konae rohe."
+  },
+  "extract_audio": {
+    "name": "Tangohia te oro",
+    "description": "Tangohia nga oro mai i nga ataata i tangohia (whakamahia te FFMpeg)."
+  },
+  "extractor_retries": {
+    "name": "Ka hoki whakamuri",
+    "description": "Te maha o nga reti i runga i nga hapa tangohanga."
+  },
+  "ffmpeg_location": {
+    "name": "Wāhi FFMPEG",
+    "description": "Ara ki te FFMPEG Binary."
+  },
+  "file_access_retries": {
+    "name": "Ka whakahoki ano te Whakauru Kōnae",
+    "description": "Te maha o nga reti i runga i nga hapa whakauru konae."
+  },
+  "fixup": {
+    "name": "Whakatiki",
+    "description": "Ka whakatika aunoatia aunoa nga hapa i roto i te konae ataata."
+  },
+  "font_size": {
+    "name": "Rahinga momotuhi",
+    "description": "Rahi te momotuhi i whakamahia i roto i te tono."
+  },
+  "force_ipv4": {
+    "name": "Whakapai iPv4",
+    "description": "Ka kaha te whakamahi i te ipv4 mo nga hononga whatunga."
+  },
+  "force_ipv6": {
+    "name": "Whakapaa IPv6",
+    "description": "Ko te whakamahi i te IPv6 mo nga hononga whatunga."
+  },
+  "force_overwrites": {
+    "name": "Ka huri te ope",
+    "description": "Kei te whakaputa i nga konae kei te kore e tono."
+  },
+  "format": {
+    "name": "Whakatakotoranga",
+    "description": "Waehere hōputu ataata (s) hei tango."
+  },
+  "fragment_retries": {
+    "name": "Ka whakahoki ano nga kongakonga",
+    "description": "Te maha o nga reti i runga i nga hapa o te tango hapa."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Whakatakotoranga",
+    "description": "Tūmau Takawaenga Hei whakamahi mo te CEO-whakaotinga."
+  },
+  "ignore_errors": {
+    "name": "Kaua e warewarehia nga hapa",
+    "description": "Kaua e wareware ki te tango i nga hapa ka haere tonu me te ataata o muri."
+  },
+  "impersonate": {
+    "name": "Impersonate",
+    "description": "Kaihoko ki te whakamatau (Chrome, Chrome-110, Chrome: Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Kia mau ki nga kongakonga",
+    "description": "Pupuri i nga kongakonga i tangohia i muri i te hanumi."
+  },
+  "language": {
+    "name": "Reo",
+    "description": "Reo o te tono."
+  },
+  "limit_rate": {
+    "name": "Whakatauhia te reiti",
+    "description": "Whakawhāiti i te tere download (e.g., 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Ora mai i te tiimata",
+    "description": "Tangohia nga ataata ora mai i te tiimata."
+  },
+  "merge_output_format": {
+    "name": "Hōputu Ataata",
+    "description": "Hōputu ataata whakamutunga ka puta mai i nga awa whakakotahi."
+  },
+  "output": {
+    "name": "Tauira Panui",
+    "description": "Tātauira Whakaputanga Kōnae."
+  },
+  "password": {
+    "name": "Kupu whakataha",
+    "description": "Kupuhipa mo te whakamotuhēhē."
+  },
+  "paths": {
+    "name": "Huarahi",
+    "description": "NGĀ TOHUTOHU Hei Tiaki i nga momo konae rereke."
+  },
+  "playlist": {
+    "name": "Rāranginoi",
+    "description": "E whakaatu ana mehemea ka tango i te raarangi taapiri katoa, he ataata kotahi ranei."
+  },
+  "prefer_insecure": {
+    "name": "He pai ake te koretake",
+    "description": "Whakamahia ai te hononga HTTP hei utu mo te https (YouTube anake)."
+  },
+  "proxy": {
+    "name": "Takawaenga",
+    "description": "Tūmau Takawaenga hei whakamahi mo nga tono whatunga."
+  },
+  "remux_video": {
+    "name": "Ataata Remux",
+    "description": "Ka hurihia te ipu ataata me te kore e whakauru ano."
+  },
+  "retries": {
+    "name": "Hokinga reti",
+    "description": "Te maha o nga reti i runga i te hapa o te hapa."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Hūpeke te rārangii i muri i ngā hapa",
+    "description": "Ka takahi i te toenga o te kaitakaro i muri i te maha o nga hapa."
+  },
+  "socket_timeout": {
+    "name": "Te wa tuuru",
+    "description": "Te wa mo nga hononga honohono i roto i te hēkona."
+  },
+  "source_address": {
+    "name": "Wāhitau puna",
+    "description": "Wāhitau IP kiritaki kia herea ki te hono hononga."
+  },
+  "sponsorblock_mark": {
+    "name": "Tohu Spensorblock",
+    "description": "Tohu nga waahanga mai i nga waahanga Sponsorblock."
+  },
+  "sub_format": {
+    "name": "Hōputu Whanui",
+    "description": "Subtitle code code (s) hei tango."
+  },
+  "sub_langs": {
+    "name": "Nga Reo Taapiri",
+    "description": "Nga Reo o nga taarua ki te tango."
+  },
+  "theme_dark": {
+    "name": "Kaupapa pouri",
+    "description": "Kaupapa o te tono."
+  },
+  "twofactor": {
+    "name": "Te whakamotuhēhēnga e rua",
+    "description": "E rua nga waehere whakamana i te taha."
+  },
+  "use_extractors": {
+    "name": "Whakamahi i nga tangohanga",
+    "description": "Nga ingoa o nga kaihoahoa hei whakamahi (Ka wehe te piko). (\"Katoa\", \"taunoa\", \"Whakamutunga\", whakapuakitanga)"
+  },
+  "username": {
+    "name": "Ingoa ingoa",
+    "description": "Ingoa ingoa mo te whakamotuhēhēnga."
+  },
+  "video_multistreams": {
+    "name": "Ataata multistreams",
+    "description": "Taea te whakakotahi i nga awa ataata maha."
+  },
+  "video_password": {
+    "name": "Kupuhipa Ataata",
+    "description": "Kupuhipa mo nga ataata kua tiakina."
+  },
+  "video_resolution": {
+    "name": "Taumira",
+    "description": "Whakatau Ataata Ataata"
+  },
+  "video_subtitles": {
+    "name": "Torotohu",
+    "description": "Taitara ataata pai"
+  },
+  "wait_for_video": {
+    "name": "Tatari mo te ataata",
+    "description": "Tatari mo te ataata kua whakaritea kia waatea i mua i te tango."
+  },
+  "write_auto_subs": {
+    "name": "Tangohia nga taarua auto",
+    "description": "Tuhi i nga taarua aunoa."
+  },
+  "write_subs": {
+    "name": "Tangohia nga taarua",
+    "description": "Tuhi i nga taarua pukapuka e waatea ana."
+  },
+  "write_thumbnail": {
+    "name": "Tuhia te karakara",
+    "description": "Ka penapena i te karakōnui ataata ki te kōpae."
+  },
+  "xattrs": {
+    "name": "Xattrs",
+    "description": "Ka tuhia e Metadata ki nga Xatter Xatt."
+  },
+  "xff": {
+    "name": "X-Whakamua - mo",
+    "description": "Ka tautuhia te pane-mua-mo te upoko ki te whakarite i te waahi."
+  }
+}

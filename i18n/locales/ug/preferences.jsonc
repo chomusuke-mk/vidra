@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "خاتالىق ئۈستىدە",
+    "description": "خاتالىق كۆرۈلسە چۈشۈرۈش جەريانىنى ئەمەلدىن قالدۇرىدۇ."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "ئىشلەتكىلى بولمايدىغان بۆلەكنى ئەمەلدىن قالدۇرۇڭ",
+    "description": "ئەگەر پارچىنى ئىشلەتكىلى بولمىسا, چۈشۈرۈشنى قىسقارتىدۇ."
+  },
+  "add_headers": {
+    "name": "قوشۇمچە ماۋزۇ",
+    "description": "توردىن ھالقىغان قوشۇمچە ماۋزۇلار."
+  },
+  "audio_format": {
+    "name": "ئاۋاز فورماتى",
+    "description": "ئايلاندۇرۇلغان ئاۋاز (MP3, FRAC قاتارلىقلارنى فورماتى."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "ياقتۇرىدىغان ئاۋازلىق كود كودى."
+  },
+  "audio_multistreams": {
+    "name": "ئاۋازلىق كۆپ غەمخورلۇق قىلغان",
+    "description": "كۆپ خىل ئاۋاز ئېقىمىنى بىرلەشتۈرۈشكە يول قويىدۇ."
+  },
+  "audio_quality": {
+    "name": "ئاۋاز سۈپىتى",
+    "description": "ئاۋاز سۈپىتى (0 ئەڭ ياخشى, 10 ناچار)."
+  },
+  "batch_file": {
+    "name": "تۈركۈمدىكى ھۆججەت",
+    "description": "URL نى چۈشۈرۈش ئۈچۈن URL لار بار."
+  },
+  "break_on_existing": {
+    "name": "ھازىر بار",
+    "description": "ئەگەر ھۆججەت مەۋجۇت بولسا چۈشۈرۈشنى توختىتىدۇ."
+  },
+  "concurrent_fragments": {
+    "name": "ماسلىشىش پارچىلىرى",
+    "description": "چۈشۈرۈشكە بىرلا ۋاقىتتا پارچىلاش نومۇرى (سۈكۈتتىكى 1)."
+  },
+  "convert_thumbnails": {
+    "name": "كىچىك كۆرۈنۈشنى ئۆزگەرتىڭ",
+    "description": "كىچىك كۆرۈنۈشنى بەلگىلەنگەن فورماتقا ئايلاندۇرۇڭ."
+  },
+  "cookies": {
+    "name": "Cookies",
+    "description": "Netscape فورماتى فورماتلانغان ھۆججەت ساقلانمىلارنى ئوقۇش ۋە تاشلىۋېتىش"
+  },
+  "cookies_from_browser": {
+    "name": "توركۆرگۈدىكى ساقلانمىلار",
+    "description": "كۆرسىتىلگەن توركۆرگۈدىكى ساقلانمىلارنى ئىمپورت قىلىدۇ."
+  },
+  "download_archive": {
+    "name": "ئارخىپنى چۈشۈرۈڭ",
+    "description": "كۆپەيتىلگەن كىملىكنى خاتىرىلەش ئۈچۈن ھۆججەتكە چۈشۈرۈش ئۈچۈن ھۆججەتكە يول قويۇڭ."
+  },
+  "embed_chapters": {
+    "name": "Comped compres",
+    "description": "ئاخىرقى ھۆججەتكە actdds."
+  },
+  "embed_info_json": {
+    "name": "Acted ins json",
+    "description": "ئاخىرقى ھۆججەتكە atddes files fson."
+  },
+  "embed_metadata": {
+    "name": "مېتا سانلىق مەلۇمات",
+    "description": "ئاخىرقى ھۆججەتكە مېمات."
+  },
+  "embed_subs": {
+    "name": "قىستۇرۇلغان تارماق",
+    "description": "ئاخىرقى ھۆججەتكە act acceds"
+  },
+  "embed_thumbnail": {
+    "name": "Smped thumbnail",
+    "description": "ئاخىرقى ھۆججەتكە كىچىك كۆرۈنۈشنى لىڭشىتتى."
+  },
+  "enable_file_urls": {
+    "name": "ھۆججەت URL نى قوزغىتىڭ",
+    "description": "يەرلىك ھۆججەتلەر ئۈچۈن ھۆججەت Urls ئىشلىتىشنى قوزغىتىدۇ."
+  },
+  "extract_audio": {
+    "name": "جاسۇسلۇق",
+    "description": "چۈشۈرۈلگەن سىنلاردىن ئاۋاز چىقىرىش (FFMPEG نى ئىشلىتىدۇ)."
+  },
+  "extractor_retries": {
+    "name": "چىقىرىۋېتىش ساياھىتى",
+    "description": "چىقىرىۋېتىلگەن خاتالىقلىرى توغرىسىدىكى قايتا تەكشۈرۈش."
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG ئورنى",
+    "description": "FFMPEG ئىككىلىكىدىكى يول."
+  },
+  "file_access_retries": {
+    "name": "ھۆججەت زىيارەتچى ئەسلىگە كەلتۈرۈش",
+    "description": "ھۆججەتنى زىيارەت قىلىش خاتالىقىدىكى قايتا سىناش سانى."
+  },
+  "fixup": {
+    "name": "مۇقىملاشتۇرۇش",
+    "description": "سىن ھۆججىتىدە مەلۇم خاتالىقلارنى ئاپتوماتىك تۈزىتىدۇ."
+  },
+  "font_size": {
+    "name": "خەت چوڭلۇقى",
+    "description": "ئىلتىماستا ئىشلىتىلگەن خەت چوڭلۇقى."
+  },
+  "force_ipv4": {
+    "name": "With ipv4",
+    "description": "تور ئۇلىنىشى ئۈچۈن IPV4 نى ئىشلىتىشنى قىلىدۇ."
+  },
+  "force_ipv6": {
+    "name": "With ipv6",
+    "description": "IPV6 نى تور ئۇلىنىشى ئۈچۈن IPV6 ئىشلىتىشكە كۈچ سەرپ قىلىدۇ."
+  },
+  "force_overwrites": {
+    "name": "كۈچ-قۇۋۋەت",
+    "description": "سورىماي تۇرۇپ ھازىر بار بولغان ھۆججەتلەرنى قاپلايدۇ."
+  },
+  "format": {
+    "name": "فورماتى",
+    "description": "چۈشۈرۈش ئۈچۈن سىن فورماتى كودى (لار)."
+  },
+  "fragment_retries": {
+    "name": "پارچە قايتا-قايتا كۈتۈۋالىدۇ",
+    "description": "پارچىلاش خاتالىقىدا قايتا سىناش سانى."
+  },
+  "geo_verification_proxy": {
+    "name": "جۇي دەلىللەش ۋاكالەتچى",
+    "description": "ۋاكالەتچى مۇلازىمېتىر جۇغراپىيىلىك دەلىللەش ئۈچۈن ئىشلىتىلىدۇ."
+  },
+  "ignore_errors": {
+    "name": "خاتالىقلارغا پەرۋا قىلماڭ",
+    "description": "خاتالىقلارنى چۈشۈرۈش ۋە كېيىنكى فىلىم بىلەن داۋاملاشتۇرۇڭ."
+  },
+  "impersonate": {
+    "name": "تەقلىد قىلىڭ",
+    "description": "خېرىدار چاقىرىش كىشىنى بىلىۋاقتىرايدۇ (Chrome, Chrome-110, Chrome: Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "پارچىلارنى ساقلاڭ",
+    "description": "قوشۇلغاندىن كېيىن چۈشۈرۈلگەن بۆلەكلەرنى ساقلايدۇ."
+  },
+  "language": {
+    "name": "تىل",
+    "description": "ئىلتىماسنىڭ تىلى."
+  },
+  "limit_rate": {
+    "name": "چەكلىنىش نىسبىتى",
+    "description": "چۈشۈرۈش سۈرئىتىنى چەكلەيدۇ (مەسىلەن, 50k, 50k, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "باشتىن-ئاخىر ياشاڭ",
+    "description": "STORENT LIVORE STORE نى باشلاڭ."
+  },
+  "merge_output_format": {
+    "name": "سىن فورماتى",
+    "description": "ئاخىرقى سىن فورماتى گۈللىنىشتىن كېلىپ چىققان."
+  },
+  "output": {
+    "name": "چىقىرىش قېلىپ",
+    "description": "چىقىرىۋېتىش ھۆججەت ئىسمى قېلىپى."
+  },
+  "password": {
+    "name": "پارول",
+    "description": "دەلىللەش ئۈچۈن پارول."
+  },
+  "paths": {
+    "name": "يوللار",
+    "description": "ئوخشىمىغان تۈردىكى ھۆججەتلەرنى قۇتقۇزۇش مۇندەرىجىسى."
+  },
+  "playlist": {
+    "name": "قويۇش تىزىملىكى",
+    "description": "تولۇق ئويۇنچى ياكى يەككە سىننى چۈشۈرمەسلىكىنى كۆرسىتىدۇ."
+  },
+  "prefer_insecure": {
+    "name": "بىخەتەر ئەمەس",
+    "description": "HTTPS (YouTube نىڭ ئورنىغا HTTP ئۇلىنىشىنى ئىشلىتىدۇ."
+  },
+  "proxy": {
+    "name": "ۋاكالەتچى",
+    "description": "ۋاكالەتچى مۇلازىمېتىر تور تەلىپىنى ئىشلىتىش."
+  },
+  "remux_video": {
+    "name": "Remux video",
+    "description": "قايتا كودلاشسىز سىن قاچىسىنى ئۆزگەرتىڭ."
+  },
+  "retries": {
+    "name": "قايتا سىنايدۇ",
+    "description": "چۈشۈرۈش خاتالىقىدا قايتا سىناش سانى."
+  },
+  "skip_playlist_after_errors": {
+    "name": "خاتالىق سادىر قىلغاندىن كېيىن قويۇش تىزىملىكى",
+    "description": "مەلۇم بىر خاتالىقتىن كېيىن يەنە بىر پارچە ئويۇن تىزىملىكىدىن ئايرىلىدۇ."
+  },
+  "socket_timeout": {
+    "name": "Socket timeout",
+    "description": "سېكۇنتتا پايپاق ئۇلىنىشىغا ۋاقىت كېتىدۇ."
+  },
+  "source_address": {
+    "name": "مەنبە ئادرېسى",
+    "description": "CIME IP ئادرېس ئۇلىنىشىغا باغلانغان."
+  },
+  "sponsorblock_mark": {
+    "name": "قوللايدىغان بەلگە",
+    "description": "قوللىغۇچى تۈرىدىكى تۈرلەرنى كۆرسىتىدۇ."
+  },
+  "sub_format": {
+    "name": "Subtitle فورماتى",
+    "description": "چۈشۈرۈش ئۈچۈن Subtitle فورماتى كودى (لار)."
+  },
+  "sub_langs": {
+    "name": "Subtitle stans",
+    "description": "چۈشۈرۈش ئۈچۈن تارماق تۈرلەرنىڭ تىللىرى."
+  },
+  "theme_dark": {
+    "name": "قاراڭغۇ تېما",
+    "description": "ئىلتىماسنىڭ تېمىسى."
+  },
+  "twofactor": {
+    "name": "ئىككى ئامىللىق دەلىللەش",
+    "description": "ئىككى ئامىللىق دەلىللەش كودى."
+  },
+  "use_extractors": {
+    "name": "چىقىرىۋەتتى",
+    "description": "ئۈسكۈنىنىڭ ئىسمى (پەش ئايرىلغان). («ھەممىسى», «سۈكۈت», «ئاخىرقى», «ئاخىرلىشىش», دائىملىق ئىپادىلەش, دائىملىق ئىپادىلەش"
+  },
+  "username": {
+    "name": "ئىشلەتكۈچى ئىسمى",
+    "description": "دەلىللەش ئۈچۈن ئىشلەتكۈچى ئىسمى."
+  },
+  "video_multistreams": {
+    "name": "VideoSy كۆپ ئىقتىدارلىق",
+    "description": "كۆپ خىل سىن ئېقىمىنى بىرلەشتۈرۈشكە يول قويىدۇ."
+  },
+  "video_password": {
+    "name": "سىن مەخپىي نومۇر",
+    "description": "پارولنى قوغدىلىدىغان سىنلارنىڭ پارولى."
+  },
+  "video_resolution": {
+    "name": "قارار",
+    "description": "ياقتۇرىدىغان سىن ئېنىقلىق دەرىجىسى"
+  },
+  "video_subtitles": {
+    "name": "Subtitles",
+    "description": "ياقتۇرىدىغان سىن subtitles"
+  },
+  "wait_for_video": {
+    "name": "سىننى ساقلاڭ",
+    "description": "چۈشۈرۈشتىن بۇرۇن پىلانلانغان سىننى ساقلايدۇ."
+  },
+  "write_auto_subs": {
+    "name": "ئاپتوماتىك تارماق ھۆججەتلەرنى چۈشۈرۈڭ",
+    "description": "ئاپتوماتىك رەسىملەرنى يازىدۇ."
+  },
+  "write_subs": {
+    "name": "Subtitles نى چۈشۈرۈڭ",
+    "description": "Modit Pubtitles نى يازىدۇ."
+  },
+  "write_thumbnail": {
+    "name": "كىچىك كۆرۈنۈشنى يېزىڭ",
+    "description": "سىن كىچىك كۆرۈنۈشىنى دىسكىغا تېجەيدۇ."
+  },
+  "xattrs": {
+    "name": "Xattrs",
+    "description": "Petalata EstaSetMers غا ئەۋەتىلدى."
+  },
+  "xff": {
+    "name": "X-forward-for",
+    "description": "ماۋزۇغا يوللانغان بەتنى تەقلىد قىلىش ئۈچۈن"
+  }
+}

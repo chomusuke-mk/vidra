@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "olubuto ku nsobi .",
+    "description": "Aggyawo enkola y'okuwanula singa wabaawo ensobi."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "olubuto ku kitundu ekitaliiwo .",
+    "description": "Aggyawo download singa akatundu ke kaba tekaliiwo."
+  },
+  "add_headers": {
+    "name": "Emitwe egy'enjawulo .",
+    "description": "Emitwe emirala okussaamu mu kusaba kw'omukutu."
+  },
+  "audio_format": {
+    "name": "Enkola y'amaloboozi .",
+    "description": "Ensengeka y’amaloboozi agakyusiddwa (MP3, FLAC, Opus, n’ebirala)."
+  },
+  "audio_language": {
+    "name": "Amaloboozi .",
+    "description": "Koodi y’olulimi ey’amaloboozi esinga okwettanirwa."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams .",
+    "description": "Ekkiriza okugatta emikutu gy’amaloboozi mingi."
+  },
+  "audio_quality": {
+    "name": "Omutindo gw'amaloboozi .",
+    "description": "Omutindo gw’amaloboozi (0 Best, 10 Worst)."
+  },
+  "batch_file": {
+    "name": "Fayiro ya Batch .",
+    "description": "Ekkubo erigenda mu fayiro erimu URLs okuwanula."
+  },
+  "break_on_existing": {
+    "name": "okumenya ku kyaliwo .",
+    "description": "Alekera awo okuwanula singa fayiro ebaawo dda."
+  },
+  "concurrent_fragments": {
+    "name": "Ebitundutundu ebikwatagana .",
+    "description": "Omuwendo gw’ebitundutundu eby’omu kiseera ekimu eby’okuwanula (ekisookerwako 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Okukyusa ebifaananyi ebitonotono .",
+    "description": "Kyuusa ebifaananyi ebitonotono mu nkola eragiddwa."
+  },
+  "cookies": {
+    "name": "Kuki .",
+    "description": "Fayiro ya Netscape etegekeddwa okusoma kukisi okuva n'okusuula ekibbo kya kuki mu"
+  },
+  "cookies_from_browser": {
+    "name": "Kuki okuva mu Browser .",
+    "description": "Ayingiza kukisi okuva mu bulawuzi eragiddwa."
+  },
+  "download_archive": {
+    "name": "Download Archive .",
+    "description": "Path to file to record downloaded IDs okwewala okuddibwamu."
+  },
+  "embed_chapters": {
+    "name": "Essuula eziteekeddwamu .",
+    "description": "Eyingiza essuula mu fayiro esembayo."
+  },
+  "embed_info_json": {
+    "name": "Embed Info JSON .",
+    "description": "Eyingiza info JSON mu fayiro esembayo."
+  },
+  "embed_metadata": {
+    "name": "Embed Metadata .",
+    "description": "Eyingiza metadata mu fayiro esembayo."
+  },
+  "embed_subs": {
+    "name": "Embed ebigambo ebitonotono .",
+    "description": "Eyingiza ebigambo ebitonotono mu fayiro esembayo."
+  },
+  "embed_thumbnail": {
+    "name": "Embed ekifaananyi ekitono .",
+    "description": "Eyingiza ekifaananyi ekitono mu fayiro esembayo."
+  },
+  "enable_file_urls": {
+    "name": "Enable Fayiro URLs .",
+    "description": "Esobozesa okukozesa URL za fayiro ku fayiro z'ekitundu."
+  },
+  "extract_audio": {
+    "name": "Okuggya amaloboozi .",
+    "description": "Aggyayo amaloboozi okuva mu vidiyo eziwanuliddwa (kozesa ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Extractor Eddamu Okugezaako .",
+    "description": "Omuwendo gw'okuddamu okugezaako ku nsobi za extractor."
+  },
+  "ffmpeg_location": {
+    "name": "ffmpeg ekifo .",
+    "description": "Ekkubo erigenda mu ffmpeg binary."
+  },
+  "file_access_retries": {
+    "name": "Fayiro Okuddamu Okugezaako .",
+    "description": "Omuwendo gw'okuddamu okugezaako ku nsobi z'okuyingira mu fayiro."
+  },
+  "fixup": {
+    "name": "fixup .",
+    "description": "Automatically atereeza ensobi ezimanyiddwa mu fayiro ya vidiyo."
+  },
+  "font_size": {
+    "name": "Font Enkula y'empandiika .",
+    "description": "Font size ekozesebwa mu nkola."
+  },
+  "force_ipv4": {
+    "name": "amaanyi IPv4.",
+    "description": "ewaliriza okukozesa IPv4 ku kuyungibwa kw’emikutu."
+  },
+  "force_ipv6": {
+    "name": "amaanyi IPv6.",
+    "description": "ewaliriza okukozesa IPv6 ku kuyungibwa kw'emikutu."
+  },
+  "force_overwrites": {
+    "name": "Amaanyi gawandiika .",
+    "description": "Ewandiika ku fayiro eziriwo nga tezibuuzizza."
+  },
+  "format": {
+    "name": "Enkola .",
+    "description": "Code(s) za vidiyo okuwanula."
+  },
+  "fragment_retries": {
+    "name": "Ebitundutundu biddamu okugezaako .",
+    "description": "Omuwendo gw'okuddamu okugezaako ku nsobi z'okuwanula ebitundutundu."
+  },
+  "geo_verification_proxy": {
+    "name": "GEO Okukakasa Okukiikirira .",
+    "description": "proxy server okukozesa geo-okukakasa."
+  },
+  "ignore_errors": {
+    "name": "Ensobi ezibuusa amaaso .",
+    "description": "Buusa amaaso ensobi z'okuwanula era genda mu maaso n'akatambi akaddako."
+  },
+  "impersonate": {
+    "name": "Okwefuula .",
+    "description": "Kasitoma okwefuula (Chrome, Chrome-110, Chrome:Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Kuuma ebitundutundu .",
+    "description": "Akuuma ebitundutundu ebiwanuliddwa nga bimaze okugatta."
+  },
+  "language": {
+    "name": "Olulimi",
+    "description": "Olulimi lw’okusaba."
+  },
+  "limit_rate": {
+    "name": "Omuwendo gw'ekkomo .",
+    "description": "Ekoma ku sipiidi y’okuwanula (e.g., 50K, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Live okuva ku ntandikwa .",
+    "description": "Awanula obutambi obutereevu okuva ku ntandikwa."
+  },
+  "merge_output_format": {
+    "name": "Enkola ya vidiyo .",
+    "description": "Enkola ya vidiyo esembayo evudde mu kugatta emigga."
+  },
+  "output": {
+    "name": "Ekipande ekifulumizibwa .",
+    "description": "Output erinnya lya fayiro template."
+  },
+  "password": {
+    "name": "Paasiwaadi",
+    "description": "Password okukakasa."
+  },
+  "paths": {
+    "name": "Amakubo .",
+    "description": "dayirekita okutereka ebika bya fayiro eby’enjawulo."
+  },
+  "playlist": {
+    "name": "Playlist .",
+    "description": "Kiraga oba okuwanula playlist enzijuvu oba vidiyo emu."
+  },
+  "prefer_insecure": {
+    "name": "Basinga kwagala nga tolina bukuumi .",
+    "description": "Ekozesa okuyungibwa kwa HTTP mu kifo kya HTTPS (YouTube yokka)."
+  },
+  "proxy": {
+    "name": "Okukiikirira .",
+    "description": "Proxy Server Okukozesa okusaba kw'omukutu."
+  },
+  "remux_video": {
+    "name": "Remux Video .",
+    "description": "Akyusa ekintu kya vidiyo nga tozzeemu kuwandiika."
+  },
+  "retries": {
+    "name": "Okuddamu okugezaako .",
+    "description": "Omuwendo gw'okuddamu okugezaako ku nsobi z'okuwanula."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip playlist oluvannyuma lw'ensobi .",
+    "description": "Skips the rest of the playlist oluvanyuma lw'ensobi ezimu."
+  },
+  "socket_timeout": {
+    "name": "Socket timeout .",
+    "description": "Timeout for socket connections mu sikonda."
+  },
+  "source_address": {
+    "name": "Endagiriro y'ensibuko .",
+    "description": "endagiriro ya IP ya kasitoma okusiba nga okola enkolagana."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark .",
+    "description": "marks ebitundu okuva mu biti bya sponsorblock."
+  },
+  "sub_format": {
+    "name": "Enkola ya subtitle .",
+    "description": "Subtitle format code(s) okuwanula."
+  },
+  "sub_langs": {
+    "name": "Ennimi eziri wansi w'ebigambo .",
+    "description": "Ennimi z'ebigambo ebiwandiikiddwa wansi w'okuwanula."
+  },
+  "theme_dark": {
+    "name": "Omulamwa gw'ekizikiza .",
+    "description": "Omulamwa gw’okusaba."
+  },
+  "twofactor": {
+    "name": "Okukakasa ensonga bbiri .",
+    "description": "Koodi y’okukakasa ensonga bbiri."
+  },
+  "use_extractors": {
+    "name": "Kozesa ebikozesebwa ebifulumya .",
+    "description": "amannya g'ebiggyamu okukozesa (comma separated).(\"Byonna\",\"Default\",\"enkomerero\",Ekigambo kya Regular)"
+  },
+  "username": {
+    "name": "Erinnya ly'omukozesa .",
+    "description": "Erinnya ly'omukozesa okukakasa."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams .",
+    "description": "Akkiriza okugatta emikutu gya vidiyo mingi."
+  },
+  "video_password": {
+    "name": "Ekigambo ky'okuyingira ekya vidiyo .",
+    "description": "Password ya videos ezikuumibwa password."
+  },
+  "video_resolution": {
+    "name": "Ensalawo",
+    "description": "Okusalawo kwa vidiyo okusinga okwagalibwa ."
+  },
+  "video_subtitles": {
+    "name": "Ebigambo Ebitonotono .",
+    "description": "Ebigambo Ebisinga Obulungi Ebiyitibwa Video Subtitles ."
+  },
+  "wait_for_video": {
+    "name": "Lindako vidiyo .",
+    "description": "Alindira akatambi akategekeddwa okubeerawo nga tonnawanula."
+  },
+  "write_auto_subs": {
+    "name": "Download Ebigambo Ebiriko Auto Subtitles .",
+    "description": "awandiika ebiriwo mu ngeri ya otomatiki."
+  },
+  "write_subs": {
+    "name": "Download ebigambo ebiwandiikiddwa wansi .",
+    "description": "awandiika ebigambo ebiriwo mu ngalo."
+  },
+  "write_thumbnail": {
+    "name": "Wandiika ekifaananyi ekitono .",
+    "description": "Atereka ekifaananyi ekitono ekya vidiyo ku disiki."
+  },
+  "xattrs": {
+    "name": "Xattrs .",
+    "description": "Awandiika metadata ku nkola ya fayiro Xattrs."
+  },
+  "xff": {
+    "name": "X-Forwarded-for .",
+    "description": "Ateeka x-forwarded-for header okukoppa ekifo."
+  }
+}

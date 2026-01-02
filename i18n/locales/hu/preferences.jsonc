@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Megszakítás hiba esetén",
+    "description": "Hiba esetén megszakítja a letöltési folyamatot."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Megszakítás a nem elérhető töredéken",
+    "description": "Megszakítja a letöltést, ha egy töredék nem érhető el."
+  },
+  "add_headers": {
+    "name": "További fejlécek",
+    "description": "További fejlécek a hálózati kérésekben."
+  },
+  "audio_format": {
+    "name": "Audio formátum",
+    "description": "A konvertált hang formátuma (mp3, flac, opus stb.)."
+  },
+  "audio_language": {
+    "name": "Hang",
+    "description": "Előnyben részesített hangnyelv kódja."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams",
+    "description": "Lehetővé teszi több audio adatfolyam kombinálását."
+  },
+  "audio_quality": {
+    "name": "Hangminőség",
+    "description": "Hangminőség (0 legjobb, 10 legrosszabb)."
+  },
+  "batch_file": {
+    "name": "Batch fájl",
+    "description": "A letöltendő URL-eket tartalmazó fájl elérési útja."
+  },
+  "break_on_existing": {
+    "name": "Szüntesse meg a meglévőt",
+    "description": "Leállítja a letöltést, ha a fájl már létezik."
+  },
+  "concurrent_fragments": {
+    "name": "Egyidejű töredékek",
+    "description": "Az egyidejűleg letöltendő töredékek száma (alapértelmezett 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Miniatűrök konvertálása",
+    "description": "Konvertálja a miniatűröket a megadott formátumba."
+  },
+  "cookies": {
+    "name": "Cookie-k",
+    "description": "Netscape formátumú fájl a cookie-k olvasásához, és a cookie-k edénybe helyezéséhez"
+  },
+  "cookies_from_browser": {
+    "name": "Cookie-k a böngészőből",
+    "description": "Cookie-kat importál a megadott böngészőből."
+  },
+  "download_archive": {
+    "name": "Archívum letöltése",
+    "description": "Fájl elérési útja a letöltött azonosítók rögzítéséhez az ismétlődések elkerülése érdekében."
+  },
+  "embed_chapters": {
+    "name": "Fejezetek beágyazása",
+    "description": "Fejezeteket ágyaz be a végső fájlba."
+  },
+  "embed_info_json": {
+    "name": "Info JSON beágyazása",
+    "description": "Az info JSON beágyazása a végső fájlba."
+  },
+  "embed_metadata": {
+    "name": "Metaadatok beágyazása",
+    "description": "Metaadatokat ágyaz be a végső fájlba."
+  },
+  "embed_subs": {
+    "name": "Feliratok beágyazása",
+    "description": "Feliratokat ágyaz be a végső fájlba."
+  },
+  "embed_thumbnail": {
+    "name": "Bélyegkép beágyazása",
+    "description": "Beágyazza az indexképet a végső fájlba."
+  },
+  "enable_file_urls": {
+    "name": "Fájl URL-ek engedélyezése",
+    "description": "Lehetővé teszi a fájl URL-címek használatát a helyi fájlokhoz."
+  },
+  "extract_audio": {
+    "name": "Hang kibontása",
+    "description": "Hangot von ki a letöltött videókból (ffmpeg-et használ)."
+  },
+  "extractor_retries": {
+    "name": "Extractor Retries",
+    "description": "Az újrapróbálkozások száma kivonatolási hibák esetén."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg helye",
+    "description": "Útvonal az FFmpeg binárishoz."
+  },
+  "file_access_retries": {
+    "name": "Fájlhozzáférés újrapróbálkozása",
+    "description": "Fájl-hozzáférési hibákkal kapcsolatos újrapróbálkozások száma."
+  },
+  "fixup": {
+    "name": "Javítás",
+    "description": "Automatikusan kijavítja a videofájl ismert hibáit."
+  },
+  "font_size": {
+    "name": "Betűméret",
+    "description": "Az alkalmazásban használt betűméret."
+  },
+  "force_ipv4": {
+    "name": "IPv4 kényszerítése",
+    "description": "Az IPv4 használatát kényszeríti a hálózati kapcsolatokhoz."
+  },
+  "force_ipv6": {
+    "name": "IPv6 kényszerítése",
+    "description": "Az IPv6 használatát kényszeríti a hálózati kapcsolatokhoz."
+  },
+  "force_overwrites": {
+    "name": "Felülírások kényszerítése",
+    "description": "Kérdezés nélkül felülírja a meglévő fájlokat."
+  },
+  "format": {
+    "name": "Formátum",
+    "description": "Letöltendő videóformátum kód(ok)."
+  },
+  "fragment_retries": {
+    "name": "Töredék újrapróbálkozása",
+    "description": "Töredékletöltési hibákkal kapcsolatos próbálkozások száma."
+  },
+  "geo_verification_proxy": {
+    "name": "Földrajzi ellenőrzési proxy",
+    "description": "Proxyszerver a földrajzi ellenőrzéshez."
+  },
+  "ignore_errors": {
+    "name": "Figyelmen kívül hagyja a hibákat",
+    "description": "Hagyja figyelmen kívül a letöltési hibákat, és folytassa a következő videóval."
+  },
+  "impersonate": {
+    "name": "Megszemélyesíteni",
+    "description": "Megszemélyesítendő kliens (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Tartsa meg a töredékeket",
+    "description": "Egyesítés után megőrzi a letöltött töredékeket."
+  },
+  "language": {
+    "name": "Nyelv",
+    "description": "Az alkalmazás nyelve."
+  },
+  "limit_rate": {
+    "name": "Limit Rate",
+    "description": "Korlátozza a letöltési sebességet (pl. 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "Live from Start",
+    "description": "Élő videók letöltése a kezdetektől fogva."
+  },
+  "merge_output_format": {
+    "name": "Videó formátum",
+    "description": "Az adatfolyamok egyesítéséből származó végső videóformátum."
+  },
+  "output": {
+    "name": "Kimeneti sablon",
+    "description": "Kimeneti fájlnév sablon."
+  },
+  "password": {
+    "name": "Jelszó",
+    "description": "Jelszó a hitelesítéshez."
+  },
+  "paths": {
+    "name": "Ösvények",
+    "description": "Könyvtárak különböző típusú fájlok mentéséhez."
+  },
+  "playlist": {
+    "name": "Lejátszási lista elemre",
+    "description": "Azt jelzi, hogy a teljes lejátszási listát vagy egyetlen videót kell-e letölteni."
+  },
+  "prefer_insecure": {
+    "name": "Insize Insecure",
+    "description": "HTTP-kapcsolatot használ HTTPS helyett (csak YouTube)."
+  },
+  "proxy": {
+    "name": "Meghatalmazott",
+    "description": "Hálózati kérésekhez használható proxyszerver."
+  },
+  "remux_video": {
+    "name": "Remux videó",
+    "description": "Újrakódolás nélkül módosítja a videotárolót."
+  },
+  "retries": {
+    "name": "Újrapróbálkozások",
+    "description": "Letöltési hibákkal kapcsolatos újrapróbálkozások száma."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Lejátszási lista kihagyása hibák után",
+    "description": "Bizonyos számú hiba után kihagyja a lejátszási lista többi részét."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Az aljzatcsatlakozások időtúllépése másodpercben."
+  },
+  "source_address": {
+    "name": "Forrás címe",
+    "description": "A kliens IP-címe, amelyhez kapcsolódni kell a kapcsolatok létrehozásakor."
+  },
+  "sponsorblock_mark": {
+    "name": "Szponzorblokk jelölés",
+    "description": "Szegmenseket jelöl meg a SponsorBlock kategóriákból."
+  },
+  "sub_format": {
+    "name": "Felirat formátum",
+    "description": "Letöltendő feliratformátum kód(ok)."
+  },
+  "sub_langs": {
+    "name": "Feliratnyelvek",
+    "description": "A letölthető feliratok nyelvei."
+  },
+  "theme_dark": {
+    "name": "Sötét téma",
+    "description": "Az alkalmazás témája."
+  },
+  "twofactor": {
+    "name": "Kéttényezős hitelesítés",
+    "description": "Kéttényezős hitelesítési kód."
+  },
+  "use_extractors": {
+    "name": "Használjon elszívókat",
+    "description": "A használandó kivonatok nevei (vesszővel elválasztva).(\"összes\", \"alapértelmezett\", \"vége\", reguláris kifejezés)"
+  },
+  "username": {
+    "name": "Felhasználónév",
+    "description": "Felhasználónév a hitelesítéshez."
+  },
+  "video_multistreams": {
+    "name": "Videó Multistreams",
+    "description": "Lehetővé teszi több videó adatfolyam kombinálását."
+  },
+  "video_password": {
+    "name": "Videó jelszava",
+    "description": "Jelszó a jelszóval védett videókhoz."
+  },
+  "video_resolution": {
+    "name": "Felbontás",
+    "description": "Előnyben részesített videó felbontás"
+  },
+  "video_subtitles": {
+    "name": "Feliratok",
+    "description": "Előnyben részesített videófeliratok"
+  },
+  "wait_for_video": {
+    "name": "Várd a Videót",
+    "description": "Letöltés előtt várja, hogy egy ütemezett videó elérhetővé váljon."
+  },
+  "write_auto_subs": {
+    "name": "Töltse le az automatikus feliratokat",
+    "description": "Az elérhető automatikus feliratokat írja."
+  },
+  "write_subs": {
+    "name": "Feliratok letöltése",
+    "description": "Az elérhető kézi feliratokat írja."
+  },
+  "write_thumbnail": {
+    "name": "Bélyegkép írása",
+    "description": "Lemezre menti a videó bélyegképét."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Metaadatokat ír az xattrs fájlrendszerbe."
+  },
+  "xff": {
+    "name": "X-Forwarded-For",
+    "description": "Beállítja az X-Forwarded-For fejlécet a hely szimulálására."
+  }
+}

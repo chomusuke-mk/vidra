@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Adachotsa cholakwika",
+    "description": "Amachotsa njira yotsitsa ngati vuto limachitika."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Adanyansidwa ndi kachidutswa kakang'ono",
+    "description": "Amachotsa kutsitsa ngati kachidutswa sikopezeka."
+  },
+  "add_headers": {
+    "name": "Mitu Yowonjezera",
+    "description": "Mitu yowonjezera yophatikiza zopempha za netiweki."
+  },
+  "audio_format": {
+    "name": "Mtundu",
+    "description": "Mtundu wa mawu osinthidwa (mp3, Flac, OPUS, ndi zina)."
+  },
+  "audio_language": {
+    "name": "Kudzimvetsera",
+    "description": "Code yomwe mumakonda."
+  },
+  "audio_multistreams": {
+    "name": "Madigion Alturts",
+    "description": "Amalola kuphatikiza mitsinje yolumikizira."
+  },
+  "audio_quality": {
+    "name": "Audio wabwino",
+    "description": "Audio wabwino (0 bwino, 10 zoyipa)."
+  },
+  "batch_file": {
+    "name": "Fayilo ya batch",
+    "description": "Njira yopita ku fayilo yokhala ndi maulalo kuti mutsitse."
+  },
+  "break_on_existing": {
+    "name": "Kuswa kupezeka",
+    "description": "Imasiya kutsitsa ngati fayilo ilipo kale."
+  },
+  "concurrent_fragments": {
+    "name": "Zidutswa zogwirizana",
+    "description": "Chiwerengero cha zidutswa zanthawi yomweyo kuti mutsitse (osasinthika 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Sinthani zikuluzikulu",
+    "description": "Sinthani zikuluzikulu."
+  },
+  "cookies": {
+    "name": "Ma cookie",
+    "description": "Fayilo ya Nescape kuti muwerenge ma cookie kuchokera ndi Dump Cookie Mtsuko mu"
+  },
+  "cookies_from_browser": {
+    "name": "Ma cookie Ochokera Kusakatuli",
+    "description": "Kutumiza ma cookies kuchokera pa msakatuli."
+  },
+  "download_archive": {
+    "name": "Tsitsani",
+    "description": "Njira yolembera mafayilo omwe adatsitsidwa kuti mupewe zobwereza."
+  },
+  "embed_chapters": {
+    "name": "MUTU",
+    "description": "Mitu yamitu mu fayilo yomaliza."
+  },
+  "embed_info_json": {
+    "name": "Zidziwitso zamitundu Json",
+    "description": "Infordes Info Jonson kulowa fayilo yomaliza."
+  },
+  "embed_metadata": {
+    "name": "Zophatikizidwa Metadatata",
+    "description": "Ma metadata amalowa mu fayilo yomaliza."
+  },
+  "embed_subs": {
+    "name": "Mitengo yokhazikika",
+    "description": "Makutu am'madzi mu fayilo yomaliza."
+  },
+  "embed_thumbnail": {
+    "name": "Zikuluzikulu",
+    "description": "Ikulunjidwa ndi chithunzi chomaliza."
+  },
+  "enable_file_urls": {
+    "name": "Yambitsani ma urls",
+    "description": "Imathandizira kugwiritsa ntchito ma urls mafayilo a mafayilo amderalo."
+  },
+  "extract_audio": {
+    "name": "Kulemba",
+    "description": "Apeza zomvera kuchokera ku makanema otsitsa (amagwiritsa ntchito FFMPEG)."
+  },
+  "extractor_retries": {
+    "name": "Zoyambitsa",
+    "description": "Chiwerengero cha Refler pa zolakwika zowonjezera."
+  },
+  "ffmpeg_location": {
+    "name": "Malo a FFMPEG",
+    "description": "Njira yopita ku FFMPEG Biry."
+  },
+  "file_access_retries": {
+    "name": "Kufikira kwa fayilo",
+    "description": "Chiwerengero cha Repries pa zolakwa za fayilo."
+  },
+  "fixup": {
+    "name": "Konza",
+    "description": "Konzani zolakwitsa zodziwika bwino mu fayilo ya kanema."
+  },
+  "font_size": {
+    "name": "Kukula kwa mawonekedwe",
+    "description": "Kukula kwa mawonekedwe omwe amagwiritsidwa ntchito mu pulogalamuyi."
+  },
+  "force_ipv4": {
+    "name": "Kukakamiza ipv4",
+    "description": "Amakakamiza kugwiritsa ntchito iPv4 ya ma network."
+  },
+  "force_ipv6": {
+    "name": "Kukakamiza ipv6",
+    "description": "Amakakamiza kugwiritsa ntchito ipv6 kuti mupeze intaneti."
+  },
+  "force_overwrites": {
+    "name": "Kukakamiza malemba",
+    "description": "Amalemba mafayilo omwe alipo osafunsa."
+  },
+  "format": {
+    "name": "Kalembedwe",
+    "description": "Makanema opanga makanema kuti atsitse."
+  },
+  "fragment_retries": {
+    "name": "Chidutswa chimasungabe",
+    "description": "Chiwerengero cha Repries pa Valander Otsitsa."
+  },
+  "geo_verification_proxy": {
+    "name": "Kutsimikizira kwa Geo",
+    "description": "Seva yotsimikizika kuti mugwiritse ntchito kutsimikizira kwa Geo-."
+  },
+  "ignore_errors": {
+    "name": "Kunyalanyaza zolakwa",
+    "description": "Kunyalanyaza zolakwitsa ndikupitiliza ndi kanema wotsatira."
+  },
+  "impersonate": {
+    "name": "Osanzira",
+    "description": "Makasitomala ku Ampemenate (Chrome, Chrome-110, Chrome: Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Sungani zidutswa",
+    "description": "Amasunga zidutswa zomwe zimatsitsidwa pambuyo pake."
+  },
+  "language": {
+    "name": "Chinenero",
+    "description": "Chilankhulo cha ntchito."
+  },
+  "limit_rate": {
+    "name": "Malire",
+    "description": "Imachepetsa liwiro (E.g., 50K, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Khalani ndi moyo kuyambira",
+    "description": "Tsitsani makanema apaulendo kuyambira pachiyambi."
+  },
+  "merge_output_format": {
+    "name": "Mtundu wa kanema",
+    "description": "Mawonekedwe omaliza omwe amabwera chifukwa cha mitsinje yophatikiza."
+  },
+  "output": {
+    "name": "Kutulutsa template",
+    "description": "Kutulutsa fayilo ya fayilo."
+  },
+  "password": {
+    "name": "Chawekha",
+    "description": "Mawu achinsinsi."
+  },
+  "paths": {
+    "name": "Njira",
+    "description": "Zowongolera kupulumutsa mitundu yosiyanasiyana ya mafayilo."
+  },
+  "playlist": {
+    "name": "Woseta",
+    "description": "Chikuwonetsa kuti mutsitse kutsitsa kwathunthu playlist kapena kanema umodzi."
+  },
+  "prefer_insecure": {
+    "name": "Amakonda osatetezeka",
+    "description": "Gwiritsani ntchito kulumikizana kwa HTTP m'malo mwa https (youtube kokha)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Seva yovomerezeka kuti mugwiritse ntchito zopempha za pa intaneti."
+  },
+  "remux_video": {
+    "name": "Videx Video",
+    "description": "Sinthani vidiyo yosungirako vidiyoyo osakhazikitsanso."
+  },
+  "retries": {
+    "name": "Lepa",
+    "description": "Chiwerengero cha repurry pa zolakwitsa zotsitsa."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Dulani playlist pambuyo polakwitsa",
+    "description": "Tsitsitsani ena onse osewera pambuyo pa zolakwika zingapo."
+  },
+  "socket_timeout": {
+    "name": "Ma sumcket",
+    "description": "Nthawi yolumikizana ndi ma socket."
+  },
+  "source_address": {
+    "name": "Adilesi",
+    "description": "Adilesi ya kasitomala kuti mumangire malumikizidwe."
+  },
+  "sponsorblock_mark": {
+    "name": "Sponsrblock Mark",
+    "description": "Zigawo zochokera ku magawo a Sponsrorblock."
+  },
+  "sub_format": {
+    "name": "Mtundu wawu",
+    "description": "Codectitle code (s) kuti mutsitse."
+  },
+  "sub_langs": {
+    "name": "Zolumala",
+    "description": "Zilankhulo zamufilimu."
+  },
+  "theme_dark": {
+    "name": "Mutu wakuda",
+    "description": "Mutu wa pulogalamuyi."
+  },
+  "twofactor": {
+    "name": "Kutsimikizika kwa-factor",
+    "description": "Nambala ya Pulogalamu Yawiri."
+  },
+  "use_extractors": {
+    "name": "Gwiritsani ntchito zowonjezera",
+    "description": "Mayina a zowonjezera kuti agwiritse ntchito (comma adasiyanitsidwa). (\"Onse\", \"STULU\", \"Mapeto\", Nthawi Zonse)"
+  },
+  "username": {
+    "name": "Chogwiritsira ntchito",
+    "description": "Chogwiritsa ntchito kutsimikizika."
+  },
+  "video_multistreams": {
+    "name": "Makina Azikulu",
+    "description": "Amalola kuphatikiza mitsinje yamavidiyo."
+  },
+  "video_password": {
+    "name": "Mawu achinsinsi",
+    "description": "Mawu achinsinsi otetezedwa."
+  },
+  "video_resolution": {
+    "name": "Kuvomeleza",
+    "description": "Kusankha Kwa Makanema"
+  },
+  "video_subtitles": {
+    "name": "Batsi",
+    "description": "Kanema wa kanema wokonda"
+  },
+  "wait_for_video": {
+    "name": "Dikirani kanema",
+    "description": "Kudikirira kanema wokonzedwa kuti apezeke musanatsitse."
+  },
+  "write_auto_subs": {
+    "name": "Tsitsani ma stoctiticles",
+    "description": "Alemba kupezeka kwaulere."
+  },
+  "write_subs": {
+    "name": "Tsitsani Masuttitles",
+    "description": "Alemba mawu ogwiritsira ntchito."
+  },
+  "write_thumbnail": {
+    "name": "Lembani Thumbnail",
+    "description": "Imapulumutsa dividial Thumbnal kuti disk."
+  },
+  "xattrs": {
+    "name": "Xatrs",
+    "description": "Amalemba metadata kupita ku Fayilo Xattrs."
+  },
+  "xff": {
+    "name": "X-yotumizidwa-ya",
+    "description": "Imakhazikitsa x-yotumizidwa-mutu kuti musunthire malo."
+  }
+}

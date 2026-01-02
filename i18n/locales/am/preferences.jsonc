@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "በስህተት ላይ ማልቀስ",
+    "description": "አንድ ስህተት ከተከሰተ የማውረድ ሂደቱን አፀደቀ."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "በማይከተለው ቁራጭ ላይ",
+    "description": "አንድ ቁርጥራጭ የማይገኝ ከሆነ ማውረዱን ያስወጣል."
+  },
+  "add_headers": {
+    "name": "ተጨማሪ ራስጌዎች",
+    "description": "በአውታረ መረብ ጥያቄዎች ውስጥ ተጨማሪ ራስጌዎች."
+  },
+  "audio_format": {
+    "name": "የድምፅ ቅርጸት",
+    "description": "የተቀየረ ድምጽ (MP3, Flack, OPUS, ወዘተ) ቅርጸት."
+  },
+  "audio_language": {
+    "name": "ኦዲዮ",
+    "description": "ተመራጭ የኦዲዮ ቋንቋ ኮድ."
+  },
+  "audio_multistreams": {
+    "name": "የድምፅ ባለሙያው",
+    "description": "በርካታ የድምፅ ጅረቶችን ለማዋሃድ ይፈቅዳል."
+  },
+  "audio_quality": {
+    "name": "የድምፅ ጥራት",
+    "description": "የድምፅ ጥራት (0 ምርጥ, 10 በጣም መጥፎ)."
+  },
+  "batch_file": {
+    "name": "የቡድን ፋይል",
+    "description": "ለማውረድ ዩ.አር.ኤል.ዎችን የያዘ ፋይል."
+  },
+  "break_on_existing": {
+    "name": "ነባር መሰባበር",
+    "description": "ፋይል አስቀድሞ ካለ ማውረድ ያቆማል."
+  },
+  "concurrent_fragments": {
+    "name": "በተመሳሳይም ቁርጥራጮች",
+    "description": "ለማውረድ በተመሳሳይ ጊዜ ያላቸው ቁርጥራጮች ብዛት (ነባሪ 1)."
+  },
+  "convert_thumbnails": {
+    "name": "ድንክዬዎችን ቀይር",
+    "description": "ድንክዬዎችን ወደተጠቀሰው ቅርጸት ይለውጡ."
+  },
+  "cookies": {
+    "name": "ኩኪዎች",
+    "description": "ከኩኪዎች ውስጥ ኩኪዎችን ከ ውስጥ ለማንበብ እና ኩኪዎች ውስጥ ለማንበብ የ Netscape ቅርፅ የተሰራ ፋይል"
+  },
+  "cookies_from_browser": {
+    "name": "ከአሳሽ ውስጥ ኩኪዎች",
+    "description": "ከተጠቀሰው አሳሽ ከተጠቀሰው አሳሽ ውስጥ ኩኪዎችን ያስመጣል."
+  },
+  "download_archive": {
+    "name": "መዝገብ ቤት ያውርዱ",
+    "description": "የተባበሩት መንግስታት እንዲያስወግዱ የተዳከሙ መታወቂያዎችን ለመመዝገብ ወደ ፋይል ይሂዱ."
+  },
+  "embed_chapters": {
+    "name": "የተክተቱ ምዕራፎች",
+    "description": "ምዕራብን ወደ መጨረሻው ፋይል ይቅረባል."
+  },
+  "embed_info_json": {
+    "name": "መረጃ JSSON",
+    "description": "መረጃ JSSON ወደ መጨረሻው ፋይል ይቅል."
+  },
+  "embed_metadata": {
+    "name": "ሜታዳታ ተክሏል",
+    "description": "ወደ መጨረሻው ፋይል ሜታዳታ ይክዳል."
+  },
+  "embed_subs": {
+    "name": "ንዑስ ርዕሶችን ይክተቱ",
+    "description": "የመጨረሻዎቹን ፋይል ወደ መጨረሻው ፋይል ይቅረባል."
+  },
+  "embed_thumbnail": {
+    "name": "ድንክዬዎች",
+    "description": "ድንክዬውን ወደ መጨረሻው ፋይል ይቅል."
+  },
+  "enable_file_urls": {
+    "name": "የፋይል ዩአርኤልዎችን ያንቁ",
+    "description": "ለአካባቢያዊ ፋይሎች የፋይል ዩአርኤሎች አጠቃቀምን ያነቃል."
+  },
+  "extract_audio": {
+    "name": "ኦዲዮ ያወጡ",
+    "description": "ከወረዱ ቪዲዮዎች ኦዲዲዮ ያወጣል (ኤፍ. Edug ን ይጠቀማል)."
+  },
+  "extractor_retries": {
+    "name": "ከመሬት አውራጃዎች ይሞላል",
+    "description": "በአደገኛ ስህተቶች ውስጥ የጨረሮቶች ብዛት."
+  },
+  "ffmpeg_location": {
+    "name": "FFUMP አካባቢ",
+    "description": "ወደ Ffamug ሁለትዮሽ መንገድ."
+  },
+  "file_access_retries": {
+    "name": "የፋይል መድረሻ ድጋፎች",
+    "description": "በፋይል መዳረሻ ስህተቶች ላይ የችግሮች ብዛት."
+  },
+  "fixup": {
+    "name": "ማስተካከያ",
+    "description": "በቪዲዮ ፋይል ውስጥ የታወቁ ስህተቶችን በራስ-ሰር ያስተካክላል."
+  },
+  "font_size": {
+    "name": "የቅርጸ-ቁምፊ መጠን",
+    "description": "በማመልከቻው ውስጥ ጥቅም ላይ የዋለው የቅርጸ-ቁምፊ መጠን."
+  },
+  "force_ipv4": {
+    "name": "APV4 ያስገድዱ",
+    "description": "ለአውታረ መረብ ግንኙነቶች IPV4 አጠቃቀምን ያስገድዳል."
+  },
+  "force_ipv6": {
+    "name": "APV6 ያስገድዱ",
+    "description": "ለኔትወርክ ግንኙነቶች IPV6 አጠቃቀምን ያስገድዳል."
+  },
+  "force_overwrites": {
+    "name": "ኃይልን ያስገድዳል",
+    "description": "ሳይጠይቁ ነባር ፋይሎች ላይ ይፃፉ."
+  },
+  "format": {
+    "name": "ቅርጸት",
+    "description": "የማውረድ የቪዲዮ ቅርጸት ኮድ (ቶች)."
+  },
+  "fragment_retries": {
+    "name": "ቁርጥራጮዎች እንደገና ይሞታሉ",
+    "description": "የቁጥር ማውረድ ስህተቶች ብዛት."
+  },
+  "geo_verification_proxy": {
+    "name": "የጂዮ ማረጋገጫ ፕሮክሲ",
+    "description": "ለጂኦ-ማረጋገጫ ለመጠቀም ተኪ አገልጋይ."
+  },
+  "ignore_errors": {
+    "name": "ስህተቶችን ችላ ይበሉ",
+    "description": "የማውረድ ስህተቶችን ችላ ይበሉ እና በሚቀጥሉት ቪዲዮዎች ይቀጥሉ."
+  },
+  "impersonate": {
+    "name": "አስመስሎ",
+    "description": "ደንበኛው እንዲያስከትለው (Chrome, Chrome, 110, Chrome: ዊንዶውስ-10)."
+  },
+  "keep_fragments": {
+    "name": "ቁርጥራጮችን ያቆዩ",
+    "description": "ከወረዱ ቁርጥራጮች በኋላ ከተዋሃዱ በኋላ ያቆየዋል."
+  },
+  "language": {
+    "name": "ቋንቋ",
+    "description": "የትግበራ ቋንቋ."
+  },
+  "limit_rate": {
+    "name": "የተገደበ ተመን",
+    "description": "የማውረድ ፍጥነትን ይገድባል (ለምሳሌ, 50 ኪ, 4.2 ሚሊዮን."
+  },
+  "live_from_start": {
+    "name": "ከመጀመሪያው ቀጥል",
+    "description": "የቀጥታ ቪዲዮዎችን ከመጀመሪያው ያውርዱ."
+  },
+  "merge_output_format": {
+    "name": "የቪዲዮ ቅርጸት",
+    "description": "ከመዋሃድ ጅረት የተነሳ የመጨረሻ የቪዲዮ ቅርጸት."
+  },
+  "output": {
+    "name": "የውጤት አብነት",
+    "description": "የውጤት ፋይል ስም አብነት."
+  },
+  "password": {
+    "name": "የይለፍ ቃል",
+    "description": "ለማረጋገጫ ይለፍ ቃል."
+  },
+  "paths": {
+    "name": "መንገዶች",
+    "description": "የተለያዩ የፋይሎችን ፋይሎች ለማዳን ዳይሬክቶቼ."
+  },
+  "playlist": {
+    "name": "አጫዋች ዝርዝር",
+    "description": "የተሟላ አጫዋች ዝርዝርን ወይም ነጠላ ቪዲዮን ለማውረድ እንደሚጠቁሙ ያሳያል."
+  },
+  "prefer_insecure": {
+    "name": "አለመረጋጋት",
+    "description": "ከ HTTPS ይልቅ የኤች ቲ ቲ ፒ ግንኙነትን ይጠቀማል (YouTube ብቻ)."
+  },
+  "proxy": {
+    "name": "ተኪ",
+    "description": "የአውታረ መረብ ጥያቄዎችን ለመጠቀም ተኪ አገልጋይ."
+  },
+  "remux_video": {
+    "name": "Reudex ቪዲዮ",
+    "description": "የቪዲዮ መያዣውን ያለማቋረጥ ይለውጣል."
+  },
+  "retries": {
+    "name": "እንደገና መሞከር",
+    "description": "በማውረድ ስህተቶች ላይ እንደገና የሚተገበሩ የይገባኛል ጥያቄዎች ብዛት."
+  },
+  "skip_playlist_after_errors": {
+    "name": "ከስህተቶች በኋላ የጨዋታ ዝርዝር ዝለል",
+    "description": "ከተወሰኑ ስህተቶች በኋላ ቀሪውን የጨዋታ ዝርዝር ይዝጉ."
+  },
+  "socket_timeout": {
+    "name": "ሶኬት ሰዓት",
+    "description": "በሰከንዶች ውስጥ ለሶኬት ግንኙነቶች ጊዜ ማሳለፍ."
+  },
+  "source_address": {
+    "name": "ምንጭ አድራሻ",
+    "description": "ግንኙነቶችን በሚፈጥርበት ጊዜ የደንበኛ አይፒ አድራሻ."
+  },
+  "sponsorblock_mark": {
+    "name": "ስፖንሰር ስፖንሰር",
+    "description": "የስፖንሰር ስፖንሰር ምድቦች ምልክቶች."
+  },
+  "sub_format": {
+    "name": "የርዕክት ቅርጸት",
+    "description": "የማውረድ የትርጉም ጽሑፍ ቅርጸት ኮድ (ቶች)."
+  },
+  "sub_langs": {
+    "name": "ንዑስተሮች ቋንቋዎች",
+    "description": "የማውረድ ንዑስ ርዕሶች ቋንቋዎች."
+  },
+  "theme_dark": {
+    "name": "ጥቁር ጭብጥ",
+    "description": "የማመልከቻው ጭብጥ."
+  },
+  "twofactor": {
+    "name": "ሁለት-ነገር ማረጋገጫ",
+    "description": "ሁለት-የዲፕሬተር ማረጋገጫ ኮድ."
+  },
+  "use_extractors": {
+    "name": "ከአፕራኬኮች ይጠቀሙ",
+    "description": "የሚጠቀሙባቸው የመጥፋት ስሞች (ኮማ ተለያይ). (\"ሁሉም\", \"መጨረሻ\", \"መጨረሻ\", መደበኛ መግለጫ"
+  },
+  "username": {
+    "name": "የተጠቃሚ ስም",
+    "description": "የተጠቃሚ ስም ለማረጋገጫ."
+  },
+  "video_multistreams": {
+    "name": "የቪዲዮ ባለብዙ ሙያዎች",
+    "description": "በርካታ የቪዲዮ ዥረቶችን ለማዋሃድ ያስችላል."
+  },
+  "video_password": {
+    "name": "የቪዲዮ የይለፍ ቃል",
+    "description": "በይለፍ ቃል የተጠበቀ ቪዲዮ ይለፍ ቃል."
+  },
+  "video_resolution": {
+    "name": "ጥራት",
+    "description": "ተመራጭ የቪዲዮ ጥራት"
+  },
+  "video_subtitles": {
+    "name": "ንዑስ ርዕሶች",
+    "description": "ተመራጭ የቪዲዮ ንዑስ ክፍል"
+  },
+  "wait_for_video": {
+    "name": "ቪዲዮን ይጠብቁ",
+    "description": "ከማውረድዎ በፊት ዝግጁ ለመሆን ለተያዘለት ቪዲዮ ይጠብቃል."
+  },
+  "write_auto_subs": {
+    "name": "ራስ-ሰር ንዑስ ርዕሶችን ያውርዱ",
+    "description": "አውቶማቲክ ንዑስ ርዕሶችን ይጽፋል."
+  },
+  "write_subs": {
+    "name": "ንዑስ ርዕሶችን ያውርዱ",
+    "description": "የሚገኙ መመሪያዎችን ይጽፋል."
+  },
+  "write_thumbnail": {
+    "name": "ድንክዬ ፃፍ",
+    "description": "የቪዲዮ ድንክዬዎችን ወደ ዲስክ ይቆጥባል."
+  },
+  "xattrs": {
+    "name": "Xatts",
+    "description": "ከፋሲፎራውያን የፋይተሩ ዘይቤዎች ሜታዲታ ይጽፋል."
+  },
+  "xff": {
+    "name": "X-ማስተላለፍ - ለ",
+    "description": "አካባቢን ለማስመሰል ኤክስ-ሰር-ተስተካክሎ ያዘጋጃል."
+  }
+}

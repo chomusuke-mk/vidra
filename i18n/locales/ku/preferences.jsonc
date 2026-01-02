@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Betalkirina li ser Error",
+    "description": "Ger xeletiyek çêbibe pêvajoya dakêşanê radike."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Li ser Parçeya Neberdest betal kirin",
+    "description": "Ger perçeyek ne berdest be dakêşandinê radike."
+  },
+  "add_headers": {
+    "name": "Sernivîsên Additional",
+    "description": "Sernivîsên din ên ku di daxwazên torê de tê de hene."
+  },
+  "audio_format": {
+    "name": "Forma Audio",
+    "description": "Forma dengê veguherî (mp3, flac, opus, hwd.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Koda zimanê dengî yê bijare."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams",
+    "description": "Destûrê dide berhevkirina gelek guhêzbarên deng."
+  },
+  "audio_quality": {
+    "name": "Quality Audio",
+    "description": "Qalîteya deng (0 çêtirîn, 10 ya herî xirab)."
+  },
+  "batch_file": {
+    "name": "Pelê Batch",
+    "description": "Rêya pelê ku tê de URL-yên dakêşanê hene."
+  },
+  "break_on_existing": {
+    "name": "Break on Existing",
+    "description": "Heke pel jixwe hebe dakêşandinê disekine."
+  },
+  "concurrent_fragments": {
+    "name": "Parçeyên Hevdem",
+    "description": "Hejmara perçeyên hevdem ên ji bo dakêşanê (pêşniyaz 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Convert Thumbnails",
+    "description": "Thumbnails bi formata diyarkirî veguherînin."
+  },
+  "cookies": {
+    "name": "Cookies",
+    "description": "Dosyaya formatkirî ya Netscape-ê ji bo xwendina çerezan û avêtina pelika kukiyê tê de ye"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies ji Browser",
+    "description": "Ji geroka diyarkirî çerezan derdixe."
+  },
+  "download_archive": {
+    "name": "Arşîv dakêşin",
+    "description": "Rêya pelê ji bo tomarkirina nasnameyên dakêşandî da ku ji dubareyan dûr nekevin."
+  },
+  "embed_chapters": {
+    "name": "Beşên Embed",
+    "description": "Beşan di dosyaya dawî de vedihewîne."
+  },
+  "embed_info_json": {
+    "name": "Agahdariya JSON bişînin",
+    "description": "Agahdariya JSON-ê di pelê dawîn de vedigire."
+  },
+  "embed_metadata": {
+    "name": "Metadata bixin",
+    "description": "Metadata di dosyaya dawî de vedihewîne."
+  },
+  "embed_subs": {
+    "name": "Binnivîsan bixin",
+    "description": "Binnivîsan di dosyaya dawî de vedihewîne."
+  },
+  "embed_thumbnail": {
+    "name": "Thumbnail bixin",
+    "description": "Tîrêjê di dosyaya dawî de vedihewîne."
+  },
+  "enable_file_urls": {
+    "name": "URLên Pelê çalak bikin",
+    "description": "Bikaranîna URLên pelan ji bo pelên herêmî çalak dike."
+  },
+  "extract_audio": {
+    "name": "Extract Audio",
+    "description": "Ji vîdyoyên dakêşandî deng derdixe (ffmpeg bikar tîne)."
+  },
+  "extractor_retries": {
+    "name": "Extractor Retries",
+    "description": "Hejmara dubarekirina li ser xeletiyên derhêner."
+  },
+  "ffmpeg_location": {
+    "name": "Cihê FFmpeg",
+    "description": "Rêya binarya FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Têketina Pelê Dubare Diceribîne",
+    "description": "Hejmara dubarekirina çewtiyên gihîştina pelê."
+  },
+  "fixup": {
+    "name": "Fixup",
+    "description": "Di pelê vîdyoyê de xeletiyên naskirî bixweber rast dike."
+  },
+  "font_size": {
+    "name": "Mezinahiya Fontê",
+    "description": "Mezinahiya tîpên ku di serîlêdanê de têne bikar anîn."
+  },
+  "force_ipv4": {
+    "name": "Bi zorê IPv4",
+    "description": "Ji bo girêdanên torê zorê dide bikaranîna IPv4."
+  },
+  "force_ipv6": {
+    "name": "Bi zorê IPv6",
+    "description": "Ji bo girêdanên torê zorê dide bikaranîna IPv6."
+  },
+  "force_overwrites": {
+    "name": "Force Overwrites",
+    "description": "Pelên heyî bêyî pirsê dinivîse."
+  },
+  "format": {
+    "name": "Çap",
+    "description": "Koda formata vîdyoyê ji bo dakêşandinê."
+  },
+  "fragment_retries": {
+    "name": "Fragment Dubarekirin",
+    "description": "Hejmara dubarekirina çewtiyên daxistina perçeyê."
+  },
+  "geo_verification_proxy": {
+    "name": "Proxy Verastkirina Geo",
+    "description": "Pêşkêşkara proxy ku ji bo verastkirina erdnîgarî bikar tîne."
+  },
+  "ignore_errors": {
+    "name": "Çewtiyên Ignore",
+    "description": "Çewtiyên dakêşandinê paşguh nekin û bi vîdyoya din re berdewam bikin."
+  },
+  "impersonate": {
+    "name": "Kesayet kirin",
+    "description": "Xerîdar ji bo nenaskirinê (chrome, chrome-110, chrome: windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Parçeyan biparêzin",
+    "description": "Parçeyên dakêşandî piştî hevgirtinê diparêze."
+  },
+  "language": {
+    "name": "Ziman",
+    "description": "Zimanê serîlêdanê."
+  },
+  "limit_rate": {
+    "name": "Rêjeya Sînor",
+    "description": "Leza dakêşanê sînordar dike (mînak, 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "Ji Destpêkê Bijîn",
+    "description": "Ji destpêkê ve vîdyoyên zindî dakêşîne."
+  },
+  "merge_output_format": {
+    "name": "Forma Vîdyoyê",
+    "description": "Forma vîdyoyê ya paşîn a ku ji hevgirtina tîrêjan pêk tê."
+  },
+  "output": {
+    "name": "Şablon derketin",
+    "description": "Şablon navê pelê derxe."
+  },
+  "password": {
+    "name": "Şîfre",
+    "description": "Şîfreya ji bo erêkirinê."
+  },
+  "paths": {
+    "name": "Paths",
+    "description": "Derhêner ji bo tomarkirina cûreyên cûda yên pelan."
+  },
+  "playlist": {
+    "name": "Playlist",
+    "description": "Nîşan dide ka meriv lîsteya lîstikê ya tevahî an vîdyoyek yekane dakêşîne."
+  },
+  "prefer_insecure": {
+    "name": "Bêbawer tercîh bikin",
+    "description": "Li şûna HTTPS (tenê YouTube) pêwendiya HTTP bikar tîne."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Pêşkêşkara proxy ku ji bo daxwazên torê bikar tîne."
+  },
+  "remux_video": {
+    "name": "Remux Vîdyo",
+    "description": "Konteyna vîdyoyê bêyî ji nû ve kodkirinê diguhezîne."
+  },
+  "retries": {
+    "name": "Dubare dike",
+    "description": "Hejmara dubareyên li ser xeletiyên dakêşanê."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Piştî Çewtiyan ji Lîsteya Lîstinê derbas bibin",
+    "description": "Piştî hejmareke diyarkirî ya xeletiyan, lîsteya mayî ya lîstikê derbas dike."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Demjimêr ji bo girêdanên soketê di çirkeyan de."
+  },
+  "source_address": {
+    "name": "Navnîşana Çavkaniyê",
+    "description": "Navnîşana IP-ya xerîdar ku dema ku pêwendiyan çêdike pê ve were girêdan."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Beşên ji kategoriyên SponsorBlock nîşan dide."
+  },
+  "sub_format": {
+    "name": "Forma binnivîsê",
+    "description": "Ji bo daxistinê kod(ên) formata binnivîsê."
+  },
+  "sub_langs": {
+    "name": "Zimanên binnivîsê",
+    "description": "Zimanên jêrnivîsan ên dakêşanê."
+  },
+  "theme_dark": {
+    "name": "Mijara tarî",
+    "description": "Mijara serîlêdanê."
+  },
+  "twofactor": {
+    "name": "Nasnameya Du-Faktorî",
+    "description": "Koda erêkirinê ya du-faktor."
+  },
+  "use_extractors": {
+    "name": "Extractors bikar bînin",
+    "description": "Navên hilkêşkerên ku werin bikar anîn (koma ji hev veqetandî)."
+  },
+  "username": {
+    "name": "Navê bikarhêner",
+    "description": "Navê bikarhêner ji bo erêkirinê."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams",
+    "description": "Destûrê dide hevberdana çendîn herikên vîdyoyê."
+  },
+  "video_password": {
+    "name": "Şîfreya Vîdyoyê",
+    "description": "Şîfre ji bo vîdyoyên bi şîfre parastî."
+  },
+  "video_resolution": {
+    "name": "Resolution",
+    "description": "Çareserkirina vîdyoyê ya bijare"
+  },
+  "video_subtitles": {
+    "name": "Subtitles",
+    "description": "Binnivîsên vîdyoyê yên bijare"
+  },
+  "wait_for_video": {
+    "name": "Li benda Vîdyoyê bisekinin",
+    "description": "Li bendê ye ku vîdyoyek plansazkirî berî dakêşanê peyda bibe."
+  },
+  "write_auto_subs": {
+    "name": "Subtitles Auto Daxînin",
+    "description": "Binnivîsên otomatîk ên berdest dinivîse."
+  },
+  "write_subs": {
+    "name": "Binnivîsan daxin",
+    "description": "Binnivîsên destan ên berdest dinivîse."
+  },
+  "write_thumbnail": {
+    "name": "Thumbnail binivîsin",
+    "description": "Pîvana vîdyoyê li ser dîskê tomar dike."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Metadata li ser pergala pelan xattrs dinivîse."
+  },
+  "xff": {
+    "name": "X-Pêşvekirî-Ji bo",
+    "description": "Sernivîsa X-Forwarded-For destnîşan dike ku cîhê simulasyonê bike."
+  }
+}

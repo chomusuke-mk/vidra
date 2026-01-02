@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Avòte sou erè",
+    "description": "Avòte pwosesis download la si yon erè rive."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Avòte sou fragman ki pa disponib",
+    "description": "Anile download la si yon fragman pa disponib."
+  },
+  "add_headers": {
+    "name": "Tèt adisyonèl",
+    "description": "Tèt adisyonèl pou mete nan demann rezo a."
+  },
+  "audio_format": {
+    "name": "Fòma odyo",
+    "description": "Fòma odyo konvèti a (mp3, flac, opus, elatriye)."
+  },
+  "audio_language": {
+    "name": "Odyo",
+    "description": "Kòd lang odyo pi pito."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams",
+    "description": "Pèmèt konbine plizyè kouran odyo."
+  },
+  "audio_quality": {
+    "name": "Kalite Audio",
+    "description": "Bon jan kalite odyo (0 pi bon, 10 pi mal)."
+  },
+  "batch_file": {
+    "name": "Dosye pakèt",
+    "description": "Chemen nan yon fichye ki gen URL pou telechaje."
+  },
+  "break_on_existing": {
+    "name": "Kraze sou ki egziste",
+    "description": "Sispann telechaje si fichye a deja egziste."
+  },
+  "concurrent_fragments": {
+    "name": "Fragman konkouran",
+    "description": "Kantite fragman similtane pou telechaje (default 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Konvèti miniatures",
+    "description": "Konvèti miniatures nan fòma espesifye a."
+  },
+  "cookies": {
+    "name": "Bonbon",
+    "description": "Netscape fòma fichye pou li bonbon nan epi jete bokal bonbon nan"
+  },
+  "cookies_from_browser": {
+    "name": "Bonbon nan navigatè",
+    "description": "Enpòte bonbon nan navigatè a espesifye."
+  },
+  "download_archive": {
+    "name": "Telechaje Achiv",
+    "description": "Chemen nan dosye pou anrejistre ID telechaje pou evite kopi."
+  },
+  "embed_chapters": {
+    "name": "Entègre Chapit yo",
+    "description": "Entègre chapit nan dosye final la."
+  },
+  "embed_info_json": {
+    "name": "Afiche enfòmasyon JSON",
+    "description": "Antre enfòmasyon JSON nan dosye final la."
+  },
+  "embed_metadata": {
+    "name": "Antre Metadata",
+    "description": "Entègre metadata nan dosye final la."
+  },
+  "embed_subs": {
+    "name": "Entègre sous-titres",
+    "description": "Entègre sous-titres nan dosye final la."
+  },
+  "embed_thumbnail": {
+    "name": "Embed Thumbnail",
+    "description": "Entègre miniature a nan dosye final la."
+  },
+  "enable_file_urls": {
+    "name": "Pèmèt URL dosye yo",
+    "description": "Pèmèt itilizasyon URL dosye pou dosye lokal yo."
+  },
+  "extract_audio": {
+    "name": "Ekstrè odyo",
+    "description": "Ekstrè odyo nan videyo telechaje (itilize ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Ekstrè Retry",
+    "description": "Kantite retay sou erè ekstrè."
+  },
+  "ffmpeg_location": {
+    "name": "Kote FFmpeg",
+    "description": "Chemen nan binè FFmpeg la."
+  },
+  "file_access_retries": {
+    "name": "File Aksè Retry",
+    "description": "Kantite retaye sou erè aksè dosye."
+  },
+  "fixup": {
+    "name": "Fixup",
+    "description": "Otomatikman korije fot li te ye nan dosye videyo a."
+  },
+  "font_size": {
+    "name": "Gwosè Font",
+    "description": "Gwosè font yo itilize nan aplikasyon an."
+  },
+  "force_ipv4": {
+    "name": "Fòs IPv4",
+    "description": "Fòs itilizasyon IPv4 pou koneksyon rezo."
+  },
+  "force_ipv6": {
+    "name": "Fòs IPv6",
+    "description": "Fòs itilizasyon IPv6 pou koneksyon rezo."
+  },
+  "force_overwrites": {
+    "name": "Fòs ranplase",
+    "description": "Ranplase dosye ki egziste deja san yo pa mande."
+  },
+  "format": {
+    "name": "Fòma",
+    "description": "Kòd fòma videyo (yo) pou telechaje."
+  },
+  "fragment_retries": {
+    "name": "Eseye Fragman",
+    "description": "Kantite retaye sou erè download fragman."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Verifikasyon Proxy",
+    "description": "Sèvè proxy pou itilize pou geo-verifikasyon."
+  },
+  "ignore_errors": {
+    "name": "Inyore Erè",
+    "description": "Inyore erè telechaje yo epi kontinye ak pwochen videyo a."
+  },
+  "impersonate": {
+    "name": "Imite",
+    "description": "Kliyan pou imite (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Kenbe Fragman yo",
+    "description": "Kenbe fragman telechaje yo apre fusion."
+  },
+  "language": {
+    "name": "Lang",
+    "description": "Lang aplikasyon an."
+  },
+  "limit_rate": {
+    "name": "Limit Pousantaj",
+    "description": "Limite vitès download la (egzanp, 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "Viv depi nan kòmansman",
+    "description": "Telechaje videyo ap viv depi nan kòmansman an."
+  },
+  "merge_output_format": {
+    "name": "Fòma videyo",
+    "description": "Fòma videyo final ki soti nan fusion kouran."
+  },
+  "output": {
+    "name": "Modèl Sòti",
+    "description": "Sòti modèl non fichye."
+  },
+  "password": {
+    "name": "Modpas",
+    "description": "Modpas pou otantifikasyon."
+  },
+  "paths": {
+    "name": "Chemen",
+    "description": "Anyè pou konsève pou diferan kalite dosye."
+  },
+  "playlist": {
+    "name": "Playlist",
+    "description": "Endike si wi ou non telechaje lis la konplè oswa yon sèl videyo."
+  },
+  "prefer_insecure": {
+    "name": "Pito Ensekirite",
+    "description": "Itilize HTTP koneksyon olye de HTTPS (YouTube sèlman)."
+  },
+  "proxy": {
+    "name": "Prokurasyon",
+    "description": "Sèvè proxy pou itilize pou demann rezo."
+  },
+  "remux_video": {
+    "name": "Remux Videyo",
+    "description": "Chanje veso videyo a san re-kodaj."
+  },
+  "retries": {
+    "name": "Eseye",
+    "description": "Kantite retay sou erè telechaje yo."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Sote Playlist apre erè",
+    "description": "Sote rès playlist la apre yon sèten kantite erè."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Delè pou koneksyon priz an segonn."
+  },
+  "source_address": {
+    "name": "Adrès Sous",
+    "description": "Adrès IP Kliyan pou mare lè w ap fè koneksyon."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Make segman nan kategori SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Fòma soustit",
+    "description": "Kòd fòma sous-titre (yo) pou telechaje."
+  },
+  "sub_langs": {
+    "name": "Soutit Lang",
+    "description": "Lang sous-titres yo pou telechaje."
+  },
+  "theme_dark": {
+    "name": "Tèm nwa",
+    "description": "Tèm aplikasyon an."
+  },
+  "twofactor": {
+    "name": "De-faktè Otantifikasyon",
+    "description": "Kòd otantifikasyon de faktè."
+  },
+  "use_extractors": {
+    "name": "Sèvi ak èkstraktè",
+    "description": "Non èkstraktè yo itilize (separe vigil). (\"tout\", \"default\", \"fen\", ekspresyon regilye)"
+  },
+  "username": {
+    "name": "Non itilizatè",
+    "description": "Non itilizatè pou otantifikasyon."
+  },
+  "video_multistreams": {
+    "name": "Videyo Multistreams",
+    "description": "Pèmèt konbine plizyè kouran videyo."
+  },
+  "video_password": {
+    "name": "Videyo Modpas",
+    "description": "Modpas pou videyo ki pwoteje modpas yo."
+  },
+  "video_resolution": {
+    "name": "Rezolisyon",
+    "description": "Rezolisyon videyo pi pito"
+  },
+  "video_subtitles": {
+    "name": "Sou-titres",
+    "description": "Sous-titres videyo pi pito"
+  },
+  "wait_for_video": {
+    "name": "Tann videyo",
+    "description": "Tann pou yon videyo pwograme vin disponib anvan telechaje."
+  },
+  "write_auto_subs": {
+    "name": "Telechaje Auto Subtitles",
+    "description": "Ekri sous-titres otomatik disponib."
+  },
+  "write_subs": {
+    "name": "Telechaje sous-titres",
+    "description": "Ekri sous-titres manyèl ki disponib."
+  },
+  "write_thumbnail": {
+    "name": "Ekri miniature",
+    "description": "Enregistre miniature videyo a sou disk."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Ekri metadone nan sistèm fichye xattrs yo."
+  },
+  "xff": {
+    "name": "X-Voye-Pou",
+    "description": "Mete header X-Forwarded-For pou simulation kote yo ye."
+  }
+}

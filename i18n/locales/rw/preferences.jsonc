@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Gukuramo inda",
+    "description": "Bakuramo inzira yo gukuramo niba habaye ikosa."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Gukuramo ibice bitaboneka",
+    "description": "Yakuyeho gukuramo niba agace katabonetse."
+  },
+  "add_headers": {
+    "name": "Imitwe yinyongera",
+    "description": "Imitwe yinyongera kugirango ishyire mubikorwa."
+  },
+  "audio_format": {
+    "name": "Imiterere ya Audio",
+    "description": "Imiterere yamajwi yahinduwe (mp3, Flac, Opus, nibindi)."
+  },
+  "audio_language": {
+    "name": "Amajwi",
+    "description": "Kode ya Audio yatoranijwe."
+  },
+  "audio_multistreams": {
+    "name": "Amajwi menshi",
+    "description": "Yemerera guhuza imigezi myinshi ya Audio."
+  },
+  "audio_quality": {
+    "name": "Ubwiza bwa Audio",
+    "description": "Ubwiza bwa Audio (0 Ibyiza, 10 bibi)."
+  },
+  "batch_file": {
+    "name": "Idosiye",
+    "description": "Inzira igana dosiye irimo URL yo gukuramo."
+  },
+  "break_on_existing": {
+    "name": "Gucamo",
+    "description": "Guhagarika gukuramo niba dosiye isanzwe ibaho."
+  },
+  "concurrent_fragments": {
+    "name": "Ibice bihurira",
+    "description": "Umubare wibice icyarimwe gukuramo (Mburabuzi 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Hindura thumbnail",
+    "description": "Hindura thumbnail kubintu byagenwe."
+  },
+  "cookies": {
+    "name": "Kuki",
+    "description": "Netscape yagenewe dosiye kugirango usome kuki kuva no guta ikibindi cya kuki"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies kuva mushakisha",
+    "description": "Gutumiza kuki muri mushakisha yagenwe."
+  },
+  "download_archive": {
+    "name": "Gukuramo ububiko",
+    "description": "Inzira yo gutanga kugirango wandike indangamuntu kugirango wirinde duplicates."
+  },
+  "embed_chapters": {
+    "name": "Shiraho imitwe",
+    "description": "Gusiza ibice muri dosiye yanyuma."
+  },
+  "embed_info_json": {
+    "name": "Heamed info json",
+    "description": "CHEEDS amakuru JSON muri dosiye yanyuma."
+  },
+  "embed_metadata": {
+    "name": "Shiraho metadata",
+    "description": "Emed Metadata muri dosiye yanyuma."
+  },
+  "embed_subs": {
+    "name": "Emded subtitles",
+    "description": "Subiza subtitles muri dosiye yanyuma."
+  },
+  "embed_thumbnail": {
+    "name": "Embed Thumbnail",
+    "description": "Emed thumbnail muri dosiye yanyuma."
+  },
+  "enable_file_urls": {
+    "name": "Gushoboza URL",
+    "description": "Gushoboza ikoreshwa rya dosiye URL za dosiye zaho."
+  },
+  "extract_audio": {
+    "name": "Gukuramo amajwi",
+    "description": "Kuramo amajwi kuri videwo yakuweho (ikoresha FFMPEG)."
+  },
+  "extractor_retries": {
+    "name": "Gukuramo",
+    "description": "Umubare wo gusubiramo kumakosa yakuweho."
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG aho",
+    "description": "Inzira igana FFMPEG."
+  },
+  "file_access_retries": {
+    "name": "Idosiye",
+    "description": "Umubare wo gusubiramo kumakosa yo kubona dosiye."
+  },
+  "fixup": {
+    "name": "Gukosorwa",
+    "description": "Mu buryo bwikora firijwe amakosa azwi muri dosiye ya videwo."
+  },
+  "font_size": {
+    "name": "Ingano yimyandikire",
+    "description": "Ingano yimyandikire ikoreshwa muri porogaramu."
+  },
+  "force_ipv4": {
+    "name": "Guhatira IPV4",
+    "description": "Guhatira gukoresha IPV4 kumurongo wumuyoboro."
+  },
+  "force_ipv6": {
+    "name": "Guhatira IPV6",
+    "description": "Guhatira gukoresha IPV6 kumurongo wumuyoboro."
+  },
+  "force_overwrites": {
+    "name": "FORPWRITES",
+    "description": "Andika dosiye zisanzwe zitabaza."
+  },
+  "format": {
+    "name": "Imiterere",
+    "description": "Imiterere ya videwo (s) kugirango ukuremo."
+  },
+  "fragment_retries": {
+    "name": "Ibice",
+    "description": "Umubare wo gusubiramo amakosa yo gukuramo ibice."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Kugenzura Proxy",
+    "description": "Seriveri ya porokisi kugirango ukoreshe geo-verisiyo."
+  },
+  "ignore_errors": {
+    "name": "Kwirengagiza amakosa",
+    "description": "Wirengagize gukuramo amakosa hanyuma ukomeze na videwo ikurikira."
+  },
+  "impersonate": {
+    "name": "Kwigana",
+    "description": "Umukiriya kugana (Chrome, Chrome-110, Chrome: Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Komeza ibice",
+    "description": "Komeza uduce twakuwe nyuma yo guhuza."
+  },
+  "language": {
+    "name": "Ururimi",
+    "description": "Ururimi rwa porogaramu."
+  },
+  "limit_rate": {
+    "name": "Igipimo ntarengwa",
+    "description": "Kugabanya umuvuduko wo gukuramo (urugero, 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "KUBAHO MU GIHE",
+    "description": "Kuramo amashusho ya Live kuva mu ntangiriro."
+  },
+  "merge_output_format": {
+    "name": "Imiterere ya Video",
+    "description": "Imiterere ya videwo yanyuma ituruka ku guhuriza hamwe imigezi."
+  },
+  "output": {
+    "name": "Ibisohoka",
+    "description": "Ibisohoka kuri fileiname."
+  },
+  "password": {
+    "name": "Ijambo ryibanga",
+    "description": "Ijambo ryibanga ryo kwemeza."
+  },
+  "paths": {
+    "name": "INZIRA",
+    "description": "Ubuyobozi bwo kuzigama ubwoko butandukanye bwa dosiye."
+  },
+  "playlist": {
+    "name": "Urutonde",
+    "description": "Yerekana niba ukuremo urutonde rwuzuye cyangwa videwo imwe."
+  },
+  "prefer_insecure": {
+    "name": "Hitamo umutekano muke",
+    "description": "Ikoresha HTTP ihuza aho kuba HTTPS (YouTube gusa)."
+  },
+  "proxy": {
+    "name": "Proksi",
+    "description": "Seriveri ya porokisi kugirango ukoreshe ibisabwa."
+  },
+  "remux_video": {
+    "name": "Amadushusho",
+    "description": "Hindura ibikoresho bya videwo udafite kodegisi."
+  },
+  "retries": {
+    "name": "Gusubiramo",
+    "description": "Umubare wo gusubiramo kumakosa."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Simbuka urutonde nyuma yamakosa",
+    "description": "Shushanya abasigaye basigaye nyuma yumubare runaka wamakosa."
+  },
+  "socket_timeout": {
+    "name": "SOCKE Igihe",
+    "description": "Igihe cyo guhuza socket mumasegonda."
+  },
+  "source_address": {
+    "name": "Aderesi",
+    "description": "Umukiriya ip adresse kugirango uhambire mugihe uhuza."
+  },
+  "sponsorblock_mark": {
+    "name": "InteranSBlock Mark",
+    "description": "Ibice birimo ibice byibyiciro byabaterankunga."
+  },
+  "sub_format": {
+    "name": "Imiterere ya subtitle",
+    "description": "Kode ya subtitle code (s) gukuramo."
+  },
+  "sub_langs": {
+    "name": "Indimi za Subtitle",
+    "description": "Indimi za Subtitles zo gukuramo."
+  },
+  "theme_dark": {
+    "name": "Insanganyamatsiko Yijimye",
+    "description": "Insanganyamatsiko yo gusaba."
+  },
+  "twofactor": {
+    "name": "Kwemeza ibintu bibiri",
+    "description": "Kode y'ibintu bibiri."
+  },
+  "use_extractors": {
+    "name": "Koresha amafaranga",
+    "description": "Amazina y'ibirukuno akoresha (Comma yatandukanijwe). (\"Byose\", \"Mburabuzi\", \"iherezo\", imvugo isanzwe)"
+  },
+  "username": {
+    "name": "Izina ryukoresha",
+    "description": "Izina ryukoresha kugirango wemeze."
+  },
+  "video_multistreams": {
+    "name": "Video Imikino myinshi",
+    "description": "Yemerera guhuza imigezi myinshi."
+  },
+  "video_password": {
+    "name": "Ijambobanga",
+    "description": "Ijambobanga rya videwo yo Kurinda Ijambobanga."
+  },
+  "video_resolution": {
+    "name": "Imyanzuro",
+    "description": "Guhitamo amashusho"
+  },
+  "video_subtitles": {
+    "name": "Subtitles",
+    "description": "Guhitamo amashusho"
+  },
+  "wait_for_video": {
+    "name": "Tegereza videwo",
+    "description": "Gutegereza amashusho yateganijwe kugirango aboneka mbere yo gukuramo."
+  },
+  "write_auto_subs": {
+    "name": "Kuramo Auto Subtitles",
+    "description": "Kwandika subtitles yikora."
+  },
+  "write_subs": {
+    "name": "Kuramo Subtitles",
+    "description": "Kwandika subtitles zihari."
+  },
+  "write_thumbnail": {
+    "name": "Andika Thumbnail",
+    "description": "Ikiza amashusho tokumzail kuri disiki."
+  },
+  "xattrs": {
+    "name": "XATTRS",
+    "description": "Andika metadata kuri Filime XatTrs."
+  },
+  "xff": {
+    "name": "X-yoherejwe-kuri",
+    "description": "Shyira X-yoherejwe-kumutwe kugirango wigane."
+  }
+}

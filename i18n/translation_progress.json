@@ -1,0 +1,5141 @@
+{
+  "generated_at": "2025-11-22T06:18:34.399485+00:00",
+  "total_locales": 183,
+  "summary": {
+    "complete": 5,
+    "untranslated": 175,
+    "in_progress": 2,
+    "source": 1
+  },
+  "locales": [
+    {
+      "code": "aa",
+      "language": "Afaan Qafar",
+      "status": "complete",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      },
+      "manual_override": true
+    },
+    {
+      "code": "ab",
+      "language": "\u0430\u04a7\u0441\u0443\u0430 \u0431\u044b\u0437\u0448\u04d9\u0430",
+      "status": "complete",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      },
+      "manual_override": true
+    },
+    {
+      "code": "ae",
+      "language": "avesta",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "af",
+      "language": "Afrikaans",
+      "status": "complete",
+      "files": {
+        "ui.jsonc": {
+          "status": "in_progress",
+          "total_keys": 206,
+          "translated_keys": 196,
+          "identical_to_base": 10,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "complete",
+          "total_keys": 25,
+          "translated_keys": 25,
+          "identical_to_base": 0,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "in_progress",
+          "total_keys": 134,
+          "translated_keys": 132,
+          "identical_to_base": 2,
+          "missing_keys": 0
+        }
+      },
+      "manual_override": true
+    },
+    {
+      "code": "ak",
+      "language": "Akan",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "am",
+      "language": "\u12a0\u121b\u122d\u129b",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "an",
+      "language": "aragon\u00e9s",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ar",
+      "language": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "as",
+      "language": "\u0985\u09b8\u09ae\u09c0\u09af\u09bc\u09be",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "av",
+      "language": "\u0430\u0432\u0430\u0440 \u043c\u0430\u0446\u04c0",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ay",
+      "language": "aymar aru",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "az",
+      "language": "az\u0259rbaycan dili",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ba",
+      "language": "\u0431\u0430\u0448\u04a1\u043e\u0440\u0442 \u0442\u0435\u043b\u0435",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "be",
+      "language": "\u0431\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f \u043c\u043e\u0432\u0430",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "bg",
+      "language": "\u0431\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438 \u0435\u0437\u0438\u043a",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "bi",
+      "language": "Bislama",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "bm",
+      "language": "bamanankan",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "bn",
+      "language": "\u09ac\u09be\u0982\u09b2\u09be",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "bo",
+      "language": "\u0f56\u0f7c\u0f51\u0f0b\u0f61\u0f72\u0f42",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "br",
+      "language": "brezhoneg",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "bs",
+      "language": "bosanski jezik",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ca",
+      "language": "catal\u00e0",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ce",
+      "language": "\u043d\u043e\u0445\u0447\u0438\u0439\u043d \u043c\u043e\u0442\u0442",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ch",
+      "language": "Chamoru",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "co",
+      "language": "corsu",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "cr",
+      "language": "\u14c0\u1426\u1403\u152d\u140d\u140f\u1423",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "cs",
+      "language": "\u010de\u0161tina",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "cu",
+      "language": "\u0469\u0437\u044b\u043a\u044a \u0441\u043b\u043e\u0432\u0463\u043d\u044c\u0441\u043a\u044a",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "cv",
+      "language": "\u0447\u04d1\u0432\u0430\u0448 \u0447\u04d7\u043b\u0445\u0438",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "cy",
+      "language": "Cymraeg",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "da",
+      "language": "dansk",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "de",
+      "language": "Deutsch",
+      "status": "in_progress",
+      "files": {
+        "ui.jsonc": {
+          "status": "in_progress",
+          "total_keys": 206,
+          "translated_keys": 196,
+          "identical_to_base": 10,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "dv",
+      "language": "\u078b\u07a8\u0788\u07ac\u0780\u07a8",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "dz",
+      "language": "\u0f62\u0fab\u0f7c\u0f44\u0f0b\u0f41",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ee",
+      "language": "E\u028begbe",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "el",
+      "language": "\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "en",
+      "language": "English",
+      "status": "source",
+      "files": {
+        "ui.jsonc": {
+          "status": "source",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "source",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "source",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "eo",
+      "language": "Esperanto",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "es",
+      "language": "Espa\u00f1ol",
+      "status": "complete",
+      "files": {
+        "ui.jsonc": {
+          "status": "in_progress",
+          "total_keys": 206,
+          "translated_keys": 199,
+          "identical_to_base": 7,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "complete",
+          "total_keys": 25,
+          "translated_keys": 25,
+          "identical_to_base": 0,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "in_progress",
+          "total_keys": 134,
+          "translated_keys": 129,
+          "identical_to_base": 5,
+          "missing_keys": 0
+        }
+      },
+      "manual_override": true
+    },
+    {
+      "code": "et",
+      "language": "eesti",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "eu",
+      "language": "euskara",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "fa",
+      "language": "\u0641\u0627\u0631\u0633\u06cc",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ff",
+      "language": "Fulfulde",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "fi",
+      "language": "suomi",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "fj",
+      "language": "vosa Vakaviti",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "fo",
+      "language": "f\u00f8royskt",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "fr",
+      "language": "fran\u00e7ais",
+      "status": "in_progress",
+      "files": {
+        "ui.jsonc": {
+          "status": "in_progress",
+          "total_keys": 206,
+          "translated_keys": 195,
+          "identical_to_base": 11,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "fy",
+      "language": "Frysk",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ga",
+      "language": "Gaeilge",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "gd",
+      "language": "G\u00e0idhlig",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "gl",
+      "language": "galego",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "gn",
+      "language": "Ava\u00f1e\\",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "gu",
+      "language": "\u0a97\u0ac1\u0a9c\u0ab0\u0abe\u0aa4\u0ac0",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "gv",
+      "language": "Gaelg",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ha",
+      "language": "Hausa",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "he",
+      "language": "\u05e2\u05d1\u05e8\u05d9\u05ea",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "hi",
+      "language": "\u0939\u093f\u0928\u094d\u0926\u0940",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ho",
+      "language": "Hiri Motu",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "hr",
+      "language": "hrvatski jezik",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ht",
+      "language": "Krey\u00f2l ayisyen",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "hu",
+      "language": "magyar",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "hy",
+      "language": "\u0540\u0561\u0575\u0565\u0580\u0565\u0576",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "hz",
+      "language": "Otjiherero",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ia",
+      "language": "interlingua",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "id",
+      "language": "Bahasa Indonesia",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ie",
+      "language": "Interlingue",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ig",
+      "language": "As\u1ee5s\u1ee5 Igbo",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ii",
+      "language": "\ua188\ua320\ua4bf Nuosuhxop",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ik",
+      "language": "I\u00f1upiaq",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "io",
+      "language": "Ido",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "is",
+      "language": "\u00cdslenska",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "it",
+      "language": "italiano",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "iu",
+      "language": "\u1403\u14c4\u1483\u144e\u1450\u1466",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ja",
+      "language": "\u65e5\u672c\u8a9e",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "jv",
+      "language": "basa Jawa",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ka",
+      "language": "\u10e5\u10d0\u10e0\u10d7\u10e3\u10da\u10d8",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "kg",
+      "language": "Kikongo",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ki",
+      "language": "G\u0129k\u0169y\u0169",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "kj",
+      "language": "Kuanyama",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "kk",
+      "language": "\u049b\u0430\u0437\u0430\u049b \u0442\u0456\u043b\u0456",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "kl",
+      "language": "kalaallisut",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "km",
+      "language": "\u1781\u17d2\u1798\u17c2\u179a",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "kn",
+      "language": "\u0c95\u0ca8\u0ccd\u0ca8\u0ca1",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ko",
+      "language": "\ud55c\uad6d\uc5b4",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "kr",
+      "language": "Kanuri",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ks",
+      "language": "\u0915\u0936\u094d\u092e\u0940\u0930\u0940",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ku",
+      "language": "Kurd\u00ee",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "kv",
+      "language": "\u043a\u043e\u043c\u0438 \u043a\u044b\u0432",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "kw",
+      "language": "Kernewek",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ky",
+      "language": "\u041a\u044b\u0440\u0433\u044b\u0437\u0447\u0430",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "la",
+      "language": "latine",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "lb",
+      "language": "L\u00ebtzebuergesch",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "lg",
+      "language": "Luganda",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "li",
+      "language": "Limburgs",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ln",
+      "language": "Ling\u00e1la",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "lo",
+      "language": "\u0e9e\u0eb2\u0eaa\u0eb2\u0ea5\u0eb2\u0ea7",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "lt",
+      "language": "lietuvi\u0173 kalba",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "lu",
+      "language": "Tshiluba",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "lv",
+      "language": "latvie\u0161u valoda",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "mg",
+      "language": "fiteny malagasy",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "mh",
+      "language": "Kajin M\u0327aje\u013c",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "mi",
+      "language": "te reo M\u0101ori",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "mk",
+      "language": "\u043c\u0430\u043a\u0435\u0434\u043e\u043d\u0441\u043a\u0438 \u0458\u0430\u0437\u0438\u043a",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ml",
+      "language": "\u0d2e\u0d32\u0d2f\u0d3e\u0d33\u0d02",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "mn",
+      "language": "\u041c\u043e\u043d\u0433\u043e\u043b \u0445\u044d\u043b",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "mr",
+      "language": "\u092e\u0930\u093e\u0920\u0940",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ms",
+      "language": "bahasa Melayu",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "mt",
+      "language": "Malti",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "my",
+      "language": "\u1017\u1019\u102c\u1005\u102c",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "na",
+      "language": "Dorerin Naoero",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "nb",
+      "language": "Norsk bokm\u00e5l",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "nd",
+      "language": "isiNdebele",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ne",
+      "language": "\u0928\u0947\u092a\u093e\u0932\u0940",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ng",
+      "language": "Owambo",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "nl",
+      "language": "Nederlands",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "nn",
+      "language": "Norsk nynorsk",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "no",
+      "language": "Norsk",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "nr",
+      "language": "isiNdebele",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "nv",
+      "language": "Din\u00e9 bizaad",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ny",
+      "language": "chiChe\u0175a",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "oc",
+      "language": "occitan",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "oj",
+      "language": "\u140a\u14c2\u1511\u14c8\u142f\u14a7\u140e\u14d0",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "om",
+      "language": "Afaan Oromoo",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "or",
+      "language": "\u0b13\u0b21\u0b3c\u0b3f\u0b06",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "os",
+      "language": "\u0438\u0440\u043e\u043d \u00e6\u0432\u0437\u0430\u0433",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "pa",
+      "language": "\u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "pi",
+      "language": "\u092a\u093e\u0932\u093f",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "pl",
+      "language": "polski",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ps",
+      "language": "\u067e\u069a\u062a\u0648",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "pt",
+      "language": "Portugu\u00eas",
+      "status": "complete",
+      "files": {
+        "ui.jsonc": {
+          "status": "in_progress",
+          "total_keys": 206,
+          "translated_keys": 197,
+          "identical_to_base": 9,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "complete",
+          "total_keys": 25,
+          "translated_keys": 25,
+          "identical_to_base": 0,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "in_progress",
+          "total_keys": 134,
+          "translated_keys": 129,
+          "identical_to_base": 5,
+          "missing_keys": 0
+        }
+      },
+      "manual_override": true
+    },
+    {
+      "code": "qu",
+      "language": "Runa Simi",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "rm",
+      "language": "rumantsch grischun",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "rn",
+      "language": "Ikirundi",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ro",
+      "language": "rom\u00e2n\u0103",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ru",
+      "language": "\u0420\u0443\u0441\u0441\u043a\u0438\u0439",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "rw",
+      "language": "Ikinyarwanda",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "sa",
+      "language": "\u0938\u0902\u0938\u094d\u0915\u0943\u0924\u092e\u094d",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "sc",
+      "language": "sardu",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "sd",
+      "language": "\u0938\u093f\u0928\u094d\u0927\u0940",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "se",
+      "language": "Davvis\u00e1megiella",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "sg",
+      "language": "y\u00e2ng\u00e2 t\u00ee s\u00e4ng\u00f6",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "si",
+      "language": "\u0dc3\u0dd2\u0d82\u0dc4\u0dbd",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "sk",
+      "language": "sloven\u010dina",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "sl",
+      "language": "sloven\u0161\u010dina",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "sm",
+      "language": "gagana Samoa",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "sn",
+      "language": "chiShona",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "so",
+      "language": "Soomaaliga",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "sq",
+      "language": "shqip",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "sr",
+      "language": "\u0441\u0440\u043f\u0441\u043a\u0438 \u0458\u0435\u0437\u0438\u043a",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ss",
+      "language": "SiSwati",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "st",
+      "language": "Sesotho",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "su",
+      "language": "Basa Sunda",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "sv",
+      "language": "svenska",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "sw",
+      "language": "Kiswahili",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ta",
+      "language": "\u0ba4\u0bae\u0bbf\u0bb4\u0bcd",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "te",
+      "language": "\u0c24\u0c46\u0c32\u0c41\u0c17\u0c41",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "tg",
+      "language": "\u0442\u043e\u04b7\u0438\u043a\u04e3",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "th",
+      "language": "\u0e44\u0e17\u0e22",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ti",
+      "language": "\u1275\u130d\u122d\u129b",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "tk",
+      "language": "T\u00fcrkmen\u00e7e",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "tl",
+      "language": "Wikang Tagalog",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "tn",
+      "language": "Setswana",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "to",
+      "language": "faka Tonga",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "tr",
+      "language": "T\u00fcrk\u00e7e",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ts",
+      "language": "Xitsonga",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "tt",
+      "language": "\u0442\u0430\u0442\u0430\u0440 \u0442\u0435\u043b\u0435",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "tw",
+      "language": "Twi",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ty",
+      "language": "Reo Tahiti",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ug",
+      "language": "\u0626\u06c7\u064a\u063a\u06c7\u0631 \u062a\u0649\u0644\u0649",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "uk",
+      "language": "\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ur",
+      "language": "\u0627\u0631\u062f\u0648",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "uz",
+      "language": "O\u02bbzbek",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "ve",
+      "language": "Tshiven\u1e13a",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "vi",
+      "language": "Ti\u1ebfng Vi\u1ec7t",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "vo",
+      "language": "Volap\u00fck",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "wa",
+      "language": "walon",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "wo",
+      "language": "Wollof",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "xh",
+      "language": "isiXhosa",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "yi",
+      "language": "\u05d9\u05d9\u05b4\u05d3\u05d9\u05e9",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "yo",
+      "language": "Yor\u00f9b\u00e1",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "za",
+      "language": "Sa\u026f cue\u014b\u0185",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "zh",
+      "language": "\u4e2d\u6587",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    },
+    {
+      "code": "zu",
+      "language": "isiZulu",
+      "status": "untranslated",
+      "files": {
+        "ui.jsonc": {
+          "status": "untranslated",
+          "total_keys": 206,
+          "translated_keys": 0,
+          "identical_to_base": 206,
+          "missing_keys": 0
+        },
+        "errors.jsonc": {
+          "status": "untranslated",
+          "total_keys": 25,
+          "translated_keys": 0,
+          "identical_to_base": 25,
+          "missing_keys": 0
+        },
+        "preferences.jsonc": {
+          "status": "untranslated",
+          "total_keys": 134,
+          "translated_keys": 0,
+          "identical_to_base": 134,
+          "missing_keys": 0
+        }
+      }
+    }
+  ]
+}

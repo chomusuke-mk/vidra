@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Afbryd ved fejl",
+    "description": "Afbryder downloadprocessen, hvis der opstår en fejl."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Afbryd på utilgængeligt fragment",
+    "description": "Afbryder overførslen, hvis et fragment ikke er tilgængeligt."
+  },
+  "add_headers": {
+    "name": "Yderligere overskrifter",
+    "description": "Yderligere overskrifter, der skal inkluderes i netværksanmodninger."
+  },
+  "audio_format": {
+    "name": "Lydformat",
+    "description": "Formatet på den konverterede lyd (mp3, flac, opus osv.)."
+  },
+  "audio_language": {
+    "name": "Lyd",
+    "description": "Foretrukken lydsprogkode."
+  },
+  "audio_multistreams": {
+    "name": "Audio multistreams",
+    "description": "Giver mulighed for at kombinere flere lydstrømme."
+  },
+  "audio_quality": {
+    "name": "Lydkvalitet",
+    "description": "Lydkvalitet (0 bedste, 10 værste)."
+  },
+  "batch_file": {
+    "name": "Batch-fil",
+    "description": "Sti til en fil, der indeholder URL'er, der skal downloades."
+  },
+  "break_on_existing": {
+    "name": "Pause på Eksisterende",
+    "description": "Stopper download, hvis filen allerede eksisterer."
+  },
+  "concurrent_fragments": {
+    "name": "Samtidige Fragmenter",
+    "description": "Antal samtidige fragmenter, der skal downloades (standard 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Konverter miniaturebilleder",
+    "description": "Konverter thumbnails til det angivne format."
+  },
+  "cookies": {
+    "name": "Cookies",
+    "description": "Netscape-formateret fil til at læse cookies fra og dumpe cookie-glasset i"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies fra browser",
+    "description": "Importerer cookies fra den angivne browser."
+  },
+  "download_archive": {
+    "name": "Download arkiv",
+    "description": "Sti til fil for at registrere downloadede id'er for at undgå dubletter."
+  },
+  "embed_chapters": {
+    "name": "Integrer kapitler",
+    "description": "Indlejrer kapitler i den endelige fil."
+  },
+  "embed_info_json": {
+    "name": "Integrer info JSON",
+    "description": "Integrer info JSON i den endelige fil."
+  },
+  "embed_metadata": {
+    "name": "Integrer metadata",
+    "description": "Indlejrer metadata i den endelige fil."
+  },
+  "embed_subs": {
+    "name": "Integrer undertekster",
+    "description": "Indlejrer undertekster i den endelige fil."
+  },
+  "embed_thumbnail": {
+    "name": "Integrer miniaturebillede",
+    "description": "Indlejrer miniaturebilledet i den endelige fil."
+  },
+  "enable_file_urls": {
+    "name": "Aktiver fil-URL'er",
+    "description": "Aktiverer brugen af ​​fil-URL'er til lokale filer."
+  },
+  "extract_audio": {
+    "name": "Uddrag lyd",
+    "description": "Uddrager lyd fra downloadede videoer (bruger ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Udtrækker forsøger igen",
+    "description": "Antal genforsøg på udtræksfejl."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg Placering",
+    "description": "Sti til FFmpeg binær."
+  },
+  "file_access_retries": {
+    "name": "Filadgang forsøger igen",
+    "description": "Antal genforsøg på filadgangsfejl."
+  },
+  "fixup": {
+    "name": "Fixup",
+    "description": "Retter automatisk kendte fejl i videofilen."
+  },
+  "font_size": {
+    "name": "Skriftstørrelse",
+    "description": "Skriftstørrelse brugt i applikationen."
+  },
+  "force_ipv4": {
+    "name": "Tving IPv4",
+    "description": "Tvinger brugen af ​​IPv4 til netværksforbindelser."
+  },
+  "force_ipv6": {
+    "name": "Tving IPv6",
+    "description": "Tvinger brugen af ​​IPv6 til netværksforbindelser."
+  },
+  "force_overwrites": {
+    "name": "Tving overskriver",
+    "description": "Overskriver eksisterende filer uden at spørge."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Videoformatkode(r) til download."
+  },
+  "fragment_retries": {
+    "name": "Fragment forsøger igen",
+    "description": "Antal genforsøg på fragmentdownloadfejl."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Verification Proxy",
+    "description": "Proxyserver til brug til geo-verifikation."
+  },
+  "ignore_errors": {
+    "name": "Ignorer fejl",
+    "description": "Ignorer downloadfejl og fortsæt med den næste video."
+  },
+  "impersonate": {
+    "name": "Efterligne",
+    "description": "Klient at efterligne (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Behold fragmenter",
+    "description": "Beholder de downloadede fragmenter efter sammenlægning."
+  },
+  "language": {
+    "name": "Sprog",
+    "description": "Ansøgningens sprog."
+  },
+  "limit_rate": {
+    "name": "Begræns sats",
+    "description": "Begrænser downloadhastigheden (f.eks. 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "Live fra start",
+    "description": "Downloader live-videoer fra starten."
+  },
+  "merge_output_format": {
+    "name": "Videoformat",
+    "description": "Endeligt videoformat som følge af fletning af streams."
+  },
+  "output": {
+    "name": "Output skabelon",
+    "description": "Output filnavn skabelon."
+  },
+  "password": {
+    "name": "Adgangskode",
+    "description": "Adgangskode til godkendelse."
+  },
+  "paths": {
+    "name": "stier",
+    "description": "Mapper til at gemme forskellige typer filer."
+  },
+  "playlist": {
+    "name": "Afspilningsliste",
+    "description": "Angiver, om den komplette afspilningsliste eller en enkelt video skal downloades."
+  },
+  "prefer_insecure": {
+    "name": "Foretrækker usikker",
+    "description": "Bruger HTTP-forbindelse i stedet for HTTPS (kun YouTube)."
+  },
+  "proxy": {
+    "name": "Fuldmagt",
+    "description": "Proxyserver til brug for netværksanmodninger."
+  },
+  "remux_video": {
+    "name": "Remux video",
+    "description": "Ændrer videobeholderen uden omkodning."
+  },
+  "retries": {
+    "name": "Forsøg igen",
+    "description": "Antal genforsøg på downloadfejl."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Spring over afspilningsliste efter fejl",
+    "description": "Springer resten af ​​afspilningslisten over efter et vist antal fejl."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Timeout for stikforbindelser i sekunder."
+  },
+  "source_address": {
+    "name": "Kildeadresse",
+    "description": "Klientens IP-adresse, der skal bindes til, når der oprettes forbindelser."
+  },
+  "sponsorblock_mark": {
+    "name": "Sponsorblokmærke",
+    "description": "Markerer segmenter fra SponsorBlock-kategorier."
+  },
+  "sub_format": {
+    "name": "Undertekstformat",
+    "description": "Undertekstformatkode(r) til download."
+  },
+  "sub_langs": {
+    "name": "Undertekstsprog",
+    "description": "Sprog for undertekster til download."
+  },
+  "theme_dark": {
+    "name": "Mørkt tema",
+    "description": "Temaet for ansøgningen."
+  },
+  "twofactor": {
+    "name": "To-faktor-godkendelse",
+    "description": "To-faktor autentificeringskode."
+  },
+  "use_extractors": {
+    "name": "Brug ekstraktorer",
+    "description": "Navne på ekstraktorer, der skal bruges (kommasepareret).(\"alle\",\"standard\",\"slut\",regulært udtryk)"
+  },
+  "username": {
+    "name": "Brugernavn",
+    "description": "Brugernavn til godkendelse."
+  },
+  "video_multistreams": {
+    "name": "Video multistreams",
+    "description": "Giver mulighed for at kombinere flere videostreams."
+  },
+  "video_password": {
+    "name": "Videoadgangskode",
+    "description": "Adgangskode til adgangskodebeskyttede videoer."
+  },
+  "video_resolution": {
+    "name": "Opløsning",
+    "description": "Foretrukken videoopløsning"
+  },
+  "video_subtitles": {
+    "name": "Undertekster",
+    "description": "Foretrukne video undertekster"
+  },
+  "wait_for_video": {
+    "name": "Vent på video",
+    "description": "Venter på, at en planlagt video bliver tilgængelig, før den downloades."
+  },
+  "write_auto_subs": {
+    "name": "Download automatiske undertekster",
+    "description": "Skriver tilgængelige automatiske undertekster."
+  },
+  "write_subs": {
+    "name": "Download undertekster",
+    "description": "Skriver tilgængelige manuelle undertekster."
+  },
+  "write_thumbnail": {
+    "name": "Skriv miniaturebillede",
+    "description": "Gemmer videominiaturebilledet på disken."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Skriver metadata til filsystemet xattrs."
+  },
+  "xff": {
+    "name": "X-Videresendt-For",
+    "description": "Indstiller X-Forwarded-For-headeren til at simulere placering."
+  }
+}

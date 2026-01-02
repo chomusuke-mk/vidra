@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Przerwij w przypadku błędu",
+    "description": "Przerywa proces pobierania w przypadku wystąpienia błędu."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Przerwij w przypadku niedostępnego fragmentu",
+    "description": "Przerywa pobieranie, jeśli fragment jest niedostępny."
+  },
+  "add_headers": {
+    "name": "Dodatkowe nagłówki",
+    "description": "Dodatkowe nagłówki do uwzględnienia w żądaniach sieciowych."
+  },
+  "audio_format": {
+    "name": "Format dźwięku",
+    "description": "Format konwertowanego dźwięku (mp3, flac, opus itp.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Preferowany kod języka audio."
+  },
+  "audio_multistreams": {
+    "name": "Multistreamy audio",
+    "description": "Umożliwia łączenie wielu strumieni audio."
+  },
+  "audio_quality": {
+    "name": "Jakość dźwięku",
+    "description": "Jakość dźwięku (0 najlepsza, 10 najgorsza)."
+  },
+  "batch_file": {
+    "name": "Plik wsadowy",
+    "description": "Ścieżka do pliku zawierającego adresy URL do pobrania."
+  },
+  "break_on_existing": {
+    "name": "Przerwa w istniejącym",
+    "description": "Zatrzymuje pobieranie, jeśli plik już istnieje."
+  },
+  "concurrent_fragments": {
+    "name": "Równoczesne fragmenty",
+    "description": "Liczba jednoczesnych fragmentów do pobrania (domyślnie 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Konwertuj miniatury",
+    "description": "Konwertuj miniatury do określonego formatu."
+  },
+  "cookies": {
+    "name": "Ciastka",
+    "description": "Plik w formacie Netscape, z którego można odczytać pliki cookie i zrzucić do nich słoik z plikami cookie"
+  },
+  "cookies_from_browser": {
+    "name": "Pliki cookie z przeglądarki",
+    "description": "Importuje pliki cookie z określonej przeglądarki."
+  },
+  "download_archive": {
+    "name": "Pobierz archiwum",
+    "description": "Ścieżka do pliku, w którym należy zapisać pobrane identyfikatory, aby uniknąć duplikatów."
+  },
+  "embed_chapters": {
+    "name": "Osadzaj rozdziały",
+    "description": "Osadza rozdziały w pliku końcowym."
+  },
+  "embed_info_json": {
+    "name": "Osadź informacje JSON",
+    "description": "Osadza informacje JSON w pliku końcowym."
+  },
+  "embed_metadata": {
+    "name": "Osadź metadane",
+    "description": "Osadza metadane w pliku końcowym."
+  },
+  "embed_subs": {
+    "name": "Osadź napisy",
+    "description": "Osadza napisy w pliku końcowym."
+  },
+  "embed_thumbnail": {
+    "name": "Osadź miniaturę",
+    "description": "Osadza miniaturę w pliku końcowym."
+  },
+  "enable_file_urls": {
+    "name": "Włącz adresy URL plików",
+    "description": "Umożliwia użycie adresów URL plików lokalnych."
+  },
+  "extract_audio": {
+    "name": "Wyodrębnij dźwięk",
+    "description": "Wyodrębnia dźwięk z pobranych filmów (używa ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Ponowne próby ekstraktora",
+    "description": "Liczba ponownych prób w przypadku błędów ekstraktora."
+  },
+  "ffmpeg_location": {
+    "name": "Lokalizacja firmy FFmpeg",
+    "description": "Ścieżka do pliku binarnego FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Ponowne próby dostępu do plików",
+    "description": "Liczba ponownych prób w przypadku błędów dostępu do pliku."
+  },
+  "fixup": {
+    "name": "Naprawa",
+    "description": "Automatycznie koryguje znane błędy w pliku wideo."
+  },
+  "font_size": {
+    "name": "Rozmiar czcionki",
+    "description": "Rozmiar czcionki używany w aplikacji."
+  },
+  "force_ipv4": {
+    "name": "Wymuś IPv4",
+    "description": "Wymusza użycie protokołu IPv4 dla połączeń sieciowych."
+  },
+  "force_ipv6": {
+    "name": "Wymuś IPv6",
+    "description": "Wymusza użycie protokołu IPv6 dla połączeń sieciowych."
+  },
+  "force_overwrites": {
+    "name": "Wymuś nadpisanie",
+    "description": "Zastępuje istniejące pliki bez pytania."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Kod(y) formatu wideo do pobrania."
+  },
+  "fragment_retries": {
+    "name": "Ponowne próby fragmentu",
+    "description": "Liczba ponownych prób w przypadku błędów pobierania fragmentów."
+  },
+  "geo_verification_proxy": {
+    "name": "Serwer proxy weryfikacji geograficznej",
+    "description": "Serwer proxy używany do weryfikacji geograficznej."
+  },
+  "ignore_errors": {
+    "name": "Ignoruj ​​błędy",
+    "description": "Zignoruj ​​błędy pobierania i przejdź do następnego filmu."
+  },
+  "impersonate": {
+    "name": "Personifikować",
+    "description": "Klient do podszywania się (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Zachowaj fragmenty",
+    "description": "Zachowuje pobrane fragmenty po połączeniu."
+  },
+  "language": {
+    "name": "Język",
+    "description": "Język aplikacji."
+  },
+  "limit_rate": {
+    "name": "Limit stawki",
+    "description": "Ogranicza prędkość pobierania (np. 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "Na żywo od początku",
+    "description": "Pobiera wideo na żywo od początku."
+  },
+  "merge_output_format": {
+    "name": "Format wideo",
+    "description": "Ostateczny format wideo powstały w wyniku połączenia strumieni."
+  },
+  "output": {
+    "name": "Szablon wyjściowy",
+    "description": "Szablon nazwy pliku wyjściowego."
+  },
+  "password": {
+    "name": "Hasło",
+    "description": "Hasło do uwierzytelnienia."
+  },
+  "paths": {
+    "name": "Ścieżki",
+    "description": "Katalogi do zapisywania różnych typów plików."
+  },
+  "playlist": {
+    "name": "Lista odtwarzania",
+    "description": "Wskazuje, czy pobrać całą listę odtwarzania, czy pojedynczy film."
+  },
+  "prefer_insecure": {
+    "name": "Wolę niepewne",
+    "description": "Używa połączenia HTTP zamiast HTTPS (tylko YouTube)."
+  },
+  "proxy": {
+    "name": "Pełnomocnik",
+    "description": "Serwer proxy używany do żądań sieciowych."
+  },
+  "remux_video": {
+    "name": "Remux wideo",
+    "description": "Zmienia kontener wideo bez ponownego kodowania."
+  },
+  "retries": {
+    "name": "Ponowne próby",
+    "description": "Liczba ponownych prób w przypadku błędów pobierania."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Pomiń listę odtwarzania po błędach",
+    "description": "Pomija resztę listy odtwarzania po określonej liczbie błędów."
+  },
+  "socket_timeout": {
+    "name": "Limit czasu gniazda",
+    "description": "Limit czasu dla połączeń gniazdowych w sekundach."
+  },
+  "source_address": {
+    "name": "Adres źródłowy",
+    "description": "Adres IP klienta, z którym należy się powiązać podczas nawiązywania połączeń."
+  },
+  "sponsorblock_mark": {
+    "name": "Znak blokady sponsora",
+    "description": "Oznacza segmenty z kategorii SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Format napisów",
+    "description": "Kody formatu napisów do pobrania."
+  },
+  "sub_langs": {
+    "name": "Języki napisów",
+    "description": "Języki napisów do pobrania."
+  },
+  "theme_dark": {
+    "name": "Ciemny motyw",
+    "description": "Temat aplikacji."
+  },
+  "twofactor": {
+    "name": "Uwierzytelnianie dwuskładnikowe",
+    "description": "Dwuskładnikowy kod uwierzytelniający."
+  },
+  "use_extractors": {
+    "name": "Użyj ekstraktorów",
+    "description": "Nazwy ekstraktorów do użycia (oddzielone przecinkami). („all”, „default”, „end”, wyrażenie regularne)"
+  },
+  "username": {
+    "name": "Nazwa użytkownika",
+    "description": "Nazwa użytkownika do uwierzytelnienia."
+  },
+  "video_multistreams": {
+    "name": "Multistreamy wideo",
+    "description": "Umożliwia łączenie wielu strumieni wideo."
+  },
+  "video_password": {
+    "name": "Hasło wideo",
+    "description": "Hasło do filmów chronionych hasłem."
+  },
+  "video_resolution": {
+    "name": "Rezolucja",
+    "description": "Preferowana rozdzielczość wideo"
+  },
+  "video_subtitles": {
+    "name": "Napisy na filmie obcojęzycznym",
+    "description": "Preferowane napisy do filmów"
+  },
+  "wait_for_video": {
+    "name": "Poczekaj na wideo",
+    "description": "Przed pobraniem czeka, aż zaplanowany film stanie się dostępny."
+  },
+  "write_auto_subs": {
+    "name": "Pobierz automatyczne napisy",
+    "description": "Zapisuje dostępne automatyczne napisy."
+  },
+  "write_subs": {
+    "name": "Pobierz napisy",
+    "description": "Zapisuje dostępne ręczne napisy."
+  },
+  "write_thumbnail": {
+    "name": "Napisz miniaturę",
+    "description": "Zapisuje miniaturę wideo na dysku."
+  },
+  "xattrs": {
+    "name": "XAtrybuty",
+    "description": "Zapisuje metadane w systemie plików xattrs."
+  },
+  "xff": {
+    "name": "X-Przekazano-For",
+    "description": "Ustawia nagłówek X-Forwarded-For w celu symulacji lokalizacji."
+  }
+}

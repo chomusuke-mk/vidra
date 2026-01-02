@@ -1,0 +1,6 @@
+mypy
+types-yt-dlp
+pyright
+pytest
+pytest-mock
+dotenv

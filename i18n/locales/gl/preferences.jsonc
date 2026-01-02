@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Abortar por erro",
+    "description": "Cancela o proceso de descarga se se produce un erro."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Abortar no fragmento non dispoñible",
+    "description": "Aborta a descarga se un fragmento non está dispoñible."
+  },
+  "add_headers": {
+    "name": "Cabeceiras adicionais",
+    "description": "Cabeceiras adicionais para incluír nas solicitudes de rede."
+  },
+  "audio_format": {
+    "name": "Formato de audio",
+    "description": "Formato do audio convertido (mp3, flac, opus, etc.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Código de idioma de audio preferido."
+  },
+  "audio_multistreams": {
+    "name": "Multifluxos de audio",
+    "description": "Permite combinar múltiples fluxos de audio."
+  },
+  "audio_quality": {
+    "name": "Calidade de audio",
+    "description": "Calidade de audio (0 mellor, 10 peor)."
+  },
+  "batch_file": {
+    "name": "Ficheiro por lotes",
+    "description": "Ruta a un ficheiro que contén URL para descargar."
+  },
+  "break_on_existing": {
+    "name": "Pausa en Existente",
+    "description": "Deixa a descarga se o ficheiro xa existe."
+  },
+  "concurrent_fragments": {
+    "name": "Fragmentos Concurrentes",
+    "description": "Número de fragmentos simultáneos para descargar (predeterminado 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Converter miniaturas",
+    "description": "Converte as miniaturas ao formato especificado."
+  },
+  "cookies": {
+    "name": "Cookies",
+    "description": "Ficheiro con formato Netscape para ler as cookies e botar o bote de cookies"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies do navegador",
+    "description": "Importa cookies do navegador especificado."
+  },
+  "download_archive": {
+    "name": "Descargar arquivo",
+    "description": "Ruta ao ficheiro para gravar os ID descargados para evitar duplicados."
+  },
+  "embed_chapters": {
+    "name": "Inserir capítulos",
+    "description": "Incorpora capítulos no ficheiro final."
+  },
+  "embed_info_json": {
+    "name": "Inserir información JSON",
+    "description": "Incorpora información JSON no ficheiro final."
+  },
+  "embed_metadata": {
+    "name": "Inserir metadatos",
+    "description": "Inserta metadatos no ficheiro final."
+  },
+  "embed_subs": {
+    "name": "Inserir subtítulos",
+    "description": "Incrusta os subtítulos no ficheiro final."
+  },
+  "embed_thumbnail": {
+    "name": "Inserir miniatura",
+    "description": "Inserta a miniatura no ficheiro final."
+  },
+  "enable_file_urls": {
+    "name": "Activar os URL dos ficheiros",
+    "description": "Permite o uso de URL de ficheiros para ficheiros locais."
+  },
+  "extract_audio": {
+    "name": "Extraer audio",
+    "description": "Extrae audio dos vídeos descargados (usa ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Reintentos do extractor",
+    "description": "Número de reintentos de erros do extractor."
+  },
+  "ffmpeg_location": {
+    "name": "Localización FFmpeg",
+    "description": "Camiño ao binario FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Reintentos de acceso a ficheiros",
+    "description": "Número de reintentos de erros de acceso ao ficheiro."
+  },
+  "fixup": {
+    "name": "Arranxo",
+    "description": "Corrixe automaticamente erros coñecidos no ficheiro de vídeo."
+  },
+  "font_size": {
+    "name": "Tamaño da fonte",
+    "description": "Tamaño de letra utilizado na aplicación."
+  },
+  "force_ipv4": {
+    "name": "Forzar IPv4",
+    "description": "Forza o uso de IPv4 para as conexións de rede."
+  },
+  "force_ipv6": {
+    "name": "Forzar IPv6",
+    "description": "Forza o uso de IPv6 para conexións de rede."
+  },
+  "force_overwrites": {
+    "name": "Forzar sobrescrituras",
+    "description": "Sobrescribe os ficheiros existentes sen preguntar."
+  },
+  "format": {
+    "name": "Formato",
+    "description": "Código(s) de formato de vídeo para descargar."
+  },
+  "fragment_retries": {
+    "name": "Reintentos de fragmentos",
+    "description": "Número de reintentos en erros de descarga de fragmentos."
+  },
+  "geo_verification_proxy": {
+    "name": "Proxy de verificación xeográfica",
+    "description": "Servidor proxy para usar para a verificación xeográfica."
+  },
+  "ignore_errors": {
+    "name": "Ignorar os erros",
+    "description": "Ignora os erros de descarga e continúa co seguinte vídeo."
+  },
+  "impersonate": {
+    "name": "Suplantar a identidade",
+    "description": "Cliente para suplantar (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Manter fragmentos",
+    "description": "Mantén os fragmentos descargados despois da fusión."
+  },
+  "language": {
+    "name": "Linguaxe",
+    "description": "Idioma da aplicación."
+  },
+  "limit_rate": {
+    "name": "Taxa límite",
+    "description": "Limita a velocidade de descarga (por exemplo, 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "En directo desde o inicio",
+    "description": "Descarga vídeos en directo desde o principio."
+  },
+  "merge_output_format": {
+    "name": "Formato de vídeo",
+    "description": "Formato de vídeo final resultante da fusión de fluxos."
+  },
+  "output": {
+    "name": "Modelo de saída",
+    "description": "Modelo de nome de ficheiro de saída."
+  },
+  "password": {
+    "name": "Contrasinal",
+    "description": "Contrasinal para a autenticación."
+  },
+  "paths": {
+    "name": "Camiños",
+    "description": "Directorios para gardar diferentes tipos de ficheiros."
+  },
+  "playlist": {
+    "name": "Lista de reprodución",
+    "description": "Indica se descargar a lista de reprodución completa ou un só vídeo."
+  },
+  "prefer_insecure": {
+    "name": "Prefiro inseguro",
+    "description": "Usa a conexión HTTP en lugar de HTTPS (só YouTube)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Servidor proxy para usar para solicitudes de rede."
+  },
+  "remux_video": {
+    "name": "Vídeo Remux",
+    "description": "Cambia o contedor de vídeo sen volver codificar."
+  },
+  "retries": {
+    "name": "Reintentos",
+    "description": "Número de reintentos en erros de descarga."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Saltar a lista de reprodución despois de erros",
+    "description": "Salta o resto da lista de reprodución despois dun certo número de erros."
+  },
+  "socket_timeout": {
+    "name": "Tempo de espera do socket",
+    "description": "Tempo de espera para as conexións de socket en segundos."
+  },
+  "source_address": {
+    "name": "Enderezo fonte",
+    "description": "Enderezo IP do cliente ao que se vincula ao facer conexións."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Marca segmentos das categorías SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Formato de subtítulos",
+    "description": "Código(s) de formato de subtítulos para descargar."
+  },
+  "sub_langs": {
+    "name": "Idiomas de subtítulos",
+    "description": "Idiomas dos subtítulos para descargar."
+  },
+  "theme_dark": {
+    "name": "Tema escuro",
+    "description": "Tema da aplicación."
+  },
+  "twofactor": {
+    "name": "Autenticación de dous factores",
+    "description": "Código de autenticación de dous factores."
+  },
+  "use_extractors": {
+    "name": "Use extractores",
+    "description": "Nomes dos extractores a usar (separados por comas).(\"todos\",\"predeterminado\",\"final\",expresión regular)"
+  },
+  "username": {
+    "name": "Nome de usuario",
+    "description": "Nome de usuario para a autenticación."
+  },
+  "video_multistreams": {
+    "name": "Multistreams de vídeo",
+    "description": "Permite combinar múltiples fluxos de vídeo."
+  },
+  "video_password": {
+    "name": "Contrasinal de vídeo",
+    "description": "Contrasinal para vídeos protexidos con contrasinal."
+  },
+  "video_resolution": {
+    "name": "Resolución",
+    "description": "Resolución de vídeo preferida"
+  },
+  "video_subtitles": {
+    "name": "Subtítulos",
+    "description": "Subtítulos de vídeo preferidos"
+  },
+  "wait_for_video": {
+    "name": "Agarda o vídeo",
+    "description": "Espera a que un vídeo programado estea dispoñible antes de descargalo."
+  },
+  "write_auto_subs": {
+    "name": "Descargar subtítulos automáticos",
+    "description": "Escribe subtítulos automáticos dispoñibles."
+  },
+  "write_subs": {
+    "name": "Descargar subtítulos",
+    "description": "Escribe subtítulos manuais dispoñibles."
+  },
+  "write_thumbnail": {
+    "name": "Escribir miniatura",
+    "description": "Garda a miniatura do vídeo no disco."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Escribe metadatos no sistema de ficheiros xattrs."
+  },
+  "xff": {
+    "name": "X-Reenviado-Para",
+    "description": "Establece a cabeceira X-Forwarded-For para simular a localización."
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Abort na njehie",
+    "description": "A na-ebido usoro nbudata ma ọ bụrụ na njehie pụtara."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Abort na nkebi adịghị",
+    "description": "A na-ebido nbudata ma ọ bụrụ na iberibe adịghị."
+  },
+  "add_headers": {
+    "name": "Ndị ọzọ isi",
+    "description": "Ndị isi ndị ọzọ ka ịgụnye na arịrịọ netwọkụ."
+  },
+  "audio_format": {
+    "name": "Usoro ọdịyo",
+    "description": "Fordị nke ọdịyo a gbanwere (mp3, Flac, Opus, wdg)."
+  },
+  "audio_language": {
+    "name": "Audiolu",
+    "description": "Koodu asusu asusu."
+  },
+  "audio_multistreams": {
+    "name": "Audistormus",
+    "description": "Na-enye ohere ijikọta ọtụtụ mmiri iyi ọdịyo."
+  },
+  "audio_quality": {
+    "name": "Ogo Audio",
+    "description": "Ogo Audio (0 kachasị mma, 10 kachasị njọ)."
+  },
+  "batch_file": {
+    "name": "Faịlụ bat",
+    "description": "Ụzọ na faịlụ nwere URL iji budata."
+  },
+  "break_on_existing": {
+    "name": "Gbasaa na dị",
+    "description": "Kwụsị ibudata ma ọ bụrụ na faịlụ ahụ adịlarị."
+  },
+  "concurrent_fragments": {
+    "name": "Iberibe iberibe",
+    "description": "Onu ogugu nke uzo abuo iji budata (ndabara 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Tọghata thumbnails",
+    "description": "Tọghata thumbnails na usoro akọwapụtara."
+  },
+  "cookies": {
+    "name": "Kuki",
+    "description": "Netscape faịlụ na-agụ akwụkwọ nri na-agụ kuki site na"
+  },
+  "cookies_from_browser": {
+    "name": "Kuki site na ihe nchọgharị",
+    "description": "Bubata kuki site n'ihe nchọgharị akọwapụtara."
+  },
+  "download_archive": {
+    "name": "Download Archive",
+    "description": "Zọ iji faịlụ ebudatara na ndebanye aha ebuda iji zere nrịgo."
+  },
+  "embed_chapters": {
+    "name": "Isi isi",
+    "description": "Tinye isi na faịlị ikpeazụ."
+  },
+  "embed_info_json": {
+    "name": "Embed Info Jon",
+    "description": "Denye Ama Janson n'ime faịlụ ikpeazụ."
+  },
+  "embed_metadata": {
+    "name": "Tinye metadata",
+    "description": "Metatatata n'ime faịlụ ikpeazụ."
+  },
+  "embed_subs": {
+    "name": "Ndepụta ndepụta",
+    "description": "Na-etinye ederede n'ime faịlụ ikpeazụ."
+  },
+  "embed_thumbnail": {
+    "name": "Tinye mkpịsị aka",
+    "description": "Na-etinye mkpịsị aka ahụ n'ime faịlụ ikpeazụ."
+  },
+  "enable_file_urls": {
+    "name": "Kwado URL faịlụ",
+    "description": "Na-enyere aka iji URL faịlụ maka faịlụ mpaghara."
+  },
+  "extract_audio": {
+    "name": "Wepụta ọdịyo",
+    "description": "E wezuga Audio site na vidiyo ebudatara (na-eji FFMPEG)."
+  },
+  "extractor_retries": {
+    "name": "Extractor na-aza",
+    "description": "Ọnụ ọgụgụ nke ngbanwe na njehie ntụgharị."
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG",
+    "description": "Ụzọ na FFMPEG ọnụọgụ abụọ."
+  },
+  "file_access_retries": {
+    "name": "Nchọgharị ohere faịlụ",
+    "description": "Ọnụ ọgụgụ nke ngbanwe na njehie ịnweta faịlụ."
+  },
+  "fixup": {
+    "name": "Mkpokota",
+    "description": "Na-akpaghị aka na-ezigharị mmejọ na faịlụ vidiyo."
+  },
+  "font_size": {
+    "name": "Font size",
+    "description": "Font size na-eji na ngwa ahụ."
+  },
+  "force_ipv4": {
+    "name": "Ike IPV4",
+    "description": "Ike iji IPV4 maka njikọ network."
+  },
+  "force_ipv6": {
+    "name": "Ike IPv6",
+    "description": "Ike iji IPV6 maka njikọ network."
+  },
+  "force_overwrites": {
+    "name": "Ike ighaghari",
+    "description": "Ighapu faịlụ ndị dị adị na-enweghị ịrịọ."
+  },
+  "format": {
+    "name": "Usoro",
+    "description": "Koodu vidiyo vidiyo (s) ibudata."
+  },
+  "fragment_retries": {
+    "name": "Ibelata",
+    "description": "Ọnụọgụ nke nbugharị na njehie nbudata."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo nkwenye proxy",
+    "description": "Server Server iji mee ihe maka nkwenye geo-nyocha."
+  },
+  "ignore_errors": {
+    "name": "Ileghara njehie",
+    "description": "Ileghara nbudata nbudata ma gaa n'ihu na video ọzọ."
+  },
+  "impersonate": {
+    "name": "Kee ya",
+    "description": "Onye ahịa na-emetụta (Chrome, Chrome-110, Chrome: windo-10)."
+  },
+  "keep_fragments": {
+    "name": "Debe iberibe",
+    "description": "Na-eme ka iberibe ahụ butere."
+  },
+  "language": {
+    "name": "Asusu",
+    "description": "Asụsụ nke ngwa ahụ."
+  },
+  "limit_rate": {
+    "name": "Ọnụego",
+    "description": "Na-amachi ngwa ngwa nbudata (E.G., 50k, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "Bie ndu",
+    "description": "Nbudata vidiyo na-ebi ndụ site na mmalite."
+  },
+  "merge_output_format": {
+    "name": "Usoro vidiyo",
+    "description": "Usoro vidiyo ikpeazụ na-esite site na mmiri iyi."
+  },
+  "output": {
+    "name": "Template Template",
+    "description": "Mmepụta segrame segram."
+  },
+  "password": {
+    "name": "Okwungafe",
+    "description": "Paswọọdụ maka nyocha."
+  },
+  "paths": {
+    "name": "Uzo",
+    "description": "Direct iji chekwaa mpempe akwụkwọ dị iche iche."
+  },
+  "playlist": {
+    "name": "Listiclist",
+    "description": "Na-egosi ma ibudata ndepụta ọkpụkpọ zuru ezu ma ọ bụ otu vidiyo."
+  },
+  "prefer_insecure": {
+    "name": "Ọ na-amasịkarị gị",
+    "description": "Na-eji njikọ HTTP kama HTTPS (YouTube naanị)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Server Server iji iji maka arịrịọ netwọk."
+  },
+  "remux_video": {
+    "name": "REEENT Video",
+    "description": "Na-agbanwe akpa video na-enweghị nrụpụta."
+  },
+  "retries": {
+    "name": "Inaputa",
+    "description": "Ọnụọgụ nke nbudata na nbudata nbudata."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Ife Playerlist mgbe njehie",
+    "description": "Skips nke ndị ọzọ na-egwu egwu mgbe ụfọdụ njehie."
+  },
+  "socket_timeout": {
+    "name": "Socket oge",
+    "description": "Oge maka njikọ socons na sekọnd."
+  },
+  "source_address": {
+    "name": "Adreesị Express",
+    "description": "Adreesị IP IP ahịa ijikọ mgbe ị na-eme njikọ."
+  },
+  "sponsorblock_mark": {
+    "name": "Onye na-akwado akara",
+    "description": "A na-ejikọ akara site na usoro nkwado."
+  },
+  "sub_format": {
+    "name": "Usoro aghụghọ",
+    "description": "Koodu usoro usoro (s)."
+  },
+  "sub_langs": {
+    "name": "Asụsụ aghụghọ",
+    "description": "Asụsụ nke ndepụta okwu iji budata."
+  },
+  "theme_dark": {
+    "name": "Isiokwu gbara ọchịchịrị",
+    "description": "Isiokwu nke Ngwa."
+  },
+  "twofactor": {
+    "name": "Nchọpụta ihe abụọ",
+    "description": "Koodu nyocha abụọ."
+  },
+  "use_extractors": {
+    "name": "Jiri Excters",
+    "description": "Aha nke ndị na-ewepụta iji (comma kewara)."
+  },
+  "username": {
+    "name": "Aha njirimara",
+    "description": "Aha njirimara maka nyocha."
+  },
+  "video_multistreams": {
+    "name": "Vidiyo vidiyo",
+    "description": "Na-enye ohere ijikọta ọtụtụ mmiri."
+  },
+  "video_password": {
+    "name": "Okwuntughe vidiyo",
+    "description": "Paswọọdụ maka vidiyo echekwara paswọọdụ."
+  },
+  "video_resolution": {
+    "name": "Ikpe",
+    "description": "Mkpebi vidiyo kachasị amasị"
+  },
+  "video_subtitles": {
+    "name": "Ndepụta okwu",
+    "description": "Ndepụta vidiyo kachasị amasị"
+  },
+  "wait_for_video": {
+    "name": "Chere vidiyo",
+    "description": "Na-echere maka vidiyo ahaziri iche ka ị bụrụ tupu nbudata."
+  },
+  "write_auto_subs": {
+    "name": "Budata Ndekọ Nchekwa",
+    "description": "Dere ndepụta akpaaka."
+  },
+  "write_subs": {
+    "name": "Ibudata ndepụta",
+    "description": "Dere ndepụta dị iche iche."
+  },
+  "write_thumbnail": {
+    "name": "Dee thumbnail",
+    "description": "Na-echekwa thoup thumbnail na diski."
+  },
+  "xattrs": {
+    "name": "Xattrs",
+    "description": "Dere Metadata na Faịlụ fatystem Xatts."
+  },
+  "xff": {
+    "name": "X-zipu-maka",
+    "description": "Setịpụrụ x-bable-maka isi mee ka ọnọdụ dị nro."
+  }
+}

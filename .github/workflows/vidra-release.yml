@@ -1,0 +1,428 @@
+name: Vidra Cross-Platform Releases
+
+"on":
+  schedule:
+    - cron: '30 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  FLUTTER_VERSION: 3.38.5
+  # Keep this OUTSIDE build/ because some packaging tools run `flutter clean`
+  # which deletes build/ and would break Serious Python asset injection.
+  SERIOUS_PYTHON_SITE_PACKAGES: ${{ github.workspace }}/.serious_python/site-packages
+
+jobs:
+  resolve-versions:
+    name: Resolve versions
+    runs-on: ubuntu-latest
+    outputs:
+      ytdlp: ${{ steps.versions.outputs.ytdlp }}
+      ytdlpejs: ${{ steps.versions.outputs.ytdlpejs }}
+      app_version: ${{ steps.versions.outputs.app_version }}
+      tag: ${{ steps.versions.outputs.tag }}
+      timestamp: ${{ steps.versions.outputs.timestamp }}
+      build_number: ${{ steps.versions.outputs.build_number }}
+      should_build: ${{ steps.versions.outputs.should_build }}
+      release_assets_present: ${{ steps.versions.outputs.release_assets_present }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve versions via script
+        id: versions
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python tool/check_latest_ytdlp.py \
+            --requirements app/requirements.txt \
+            --pubspec pubspec.yaml \
+            --github-repo "${{ github.repository }}" \
+            --github-output "$GITHUB_OUTPUT"
+
+  android:
+    name: Android packages
+    needs: resolve-versions
+    if: needs.resolve-versions.outputs.should_build == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    env:
+      APP_VERSION: ${{ needs.resolve-versions.outputs.app_version }}
+      BUILD_TAG: ${{ needs.resolve-versions.outputs.tag }}
+      BUILD_TIMESTAMP: ${{ needs.resolve-versions.outputs.timestamp }}
+      BUILD_NUMBER: ${{ needs.resolve-versions.outputs.build_number }}
+      YTDLP_VERSION: ${{ needs.resolve-versions.outputs.ytdlp }}
+      YTDLPEJS_VERSION: ${{ needs.resolve-versions.outputs.ytdlpejs }}
+      GRADLE_USER_HOME: ${{ github.workspace }}/.gradle
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Aggressive disk cleanup
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /opt/hostedtoolcache/CodeQL || true
+          sudo rm -rf /usr/local/lib/android/sdk/system-images || true
+          sudo rm -rf /usr/local/lib/android/sdk/.android/build-cache || true
+          df -h
+
+      - name: Install Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: gradle
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+
+      - name: Flutter pub get
+        run: flutter pub get
+
+      - name: Prepare site-packages dir
+        run: mkdir -p "$SERIOUS_PYTHON_SITE_PACKAGES"
+
+      - name: Package backend for Android (serious_python)
+        run: |
+          dart run serious_python:main package app/src \
+            --requirements -rapp/requirements.prod.txt \
+            --requirements yt-dlp=="$YTDLP_VERSION" \
+            --requirements yt-dlp-ejs=="$YTDLPEJS_VERSION" \
+            -p Android \
+            --verbose
+
+      - name: Configure Android signing
+        env:
+          ANDROID_KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_B64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          echo "$ANDROID_KEYSTORE_B64" | base64 -d > android/upload-keystore.pkcs12
+          cat > android/key.properties <<EOF
+          storePassword=$ANDROID_KEYSTORE_PASSWORD
+          keyPassword=$ANDROID_KEY_PASSWORD
+          keyAlias=$ANDROID_KEY_ALIAS
+          storeFile=upload-keystore.pkcs12
+          EOF
+
+      - name: Build universal APK (signed)
+        run: flutter build apk --release --build-name ${BUILD_TAG} --build-number ${BUILD_NUMBER}
+
+      - name: Collect Android artifacts
+        run: |
+          mkdir -p dist
+          cp build/app/outputs/apk/release/app-universal-release.apk dist/vidra-${BUILD_TAG}-android.apk
+          cp build/app/outputs/apk/release/app-arm64-v8a-release.apk dist/vidra-${BUILD_TAG}-android-arm64-v8a.apk
+          cp build/app/outputs/apk/release/app-armeabi-v7a-release.apk dist/vidra-${BUILD_TAG}-android-armeabi-v7a.apk
+          cp build/app/outputs/apk/release/app-x86-release.apk dist/vidra-${BUILD_TAG}-android-x86.apk
+          cp build/app/outputs/apk/release/app-x86_64-release.apk dist/vidra-${BUILD_TAG}-android-x86_64.apk
+
+      - name: Upload Android artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-${{ env.BUILD_TAG }}
+          path: dist/*.apk
+          compression-level: 0
+          if-no-files-found: error
+
+  windows:
+    name: Windows installer
+    needs: resolve-versions
+    if: needs.resolve-versions.outputs.should_build == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: windows-latest
+    env:
+      APP_VERSION: ${{ needs.resolve-versions.outputs.app_version }}
+      BUILD_TAG: ${{ needs.resolve-versions.outputs.tag }}
+      BUILD_TIMESTAMP: ${{ needs.resolve-versions.outputs.timestamp }}
+      BUILD_NUMBER: ${{ needs.resolve-versions.outputs.build_number }}
+      YTDLP_VERSION: ${{ needs.resolve-versions.outputs.ytdlp }}
+      YTDLPEJS_VERSION: ${{ needs.resolve-versions.outputs.ytdlpejs }}
+      WINDOWS_SIGNING_PFX: ${{ secrets.WINDOWS_SIGNING_PFX }}
+      WINDOWS_SIGNING_PASSWORD: ${{ secrets.WINDOWS_SIGNING_PASSWORD }}
+      PFX_PATH: ''
+      SIGNTOOL: ''
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+
+      - name: Flutter pub get
+        run: flutter pub get
+
+      - name: Prepare site-packages dir
+        run: mkdir build\site-packages
+        shell: pwsh
+
+      - name: Package backend for Windows (serious_python)
+        shell: pwsh
+        env:
+          SERIOUS_PYTHON_ALLOW_SOURCE_DISTRIBUTIONS: "false"
+        run: |
+          dart run serious_python:main package app/src `
+            --requirements "-rapp/requirements.prod.txt" `
+            --requirements yt-dlp==$env:YTDLP_VERSION `
+            --requirements yt-dlp-ejs==$env:YTDLPEJS_VERSION `
+            -p Windows `
+            --verbose
+
+      - name: Build Flutter Windows app
+        run: flutter build windows --release --build-name $env:BUILD_TAG --build-number $env:BUILD_NUMBER
+        shell: pwsh
+
+      - name: Patch installer metadata for version
+        shell: pwsh
+        run: |
+          (Get-Content installer.iss) `
+            -replace '^AppVersion=.*', "AppVersion=$env:BUILD_TAG" `
+            -replace '^AppVerName=.*', "AppVerName=Vidra $env:BUILD_TAG" `
+            -replace '^OutputBaseFilename=.*', "OutputBaseFilename=Vidra-Installer-$env:BUILD_TAG" `
+            -replace '^VersionInfoVersion=.*', "VersionInfoVersion=$env:BUILD_TAG.0" `
+            -replace '^VersionInfoProductVersion=.*', "VersionInfoProductVersion=$env:BUILD_TAG" `
+            | Set-Content installer.iss
+
+      - name: Build installer (Inno Setup)
+        shell: pwsh
+        run: iscc installer.iss
+
+      - name: Import Windows signing certificate
+        if: env.WINDOWS_SIGNING_PFX != ''
+        shell: pwsh
+        run: |
+          $pfxPath = Join-Path $env:RUNNER_TEMP 'codesign.pfx'
+          [IO.File]::WriteAllBytes($pfxPath, [Convert]::FromBase64String($env:WINDOWS_SIGNING_PFX))
+          echo "PFX_PATH=$pfxPath" >> $env:GITHUB_ENV
+
+      - name: Locate signtool
+        if: env.WINDOWS_SIGNING_PFX != '' && env.WINDOWS_SIGNING_PASSWORD != ''
+        shell: pwsh
+        run: |
+          $candidates = @()
+          $kitRoot = Join-Path "${env:ProgramFiles(x86)}" 'Windows Kits\10\bin'
+          if (Test-Path $kitRoot) {
+            $kitMatches = Get-ChildItem -Path $kitRoot -Recurse -Filter signtool.exe -ErrorAction SilentlyContinue | Sort-Object FullName -Descending | Select-Object -ExpandProperty FullName
+            $candidates += $kitMatches
+          }
+          $vsPath = &"${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -requires Microsoft.Component.MSBuild -property installationPath 2>$null
+          if ($vsPath) {
+            $msvcBin = Get-ChildItem -Path (Join-Path $vsPath 'VC\Tools\MSVC') -Directory | Sort-Object Name -Descending | Select-Object -First 1
+            if ($msvcBin) {
+              $candidates += Join-Path $msvcBin.FullName 'bin\Hostx64\x64\signtool.exe'
+            }
+          }
+          $signtool = $candidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+          if (-not $signtool) {
+            $signtool = (Get-Command signtool.exe -ErrorAction SilentlyContinue).Path
+          }
+          if (-not $signtool) { throw 'signtool.exe not found' }
+          "SIGNTOOL=$signtool" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding ASCII
+
+      - name: Sign installer
+        if: env.PFX_PATH != '' && env.WINDOWS_SIGNING_PASSWORD != ''
+        shell: pwsh
+        run: |
+          $exe = "build\installer\Vidra-Installer-$env:BUILD_TAG.exe"
+          & "$env:SIGNTOOL" sign /f "$env:PFX_PATH" /p "$env:WINDOWS_SIGNING_PASSWORD" /fd SHA256 /tr http://timestamp.digicert.com /td SHA256 "$exe"
+
+      - name: Collect Windows artifact
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path dist -Force | Out-Null
+          Copy-Item "build\installer\Vidra-Installer-$env:BUILD_TAG.exe" "dist/vidra-$env:BUILD_TAG-windows.exe"
+
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-${{ env.BUILD_TAG }}
+          path: dist/vidra-${{ env.BUILD_TAG }}-windows.exe
+          compression-level: 0
+          if-no-files-found: error
+
+  linux:
+    name: Linux packages
+    needs: resolve-versions
+    if: needs.resolve-versions.outputs.should_build == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    env:
+      APP_VERSION: ${{ needs.resolve-versions.outputs.app_version }}
+      BUILD_TAG: ${{ needs.resolve-versions.outputs.tag }}
+      BUILD_TIMESTAMP: ${{ needs.resolve-versions.outputs.timestamp }}
+      BUILD_NUMBER: ${{ needs.resolve-versions.outputs.build_number }}
+      YTDLP_VERSION: ${{ needs.resolve-versions.outputs.ytdlp }}
+      YTDLPEJS_VERSION: ${{ needs.resolve-versions.outputs.ytdlpejs }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+
+      - name: Install linux packaging deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            rpm patchelf libfuse2 jq \
+            clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev
+          sudo wget -O /usr/local/bin/appimagetool https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
+          sudo chmod +x /usr/local/bin/appimagetool
+
+      - name: Flutter pub get
+        run: flutter pub get
+
+      - name: Prepare site-packages dir
+        run: mkdir -p "$SERIOUS_PYTHON_SITE_PACKAGES"
+
+      - name: Package backend for Linux (serious_python)
+        run: |
+          dart run serious_python:main package app/src \
+            --requirements -rapp/requirements.prod.txt \
+            --requirements yt-dlp=="$YTDLP_VERSION" \
+            --requirements yt-dlp-ejs=="$YTDLPEJS_VERSION" \
+            -p Linux \
+            --verbose
+
+      - name: Install fastforge
+        run: dart pub global activate fastforge
+
+      - name: Package linux formats (AppImage, deb, rpm)
+        run: |
+          export PATH="$HOME/.pub-cache/bin:$PATH"
+          export VERSION="${BUILD_TAG}"
+          fastforge release --name linux
+
+      - name: Collect Linux artifacts
+        run: |
+          mkdir -p dist
+          appimage=$(find build -type f -name 'vidra-*-linux.AppImage' | head -n 1)
+          deb=$(find build -type f -name 'vidra-*-linux.deb' | head -n 1)
+          rpm=$(find build -type f -name 'vidra-*-linux.rpm' | head -n 1)
+
+          if [ -z "$appimage" ] || [ -z "$deb" ] || [ -z "$rpm" ]; then
+            echo "Linux artifacts not found under build/" >&2
+            echo "Found AppImage: ${appimage:-<none>}" >&2
+            echo "Found deb: ${deb:-<none>}" >&2
+            echo "Found rpm: ${rpm:-<none>}" >&2
+            find build -maxdepth 5 -type f -print >&2 || true
+            exit 1
+          fi
+
+          cp "$appimage" "dist/vidra-${BUILD_TAG}-linux.AppImage"
+          cp "$deb" "dist/vidra-${BUILD_TAG}-linux.deb"
+          cp "$rpm" "dist/vidra-${BUILD_TAG}-linux.rpm"
+
+      - name: Upload Linux artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-${{ env.BUILD_TAG }}
+          path: dist/vidra-${{ env.BUILD_TAG }}-linux.*
+          compression-level: 0
+          if-no-files-found: error
+
+  sign-and-sums:
+    name: Final signatures and checksums
+    needs: [resolve-versions, android, windows, linux]
+    if: needs.resolve-versions.outputs.should_build == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    env:
+      BUILD_TAG: ${{ needs.resolve-versions.outputs.tag }}
+      APP_VERSION: ${{ needs.resolve-versions.outputs.app_version }}
+      BUILD_TIMESTAMP: ${{ needs.resolve-versions.outputs.timestamp }}
+      YTDLP_VERSION: ${{ needs.resolve-versions.outputs.ytdlp }}
+      YTDLPEJS_VERSION: ${{ needs.resolve-versions.outputs.ytdlpejs }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist-artifacts
+          merge-multiple: true
+
+      - name: Generate SHA2 SUMS
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd dist-artifacts
+          sha256sum * > SHA2-256SUMS
+          sha512sum * > SHA2-512SUMS
+
+      - name: Sign SUMS with GPG
+        shell: bash
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          set -euo pipefail
+
+          if ! command -v gpg >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y gnupg
+          fi
+
+          if [ -z "${GPG_PRIVATE_KEY:-}" ] || [ -z "${GPG_PASSPHRASE:-}" ]; then
+            echo "Missing GPG_PRIVATE_KEY or GPG_PASSPHRASE secrets; cannot create signatures" >&2
+            exit 1
+          fi
+
+          export GNUPGHOME="$RUNNER_TEMP/gnupg"
+          mkdir -p "$GNUPGHOME"
+          chmod 700 "$GNUPGHOME"
+
+          # Import key (supports either ASCII-armored text or base64-encoded key).
+          if echo "$GPG_PRIVATE_KEY" | grep -q "BEGIN PGP PRIVATE KEY BLOCK"; then
+            printf '%s' "$GPG_PRIVATE_KEY" | gpg --batch --import
+          else
+            printf '%s' "$GPG_PRIVATE_KEY" | base64 -d | gpg --batch --import
+          fi
+
+          cd dist-artifacts
+          gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" \
+            --detach-sign --armor -o SHA2-256SUMS.sig SHA2-256SUMS
+          gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" \
+            --detach-sign --armor -o SHA2-512SUMS.sig SHA2-512SUMS
+
+      - name: Write update metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd dist-artifacts
+          {
+            echo "version=${APP_VERSION}"
+            echo "tag=${BUILD_TAG}"
+            echo "timestamp=${BUILD_TIMESTAMP}"
+            echo "yt-dlp=${YTDLP_VERSION}"
+            echo "yt-dlp-ejs=${YTDLPEJS_VERSION}"
+            echo "vidra-ffmpeg=ffmpeg-8.0.1"
+          } > _update
+
+      - name: Publish GitHub Release assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag="${BUILD_TAG}"
+          title="Vidra ${BUILD_TAG}"
+          notes="Automated build at ${BUILD_TIMESTAMP}."
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag already exists; uploading assets."
+          else
+            gh release create "$tag" --title "$title" --notes "$notes"
+          fi
+
+          gh release upload "$tag" dist-artifacts/* --clobber

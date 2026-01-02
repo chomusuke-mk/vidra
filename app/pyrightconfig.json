@@ -1,0 +1,46 @@
+{
+  "include": [
+    "src",
+    "tests"
+  ],
+  "exclude": [
+    "build",
+    ".dart_tool",
+    "**/__pycache__",
+    "**/.mypy_cache",
+    "**/.pytest_cache"
+  ],
+  "venvPath": "..",
+  "venv": "venv",
+  "pythonVersion": "3.12",
+  "typeCheckingMode": "strict",
+  "stubPath": "typings",
+  "defineConstant": {
+    "PYRIGHT_STRICT": true
+  },
+  "executionEnvironments": [
+    {
+      "root": ".",
+      "extraPaths": [
+        "./src",
+        "./tests"
+      ]
+    }
+  ],
+  "reportMissingImports": "error",
+  "reportMissingModuleSource": "error",
+  "reportMissingTypeStubs": "error",
+  "reportUnknownParameterType": "error",
+  "reportUnknownArgumentType": "error",
+  "reportUnknownLambdaType": "error",
+  "reportUnknownVariableType": "error",
+  "reportUnknownMemberType": "error",
+  "reportUntypedFunctionDecorator": "error",
+  "reportUntypedClassDecorator": "error",
+  "reportUntypedNamedTuple": "error",
+  "reportImplicitStringConcatenation": "error",
+  "reportInvalidTypeForm": "error",
+  "reportInvalidStubStatement": "error",
+  "reportUnnecessaryIsInstance": "warning",
+  "reportUnnecessaryComparison": "warning"
+}

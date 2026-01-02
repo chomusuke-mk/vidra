@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Erthylu ar Gwall",
+    "description": "Yn rhoi'r gorau i'r broses lawrlwytho os bydd gwall yn digwydd."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Erthylu ar Fragment Anhygyrch",
+    "description": "Yn rhoi'r gorau i lawrlwytho os nad yw darn ar gael."
+  },
+  "add_headers": {
+    "name": "Penawdau Ychwanegol",
+    "description": "Penawdau ychwanegol i'w cynnwys mewn ceisiadau rhwydwaith."
+  },
+  "audio_format": {
+    "name": "Fformat Sain",
+    "description": "Fformat y sain wedi'i throsi (mp3, flac, opus, ac ati)."
+  },
+  "audio_language": {
+    "name": "Sain",
+    "description": "Cod iaith sain a ffefrir."
+  },
+  "audio_multistreams": {
+    "name": "Aml-ffrydiau Sain",
+    "description": "Yn caniatáu cyfuno ffrydiau sain lluosog."
+  },
+  "audio_quality": {
+    "name": "Ansawdd Sain",
+    "description": "Ansawdd sain (0 gorau, 10 gwaethaf)."
+  },
+  "batch_file": {
+    "name": "Ffeil Swp",
+    "description": "Llwybr i ffeil sy'n cynnwys URLs i'w lawrlwytho."
+  },
+  "break_on_existing": {
+    "name": "Torri ar Bresennol",
+    "description": "Rhoi'r gorau i lawrlwytho os yw'r ffeil yn bodoli eisoes."
+  },
+  "concurrent_fragments": {
+    "name": "Darnau Cydamserol",
+    "description": "Nifer y darnau cydamserol i'w llwytho i lawr (diofyn 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Trosi Mân-luniau",
+    "description": "Trosi mân-luniau i'r fformat penodedig."
+  },
+  "cookies": {
+    "name": "Cwcis",
+    "description": "Ffeil wedi'i fformatio gan Netscape i ddarllen cwcis ohoni a dympio jar cwci ynddi"
+  },
+  "cookies_from_browser": {
+    "name": "Cwcis o'r Porwr",
+    "description": "Yn mewnforio cwcis o'r porwr penodedig."
+  },
+  "download_archive": {
+    "name": "Lawrlwytho Archif",
+    "description": "Llwybr i ffeil i gofnodi IDau wedi'u llwytho i lawr er mwyn osgoi dyblygu."
+  },
+  "embed_chapters": {
+    "name": "Mewnosod Penodau",
+    "description": "Ymgorffori penodau yn y ffeil derfynol."
+  },
+  "embed_info_json": {
+    "name": "Mewnosod Gwybodaeth JSON",
+    "description": "Mewnosod gwybodaeth JSON yn y ffeil derfynol."
+  },
+  "embed_metadata": {
+    "name": "Mewnosod Metadata",
+    "description": "Ymgorffori metadata yn y ffeil derfynol."
+  },
+  "embed_subs": {
+    "name": "Mewnosod Isdeitlau",
+    "description": "Ymgorffori isdeitlau yn y ffeil derfynol."
+  },
+  "embed_thumbnail": {
+    "name": "Mewnosod Mân-lun",
+    "description": "Yn ymgorffori'r mân-lun yn y ffeil derfynol."
+  },
+  "enable_file_urls": {
+    "name": "Galluogi URLs Ffeil",
+    "description": "Yn galluogi'r defnydd o URLs ffeil ar gyfer ffeiliau lleol."
+  },
+  "extract_audio": {
+    "name": "Detholiad Sain",
+    "description": "Yn tynnu sain o fideos wedi'u llwytho i lawr (yn defnyddio ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Echdynnwr Ail Geisio",
+    "description": "Nifer o ailgeisiadau ar wallau echdynnu."
+  },
+  "ffmpeg_location": {
+    "name": "Lleoliad FFmpeg",
+    "description": "Llwybr i'r deuaidd FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Ceisiadau Mynediad Ffeil eto",
+    "description": "Nifer o ailgeisiadau ar wallau mynediad ffeil."
+  },
+  "fixup": {
+    "name": "Atgyweiriad",
+    "description": "Yn cywiro diffygion hysbys yn y ffeil fideo yn awtomatig."
+  },
+  "font_size": {
+    "name": "Maint Ffont",
+    "description": "Maint y ffont a ddefnyddir yn y rhaglen."
+  },
+  "force_ipv4": {
+    "name": "grym IPv4",
+    "description": "Yn gorfodi'r defnydd o IPv4 ar gyfer cysylltiadau rhwydwaith."
+  },
+  "force_ipv6": {
+    "name": "llu IPv6",
+    "description": "Yn gorfodi'r defnydd o IPv6 ar gyfer cysylltiadau rhwydwaith."
+  },
+  "force_overwrites": {
+    "name": "Grym yn trosysgrifo",
+    "description": "Trosysgrifo ffeiliau presennol heb ofyn."
+  },
+  "format": {
+    "name": "Fformat",
+    "description": "Cod(au) fformat fideo i'w lawrlwytho."
+  },
+  "fragment_retries": {
+    "name": "Ymgeisio Darn",
+    "description": "Nifer o ailgeisiadau ar wallau lawrlwytho darnau."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Verification Proxy",
+    "description": "Gweinydd dirprwy i'w ddefnyddio ar gyfer geo-wirio."
+  },
+  "ignore_errors": {
+    "name": "Anwybyddu Gwallau",
+    "description": "Anwybyddu gwallau lawrlwytho a pharhau gyda'r fideo nesaf."
+  },
+  "impersonate": {
+    "name": "dynwared",
+    "description": "Cleient i'w ddynwared (chrome, chrome-110, chrome: windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Keep Fragments",
+    "description": "Yn cadw'r darnau wedi'u llwytho i lawr ar ôl uno."
+  },
+  "language": {
+    "name": "Iaith",
+    "description": "Iaith y cais."
+  },
+  "limit_rate": {
+    "name": "Cyfradd Terfyn",
+    "description": "Yn cyfyngu ar y cyflymder lawrlwytho (e.e., 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "Byw o'r Dechrau",
+    "description": "Yn lawrlwytho fideos byw o'r cychwyn cyntaf."
+  },
+  "merge_output_format": {
+    "name": "Fformat Fideo",
+    "description": "Fformat fideo terfynol o ganlyniad i uno ffrydiau."
+  },
+  "output": {
+    "name": "Templed Allbwn",
+    "description": "Templed enw ffeil allbwn."
+  },
+  "password": {
+    "name": "Cyfrinair",
+    "description": "Cyfrinair ar gyfer dilysu."
+  },
+  "paths": {
+    "name": "Llwybrau",
+    "description": "Cyfeiriaduron i arbed gwahanol fathau o ffeiliau."
+  },
+  "playlist": {
+    "name": "Rhestr chwarae",
+    "description": "Yn nodi a ddylid lawrlwytho'r rhestr chwarae gyflawn neu un fideo."
+  },
+  "prefer_insecure": {
+    "name": "Mae'n well gennyf Anniogel",
+    "description": "Yn defnyddio cysylltiad HTTP yn lle HTTPS (YouTube yn unig)."
+  },
+  "proxy": {
+    "name": "Dirprwy",
+    "description": "Gweinydd dirprwy i'w ddefnyddio ar gyfer ceisiadau rhwydwaith."
+  },
+  "remux_video": {
+    "name": "Fideo Remux",
+    "description": "Yn newid y cynhwysydd fideo heb ail-amgodio."
+  },
+  "retries": {
+    "name": "Ceisiadau eto",
+    "description": "Nifer o ailgeisiadau ar wallau llwytho i lawr."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Hepgor Rhestr Chwarae Ar ôl Gwallau",
+    "description": "Yn hepgor gweddill y rhestr chwarae ar ôl nifer penodol o wallau."
+  },
+  "socket_timeout": {
+    "name": "Goramser Soced",
+    "description": "Goramser ar gyfer cysylltiadau soced mewn eiliadau."
+  },
+  "source_address": {
+    "name": "Cyfeiriad Ffynhonnell",
+    "description": "Cyfeiriad IP cleient i rwymo iddo wrth wneud cysylltiadau."
+  },
+  "sponsorblock_mark": {
+    "name": "Marc Noddwr",
+    "description": "Marcio segmentau o gategorïau SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Fformat Isdeitl",
+    "description": "Cod(au) fformat is-deitl i'w lawrlwytho."
+  },
+  "sub_langs": {
+    "name": "Ieithoedd Isdeitl",
+    "description": "Ieithoedd yr isdeitlau i'w lawrlwytho."
+  },
+  "theme_dark": {
+    "name": "Thema Dywyll",
+    "description": "Thema'r cais."
+  },
+  "twofactor": {
+    "name": "Dilysu Dau-Ffactor",
+    "description": "Cod dilysu dau ffactor."
+  },
+  "use_extractors": {
+    "name": "Defnyddiwch Echdynwyr",
+    "description": "Enwau'r echdynwyr i'w defnyddio (coma wedi'u gwahanu). (\"pawb\", \"diofyn\", \"diwedd\", mynegiant rheolaidd)"
+  },
+  "username": {
+    "name": "Enw defnyddiwr",
+    "description": "Enw defnyddiwr ar gyfer dilysu."
+  },
+  "video_multistreams": {
+    "name": "Fideo Aml-ffrydiau",
+    "description": "Yn caniatáu cyfuno ffrydiau fideo lluosog."
+  },
+  "video_password": {
+    "name": "Cyfrinair Fideo",
+    "description": "Cyfrinair ar gyfer fideos a ddiogelir gan gyfrinair."
+  },
+  "video_resolution": {
+    "name": "Datrysiad",
+    "description": "Datrysiad fideo a ffefrir"
+  },
+  "video_subtitles": {
+    "name": "Isdeitlau",
+    "description": "Is-deitlau fideo a ffefrir"
+  },
+  "wait_for_video": {
+    "name": "Aros am Fideo",
+    "description": "Yn aros i fideo wedi'i amserlennu ddod ar gael cyn ei lawrlwytho."
+  },
+  "write_auto_subs": {
+    "name": "Lawrlwythwch Isdeitlau Auto",
+    "description": "Yn ysgrifennu isdeitlau awtomatig sydd ar gael."
+  },
+  "write_subs": {
+    "name": "Lawrlwythwch Isdeitlau",
+    "description": "Yn ysgrifennu isdeitlau llaw sydd ar gael."
+  },
+  "write_thumbnail": {
+    "name": "Ysgrifennwch Fân-lun",
+    "description": "Yn cadw'r mân-lun fideo i ddisg."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Yn ysgrifennu metadata i'r system ffeiliau xattrs."
+  },
+  "xff": {
+    "name": "X-Forwarded-For",
+    "description": "Yn gosod y pennawd X-Forwarded-For i efelychu lleoliad."
+  }
+}

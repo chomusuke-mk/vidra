@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Səhv haqqında abort",
+    "description": "Bir səhv baş verərsə yükləmə prosesini ləğv edir."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Əlçatmaz fraqmentdə abort",
+    "description": "Bir fraqment əlçatmaz olduqda yüklənməni ləğv edir."
+  },
+  "add_headers": {
+    "name": "Əlavə başlıqlar",
+    "description": "Şəbəkə istəklərinə daxil ediləcək əlavə başlıqlar."
+  },
+  "audio_format": {
+    "name": "Audio format",
+    "description": "Dönüşlü audio (mp3, flac, opus və s.) Formatı."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Tercih edilən audio dili kodu."
+  },
+  "audio_multistreams": {
+    "name": "Audio çoxluq",
+    "description": "Çox audio axınları birləşdirməyə imkan verir."
+  },
+  "audio_quality": {
+    "name": "Səs keyfiyyəti",
+    "description": "Səs keyfiyyəti (0 ən yaxşı, 10 ən pis)."
+  },
+  "batch_file": {
+    "name": "Batch faylı",
+    "description": "Yükləmək üçün URL olan bir faylın yolu."
+  },
+  "break_on_existing": {
+    "name": "Mövcud olmaq",
+    "description": "Faylın artıq mövcud olduqda yükləməyi dayandırır."
+  },
+  "concurrent_fragments": {
+    "name": "Parekmetrlər",
+    "description": "Yükləmək üçün eyni vaxtda fraqmentlərin sayı (standart 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Eskizləri çevirmək",
+    "description": "Kiçik şəkilləri göstərilən formata çevirin."
+  },
+  "cookies": {
+    "name": "Çərəzlər",
+    "description": "Cookie Jar-dan peçenye oxumaq və zibillik oxumaq üçün netscape formatlanmış faylı"
+  },
+  "cookies_from_browser": {
+    "name": "Brauzerdən peçenye",
+    "description": "Göstərilən brauzerdən çərəzlər idxal edir."
+  },
+  "download_archive": {
+    "name": "Arxivi yükləyin",
+    "description": "Dublikatların qarşısını almaq üçün yüklənmiş şəxsiyyət sənədlərini qeyd etmək üçün yol."
+  },
+  "embed_chapters": {
+    "name": "Mərtəbəli fəsillər",
+    "description": "Fəsilləri son sənədə bölür."
+  },
+  "embed_info_json": {
+    "name": "Məlumat json",
+    "description": "Final faylı səhifəsinə məlumat daxil edin."
+  },
+  "embed_metadata": {
+    "name": "Metadata yaymaq",
+    "description": "Metadata final sənədinə yerləşdirir."
+  },
+  "embed_subs": {
+    "name": "Altyazıları yaymaq",
+    "description": "Son fayla altyazıları yerləşdirir."
+  },
+  "embed_thumbnail": {
+    "name": "Thumbnail yaymaq",
+    "description": "Kiçik eskizi son sənədə bölür."
+  },
+  "enable_file_urls": {
+    "name": "Fayl URL-lərini aktivləşdirin",
+    "description": "Fayl URL-lərin yerli sənədlər üçün istifadəsinə imkan verir."
+  },
+  "extract_audio": {
+    "name": "Səs çıxarın",
+    "description": "Yüklənmiş videolardan səs çıxarır (FFMPEG istifadə edir)."
+  },
+  "extractor_retries": {
+    "name": "Çıxarışçı təkrarlanır",
+    "description": "Ekstraktor səhvlərində təkrar cəhdlərin sayı."
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG yeri",
+    "description": "Ffmpeg ikili yol."
+  },
+  "file_access_retries": {
+    "name": "Fayl girişi təkrar cəhdləri",
+    "description": "Fayl giriş səhvlərində təkrar cəhdlərin sayı."
+  },
+  "fixup": {
+    "name": "Fiksasiya",
+    "description": "Video faylındakı məlum nöqsanları avtomatik olaraq düzəldir."
+  },
+  "font_size": {
+    "name": "Şrift ölçüsü",
+    "description": "Tətbiqdə istifadə olunan şrift ölçüsü."
+  },
+  "force_ipv4": {
+    "name": "Zorla ipv4",
+    "description": "Şəbəkə əlaqələri üçün IPv4 istifadəsini məcbur edir."
+  },
+  "force_ipv6": {
+    "name": "Zorla ipv6",
+    "description": "Şəbəkə əlaqələri üçün IPv6 istifadə etməyə məcbur edir."
+  },
+  "force_overwrites": {
+    "name": "Zorla yazdırır",
+    "description": "Soruşmadan mövcud faylları üstələyir."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Yükləmək üçün video format kodu (lar)."
+  },
+  "fragment_retries": {
+    "name": "Fraqment təkrarlanır",
+    "description": "Fraqment yükləmə səhvlərində təkrar cəhdlərin sayı."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Doğrulama Proxy",
+    "description": "Geo-Doğrulama üçün istifadə etmək üçün Proxy Server."
+  },
+  "ignore_errors": {
+    "name": "Səhvlərə məhəl qoyma",
+    "description": "Yükləmə səhvlərini görməməzliyə vurun və növbəti videoya davam edin."
+  },
+  "impersonate": {
+    "name": "İztirabsız",
+    "description": "Müştəri vəfasızlıq (xrom, xrom-110, xrom: windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Parçaları saxlayın",
+    "description": "Birləşmədən sonra yüklənmiş fraqmentləri saxlayır."
+  },
+  "language": {
+    "name": "Dil",
+    "description": "Tətbiqin dili."
+  },
+  "limit_rate": {
+    "name": "Hüdud nisbətini",
+    "description": "Yükləmə sürətini məhdudlaşdırır (məsələn, 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Başdan yaşamaq",
+    "description": "Əvvəldən canlı videoları yükləyir."
+  },
+  "merge_output_format": {
+    "name": "Video formatı",
+    "description": "Birləşmə axını nəticəsində son video formatı."
+  },
+  "output": {
+    "name": "Çıxış şablonu",
+    "description": "Çıxış fayl adı şablonu."
+  },
+  "password": {
+    "name": "Parol",
+    "description": "İdentifikasiya üçün parol."
+  },
+  "paths": {
+    "name": "Yol",
+    "description": "Müxtəlif növ faylları xilas etmək üçün qovluqlar."
+  },
+  "playlist": {
+    "name": "Pleylist",
+    "description": "Tam siyahı və ya bir videonu yükləmək istədiyini göstərir."
+  },
+  "prefer_insecure": {
+    "name": "Etibarsız üstünlük verin",
+    "description": "HTTP-nin əvəzinə HTTP bağlantısından istifadə edir (YouTube yalnız)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Şəbəkə istəkləri üçün istifadə etmək üçün proxy server."
+  },
+  "remux_video": {
+    "name": "REMUX VİDEO",
+    "description": "Video konteynerini yenidən kodlaşdırmadan dəyişdirir."
+  },
+  "retries": {
+    "name": "Təkrar etmək",
+    "description": "Yükləmə səhvlərində təkrar cəhdlərin sayı."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Səhvlərdən sonra çalğı siyahısını atlayın",
+    "description": "Müəyyən sayda səhvlərdən sonra siyahısının qalan hissəsini atlayır."
+  },
+  "socket_timeout": {
+    "name": "Soket Timeutu",
+    "description": "Saniyədə rozetka bağlantıları üçün vaxt."
+  },
+  "source_address": {
+    "name": "Mənbə ünvanı",
+    "description": "Bağlantı hazırlayarkən bağlamaq üçün müştəri IP ünvanı."
+  },
+  "sponsorblock_mark": {
+    "name": "Sponsorblock işarəsi",
+    "description": "Sponsorblock kateqoriyalarından seqmentləri qeyd edir."
+  },
+  "sub_format": {
+    "name": "Alt yazı formatı",
+    "description": "Yükləmək üçün altyazı format kodu (lar)."
+  },
+  "sub_langs": {
+    "name": "Dilli dillər",
+    "description": "Altyazların dilləri yükləmək üçün dillər."
+  },
+  "theme_dark": {
+    "name": "Qaranlıq mövzu",
+    "description": "Tətbiq mövzusu."
+  },
+  "twofactor": {
+    "name": "İki amil identifikasiyası",
+    "description": "İki faktorlu identifikasiya kodu."
+  },
+  "use_extractors": {
+    "name": "Çıxarışçılardan istifadə edin",
+    "description": "İstehsalçıların adları (vergüllə ayrılmış). (Hamısı \",\" defolt \",\" son \", müntəzəm ifadə)"
+  },
+  "username": {
+    "name": "İstifadəçi adı",
+    "description": "İdentifikasiya üçün istifadəçi adı."
+  },
+  "video_multistreams": {
+    "name": "Video çoxistliklər",
+    "description": "Çox video axınlarını birləşdirməyə imkan verir."
+  },
+  "video_password": {
+    "name": "Video parol",
+    "description": "Şifrə ilə qorunan videolar üçün parol."
+  },
+  "video_resolution": {
+    "name": "Qətiyyət",
+    "description": "Tercih olunan video qətnamə"
+  },
+  "video_subtitles": {
+    "name": "Altyar",
+    "description": "Tercih olunan video altyazılar"
+  },
+  "wait_for_video": {
+    "name": "Videonu gözləmək",
+    "description": "Yükləmədən əvvəl planlaşdırılan bir videonun mövcud olmasını gözləyir."
+  },
+  "write_auto_subs": {
+    "name": "Auto Altytlülləri yükləyin",
+    "description": "Mövcud avtomatik altyazı yazır."
+  },
+  "write_subs": {
+    "name": "Altyazı yükləyin",
+    "description": "Mövcud əl alt yazılarını yazır."
+  },
+  "write_thumbnail": {
+    "name": "Thumbnail yaz",
+    "description": "Video eskizini diskə saxlayır."
+  },
+  "xattrs": {
+    "name": "Xattrs",
+    "description": "Metadata fayl sisteminə xattrs yazır."
+  },
+  "xff": {
+    "name": "X-göndərilmiş",
+    "description": "Yerin simulyasiya etmək üçün x-göndərilmiş başlıq qurur."
+  }
+}

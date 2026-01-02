@@ -1,0 +1,19 @@
+display_name: Vidra
+
+icon: assets/icon/icon.png
+
+keywords:
+  - Vidra
+  - yt-dlp
+  - Downloads
+
+generic_name: Video/job manager
+
+categories:
+  - Network
+  - Utility
+
+startup_notify: true
+
+# You can specify shared libraries to bundle manually; keep empty by default.
+include: []

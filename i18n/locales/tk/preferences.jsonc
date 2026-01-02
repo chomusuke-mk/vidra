@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Roralňyşlyk barada abort",
+    "description": "Erroralňyşlyk ýüze çyksa, göçürip almak prosesini ýatyrýar."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Elýeterli däl bölekde abort",
+    "description": "Düwürtik ýok bolsa, göçürip almagy ýatyrýar."
+  },
+  "add_headers": {
+    "name": "Goşmaça sözbaşylar",
+    "description": "Ulgam haýyşlarynda goşmak üçin goşmaça sözbaşylar."
+  },
+  "audio_format": {
+    "name": "Ses formaty",
+    "description": "Öwürilen sesiň formaty (mp3, FLAC, opus we ş.m.)."
+  },
+  "audio_language": {
+    "name": "Ses",
+    "description": "Ileri tutulýan ses dili kody."
+  },
+  "audio_multistreams": {
+    "name": "Ses multmumperiýalary",
+    "description": "Köp ses akymlaryny birleşdirmäge mümkinçilik berýär."
+  },
+  "audio_quality": {
+    "name": "Ses hili",
+    "description": "Ses hili (0 iň gowusy 0 iň erbet 10)."
+  },
+  "batch_file": {
+    "name": "Topar faýly",
+    "description": "URL-leri göçürip almak üçin URL-leri öz içine alýan faýla barýan ýol."
+  },
+  "break_on_existing": {
+    "name": "Bar bolandyklary",
+    "description": "Faýl eýýäm bar bolsa göçürip almagy bes edýär."
+  },
+  "concurrent_fragments": {
+    "name": "Birkemsiz bölekler",
+    "description": "Göçürip almak üçin bir wagtyň özünde bölekleriň sany (deslapky 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Ekletleri öwüriň",
+    "description": "Daşky suratlary görkezilen formata öwüriň."
+  },
+  "cookies": {
+    "name": "Gutapjyklar",
+    "description": "Netsaccact Formatlanan faýl, gutapjyklary gutapjykdan çykaryň"
+  },
+  "cookies_from_browser": {
+    "name": "Brauzerden gutapjyklar",
+    "description": "Görkezilen brauzerden gutapjyklary import edýär."
+  },
+  "download_archive": {
+    "name": "Arhiwi göçürip al",
+    "description": "Dublikat, dublikatlardan gaça durmak üçin göçürilen şahsyýetnamalary ýazga almak üçin faýl."
+  },
+  "embed_chapters": {
+    "name": "Goýberişler",
+    "description": "Baplary soňky faýla bölüň."
+  },
+  "embed_info_json": {
+    "name": "ESTEFE MAIFT JSON",
+    "description": "Infbitm jsonyň soňky faýla bölmek."
+  },
+  "embed_metadata": {
+    "name": "We ýerine ýetirilen metadata",
+    "description": "Metadats metadata başyna girewi final faýla girdi."
+  },
+  "embed_subs": {
+    "name": "Subtitrleri goýdy",
+    "description": "Subtitleri soňky faýla bölüň."
+  },
+  "embed_thumbnail": {
+    "name": "Kiçijik surat goýberdi",
+    "description": "Perdesini soňky faýla ýerleşdirýär."
+  },
+  "enable_file_urls": {
+    "name": "Faýl URL-leri işjeňleşdiriň",
+    "description": "Faýl URL-leri ýerli faýllar üçin ulanmaga mümkinçilik berýär."
+  },
+  "extract_audio": {
+    "name": "Appio",
+    "description": "Göçürilen wideolardan ses çykarýar (FFMPE ulanýar)."
+  },
+  "extractor_retries": {
+    "name": "Gazak",
+    "description": "Gazak ýalňyşlyklarynda gaýtadan synanyşyklaryň sany."
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG Locationerleşişi",
+    "description": "FFMPEG ikilik üçin ýol."
+  },
+  "file_access_retries": {
+    "name": "Faýl giriş synanyşyklary",
+    "description": "Faýl giriş ýalňyşlyklary boýunça gaýtadan synanyşyklaryň sany."
+  },
+  "fixup": {
+    "name": "Düzediş",
+    "description": "Wideo faýly awtomatiki usulda adalatly kemsidiji düzedýär."
+  },
+  "font_size": {
+    "name": "Şrift",
+    "description": "Anketada ulanylýan şriftiň ululygy."
+  },
+  "force_ipv4": {
+    "name": "Güýç IPv4",
+    "description": "Tor birikmeler üçin IPv4 ulanmagy IPv4 ulanmaga güýç berýär."
+  },
+  "force_ipv6": {
+    "name": "Güýç IPv6",
+    "description": "Tor birikmelerini ulanmagy IPv6 ulanmagy güýçleýär."
+  },
+  "force_overwrites": {
+    "name": "Güýçlendirijiler",
+    "description": "Soramazdan bar bolan faýllary gaýtadan ýazýar."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Göçürip almak üçin wideo format kody."
+  },
+  "fragment_retries": {
+    "name": "Bölekleri gaýtadan synanyşýar",
+    "description": "Bölekleri göçürip almak säwlikleri göçürip almak."
+  },
+  "geo_verification_proxy": {
+    "name": "Genizasiýa proksi",
+    "description": "Geo-barlamak üçin ulanmak üçin proksi serweri."
+  },
+  "ignore_errors": {
+    "name": "Rorsalňyşlyklary äsgermezlik ediň",
+    "description": "Göçürip almak säwlikleri äsgermezlik ediň we indiki wideo bilen dowam ediň."
+  },
+  "impersonate": {
+    "name": "Şahsyýet",
+    "description": "Müşderi - hrom, hrome-110-110, Chrome: Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Saklamalary saklaň",
+    "description": "Ýüklenenden soň göçürip alan bölekleri saklaýar."
+  },
+  "language": {
+    "name": "Dili",
+    "description": "Programmanyň dili."
+  },
+  "limit_rate": {
+    "name": "Çäklendiriji nyrhy",
+    "description": "Göçürip almagy çäklendirýär (E.G., 50k, 4.2m) çäklidir."
+  },
+  "live_from_start": {
+    "name": "Başlamakdan ýaşa",
+    "description": "Göni ýaýlymda göçürip alýar."
+  },
+  "merge_output_format": {
+    "name": "Wideo formaty",
+    "description": "\"Final Format\" -y birleşdirmekden emele gelýär."
+  },
+  "output": {
+    "name": "Çykyş şablonasy",
+    "description": "Çykyşly pozuň ady."
+  },
+  "password": {
+    "name": "Parol",
+    "description": "Hakyky tassyklamak üçin parol."
+  },
+  "paths": {
+    "name": "Ýollar",
+    "description": "Faýllaryň dürli görnüşlerini saklamak üçin kataloglar."
+  },
+  "playlist": {
+    "name": "Pleýlist",
+    "description": "Doly pleý-ofisini ýa-da ýekeje wideo göçürip almagymy görkezýär."
+  },
+  "prefer_insecure": {
+    "name": "Ynamsyzlygy gowy görýär",
+    "description": "HTTPS-iň ýerine httpsiň ýerine HTTP birikmesini ulanmagy ulanýar."
+  },
+  "proxy": {
+    "name": "Proksi",
+    "description": "Tor haýyşlaryny ulanmak üçin ulanmak üçin proksi serweri."
+  },
+  "remux_video": {
+    "name": "Remux wideo",
+    "description": "Täzeden kodlamazdan wideo gaplamany üýtgedýär."
+  },
+  "retries": {
+    "name": "Gaýtadan synanyşýar",
+    "description": "Göçürip almak üçin gaýtadan synanyşyklaryň sany."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Ýalňyşlardan soň pleýlistden geçiň",
+    "description": "Belli bir sanlardan soň pleýer sanawynyň galan bölegini geçiriň."
+  },
+  "socket_timeout": {
+    "name": "Rozetka wagty",
+    "description": "Sekuntlarda rozetka baglanyşyklary üçin wagt gutarýar."
+  },
+  "source_address": {
+    "name": "Çeşme salgylary",
+    "description": "Müşderi IP-iň birikmesinde baglanmak üçin müşderi IP adresi."
+  },
+  "sponsorblock_mark": {
+    "name": "Hemaýatkärlik belligi",
+    "description": "Pyşyrdaşar kategoriýalarynyň segmentlerini bellik edýär."
+  },
+  "sub_format": {
+    "name": "Subtitr görnüşi",
+    "description": "Göçürip almak üçin subtitr format kody."
+  },
+  "sub_langs": {
+    "name": "Subtitr daglar",
+    "description": "Göçürip almak üçin subtitrleriň dilleri dillerini göçürip alyň."
+  },
+  "theme_dark": {
+    "name": "Garaňky tema",
+    "description": "Anketanyň mowzugy."
+  },
+  "twofactor": {
+    "name": "Iki faktorly tanamak",
+    "description": "Iki faktorly tanamak kody."
+  },
+  "use_extractors": {
+    "name": "Upctertorlar ulanyň",
+    "description": "Ulanyş üçin ekstraktorlaryň atlary (\"Hemmesi\", \"asla\", \"asla\", \"Ahyrsoňy\", yzygiderli aňlatma hökmünde."
+  },
+  "username": {
+    "name": "Ulanyjy ady",
+    "description": "Tassyklamak üçin ulanyjy ady."
+  },
+  "video_multistreams": {
+    "name": "Wideo köpmural söndürler",
+    "description": "Birnäçe wideo akymlaryny birleşdirmäge mümkinçilik berýär."
+  },
+  "video_password": {
+    "name": "Wideo parol",
+    "description": "Parol bilen goralýan wideo üçin parol."
+  },
+  "video_resolution": {
+    "name": "Çözgüdi",
+    "description": "Iň gowy görýän wideo çözgüdi"
+  },
+  "video_subtitles": {
+    "name": "Subtitrler",
+    "description": "Ileri tutulýan wideo subtitrleri"
+  },
+  "wait_for_video": {
+    "name": "Wideo garaşyň",
+    "description": "Göçürip almazdan ozal meýilleşdirilen wideo garaşýar."
+  },
+  "write_auto_subs": {
+    "name": "Awto subtitrleri göçürip alyň",
+    "description": "Awtomatiki subtitrler bar."
+  },
+  "write_subs": {
+    "name": "Awtomatiki göçürip al",
+    "description": "El bilen subtitrler ýazýar."
+  },
+  "write_thumbnail": {
+    "name": "Eskiz ýazyň",
+    "description": "Wideo kiçijik suraty diske saklaýar."
+  },
+  "xattrs": {
+    "name": "Xatrats",
+    "description": "Madadata faýl ofist of ulgamyndaky faýllar."
+  },
+  "xff": {
+    "name": "X-ugrukdyrylan-",
+    "description": "Locationerleşýän ýerini simulirlemek üçin sözbaşy üçin X-ugrukdyryň."
+  }
+}

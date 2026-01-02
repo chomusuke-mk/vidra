@@ -1,0 +1,23 @@
+icon: assets/icon/icon.png
+summary: Desktop-grade video/job manager powered by yt-dlp
+group: Application/Network
+vendor: chomusuke.dev
+packager: chomusuke.dev
+packagerEmail: 7k9mc4urn@mozmail.com
+license: VSACL-1.0
+url: https://github.com/chomusuke/vidra
+
+display_name: Vidra
+
+keywords:
+  - Vidra
+  - yt-dlp
+  - Downloads
+
+generic_name: Video/job manager
+
+categories:
+  - Network
+  - Utility
+
+startup_notify: true

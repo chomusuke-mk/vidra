@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Aborto rehegua jejavy .",
+    "description": "Omboja’o pe proceso de descarga ojejavy ramo."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Aborto pe fragmento ndojeguerekóiva rehe .",
+    "description": "Ombogue pe descarga ndojeguerekóiramo peteĩ fragmento."
+  },
+  "add_headers": {
+    "name": "Adicionales de cabezales rehegua .",
+    "description": "Umi iñakãrapu’ã ambuéva oike hag̃ua red jerurekuérape."
+  },
+  "audio_format": {
+    "name": "Formato de audio rehegua .",
+    "description": "Formato audio oñekonvertíva rehegua (MP3, FLAC, OPUS, ha mba’e)."
+  },
+  "audio_language": {
+    "name": "Audio rehegua .",
+    "description": "Código de Lenguaje de Audio ojeporavóva."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams rehegua .",
+    "description": "Oheja oñembojoaju hag̃ua heta audio rape."
+  },
+  "audio_quality": {
+    "name": "audio calidad rehegua .",
+    "description": "audio calidad (0 iporãvéva, 10 ivaivéva)."
+  },
+  "batch_file": {
+    "name": "Archivo de lote rehegua .",
+    "description": "Tape peteĩ archivo oguerekóva URL ojegueru hag̃ua."
+  },
+  "break_on_existing": {
+    "name": "pausa oîva rehe .",
+    "description": "Ojoko omboguejy haguã oîma ramo pe archivo."
+  },
+  "concurrent_fragments": {
+    "name": "Umi fragmento ojoajúva .",
+    "description": "mboy fragmento simultáneopa ojegueru hagua (por defecto 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Ombohasa ta’ãngamýi .",
+    "description": "Ombohasa taꞌãngamýi taꞌãngamýi rehegua pe formato ojeꞌevaꞌekuépe."
+  },
+  "cookies": {
+    "name": "Galletas rehegua .",
+    "description": "archivo formatado netscape omoñe'ê haguã cookies ha oity cookie jarra ary 2019-pe."
+  },
+  "cookies_from_browser": {
+    "name": "Cookies oúva navegador-gui .",
+    "description": "Ogueru umi cookie kundahára oje’évagui."
+  },
+  "download_archive": {
+    "name": "Omboguejy Archivo .",
+    "description": "Tape archivo-pe ojegrava hag̃ua ID ojegueru va’ekue ani hag̃ua ojejapo duplicado."
+  },
+  "embed_chapters": {
+    "name": "Umi kapítulo oñemboguapýva .",
+    "description": "omoinge umi kapítulo pe archivo pahaitépe."
+  },
+  "embed_info_json": {
+    "name": "Embed info json .",
+    "description": "Omoinge info json pe archivo pahaitépe."
+  },
+  "embed_metadata": {
+    "name": "Metadatos Embed rehegua .",
+    "description": "Omoinge metadato vore pahaitépe."
+  },
+  "embed_subs": {
+    "name": "Subtítulos Embed rehegua .",
+    "description": "Omoinge umi subtítulo archivo pahaitépe."
+  },
+  "embed_thumbnail": {
+    "name": "Embed Miniatura rehegua .",
+    "description": "Omoinge pe ta’ãngamýi vore pahaitépe."
+  },
+  "enable_file_urls": {
+    "name": "Emboguata vore URL .",
+    "description": "Ombohapéva vore URL jepuru vorekuéra tendápe g̃uarã."
+  },
+  "extract_audio": {
+    "name": "Ojepe’a audio .",
+    "description": "Oguenohẽ audio umi video ojegueru va’ekuégui (ojeporu FFMPEG)."
+  },
+  "extractor_retries": {
+    "name": "Extractor ñeha’ã jey .",
+    "description": "mboy jeypa ojejapo jey umi mba’e vai extractor rehegua."
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG Ubicación .",
+    "description": "Tape ohóva FFmpeg binario-pe."
+  },
+  "file_access_retries": {
+    "name": "Archivo jeike jey .",
+    "description": "Mbovy jey ñeha’ã jey rehegua vore jeike rehegua jejavy."
+  },
+  "fixup": {
+    "name": "Fixup .",
+    "description": "Omohenda ijeheguiete umi mba’e’oka ojekuaáva archivo video-pe."
+  },
+  "font_size": {
+    "name": "Fuente tuichakue .",
+    "description": "Fuente tuichakue ojeporúva aplicación-pe."
+  },
+  "force_ipv4": {
+    "name": "Fuerza IPv4.",
+    "description": "ombojepokuaáva IPv4 jepuru umi joajuha red rehegua."
+  },
+  "force_ipv6": {
+    "name": "Fuerza IPv6 rehegua.",
+    "description": "ombojepokuaáva IPv6 jepuru umi joajuha red rehegua."
+  },
+  "force_overwrites": {
+    "name": "Fuerza rehegua ohai .",
+    "description": "Ohai umi archivo oĩmava oporandu’ỹre."
+  },
+  "format": {
+    "name": "Formato rehegua .",
+    "description": "Código de formato de vídeo (kuéra) ojegueru hag̃ua."
+  },
+  "fragment_retries": {
+    "name": "Fragmento oñeha’ã jey .",
+    "description": "Número de retención en fragmento descargar errores."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo verificación rehegua proxy .",
+    "description": "Proxy Servidor oipuru hag̃ua geo-verificación-pe g̃uarã."
+  },
+  "ignore_errors": {
+    "name": "Omboyke umi jejavy .",
+    "description": "Emboyke umi jejavy descarga rehegua ha eñepyrũ pe video oúva ndive."
+  },
+  "impersonate": {
+    "name": "Impersonado rehegua .",
+    "description": "Cliente oimpersona haguã (cromo, cromo-110, cromo:Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Eñongatu umi fragmento .",
+    "description": "Oñongatu umi fragmento oñemboguejyva’ekue oñembojoaju rire."
+  },
+  "language": {
+    "name": "Ñe'ẽ",
+    "description": "Ñe’ẽ ojeporúva rehegua."
+  },
+  "limit_rate": {
+    "name": "Tasa de límite rehegua .",
+    "description": "Omombyte pe velocidad descarga rehegua (e.g., 50k, 4,2m)."
+  },
+  "live_from_start": {
+    "name": "en vivo desde ñepyrũ .",
+    "description": "Omboguejy umi video en vivo oñepyrũ guive."
+  },
+  "merge_output_format": {
+    "name": "Formato de vídeo rehegua .",
+    "description": "Formato de vídeo paha oúva umi streams fusión-gui."
+  },
+  "output": {
+    "name": "Plantilla de salida .",
+    "description": "Plantilla de nombres de archivo de salida rehegua."
+  },
+  "password": {
+    "name": "Taiñomi",
+    "description": "Ñe’ẽñemi jekuaaukarã."
+  },
+  "paths": {
+    "name": "Tapekuéra .",
+    "description": "Directorios oñongatu hag̃ua opaichagua archivo."
+  },
+  "playlist": {
+    "name": "Lista de reproducción rehegua .",
+    "description": "Ohechauka ojegueru hag̃ua pe lista de reproducción completa térã peteĩ video añoite."
+  },
+  "prefer_insecure": {
+    "name": "Oipotave Inseguro .",
+    "description": "Oipuru HTTP joaju HTTPS rendaguépe (YouTube añoite)."
+  },
+  "proxy": {
+    "name": "proxy rehegua .",
+    "description": "Proxy Servidor oipuru hag̃ua red jerurekuérape g̃uarã."
+  },
+  "remux_video": {
+    "name": "Remux video .",
+    "description": "Omoambue pe video mba’yru ojejapo jey’ỹre codificación."
+  },
+  "retries": {
+    "name": "Ñeha’ã jey .",
+    "description": "Número de retención en errores de descarga."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip lista de reproducción ojejavy rire .",
+    "description": "Ojesalta pe lista rembyre peteĩ número de errores rire."
+  },
+  "socket_timeout": {
+    "name": "Socket TimeOut rehegua .",
+    "description": "tiempo de espera umi conexión socket rehegua segundo-pe."
+  },
+  "source_address": {
+    "name": "Fuente dirección rehegua .",
+    "description": "Cliente IP dirección ojoaju hag̃ua ojejapo jave joaju."
+  },
+  "sponsorblock_mark": {
+    "name": "PatrocinadorMarco de Patrocinador rehegua .",
+    "description": "Segmentos de marcas de categorías de patrocinador."
+  },
+  "sub_format": {
+    "name": "Formato de subtítulo rehegua .",
+    "description": "Código de formato subtítulo rehegua ojegueru hag̃ua."
+  },
+  "sub_langs": {
+    "name": "Subtítulo ñe’ẽ .",
+    "description": "Ñe’ẽnguéra umi subtítulo ojegueru haĝua."
+  },
+  "theme_dark": {
+    "name": "Tema iñypytũva .",
+    "description": "Tema de la Aplicación rehegua."
+  },
+  "twofactor": {
+    "name": "Autenticación mokõi factor rehegua .",
+    "description": "código de autenticación mokõi factor rehegua."
+  },
+  "use_extractors": {
+    "name": "Eipuru umi extractor .",
+    "description": "umi extractor réra oiporútava (coma separado).(\"Opavave\",\"default\",\"end, expresión regular)"
+  },
+  "username": {
+    "name": "Tembipuru’i réra .",
+    "description": "Tembipuru’i réra jekuaaukarã."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams rehegua .",
+    "description": "Oheja oñembojoaju heta video stream."
+  },
+  "video_password": {
+    "name": "Video Ñe’ẽñemi .",
+    "description": "Ñe’ẽñemi umi video oñeñangarekóva ñe’ẽñemi rehe."
+  },
+  "video_resolution": {
+    "name": "Apoukapy",
+    "description": "Resolución de vídeo ojepreferíva ."
+  },
+  "video_subtitles": {
+    "name": "Subtítulos rehegua .",
+    "description": "Subtítulos de vídeo ojepreferíva ."
+  },
+  "wait_for_video": {
+    "name": "Eha'arõ video .",
+    "description": "Oha’arõ peteĩ video programado ojeguereko haĝua disponible omboguejy mboyve."
+  },
+  "write_auto_subs": {
+    "name": "Descargar Auto Subtítulos .",
+    "description": "Ohai umi subtítulo automático ojeguerekóva."
+  },
+  "write_subs": {
+    "name": "Omboguejy Subtítulos .",
+    "description": "Ohai umi subtítulo manual ojeguerekóva."
+  },
+  "write_thumbnail": {
+    "name": "Ohai ta'ãngamýi .",
+    "description": "Oñongatu video miniatura disco-pe."
+  },
+  "xattrs": {
+    "name": "Xatts rehegua .",
+    "description": "Ohai metadato sistema de archivos xAttRs-pe."
+  },
+  "xff": {
+    "name": "X-Forwarded-Para rehegua .",
+    "description": "Omohenda X-forwarded-pe g̃uarã iñakãrapuꞌarã osimulávo tenda."
+  }
+}

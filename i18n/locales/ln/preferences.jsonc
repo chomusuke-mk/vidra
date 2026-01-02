@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Abort na erreur .",
+    "description": "elongolaka mosala ya kozwa yango soki libunga esalemi."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Abort na fragment oyo ezali te .",
+    "description": "Elongolaka téléchargement soki fragment moko ezali te."
+  },
+  "add_headers": {
+    "name": "Mitó ya makambo mosusu .",
+    "description": "Ba têtes ya kobakisa mpo na kokotisa na ba demandes ya réseau."
+  },
+  "audio_format": {
+    "name": "Format ya audio .",
+    "description": "Format ya audio converti (MP3, FLAC, Opus, etc.)."
+  },
+  "audio_language": {
+    "name": "Audio .",
+    "description": "Code ya monoko ya audio oyo ba préférer."
+  },
+  "audio_multistreams": {
+    "name": "Ba multistreams ya audio .",
+    "description": "epesaka nzela ya kosangisa ba flux audio ebele."
+  },
+  "audio_quality": {
+    "name": "Quality ya audio .",
+    "description": "Quality ya audio (0 ya malamu koleka, 10 mabe koleka)."
+  },
+  "batch_file": {
+    "name": "Fisyé ya lotɛ́lɛ .",
+    "description": "Nzela ya fisyé oyo ezali na ba URL mpo na kozwa."
+  },
+  "break_on_existing": {
+    "name": "Kobuka na oyo ezali .",
+    "description": "Etelemi ko télécharger soki fichier ezali déjà."
+  },
+  "concurrent_fragments": {
+    "name": "Biteni ya mbala moko .",
+    "description": "Motango ya biteni ya mbala moko mpo na kozwa yango (na ndenge ya liboso 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Bobongola ba miniatures .",
+    "description": "Bobongola ba miniatures na format oyo elakisami."
+  },
+  "cookies": {
+    "name": "Ba cookie .",
+    "description": "Fichier formaté netscape mpo na kotanga ba cookies uta mpe kobwaka cookie jar na ."
+  },
+  "cookies_from_browser": {
+    "name": "Ba cookie oyo euti na navigateur .",
+    "description": "Ba cookies oyo ekɔtisaka biloko na navigateur oyo elakisami."
+  },
+  "download_archive": {
+    "name": "Télécharger Archive .",
+    "description": "Path to File to Enregistrer ba ID téléchargés mpo na ko éviter ba doublons."
+  },
+  "embed_chapters": {
+    "name": "Mikapo ya kokɔtisa .",
+    "description": "Embeds Chapitres na dossier ya suka."
+  },
+  "embed_info_json": {
+    "name": "Info ya embed json .",
+    "description": "Embeds Info JSON na fichier ya suka."
+  },
+  "embed_metadata": {
+    "name": "Ba métadonnées ya ko intégrer .",
+    "description": "Embeds Metadata na dossier ya suka."
+  },
+  "embed_subs": {
+    "name": "Ba sous-titres oyo ekotisami .",
+    "description": "Embeds ba sous-titres na fichier ya suka."
+  },
+  "embed_thumbnail": {
+    "name": "Embed Miniature .",
+    "description": "Ekɔtisaka elilingi ya moke na fisyé ya nsuka."
+  },
+  "enable_file_urls": {
+    "name": "Bofungola ba URL ya fisyé .",
+    "description": "Ezali kopesa nzela na kosalela ba URL ya ba fichiers mpo na ba fichiers ya esika."
+  },
+  "extract_audio": {
+    "name": "Extrait audio .",
+    "description": "Ebimisaka audio na ba vidéos oyo ba télécharger (esalelaka FFMPEG)."
+  },
+  "extractor_retries": {
+    "name": "Ba retries ya extracteur .",
+    "description": "Motango ya ba retries na ba erreurs ya extracteur."
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG Esika .",
+    "description": "Nzela ya binaire ya FFMPEG."
+  },
+  "file_access_retries": {
+    "name": "Ba retries ya accès ya fichier .",
+    "description": "Motango ya ba retries na ba erreurs ya accès ya fichier."
+  },
+  "fixup": {
+    "name": "Kobongisa .",
+    "description": "Ebongisi na ndenge ya automatique ba fautes oyo eyebani na fichier vidéo."
+  },
+  "font_size": {
+    "name": "Taille ya ba fonts .",
+    "description": "Taille ya ba fonts oyo basalelaka na application."
+  },
+  "force_ipv4": {
+    "name": "Force IPv4.",
+    "description": "Ezali kotinda na makasi bosaleli ya IPv4 mpo na boyokani ya réseau."
+  },
+  "force_ipv6": {
+    "name": "Force IPv6.",
+    "description": "Ezali kotinda na makasi bosaleli ya IPv6 mpo na boyokani ya réseau."
+  },
+  "force_overwrites": {
+    "name": "Force ezali kokoma likolo .",
+    "description": "Kokoma likolo ya ba fichiers oyo ezali sans kotuna."
+  },
+  "format": {
+    "name": "Format .",
+    "description": "Code(s) ya format ya video pona ko télécharger."
+  },
+  "fragment_retries": {
+    "name": "Ba retries ya fragment .",
+    "description": "Motango ya ba retries na ba erreurs ya téléchargement ya fragment."
+  },
+  "geo_verification_proxy": {
+    "name": "Procuration ya vérification ya géo .",
+    "description": "Serveur ya proxy mpo na kosalela mpo na géo-verification."
+  },
+  "ignore_errors": {
+    "name": "Bo ignorer ba erreurs .",
+    "description": "Bo ignorer ba erreurs ya téléchargement pe bo continuer na vidéo oyo elandi."
+  },
+  "impersonate": {
+    "name": "Kosala lokola moto oyo azali na bomoi .",
+    "description": "Client mpo na kosala lokola (Chrome, Chrome-110, Chrome:Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Bomba biteni .",
+    "description": "Ebombaka biteni oyo batɛki nsima ya kosangana."
+  },
+  "language": {
+    "name": "Lokota",
+    "description": "Monoko ya Application."
+  },
+  "limit_rate": {
+    "name": "Taux ya Limite .",
+    "description": "Limite ya vitesse ya téléchargement (e.g., 50K, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Live banda ebandeli .",
+    "description": "Téléchargements Vidéos en direct depuis le début."
+  },
+  "merge_output_format": {
+    "name": "Format ya video .",
+    "description": "Format ya video ya suka oyo ewutaka na bosangisi ba flux."
+  },
+  "output": {
+    "name": "Modèle de sortie .",
+    "description": "Sorti Modèle ya kombo ya fichier."
+  },
+  "password": {
+    "name": "Mot de passe",
+    "description": "Mot ya nzela mpo na bondimi."
+  },
+  "paths": {
+    "name": "Banzela .",
+    "description": "Ba répertoires mpo na kobomba mitindo ndenge na ndenge ya ba fichiers."
+  },
+  "playlist": {
+    "name": "Liste ya ba jouer .",
+    "description": "Ezali kolakisa soki osengeli kozwa liste mobimba ya lisano to video moko."
+  },
+  "prefer_insecure": {
+    "name": "Preferer insécure .",
+    "description": "Esalelaka boyokani ya HTTP na esika ya HTTPS (YouTube kaka)."
+  },
+  "proxy": {
+    "name": "Proxy .",
+    "description": "Serveur ya proxy mpo na kosalela mpo na ba demandes ya réseau."
+  },
+  "remux_video": {
+    "name": "Video ya Remux .",
+    "description": "Ebongoli conteneur ya vidéo sans re-encodage."
+  },
+  "retries": {
+    "name": "Ba rétries .",
+    "description": "Motango ya ba retries na ba erreurs ya téléchargement."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip playlist sima ya ba erreurs .",
+    "description": "Salá skips na oyo etikali ya playlist nsima ya motángo moko boye ya mabunga."
+  },
+  "socket_timeout": {
+    "name": "Timeout ya socket .",
+    "description": "Timeout mpo na ba connexions ya socket na ba secondes."
+  },
+  "source_address": {
+    "name": "Addresse ya source .",
+    "description": "Addresse IP ya client mpo na kokangama na tango ya kosala ba connexions."
+  },
+  "sponsorblock_mark": {
+    "name": "Mark ya ba parrains ya mbongo .",
+    "description": "Ba segments ya ba marques oyo ewutaka na ba catégories ya SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Format ya sous-titre .",
+    "description": "Code(s) ya format ya sous-titre mpo na ko télécharger."
+  },
+  "sub_langs": {
+    "name": "Minɔkɔ ya mikemike .",
+    "description": "Minɔkɔ ya ba sous-titres mpo na kozwa yango."
+  },
+  "theme_dark": {
+    "name": "Motó ya likambo ya molili .",
+    "description": "Motó ya likambo ya bosengi."
+  },
+  "twofactor": {
+    "name": "Bondimi ya makambo mibale .",
+    "description": "Code ya bondimi ya makambo mibale."
+  },
+  "use_extractors": {
+    "name": "Salelá ba extracteurs .",
+    "description": "Ba kombo ya ba extracteurs ya kosalela (ba separés na ba villes).(\"nyonso\",\"Plade\",\"Suki\",expression régulière)"
+  },
+  "username": {
+    "name": "Nkombo ya mosaleli .",
+    "description": "Nkombo ya mosaleli mpo na bondimi."
+  },
+  "video_multistreams": {
+    "name": "Ba multistreams ya video .",
+    "description": "Epesaka nzela ya kosangisa ba flux vidéo ebele."
+  },
+  "video_password": {
+    "name": "Mot ya nzela ya video .",
+    "description": "Mot de passe mpo na ba vidéos oyo ebatelami na mot de passe."
+  },
+  "video_resolution": {
+    "name": "Ekateli",
+    "description": "Résolution ya vidéo oyo ba préférer ."
+  },
+  "video_subtitles": {
+    "name": "Ba sous-titres .",
+    "description": "Ba sous-titres ya vidéo oyo ba préférer ."
+  },
+  "wait_for_video": {
+    "name": "Zela video .",
+    "description": "Azelaka video oyo ebongisami mpo na kozwa yango liboso ya kozwa yango."
+  },
+  "write_auto_subs": {
+    "name": "Télécharger ba sous-titres ya Auto .",
+    "description": "Ekomaka ba sous-titres automatiques."
+  },
+  "write_subs": {
+    "name": "Télécharger ba sous-titres .",
+    "description": "Ekomaka ba sous-titres manuels oyo ezali."
+  },
+  "write_thumbnail": {
+    "name": "Kokoma miniature .",
+    "description": "Ebombaka elilingi ya moke ya video na disque."
+  },
+  "xattrs": {
+    "name": "Xatrs .",
+    "description": "Kokoma ba métadonnées na système ya ba fichiers XATRS."
+  },
+  "xff": {
+    "name": "X-Forwarded-For .",
+    "description": "Ezali kotya motó ya likambo oyo ezali na liboso mpo na kosala lokola nde ezali."
+  }
+}

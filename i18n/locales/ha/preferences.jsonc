@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Cire Kuskure",
+    "description": "A zubar da wurin saukarwa idan kuskure ya faru."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Cort a kan guntu",
+    "description": "A zubar da saukarwa idan wani yanki ba a samu."
+  },
+  "add_headers": {
+    "name": "Ƙarin magudi",
+    "description": "Ƙarin sa taken don haɗa cikin buƙatun cibiyar sadarwar."
+  },
+  "audio_format": {
+    "name": "Tsarin AUDIO",
+    "description": "Tsarin da aka canza na Audio (mp3, flac, opus, da dai sauransu)."
+  },
+  "audio_language": {
+    "name": "M",
+    "description": "Fifita lambar harshe na sauti."
+  },
+  "audio_multistreams": {
+    "name": "AUDIO Multristreams",
+    "description": "Yana ba da damar hada kan kogunan sauti da yawa."
+  },
+  "audio_quality": {
+    "name": "Ingancin sauti",
+    "description": "Ingancin sauti (0 mafi kyau, 10 mafi munin)."
+  },
+  "batch_file": {
+    "name": "Fayil ɗin tsari",
+    "description": "Hanya zuwa fayil mai dauke da URLs don saukewa."
+  },
+  "break_on_existing": {
+    "name": "Karya a kan data kasance",
+    "description": "Dakatar da sauke idan fayil ɗin ya wanzu."
+  },
+  "concurrent_fragments": {
+    "name": "Gutsuttsarin concurrent",
+    "description": "Yawan gutsuttsuka na lokaci guda don saukarwa (tsoho 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Sauya Thumbnais",
+    "description": "Sauya takaitaccen bayani zuwa tsarin da aka kayyade."
+  },
+  "cookies": {
+    "name": "Cookies",
+    "description": "Fayil da aka tsara don karanta kukis daga da duman kwalara a ciki"
+  },
+  "cookies_from_browser": {
+    "name": "Kukis daga mai bincike",
+    "description": "Ana shigo da kukis daga binciken da aka ƙayyade."
+  },
+  "download_archive": {
+    "name": "Sauke baka",
+    "description": "Hanya don fayil don yin rikodin IDs don hana kwafin kwafi."
+  },
+  "embed_chapters": {
+    "name": "Kafa surori",
+    "description": "Esbs surori cikin fayil na ƙarshe."
+  },
+  "embed_info_json": {
+    "name": "Bayani",
+    "description": "Effeds Info JSON zuwa Fayil na ƙarshe."
+  },
+  "embed_metadata": {
+    "name": "Saka Metadata",
+    "description": "Saka Metadata zuwa fayil na ƙarshe."
+  },
+  "embed_subs": {
+    "name": "Subtitles",
+    "description": "Subtitles ya shiga fayil na ƙarshe."
+  },
+  "embed_thumbnail": {
+    "name": "Saka thumbnail",
+    "description": "Yana sanya babban yatsa a cikin fayil na ƙarshe."
+  },
+  "enable_file_urls": {
+    "name": "Taimakawa URLs fayil",
+    "description": "Yana bada damar amfani da URLs fayil don fayilolin gida."
+  },
+  "extract_audio": {
+    "name": "Cire Audio",
+    "description": "Cire sauti daga bidiyon da aka sauke (yana amfani da FFMPEG)."
+  },
+  "extractor_retries": {
+    "name": "Mahimmanci",
+    "description": "Yawan results a kan kurakurai kurakurai."
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG wuri",
+    "description": "Hanya zuwa FFMPEG BINE."
+  },
+  "file_access_retries": {
+    "name": "Fayil na Samun Fayil",
+    "description": "Yawan rani akan kurakuran shiga fayil."
+  },
+  "fixup": {
+    "name": "Gyarawa",
+    "description": "Ta atomatik yana gyara kurakurai ta atomatik a cikin bidiyon."
+  },
+  "font_size": {
+    "name": "Girman font",
+    "description": "Girman font da aka yi amfani da shi a cikin aikace-aikacen."
+  },
+  "force_ipv4": {
+    "name": "Tilasta ipv4",
+    "description": "Tilasta amfani da IPV4 don haɗin cibiyar sadarwa."
+  },
+  "force_ipv6": {
+    "name": "Tilasta ipv6",
+    "description": "Tilasta amfani da iPv6 don haɗin cibiyar sadarwa."
+  },
+  "force_overwrites": {
+    "name": "Karfi da rubutu",
+    "description": "Rubuta fayilolin da suke akwai ba tare da tambaya ba."
+  },
+  "format": {
+    "name": "Girma",
+    "description": "Tsarin tsarin bidiyo (s) don saukewa."
+  },
+  "fragment_retries": {
+    "name": "Karkashin gwaji",
+    "description": "Yawan results on yanki download kurakurai kurakurai."
+  },
+  "geo_verification_proxy": {
+    "name": "Tabbatar da Tabbatar da Geo",
+    "description": "Sabar uwar garken aiki don amfani da Geo-tabbatacce."
+  },
+  "ignore_errors": {
+    "name": "Watsi da kurakurai",
+    "description": "Yi watsi da kurakurai kurakurai kuma ci gaba da bidiyo na gaba."
+  },
+  "impersonate": {
+    "name": "M",
+    "description": "Abokin ciniki ya yiwa ibada (Chrome, Chrome-110, Chrome: Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Kiyaye guntu",
+    "description": "Yana kiyaye gutsuttukan da aka sauke bayan haɗawa."
+  },
+  "language": {
+    "name": "Harshe",
+    "description": "Harshe na aikace-aikacen."
+  },
+  "limit_rate": {
+    "name": "Iyaka",
+    "description": "Ya iyakance hanjin saukarwa (misali, 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Rayu daga farawa",
+    "description": "Sauke bidiyo mai kauna daga farkon."
+  },
+  "merge_output_format": {
+    "name": "Tsarin bidiyo",
+    "description": "Tsarin bidiyo na karshe wanda ya haifar da hade koguna."
+  },
+  "output": {
+    "name": "Samfuri",
+    "description": "Fitowar fayil ɗin fitarwa."
+  },
+  "password": {
+    "name": "Kalmar bada iznin wucewa",
+    "description": "Kalmar wucewa don GASKIYA."
+  },
+  "paths": {
+    "name": "Hanyoyi",
+    "description": "Darakta don adana nau'ikan fayiloli daban-daban."
+  },
+  "playlist": {
+    "name": "Waƙa",
+    "description": "Yana nuna ko don saukar da cikakken jerin waƙoƙi ko bidiyo ɗaya."
+  },
+  "prefer_insecure": {
+    "name": "Fi son rashin tsaro",
+    "description": "Yana amfani da haɗin HTTP maimakon HTTPS (YouTube kawai)."
+  },
+  "proxy": {
+    "name": "Wakili",
+    "description": "Sabar wakili don amfani da buƙatun cibiyar sadarwa."
+  },
+  "remux_video": {
+    "name": "Bitux bidiyo",
+    "description": "Yana canza kwanon bidiyo ba tare da sake dubawa ba."
+  },
+  "retries": {
+    "name": "Na gwaji",
+    "description": "Yawan rani akan saukar da kurakurai."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Tsallake jerin waƙoƙi bayan kurakurai",
+    "description": "Tsoro Sauran jerin waƙoƙin bayan wani adadin kurakurai."
+  },
+  "socket_timeout": {
+    "name": "Secketoutout",
+    "description": "Lokaci don haɗin soket a cikin sakan."
+  },
+  "source_address": {
+    "name": "Adireshin Incord",
+    "description": "Adireshin IP na abokin ciniki don ɗaure shi lokacin haɗin yanar gizo."
+  },
+  "sponsorblock_mark": {
+    "name": "Alamar tallace-tallace",
+    "description": "Alamar jingina daga nau'ikan tallan."
+  },
+  "sub_format": {
+    "name": "Tsarin Subtitle",
+    "description": "Tsarin tsari na subtitle (s) don saukewa."
+  },
+  "sub_langs": {
+    "name": "Harshen Harshen",
+    "description": "Harsuna na subtitles don saukewa."
+  },
+  "theme_dark": {
+    "name": "Dark Jigo",
+    "description": "Jigo na aikace-aikacen."
+  },
+  "twofactor": {
+    "name": "Gasarin abubuwa biyu",
+    "description": "Lambar tabbatarwa ta Factor biyu."
+  },
+  "use_extractors": {
+    "name": "Yi amfani da m",
+    "description": "Sunayen masu siyar da su (wakafi raba). (\"DUK\", \"KYAUTA\""
+  },
+  "username": {
+    "name": "Sunan mai amfani",
+    "description": "Sunan mai amfani don GASKIYA."
+  },
+  "video_multistreams": {
+    "name": "Video Buga",
+    "description": "Yana ba da damar hada kogunan bidiyo da yawa."
+  },
+  "video_password": {
+    "name": "Kalmar sirri ta bidiyo",
+    "description": "Kalmar wucewa don bidiyo mai kariya ta kalmar sirri."
+  },
+  "video_resolution": {
+    "name": "Ƙuduri",
+    "description": "An zaɓi ƙudurin bidiyo"
+  },
+  "video_subtitles": {
+    "name": "Fassarar",
+    "description": "Bayanan bidiyo da aka fi so"
+  },
+  "wait_for_video": {
+    "name": "Jira bidiyo",
+    "description": "Jira don bidiyo da aka shirya don zama kafin saukarwa."
+  },
+  "write_auto_subs": {
+    "name": "Zazzage bayanan atomatik",
+    "description": "Ya rubuta hanyoyin atomatik."
+  },
+  "write_subs": {
+    "name": "Zazzagewa",
+    "description": "Ya rubuta bayanan rubutattun bayanai."
+  },
+  "write_thumbnail": {
+    "name": "Rubuta thumbnail",
+    "description": "Yana adana hoton hoton bidiyo zuwa faifai."
+  },
+  "xattrs": {
+    "name": "Xattrs",
+    "description": "Ya rubuta metadata zuwa fisstetem xattrs."
+  },
+  "xff": {
+    "name": "X-Meted-don",
+    "description": "Yana saita X-Meted-forerar don daidaita wurin."
+  }
+}

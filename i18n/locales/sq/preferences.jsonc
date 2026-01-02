@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Ndërprit në gabim",
+    "description": "Ndërpret procesin e shkarkimit nëse ndodh një gabim."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Ndërprit në fragmentin e padisponueshëm",
+    "description": "Anulon shkarkimin nëse një fragment nuk është i disponueshëm."
+  },
+  "add_headers": {
+    "name": "Titujt shtesë",
+    "description": "Titujt shtesë për t'u përfshirë në kërkesat e rrjetit."
+  },
+  "audio_format": {
+    "name": "Format audio",
+    "description": "Formati i audios së konvertuar (mp3, flac, opus, etj.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Kodi i preferuar i gjuhës audio."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams",
+    "description": "Lejon kombinimin e transmetimeve të shumta audio."
+  },
+  "audio_quality": {
+    "name": "Cilësia e audios",
+    "description": "Cilësia e audios (0 më e mira, 10 më e keqja)."
+  },
+  "batch_file": {
+    "name": "Skedari i grupit",
+    "description": "Rruga drejt një skedari që përmban URL për t'u shkarkuar."
+  },
+  "break_on_existing": {
+    "name": "Pushim në ekzistuese",
+    "description": "Ndalon shkarkimin nëse skedari ekziston tashmë."
+  },
+  "concurrent_fragments": {
+    "name": "Fragmente të njëkohshme",
+    "description": "Numri i fragmenteve të njëkohshme për t'u shkarkuar (parazgjedhja 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Konvertoni miniaturë",
+    "description": "Konvertoni miniaturat në formatin e specifikuar."
+  },
+  "cookies": {
+    "name": "Biskota",
+    "description": "Skedari i formatuar Netscape për të lexuar skedarët e skedarëve dhe për të hedhur kavanozin e kukive"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies nga Shfletuesi",
+    "description": "Importon cookie nga shfletuesi i specifikuar."
+  },
+  "download_archive": {
+    "name": "Shkarkoni arkivin",
+    "description": "Rruga drejt skedarit për të regjistruar ID-të e shkarkuara për të shmangur dublikatat."
+  },
+  "embed_chapters": {
+    "name": "Embed Kapitujt",
+    "description": "Fut kapitujt në skedarin përfundimtar."
+  },
+  "embed_info_json": {
+    "name": "Embed Info JSON",
+    "description": "Vendos informacionin JSON në skedarin përfundimtar."
+  },
+  "embed_metadata": {
+    "name": "Embed Metadata",
+    "description": "Fut të dhënat meta në skedarin përfundimtar."
+  },
+  "embed_subs": {
+    "name": "Vendos titrat",
+    "description": "Vendos titrat në skedarin përfundimtar."
+  },
+  "embed_thumbnail": {
+    "name": "Vendos miniaturën",
+    "description": "Vendos miniaturën në skedarin përfundimtar."
+  },
+  "enable_file_urls": {
+    "name": "Aktivizo URL-të e skedarëve",
+    "description": "Aktivizon përdorimin e URL-ve të skedarëve për skedarët lokalë."
+  },
+  "extract_audio": {
+    "name": "Ekstrakt audio",
+    "description": "Nxjerrë audion nga videot e shkarkuara (përdor ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Ekstraktori riprovon",
+    "description": "Numri i riprovave për gabimet e nxjerrjes."
+  },
+  "ffmpeg_location": {
+    "name": "Vendndodhja FFmpeg",
+    "description": "Rruga drejt binarit FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Përsëritjet e qasjes në skedar",
+    "description": "Numri i riprovave për gabimet e qasjes në skedar."
+  },
+  "fixup": {
+    "name": "Rregullim",
+    "description": "Korrigjon automatikisht gabimet e njohura në skedarin video."
+  },
+  "font_size": {
+    "name": "Madhësia e shkronjave",
+    "description": "Madhësia e shkronjave të përdorura në aplikacion."
+  },
+  "force_ipv4": {
+    "name": "Forco IPv4",
+    "description": "Detyron përdorimin e IPv4 për lidhjet e rrjetit."
+  },
+  "force_ipv6": {
+    "name": "Forco IPv6",
+    "description": "Detyron përdorimin e IPv6 për lidhjet e rrjetit."
+  },
+  "force_overwrites": {
+    "name": "Forca mbishkruan",
+    "description": "Mbishkruan skedarët ekzistues pa pyetur."
+  },
+  "format": {
+    "name": "Formati",
+    "description": "Kodi(et) e formatit të videos për t'u shkarkuar."
+  },
+  "fragment_retries": {
+    "name": "Riprovimet e fragmentit",
+    "description": "Numri i riprovave për gabimet e shkarkimit të fragmenteve."
+  },
+  "geo_verification_proxy": {
+    "name": "Proxy i verifikimit gjeo",
+    "description": "Proxy server për t'u përdorur për gjeo-verifikimin."
+  },
+  "ignore_errors": {
+    "name": "Injoroni gabimet",
+    "description": "Injoroni gabimet e shkarkimit dhe vazhdoni me videon tjetër."
+  },
+  "impersonate": {
+    "name": "imitoj",
+    "description": "Klient për t'u imituar (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Mbani fragmente",
+    "description": "Mban fragmentet e shkarkuara pas bashkimit."
+  },
+  "language": {
+    "name": "Gjuha",
+    "description": "Gjuha e aplikacionit."
+  },
+  "limit_rate": {
+    "name": "Norma Limit",
+    "description": "Kufizon shpejtësinë e shkarkimit (p.sh., 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "Drejtpërdrejt nga fillimi",
+    "description": "Shkarkon video të drejtpërdrejta që nga fillimi."
+  },
+  "merge_output_format": {
+    "name": "Formati i videos",
+    "description": "Formati përfundimtar i videos që rezulton nga bashkimi i transmetimeve."
+  },
+  "output": {
+    "name": "Modeli i daljes",
+    "description": "Modeli i emrit të skedarit dalës."
+  },
+  "password": {
+    "name": "Fjalëkalimi",
+    "description": "Fjalëkalimi për vërtetim."
+  },
+  "paths": {
+    "name": "Shtigjet",
+    "description": "Drejtoritë për të ruajtur lloje të ndryshme skedarësh."
+  },
+  "playlist": {
+    "name": "Lista e luajtjes",
+    "description": "Tregon nëse duhet të shkarkohet lista e plotë e luajtjes ose një video e vetme."
+  },
+  "prefer_insecure": {
+    "name": "Preferoni të pasigurt",
+    "description": "Përdor lidhjen HTTP në vend të HTTPS (vetëm YouTube)."
+  },
+  "proxy": {
+    "name": "Përfaqësues",
+    "description": "Proxy server për t'u përdorur për kërkesat e rrjetit."
+  },
+  "remux_video": {
+    "name": "Video Remux",
+    "description": "Ndryshon kontejnerin e videos pa ri-kodim."
+  },
+  "retries": {
+    "name": "Riprovon",
+    "description": "Numri i riprovave për gabimet e shkarkimit."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Kapërceni listën e luajtjes pas gabimeve",
+    "description": "Kapërcen pjesën tjetër të listës së luajtjes pas një numri të caktuar gabimesh."
+  },
+  "socket_timeout": {
+    "name": "Kohëzgjatja e prizës",
+    "description": "Koha për lidhjet e prizës në sekonda."
+  },
+  "source_address": {
+    "name": "Adresa e burimit",
+    "description": "Adresa IP e klientit për t'u lidhur kur bëni lidhje."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Shënon segmente nga kategoritë SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Formati i titrave",
+    "description": "Kodi(et) e formatit të titrave për t'u shkarkuar."
+  },
+  "sub_langs": {
+    "name": "Gjuhët e titrave",
+    "description": "Gjuhët e titrave për t'u shkarkuar."
+  },
+  "theme_dark": {
+    "name": "Temë e errët",
+    "description": "Tema e aplikacionit."
+  },
+  "twofactor": {
+    "name": "Autentifikimi me dy faktorë",
+    "description": "Kodi i vërtetimit me dy faktorë."
+  },
+  "use_extractors": {
+    "name": "Përdorni Ekstraktorë",
+    "description": "Emrat e nxjerrësve për t'u përdorur (të ndara me presje). (\"të gjitha\", \"parazgjedhura\", \"fundi\", shprehje e rregullt)"
+  },
+  "username": {
+    "name": "Emri i përdoruesit",
+    "description": "Emri i përdoruesit për vërtetim."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams",
+    "description": "Lejon kombinimin e transmetimeve të shumta video."
+  },
+  "video_password": {
+    "name": "Fjalëkalimi i videos",
+    "description": "Fjalëkalimi për videot e mbrojtura me fjalëkalim."
+  },
+  "video_resolution": {
+    "name": "Rezolucioni",
+    "description": "Rezolucioni i preferuar i videos"
+  },
+  "video_subtitles": {
+    "name": "Titra",
+    "description": "Titra të preferuara të videos"
+  },
+  "wait_for_video": {
+    "name": "Prisni për Video",
+    "description": "Pret që një video e planifikuar të bëhet e disponueshme përpara se të shkarkohet."
+  },
+  "write_auto_subs": {
+    "name": "Shkarko titrat automatike",
+    "description": "Shkruan titrat automatike të disponueshme."
+  },
+  "write_subs": {
+    "name": "Shkarko titrat",
+    "description": "Shkruan titrat manuale të disponueshme."
+  },
+  "write_thumbnail": {
+    "name": "Shkruani Miniaturën",
+    "description": "Ruan miniaturën e videos në disk."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Shkruan meta të dhëna në sistemin e skedarëve xattrs."
+  },
+  "xff": {
+    "name": "X-Përcjellur-Për",
+    "description": "Vendos kokën X-Forwarded-For për të simuluar vendndodhjen."
+  }
+}

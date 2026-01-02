@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Abort dina kasalahan",
+    "description": "Ngaluarkeun prosés undeuran upami aya kasalahan."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Abort dina sempalan anu henteu tiasa dianggo",
+    "description": "Ngaleungitkeun download upami sempalan henteu sayogi."
+  },
+  "add_headers": {
+    "name": "Lulugu tambahan",
+    "description": "Headers tambahan pikeun kaasup dina pamundut jaringan."
+  },
+  "audio_format": {
+    "name": "Format audio",
+    "description": "Format audio anu dirobih (MP3, ROC, Opus, Jsb)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Kode basa audio anu dipikaresep."
+  },
+  "audio_multistreams": {
+    "name": "Mulya audio",
+    "description": "Ngidinan ngagabungkeun sababaraha aliran audio."
+  },
+  "audio_quality": {
+    "name": "Kualitas audio",
+    "description": "Kualitas audio (0 pangsaéna, 10 awon)."
+  },
+  "batch_file": {
+    "name": "File tumpak",
+    "description": "Cocog kana file anu ngandung url pikeun diunduh."
+  },
+  "break_on_existing": {
+    "name": "Istirahat parantos aya",
+    "description": "Eureun diunduh upami file parantos aya."
+  },
+  "concurrent_fragments": {
+    "name": "Sempalan sarjana",
+    "description": "Jumlah serpihan serentak pikeun diunduh (standar 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Ngarobih gambar leutik",
+    "description": "Ngarobih gambar leutik ka format anu ditangtoskeun."
+  },
+  "cookies": {
+    "name": "Cookies",
+    "description": "File nit format pikeun maca cookies ti teras tuang jaring"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies tina browser",
+    "description": "Impor cookies tina panyungsi anu ditangtukeun."
+  },
+  "download_archive": {
+    "name": "Unduh arsip",
+    "description": "Jalur pikeun file pikeun ngarékam KTP anu diunduh pikeun nyegah duplikat."
+  },
+  "embed_chapters": {
+    "name": "Baban bab",
+    "description": "Ditempelkeun bab kana file akhir."
+  },
+  "embed_info_json": {
+    "name": "Ditambahkeun Info Json",
+    "description": "Elted Info Json kana file akhir."
+  },
+  "embed_metadata": {
+    "name": "Metted metadata",
+    "description": "Embed metadata kana file akhir."
+  },
+  "embed_subs": {
+    "name": "Ngetik subtitles",
+    "description": "Digetik subtitles kana file akhir."
+  },
+  "embed_thumbnail": {
+    "name": "Ditambang leutik",
+    "description": "Dibungkus gambar leutik kana file akhir."
+  },
+  "enable_file_urls": {
+    "name": "Aktipkeun URL file",
+    "description": "Ngamungkinkeun panggunaan URL file kanggo file lokal."
+  },
+  "extract_audio": {
+    "name": "Nimba audio",
+    "description": "Extrak Audio ti pidéo unduh (nganggo FFMPT)."
+  },
+  "extractor_retries": {
+    "name": "Ekstrak retries",
+    "description": "Jumlah retries kana kasalahan ékstrak."
+  },
+  "ffmpeg_location": {
+    "name": "Lokasi ffmpeg",
+    "description": "Jalur ka binér FFMPE."
+  },
+  "file_access_retries": {
+    "name": "File Aksés Retries",
+    "description": "Jumlah retries dina kasalahan aksés file."
+  },
+  "fixup": {
+    "name": "Filacet",
+    "description": "Otomatis ngabenerkeun kalepatan dina file video."
+  },
+  "font_size": {
+    "name": "Ukuran font",
+    "description": "Ukuran font dianggo dina aplikasi."
+  },
+  "force_ipv4": {
+    "name": "Maksakeun IPV4",
+    "description": "Maksa panggunaan ipv4 pikeun sambungan jaringan."
+  },
+  "force_ipv6": {
+    "name": "Maksakeun IPV6",
+    "description": "Maksa pamakean iPv6 pikeun sambungan jaringan."
+  },
+  "force_overwrites": {
+    "name": "Maksa overwittit",
+    "description": "Overwriting file anu tos aya tanpa naros."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Kode format video pikeun diunduh."
+  },
+  "fragment_retries": {
+    "name": "Rapet retak",
+    "description": "Jumlah retries dina kasalahan undeuran."
+  },
+  "geo_verification_proxy": {
+    "name": "Proxy geo",
+    "description": "Server proxy pikeun dianggo pikeun Geo-verifikasi."
+  },
+  "ignore_errors": {
+    "name": "Teu malire kasalahan",
+    "description": "Teu malire kasalahan sareng teraskeun sareng pidéo salajengna."
+  },
+  "impersonate": {
+    "name": "Impersonate",
+    "description": "Klién pikeun impersonate (krom, krom, Chrome, Chrome: Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Tetep serpihan",
+    "description": "Ngajaga popotongan anu diunduh saatos ngagabung."
+  },
+  "language": {
+    "name": "Basana",
+    "description": "Basa aplikasi."
+  },
+  "limit_rate": {
+    "name": "Meunteun suku",
+    "description": "Batesan laju undeuran (e.g., 50K, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Cicing ti mimiti",
+    "description": "Unduh pidéo Live ti mimiti."
+  },
+  "merge_output_format": {
+    "name": "Format video",
+    "description": "Format video ahir akibat tina aliran ngagabung."
+  },
+  "output": {
+    "name": "Citakan kaluaran",
+    "description": "Citemplate pelanggaran kaluaran."
+  },
+  "password": {
+    "name": "Sandi",
+    "description": "Kecap aksés pikeun auténtikasi."
+  },
+  "paths": {
+    "name": "Jalur",
+    "description": "Diréktori ngahémat jinis file anu béda."
+  },
+  "playlist": {
+    "name": "Daptar puter",
+    "description": "Nunjukkeun naha unduh daptar puter lengkep atanapi pidéo tunggal."
+  },
+  "prefer_insecure": {
+    "name": "Resep teu aman",
+    "description": "Nganggo sambungan HTTP sanes HTTPS (YouTube Hungkul)."
+  },
+  "proxy": {
+    "name": "Procxy",
+    "description": "Server proxy pikeun dianggo pikeun pamundut jaringan."
+  },
+  "remux_video": {
+    "name": "Pake Autub",
+    "description": "Ngarobih wadah pidéo tanpa encoding ulang."
+  },
+  "retries": {
+    "name": "Rakiti",
+    "description": "Jumlah retries dina kasalahan undeuran."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip Daptar Telepon saatos kasalahan",
+    "description": "Luncat sesa daptar puter saatos sababaraha kasalahan."
+  },
+  "socket_timeout": {
+    "name": "Waktu stop kontak",
+    "description": "Waktu pikeun sambungan stop kontak dina detik."
+  },
+  "source_address": {
+    "name": "Alesan",
+    "description": "Alamat IP IP pikeun ngabeungkeut nalika ngadamel sambungan."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock",
+    "description": "Tanda bagéan tina kategori sponsorblock."
+  },
+  "sub_format": {
+    "name": "Format subtitle",
+    "description": "Kode format subtitle (s) pikeun diunduh."
+  },
+  "sub_langs": {
+    "name": "Basa subtitle",
+    "description": "Basa subtitle diundeur."
+  },
+  "theme_dark": {
+    "name": "Tema poék",
+    "description": "Téma tina aplikasi."
+  },
+  "twofactor": {
+    "name": "Auténtikasi dua faktor",
+    "description": "Kode oténtikasi dua faktor."
+  },
+  "use_extractors": {
+    "name": "Anggo ekstrak",
+    "description": "Ngaran ékstrak pikeun dianggo (koma dipisahkeun). (\"Sadaya\", \"standar\", \"UND\", ungkapan biasa)"
+  },
+  "username": {
+    "name": "Lunihan",
+    "description": "Username pikeun auténtikasi."
+  },
+  "video_multistreams": {
+    "name": "Midéo Muldallams",
+    "description": "Ngamungkinkeun ngagabungkeun sababaraha aliran pidéo."
+  },
+  "video_password": {
+    "name": "Sandi Kecap aksés",
+    "description": "Kecap aksés pikeun pidéo anu dilindungi."
+  },
+  "video_resolution": {
+    "name": "Resolusi",
+    "description": "Resolusi pidéo anu dipikaresep"
+  },
+  "video_subtitles": {
+    "name": "Substites",
+    "description": "Subtitles video anu disukai"
+  },
+  "wait_for_video": {
+    "name": "Antosan pidéo",
+    "description": "Ngantosan pidéo anu dijadwalkeun janten sayogi sateuacan diunduh."
+  },
+  "write_auto_subs": {
+    "name": "Unduh subtitles otomatis",
+    "description": "Nyerat subtitles otomatis."
+  },
+  "write_subs": {
+    "name": "Unduh subtitles",
+    "description": "Nyerat subtitles manual."
+  },
+  "write_thumbnail": {
+    "name": "Tulis gambar leutik",
+    "description": "Ngahemat gambar leutik pikeun disk."
+  },
+  "xattrs": {
+    "name": "Xattrs",
+    "description": "Nyerat metadata ka filfystem xattrs."
+  },
+  "xff": {
+    "name": "X-teras-terasan",
+    "description": "Nyetél X-Neruskeun - Kanggo Hader pikeun ngarumuskeun lokasi."
+  }
+}

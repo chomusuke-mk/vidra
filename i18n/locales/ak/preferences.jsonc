@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Abort on error .",
+    "description": "Agyaa download nhyehyɛe no sɛ mfomso bi ba a."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Agyat on unavailable fragment .",
+    "description": "Ogya download no mu sɛ asinasin bi nni hɔ a."
+  },
+  "add_headers": {
+    "name": "Headers foforo .",
+    "description": "headers foforɔ a wɔde bɛka network abisadeɛ ho."
+  },
+  "audio_format": {
+    "name": "Audio format .",
+    "description": "Ɔdio a wɔasakra no (MP3, Flac, Opus, ne nea ɛkeka ho) no format."
+  },
+  "audio_language": {
+    "name": "ɔdio .",
+    "description": "Kasa a wɔde tie asɛm a wɔpɛ."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistre ahorow .",
+    "description": "Ɛma kwan ma wɔde ɔdio nsu pii bom."
+  },
+  "audio_quality": {
+    "name": "ɔdio a ɛyɛ papa .",
+    "description": "Audio quality (0 nea eye sen biara, 10 a enye koraa)."
+  },
+  "batch_file": {
+    "name": "Batch fael no .",
+    "description": "Ɔkwan a ɛkɔ fael a URL ahorow wom mu a wobɛtwe."
+  },
+  "break_on_existing": {
+    "name": "Break wɔ dedaw no so .",
+    "description": "Sɛ fael no wɔ hɔ dedaw a, wogyae sɛ wobɛtwe."
+  },
+  "concurrent_fragments": {
+    "name": "Nneɛma asinasin a ɛkɔ so bere koro mu .",
+    "description": "Nkyɛmu dodow a ɛwɔ hɔ bere koro mu a ɛsɛ sɛ wɔtwe (default 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Dannan mfonini nketewa no.",
+    "description": "Dane mfonini nketewa no kɔ format a wɔakyerɛ no so."
+  },
+  "cookies": {
+    "name": "Kukisi .",
+    "description": "Netscape formatted file a wobɛkenkan cookies afi mu na woatow cookie jar agu mu wɔ ."
+  },
+  "cookies_from_browser": {
+    "name": "Kuki a efi browser mu .",
+    "description": "Fa cookies fi browser a wɔakyerɛ no mu ba."
+  },
+  "download_archive": {
+    "name": "Twe Archive .",
+    "description": "Ɔkwan a ɛkɔ fael so kɔ record ID ahorow a wɔatwe no so na ama woakwati nea ɛyɛ abien."
+  },
+  "embed_chapters": {
+    "name": "Embed ti ahorow no .",
+    "description": "Fa ti ahorow no hyɛ fael a etwa to no mu."
+  },
+  "embed_info_json": {
+    "name": "Embed info JSON .",
+    "description": "Embeds info json wɔ fael a etwa to no mu."
+  },
+  "embed_metadata": {
+    "name": "Embed metadata .",
+    "description": "Embeds metadata wɔ fael a etwa to no mu."
+  },
+  "embed_subs": {
+    "name": "Embed subtitles .",
+    "description": "Embeds subtitles wɔ fael a etwa to no mu."
+  },
+  "embed_thumbnail": {
+    "name": "Embed thumbnail .",
+    "description": "Fa mfonini ketewa no hyɛ fael a etwa to no mu."
+  },
+  "enable_file_urls": {
+    "name": "Ma fael URL ahorow nyɛ adwuma .",
+    "description": "Ɛma wotumi de fael URL ahorow di dwuma ma mpɔtam hɔ fael ahorow."
+  },
+  "extract_audio": {
+    "name": "Yi ɔdio .",
+    "description": "Yi ɔdio fi video ahorow a wɔatwe mu (de FFMPEG di dwuma)."
+  },
+  "extractor_retries": {
+    "name": "Extractor retries .",
+    "description": "Retries dodow a ɛwɔ extractor mfomso so."
+  },
+  "ffmpeg_location": {
+    "name": "ffmpeg beae a ɛwɔ .",
+    "description": "Ɔkwan a ɛkɔ ffmpeg binary no so."
+  },
+  "file_access_retries": {
+    "name": "Fael a wɔde kɔ hɔ no retries .",
+    "description": "Retries dodow a ɛwɔ fael a wɔde kɔ mu mfomso so."
+  },
+  "fixup": {
+    "name": "Fixup .",
+    "description": "Ɔteɛ mfomso ahorow a wonim wɔ video fael no mu no so ara kwa."
+  },
+  "font_size": {
+    "name": "Nkyerɛwde no kɛse .",
+    "description": "Font size a wɔde di dwuma wɔ application no mu."
+  },
+  "force_ipv4": {
+    "name": "ahoɔden IPv4.",
+    "description": "ɛhyɛ IPv4 a wɔde di dwuma ma network nkitahodi ahorow no den."
+  },
+  "force_ipv6": {
+    "name": "ahoɔden IPv6.",
+    "description": "ɛhyɛ IPv6 a wɔde di dwuma ma network nkitahodi ahorow no den."
+  },
+  "force_overwrites": {
+    "name": "ahoɔden a wɔde kyerɛw nsɛm .",
+    "description": "kyerɛw fael ahorow a ɛwɔ hɔ dedaw no so a wommisa."
+  },
+  "format": {
+    "name": "Format .",
+    "description": "Video format code(s) a wobɛtwe."
+  },
+  "fragment_retries": {
+    "name": "Mpaapaemu ret .",
+    "description": "Retries dodow a ɛwɔ fragment download mfomso so."
+  },
+  "geo_verification_proxy": {
+    "name": "GEO verification Proxy .",
+    "description": "Proxy Server a wɔde bedi dwuma ama geo-verification."
+  },
+  "ignore_errors": {
+    "name": "Bu w’ani gu mfomso ahorow so .",
+    "description": "Bu w’ani gu mfomso a ɛba wɔ download so no so na toa so fa video a edi hɔ no."
+  },
+  "impersonate": {
+    "name": "Yɛ wo ho sɛ wo ho .",
+    "description": "akraman a wɔyɛ wɔn ho sɛ wɔyɛ wɔn ho sɛ wɔyɛ wɔn ho sɛ wɔyɛ wɔn ho sɛ wɔyɛ no (Chrome, Chrome-110, Chrome:Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Fa asinasin sie .",
+    "description": "Ɔkora asinasin a wɔatwe no so bere a wɔaka abom awie no."
+  },
+  "language": {
+    "name": "Kasa",
+    "description": "Kasa a ɛwɔ application no mu."
+  },
+  "limit_rate": {
+    "name": "Anohyeto dodow .",
+    "description": "Ɔto ahoɔhare a wɔde twe ade no ano hye (sɛ nhwɛso no, 50K, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Live fi mfiase .",
+    "description": "Downloads live videos fi mfiase."
+  },
+  "merge_output_format": {
+    "name": "Video format .",
+    "description": "Video format a etwa to a efi nsubɔnten a wɔde ka bom mu ba."
+  },
+  "output": {
+    "name": "Output Template .",
+    "description": "Output fael din nsusuwso."
+  },
+  "password": {
+    "name": "Paswɛde",
+    "description": "Password a wɔde di dwuma ma ɛyɛ nokware."
+  },
+  "paths": {
+    "name": "Akwan .",
+    "description": "Directories a wɔde sie fael ahorow ahorow."
+  },
+  "playlist": {
+    "name": "Playlist .",
+    "description": "Kyerɛ sɛ wobɛtwe playlist a edi mũ anaa video biako."
+  },
+  "prefer_insecure": {
+    "name": "Wopɛ a, ɛnyɛ nea ahobammɔ wom .",
+    "description": "Ɔde HTTP nkitahodi di dwuma sen sɛ ɔde HTTPS bedi dwuma (YouTube nkutoo)."
+  },
+  "proxy": {
+    "name": "Proxy .",
+    "description": "Proxy Server a wɔde bedi dwuma ama network abisade ahorow."
+  },
+  "remux_video": {
+    "name": "Remux video .",
+    "description": "Sesa video container no a ɛnsan nhyɛ mu bio."
+  },
+  "retries": {
+    "name": "Retries .",
+    "description": "Retries dodow wɔ download mfomso ahorow so."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip playlist akyi mfomso .",
+    "description": "Skips playlist no nkaeɛ no wɔ mfomsoɔ dodoɔ bi akyi."
+  },
+  "socket_timeout": {
+    "name": "Socket bere a wɔde yɛ adwuma .",
+    "description": "Timeout ma socket nkitahodi wɔ sikan kakraa bi mu."
+  },
+  "source_address": {
+    "name": "Address a efi fibea hɔ .",
+    "description": "Client IP address to bind to bere a woreyɛ nkitahodi."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark .",
+    "description": "Hyɛ no agyirae sɛ afã horow a efi SponsorBlock akuw ahorow mu."
+  },
+  "sub_format": {
+    "name": "Subtitle format .",
+    "description": "Subtitle format code(s) a wobɛtwe."
+  },
+  "sub_langs": {
+    "name": "Kasa horow a ɛwɔ ase .",
+    "description": "Kasa horow a ɛwɔ nsɛm asekyerɛ nhoma no mu a ɛsɛ sɛ wotwe."
+  },
+  "theme_dark": {
+    "name": "Asɛmti a ɛyɛ sum .",
+    "description": "Asɛmti a ɛwɔ akwammisa krataa no mu."
+  },
+  "twofactor": {
+    "name": "Nneɛma a ɛwɔ nneɛma abien mu a ɛkyerɛ sɛ ɛyɛ nokware .",
+    "description": "Nneɛma a ɛwɔ nneɛma abien mu a ɛkyerɛ sɛ ɛyɛ nokware."
+  },
+  "use_extractors": {
+    "name": "Fa nneɛma a wɔde yi nneɛma fi mu di dwuma .",
+    "description": "Extractors din a wɔde bedi dwuma (comma atew ne ho).(\"All\",\"Default\",\"Awiei\",Regular Expression)"
+  },
+  "username": {
+    "name": "Ɔdefo din .",
+    "description": "username ma authentication."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams .",
+    "description": "Ɛma kwan ma wɔde video nsu pii ka bom."
+  },
+  "video_password": {
+    "name": "Video Asɛmfua .",
+    "description": "Password a wɔde yɛ video ahorow a wɔde password abɔ ho ban."
+  },
+  "video_resolution": {
+    "name": "Nhyehyɛeɛ",
+    "description": "Video a Wɔpɛ sɛ Wosiesie ."
+  },
+  "video_subtitles": {
+    "name": "Nsɛmfua a ɛwɔ ase .",
+    "description": "Video ase nsɛmti a wɔpɛ ."
+  },
+  "wait_for_video": {
+    "name": "Twɛn video .",
+    "description": "Twɛn sɛ video a wɔahyɛ da ayɛ ho nhyehyɛe bɛba ansa na woatwe."
+  },
+  "write_auto_subs": {
+    "name": "Twe auto subtitles no bi .",
+    "description": "kyerɛw nsɛm asekyerɛ nhoma a ɛwɔ hɔ ankasa."
+  },
+  "write_subs": {
+    "name": "Twe nsɛm asekyerɛ nhoma no .",
+    "description": "kyerɛw nhoma mu nsɛm asekyerɛ nhoma a ɛwɔ hɔ."
+  },
+  "write_thumbnail": {
+    "name": "Twerɛ mfonini ketewa bi .",
+    "description": "Ɔkora video mfonini ketewa no so ma ɛyɛ disk."
+  },
+  "xattrs": {
+    "name": "XATTRS .",
+    "description": "kyerɛw metadata kɔ fael nhyehyɛe xattrs no so."
+  },
+  "xff": {
+    "name": "X-forward-for .",
+    "description": "Set x-forwarded-for header no ma ɛyɛ beae a ɛwɔ no ho mfonini."
+  }
+}

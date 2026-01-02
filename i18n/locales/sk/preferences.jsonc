@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Zrušiť pri chybe",
+    "description": "Preruší proces sťahovania, ak sa vyskytne chyba."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Prerušiť na nedostupnom fragmente",
+    "description": "Preruší sťahovanie, ak fragment nie je k dispozícii."
+  },
+  "add_headers": {
+    "name": "Ďalšie hlavičky",
+    "description": "Ďalšie hlavičky, ktoré sa majú zahrnúť do sieťových požiadaviek."
+  },
+  "audio_format": {
+    "name": "Formát zvuku",
+    "description": "Formát konvertovaného zvuku (mp3, flac, opus atď.)."
+  },
+  "audio_language": {
+    "name": "Zvuk",
+    "description": "Kód preferovaného jazyka zvuku."
+  },
+  "audio_multistreams": {
+    "name": "Zvukové multistreamy",
+    "description": "Umožňuje kombináciu viacerých audio streamov."
+  },
+  "audio_quality": {
+    "name": "Kvalita zvuku",
+    "description": "Kvalita zvuku (0 najlepších, 10 najhorších)."
+  },
+  "batch_file": {
+    "name": "Dávkový súbor",
+    "description": "Cesta k súboru obsahujúcemu adresy URL na stiahnutie."
+  },
+  "break_on_existing": {
+    "name": "Break on Existing",
+    "description": "Zastaví sťahovanie, ak súbor už existuje."
+  },
+  "concurrent_fragments": {
+    "name": "Súbežné fragmenty",
+    "description": "Počet súčasných fragmentov na stiahnutie (predvolené 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Previesť miniatúry",
+    "description": "Previesť miniatúry do určeného formátu."
+  },
+  "cookies": {
+    "name": "Cookies",
+    "description": "Súbor vo formáte Netscape na čítanie súborov cookie a uloženie pohára súborov cookie"
+  },
+  "cookies_from_browser": {
+    "name": "Súbory cookie z prehliadača",
+    "description": "Importuje súbory cookie zo zadaného prehliadača."
+  },
+  "download_archive": {
+    "name": "Stiahnite si archív",
+    "description": "Cesta k súboru na zaznamenanie stiahnutých ID, aby sa predišlo duplikáciám."
+  },
+  "embed_chapters": {
+    "name": "Vložiť kapitoly",
+    "description": "Vloží kapitoly do konečného súboru."
+  },
+  "embed_info_json": {
+    "name": "Vložiť informácie JSON",
+    "description": "Vloží informačný JSON do konečného súboru."
+  },
+  "embed_metadata": {
+    "name": "Vložiť metadáta",
+    "description": "Vloží metadáta do konečného súboru."
+  },
+  "embed_subs": {
+    "name": "Vložiť titulky",
+    "description": "Vloží titulky do výsledného súboru."
+  },
+  "embed_thumbnail": {
+    "name": "Vložiť miniatúru",
+    "description": "Vloží miniatúru do konečného súboru."
+  },
+  "enable_file_urls": {
+    "name": "Povoliť adresy URL súborov",
+    "description": "Umožňuje použitie adries URL súborov pre lokálne súbory."
+  },
+  "extract_audio": {
+    "name": "Extrahovať zvuk",
+    "description": "Extrahuje zvuk zo stiahnutých videí (používa ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Opätovné pokusy extraktora",
+    "description": "Počet opakovaní chýb extraktora."
+  },
+  "ffmpeg_location": {
+    "name": "Umiestnenie FFmpeg",
+    "description": "Cesta k binárnemu súboru FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Opätovné pokusy o prístup k súboru",
+    "description": "Počet opakovaní chýb prístupu k súboru."
+  },
+  "fixup": {
+    "name": "Oprava",
+    "description": "Automaticky opravuje známe chyby vo video súbore."
+  },
+  "font_size": {
+    "name": "Veľkosť písma",
+    "description": "Veľkosť písma použitá v aplikácii."
+  },
+  "force_ipv4": {
+    "name": "Vynútiť IPv4",
+    "description": "Vynúti používanie IPv4 pre sieťové pripojenia."
+  },
+  "force_ipv6": {
+    "name": "Vynútiť IPv6",
+    "description": "Vynúti používanie IPv6 pre sieťové pripojenia."
+  },
+  "force_overwrites": {
+    "name": "Vynútiť prepísanie",
+    "description": "Prepíše existujúce súbory bez opýtania."
+  },
+  "format": {
+    "name": "Formátovať",
+    "description": "Kód(y) formátu videa na stiahnutie."
+  },
+  "fragment_retries": {
+    "name": "Fragment Retries",
+    "description": "Počet opakovaní chýb pri sťahovaní fragmentov."
+  },
+  "geo_verification_proxy": {
+    "name": "Proxy na overenie geografickej polohy",
+    "description": "Proxy server, ktorý sa má použiť na geografické overenie."
+  },
+  "ignore_errors": {
+    "name": "Ignorovať chyby",
+    "description": "Ignorujte chyby sťahovania a pokračujte ďalším videom."
+  },
+  "impersonate": {
+    "name": "Zosobniť sa",
+    "description": "Odcudzenie identity klienta (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Ponechajte fragmenty",
+    "description": "Po zlúčení uchováva stiahnuté fragmenty."
+  },
+  "language": {
+    "name": "Jazyk",
+    "description": "Jazyk aplikácie."
+  },
+  "limit_rate": {
+    "name": "Limitná sadzba",
+    "description": "Obmedzuje rýchlosť sťahovania (napr. 50 kB, 4,2 M)."
+  },
+  "live_from_start": {
+    "name": "Naživo od začiatku",
+    "description": "Sťahuje živé videá od začiatku."
+  },
+  "merge_output_format": {
+    "name": "Formát videa",
+    "description": "Konečný formát videa, ktorý je výsledkom zlúčenia streamov."
+  },
+  "output": {
+    "name": "Šablóna výstupu",
+    "description": "Šablóna výstupného súboru."
+  },
+  "password": {
+    "name": "heslo",
+    "description": "Heslo na overenie."
+  },
+  "paths": {
+    "name": "Cesty",
+    "description": "Adresáre na ukladanie rôznych typov súborov."
+  },
+  "playlist": {
+    "name": "Zoznam skladieb",
+    "description": "Označuje, či sa má stiahnuť celý zoznam skladieb alebo jedno video."
+  },
+  "prefer_insecure": {
+    "name": "Uprednostňujte neistotu",
+    "description": "Používa HTTP pripojenie namiesto HTTPS (iba YouTube)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Proxy server na použitie pre sieťové požiadavky."
+  },
+  "remux_video": {
+    "name": "Remux Video",
+    "description": "Zmení kontajner videa bez opätovného kódovania."
+  },
+  "retries": {
+    "name": "Opakované pokusy",
+    "description": "Počet opakovaní chýb pri sťahovaní."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Preskočiť zoznam skladieb po chybách",
+    "description": "Po určitom počte chýb preskočí zvyšok zoznamu skladieb."
+  },
+  "socket_timeout": {
+    "name": "Časový limit zásuvky",
+    "description": "Časový limit pre pripojenia soketov v sekundách."
+  },
+  "source_address": {
+    "name": "Adresa zdroja",
+    "description": "Adresa IP klienta, na ktorú sa má viazať pri vytváraní pripojení."
+  },
+  "sponsorblock_mark": {
+    "name": "Značka sponzorského bloku",
+    "description": "Označuje segmenty z kategórií SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Formát titulkov",
+    "description": "Kód(y) formátu titulkov na stiahnutie."
+  },
+  "sub_langs": {
+    "name": "Jazyky titulkov",
+    "description": "Jazyky titulkov na stiahnutie."
+  },
+  "theme_dark": {
+    "name": "Temná téma",
+    "description": "Téma aplikácie."
+  },
+  "twofactor": {
+    "name": "Dvojfaktorová autentifikácia",
+    "description": "Dvojfaktorový overovací kód."
+  },
+  "use_extractors": {
+    "name": "Použite extraktory",
+    "description": "Názvy extraktorov, ktoré sa majú použiť (oddelené čiarkou).(\"all\",\"default\",\"end\",regulárny výraz)"
+  },
+  "username": {
+    "name": "Používateľské meno",
+    "description": "Používateľské meno na overenie."
+  },
+  "video_multistreams": {
+    "name": "Video multistreamy",
+    "description": "Umožňuje kombináciu viacerých video streamov."
+  },
+  "video_password": {
+    "name": "Heslo videa",
+    "description": "Heslo pre videá chránené heslom."
+  },
+  "video_resolution": {
+    "name": "Rozlíšenie",
+    "description": "Preferované rozlíšenie videa"
+  },
+  "video_subtitles": {
+    "name": "titulky",
+    "description": "Preferované titulky videa"
+  },
+  "wait_for_video": {
+    "name": "Počkajte na Video",
+    "description": "Pred stiahnutím čaká na sprístupnenie naplánovaného videa."
+  },
+  "write_auto_subs": {
+    "name": "Stiahnite si automatické titulky",
+    "description": "Zapisuje dostupné automatické titulky."
+  },
+  "write_subs": {
+    "name": "Stiahnite si titulky",
+    "description": "Zapisuje dostupné manuálne titulky."
+  },
+  "write_thumbnail": {
+    "name": "Napíšte miniatúru",
+    "description": "Uloží miniatúru videa na disk."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Zapisuje metadáta do súborového systému xattrs."
+  },
+  "xff": {
+    "name": "X-Forwarded-For",
+    "description": "Nastaví hlavičku X-Forwarded-For na simuláciu polohy."
+  }
+}

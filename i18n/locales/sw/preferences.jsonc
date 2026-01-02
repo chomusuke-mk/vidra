@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Toa kwa makosa",
+    "description": "Aborts mchakato wa kupakua ikiwa kosa linatokea."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Toa toa kwenye kipande kisichopatikana",
+    "description": "Aborts kupakua ikiwa kipande haipatikani."
+  },
+  "add_headers": {
+    "name": "Vichwa vya ziada",
+    "description": "Vichwa vya ziada vya kujumuisha katika maombi ya mtandao."
+  },
+  "audio_format": {
+    "name": "Muundo wa sauti",
+    "description": "Fomati ya sauti iliyobadilishwa (MP3, FLAC, Opus, nk)."
+  },
+  "audio_language": {
+    "name": "Sauti",
+    "description": "Nambari ya lugha ya sauti inayopendelea."
+  },
+  "audio_multistreams": {
+    "name": "Multistreams za sauti",
+    "description": "Inaruhusu kuchanganya mito mingi ya sauti."
+  },
+  "audio_quality": {
+    "name": "Ubora wa sauti",
+    "description": "Ubora wa sauti (0 bora, 10 mbaya zaidi)."
+  },
+  "batch_file": {
+    "name": "Faili ya batch",
+    "description": "Njia ya faili iliyo na URL ili kupakua."
+  },
+  "break_on_existing": {
+    "name": "Kuvunja zilizopo",
+    "description": "Ataacha kupakua ikiwa faili tayari ipo."
+  },
+  "concurrent_fragments": {
+    "name": "Vipande vya kawaida",
+    "description": "Idadi ya vipande vya wakati huo huo kupakua (chaguo -msingi 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Badilisha vijipicha",
+    "description": "Badilisha vijipicha kuwa muundo uliowekwa."
+  },
+  "cookies": {
+    "name": "Vidakuzi",
+    "description": "Faili iliyoundwa na Netscape kusoma kuki kutoka na utupe jar ya kuki ndani"
+  },
+  "cookies_from_browser": {
+    "name": "Vidakuzi kutoka kwa kivinjari",
+    "description": "Huingiza kuki kutoka kwa kivinjari maalum."
+  },
+  "download_archive": {
+    "name": "Pakua Jalada",
+    "description": "Njia ya kuweka faili ili kurekodi vitambulisho vilivyopakuliwa ili kuepusha marudio."
+  },
+  "embed_chapters": {
+    "name": "Kupachika sura",
+    "description": "Huingiza sura kwenye faili ya mwisho."
+  },
+  "embed_info_json": {
+    "name": "Maelezo ya Embed JSON",
+    "description": "Huingiza habari JSON kwenye faili ya mwisho."
+  },
+  "embed_metadata": {
+    "name": "Embed metadata",
+    "description": "Huingiza metadata kwenye faili ya mwisho."
+  },
+  "embed_subs": {
+    "name": "Kuingiza manukuu",
+    "description": "Huingiza manukuu kwenye faili ya mwisho."
+  },
+  "embed_thumbnail": {
+    "name": "Kupachika kijipicha",
+    "description": "Huingiza kijipicha kwenye faili ya mwisho."
+  },
+  "enable_file_urls": {
+    "name": "Wezesha URL za faili",
+    "description": "Inawasha utumiaji wa URL za faili kwa faili za kawaida."
+  },
+  "extract_audio": {
+    "name": "Toa sauti",
+    "description": "Huondoa sauti kutoka kwa video zilizopakuliwa (hutumia ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Extractor inarudi",
+    "description": "Idadi ya kurudishiwa makosa ya Extractor."
+  },
+  "ffmpeg_location": {
+    "name": "Eneo la ffmpeg",
+    "description": "Njia ya FFmpeg Binary."
+  },
+  "file_access_retries": {
+    "name": "Ufikiaji wa Faili",
+    "description": "Idadi ya kurudishiwa makosa ya ufikiaji wa faili."
+  },
+  "fixup": {
+    "name": "Reistup",
+    "description": "Hurekebisha moja kwa moja makosa yanayojulikana katika faili ya video."
+  },
+  "font_size": {
+    "name": "Saizi ya fonti",
+    "description": "Saizi ya fonti inayotumika kwenye programu."
+  },
+  "force_ipv4": {
+    "name": "Nguvu IPv4",
+    "description": "Inalazimisha utumiaji wa IPv4 kwa miunganisho ya mtandao."
+  },
+  "force_ipv6": {
+    "name": "Nguvu IPv6",
+    "description": "Inalazimisha utumiaji wa IPv6 kwa miunganisho ya mtandao."
+  },
+  "force_overwrites": {
+    "name": "Nguvu huandika",
+    "description": "Huandika faili zilizopo bila kuuliza."
+  },
+  "format": {
+    "name": "Muundo",
+    "description": "Nambari za muundo wa video kupakua."
+  },
+  "fragment_retries": {
+    "name": "Fragment inarudishwa",
+    "description": "Idadi ya kurudishiwa kwenye makosa ya kupakua vipande."
+  },
+  "geo_verification_proxy": {
+    "name": "Wakala wa Uthibitishaji wa Geo",
+    "description": "Seva ya wakala kutumia kwa uthibitisho wa geo."
+  },
+  "ignore_errors": {
+    "name": "Kupuuza makosa",
+    "description": "Puuza makosa ya kupakua na endelea na video inayofuata."
+  },
+  "impersonate": {
+    "name": "Kuiga",
+    "description": "Mteja kuiga (Chrome, Chrome-110, Chrome: Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Weka vipande",
+    "description": "Huweka vipande vilivyopakuliwa baada ya kuunganishwa."
+  },
+  "language": {
+    "name": "Lugha",
+    "description": "Lugha ya Maombi."
+  },
+  "limit_rate": {
+    "name": "Kiwango cha kikomo",
+    "description": "Hupunguza kasi ya kupakua (k.m. 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Kuishi kutoka mwanzo",
+    "description": "Inapakua video za moja kwa moja tangu mwanzo."
+  },
+  "merge_output_format": {
+    "name": "Muundo wa video",
+    "description": "Fomati ya mwisho ya video inayotokana na kuunganisha mito."
+  },
+  "output": {
+    "name": "Template ya pato",
+    "description": "Template ya jina la faili."
+  },
+  "password": {
+    "name": "Nenosiri",
+    "description": "Nywila kwa uthibitishaji."
+  },
+  "paths": {
+    "name": "Njia",
+    "description": "Saraka ili kuokoa aina tofauti za faili."
+  },
+  "playlist": {
+    "name": "Orodha ya kucheza",
+    "description": "Inaashiria kupakua orodha kamili ya kucheza au video moja."
+  },
+  "prefer_insecure": {
+    "name": "Pendelea kutokuwa na usalama",
+    "description": "Inatumia unganisho la HTTP badala ya HTTPS (YouTube tu)."
+  },
+  "proxy": {
+    "name": "Wakala",
+    "description": "Seva ya wakala kutumia kwa maombi ya mtandao."
+  },
+  "remux_video": {
+    "name": "Video ya Remux",
+    "description": "Hubadilisha chombo cha video bila kuweka tena."
+  },
+  "retries": {
+    "name": "Anarudi",
+    "description": "Idadi ya kurudishiwa makosa ya kupakua."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Ruka orodha ya kucheza baada ya makosa",
+    "description": "Rukia orodha iliyobaki ya kucheza baada ya idadi fulani ya makosa."
+  },
+  "socket_timeout": {
+    "name": "Wakati wa kumalizika",
+    "description": "Muda wa miunganisho ya tundu katika sekunde."
+  },
+  "source_address": {
+    "name": "Anwani ya chanzo",
+    "description": "Anwani ya IP ya mteja kufunga wakati wa kutengeneza miunganisho."
+  },
+  "sponsorblock_mark": {
+    "name": "Sponsorblock alama",
+    "description": "Alama za sehemu kutoka kwa vikundi vya SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Fomati ndogo",
+    "description": "Nambari za muundo wa Subtitle kupakua."
+  },
+  "sub_langs": {
+    "name": "Lugha ndogo",
+    "description": "Lugha za manukuu kupakua."
+  },
+  "theme_dark": {
+    "name": "Mandhari ya giza",
+    "description": "Mandhari ya programu."
+  },
+  "twofactor": {
+    "name": "Uthibitishaji wa sababu mbili",
+    "description": "Nambari ya uthibitishaji wa sababu mbili."
+  },
+  "use_extractors": {
+    "name": "Tumia dondoo",
+    "description": "Majina ya dondoo kutumia (comma kutengwa). (\"Yote\", \"chaguo -msingi\", \"mwisho\", usemi wa kawaida)"
+  },
+  "username": {
+    "name": "Jina la mtumiaji",
+    "description": "Jina la mtumiaji kwa uthibitishaji."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams",
+    "description": "Inaruhusu kuchanganya mito mingi ya video."
+  },
+  "video_password": {
+    "name": "Nenosiri la video",
+    "description": "Nenosiri la video zilizolindwa na nywila."
+  },
+  "video_resolution": {
+    "name": "Azimio",
+    "description": "Azimio la video linalopendelea"
+  },
+  "video_subtitles": {
+    "name": "Manukuu",
+    "description": "Manukuu ya video yaliyopendekezwa"
+  },
+  "wait_for_video": {
+    "name": "Subiri video",
+    "description": "Inasubiri video iliyopangwa kupatikana kabla ya kupakuliwa."
+  },
+  "write_auto_subs": {
+    "name": "Pakua manukuu ya Auto",
+    "description": "Anaandika manukuu ya moja kwa moja."
+  },
+  "write_subs": {
+    "name": "Pakua manukuu",
+    "description": "Anaandika manukuu ya mwongozo yanayopatikana."
+  },
+  "write_thumbnail": {
+    "name": "Andika kijipicha",
+    "description": "Inaokoa kijipicha cha video kwa diski."
+  },
+  "xattrs": {
+    "name": "Xattrs",
+    "description": "Anaandika metadata kwa mfumo wa faili."
+  },
+  "xff": {
+    "name": "X-mbele-kwa",
+    "description": "Inaweka kichwa cha X-mbele-kwa kichwa kuiga eneo."
+  }
+}

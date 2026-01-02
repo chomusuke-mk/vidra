@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Ho ntša mpa ka phoso",
+    "description": "Ha a ntse a jarolla tšebetso ea download haeba phoso e etsahala."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Ho ntša mpa ka sekhechana se sa fumaneheng",
+    "description": "Ho jarolla download haeba sekhechana se sa fumanehe."
+  },
+  "add_headers": {
+    "name": "Lihlooho tse ling",
+    "description": "Lihlooho tse ling ho kenyelletsa likopo tsa marang-rang."
+  },
+  "audio_format": {
+    "name": "Sebopeho sa audio",
+    "description": "Sebopeho sa audio (mp3, mp3, Flac, ePus, jj."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Khoutu ea lipuo tse utisang."
+  },
+  "audio_multistreams": {
+    "name": "Li-commastistreams tsa audio",
+    "description": "E lumella ho kopanya melapo e mengata ea audio."
+  },
+  "audio_quality": {
+    "name": "Boleng ba audio",
+    "description": "Boleng ba audio (0 Best, 10 e mpe ka ho fetisisa)."
+  },
+  "batch_file": {
+    "name": "Faele ea Batch",
+    "description": "Tsela e eang faeleng e nang le urls ho jarolla."
+  },
+  "break_on_existing": {
+    "name": "Roba ho ba teng",
+    "description": "Ho emisa ho jarolla haeba file e se e ntse e le teng."
+  },
+  "concurrent_fragments": {
+    "name": "Likotoana tsa concurrent",
+    "description": "Palo ea likhechana tse tšoanang ho jarolla (kamehla 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Fetolela li-thumbnails",
+    "description": "Fetolela li-pumbnails ho sebopeho se boletsoeng."
+  },
+  "cookies": {
+    "name": "Cookies",
+    "description": "File Family Family Family ho bala li-cookies ho tloha le ho dump cookie jar ka"
+  },
+  "cookies_from_browser": {
+    "name": "Li-cookies ho tsoa ho sebatli",
+    "description": "Kenya li-cookies tse tsoang sebatli se boletsoeng."
+  },
+  "download_archive": {
+    "name": "Jarolla Archive",
+    "description": "Tsela e eang faeleng ho rekota li-ID ho qoba ho kopitsa."
+  },
+  "embed_chapters": {
+    "name": "Khaolo e Ngotsoeng",
+    "description": "Baetsi ba baetsi ba teng faeleng ea ho qetela."
+  },
+  "embed_info_json": {
+    "name": "Tlohoe Info Json",
+    "description": "EMPAND APPO JSON ho faele ea ho qetela."
+  },
+  "embed_metadata": {
+    "name": "Tlohella metadata",
+    "description": "Empwang Metadata faeleng ea ho qetela."
+  },
+  "embed_subs": {
+    "name": "Emb",
+    "description": "E ea emisa ka li-suptilles faeleng ea ho qetela."
+  },
+  "embed_thumbnail": {
+    "name": "Emba embnail",
+    "description": "Ebatsoa seliba sa ho qetela faeleng ea ho qetela."
+  },
+  "enable_file_urls": {
+    "name": "Netefatsa li-URL tsa faele",
+    "description": "E thusa tšebeliso ea li-urls tsa faele bakeng sa lifaele tsa lehae."
+  },
+  "extract_audio": {
+    "name": "Extract Audio",
+    "description": "E nne makoloi ho tsoa livideo tse jarotseng (li sebelisa ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Extractor e tlola hape",
+    "description": "Palo ea ho itokolla liphoso tsa kantle ho naha."
+  },
+  "ffmpeg_location": {
+    "name": "Sebaka sa Ffmpeg",
+    "description": "Tsela e lebang mokhoeng oa FFMPEG."
+  },
+  "file_access_retries": {
+    "name": "Ho fihlella faele ea faele",
+    "description": "Palo ea libaka tse ling tsa liphoso tsa faele."
+  },
+  "fixup": {
+    "name": "Lokisa",
+    "description": "Ka boeona ho lokisa liphoso tse tsejoang faeleng ea video."
+  },
+  "font_size": {
+    "name": "Boholo ba font",
+    "description": "Boholo ba fonte e sebelisoang ts'ebelisong."
+  },
+  "force_ipv4": {
+    "name": "Force Ipv4",
+    "description": "Li qobella tšebeliso ea ipv4 bakeng sa khokahano ea marang-rang."
+  },
+  "force_ipv6": {
+    "name": "Qobella Ipv6",
+    "description": "Li qobella tšebeliso ea ipv6 bakeng sa khokahano ea marang-rang."
+  },
+  "force_overwrites": {
+    "name": "Qobella tse kholo",
+    "description": "Fokotsa lifaele tse teng ntle le ho botsa."
+  },
+  "format": {
+    "name": "Sebopeho",
+    "description": "Khoutu ea Foromo ea Video (s) ea ho jarolla."
+  },
+  "fragment_retries": {
+    "name": "INTIVIVE E BONAHALA",
+    "description": "Palo ea liemahale mabapi le sekhechana sa download."
+  },
+  "geo_verification_proxy": {
+    "name": "Prono ea netefatso ea geo",
+    "description": "Seva ea proxy ea ho sebelisa netefatso ea Geo-nete."
+  },
+  "ignore_errors": {
+    "name": "Hlokomoloha liphoso",
+    "description": "Ho hlokomoloha liphoso le ho tsoela pele ka video e latelang."
+  },
+  "impersonate": {
+    "name": "Semelo",
+    "description": "Moreki ho sa impperpersonate (Chrome, chrome-110, chrome: windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Boloka likotoana",
+    "description": "E boloka likotoana tse jarollotsoeng ka mor'a ho kopanya."
+  },
+  "language": {
+    "name": "Puo",
+    "description": "Puo ea kopo."
+  },
+  "limit_rate": {
+    "name": "Sekhahla sa moeli",
+    "description": "E fokotsa lebelo la ho jarolla (e.g., 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Phela ho tloha qalong",
+    "description": "Khoasolla livideo tse phelelang ho tloha qalong."
+  },
+  "merge_output_format": {
+    "name": "Sebopeho sa video",
+    "description": "Maro a video a hoqetela a hlahisoang ke ho kopanya melapo."
+  },
+  "output": {
+    "name": "Template ea tlhahiso",
+    "description": "Template ea lebitso la faele."
+  },
+  "password": {
+    "name": "Password",
+    "description": "Password ea netefatso."
+  },
+  "paths": {
+    "name": "Litsela",
+    "description": "Li-directory ho boloka mefuta e fapaneng ea lifaele."
+  },
+  "playlist": {
+    "name": "Lenane la Lipapali",
+    "description": "E bontša hore na u ka jarolla lenane le felletseng kapa video e le 'ngoe."
+  },
+  "prefer_insecure": {
+    "name": "Khetha ho se sireletsehe",
+    "description": "E sebelisa khokahano ea http ho fapana le HTTPS (YouTube Feela)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Seva ea proxy ea ho sebelisa likopo tsa marang-rang."
+  },
+  "remux_video": {
+    "name": "Video ea Remoux",
+    "description": "E fetola sejana sa video ntle le ho tlisoa hape."
+  },
+  "retries": {
+    "name": "Repries",
+    "description": "Palo ea ho itokolla ka ho jarolla liphoso."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip playlist kamora liphoso",
+    "description": "E ts'oarelle setsebi sa lipapali ka mor'a palo e itseng ea liphoso."
+  },
+  "socket_timeout": {
+    "name": "Socock Nako",
+    "description": "Nako ea nako ea li-socket ka motsotsoana."
+  },
+  "source_address": {
+    "name": "Aterese ea mohloli",
+    "description": "Aterese ea IP ea Client ea ho tlama ha e etsa lihokelo."
+  },
+  "sponsorblock_mark": {
+    "name": "Letšoao la tšehetso",
+    "description": "Likarolo tse tšoaeang ho tšehetsa mekhahlelo."
+  },
+  "sub_format": {
+    "name": "Sebopeho sa subtitle",
+    "description": "Khoutu ea boemo ba subtitle (s) ea ho jarolla."
+  },
+  "sub_langs": {
+    "name": "Lipuo tsa Subtitle",
+    "description": "Lipuo tsa subtitles to download."
+  },
+  "theme_dark": {
+    "name": "Sehlooho se lefifi",
+    "description": "Sehlooho sa kopo."
+  },
+  "twofactor": {
+    "name": "Netefatso ea matla a mabeli",
+    "description": "Khoutu ea netefatso ea netefatso."
+  },
+  "use_extractors": {
+    "name": "Sebelisa tsexcractors",
+    "description": "Mabitso a ho fetisoa (comma e arohaneng). (\"Sohle\", \"Qetellong\", polelo e tloaelehileng)"
+  },
+  "username": {
+    "name": "Username",
+    "description": "Username bakeng sa netefatso."
+  },
+  "video_multistreams": {
+    "name": "Li-couristreams tsa video",
+    "description": "E lumella ho kopanya melapo e mengata ea liphio."
+  },
+  "video_password": {
+    "name": "Password ea video",
+    "description": "Sephiri sa livideo tse sirelelitsoeng tsa password."
+  },
+  "video_resolution": {
+    "name": "Qeto",
+    "description": "Qeto e ratoang tsa Video"
+  },
+  "video_subtitles": {
+    "name": "Subtitles",
+    "description": "Litšoantšo tse ratoang tsa video tse khethiloeng"
+  },
+  "wait_for_video": {
+    "name": "Emela video",
+    "description": "E emetse video e reriloeng hore e be teng pele e jarolla."
+  },
+  "write_auto_subs": {
+    "name": "Khoasolla li-subtitles tsa Auto",
+    "description": "E ngola tse ling tse fumanehang ka tlase-tekano."
+  },
+  "write_subs": {
+    "name": "Khoasolla Subtitles",
+    "description": "E ngola libuka tse fumanehang."
+  },
+  "write_thumbnail": {
+    "name": "Ngola Thumbnail",
+    "description": "E boloka video ea video ho disk."
+  },
+  "xattrs": {
+    "name": "XATTSS",
+    "description": "E ngola metadata ho li-file tsa li-file tsa li-filesytem xattrs."
+  },
+  "xff": {
+    "name": "X-tse fetisitsoeng",
+    "description": "E beha semelo sa x-molemong oa ho fana ka sebaka."
+  }
+}

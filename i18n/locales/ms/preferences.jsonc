@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Membatalkan kesilapan",
+    "description": "Mengurangkan proses muat turun jika ralat berlaku."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Membatalkan serpihan yang tidak tersedia",
+    "description": "Mengurangkan muat turun jika serpihan tidak tersedia."
+  },
+  "add_headers": {
+    "name": "Tajuk tambahan",
+    "description": "Tajuk tambahan untuk dimasukkan ke dalam permintaan rangkaian."
+  },
+  "audio_format": {
+    "name": "Format audio",
+    "description": "Format audio yang ditukar (MP3, FLAC, Opus, dll.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Kod bahasa audio yang lebih disukai."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams",
+    "description": "Membolehkan menggabungkan pelbagai aliran audio."
+  },
+  "audio_quality": {
+    "name": "Kualiti audio",
+    "description": "Kualiti audio (0 terbaik, 10 terburuk)."
+  },
+  "batch_file": {
+    "name": "Fail batch",
+    "description": "Jalan ke fail yang mengandungi URL untuk dimuat turun."
+  },
+  "break_on_existing": {
+    "name": "Cuti sedia ada",
+    "description": "Berhenti memuat turun jika fail sudah ada."
+  },
+  "concurrent_fragments": {
+    "name": "Serpihan serentak",
+    "description": "Bilangan serpihan serentak untuk dimuat turun (lalai 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Tukar Thumbnails",
+    "description": "Tukar gambar kecil ke format yang ditentukan."
+  },
+  "cookies": {
+    "name": "Kuki",
+    "description": "Fail format netscape untuk membaca kuki dari dan membuang balang cookie di"
+  },
+  "cookies_from_browser": {
+    "name": "Kuki dari penyemak imbas",
+    "description": "Import kuki dari penyemak imbas yang ditentukan."
+  },
+  "download_archive": {
+    "name": "Muat turun Arkib",
+    "description": "Jalan ke fail untuk merakam ID yang dimuat turun untuk mengelakkan pendua."
+  },
+  "embed_chapters": {
+    "name": "Menanam bab",
+    "description": "Menanam bab ke dalam fail akhir."
+  },
+  "embed_info_json": {
+    "name": "INFO INFO JSON",
+    "description": "Info Info JSON ke dalam fail akhir."
+  },
+  "embed_metadata": {
+    "name": "Metadata tertanam",
+    "description": "Metadata embeds ke dalam fail akhir."
+  },
+  "embed_subs": {
+    "name": "Subtitleen Embed",
+    "description": "Embeds subtitle ke dalam fail akhir."
+  },
+  "embed_thumbnail": {
+    "name": "Tenaga gambar kecil",
+    "description": "Menanam gambar kecil ke dalam fail akhir."
+  },
+  "enable_file_urls": {
+    "name": "Dayakan URL fail",
+    "description": "Membolehkan penggunaan URL fail untuk fail tempatan."
+  },
+  "extract_audio": {
+    "name": "Ekstrak audio",
+    "description": "Ekstrak audio dari video yang dimuat turun (menggunakan FFMPEG)."
+  },
+  "extractor_retries": {
+    "name": "Pengekstrakan semula",
+    "description": "Bilangan pengambilan semula pada kesilapan pengekstrak."
+  },
+  "ffmpeg_location": {
+    "name": "Lokasi FFMPEG",
+    "description": "Jalan ke binari FFMPEG."
+  },
+  "file_access_retries": {
+    "name": "Retries akses fail",
+    "description": "Bilangan pengambilan semula pada kesilapan akses fail."
+  },
+  "fixup": {
+    "name": "Memperbaiki",
+    "description": "Secara automatik membetulkan kesalahan yang diketahui dalam fail video."
+  },
+  "font_size": {
+    "name": "Saiz fon",
+    "description": "Saiz fon yang digunakan dalam aplikasi."
+  },
+  "force_ipv4": {
+    "name": "Memaksa IPv4",
+    "description": "Memaksa penggunaan IPv4 untuk sambungan rangkaian."
+  },
+  "force_ipv6": {
+    "name": "Memaksa IPv6",
+    "description": "Memaksa penggunaan IPv6 untuk sambungan rangkaian."
+  },
+  "force_overwrites": {
+    "name": "Memaksa penggantian",
+    "description": "Mengatasi fail sedia ada tanpa bertanya."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Kod format video untuk dimuat turun."
+  },
+  "fragment_retries": {
+    "name": "Retries Fragment",
+    "description": "Bilangan retries pada ralat muat turun serpihan."
+  },
+  "geo_verification_proxy": {
+    "name": "Proksi pengesahan geo",
+    "description": "Pelayan Proksi untuk digunakan untuk pengesahan geo."
+  },
+  "ignore_errors": {
+    "name": "Abaikan kesilapan",
+    "description": "Abaikan kesilapan muat turun dan teruskan dengan video seterusnya."
+  },
+  "impersonate": {
+    "name": "Menyamar",
+    "description": "Pelanggan untuk menyamar (Chrome, Chrome-110, Chrome: Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Simpan serpihan",
+    "description": "Menyimpan serpihan yang dimuat turun selepas bergabung."
+  },
+  "language": {
+    "name": "Bahasa",
+    "description": "Bahasa permohonan."
+  },
+  "limit_rate": {
+    "name": "Kadar had",
+    "description": "Hadkan kelajuan muat turun (mis., 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Hidup dari awal",
+    "description": "Muat turun video langsung dari awal."
+  },
+  "merge_output_format": {
+    "name": "Format video",
+    "description": "Format video akhir yang terhasil daripada penggabungan aliran."
+  },
+  "output": {
+    "name": "Templat output",
+    "description": "Templat nama fail output."
+  },
+  "password": {
+    "name": "Kata laluan",
+    "description": "Kata laluan untuk pengesahan."
+  },
+  "paths": {
+    "name": "Jalan",
+    "description": "Direktori untuk menyimpan pelbagai jenis fail."
+  },
+  "playlist": {
+    "name": "Senarai main",
+    "description": "Menunjukkan sama ada untuk memuat turun senarai main lengkap atau satu video."
+  },
+  "prefer_insecure": {
+    "name": "Lebih suka tidak selamat",
+    "description": "Menggunakan sambungan HTTP dan bukannya HTTPS (YouTube sahaja)."
+  },
+  "proxy": {
+    "name": "Proksi",
+    "description": "Pelayan Proksi untuk digunakan untuk permintaan rangkaian."
+  },
+  "remux_video": {
+    "name": "Video remux",
+    "description": "Mengubah bekas video tanpa pengekodan semula."
+  },
+  "retries": {
+    "name": "Mengambil semula",
+    "description": "Bilangan pengambilan semula pada ralat muat turun."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Langkau senarai main selepas kesilapan",
+    "description": "Melangkau seluruh senarai main selepas beberapa kesilapan."
+  },
+  "socket_timeout": {
+    "name": "Tamat tempoh soket",
+    "description": "Timeout untuk sambungan soket dalam beberapa saat."
+  },
+  "source_address": {
+    "name": "Alamat sumber",
+    "description": "Alamat IP pelanggan untuk mengikat apabila membuat sambungan."
+  },
+  "sponsorblock_mark": {
+    "name": "Tanda TandaBlock",
+    "description": "Tanda segmen dari kategori penaja."
+  },
+  "sub_format": {
+    "name": "Format sarikata",
+    "description": "Kod format sarikata untuk memuat turun."
+  },
+  "sub_langs": {
+    "name": "Bahasa sari kata",
+    "description": "Bahasa sari kata untuk dimuat turun."
+  },
+  "theme_dark": {
+    "name": "Tema gelap",
+    "description": "Tema permohonan."
+  },
+  "twofactor": {
+    "name": "Pengesahan dua faktor",
+    "description": "Kod pengesahan dua faktor."
+  },
+  "use_extractors": {
+    "name": "Gunakan pengekstrak",
+    "description": "Nama pengekstrak untuk digunakan (koma dipisahkan). (\"Semua\", \"lalai\", \"akhir\", ungkapan biasa)"
+  },
+  "username": {
+    "name": "Nama pengguna",
+    "description": "Nama pengguna untuk pengesahan."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams",
+    "description": "Membolehkan menggabungkan pelbagai aliran video."
+  },
+  "video_password": {
+    "name": "Kata laluan video",
+    "description": "Kata laluan untuk video yang dilindungi kata laluan."
+  },
+  "video_resolution": {
+    "name": "Resolusi",
+    "description": "Resolusi video pilihan"
+  },
+  "video_subtitles": {
+    "name": "Sarikata",
+    "description": "Subtitle video pilihan"
+  },
+  "wait_for_video": {
+    "name": "Tunggu video",
+    "description": "Menunggu video yang dijadualkan menjadi tersedia sebelum dimuat turun."
+  },
+  "write_auto_subs": {
+    "name": "Muat turun sari kata auto",
+    "description": "Menulis sari kata automatik yang ada."
+  },
+  "write_subs": {
+    "name": "Muat turun sari kata",
+    "description": "Menulis sari kata manual yang ada."
+  },
+  "write_thumbnail": {
+    "name": "Tulis Thumbnail",
+    "description": "Menjimatkan gambar kecil video ke cakera."
+  },
+  "xattrs": {
+    "name": "Xattrs",
+    "description": "Menulis metadata ke filesystem xattrs."
+  },
+  "xff": {
+    "name": "X-forwarded-for",
+    "description": "Menetapkan header X-Forwarded-For untuk mensimulasikan lokasi."
+  }
+}

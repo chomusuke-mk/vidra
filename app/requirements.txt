@@ -1,0 +1,15 @@
+certifi
+httpx
+mutagen
+requests
+secretstorage
+starlette
+marshmallow
+marshmallow-enum
+websockets
+pycryptodomex
+brotli
+cffi
+uvicorn
+yt-dlp
+yt-dlp-ejs

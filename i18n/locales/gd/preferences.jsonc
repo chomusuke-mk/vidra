@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Sguir dheth air Mearachd",
+    "description": "Cuir stad air a’ phròiseas luchdaich sìos ma thachras mearachd."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Sgaradh air Fragment nach eil ri fhaotainn",
+    "description": "Sguir an luchdachadh sìos mura h-eil criomag ri fhaighinn."
+  },
+  "add_headers": {
+    "name": "Ceann-cinn a bharrachd",
+    "description": "Cinn-cinn a bharrachd ri thoirt a-steach ann an iarrtasan lìonra."
+  },
+  "audio_format": {
+    "name": "Cruth claisneachd",
+    "description": "Cruth an fhuaim a chaidh a thionndadh (mp3, flac, opus, msaa)."
+  },
+  "audio_language": {
+    "name": "Fuaim",
+    "description": "Còd cànain fuaim as fheàrr leotha."
+  },
+  "audio_multistreams": {
+    "name": "Ioma-shruthan claisneachd",
+    "description": "A 'ceadachadh grunn shruthan claisneachd a chur còmhla."
+  },
+  "audio_quality": {
+    "name": "Càileachd an Fhuaime",
+    "description": "Càileachd claisneachd (0 as fheàrr, 10 as miosa)."
+  },
+  "batch_file": {
+    "name": "Faidhle Baidse",
+    "description": "Slighe gu faidhle anns a bheil URLan airson luchdachadh sìos."
+  },
+  "break_on_existing": {
+    "name": "Briseadh air a tha ann mar-thà",
+    "description": "Cuir stad air luchdachadh sìos ma tha am faidhle ann mu thràth."
+  },
+  "concurrent_fragments": {
+    "name": "Fragannan co-aontach",
+    "description": "An àireamh de chriomagan aig an aon àm ri luchdachadh sìos (bunaiteach 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Convert Thumbnails",
+    "description": "Tionndaidh mion-dhealbhan chun chruth ainmichte."
+  },
+  "cookies": {
+    "name": "Briosgaidean",
+    "description": "Faidhle ann an cruth Netscape gus briosgaidean a leughadh às agus jar cookie a thilgeil a-steach"
+  },
+  "cookies_from_browser": {
+    "name": "Briosgaidean bhon bhrabhsair",
+    "description": "A’ toirt a-steach briosgaidean bhon bhrobhsair ainmichte."
+  },
+  "download_archive": {
+    "name": "Luchdaich sìos Archive",
+    "description": "Slighe gu faidhle gus IDan a chaidh a luchdachadh sìos a chlàradh gus dùblaidhean a sheachnadh."
+  },
+  "embed_chapters": {
+    "name": "Gabhail a-steach Caibideilean",
+    "description": "Cuir caibideilean a-steach don fhaidhle mu dheireadh."
+  },
+  "embed_info_json": {
+    "name": "Cuir a-steach Fiosrachadh JSON",
+    "description": "Cuir fiosrachadh JSON a-steach don fhaidhle mu dheireadh."
+  },
+  "embed_metadata": {
+    "name": "Cuir a-steach Metadata",
+    "description": "Cuir meata-dàta a-steach don fhaidhle mu dheireadh."
+  },
+  "embed_subs": {
+    "name": "Gabhail a-steach fo-thiotalan",
+    "description": "Cuir fo-thiotalan a-steach don fhaidhle mu dheireadh."
+  },
+  "embed_thumbnail": {
+    "name": "Gabhail a-steach Thumbnail",
+    "description": "Cuir a-steach am mion-dhealbh a-steach don fhaidhle mu dheireadh."
+  },
+  "enable_file_urls": {
+    "name": "Dèan comas air URLan faidhle",
+    "description": "A’ comasachadh URLan faidhle a chleachdadh airson faidhlichean ionadail."
+  },
+  "extract_audio": {
+    "name": "Earrann Fuaim",
+    "description": "A ’toirt a-mach claisneachd bho bhideothan a chaidh a luchdachadh sìos (a’ cleachdadh ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Bidh Extractor a’ feuchainn air ais",
+    "description": "An àireamh ath-sgrùdaidhean air mearachdan inneal-tarraing."
+  },
+  "ffmpeg_location": {
+    "name": "Àite FFmpeg",
+    "description": "Slighe gu binary FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Feuchainn ri inntrigeadh faidhle",
+    "description": "An àireamh ath-sgrùdaidhean air mearachdan ruigsinneachd faidhle."
+  },
+  "fixup": {
+    "name": "Fixup",
+    "description": "Ceartaich gu fèin-ghluasadach sgàinidhean aithnichte anns an fhaidhle bhidio."
+  },
+  "font_size": {
+    "name": "Meud cruth-clò",
+    "description": "Meud cruth-clò air a chleachdadh san tagradh."
+  },
+  "force_ipv4": {
+    "name": "Feachd IPv4",
+    "description": "A’ sparradh cleachdadh IPv4 airson ceanglaichean lìonraidh."
+  },
+  "force_ipv6": {
+    "name": "Feachd IPv6",
+    "description": "A’ sparradh cleachdadh IPv6 airson ceanglaichean lìonraidh."
+  },
+  "force_overwrites": {
+    "name": "Feachd ath-sgrìobhadh",
+    "description": "A’ sgrìobhadh thairis air na faidhlichean a th’ ann mar-thà gun faighneachd."
+  },
+  "format": {
+    "name": "Cruth",
+    "description": "Còdan airson bhidio format luchdadh a-nuas."
+  },
+  "fragment_retries": {
+    "name": "Bidh Fragment a’ feuchainn",
+    "description": "An àireamh de ath-dheuchainnean air mearachd luchdaich sìos am pìos seo."
+  },
+  "geo_verification_proxy": {
+    "name": "Proxy dearbhaidh Geo",
+    "description": "Frithealaiche progsaidh ri chleachdadh airson geo-dhearbhadh."
+  },
+  "ignore_errors": {
+    "name": "Leig seachad mearachdan",
+    "description": "Mothaich mearachdan luchdaich sìos agus lean air adhart leis an ath bhidio."
+  },
+  "impersonate": {
+    "name": "Dèan pearsanachadh",
+    "description": "Client ri atharrais (chrome, chrome-110, chrome: windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Cùm Fragments",
+    "description": "A’ cumail na mìrean a chaidh a luchdachadh sìos às deidh an aonachadh."
+  },
+  "language": {
+    "name": "Cànain",
+    "description": "Cànain an tagraidh."
+  },
+  "limit_rate": {
+    "name": "Ìre Crìochan",
+    "description": "A ’cuingealachadh an astar luchdachadh sìos (me, 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "Beò bhon toiseach",
+    "description": "Luchdaich a-nuas bhidiothan bhon toiseach."
+  },
+  "merge_output_format": {
+    "name": "Cruth bhidio",
+    "description": "Cruth bhidio deireannach mar thoradh air sruthan co-aonaidh."
+  },
+  "output": {
+    "name": "Teamplaid toradh",
+    "description": "Teamplaid ainm faidhle toraidh."
+  },
+  "password": {
+    "name": "Facal-faire",
+    "description": "Facal-faire airson dearbhadh."
+  },
+  "paths": {
+    "name": "Slighean",
+    "description": "Stiùiridhean gus diofar sheòrsaichean de fhaidhlichean a shàbhaladh."
+  },
+  "playlist": {
+    "name": "Liosta-cluiche",
+    "description": "A’ nochdadh am bu chòir dhut an liosta-cluiche iomlan a luchdachadh sìos no aon bhidio."
+  },
+  "prefer_insecure": {
+    "name": "Is fheàrr leam mì-chinnteach",
+    "description": "A’ cleachdadh ceangal HTTP an àite HTTPS (YouTube a-mhàin)."
+  },
+  "proxy": {
+    "name": "Progsaidh",
+    "description": "Frithealaiche progsaidh ri chleachdadh airson iarrtasan lìonraidh."
+  },
+  "remux_video": {
+    "name": "Video Remux",
+    "description": "Atharraich an soitheach bhidio gun a bhith ag ath-chòdachadh."
+  },
+  "retries": {
+    "name": "Retriries",
+    "description": "An àireamh de ath-dheuchainnean air mearachdan luchdadh a-nuas."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Thoir leum air an liosta-cluiche às deidh mearachdan",
+    "description": "A’ leum air a’ chòrr den liosta-cluiche às deidh àireamh sònraichte de mhearachdan."
+  },
+  "socket_timeout": {
+    "name": "Ùine ùine Socket",
+    "description": "Ùine ùine airson ceanglaichean socaid ann an diogan."
+  },
+  "source_address": {
+    "name": "Seòladh Stòr",
+    "description": "Seòladh IP teachdaiche ri cheangal nuair a bhios tu a’ dèanamh cheanglaichean."
+  },
+  "sponsorblock_mark": {
+    "name": "Marc Urrasair",
+    "description": "Comharraich earrannan bho roinnean SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Cruth fo-thiotal",
+    "description": "Còd(an) cruth fo-thiotal ri luchdachadh sìos."
+  },
+  "sub_langs": {
+    "name": "Cànanan fo-thiotal",
+    "description": "Cànain na fo-thiotalan a luchdadh a-nuas."
+  },
+  "theme_dark": {
+    "name": "Cuspair Dorcha",
+    "description": "Cuspair an aplacaid."
+  },
+  "twofactor": {
+    "name": "Dearbhadh Dà-Factor",
+    "description": "Còd dearbhaidh dà-fhactaraidh."
+  },
+  "use_extractors": {
+    "name": "Cleachd Extractors",
+    "description": "Ainmean luchd-tarraing a chleachdas (coma air a sgaradh). (\"uile\", \"bunaiteach\", \"deireadh\", abairt àbhaisteach)"
+  },
+  "username": {
+    "name": "Ainm-cleachdaidh",
+    "description": "Ainm-cleachdaidh airson dearbhadh."
+  },
+  "video_multistreams": {
+    "name": "Video ioma-shruthan",
+    "description": "A 'ceadachadh grunn shruthan bhidio a chur còmhla."
+  },
+  "video_password": {
+    "name": "Facal-faire bhidio",
+    "description": "Am facal-faire airson bhideothan fo dhìon facal-faire."
+  },
+  "video_resolution": {
+    "name": "Fuasgladh",
+    "description": "Fuasgladh bhidio as fheàrr leotha"
+  },
+  "video_subtitles": {
+    "name": "Fo-thiotalan",
+    "description": "Fo-thiotalan bhidio as fheàrr leotha"
+  },
+  "wait_for_video": {
+    "name": "Fuirich airson Video",
+    "description": "A’ feitheamh ri bhidio clàraichte a bhith ri fhaighinn mus luchdaich thu sìos e."
+  },
+  "write_auto_subs": {
+    "name": "Luchdaich sìos Auto Subtitles",
+    "description": "A’ sgrìobhadh fo-thiotalan fèin-ghluasadach a tha rim faighinn."
+  },
+  "write_subs": {
+    "name": "Luchdaich sìos fo-thiotalan",
+    "description": "A’ sgrìobhadh fo-thiotalan làimhe a tha rim faighinn."
+  },
+  "write_thumbnail": {
+    "name": "Sgrìobh Mion-dhealbh",
+    "description": "A’ sàbhaladh mion-dhealbh a’ bhidio dhan diosg."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "A’ sgrìobhadh meata-dàta gu siostam faidhle xattrs."
+  },
+  "xff": {
+    "name": "X-Air adhart-Airson",
+    "description": "Suidhich an bann-cinn X-Forwarded-For gus atharrais air an àite."
+  }
+}

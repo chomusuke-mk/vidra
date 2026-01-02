@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Abort le vodada ŋu .",
+    "description": "Etsia tre ɖe kɔpiwɔwɔ ƒe ɖoɖoa ŋu ne vodada aɖe dzɔ."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Ku ɖe kakɛ siwo meli o dzi .",
+    "description": "Tsɔa asi le eƒe kɔpi wɔwɔ ŋu ne kakɛ aɖe meli o."
+  },
+  "add_headers": {
+    "name": "Tanya Bubuwo .",
+    "description": "Tanya bubu siwo woatsɔ ade network ƒe biabiawo me."
+  },
+  "audio_format": {
+    "name": "Odio ƒe Nɔnɔme .",
+    "description": "Odio si wogbugbɔ trɔ (MP3, FLAC, Opus, kple bubuawo) ƒe nɔnɔme)."
+  },
+  "audio_language": {
+    "name": "Odio .",
+    "description": "Gbegbɔgblɔ ƒe kɔda si wolɔ̃na wu."
+  },
+  "audio_multistreams": {
+    "name": "Odio Multistreams .",
+    "description": "ɖe mɔ be woaƒo odio geɖe nu ƒu."
+  },
+  "audio_quality": {
+    "name": "Odio ƒe nyonyome .",
+    "description": "Odio ƒe nyonyome (0 nyuitɔ kekeake, 10 vɔ̃ɖitɔ kekeake)."
+  },
+  "batch_file": {
+    "name": "Batch ƒe faɛl .",
+    "description": "Mɔ si dzi woato ayi faɛl si me URLwo le gbɔ be woaɖe."
+  },
+  "break_on_existing": {
+    "name": "Gbɔɖeme le nusiwo li fifia dzi .",
+    "description": "Dzudzɔ kɔpi wɔwɔ nenye be faɛl la li xoxo."
+  },
+  "concurrent_fragments": {
+    "name": "Kakɛ siwo le ɣeyiɣi ɖeka me .",
+    "description": "Kakɛ siwo woate ŋu awɔ le ɣeyiɣi ɖeka me ƒe xexlẽme si nàte ŋu awɔ (Default 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Trɔ nɔnɔmetata suewo .",
+    "description": "Trɔ nɔnɔmetata suewo ɖe nɔnɔme si woɖo la me."
+  },
+  "cookies": {
+    "name": "Kukiwo .",
+    "description": "NetScape formatted file si nàxlẽ cookies tso kple Dump Cookie Jar le ."
+  },
+  "cookies_from_browser": {
+    "name": "Cookies tso browser dzi .",
+    "description": "Exɔa cookies tso browser si woɖo la me."
+  },
+  "download_archive": {
+    "name": "Tsɔ Archive ƒe kɔpi .",
+    "description": "Mɔ si dzi woato aŋlɔ ID siwo woɖe ɖe go la be woaƒo asa na esiwo wogbugbɔ ŋlɔ."
+  },
+  "embed_chapters": {
+    "name": "Embed Tawo .",
+    "description": "De tawo me ɖe faɛl mamlɛtɔa me."
+  },
+  "embed_info_json": {
+    "name": "Embed Info JSON .",
+    "description": "De info json faɛl mamlɛtɔ me."
+  },
+  "embed_metadata": {
+    "name": "Embed metadata .",
+    "description": "De metadata faɛl mamlɛtɔ me."
+  },
+  "embed_subs": {
+    "name": "Embed ƒe nyawo ƒe gɔmeɖeɖe .",
+    "description": "De nyawo ƒe gɔmeɖeɖewo ɖe faɛl mamlɛtɔ me."
+  },
+  "embed_thumbnail": {
+    "name": "Embed ƒe nɔnɔmetata sue aɖe .",
+    "description": "dea nɔnɔmetata suea ƒe faɛl mamlɛtɔ me."
+  },
+  "enable_file_urls": {
+    "name": "Na faɛl ƒe URLwo nawɔ dɔ .",
+    "description": "Enaa faɛl ƒe URLwo zazã na nutoa me faɛlwo."
+  },
+  "extract_audio": {
+    "name": "Extract Audio .",
+    "description": "Eɖea odio tso video siwo woɖe ɖe go me (wozãa ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Extractor Retries .",
+    "description": "Retries ƒe xexlẽme le extractor vodadawo ŋu."
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG ƒe teƒe .",
+    "description": "Mɔ si dzi woato ayi FFMPEG binary la gbɔ."
+  },
+  "file_access_retries": {
+    "name": "Faɛl ƒe Mɔɖeɖe Ðe Eme Ŋu .",
+    "description": "Retries ƒe xexlẽme le faɛl ƒe mɔɖeɖe ƒe vodadawo dzi."
+  },
+  "fixup": {
+    "name": "FixUp .",
+    "description": "Eɖɔa vodada siwo wonya le videoa ƒe faɛl la me ɖo le eɖokui si."
+  },
+  "font_size": {
+    "name": "Font ƒe lolome .",
+    "description": "Font ƒe lolome si wozãna le dɔwɔnua me."
+  },
+  "force_ipv4": {
+    "name": "Ŋusẽ IPv4.",
+    "description": "Zi IPv4 zazã dzi na network kadodowo."
+  },
+  "force_ipv6": {
+    "name": "Ŋusẽ IPv6.",
+    "description": "Zi IPv6 zazã dzi na network kadodowo."
+  },
+  "force_overwrites": {
+    "name": "Ŋusẽ ŋlɔa nu ɖe ​​edzi .",
+    "description": "ŋlɔa faɛl siwo li la ɖe edzi biabia aɖeke mabia o."
+  },
+  "format": {
+    "name": "Nɔnɔme .",
+    "description": "Video ƒe nɔnɔme ƒe kɔda(wo) si nàte ŋu awɔ."
+  },
+  "fragment_retries": {
+    "name": "Kakɛwo gbugbɔa gbugbɔgaɖɔɖo .",
+    "description": "Retries ƒe xexlẽme le fragment download vodadawo dzi."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo ƒe kpeɖodzinyawo ƒe teƒenɔla .",
+    "description": "Proxy server si woazã na geo-verification."
+  },
+  "ignore_errors": {
+    "name": "Aɖaba ƒu Vodadawo Dzi .",
+    "description": "Aɖaba ƒu Vodadawo dzi eye nàyi video si kplɔe ɖo dzi."
+  },
+  "impersonate": {
+    "name": "Ame aɖeke mele eme o .",
+    "description": "asisi be wòawɔ eɖokui abe (Chrome, Chrome-110, Chrome:Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Dzra kakɛwo ɖo .",
+    "description": "Eléa kakɛ siwo woɖe ɖe go la me ɖe asi ne woƒo wo nu ƒu vɔ."
+  },
+  "language": {
+    "name": "Gbegbᴐgblᴐ",
+    "description": "Gbegbɔgblɔ si wozãna le dɔbiagbalẽvia me."
+  },
+  "limit_rate": {
+    "name": "Seɖoƒe ƒe agbɔsɔsɔme .",
+    "description": "Seɖoƒe li na alesi woate ŋu awɔ kɔpi (e.g., 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Live from Start .",
+    "description": "Downloads Live videowo tso gɔmedzedzea me."
+  },
+  "merge_output_format": {
+    "name": "Video ƒe nɔnɔme .",
+    "description": "Video ƒe nɔnɔme mamlɛtɔ si do tso tɔsisiwo ƒe ƒoƒo ɖekae me."
+  },
+  "output": {
+    "name": "Nusiwo woaɖe ɖe go ƒe nɔnɔmetata .",
+    "description": "Output filename ƒe nɔnɔmetata."
+  },
+  "password": {
+    "name": "Safuinya",
+    "description": "Nyagbegbɔgblɔ na ɖaseɖiɖi."
+  },
+  "paths": {
+    "name": "Mɔwo .",
+    "description": "Nyatakakadzraɖoƒewo be woatsɔ adzra faɛl ƒomevi vovovowo ɖo."
+  },
+  "playlist": {
+    "name": "Playlist .",
+    "description": "Fia nenye be woawɔ haƒoƒo bliboa alo video ɖeka ƒe kɔpi."
+  },
+  "prefer_insecure": {
+    "name": "Prefer Insecure .",
+    "description": "Ezãa HTTP kadodo ɖe https teƒe (YouTube ɖeɖeko)."
+  },
+  "proxy": {
+    "name": "Proxy .",
+    "description": "Proxy Server si woazã na network ƒe biabiawo."
+  },
+  "remux_video": {
+    "name": "Remux video .",
+    "description": "trɔa video ƒe nugoe la megaŋlɔa nu o."
+  },
+  "retries": {
+    "name": "Gbugbɔ dze egɔme .",
+    "description": "Retries ƒe xexlẽme le kɔpiwɔwɔ ƒe vodadawo ŋu."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip playlist le vodadawo megbe .",
+    "description": "Edzona le haƒoƒo ƒe xexlẽdzesi susɔeawo dzi le vodada xexlẽme aɖe megbe."
+  },
+  "socket_timeout": {
+    "name": "Socket ƒe ɣeyiɣi ƒe nuwuwu .",
+    "description": "Ɣeyiɣi ƒe nuwuwu na socket kadodowo le sɛkɛndwo me."
+  },
+  "source_address": {
+    "name": "Dzɔtsoƒe ƒe adrɛs .",
+    "description": "Asitsalawo ƒe IP adrɛs be woabla ɖe ne èle kadodowo wɔm."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock ƒe dzesi .",
+    "description": "Dzesiwo ƒe akpawo tso sponsorblock ƒe hatsotsowo me."
+  },
+  "sub_format": {
+    "name": "Nyagbe ƒe ɖoɖo .",
+    "description": "Subtitle format code(s) si nàte ŋu awɔ kɔpi na."
+  },
+  "sub_langs": {
+    "name": "Gbegbɔgblɔwo ƒe gɔmeɖeɖe .",
+    "description": "Gbegbɔgblɔ siwo le nyawo ƒe gɔmeɖeɖewo me be woaɖe."
+  },
+  "theme_dark": {
+    "name": "Tanya Viviti .",
+    "description": "Tanya si ku ɖe dɔbiagbalẽvia ŋu."
+  },
+  "twofactor": {
+    "name": "Nu eve ƒe ɖaseɖiɖi .",
+    "description": "Nu eve ƒe ɖaseɖiɖi ƒe kɔda."
+  },
+  "use_extractors": {
+    "name": "Zã nusiwo woɖe tso eme .",
+    "description": "Ŋkɔwo na extractors be woazã (comma ma).(\"all\",\"default\",\"end\",regular nyagbɔgblɔ)"
+  },
+  "username": {
+    "name": "Zãla ƒe Ŋkɔ .",
+    "description": "Zãla ƒe ŋkɔ na ɖaseɖiɖi."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams .",
+    "description": "Enaa video ƒe sisi geɖe ƒoƒo ƒu ɖekae."
+  },
+  "video_password": {
+    "name": "Video ƒe nyagbe .",
+    "description": "Nyagbegbɔgblɔ si woatsɔ akpɔ video siwo ŋu nyagbe ɣaɣlawo le."
+  },
+  "video_resolution": {
+    "name": "Nuɖoɖo",
+    "description": "Video ƒe nɔnɔmetata si wodi wu"
+  },
+  "video_subtitles": {
+    "name": "Nya siwo woŋlɔ ɖe ete .",
+    "description": "Video ƒe gɔmeɖeɖe siwo wodi wu ."
+  },
+  "wait_for_video": {
+    "name": "lala video .",
+    "description": "lalana be video si woɖo be woawɔ la nava nɔ anyi hafi woaɖee."
+  },
+  "write_auto_subs": {
+    "name": "Wɔ Auto Subtitles ƒe kɔpi .",
+    "description": "Eŋlɔa nyawo ƒe gɔmeɖeɖe siwo le wo ɖokui si siwo li."
+  },
+  "write_subs": {
+    "name": "Tsɔ nyagbe siwo le ete la ƒe kɔpi .",
+    "description": "ŋlɔa nyawo ƒe gɔmeɖeɖe siwo ŋu asi me nyawo le siwo li."
+  },
+  "write_thumbnail": {
+    "name": "Ŋlɔ nɔnɔmetata sue aɖe .",
+    "description": "Edzraa videoa ƒe nɔnɔmetata suea ɖo ɖe disk dzi."
+  },
+  "xattrs": {
+    "name": "Xattrs .",
+    "description": "Eŋlɔa metadata na filesystem xattrs."
+  },
+  "xff": {
+    "name": "X-Forwarded-na .",
+    "description": "Ðo X-Forwarded-For Header la be wòasrɔ̃ teƒe si wòle."
+  }
+}

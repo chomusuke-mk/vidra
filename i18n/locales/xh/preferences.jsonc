@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Lahla impazamo",
+    "description": "Iyiphelisile inkqubo yokukhuphela ukuba kwenzeke impazamo."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Lahla isiqwenga esingafumanekiyo",
+    "description": "Ukuhambisa ukhuphelo ukuba iqhekeza alifumaneki."
+  },
+  "add_headers": {
+    "name": "Izihloko ezongeziweyo",
+    "description": "Izihloko ezongeziweyo ukuba zibandakanye kwizicelo zenethiwekhi."
+  },
+  "audio_format": {
+    "name": "Ifomathi yeaudiyo",
+    "description": "Ifomathi yeaudio eguqulweyo (i-Mooc, i-OPUS, njl.njl)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Ikhowudi yolwimi lweaudio."
+  },
+  "audio_multistreams": {
+    "name": "I-audiouaamsSrears",
+    "description": "Ivumela ukudibanisa imilambo emininzi yeaudiyo."
+  },
+  "audio_quality": {
+    "name": "Umgangatho womsindo",
+    "description": "Umgangatho osemgangathweni (0 kulungile, 10 kakhulu)."
+  },
+  "batch_file": {
+    "name": "Ifayile yeBatch",
+    "description": "Indlela yokuya kwifayile enee-URL ukuze ukhuphele."
+  },
+  "break_on_existing": {
+    "name": "Hlukana",
+    "description": "Ukuyeka ukukhuphela ukuba ifayile sele ikhona."
+  },
+  "concurrent_fragments": {
+    "name": "Iziqwenga eziqinisekileyo",
+    "description": "Inani lamaqhekeza anga ngaxeshanye ukuze ukhuphele (okungagqibekanga 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Guqula izithombisi",
+    "description": "Guqula i-thumbnails kwifomathi echaziweyo."
+  },
+  "cookies": {
+    "name": "Iicookies",
+    "description": "Ifayile efomathiweyo ye-Nets"
+  },
+  "cookies_from_browser": {
+    "name": "Iicookies kwisikhangeli",
+    "description": "Ukungenisa ii-cookies kwisikhangeli esichaziweyo."
+  },
+  "download_archive": {
+    "name": "Ukopisho oluvitshelayo",
+    "description": "Indlela yokufaka ifayile yokurekhoda izazisi zokukhuphela ukuphepha ukuphindaphinda."
+  },
+  "embed_chapters": {
+    "name": "Izahluko zezahluko",
+    "description": "Iqhubeka izahluko kwifayile yokugqibela."
+  },
+  "embed_info_json": {
+    "name": "Ulwazi lwe-LOR MSON",
+    "description": "Imfazwe i-JSON kwifayile yokugqibela."
+  },
+  "embed_metadata": {
+    "name": "Imetadatata",
+    "description": "Faka iMetadata kwifayile yokugqibela."
+  },
+  "embed_subs": {
+    "name": "Faka i-subtitles",
+    "description": "Imfaka amanqatha kwifayile yokugqibela."
+  },
+  "embed_thumbnail": {
+    "name": "Ifake i-thumbnail",
+    "description": "Iflethi ifayile kwifayile yokugqibela."
+  },
+  "enable_file_urls": {
+    "name": "Yenza ii-URLs zefayile",
+    "description": "Yenza ukusetyenziswa kwee-URL zefayile zeefayile zasekhaya."
+  },
+  "extract_audio": {
+    "name": "Khupha iaudio",
+    "description": "Ukukhuphela i-audio evela kwiividiyo ezikhutshelweyo (sebenzisa iFFMPEG)."
+  },
+  "extractor_retries": {
+    "name": "I-ERTACTORTORORCTORTORE",
+    "description": "Inani lokubuyisela kwakhona kwimpazamo ye-excer."
+  },
+  "ffmpeg_location": {
+    "name": "Indawo yeFFMPEG",
+    "description": "Indlela eya kwi-FFMPEG BINIR."
+  },
+  "file_access_retries": {
+    "name": "Ukufikelela kwifayile",
+    "description": "Inani lokubuyisela kwakhona kwiimpazamo zokufikelela kwifayile."
+  },
+  "fixup": {
+    "name": "Lungisa",
+    "description": "Ilungisa ngokuzenzekelayo iimpazamo ezaziwayo kwifayile yevidiyo."
+  },
+  "font_size": {
+    "name": "Isayizi yefonti",
+    "description": "Ubungakanani befonti esetyenziswe kwisicelo."
+  },
+  "force_ipv4": {
+    "name": "Nyanzela iPv4",
+    "description": "Inyanzela ukusetyenziswa kwe-IPV4 yonxibelelwano lwenethiwekhi."
+  },
+  "force_ipv6": {
+    "name": "Nyanzela iPv6",
+    "description": "Inyanzela ukusetyenziswa kwe-IPV6 yonxibelelwano lwenethiwekhi."
+  },
+  "force_overwrites": {
+    "name": "Nyanzela ngaphezulu",
+    "description": "Zigqume iifayile ezikhoyo ngaphandle kokubuza."
+  },
+  "format": {
+    "name": "Ifomathi",
+    "description": "Ikhowudi yefomati yevidiyo yokukhuphela."
+  },
+  "fragment_retries": {
+    "name": "Ukuqhekezwa kwezahlulo",
+    "description": "Inani lokubuyiselwa kwakhona kwesiqwengana sokukhuphela."
+  },
+  "geo_verification_proxy": {
+    "name": "I-Geo Rexd proxy",
+    "description": "Umncedisi wePREXY oza kusetyenziswa kwi-geo."
+  },
+  "ignore_errors": {
+    "name": "Ingabanga iimpazamo",
+    "description": "Ungazihoyi iimpazamo zokukhuphela kwaye uqhubeke nevidiyo elandelayo."
+  },
+  "impersonate": {
+    "name": "Imvakalelo",
+    "description": "Umxhasi kwi-Isorlosote (Chrome, Chrome-110, Chrome: yeWindows-10 yeWindows)."
+  },
+  "keep_fragments": {
+    "name": "Gcina iziqwenga",
+    "description": "Igcina iziqwenga ezikhutshelweyo emva kokudibana."
+  },
+  "language": {
+    "name": "Ulwimi",
+    "description": "Ulwimi lwesicelo."
+  },
+  "limit_rate": {
+    "name": "Umda",
+    "description": "Imida yesantya sokukhuphela (E.G., 50K, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Phila ukusuka ekuqaleni",
+    "description": "Khuphela iividiyo eziphila kwasekuqaleni."
+  },
+  "merge_output_format": {
+    "name": "Ifomathi yevidiyo",
+    "description": "Imo yevidiyo yokugqibela ebangelwa kukudibanisa imilambo."
+  },
+  "output": {
+    "name": "Itemplate yegalelo",
+    "description": "Iziphumo zegama lefayile yegama lefayile."
+  },
+  "password": {
+    "name": "Inombolo yokuvula",
+    "description": "Iphasiwedi yokungqinisisa."
+  },
+  "paths": {
+    "name": "Iindlela",
+    "description": "Izalathiso zokugcina iintlobo ezahlukeneyo zeefayile."
+  },
+  "playlist": {
+    "name": "Uluhlu lokudlala",
+    "description": "Ibonisa ukuba ukhuphele ukuba ukhuphele uluhlu olupheleleyo lomdlali okanye ividiyo enye."
+  },
+  "prefer_insecure": {
+    "name": "Khetha ukungakhuseleki",
+    "description": "Sebenzisa uqhagamshelo lwe-HTTP endaweni ye-HTTPS (i-Youtube kuphela)."
+  },
+  "proxy": {
+    "name": "Ummeli",
+    "description": "Umncedisi we-proxy oza kusetyenziswa kwizicelo zenethiwekhi."
+  },
+  "remux_video": {
+    "name": "Ividiyo ye-reupx",
+    "description": "Itshintsha isikhongozelo sevidiyo ngaphandle kokuthumela kwakhona."
+  },
+  "retries": {
+    "name": "Ukubuyela kwakhona",
+    "description": "Inani lokubuyiswa kwemali okhupheleyo."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip Playlist emva kweempazamo",
+    "description": "I-Skip yoluhlu oluthile emva kwenani elithile leempazamo."
+  },
+  "socket_timeout": {
+    "name": "Ixesha lokuphuma",
+    "description": "Ixesha lokuphuma kwesokheka kwimizuzwana."
+  },
+  "source_address": {
+    "name": "Idilesi yomthombo",
+    "description": "Idilesi ye-IP ye-IP yokubopha xa usenza unxibelelwano."
+  },
+  "sponsorblock_mark": {
+    "name": "Phawula uphawu lwe-rendorblock",
+    "description": "Iphawulela amacandelo ukusuka kwiindidi ze-prondorblock."
+  },
+  "sub_format": {
+    "name": "Ifomathi ye-Subtitle",
+    "description": "Ikhowudi yefomathi ye-Subtitle yokukhuphela."
+  },
+  "sub_langs": {
+    "name": "Iilwimi ezincinci",
+    "description": "Iilwimi zamachaphaza amachaphaza ukuze ukhuphele."
+  },
+  "theme_dark": {
+    "name": "Umxholo omnyama",
+    "description": "Umxholo wesicelo."
+  },
+  "twofactor": {
+    "name": "Isiqinisekiso sezinto ezimbini",
+    "description": "Ikhowudi yosulelo lweefayile ezimbini."
+  },
+  "use_extractors": {
+    "name": "Sebenzisa izixhobo",
+    "description": "Amagama e-Soma esetyenzisiweyo (ikoma eyahlulahlulwe). (\"Zonke\", \"Mika\", \"ukuphela\", intetho eqhelekileyo)"
+  },
+  "username": {
+    "name": "Igama lomsebenzisi",
+    "description": "Igama lomsebenzisi lokungqinisisa."
+  },
+  "video_multistreams": {
+    "name": "IIMPAWU ZEEMPAHLA",
+    "description": "Ivumela ukudibanisa imijelo yevidiyo emininzi."
+  },
+  "video_password": {
+    "name": "Iphasiwedi yevidiyo",
+    "description": "Iphasiwedi yeevidiyo ezikhuselweyo zephasiwedi."
+  },
+  "video_resolution": {
+    "name": "Isisombululo",
+    "description": "Isisombululo seVidiyo esikhethiweyo"
+  },
+  "video_subtitles": {
+    "name": "Amachaphaza",
+    "description": "Ividiyo ekhethiweyo yevidiyo"
+  },
+  "wait_for_video": {
+    "name": "Lindela ividiyo",
+    "description": "Ilinde ividiyo ecwangcisiweyo ukuba ibekhona ngaphambi kokukhuphela."
+  },
+  "write_auto_subs": {
+    "name": "Khuphela izilwanyana ezizenzekelayo",
+    "description": "Ubhala efumanekayo efumanekayo."
+  },
+  "write_subs": {
+    "name": "Khuphela i-subtitles",
+    "description": "Ubhala izinto ezikhoyo ezikhoyo."
+  },
+  "write_thumbnail": {
+    "name": "Bhala i-thumbnail",
+    "description": "Gcina ividiyo ye-upozi kwidiski."
+  },
+  "xattrs": {
+    "name": "I-xattrs",
+    "description": "Ubhala i-metadata ukuya kwi-challys."
+  },
+  "xff": {
+    "name": "I-X-idluliselwe",
+    "description": "Icwangcisa i-X-ntloko-yentloko yokulinganisa indawo."
+  }
+}

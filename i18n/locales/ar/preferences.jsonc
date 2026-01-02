@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "إحباط على خطأ",
+    "description": "يُوقف عملية التنزيل في حالة حدوث خطأ."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "إحباط الجزء غير المتاح",
+    "description": "يلغي التنزيل في حالة عدم توفر جزء منه."
+  },
+  "add_headers": {
+    "name": "رؤوس إضافية",
+    "description": "رؤوس إضافية لتضمينها في طلبات الشبكة."
+  },
+  "audio_format": {
+    "name": "تنسيق الصوت",
+    "description": "تنسيق الصوت المحول (mp3، flac، opus، إلخ)."
+  },
+  "audio_language": {
+    "name": "صوتي",
+    "description": "رمز اللغة الصوتية المفضلة."
+  },
+  "audio_multistreams": {
+    "name": "تيارات صوتية متعددة",
+    "description": "يسمح بدمج تدفقات صوتية متعددة."
+  },
+  "audio_quality": {
+    "name": "جودة الصوت",
+    "description": "جودة الصوت (0 الأفضل، 10 الأسوأ)."
+  },
+  "batch_file": {
+    "name": "ملف دفعي",
+    "description": "المسار إلى ملف يحتوي على عناوين URL للتنزيل."
+  },
+  "break_on_existing": {
+    "name": "كسر على الموجود",
+    "description": "يتوقف عن التنزيل إذا كان الملف موجودًا بالفعل."
+  },
+  "concurrent_fragments": {
+    "name": "الأجزاء المتزامنة",
+    "description": "عدد الأجزاء المتزامنة المطلوب تنزيلها (الافتراضي 1)."
+  },
+  "convert_thumbnails": {
+    "name": "تحويل الصور المصغرة",
+    "description": "تحويل الصور المصغرة إلى التنسيق المحدد."
+  },
+  "cookies": {
+    "name": "ملفات تعريف الارتباط",
+    "description": "ملف بتنسيق Netscape لقراءة ملفات تعريف الارتباط منه وتفريغ جرة ملفات تعريف الارتباط فيه"
+  },
+  "cookies_from_browser": {
+    "name": "ملفات تعريف الارتباط من المتصفح",
+    "description": "استيراد ملفات تعريف الارتباط من المتصفح المحدد."
+  },
+  "download_archive": {
+    "name": "تحميل الأرشيف",
+    "description": "المسار إلى الملف لتسجيل المعرفات التي تم تنزيلها لتجنب التكرارات."
+  },
+  "embed_chapters": {
+    "name": "تضمين الفصول",
+    "description": "يدمج الفصول في الملف النهائي."
+  },
+  "embed_info_json": {
+    "name": "تضمين المعلومات JSON",
+    "description": "يدمج معلومات JSON في الملف النهائي."
+  },
+  "embed_metadata": {
+    "name": "تضمين بيانات التعريف",
+    "description": "يدمج البيانات الوصفية في الملف النهائي."
+  },
+  "embed_subs": {
+    "name": "تضمين ترجمات",
+    "description": "يدمج الترجمة في الملف النهائي."
+  },
+  "embed_thumbnail": {
+    "name": "تضمين الصورة المصغرة",
+    "description": "يدمج الصورة المصغرة في الملف النهائي."
+  },
+  "enable_file_urls": {
+    "name": "تمكين عناوين URL للملفات",
+    "description": "يتيح استخدام عناوين URL للملفات المحلية."
+  },
+  "extract_audio": {
+    "name": "استخراج الصوت",
+    "description": "يستخرج الصوت من مقاطع الفيديو التي تم تنزيلها (يستخدم ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "إعادة محاولة النازع",
+    "description": "عدد مرات إعادة المحاولة بسبب أخطاء المستخرج."
+  },
+  "ffmpeg_location": {
+    "name": "موقع إف إف إم بي إي جي",
+    "description": "المسار إلى الملف الثنائي FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "إعادة محاولات الوصول إلى الملف",
+    "description": "عدد مرات إعادة المحاولة بسبب أخطاء الوصول إلى الملف."
+  },
+  "fixup": {
+    "name": "إصلاح",
+    "description": "يقوم تلقائيًا بتصحيح الأخطاء المعروفة في ملف الفيديو."
+  },
+  "font_size": {
+    "name": "حجم الخط",
+    "description": "حجم الخط المستخدم في التطبيق."
+  },
+  "force_ipv4": {
+    "name": "فرض IPv4",
+    "description": "يفرض استخدام IPv4 لاتصالات الشبكة."
+  },
+  "force_ipv6": {
+    "name": "فرض IPv6",
+    "description": "يفرض استخدام IPv6 لاتصالات الشبكة."
+  },
+  "force_overwrites": {
+    "name": "الكتابة فوق القوة",
+    "description": "الكتابة فوق الملفات الموجودة دون أن يطلب ذلك."
+  },
+  "format": {
+    "name": "شكل",
+    "description": "رمز (رموز) تنسيق الفيديو للتنزيل."
+  },
+  "fragment_retries": {
+    "name": "إعادة محاولة الجزء",
+    "description": "عدد مرات إعادة المحاولة عند حدوث أخطاء في تنزيل الأجزاء."
+  },
+  "geo_verification_proxy": {
+    "name": "وكيل التحقق الجغرافي",
+    "description": "خادم وكيل لاستخدامه في التحقق الجغرافي."
+  },
+  "ignore_errors": {
+    "name": "تجاهل الأخطاء",
+    "description": "تجاهل أخطاء التنزيل وتابع الفيديو التالي."
+  },
+  "impersonate": {
+    "name": "انتحال شخصية",
+    "description": "العميل المراد انتحال صفة (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "احتفظ بالشظايا",
+    "description": "يحتفظ بالأجزاء التي تم تنزيلها بعد الدمج."
+  },
+  "language": {
+    "name": "لغة",
+    "description": "لغة التطبيق."
+  },
+  "limit_rate": {
+    "name": "معدل الحد",
+    "description": "يحد من سرعة التنزيل (على سبيل المثال، 50 كيلو، 4.2 ميجا)."
+  },
+  "live_from_start": {
+    "name": "مباشر من البداية",
+    "description": "تنزيل مقاطع الفيديو المباشرة من البداية."
+  },
+  "merge_output_format": {
+    "name": "تنسيق الفيديو",
+    "description": "تنسيق الفيديو النهائي الناتج عن دمج التدفقات."
+  },
+  "output": {
+    "name": "قالب الإخراج",
+    "description": "قالب اسم ملف الإخراج."
+  },
+  "password": {
+    "name": "كلمة المرور",
+    "description": "كلمة المرور للمصادقة."
+  },
+  "paths": {
+    "name": "المسارات",
+    "description": "أدلة لحفظ أنواع مختلفة من الملفات."
+  },
+  "playlist": {
+    "name": "قائمة التشغيل",
+    "description": "يشير إلى ما إذا كان سيتم تنزيل قائمة التشغيل الكاملة أو مقطع فيديو واحد."
+  },
+  "prefer_insecure": {
+    "name": "تفضل غير آمن",
+    "description": "يستخدم اتصال HTTP بدلاً من HTTPS (يوتيوب فقط)."
+  },
+  "proxy": {
+    "name": "الوكيل",
+    "description": "خادم وكيل لاستخدامه في طلبات الشبكة."
+  },
+  "remux_video": {
+    "name": "فيديو ريمكس",
+    "description": "يغير حاوية الفيديو دون إعادة ترميزه."
+  },
+  "retries": {
+    "name": "إعادة المحاولة",
+    "description": "عدد مرات إعادة المحاولة عند حدوث أخطاء في التنزيل."
+  },
+  "skip_playlist_after_errors": {
+    "name": "تخطي قائمة التشغيل بعد الأخطاء",
+    "description": "يتخطى بقية قائمة التشغيل بعد عدد معين من الأخطاء."
+  },
+  "socket_timeout": {
+    "name": "مهلة المقبس",
+    "description": "مهلة اتصالات المقبس في ثوان."
+  },
+  "source_address": {
+    "name": "عنوان المصدر",
+    "description": "عنوان IP للعميل الذي سيتم الارتباط به عند إجراء الاتصالات."
+  },
+  "sponsorblock_mark": {
+    "name": "علامة كتلة الراعي",
+    "description": "علامات شرائح من فئات SponsorBlock."
+  },
+  "sub_format": {
+    "name": "تنسيق الترجمة",
+    "description": "رمز (رموز) تنسيق الترجمة للتنزيل."
+  },
+  "sub_langs": {
+    "name": "لغات الترجمة",
+    "description": "لغات الترجمات للتحميل."
+  },
+  "theme_dark": {
+    "name": "موضوع الظلام",
+    "description": "موضوع التطبيق."
+  },
+  "twofactor": {
+    "name": "المصادقة الثنائية",
+    "description": "رمز المصادقة الثنائية."
+  },
+  "use_extractors": {
+    "name": "استخدم النازعات",
+    "description": "أسماء المستخرجات المطلوب استخدامها (مفصولة بفواصل).(\"all\"،\"default\"، \"end\"، التعبير العادي)"
+  },
+  "username": {
+    "name": "اسم المستخدم",
+    "description": "اسم المستخدم للمصادقة."
+  },
+  "video_multistreams": {
+    "name": "تدفقات الفيديو المتعددة",
+    "description": "يسمح بدمج تدفقات الفيديو المتعددة."
+  },
+  "video_password": {
+    "name": "كلمة مرور الفيديو",
+    "description": "كلمة المرور لمقاطع الفيديو المحمية بكلمة مرور."
+  },
+  "video_resolution": {
+    "name": "دقة",
+    "description": "دقة الفيديو المفضلة"
+  },
+  "video_subtitles": {
+    "name": "ترجمات",
+    "description": "ترجمات الفيديو المفضلة"
+  },
+  "wait_for_video": {
+    "name": "انتظر الفيديو",
+    "description": "ينتظر حتى يصبح الفيديو المجدول متاحًا قبل التنزيل."
+  },
+  "write_auto_subs": {
+    "name": "تحميل ترجمات تلقائية",
+    "description": "يكتب الترجمات التلقائية المتاحة."
+  },
+  "write_subs": {
+    "name": "تحميل ترجمات",
+    "description": "يكتب الترجمات اليدوية المتاحة."
+  },
+  "write_thumbnail": {
+    "name": "كتابة الصورة المصغرة",
+    "description": "يحفظ الصورة المصغرة للفيديو على القرص."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "يكتب بيانات التعريف إلى نظام الملفات xattrs."
+  },
+  "xff": {
+    "name": "X-Forwarded-For",
+    "description": "يضبط رأس X-Forwarded-For لمحاكاة الموقع."
+  }
+}

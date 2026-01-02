@@ -1,0 +1,59 @@
+THIRD-PARTY NOTICES AND ATTRIBUTIONS
+
+Vidra bundles a Python backend together with a Flutter desktop client, so the application ships code from both PyPI and pub.dev. This file lists every direct runtime dependency declared in app/requirements.txt and pubspec.yaml, the license attached to each component, and where its full text lives inside the repository.
+
+PYTHON BACKEND RUNTIME (app/requirements.txt)
+- certifi | version: latest (unpinned) | license: MPL-2.0 | obligations: keep the MPL notice with redistributed binaries; publish modifications that touch MPL-covered files | license text: third_party_licenses/certifi
+- fastapi | version: latest (unpinned) | license: MIT | obligations: retain copyright and license text in source and binary form | license text: third_party_licenses/fastapi
+- httpx | version: latest (unpinned) | license: BSD-3-Clause | obligations: keep copyright and disclaimer; no endorsement using maintainer names | license text: third_party_licenses/httpx
+- mutagen | version: latest (unpinned) | license: GPL-2.0-or-later | obligations: copyleft; distributing Vidra with Mutagen requires providing the corresponding source for the backend bundle | license text: third_party_licenses/mutagen
+- pydantic (< 2) | version: <2 | license: MIT | obligations: preserve copyright and license text | license text: third_party_licenses/pydantic
+- requests | version: latest (unpinned) | license: Apache-2.0 | obligations: keep LICENSE and NOTICE; document any local changes | license text: third_party_licenses/requests
+- secretstorage | version: latest (unpinned) | license: BSD-3-Clause | obligations: retain copyright/permission statement and liability disclaimer | license text: third_party_licenses/secretstorage
+- uvicorn | version: latest (unpinned) | license: BSD-3-Clause | obligations: same preservation requirements as other BSD components | license text: third_party_licenses/uvicorn
+- websockets | version: latest (unpinned) | license: BSD-3-Clause | obligations: same preservation requirements as other BSD components | license text: third_party_licenses/websockets
+- yt-dlp | version: latest (unpinned) | license: Unlicense | obligations: public-domain dedication; still respect YouTube/DRM laws when redistributing | license text: third_party_licenses/yt-dlp
+- yt-dlp-ejs | version: latest (unpinned) | license: Unlicense | obligations: same as above | license text: third_party_licenses/yt-dlp-ejs
+- pycryptodomex | version: latest (unpinned) | license: BSD-2-Clause | obligations: retain copyright/permission statement; no endorsement | license text: third_party_licenses/pycryptodomex
+- brotli | version: latest (unpinned) | license: MIT | obligations: preserve license text in redistributions | license text: third_party_licenses/brotli
+- cffi | version: latest (unpinned) | license: MIT | obligations: preserve license text in redistributions | license text: third_party_licenses/cffi
+
+FLUTTER APPLICATION RUNTIME (pubspec.yaml)
+- Flutter SDK / flutter_localizations | version: sdk ^3.9.2 | license: BSD-3-Clause | obligations: Flutter bundles its own LICENSE; include it when shipping binaries | license text: https://raw.githubusercontent.com/flutter/flutter/master/LICENSE
+- cupertino_icons | version: ^1.0.8 | license: MIT | obligations: keep the MIT notice | license text: third_party_licenses/cupertino_icons
+- path_provider | version: ^2.1.5 | license: BSD-3-Clause | obligations: keep copyright and disclaimer | license text: third_party_licenses/path_provider
+- package_info_plus | version: ^9.0.0 | license: BSD-3-Clause | obligations: same BSD requirements | license text: third_party_licenses/package_info_plus
+- shared_preferences | version: ^2.5.3 | license: BSD-3-Clause | obligations: same BSD requirements | license text: third_party_licenses/shared_preferences
+- provider | version: ^6.1.5+1 | license: MIT | obligations: retain MIT notice | license text: third_party_licenses/provider
+- flutter_dotenv | version: ^6.0.0 | license: MIT | obligations: retain MIT notice | license text: third_party_licenses/flutter_dotenv
+- http | version: ^1.1.0 | license: BSD-3-Clause | obligations: same BSD requirements | license text: third_party_licenses/http
+- web_socket_channel | version: ^3.0.3 | license: BSD-3-Clause | obligations: same BSD requirements | license text: third_party_licenses/web_socket_channel
+- intl | version: ^0.20.2 | license: BSD-3-Clause | obligations: same BSD requirements | license text: third_party_licenses/intl
+- url_launcher | version: ^6.3.0 | license: BSD-3-Clause | obligations: same BSD requirements | license text: third_party_licenses/url_launcher
+- cached_network_image | version: ^3.4.1 | license: MIT | obligations: retain MIT notice | license text: third_party_licenses/cached_network_image
+- flutter_cache_manager | version: ^3.4.1 | license: MIT | obligations: retain MIT notice | license text: third_party_licenses/flutter_cache_manager
+- data_table_2 | version: ^2.6.0 | license: MIT | obligations: retain MIT notice | license text: third_party_licenses/data_table_2
+- serious_python | version: ^0.9.4 | license: Apache-2.0 | obligations: keep LICENSE and NOTICE for appliance bundles | license text: third_party_licenses/serious_python
+- open_file | version: ^3.3.2 | license: BSD-3-Clause | obligations: same BSD requirements | license text: third_party_licenses/open_file
+- permission_handler | version: ^12.0.1 | license: MIT | obligations: retain MIT notice | license text: third_party_licenses/permission_handler
+- filesystem_picker | version: ^4.1.0 | license: BSD-3-Clause | obligations: same BSD requirements | license text: third_party_licenses/filesystem_picker
+- file_picker | version: ^10.3.7 | license: MIT | obligations: retain MIT notice | license text: third_party_licenses/file_picker
+- external_path | version: ^2.2.0 | license: MIT | obligations: retain MIT notice | license text: third_party_licenses/external_path
+- flutter_local_notifications | version: ^19.5.0 | license: BSD-3-Clause | obligations: same BSD requirements | license text: third_party_licenses/flutter_local_notifications
+- flutter_localized_locales | version: ^2.0.4 | license: MIT | obligations: retain MIT notice | license text: third_party_licenses/flutter_localized_locales
+- jsonc | version: ^0.0.3 | license: BSD-3-Clause | obligations: same BSD requirements | license text: third_party_licenses/jsonc
+- device_info_plus | version: ^11.5.0 | license: BSD-3-Clause | obligations: same BSD requirements | license text: third_party_licenses/device_info_plus
+- path | version: ^1.9.1 | license: BSD-3-Clause | obligations: same BSD requirements | license text: third_party_licenses/path
+- super_drag_and_drop | version: ^0.9.1 | license: MIT | obligations: retain MIT notice; includes native binaries | license text: third_party_licenses/super_drag_and_drop
+- super_clipboard | version: ^0.9.1 | license: MIT | obligations: retain MIT notice; used for DataReader APIs | license text: third_party_licenses/super_clipboard
+
+Note on transitive dependencies: transitive dependencies inherit the licensing of their upstream packages. Keep the Flutter LICENSE file emitted by flutter build inside your installers to cover those components.
+
+NATIVE BINARIES (FFMPEG)
+- vidra-ffmpeg (FFmpeg binaries) | version: prebuilt bundle | license: GPL-3.0-or-later | obligations: built with --enable-gpl and --enable-version3; provide corresponding source from https://github.com/chomusuke-mk/vidra-ffmpeg and ship GPLv3 notices with redistributed binaries | license text: third_party_licenses/vidra-ffmpeg
+
+COMPLIANCE APPROACH
+- License texts: every entry listed above has its upstream license stored verbatim under third_party_licenses/ (or linked when upstream distribution already includes it). Include that directory or a generated THIRD_PARTY_LICENSES.txt in every installer or distribution.
+- Notices in binaries: when packaging with serious_python or creating Flutter release builds, copy THIRD_PARTY_LICENSES.md or this THIRD_PARTY_LICENSES.txt so end users can review third-party terms.
+- Copyleft dependencies: mutagen is GPL-2.0-or-later. If you distribute Vidra externally, you must provide the corresponding source code for the backend bundle to satisfy GPL obligations.
+- Changes and contributions: document any local modifications to Apache-2.0 or MPL-2.0 components directly inside this file and regenerate the affected license text if needed.

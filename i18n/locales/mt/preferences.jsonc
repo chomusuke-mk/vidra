@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Aborta fuq Żball",
+    "description": "Jabort il-proċess tat-tniżżil jekk iseħħ żball."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Aborta fuq Framment Mhux Disponibbli",
+    "description": "Jabort it-tniżżil jekk framment ma jkunx disponibbli."
+  },
+  "add_headers": {
+    "name": "Headers Addizzjonali",
+    "description": "Headers addizzjonali biex jiġu inklużi fit-talbiet tan-netwerk."
+  },
+  "audio_format": {
+    "name": "Format Awdjo",
+    "description": "Format tal-awdjo konvertit (mp3, flac, opus, eċċ.)."
+  },
+  "audio_language": {
+    "name": "Awdjo",
+    "description": "Kodiċi tal-lingwa awdjo preferuta."
+  },
+  "audio_multistreams": {
+    "name": "Awdjo Multistreams",
+    "description": "Jippermetti li tgħaqqad flussi awdjo multipli."
+  },
+  "audio_quality": {
+    "name": "Kwalità Awdjo",
+    "description": "Kwalità tal-awdjo (0 l-aħjar, 10 l-agħar)."
+  },
+  "batch_file": {
+    "name": "Fajl tal-lott",
+    "description": "Mogħdija għal fajl li fih URLs biex tniżżel."
+  },
+  "break_on_existing": {
+    "name": "Break fuq Eżistenti",
+    "description": "Jieqaf it-tniżżil jekk il-fajl diġà jeżisti."
+  },
+  "concurrent_fragments": {
+    "name": "Frammenti Konkorrenti",
+    "description": "Numru ta' frammenti simultanji biex jitniżżlu (default 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Ikkonverti Thumbnails",
+    "description": "Ikkonverti thumbnails għall-format speċifikat."
+  },
+  "cookies": {
+    "name": "Cookies",
+    "description": "Fajl ifformattjat ta' Netscape biex taqra l-cookies minn u titfa' l-vażett tal-cookies fih"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies mill-Browser",
+    "description": "Jimporta cookies mill-browser speċifikat."
+  },
+  "download_archive": {
+    "name": "Niżżel l-Arkivju",
+    "description": "Mogħdija għall-fajl biex tirreġistra IDs imniżżla biex tevita duplikati."
+  },
+  "embed_chapters": {
+    "name": "Inkorpora Kapitli",
+    "description": "Inkorpora kapitoli fil-fajl finali."
+  },
+  "embed_info_json": {
+    "name": "Inkorpora l-Informazzjoni JSON",
+    "description": "Inkorpora l-informazzjoni JSON fil-fajl finali."
+  },
+  "embed_metadata": {
+    "name": "Inkorpora Metadata",
+    "description": "Inkorpora metadata fil-fajl finali."
+  },
+  "embed_subs": {
+    "name": "Inkorpora sottotitli",
+    "description": "Inkorpora sottotitli fil-fajl finali."
+  },
+  "embed_thumbnail": {
+    "name": "Embed Thumbnail",
+    "description": "Inkorpora l-minjatura fil-fajl finali."
+  },
+  "enable_file_urls": {
+    "name": "Attiva l-URLs tal-Fajl",
+    "description": "Jippermetti l-użu tal-URLs tal-fajls għall-fajls lokali."
+  },
+  "extract_audio": {
+    "name": "Estratt Awdjo",
+    "description": "Estratti awdjo minn vidjows imniżżla (użi ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Estrattur mill-ġdid",
+    "description": "Numru ta' tentattivi mill-ġdid fuq żbalji tal-estrattur."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg Post",
+    "description": "Mogħdija għall-binarju FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Retries għall-Aċċess għall-Fajl",
+    "description": "Numru ta' tentattivi mill-ġdid dwar żbalji ta' aċċess għall-fajl."
+  },
+  "fixup": {
+    "name": "Fixup",
+    "description": "Tikkoreġi awtomatikament difetti magħrufa fil-fajl tal-vidjo."
+  },
+  "font_size": {
+    "name": "Daqs tat-Tipa",
+    "description": "Daqs tat-tipa użat fl-applikazzjoni."
+  },
+  "force_ipv4": {
+    "name": "Forza IPv4",
+    "description": "Tiġiegħel l-użu ta' IPv4 għal konnessjonijiet tan-netwerk."
+  },
+  "force_ipv6": {
+    "name": "Forza IPv6",
+    "description": "Tiġiegħel l-użu ta' IPv6 għal konnessjonijiet tan-netwerk."
+  },
+  "force_overwrites": {
+    "name": "Forza Overwrites",
+    "description": "Jissostitwixxi fajls eżistenti mingħajr ma jistaqsi."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Kodiċi(i) tal-format tal-vidjo biex tniżżel."
+  },
+  "fragment_retries": {
+    "name": "Frammenti mill-ġdid",
+    "description": "Numru ta' tentattivi mill-ġdid fuq żbalji ta' tniżżil ta' frammenti."
+  },
+  "geo_verification_proxy": {
+    "name": "Prokura tal-Verifika Ġeo",
+    "description": "Proxy server biex jintuża għall-verifika ġeo."
+  },
+  "ignore_errors": {
+    "name": "Injora Żbalji",
+    "description": "Injora l-iżbalji tat-tniżżil u kompli bil-video li jmiss."
+  },
+  "impersonate": {
+    "name": "Tispersona",
+    "description": "Klijent li għandu jippersona ruħu (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Żomm Frammenti",
+    "description": "Iżomm il-frammenti mniżżla wara l-għaqda."
+  },
+  "language": {
+    "name": "Lingwa",
+    "description": "Lingwa ta' l-applikazzjoni."
+  },
+  "limit_rate": {
+    "name": "Limitu Rata",
+    "description": "Illimita l-veloċità tat-tniżżil (eż., 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "Live mill-Bidu",
+    "description": "Niżżel vidjows ħajjin mill-bidu."
+  },
+  "merge_output_format": {
+    "name": "Format tal-vidjo",
+    "description": "Format tal-vidjo finali li jirriżulta minn nixxigħat li jingħaqdu."
+  },
+  "output": {
+    "name": "Mudell ta' Output",
+    "description": "Mudell tal-isem tal-fajl tal-ħruġ."
+  },
+  "password": {
+    "name": "Password",
+    "description": "Password għall-awtentikazzjoni."
+  },
+  "paths": {
+    "name": "Mogħdijiet",
+    "description": "Direttorji biex jiffrankaw tipi differenti ta 'fajls."
+  },
+  "playlist": {
+    "name": "Playlist",
+    "description": "Jindika jekk tniżżelx il-playlist kompluta jew vidjo wieħed."
+  },
+  "prefer_insecure": {
+    "name": "Ippreferi Mhux Sikur",
+    "description": "Juża konnessjoni HTTP minflok HTTPS (YouTube biss)."
+  },
+  "proxy": {
+    "name": "Prokura",
+    "description": "Proxy server biex jintuża għal talbiet tan-netwerk."
+  },
+  "remux_video": {
+    "name": "Remux Video",
+    "description": "Tibdel il-kontenitur tal-vidjo mingħajr kodifikazzjoni mill-ġdid."
+  },
+  "retries": {
+    "name": "Jipprova mill-ġdid",
+    "description": "Numru ta' tentattivi mill-ġdid fuq żbalji ta' tniżżil."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Aqbeż Playlist Wara Żbalji",
+    "description": "Jaqbeż il-bqija tal-playlist wara ċertu numru ta 'żbalji."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Timeout għall-konnessjonijiet tas-sokit f'sekondi."
+  },
+  "source_address": {
+    "name": "Indirizz tas-Sors",
+    "description": "Indirizz IP tal-klijent li jorbot miegħu meta tagħmel konnessjonijiet."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Jimmarka segmenti minn kategoriji SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Format tas-sottotitolu",
+    "description": "Kodiċi(i) tal-format tas-sottotitoli biex tniżżel."
+  },
+  "sub_langs": {
+    "name": "Lingwi tas-sottotitoli",
+    "description": "Lingwi tas-sottotitli biex tniżżel."
+  },
+  "theme_dark": {
+    "name": "Tema skur",
+    "description": "Tema tal-applikazzjoni."
+  },
+  "twofactor": {
+    "name": "Awtentikazzjoni b'żewġ fatturi",
+    "description": "Kodiċi ta' awtentikazzjoni b'żewġ fatturi."
+  },
+  "use_extractors": {
+    "name": "Uża Estratturi",
+    "description": "Ismijiet tal-estratturi li għandhom jintużaw (separati bil-virgola).(\"kollha\",\"default\",\"end\",espressjoni regolari)"
+  },
+  "username": {
+    "name": "Isem tal-utent",
+    "description": "Isem tal-utent għall-awtentikazzjoni."
+  },
+  "video_multistreams": {
+    "name": "Multistreams tal-vidjo",
+    "description": "Jippermetti li tgħaqqad flussi multipli tal-vidjow."
+  },
+  "video_password": {
+    "name": "Password tal-vidjo",
+    "description": "Password għal vidjows protetti minn password."
+  },
+  "video_resolution": {
+    "name": "Riżoluzzjoni",
+    "description": "Riżoluzzjoni tal-vidjo preferuta"
+  },
+  "video_subtitles": {
+    "name": "Sottotitli",
+    "description": "Sottotitli preferuti tal-vidjo"
+  },
+  "wait_for_video": {
+    "name": "Stenna għal Video",
+    "description": "Jistenna li vidjo skedat isir disponibbli qabel ma tniżżel."
+  },
+  "write_auto_subs": {
+    "name": "Niżżel Sottotitli Auto",
+    "description": "Jikteb sottotitli awtomatiċi disponibbli."
+  },
+  "write_subs": {
+    "name": "Niżżel is-sottotitli",
+    "description": "Jikteb sottotitli manwali disponibbli."
+  },
+  "write_thumbnail": {
+    "name": "Ikteb Thumbnail",
+    "description": "Issejvja l-minjatura tal-vidjo fuq disk."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Jikteb metadata fix-xattrs tas-sistema tal-fajls."
+  },
+  "xff": {
+    "name": "X-Mibgħuta-Għal",
+    "description": "Issettja l-header X-Forwarded-For biex jissimula l-post."
+  }
+}

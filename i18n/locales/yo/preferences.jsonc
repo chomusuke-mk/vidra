@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Abort duro aṣiṣe",
+    "description": "Aborts ilana igbasilẹ ti aṣiṣe ba waye."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Abort lori ida kan",
+    "description": "Abortt Unde Gbigba Ti Apá kan ko ba si."
+  },
+  "add_headers": {
+    "name": "Afikun olori",
+    "description": "Awọn afikun awọn akọle lati pẹlu ninu awọn ibeere nẹtiwọọki."
+  },
+  "audio_format": {
+    "name": "Ọna asopọ Audio",
+    "description": "Ọna kika ti awọn iyipada ti o yipada (mp3, Flac, Opus, bbl)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Koodu ede ti o fẹran."
+  },
+  "audio_multistreams": {
+    "name": "Audio multistrams",
+    "description": "Ngbanilaaye ni apapọ awọn ṣiṣan ohun lọpọlọpọ."
+  },
+  "audio_quality": {
+    "name": "Didara ohun",
+    "description": "Didara Audio (0 o dara julọ, 10 ti o buru)."
+  },
+  "batch_file": {
+    "name": "Faili ipele",
+    "description": "Ọna si faili ti o ni awọn URL lati gbasilẹ."
+  },
+  "break_on_existing": {
+    "name": "Bireki lori ti o wa",
+    "description": "Dawọ duro ti faili ti o wa tẹlẹ."
+  },
+  "concurrent_fragments": {
+    "name": "Awọn ipin olokan",
+    "description": "Nọmba ti awọn abawọn nigbakanna lati gbasilẹ (aiyipada 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Ṣe iyipada awọn eekanna",
+    "description": "Ṣe iyipada awọn eekanna si ọna kika ti o sọ."
+  },
+  "cookies": {
+    "name": "Awọn kuki",
+    "description": "Faili netscape faili lati ka awọn kuki lati ati ji awọn kuki car ni"
+  },
+  "cookies_from_browser": {
+    "name": "Awọn kuki lati ẹrọ lilọ kiri",
+    "description": "Gbe awọn kuki kuro lati ẹrọ lilọ kiri ayelujara ti a sọ."
+  },
+  "download_archive": {
+    "name": "Ṣe igbasilẹ Ile ifi nkan elo",
+    "description": "Ọna si faili lati gba awọn ID ti o gbasilẹ lati yago fun awọn ẹda-ẹda."
+  },
+  "embed_chapters": {
+    "name": "Awọn ori Awọn Agbọn",
+    "description": "Awọn ipinlẹ ori sinu faili ikẹhin."
+  },
+  "embed_info_json": {
+    "name": "Fi sabe ni jsson",
+    "description": "Fi safikun alaye Json sinu faili ikẹhin."
+  },
+  "embed_metadata": {
+    "name": "Akọkalẹ Metadata",
+    "description": "Awọn ẹkọ metadata sinu faili ikẹhin."
+  },
+  "embed_subs": {
+    "name": "Sabedles",
+    "description": "Fifun awọn atunkọ sinu faili ikẹhin."
+  },
+  "embed_thumbnail": {
+    "name": "Abembnail atanpako",
+    "description": "Bẹbẹ sita atanpako sinu faili ikẹhin."
+  },
+  "enable_file_urls": {
+    "name": "Mu ulk faili ṣiṣẹ",
+    "description": "Mu lilo awọn URL faili fun awọn faili agbegbe."
+  },
+  "extract_audio": {
+    "name": "Jade ohun",
+    "description": "Awọn iyọkuro lati awọn fidio ti o gbasilẹ (Ṣakoso FFMpeg)."
+  },
+  "extractor_retries": {
+    "name": "Awọn ipadasẹhin Awọn ifasẹhin",
+    "description": "Nọmba ti awọn ipadasẹhin lori awọn aṣiṣe ilosiwaju."
+  },
+  "ffmpeg_location": {
+    "name": "Ffmpeg ipo",
+    "description": "Ọna si alakomeji ffmpeg."
+  },
+  "file_access_retries": {
+    "name": "Awọn ipadalẹ wiwọle faili",
+    "description": "Nọmba ti awọn ipadasẹhin lori awọn aṣiṣe wiwọle faili."
+  },
+  "fixup": {
+    "name": "Atunṣe",
+    "description": "Aifọwọyi tọ awọn abawọn ti o mọ ninu faili fidio."
+  },
+  "font_size": {
+    "name": "Iwọn font",
+    "description": "Iwọn font ti a lo ninu ohun elo."
+  },
+  "force_ipv4": {
+    "name": "Agbara IFVV4",
+    "description": "Ipa ipa lilo ti iv4 fun awọn isopọ nẹtiwọọki."
+  },
+  "force_ipv6": {
+    "name": "Agbara IFV6",
+    "description": "Ipa ipa lilo IPv6 fun awọn isopọ nẹtiwọọki."
+  },
+  "force_overwrites": {
+    "name": "Ipasẹ agbara",
+    "description": "Awọn akọle awọn faili ti o wa tẹlẹ laisi ibeere."
+  },
+  "format": {
+    "name": "Ọna kika",
+    "description": "Koodu ọna kika fidio lati gbasilẹ."
+  },
+  "fragment_retries": {
+    "name": "Awọn ipadasẹhin",
+    "description": "Nọmba ti awọn ipadabọ lori awọn aṣiṣe awọn aṣiṣe."
+  },
+  "geo_verification_proxy": {
+    "name": "Aṣoju Geo",
+    "description": "Server Server lati Lo fun Irisi ijẹrisi Geo."
+  },
+  "ignore_errors": {
+    "name": "Foju awọn aṣiṣe",
+    "description": "Foju awọn aṣiṣe lati ayelujara ati tẹsiwaju pẹlu fidio t'okan."
+  },
+  "impersonate": {
+    "name": "Ko le ṣe afihan",
+    "description": "Onibara lati impernate (Chrome, Chrome-110, Chrome: Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Tọju awọn ida",
+    "description": "N tọju awọn ọpọlọpọ awọn ipin ti o gbasilẹ lẹhin iṣakojọpọ."
+  },
+  "language": {
+    "name": "Ede",
+    "description": "Ede ti ohun elo."
+  },
+  "limit_rate": {
+    "name": "Oṣuwọn opin",
+    "description": "Fi opin si iyara gbigba lati ayelujara (fun apẹẹrẹ, 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Gbe lati ibẹrẹ",
+    "description": "Ṣe igbasilẹ awọn fidio ifiwe laaye lati ibẹrẹ."
+  },
+  "merge_output_format": {
+    "name": "Ọna asopọ fidio",
+    "description": "Ọna kika fidio ti o waye lati ma ba apapọ awọn ṣiṣan."
+  },
+  "output": {
+    "name": "Awoṣe ti o wu",
+    "description": "Awoṣe filapule awoṣe."
+  },
+  "password": {
+    "name": "Ọrọ igbaniwọle",
+    "description": "Ọrọ igbaniwọle fun ijẹrisi."
+  },
+  "paths": {
+    "name": "Awọn ọna",
+    "description": "Awọn itọsọna lati fi awọn oriṣi oriṣiriṣi awọn faili lo."
+  },
+  "playlist": {
+    "name": "Akojọ amuyani",
+    "description": "Tọkasi boya lati ṣe igbasilẹ akojọ orin pipe tabi fidio kan."
+  },
+  "prefer_insecure": {
+    "name": "Fẹ ko si aini",
+    "description": "Lilo asopọ HTTTP dipo awọn https (YouTube nikan)."
+  },
+  "proxy": {
+    "name": "Aṣoju",
+    "description": "Server Server lati lo fun awọn ibeere nẹtiwọọki."
+  },
+  "remux_video": {
+    "name": "Fidio ti Relux",
+    "description": "Ayipada eiyan fidio laisi atunbere."
+  },
+  "retries": {
+    "name": "Yipo",
+    "description": "Nọmba ti awọn ipadasẹhin lori awọn aṣiṣe igbasilẹ."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip akojọ orin lẹhin awọn aṣiṣe",
+    "description": "Ẹka awọn iyokù ti akojọ orin lẹhin nọmba kan ti awọn aṣiṣe."
+  },
+  "socket_timeout": {
+    "name": "Igbalejo Sount",
+    "description": "Akoko akoko fun awọn ile asopọ apo ni iṣẹju-aaya."
+  },
+  "source_address": {
+    "name": "Adirẹsi orisun",
+    "description": "Adirẹsi IP alabara lati kan nigbati ṣiṣe awọn isopọ."
+  },
+  "sponsorblock_mark": {
+    "name": "Ami sosorororblock",
+    "description": "Samisi apakan lati awọn ẹka onigbọwọ."
+  },
+  "sub_format": {
+    "name": "Ọna kika ipin",
+    "description": "Koodu ọna kika atunkọ (s) lati gbasilẹ."
+  },
+  "sub_langs": {
+    "name": "Awọn ede Akojoko",
+    "description": "Awọn ede ti awọn atunkọ lati gbasilẹ."
+  },
+  "theme_dark": {
+    "name": "Akọle dudu",
+    "description": "Akori ti ohun elo."
+  },
+  "twofactor": {
+    "name": "Ijeri Iṣeduro Meji",
+    "description": "Koodu ijẹrisi ijẹrisi meji."
+  },
+  "use_extractors": {
+    "name": "Lo awọn aṣọ isile",
+    "description": "Awọn orukọ ti awọn aṣọ ti a ṣe lati lo (mama ti a ya sọtọ). (\"Gbogbo\", \"Ipari\", ikosile deede)"
+  },
+  "username": {
+    "name": "Orukọ olumulo",
+    "description": "Orukọ olumulo fun ajẹri."
+  },
+  "video_multistreams": {
+    "name": "Fidio fidio",
+    "description": "Ngbani ni apapọ awọn ṣiṣan fidio pupọ."
+  },
+  "video_password": {
+    "name": "Ọrọ igbaniwọle fidio",
+    "description": "Ọrọ aṣina fun awọn fidio idaabobo ọrọ igbaniwọle."
+  },
+  "video_resolution": {
+    "name": "Ipinnu",
+    "description": "Ipinnu fidio ti o fẹ"
+  },
+  "video_subtitles": {
+    "name": "Awọn atunkọ",
+    "description": "Awọn atunkọ fidio ti o fẹ"
+  },
+  "wait_for_video": {
+    "name": "Duro fun fidio",
+    "description": "Duro de fidio ti a ṣe eto lati wa ṣaaju gbigba lati ayelujara."
+  },
+  "write_auto_subs": {
+    "name": "Ṣe igbasilẹ awọn atunkọ adaṣe",
+    "description": "Levin wa awọn atunkọ aifọwọyi."
+  },
+  "write_subs": {
+    "name": "Gba igbasilẹ awọn atunkọ",
+    "description": "Onkọwe awọn atunkọ Afowoyi."
+  },
+  "write_thumbnail": {
+    "name": "Kọ eekanna atanpako",
+    "description": "Fipamọ eekanna atanpako fọto si disk."
+  },
+  "xattrs": {
+    "name": "Xati",
+    "description": "Levin Metadata si Awọn Faili Quatystem."
+  },
+  "xff": {
+    "name": "X-firanṣẹ-fun",
+    "description": "Ṣeto x-siwaju-fun oriju lati sonu ipo."
+  }
+}

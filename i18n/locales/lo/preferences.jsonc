@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "ຍົກເລີກຂໍ້ຜິດພາດ",
+    "description": "ຍົກເລີກຂັ້ນຕອນການດາວໂຫລດຖ້າມີຂໍ້ຜິດພາດເກີດຂື້ນ."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "ເອົາລູກອອກ",
+    "description": "ຍົກເລີກການດາວໂຫລດຖ້າບໍ່ມີເລີຍ."
+  },
+  "add_headers": {
+    "name": "ຫົວເພີ່ມເຕີມ",
+    "description": "ຫົວຂໍ້ເພີ່ມເຕີມທີ່ຈະລວມເອົາໃນການຮ້ອງຂໍເຄືອຂ່າຍ."
+  },
+  "audio_format": {
+    "name": "ຮູບແບບສຽງ",
+    "description": "ຮູບແບບຂອງສຽງທີ່ປ່ຽນໃຈເຫລື້ອມໃສ (MP3, flac, opus, ແລະອື່ນໆ)."
+  },
+  "audio_language": {
+    "name": "ເຄື່ອງສຽງ",
+    "description": "ລະຫັດພາສາ Audio ທີ່ມັກ."
+  },
+  "audio_multistreams": {
+    "name": "Audio Marmists",
+    "description": "ອະນຸຍາດໃຫ້ມີການສົມທົບກະແສສຽງຫຼາຍຢ່າງ."
+  },
+  "audio_quality": {
+    "name": "ຄຸນະພາບສຽງ",
+    "description": "ຄຸນະພາບສຽງ (0 ທີ່ດີທີ່ສຸດ, 10 ຮ້າຍແຮງທີ່ສຸດ)."
+  },
+  "batch_file": {
+    "name": "ໄຟລ໌ batch",
+    "description": "ເສັ້ນທາງສູ່ເອກະສານທີ່ມີ url ທີ່ຈະດາວໂຫລດ."
+  },
+  "break_on_existing": {
+    "name": "ແຕກແຍກ",
+    "description": "ຢຸດເຊົາການດາວໂຫລດຖ້າເອກະສານມີຢູ່ແລ້ວ."
+  },
+  "concurrent_fragments": {
+    "name": "ຊິ້ນສ່ວນ",
+    "description": "ຈໍານວນຊິ້ນສ່ວນທີ່ພ້ອມໆກັນເພື່ອດາວໂຫລດ (ຄ່າເລີ່ມຕົ້ນ 1)."
+  },
+  "convert_thumbnails": {
+    "name": "ປ່ຽນຮູບແບບຮູບແບບ",
+    "description": "ປ່ຽນຮູບແບບຮູບແບບໃຫ້ເປັນຮູບແບບທີ່ລະບຸ."
+  },
+  "cookies": {
+    "name": "ທໍານອງ",
+    "description": "Netscape ທີ່ມີຮູບແບບເອກະສານເພື່ອອ່ານ cookies ຈາກແລະຖິ້ມກະປ cookie ອງຄຸກກີ"
+  },
+  "cookies_from_browser": {
+    "name": "cookies ຈາກ browser",
+    "description": "ນໍາເຂົ້າ cookies ຈາກ browser ທີ່ລະບຸໄວ້."
+  },
+  "download_archive": {
+    "name": "ດາວໂຫລດຮວບຮວມ",
+    "description": "ເສັ້ນທາງໄປສູ່ເອກະສານເຂົ້າໃນການບັນທຶກ iids ດາວໂຫລດເພື່ອຫລີກລ້ຽງການຊໍ້າຊ້ອນ."
+  },
+  "embed_chapters": {
+    "name": "ຝັງບົດຕ່າງໆ",
+    "description": "ຝັງເຂົ້າບົດເຂົ້າໃນເອກະສານສຸດທ້າຍ."
+  },
+  "embed_info_json": {
+    "name": "ຝັງຂໍ້ມູນ Json",
+    "description": "ການຝັງຂໍ້ມູນ JSON JSON ເຂົ້າໄປໃນເອກະສານສຸດທ້າຍ."
+  },
+  "embed_metadata": {
+    "name": "ຝັງ metadata",
+    "description": "ຝັງ metadata ເຂົ້າໃນເອກະສານສຸດທ້າຍ."
+  },
+  "embed_subs": {
+    "name": "ຝັງຄໍາບັນຍາຍ",
+    "description": "ຝັງຄໍາບັນຍາຍເຂົ້າໃນເອກະສານສຸດທ້າຍ."
+  },
+  "embed_thumbnail": {
+    "name": "ຝັງຮູບຮູບນ້ອຍ",
+    "description": "ຝັງຮູບຫຍໍ້ເປັນເອກະສານສຸດທ້າຍ."
+  },
+  "enable_file_urls": {
+    "name": "ເປີດໃຊ້ URL ຂອງແຟ້ມ",
+    "description": "ເຮັດໃຫ້ການນໍາໃຊ້ url ໄຟລ໌ສໍາລັບເອກະສານທ້ອງຖິ່ນ."
+  },
+  "extract_audio": {
+    "name": "ສະກັດສຽງ",
+    "description": "ສະກັດສຽງຈາກວິດີໂອທີ່ດາວໂຫລດມາ (ໃຊ້ FFMPEG)."
+  },
+  "extractor_retries": {
+    "name": "retractor retries",
+    "description": "ຈໍານວນຂອງ retries ໃນຂໍ້ຜິດພາດຂອງຜູ້ສະກັດເອົາ."
+  },
+  "ffmpeg_location": {
+    "name": "ສະຖານທີ່ Ffmpeg",
+    "description": "ເສັ້ນທາງສູ່ FFMPEG Binary."
+  },
+  "file_access_retries": {
+    "name": "ການເຂົ້າເຖິງເອກະສານ retries",
+    "description": "ຈໍານວນຂອງ retries ໃນຂໍ້ຜິດພາດຂອງການເຂົ້າເຖິງໄຟລ໌."
+  },
+  "fixup": {
+    "name": "ຂົດ",
+    "description": "ແກ້ໄຂຄວາມຜິດທີ່ຮູ້ໂດຍອັດຕະໂນມັດໃນເອກະສານວິດີໂອ."
+  },
+  "font_size": {
+    "name": "ຂະຫນາດຕົວອັກສອນ",
+    "description": "ຂະຫນາດຕົວອັກສອນທີ່ໃຊ້ໃນໃບສະຫມັກ."
+  },
+  "force_ipv4": {
+    "name": "ບັງຄັບ IPv4",
+    "description": "ບັງຄັບໃຫ້ໃຊ້ IPv4 ສໍາລັບການເຊື່ອມຕໍ່ເຄືອຂ່າຍ."
+  },
+  "force_ipv6": {
+    "name": "ບັງຄັບ IPv6",
+    "description": "ບັງຄັບໃຫ້ໃຊ້ IPv6 ສໍາລັບການເຊື່ອມຕໍ່ເຄືອຂ່າຍ."
+  },
+  "force_overwrites": {
+    "name": "ບັງຄັບໃຫ້ເກີນກໍາລັງ",
+    "description": "ຂຽນທັບເອກະສານທີ່ມີຢູ່ໂດຍບໍ່ຕ້ອງຖາມ."
+  },
+  "format": {
+    "name": "ຮູບແບບ",
+    "description": "ລະຫັດຮູບແບບວິດີໂອເພື່ອດາວໂຫລດ."
+  },
+  "fragment_retries": {
+    "name": "ຟ້ອນພາກສ່ວນ",
+    "description": "ຈໍານວນ retries ໃນຂໍ້ຜິດພາດດາວໂຫລດຊິ້ນ."
+  },
+  "geo_verification_proxy": {
+    "name": "ຕົວແທນການກວດສອບ go",
+    "description": "Proxy Server ເພື່ອໃຊ້ສໍາລັບການຢັ້ງຢືນ Geo Geo."
+  },
+  "ignore_errors": {
+    "name": "ບໍ່ສົນໃຈຄວາມຜິດພາດ",
+    "description": "ບໍ່ສົນໃຈຂໍ້ຜິດພາດໃນການດາວໂຫລດແລະສືບຕໍ່ກັບວິດີໂອຕໍ່ໄປ."
+  },
+  "impersonate": {
+    "name": "ປອມຕົວ",
+    "description": "ລູກຄ້າທີ່ມີຄວາມບົກຜ່ອງ (Chrome, Chrome-110, Chrome: Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "ຮັກສາຊິ້ນ",
+    "description": "ຮັກສາຊິ້ນສ່ວນທີ່ດາວໂຫລດໄດ້ຫຼັງຈາກລວມຕົວ."
+  },
+  "language": {
+    "name": "ພາສາ",
+    "description": "ພາສາຂອງການສະຫມັກ."
+  },
+  "limit_rate": {
+    "name": "ຈໍາກັດອັດຕາ",
+    "description": "ຈໍາກັດຄວາມໄວໃນການດາວໂຫລດ (ເຊັ່ນ: 50k, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "ອາໄສຢູ່ຕັ້ງແຕ່ເລີ່ມຕົ້ນ",
+    "description": "ດາວໂຫລດວິດີໂອທີ່ມີຊີວິດຕັ້ງແຕ່ເລີ່ມຕົ້ນ."
+  },
+  "merge_output_format": {
+    "name": "ຮູບແບບວິດີໂອ",
+    "description": "ຮູບແບບວິດີໂອສຸດທ້າຍທີ່ເກີດຈາກການລວມເອົາສາຍນ້ໍາ."
+  },
+  "output": {
+    "name": "ແມ່ແບບຜົນໄດ້ຮັບ",
+    "description": "ແມ່ແບບ filame ຜົນໄດ້ຮັບ."
+  },
+  "password": {
+    "name": "ລະຫັດຜ່ານ",
+    "description": "ລະຫັດຜ່ານສໍາລັບການກວດສອບຄວາມຖືກຕ້ອງ."
+  },
+  "paths": {
+    "name": "ເສັ້ນທາງ",
+    "description": "ບັນດາລາຍການທີ່ຈະບັນທຶກເອກະສານປະເພດຕ່າງໆ."
+  },
+  "playlist": {
+    "name": "ຊ່າງຫຼີ້ນ",
+    "description": "ຊີ້ບອກວ່າຈະດາວໂຫລດລາຍການທີ່ສົມບູນຫຼືວິດີໂອດຽວ."
+  },
+  "prefer_insecure": {
+    "name": "ມັກບໍ່ປອດໄພ",
+    "description": "ໃຊ້ການເຊື່ອມຕໍ່ HTTP ແທນທີ່ຈະເປັນ HTTPS (YouTube ເທົ່ານັ້ນ)."
+  },
+  "proxy": {
+    "name": "ຕົວແທນ",
+    "description": "Proxy Server ເພື່ອໃຊ້ສໍາລັບການຮ້ອງຂໍເຄືອຂ່າຍ."
+  },
+  "remux_video": {
+    "name": "ວິດີໂອ REXX",
+    "description": "ປ່ຽນຕູ້ຄອນເທນເນີທີ່ບໍ່ມີການເຂົ້າລະຫັດຄືນໃຫມ່."
+  },
+  "retries": {
+    "name": "ລອງໃຫມ່",
+    "description": "ຈໍານວນ retries ໃນການດາວໂຫລດຂໍ້ຜິດພາດ."
+  },
+  "skip_playlist_after_errors": {
+    "name": "ຂ້າມລາຍການ Playlist ຫຼັງຈາກຂໍ້ຜິດພາດ",
+    "description": "ຂ້າມສ່ວນທີ່ເຫຼືອຂອງລາຍການເພງຫຼັງຈາກທີ່ມີຄວາມຜິດພາດຈໍານວນຫນຶ່ງ."
+  },
+  "socket_timeout": {
+    "name": "ລາຄາສິ້ນ",
+    "description": "ຫມົດເວລາສໍາລັບການເຊື່ອມຕໍ່ Socket ໃນວິນາທີ."
+  },
+  "source_address": {
+    "name": "ທີ່ຢູ່ແຫຼ່ງຂໍ້ມູນ",
+    "description": "ທີ່ຢູ່ IP ຂອງລູກຄ້າທີ່ຈະຜູກມັດໃນເວລາທີ່ເຮັດການເຊື່ອມຕໍ່."
+  },
+  "sponsorblock_mark": {
+    "name": "Sponsorblock Mark",
+    "description": "ເຄື່ອງຫມາຍສ່ວນຕ່າງໆຈາກ Sponsorblock ປະເພດ."
+  },
+  "sub_format": {
+    "name": "ຮູບແບບຄໍາບັນຍາຍ",
+    "description": "ລະຫັດຮູບແບບຄໍາບັນຍາຍເພື່ອດາວໂຫລດ."
+  },
+  "sub_langs": {
+    "name": "ພາສາຄໍາບັນຍາຍ",
+    "description": "ພາສາຂອງຄໍາບັນຍາຍເພື່ອດາວໂຫລດ."
+  },
+  "theme_dark": {
+    "name": "ຫົວຂໍ້ມືດ",
+    "description": "ຫົວຂໍ້ຂອງຄໍາຮ້ອງສະຫມັກ."
+  },
+  "twofactor": {
+    "name": "ການກວດສອບຄວາມຖືກຕ້ອງຂອງສອງປັດໃຈ",
+    "description": "ລະຫັດການກວດສອບສອງປັດໃຈ."
+  },
+  "use_extractors": {
+    "name": "ໃຊ້ເຄື່ອງສະກັດ",
+    "description": "ຊື່ຜູ້ສະກັດເພື່ອໃຊ້ (ເຄື່ອງຫມາຍຈຸດແຍກຕ່າງຫາກ). (\"ທັງຫມົດ\", \"\" ໃນຕອນຕົ້ນ \", ການສະແດງອອກປົກກະຕິ)"
+  },
+  "username": {
+    "name": "ສັນຍາລັກ",
+    "description": "ຊື່ຜູ້ໃຊ້ສໍາລັບການກວດສອບຄວາມຖືກຕ້ອງ."
+  },
+  "video_multistreams": {
+    "name": "ວິດີໂອບັນຊີລາຍຊື່",
+    "description": "ອະນຸຍາດໃຫ້ມີການສົມທົບສາຍວິດີໂອທີ່ຫຼາກຫຼາຍ."
+  },
+  "video_password": {
+    "name": "ລະຫັດຜ່ານວິດີໂອ",
+    "description": "ລະຫັດຜ່ານສໍາລັບວິດີໂອທີ່ປ້ອງກັນລະຫັດຜ່ານ."
+  },
+  "video_resolution": {
+    "name": "ການແກ້ໄຂບັນຫາ",
+    "description": "ຄວາມລະອຽດຂອງວີດີໂອທີ່ຕ້ອງການ"
+  },
+  "video_subtitles": {
+    "name": "ຄໍາບັນຍາຍ",
+    "description": "ຄໍາບັນຍາຍວິດີໂອທີ່ຕ້ອງການ"
+  },
+  "wait_for_video": {
+    "name": "ລໍຖ້າວິດີໂອ",
+    "description": "ລໍຖ້າວິດີໂອທີ່ກໍານົດຈະກາຍເປັນທີ່ມີກ່ອນທີ່ຈະດາວໂຫລດ."
+  },
+  "write_auto_subs": {
+    "name": "ດາວໂຫລດຄໍາບັນຍາຍອັດຕະໂນມັດ",
+    "description": "ຂຽນຈົດຫມາຍອັດຕະໂນມັດທີ່ມີຢູ່."
+  },
+  "write_subs": {
+    "name": "ດາວໂຫລດຄໍາບັນຍາຍ",
+    "description": "ຂຽນຄໍາບັນຍາຍຄູ່ມືທີ່ມີຢູ່."
+  },
+  "write_thumbnail": {
+    "name": "ຂຽນຮູບນ້ອຍ",
+    "description": "ປະຫຍັດຮູບພາບວີດີໂອໃຫ້ແຜ່ນ."
+  },
+  "xattrs": {
+    "name": "Xattrs",
+    "description": "ຂຽນຂໍ້ມູນ metadata ກັບລະບົບແຟ້ມເອກະສານ xattrs."
+  },
+  "xff": {
+    "name": "x-pareed-for-for",
+    "description": "ກໍານົດ X-Pare-Forward-Forer ສໍາລັບການຈໍາລອງສະຖານທີ່."
+  }
+}

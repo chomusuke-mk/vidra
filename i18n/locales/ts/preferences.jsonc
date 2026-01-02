@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Abort hi xihoxo .",
+    "description": "Aborts the download process loko ku humelela xihoxo."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Abort eka xiphemu lexi nga kumekiki .",
+    "description": "Aborts the download loko xiphemu xi nga ri kona."
+  },
+  "add_headers": {
+    "name": "Swihloko leswi engetelekeke .",
+    "description": "Tinhlokomhaka to engetela ku katsa eka swikombelo swa netiweke."
+  },
+  "audio_format": {
+    "name": "Xivumbeko xa mpfumawulo .",
+    "description": "Xivumbeko xa mpfumawulo lowu hundzuriweke (MP3, FLAC, OPUS, na swin’wana)."
+  },
+  "audio_language": {
+    "name": "Audio .",
+    "description": "Khodi ya Ririmi ra Audio leri Rhandziwaka."
+  },
+  "audio_multistreams": {
+    "name": "Swihambukelo swo tala swa mpfumawulo .",
+    "description": "Swi pfumelela ku hlanganisa swihlovo swo tala swa mpfumawulo."
+  },
+  "audio_quality": {
+    "name": "Khwalithi ya mpfumawulo .",
+    "description": "Khwalithi ya mpfumawulo (0 best, 10 wo biha swinene)."
+  },
+  "batch_file": {
+    "name": "Fayili ya ntlawa .",
+    "description": "Ndlela yo ya eka fayili leyi nga ni ti-URL to download."
+  },
+  "break_on_existing": {
+    "name": "Break eka leswi nga kona .",
+    "description": "Yi yima ku downloada loko fayili se yi ri kona."
+  },
+  "concurrent_fragments": {
+    "name": "Swiphemu swa nkarhi wun’we .",
+    "description": "Nhlayo ya swiphemu swa nkarhi wun’we leswi u faneleke ku swi dawuniloda (default 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Hundzuluxa swifaniso leswitsongo .",
+    "description": "Hundzuluxa swifaniso leswitsongo eka xivumbeko lexi boxiweke."
+  },
+  "cookies": {
+    "name": "Swikhukhi .",
+    "description": "File leyi fomatiweke hi netscape ku hlaya swikhukhi ku suka eka na ku lahlela xibya xa swikhukhi eka ."
+  },
+  "cookies_from_browser": {
+    "name": "Swikhukhi leswi humaka eka browser .",
+    "description": "Ku nghenisa tikhukhi ku suka eka browser leyi boxiweke."
+  },
+  "download_archive": {
+    "name": "Download Archive .",
+    "description": "Ndlela yo fayela ku rhekhoda ti-ID leti dawunilodiweke ku papalata ti-duplicate."
+  },
+  "embed_chapters": {
+    "name": "Embed tindzima .",
+    "description": "Ku nghenisa tindzima eka fayili yo hetelela."
+  },
+  "embed_info_json": {
+    "name": "Embed info JSON .",
+    "description": "Embeds Info Json eka fayili yo hetelela."
+  },
+  "embed_metadata": {
+    "name": "Embed Metadata .",
+    "description": "Ku nghenisa metadata eka fayili yo hetelela."
+  },
+  "embed_subs": {
+    "name": "Embed swifaniso swa le hansi .",
+    "description": "yi nghenisa swifaniso swa le hansi eka fayili yo hetelela."
+  },
+  "embed_thumbnail": {
+    "name": "Embed xifaniso lexitsongo .",
+    "description": "Yi nghenisa xifaniso lexitsongo eka fayili yo hetelela."
+  },
+  "enable_file_urls": {
+    "name": "Endla leswaku ti-URL ta fayili ti tirha .",
+    "description": "Swi endla leswaku ku tirhisiwa ti-URL ta tifayela eka tifayela ta laha kaya."
+  },
+  "extract_audio": {
+    "name": "Extract Audio .",
+    "description": "Ku humesa mpfumawulo eka tivhidiyo leti dawunilodiweke (Uses FFmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Switirhisiwa swo humesa swilo leswi humesiwaka .",
+    "description": "Nhlayo ya ku ringeta nakambe eka swihoxo swa extractor."
+  },
+  "ffmpeg_location": {
+    "name": "Ndhawu ya FFmpeg .",
+    "description": "Ndlela yo ya eka ffmpeg binary."
+  },
+  "file_access_retries": {
+    "name": "Ku ringeta nakambe ka ku nghena ka fayili .",
+    "description": "Nhlayo ya ku ringeta nakambe eka swihoxo swa mfikelelo wa fayili."
+  },
+  "fixup": {
+    "name": "Fixup .",
+    "description": "Hi ku tisungulela yi lulamisa swihoxo leswi tivekaka eka fayili ya vhidiyo."
+  },
+  "font_size": {
+    "name": "Vukulu bya fonto .",
+    "description": "Vukulu bya fonto lebyi tirhisiwaka eka xitirhisiwa."
+  },
+  "force_ipv4": {
+    "name": "Matimba IPv4.",
+    "description": "Ku sindzisa ku tirhisiwa ka IPv4 eka vuhlanganisi bya netiweke."
+  },
+  "force_ipv6": {
+    "name": "Matimba IPv6.",
+    "description": "Ku sindzisa ku tirhisiwa ka IPv6 eka vuhlanganisi bya netiweke."
+  },
+  "force_overwrites": {
+    "name": "Matimba ya tsala ehenhla .",
+    "description": "U tsala ehenhla ka tifayela leti nga kona handle ko vutisa."
+  },
+  "format": {
+    "name": "Xivumbeko xa .",
+    "description": "Khodi ya Fomati ya Vhidiyo (s) yo kopa."
+  },
+  "fragment_retries": {
+    "name": "Ku ringeta nakambe ka swiphemuphemu .",
+    "description": "Nhlayo ya ku ringeta nakambe eka swihoxo swa ku dawuniloda ka swiphemu."
+  },
+  "geo_verification_proxy": {
+    "name": "Xiyimiso xa ku Tiyisisiwa ka Geo .",
+    "description": "Proxy server ku tirhisa eka geo-verification."
+  },
+  "ignore_errors": {
+    "name": "Ku honisa swihoxo .",
+    "description": "Ignore download errors u ya emahlweni na video leyi landzelaka."
+  },
+  "impersonate": {
+    "name": "ku tiendla munhu .",
+    "description": "Xitirhisiwa xo tiendla onge i munhu (Chrome, Chrome-110, Chrome:Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Hlayisa swiphemuphemu .",
+    "description": "Yi hlayisa swiphemu leswi dawunilodiweke endzhaku ko hlangana."
+  },
+  "language": {
+    "name": "Ririmi",
+    "description": "Ririmi ra xitirhisiwa."
+  },
+  "limit_rate": {
+    "name": "Nhlayo ya ndzingano .",
+    "description": "Swi ringanyeta rivilo ro dawuniloda (e.g., 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Live ku sukela eku sunguleni .",
+    "description": "Ku dawuniloda tivhidiyo leti hanyaka ku sukela eku sunguleni."
+  },
+  "merge_output_format": {
+    "name": "Xivumbeko xa vhidiyo .",
+    "description": "Fomati ya vhidiyo yo hetelela leyi humaka eka ku hlanganisiwa ka swihlovo."
+  },
+  "output": {
+    "name": "Xifaniso xa vuhumelerisi .",
+    "description": "Xifaniso xa vito ra fayili ya vuhumelerisi."
+  },
+  "password": {
+    "name": "Phasiwedi",
+    "description": "Password ya vuhlayiseki."
+  },
+  "paths": {
+    "name": "Tindlela .",
+    "description": "Tidayirekitara to hlayisa tinxaka to hambana ta tifayela."
+  },
+  "playlist": {
+    "name": "Nxaxamelo wa swichayachayana .",
+    "description": "Swi kombisa loko ku ta dawuniloda nxaxamelo wa swichayachayana leswi heleleke kumbe vhidiyo yin’we."
+  },
+  "prefer_insecure": {
+    "name": "tsakela Insecure .",
+    "description": "Tirhisa vuhlanganisi bya HTTP ematshan’wini ya HTTPS (YouTube ntsena)."
+  },
+  "proxy": {
+    "name": "Muyimeri .",
+    "description": "Proxy server ku tirhisa eka swikombelo swa netiweke."
+  },
+  "remux_video": {
+    "name": "Vhidiyo ya Remux .",
+    "description": "Ku cinca xigwitsirisi xa vhidiyo handle ko tlhela u nghenisa."
+  },
+  "retries": {
+    "name": "Ku ringeta nakambe .",
+    "description": "Nhlayo ya ku ringeta nakambe eka swihoxo swa ku dawuniloda."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip playlist endzhaku ka swihoxo .",
+    "description": "Skips the rest of playlist endzhaku ka nhlayo yo karhi ya swihoxo."
+  },
+  "socket_timeout": {
+    "name": "Nkarhi wa Sokheti",
+    "description": "Timeout ya swihlanganisi swa sokheti hi tisekoni."
+  },
+  "source_address": {
+    "name": "Xihlovo xa adirese .",
+    "description": "Client IP address ku boha eka loko ku endliwa vuhlanganisi."
+  },
+  "sponsorblock_mark": {
+    "name": "SponorBlock Mark .",
+    "description": "Timaraka swiyenge ku suka eka swiyenge swa SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Xivumbeko xa xifaniso xa le hansi .",
+    "description": "Khodi ya xivumbeko xa subtitle ku ta downloada."
+  },
+  "sub_langs": {
+    "name": "Tindzimi ta swifaniso swa le hansi .",
+    "description": "Tindzimi ta swifaniso swa le hansi leswi u faneleke u swi kopa."
+  },
+  "theme_dark": {
+    "name": "Nhlokomhaka ya munyama .",
+    "description": "Nhlokomhaka ya xikombelo."
+  },
+  "twofactor": {
+    "name": "Ku tiyisisiwa ka swilo swimbirhi .",
+    "description": "Khodi ya vuhlayiseki bya swilo swimbirhi."
+  },
+  "use_extractors": {
+    "name": "Tirhisa swilo leswi humesaka swilo .",
+    "description": "Mavito ya swihumesi swo tirhisa (comma separated).(\"hinkwaswo\",\"default\",\"End\",Xivulavulelo xa Nkarhi na Nkarhi)"
+  },
+  "username": {
+    "name": "Vito ra mutirhisi .",
+    "description": "Vito ra mutirhisi ra vuhlayiseki."
+  },
+  "video_multistreams": {
+    "name": "Vhidiyo MultiStreams .",
+    "description": "Swi pfumelela ku hlanganisa swihambukelo swo tala swa vhidiyo."
+  },
+  "video_password": {
+    "name": "Phasiwedi ya vhidiyo .",
+    "description": "Password ya tivhidiyo leti sirhelelekeke hi password."
+  },
+  "video_resolution": {
+    "name": "Xitshunxo",
+    "description": "Xiboho xa vhidiyo lexi tsakeriwaka ."
+  },
+  "video_subtitles": {
+    "name": "Swifaniso swa le hansi .",
+    "description": "Swifaniso swa vhidiyo leswi tsakeriwaka ."
+  },
+  "wait_for_video": {
+    "name": "Yimela vhidiyo .",
+    "description": "Yi yimela vhidiyo leyi hleriweke yi kumeka yi nga si dawuniloda."
+  },
+  "write_auto_subs": {
+    "name": "Download Swifaniso swa le hansi swa movha .",
+    "description": "Ku tsala swifaniso swa le hansi swa otomatiki leswi kumekaka."
+  },
+  "write_subs": {
+    "name": "Download Swifaniso swa le hansi .",
+    "description": "Ku tsala swifaniso swa manual leswi kumekaka."
+  },
+  "write_thumbnail": {
+    "name": "Tsala xifaniso lexitsongo .",
+    "description": "Ku hlayisa xifaniso lexitsongo xa vhidiyo eka disk."
+  },
+  "xattrs": {
+    "name": "Xattrs .",
+    "description": "Ku tsala metadata eka sisiteme ya tifayela yattrs."
+  },
+  "xff": {
+    "name": "X-forwarded-for .",
+    "description": "Yi veka nhloko ya X-forwarded-for ku tekelela ndhawu."
+  }
+}

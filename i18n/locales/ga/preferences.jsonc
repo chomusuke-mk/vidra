@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Tobscoir ar Earráid",
+    "description": "Cuireann sé deireadh leis an bpróiseas íoslódála má tharlaíonn earráid."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Tobscoireadh ar Fragment Neamhfhaighte",
+    "description": "Cuireann sé deireadh leis an íoslódáil mura bhfuil blúire ar fáil."
+  },
+  "add_headers": {
+    "name": "Ceanntásca Breise",
+    "description": "Ceanntásca breise le cur san áireamh in iarratais líonra."
+  },
+  "audio_format": {
+    "name": "Formáid Fuaime",
+    "description": "Format of the converted audio (mp3, flac, opus, etc.)."
+  },
+  "audio_language": {
+    "name": "Fuaime",
+    "description": "Cód teanga is fearr leat fuaime."
+  },
+  "audio_multistreams": {
+    "name": "Ilsruthanna Fuaime",
+    "description": "Ceadaíonn sé sruthanna fuaime iolracha a chomhcheangal."
+  },
+  "audio_quality": {
+    "name": "Cáilíocht Fuaime",
+    "description": "Cáilíocht fuaime (0 is fearr, 10 is measa)."
+  },
+  "batch_file": {
+    "name": "Comhad Baisc",
+    "description": "Conair chuig comhad ina bhfuil URLanna le híoslódáil."
+  },
+  "break_on_existing": {
+    "name": "Briseadh ar Láithreach",
+    "description": "Stopann sé le híoslódáil má tá an comhad ann cheana."
+  },
+  "concurrent_fragments": {
+    "name": "Blúirí Comhthráthacha",
+    "description": "Líon na blúirí comhuaineacha le híoslódáil (réamhshocraithe 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Mionsamhlacha Tiontaigh",
+    "description": "Mionsamhlacha a thiontú go formáid sonraithe."
+  },
+  "cookies": {
+    "name": "Fianáin",
+    "description": "Comhad formáidithe Netscape chun fianáin a léamh ó agus próca fianán a dhumpáil isteach"
+  },
+  "cookies_from_browser": {
+    "name": "Fianáin ón mBrabhsálaí",
+    "description": "Allmhairíonn fianáin ón mbrabhsálaí sonraithe."
+  },
+  "download_archive": {
+    "name": "Cartlann a íoslódáil",
+    "description": "Conair chuig an gcomhad chun aitheantais íoslódála a thaifeadadh chun dúbailt a sheachaint."
+  },
+  "embed_chapters": {
+    "name": "Caibidlí a Leabú",
+    "description": "Leabaítear caibidlí sa chomhad deiridh."
+  },
+  "embed_info_json": {
+    "name": "Leabaigh Info JSON",
+    "description": "Leabaíonn sé faisnéis JSON sa chomhad deiridh."
+  },
+  "embed_metadata": {
+    "name": "Leabaigh Meiteashonraí",
+    "description": "Leabaíonn sé meiteashonraí sa chomhad deiridh."
+  },
+  "embed_subs": {
+    "name": "Leabaigh Fotheidil",
+    "description": "Leabaíonn sé fotheidil sa chomhad deiridh."
+  },
+  "embed_thumbnail": {
+    "name": "Leabú Mionsamhail",
+    "description": "Leabaíonn sé an mionsamhail sa chomhad deiridh."
+  },
+  "enable_file_urls": {
+    "name": "Cumasaigh URLanna Comhad",
+    "description": "Cumasaíonn sé URLanna comhaid a úsáid le haghaidh comhaid áitiúla."
+  },
+  "extract_audio": {
+    "name": "Sliocht Fuaime",
+    "description": "Sleachta as físeáin íoslódáilte fuaime (úsáideann ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Iarrachtaí Extractor",
+    "description": "Líon na n-trialach ar earráidí asbhainte."
+  },
+  "ffmpeg_location": {
+    "name": "Suíomh FFmpeg",
+    "description": "Conair chuig an dénártha FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Atriartha Rochtana Comhaid",
+    "description": "Líon na n-iarratas ar earráidí rochtana comhad."
+  },
+  "fixup": {
+    "name": "Deisigh",
+    "description": "Ceartaíonn sé go huathoibríoch lochtanna aitheanta sa chomhad físeáin."
+  },
+  "font_size": {
+    "name": "Clómhéid",
+    "description": "Clómhéid a úsáidtear san fheidhmchlár."
+  },
+  "force_ipv4": {
+    "name": "Fórsa IPv4",
+    "description": "Iallach a chur ar úsáid IPv4 le haghaidh naisc líonra."
+  },
+  "force_ipv6": {
+    "name": "Fórsa IPv6",
+    "description": "Cuireann sé iachall ar úsáid IPv6 le haghaidh naisc líonra."
+  },
+  "force_overwrites": {
+    "name": "Forscríobhann Fórsa",
+    "description": "Forscríobhann sé comhaid atá ann cheana féin gan fiafraí."
+  },
+  "format": {
+    "name": "Formáid",
+    "description": "Íoslódáil cóid formáid físeán."
+  },
+  "fragment_retries": {
+    "name": "Iarrann Fragment",
+    "description": "Líon na n-iarratas ar earráidí íoslódála blúire."
+  },
+  "geo_verification_proxy": {
+    "name": "Seachfhreastalaí Geo Fíoraithe",
+    "description": "Seachfhreastalaí le húsáid le haghaidh geo-fhíorú."
+  },
+  "ignore_errors": {
+    "name": "Déan neamhaird de Earráidí",
+    "description": "Déan neamhaird de earráidí íoslódála agus lean ar aghaidh leis an gcéad fhíseán eile."
+  },
+  "impersonate": {
+    "name": "Déan aithris",
+    "description": "Cliant le pearsanú (chrome, chrome-110, chrome: windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Coinnigh blúirí",
+    "description": "Coinníonn sé na blúirí íoslódála tar éis cumasc."
+  },
+  "language": {
+    "name": "Teanga",
+    "description": "Teanga an fheidhmchláir."
+  },
+  "limit_rate": {
+    "name": "Ráta Teorainn",
+    "description": "Cuireann sé teorainn leis an luas íoslódála (m.sh., 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "Beo ó thús",
+    "description": "Íosluchtaigh físeáin ó thús."
+  },
+  "merge_output_format": {
+    "name": "Formáid Físeáin",
+    "description": "Formáid físeán deiridh mar thoradh ar shruthanna a chumasc."
+  },
+  "output": {
+    "name": "Teimpléad Aschuir",
+    "description": "Teimpléad ainm comhaid aschuir."
+  },
+  "password": {
+    "name": "Pasfhocal",
+    "description": "Pasfhocal le haghaidh fíordheimhnithe."
+  },
+  "paths": {
+    "name": "Cosáin",
+    "description": "Comhadlanna chun cineálacha éagsúla comhaid a shábháil."
+  },
+  "playlist": {
+    "name": "Seinmliosta",
+    "description": "Léiríonn sé cé acu an seinmliosta iomlán nó físeán amháin a íoslódáil."
+  },
+  "prefer_insecure": {
+    "name": "Is fearr neamhchinnte",
+    "description": "Úsáideann sé nasc HTTP in ionad HTTPS (YouTube amháin)."
+  },
+  "proxy": {
+    "name": "Seachfhreastalaí",
+    "description": "Seachfhreastalaí le húsáid le haghaidh iarratais líonra."
+  },
+  "remux_video": {
+    "name": "Físeán Remux",
+    "description": "Athraítear an coimeádán físeáin gan athchódú."
+  },
+  "retries": {
+    "name": "Retriries",
+    "description": "Líon na n-iarratas ar earráidí íoslódála."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Scipeáil Seinmliosta Tar éis Earráidí",
+    "description": "Scipeanna an chuid eile den seinmliosta tar éis líon áirithe earráidí."
+  },
+  "socket_timeout": {
+    "name": "Teorainn Ama Soicéad",
+    "description": "Teorainn ama do naisc soicéad i soicindí."
+  },
+  "source_address": {
+    "name": "Seoladh Foinse",
+    "description": "Seoladh IP an chliaint le ceangal leis agus naisc á ndéanamh."
+  },
+  "sponsorblock_mark": {
+    "name": "Marc Urraitheora",
+    "description": "Marcáil deighleoga ó chatagóirí SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Formáid Fotheideal",
+    "description": "Cód(anna) formáid fotheideal le híoslódáil."
+  },
+  "sub_langs": {
+    "name": "Teangacha Fotheideal",
+    "description": "Teangacha le fotheidil a íoslódáil."
+  },
+  "theme_dark": {
+    "name": "Téama Dorcha",
+    "description": "Téama an fheidhmchláir."
+  },
+  "twofactor": {
+    "name": "Fíordheimhniú Dhá-Fachtóir",
+    "description": "Cód fíordheimhnithe dhá fhachtóir."
+  },
+  "use_extractors": {
+    "name": "Bain úsáid as Extractors",
+    "description": "Ainmneacha na n-eastóscóirí le húsáid (camóg scartha).(\"uile\", \"réamhshocraithe\", \"deireadh\", slonn rialta)"
+  },
+  "username": {
+    "name": "Ainm úsáideora",
+    "description": "Ainm úsáideora le haghaidh fíordheimhnithe."
+  },
+  "video_multistreams": {
+    "name": "Ilsruthanna Físeáin",
+    "description": "Ligeann sé sruthanna físeáin iolracha a chomhcheangal."
+  },
+  "video_password": {
+    "name": "Pasfhocal Físeáin",
+    "description": "Pasfhocal le haghaidh físeáin cosanta ag pasfhocal."
+  },
+  "video_resolution": {
+    "name": "Rún",
+    "description": "Rún físeáin is fearr leat"
+  },
+  "video_subtitles": {
+    "name": "Fotheidil",
+    "description": "Fotheidil físeáin is fearr leat"
+  },
+  "wait_for_video": {
+    "name": "Fan le haghaidh Video",
+    "description": "Ag fanacht go mbeidh físeán sceidealta ar fáil roimh é a íoslódáil."
+  },
+  "write_auto_subs": {
+    "name": "Íosluchtaigh auto fotheideal",
+    "description": "Scríobhann sé fotheidil uathoibríocha atá ar fáil."
+  },
+  "write_subs": {
+    "name": "Íosluchtaigh fotheidil béarla",
+    "description": "Scríobhann sé fotheidil láimhe atá ar fáil."
+  },
+  "write_thumbnail": {
+    "name": "Scríobh Mionsamhail",
+    "description": "Sábhálann an mionsamhail físeáin chuig diosca."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Scríobhann meiteashonraí chuig xattrs an chórais comhad."
+  },
+  "xff": {
+    "name": "X-Ar Aghaidh-For",
+    "description": "Socraíonn sé an ceanntásc X-Forwarded-For chun suíomh a insamhail."
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Abort on Error",
+    "description": "Aborts the download process if an error occurs."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Abort on Unavailable Fragment",
+    "description": "Aborts the download if a fragment is unavailable."
+  },
+  "add_headers": {
+    "name": "Additional Headers",
+    "description": "Additional headers to include in network requests."
+  },
+  "audio_format": {
+    "name": "Audio Format",
+    "description": "Format of the converted audio (mp3, flac, opus, etc.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Preferred audio language code."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams",
+    "description": "Allows combining multiple audio streams."
+  },
+  "audio_quality": {
+    "name": "Audio Quality",
+    "description": "Audio quality (0 best, 10 worst)."
+  },
+  "batch_file": {
+    "name": "Batch File",
+    "description": "Path to a file containing URLs to download."
+  },
+  "break_on_existing": {
+    "name": "Break on Existing",
+    "description": "Stops downloading if the file already exists."
+  },
+  "concurrent_fragments": {
+    "name": "Concurrent Fragments",
+    "description": "Number of simultaneous fragments to download (default 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Convert Thumbnails",
+    "description": "Convert thumbnails to the specified format."
+  },
+  "cookies": {
+    "name": "Cookies",
+    "description": "Netscape formatted file to read cookies from and dump cookie jar in"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies from Browser",
+    "description": "Imports cookies from the specified browser."
+  },
+  "download_archive": {
+    "name": "Download Archive",
+    "description": "Path to file to record downloaded IDs to avoid duplicates."
+  },
+  "embed_chapters": {
+    "name": "Embed Chapters",
+    "description": "Embeds chapters into the final file."
+  },
+  "embed_info_json": {
+    "name": "Embed Info JSON",
+    "description": "Embeds info JSON into the final file."
+  },
+  "embed_metadata": {
+    "name": "Embed Metadata",
+    "description": "Embeds metadata into the final file."
+  },
+  "embed_subs": {
+    "name": "Embed Subtitles",
+    "description": "Embeds subtitles into the final file."
+  },
+  "embed_thumbnail": {
+    "name": "Embed Thumbnail",
+    "description": "Embeds the thumbnail into the final file."
+  },
+  "enable_file_urls": {
+    "name": "Enable File URLs",
+    "description": "Enables the use of file URLs for local files."
+  },
+  "extract_audio": {
+    "name": "Extract Audio",
+    "description": "Extracts audio from downloaded videos (uses ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Extractor Retries",
+    "description": "Number of retries on extractor errors."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg Location",
+    "description": "Path to the FFmpeg binary."
+  },
+  "file_access_retries": {
+    "name": "File Access Retries",
+    "description": "Number of retries on file access errors."
+  },
+  "fixup": {
+    "name": "Fixup",
+    "description": "Automatically corrects known faults in the video file."
+  },
+  "font_size": {
+    "name": "Font Size",
+    "description": "Font size used in the application."
+  },
+  "force_ipv4": {
+    "name": "Force IPv4",
+    "description": "Forces the use of IPv4 for network connections."
+  },
+  "force_ipv6": {
+    "name": "Force IPv6",
+    "description": "Forces the use of IPv6 for network connections."
+  },
+  "force_overwrites": {
+    "name": "Force Overwrites",
+    "description": "Overwrites existing files without asking."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Video format code(s) to download."
+  },
+  "fragment_retries": {
+    "name": "Fragment Retries",
+    "description": "Number of retries on fragment download errors."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Verification Proxy",
+    "description": "Proxy server to use for geo-verification."
+  },
+  "ignore_errors": {
+    "name": "Ignore Errors",
+    "description": "Ignore download errors and continue with the next video."
+  },
+  "impersonate": {
+    "name": "Impersonate",
+    "description": "Client to impersonate (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Keep Fragments",
+    "description": "Keeps the downloaded fragments after merging."
+  },
+  "language": {
+    "name": "Language",
+    "description": "Language of the application."
+  },
+  "limit_rate": {
+    "name": "Limit Rate",
+    "description": "Limits the download speed (e.g., 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "Live from Start",
+    "description": "Downloads live videos from the start."
+  },
+  "merge_output_format": {
+    "name": "Video Format",
+    "description": "Final video format resulting from merging streams."
+  },
+  "output": {
+    "name": "Output Template",
+    "description": "Output filename template."
+  },
+  "password": {
+    "name": "Password",
+    "description": "Password for authentication."
+  },
+  "paths": {
+    "name": "Paths",
+    "description": "Directories to save different types of files."
+  },
+  "playlist": {
+    "name": "Playlist",
+    "description": "Indicates whether to download the complete playlist or a single video."
+  },
+  "prefer_insecure": {
+    "name": "Prefer Insecure",
+    "description": "Uses HTTP connection instead of HTTPS (YouTube only)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Proxy server to use for network requests."
+  },
+  "remux_video": {
+    "name": "Remux Video",
+    "description": "Changes the video container without re-encoding."
+  },
+  "retries": {
+    "name": "Retries",
+    "description": "Number of retries on download errors."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip Playlist After Errors",
+    "description": "Skips the rest of the playlist after a certain number of errors."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Timeout for socket connections in seconds."
+  },
+  "source_address": {
+    "name": "Source Address",
+    "description": "Client IP address to bind to when making connections."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Marks segments from SponsorBlock categories."
+  },
+  "sub_format": {
+    "name": "Subtitle Format",
+    "description": "Subtitle format code(s) to download."
+  },
+  "sub_langs": {
+    "name": "Subtitle Languages",
+    "description": "Languages of the subtitles to download."
+  },
+  "theme_dark": {
+    "name": "Dark Theme",
+    "description": "Theme of the application."
+  },
+  "twofactor": {
+    "name": "Two-Factor Authentication",
+    "description": "Two-factor authentication code."
+  },
+  "use_extractors": {
+    "name": "Use Extractors",
+    "description": "Names of extractors to use (comma separated).(\"all\",\"default\",\"end\",regular expression)"
+  },
+  "username": {
+    "name": "Username",
+    "description": "Username for authentication."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams",
+    "description": "Allows combining multiple video streams."
+  },
+  "video_password": {
+    "name": "Video Password",
+    "description": "Password for password-protected videos."
+  },
+  "video_resolution": {
+    "name": "Resolution",
+    "description": "Preferred video resolution"
+  },
+  "video_subtitles": {
+    "name": "Subtitles",
+    "description": "Preferred video subtitles"
+  },
+  "wait_for_video": {
+    "name": "Wait for Video",
+    "description": "Waits for a scheduled video to become available before downloading."
+  },
+  "write_auto_subs": {
+    "name": "Download Auto Subtitles",
+    "description": "Writes available automatic subtitles."
+  },
+  "write_subs": {
+    "name": "Download Subtitles",
+    "description": "Writes available manual subtitles."
+  },
+  "write_thumbnail": {
+    "name": "Write Thumbnail",
+    "description": "Saves the video thumbnail to disk."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Writes metadata to the filesystem xattrs."
+  },
+  "xff": {
+    "name": "X-Forwarded-For",
+    "description": "Sets the X-Forwarded-For header to simulate location."
+  }
+}

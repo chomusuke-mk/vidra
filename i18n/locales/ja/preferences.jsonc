@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "エラー時に中止",
+    "description": "エラーが発生した場合は、ダウンロード プロセスを中止します。"
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "利用できないフラグメントで中止する",
+    "description": "フラグメントが利用できない場合は、ダウンロードを中止します。"
+  },
+  "add_headers": {
+    "name": "追加のヘッダー",
+    "description": "ネットワークリクエストに含める追加のヘッダー。"
+  },
+  "audio_format": {
+    "name": "オーディオフォーマット",
+    "description": "変換されたオーディオの形式 (mp3、flac、opus など)。"
+  },
+  "audio_language": {
+    "name": "オーディオ",
+    "description": "優先される音声言語コード。"
+  },
+  "audio_multistreams": {
+    "name": "オーディオマルチストリーム",
+    "description": "複数のオーディオ ストリームを結合できます。"
+  },
+  "audio_quality": {
+    "name": "オーディオ品質",
+    "description": "オーディオ品質 (最高 0、最悪 10)。"
+  },
+  "batch_file": {
+    "name": "バッチファイル",
+    "description": "ダウンロードする URL を含むファイルへのパス。"
+  },
+  "break_on_existing": {
+    "name": "既存のブレーク",
+    "description": "ファイルがすでに存在する場合はダウンロードを停止します。"
+  },
+  "concurrent_fragments": {
+    "name": "同時フラグメント",
+    "description": "同時にダウンロードするフラグメントの数 (デフォルトは 1)。"
+  },
+  "convert_thumbnails": {
+    "name": "サムネイルの変換",
+    "description": "サムネイルを指定した形式に変換します。"
+  },
+  "cookies": {
+    "name": "クッキー",
+    "description": "Cookie を読み取り、Cookie jar をダンプするための Netscape 形式のファイル"
+  },
+  "cookies_from_browser": {
+    "name": "ブラウザからの Cookie",
+    "description": "指定されたブラウザから Cookie をインポートします。"
+  },
+  "download_archive": {
+    "name": "アーカイブをダウンロード",
+    "description": "重複を避けるためにダウンロードされた ID を記録するファイルへのパス。"
+  },
+  "embed_chapters": {
+    "name": "章を埋め込む",
+    "description": "最終ファイルに章を埋め込みます。"
+  },
+  "embed_info_json": {
+    "name": "情報 JSON を埋め込む",
+    "description": "情報 JSON を最終ファイルに埋め込みます。"
+  },
+  "embed_metadata": {
+    "name": "メタデータの埋め込み",
+    "description": "メタデータを最終ファイルに埋め込みます。"
+  },
+  "embed_subs": {
+    "name": "字幕を埋め込む",
+    "description": "最終ファイルに字幕を埋め込みます。"
+  },
+  "embed_thumbnail": {
+    "name": "サムネイルを埋め込む",
+    "description": "サムネイルを最終ファイルに埋め込みます。"
+  },
+  "enable_file_urls": {
+    "name": "ファイル URL を有効にする",
+    "description": "ローカル ファイルのファイル URL の使用を有効にします。"
+  },
+  "extract_audio": {
+    "name": "音声を抽出する",
+    "description": "ダウンロードしたビデオから音声を抽出します (ffmpeg を使用)。"
+  },
+  "extractor_retries": {
+    "name": "エクストラクターの再試行",
+    "description": "抽出エラー時の再試行回数。"
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg の場所",
+    "description": "FFmpeg バイナリへのパス。"
+  },
+  "file_access_retries": {
+    "name": "ファイルアクセスの再試行",
+    "description": "ファイルアクセスエラー時の再試行回数。"
+  },
+  "fixup": {
+    "name": "修正",
+    "description": "ビデオ ファイル内の既知の欠陥を自動的に修正します。"
+  },
+  "font_size": {
+    "name": "フォントサイズ",
+    "description": "アプリケーションで使用されるフォント サイズ。"
+  },
+  "force_ipv4": {
+    "name": "IPv4を強制する",
+    "description": "ネットワーク接続に IPv4 の使用を強制します。"
+  },
+  "force_ipv6": {
+    "name": "IPv6を強制する",
+    "description": "ネットワーク接続に IPv6 の使用を強制します。"
+  },
+  "force_overwrites": {
+    "name": "強制上書き",
+    "description": "既存のファイルを何も尋ねずに上書きします。"
+  },
+  "format": {
+    "name": "形式",
+    "description": "ダウンロードするビデオ形式コード。"
+  },
+  "fragment_retries": {
+    "name": "フラグメントの再試行",
+    "description": "フラグメントのダウンロード エラーが発生した場合の再試行の数。"
+  },
+  "geo_verification_proxy": {
+    "name": "地理的検証プロキシ",
+    "description": "地理的検証に使用するプロキシ サーバー。"
+  },
+  "ignore_errors": {
+    "name": "エラーを無視する",
+    "description": "ダウンロード エラーを無視して、次のビデオに進みます。"
+  },
+  "impersonate": {
+    "name": "なりすます",
+    "description": "偽装するクライアント (chrome、chrome-110、chrome:windows-10)。"
+  },
+  "keep_fragments": {
+    "name": "フラグメントを保持する",
+    "description": "マージ後もダウンロードされたフラグメントを保持します。"
+  },
+  "language": {
+    "name": "言語",
+    "description": "アプリケーションの言語。"
+  },
+  "limit_rate": {
+    "name": "リミットレート",
+    "description": "ダウンロード速度を制限します (例: 50K、4.2M)。"
+  },
+  "live_from_start": {
+    "name": "最初からライブ",
+    "description": "ライブビデオを最初からダウンロードします。"
+  },
+  "merge_output_format": {
+    "name": "ビデオフォーマット",
+    "description": "ストリームを結合して得られる最終的なビデオ形式。"
+  },
+  "output": {
+    "name": "出力テンプレート",
+    "description": "出力ファイル名のテンプレート。"
+  },
+  "password": {
+    "name": "パスワード",
+    "description": "認証用のパスワード。"
+  },
+  "paths": {
+    "name": "パス",
+    "description": "さまざまな種類のファイルを保存するディレクトリ。"
+  },
+  "playlist": {
+    "name": "プレイリスト",
+    "description": "プレイリスト全体をダウンロードするか、単一のビデオをダウンロードするかを示します。"
+  },
+  "prefer_insecure": {
+    "name": "安全ではないことを好む",
+    "description": "HTTPS の代わりに HTTP 接続を使用します (YouTube のみ)。"
+  },
+  "proxy": {
+    "name": "プロキシ",
+    "description": "ネットワークリクエストに使用するプロキシサーバー。"
+  },
+  "remux_video": {
+    "name": "ビデオをリマックスする",
+    "description": "再エンコードせずにビデオコンテナを変更します。"
+  },
+  "retries": {
+    "name": "再試行",
+    "description": "ダウンロードエラー時の再試行回数。"
+  },
+  "skip_playlist_after_errors": {
+    "name": "エラー後にプレイリストをスキップする",
+    "description": "一定数のエラーの後、プレイリストの残りの部分をスキップします。"
+  },
+  "socket_timeout": {
+    "name": "ソケットタイムアウト",
+    "description": "ソケット接続のタイムアウト (秒単位)。"
+  },
+  "source_address": {
+    "name": "送信元アドレス",
+    "description": "接続時にバインドするクライアント IP アドレス。"
+  },
+  "sponsorblock_mark": {
+    "name": "スポンサーブロックマーク",
+    "description": "SponsorBlock カテゴリのセグメントにマークを付けます。"
+  },
+  "sub_format": {
+    "name": "字幕フォーマット",
+    "description": "ダウンロードする字幕形式コード。"
+  },
+  "sub_langs": {
+    "name": "字幕言語",
+    "description": "ダウンロードする字幕の言語。"
+  },
+  "theme_dark": {
+    "name": "ダークテーマ",
+    "description": "アプリケーションのテーマ。"
+  },
+  "twofactor": {
+    "name": "二要素認証",
+    "description": "二要素認証コード。"
+  },
+  "use_extractors": {
+    "name": "エクストラクターを使用する",
+    "description": "使用するエクストラクターの名前 (カンマ区切り)。(\"all\",\"default\",\"end\",正規表現)"
+  },
+  "username": {
+    "name": "ユーザー名",
+    "description": "認証用のユーザー名。"
+  },
+  "video_multistreams": {
+    "name": "ビデオマルチストリーム",
+    "description": "複数のビデオ ストリームを結合できます。"
+  },
+  "video_password": {
+    "name": "ビデオパスワード",
+    "description": "パスワードで保護されたビデオのパスワード。"
+  },
+  "video_resolution": {
+    "name": "解決",
+    "description": "推奨ビデオ解像度"
+  },
+  "video_subtitles": {
+    "name": "字幕",
+    "description": "優先されるビデオ字幕"
+  },
+  "wait_for_video": {
+    "name": "ビデオを待つ",
+    "description": "ダウンロードする前に、スケジュールされたビデオが利用可能になるまで待機します。"
+  },
+  "write_auto_subs": {
+    "name": "自動字幕をダウンロードする",
+    "description": "利用可能な自動字幕を書き込みます。"
+  },
+  "write_subs": {
+    "name": "字幕をダウンロードする",
+    "description": "利用可能な手動字幕を書き込みます。"
+  },
+  "write_thumbnail": {
+    "name": "サムネイルの書き込み",
+    "description": "ビデオのサムネイルをディスクに保存します。"
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "メタデータをファイルシステム xattrs に書き込みます。"
+  },
+  "xff": {
+    "name": "X-Forwarded-For",
+    "description": "X-Forwarded-For ヘッダーを設定して位置をシミュレートします。"
+  }
+}

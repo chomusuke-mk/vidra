@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Afbreken bij fout",
+    "description": "Breekt het downloadproces af als er een fout optreedt."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Afbreken bij niet-beschikbaar fragment",
+    "description": "Breekt de download af als een fragment niet beschikbaar is."
+  },
+  "add_headers": {
+    "name": "Extra kopteksten",
+    "description": "Extra headers om op te nemen in netwerkverzoeken."
+  },
+  "audio_format": {
+    "name": "Audioformaat",
+    "description": "Formaat van de geconverteerde audio (mp3, flac, opus, etc.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Voorkeurstaalcode voor audio."
+  },
+  "audio_multistreams": {
+    "name": "Audio-multistreams",
+    "description": "Maakt het combineren van meerdere audiostreams mogelijk."
+  },
+  "audio_quality": {
+    "name": "Audiokwaliteit",
+    "description": "Audiokwaliteit (0 beste, 10 slechtste)."
+  },
+  "batch_file": {
+    "name": "Batchbestand",
+    "description": "Pad naar een bestand met URL's om te downloaden."
+  },
+  "break_on_existing": {
+    "name": "Breek op bestaand",
+    "description": "Stopt met downloaden als het bestand al bestaat."
+  },
+  "concurrent_fragments": {
+    "name": "Gelijktijdige fragmenten",
+    "description": "Aantal gelijktijdige fragmenten om te downloaden (standaard 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Miniaturen converteren",
+    "description": "Converteer miniaturen naar het opgegeven formaat."
+  },
+  "cookies": {
+    "name": "Koekjes",
+    "description": "Netscape-geformatteerd bestand om cookies uit te lezen en de koekjestrommel in te dumpen"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies van browser",
+    "description": "Importeert cookies uit de opgegeven browser."
+  },
+  "download_archive": {
+    "name": "Archief downloaden",
+    "description": "Pad naar bestand om gedownloade ID's vast te leggen om duplicaten te voorkomen."
+  },
+  "embed_chapters": {
+    "name": "Hoofdstukken insluiten",
+    "description": "Sluit hoofdstukken in het uiteindelijke bestand in."
+  },
+  "embed_info_json": {
+    "name": "Informatie JSON insluiten",
+    "description": "Integreert info-JSON in het uiteindelijke bestand."
+  },
+  "embed_metadata": {
+    "name": "Metagegevens insluiten",
+    "description": "Sluit metagegevens in het uiteindelijke bestand in."
+  },
+  "embed_subs": {
+    "name": "Ondertitels insluiten",
+    "description": "Sluit ondertitels in het uiteindelijke bestand in."
+  },
+  "embed_thumbnail": {
+    "name": "Miniatuur insluiten",
+    "description": "Sluit de miniatuur in het uiteindelijke bestand in."
+  },
+  "enable_file_urls": {
+    "name": "Schakel bestands-URL's in",
+    "description": "Maakt het gebruik van bestands-URL's voor lokale bestanden mogelijk."
+  },
+  "extract_audio": {
+    "name": "Audio extraheren",
+    "description": "Extraheert audio uit gedownloade video's (gebruikt ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Extractor-pogingen",
+    "description": "Aantal nieuwe pogingen bij extractorfouten."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg-locatie",
+    "description": "Pad naar het binaire bestand FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Nieuwe pogingen tot bestandstoegang",
+    "description": "Aantal nieuwe pogingen bij bestandstoegangsfouten."
+  },
+  "fixup": {
+    "name": "Opknappen",
+    "description": "Corrigeert automatisch bekende fouten in het videobestand."
+  },
+  "font_size": {
+    "name": "Lettergrootte",
+    "description": "Lettergrootte gebruikt in de applicatie."
+  },
+  "force_ipv4": {
+    "name": "Forceer IPv4",
+    "description": "Dwingt het gebruik van IPv4 af voor netwerkverbindingen."
+  },
+  "force_ipv6": {
+    "name": "Forceer IPv6",
+    "description": "Dwingt het gebruik van IPv6 af voor netwerkverbindingen."
+  },
+  "force_overwrites": {
+    "name": "Forceer overschrijvingen",
+    "description": "Overschrijft bestaande bestanden zonder te vragen."
+  },
+  "format": {
+    "name": "Formaat",
+    "description": "Videoformaatcode(s) om te downloaden."
+  },
+  "fragment_retries": {
+    "name": "Fragmentpogingen",
+    "description": "Aantal nieuwe pogingen bij het downloaden van fragmenten."
+  },
+  "geo_verification_proxy": {
+    "name": "Proxy voor geografische verificatie",
+    "description": "Proxyserver die moet worden gebruikt voor geoverificatie."
+  },
+  "ignore_errors": {
+    "name": "Negeer fouten",
+    "description": "Negeer downloadfouten en ga door met de volgende video."
+  },
+  "impersonate": {
+    "name": "Doe na",
+    "description": "Client die moet worden nagebootst (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Fragmenten bewaren",
+    "description": "Behoudt de gedownloade fragmenten na het samenvoegen."
+  },
+  "language": {
+    "name": "Taal",
+    "description": "Taal van de applicatie."
+  },
+  "limit_rate": {
+    "name": "Limiettarief",
+    "description": "Beperkt de downloadsnelheid (bijvoorbeeld 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "Leef vanaf het begin",
+    "description": "Downloadt live video's vanaf het begin."
+  },
+  "merge_output_format": {
+    "name": "Videoformaat",
+    "description": "Het uiteindelijke videoformaat dat voortkomt uit het samenvoegen van streams."
+  },
+  "output": {
+    "name": "Uitvoersjabloon",
+    "description": "Uitvoerbestandsnaamsjabloon."
+  },
+  "password": {
+    "name": "Wachtwoord",
+    "description": "Wachtwoord voor authenticatie."
+  },
+  "paths": {
+    "name": "Paden",
+    "description": "Mappen om verschillende soorten bestanden op te slaan."
+  },
+  "playlist": {
+    "name": "Afspeellijst",
+    "description": "Geeft aan of de volledige afspeellijst of een enkele video moet worden gedownload."
+  },
+  "prefer_insecure": {
+    "name": "Liever onzeker",
+    "description": "Maakt gebruik van een HTTP-verbinding in plaats van HTTPS (alleen YouTube)."
+  },
+  "proxy": {
+    "name": "Volmacht",
+    "description": "Proxyserver die moet worden gebruikt voor netwerkverzoeken."
+  },
+  "remux_video": {
+    "name": "Remux-video",
+    "description": "Wijzigt de videocontainer zonder opnieuw te coderen."
+  },
+  "retries": {
+    "name": "Nieuwe pogingen",
+    "description": "Aantal nieuwe pogingen bij downloadfouten."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Sla afspeellijst over na fouten",
+    "description": "Slaat de rest van de afspeellijst over na een bepaald aantal fouten."
+  },
+  "socket_timeout": {
+    "name": "Socket-time-out",
+    "description": "Time-out voor socketverbindingen in seconden."
+  },
+  "source_address": {
+    "name": "Bronadres",
+    "description": "Client-IP-adres waaraan moet worden gebonden bij het maken van verbindingen."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlokmarkering",
+    "description": "Markeert segmenten uit SponsorBlock-categorieën."
+  },
+  "sub_format": {
+    "name": "Ondertitelformaat",
+    "description": "Code(s) voor ondertitelformaat om te downloaden."
+  },
+  "sub_langs": {
+    "name": "Ondertiteltalen",
+    "description": "Talen van de ondertitels om te downloaden."
+  },
+  "theme_dark": {
+    "name": "Donker thema",
+    "description": "Thema van de applicatie."
+  },
+  "twofactor": {
+    "name": "Tweefactorauthenticatie",
+    "description": "Tweefactorauthenticatiecode."
+  },
+  "use_extractors": {
+    "name": "Gebruik extractoren",
+    "description": "Namen van te gebruiken extractors (door komma's gescheiden).(\"all\", \"default\", \"end\", reguliere expressie)"
+  },
+  "username": {
+    "name": "Gebruikersnaam",
+    "description": "Gebruikersnaam voor authenticatie."
+  },
+  "video_multistreams": {
+    "name": "Videomultistreams",
+    "description": "Maakt het combineren van meerdere videostreams mogelijk."
+  },
+  "video_password": {
+    "name": "Videowachtwoord",
+    "description": "Wachtwoord voor met een wachtwoord beveiligde video's."
+  },
+  "video_resolution": {
+    "name": "Oplossing",
+    "description": "Voorkeur videoresolutie"
+  },
+  "video_subtitles": {
+    "name": "Ondertitels",
+    "description": "Voorkeur video-ondertiteling"
+  },
+  "wait_for_video": {
+    "name": "Wacht op video",
+    "description": "Wacht tot een geplande video beschikbaar komt voordat deze wordt gedownload."
+  },
+  "write_auto_subs": {
+    "name": "Automatische ondertiteling downloaden",
+    "description": "Schrijft beschikbare automatische ondertitels."
+  },
+  "write_subs": {
+    "name": "Ondertitels downloaden",
+    "description": "Schrijft beschikbare handmatige ondertitels."
+  },
+  "write_thumbnail": {
+    "name": "Miniatuur schrijven",
+    "description": "Slaat de videominiatuur op schijf op."
+  },
+  "xattrs": {
+    "name": "XAttr",
+    "description": "Schrijft metagegevens naar het bestandssysteem xattrs."
+  },
+  "xff": {
+    "name": "X-doorgestuurd-voor",
+    "description": "Stelt de X-Forwarded-For header in om de locatie te simuleren."
+  }
+}

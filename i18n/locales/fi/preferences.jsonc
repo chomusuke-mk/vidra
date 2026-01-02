@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Keskeytä virheen sattuessa",
+    "description": "Keskeyttää latausprosessin, jos tapahtuu virhe."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Keskeytä ei-käytettävissä oleva fragmentti",
+    "description": "Keskeyttää latauksen, jos fragmentti ei ole käytettävissä."
+  },
+  "add_headers": {
+    "name": "Lisäotsikot",
+    "description": "Verkkopyyntöihin sisällytettävät lisäotsikot."
+  },
+  "audio_format": {
+    "name": "Äänimuoto",
+    "description": "Muunnetun äänen muoto (mp3, flac, opus jne.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Ensisijainen äänen kielikoodi."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams",
+    "description": "Mahdollistaa useiden äänivirtojen yhdistämisen."
+  },
+  "audio_quality": {
+    "name": "Äänenlaatu",
+    "description": "Äänenlaatu (0 paras, 10 huonoin)."
+  },
+  "batch_file": {
+    "name": "Erätiedosto",
+    "description": "Polku tiedostoon, joka sisältää ladattavat URL-osoitteet."
+  },
+  "break_on_existing": {
+    "name": "Tauko olemassa olevasta",
+    "description": "Lopettaa lataamisen, jos tiedosto on jo olemassa."
+  },
+  "concurrent_fragments": {
+    "name": "Samanaikaiset fragmentit",
+    "description": "Samanaikaisesti ladattavien fragmenttien määrä (oletus 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Muunna pikkukuvat",
+    "description": "Muunna pikkukuvat määritettyyn muotoon."
+  },
+  "cookies": {
+    "name": "Evästeet",
+    "description": "Netscape-muotoiltu tiedosto evästeiden lukemiseen ja evästepurkin tyhjentämiseen"
+  },
+  "cookies_from_browser": {
+    "name": "Evästeet selaimesta",
+    "description": "Tuo evästeet määritetystä selaimesta."
+  },
+  "download_archive": {
+    "name": "Lataa arkisto",
+    "description": "Polku tiedostoon tallentaa ladatut tunnukset päällekkäisyyksien välttämiseksi."
+  },
+  "embed_chapters": {
+    "name": "Upota luvut",
+    "description": "Upottaa luvut lopulliseen tiedostoon."
+  },
+  "embed_info_json": {
+    "name": "Upota Info JSON",
+    "description": "Upottaa info JSONin lopulliseen tiedostoon."
+  },
+  "embed_metadata": {
+    "name": "Upota metatiedot",
+    "description": "Upottaa metatiedot lopulliseen tiedostoon."
+  },
+  "embed_subs": {
+    "name": "Upota tekstitykset",
+    "description": "Upottaa tekstitykset lopulliseen tiedostoon."
+  },
+  "embed_thumbnail": {
+    "name": "Upota pikkukuva",
+    "description": "Upottaa pikkukuvan lopulliseen tiedostoon."
+  },
+  "enable_file_urls": {
+    "name": "Ota tiedostojen URL-osoitteet käyttöön",
+    "description": "Mahdollistaa tiedostojen URL-osoitteiden käytön paikallisille tiedostoille."
+  },
+  "extract_audio": {
+    "name": "Pura ääni",
+    "description": "Poimii äänen ladatuista videoista (käyttää ffmpegiä)."
+  },
+  "extractor_retries": {
+    "name": "Extractor yrittää uudelleen",
+    "description": "Poimintavirheiden uudelleenyritysten määrä."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg Sijainti",
+    "description": "Polku FFmpeg-binaariin."
+  },
+  "file_access_retries": {
+    "name": "Tiedoston käyttö uudelleenyritykset",
+    "description": "Tiedostojen käyttövirheiden uudelleenyritysten määrä."
+  },
+  "fixup": {
+    "name": "Korjaus",
+    "description": "Korjaa automaattisesti tunnetut virheet videotiedostossa."
+  },
+  "font_size": {
+    "name": "Fontin koko",
+    "description": "Sovelluksessa käytetty fonttikoko."
+  },
+  "force_ipv4": {
+    "name": "Pakota IPv4",
+    "description": "Pakottaa käyttämään IPv4:ää verkkoyhteyksissä."
+  },
+  "force_ipv6": {
+    "name": "Pakota IPv6",
+    "description": "Pakottaa käyttämään IPv6:ta verkkoyhteyksissä."
+  },
+  "force_overwrites": {
+    "name": "Pakota päällekirjoitukset",
+    "description": "Korvaa olemassa olevat tiedostot kysymättä."
+  },
+  "format": {
+    "name": "Muoto",
+    "description": "Ladattavat videomuotokoodit."
+  },
+  "fragment_retries": {
+    "name": "Fragmentti yrittää uudelleen",
+    "description": "Fragmentin latausvirheiden uudelleenyritysten määrä."
+  },
+  "geo_verification_proxy": {
+    "name": "Maantieteellisen vahvistuksen välityspalvelin",
+    "description": "Välityspalvelin, jota käytetään maantieteelliseen vahvistukseen."
+  },
+  "ignore_errors": {
+    "name": "Ohita virheet",
+    "description": "Ohita latausvirheet ja jatka seuraavaan videoon."
+  },
+  "impersonate": {
+    "name": "Esiintyä",
+    "description": "Asiakas, joka esiintyy (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Säilytä fragmentit",
+    "description": "Säilyttää ladatut fragmentit yhdistämisen jälkeen."
+  },
+  "language": {
+    "name": "Kieli",
+    "description": "Sovelluksen kieli."
+  },
+  "limit_rate": {
+    "name": "Rajakorko",
+    "description": "Rajoittaa latausnopeutta (esim. 50 kt, 4,2 M)."
+  },
+  "live_from_start": {
+    "name": "Livenä alusta",
+    "description": "Lataa live-videoita alusta alkaen."
+  },
+  "merge_output_format": {
+    "name": "Videon muoto",
+    "description": "Lopullinen videomuoto, joka syntyy virtojen yhdistämisestä."
+  },
+  "output": {
+    "name": "Tulostusmalli",
+    "description": "Tulostustiedoston nimimalli."
+  },
+  "password": {
+    "name": "Salasana",
+    "description": "Salasana todennusta varten."
+  },
+  "paths": {
+    "name": "Polut",
+    "description": "Hakemistot erityyppisten tiedostojen tallentamiseen."
+  },
+  "playlist": {
+    "name": "Soittolista",
+    "description": "Ilmaisee, ladataanko koko soittolista vai yksittäinen video."
+  },
+  "prefer_insecure": {
+    "name": "Suosi epävarmaa",
+    "description": "Käyttää HTTP-yhteyttä HTTPS:n sijaan (vain YouTube)."
+  },
+  "proxy": {
+    "name": "Välityspalvelin",
+    "description": "Verkkopyyntöihin käytettävä välityspalvelin."
+  },
+  "remux_video": {
+    "name": "Remux video",
+    "description": "Muuttaa videosäilöä ilman uudelleenkoodausta."
+  },
+  "retries": {
+    "name": "Uudelleenyritykset",
+    "description": "Latausvirheiden uudelleenyritysten määrä."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Ohita soittolista virheiden jälkeen",
+    "description": "Ohittaa muun soittolistan tietyn virhemäärän jälkeen."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Pistorasialiitäntöjen aikakatkaisu sekunneissa."
+  },
+  "source_address": {
+    "name": "Lähteen osoite",
+    "description": "Asiakkaan IP-osoite, johon sitoudutaan yhteyksiä muodostettaessa."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock-merkki",
+    "description": "Merkitsee segmentit SponsorBlock-luokista."
+  },
+  "sub_format": {
+    "name": "Tekstityksen muoto",
+    "description": "Ladattavat tekstitysmuotokoodit."
+  },
+  "sub_langs": {
+    "name": "Tekstityskielet",
+    "description": "Ladattavien tekstitysten kielet."
+  },
+  "theme_dark": {
+    "name": "Tumma teema",
+    "description": "Sovelluksen teema."
+  },
+  "twofactor": {
+    "name": "Two-Factor Authentication",
+    "description": "Kaksivaiheinen todennuskoodi."
+  },
+  "use_extractors": {
+    "name": "Use Extractors",
+    "description": "Käytettävien erottimien nimet (pilkuilla erotettuina).(\"kaikki\", \"oletus\", \"loppu\", säännöllinen lauseke)"
+  },
+  "username": {
+    "name": "Käyttäjätunnus",
+    "description": "Käyttäjätunnus todennusta varten."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams",
+    "description": "Mahdollistaa useiden videovirtojen yhdistämisen."
+  },
+  "video_password": {
+    "name": "Videon salasana",
+    "description": "Salasana salasanalla suojatuille videoille."
+  },
+  "video_resolution": {
+    "name": "Resoluutio",
+    "description": "Suositeltu videoresoluutio"
+  },
+  "video_subtitles": {
+    "name": "Tekstitykset",
+    "description": "Suositut videotekstitykset"
+  },
+  "wait_for_video": {
+    "name": "Odota videota",
+    "description": "Odottaa, että ajoitettu video tulee saataville ennen lataamista."
+  },
+  "write_auto_subs": {
+    "name": "Lataa automaattiset tekstitykset",
+    "description": "Kirjoittaa saatavilla olevat automaattiset tekstitykset."
+  },
+  "write_subs": {
+    "name": "Lataa tekstitykset",
+    "description": "Kirjoittaa saatavilla olevat manuaaliset tekstitykset."
+  },
+  "write_thumbnail": {
+    "name": "Kirjoita pikkukuva",
+    "description": "Tallentaa videon pikkukuvan levylle."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Kirjoittaa metatiedot tiedostojärjestelmään xattrs."
+  },
+  "xff": {
+    "name": "X-Forwarded-For",
+    "description": "Asettaa X-Forwarded-For-otsikon simuloimaan sijaintia."
+  }
+}

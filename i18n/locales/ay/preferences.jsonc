@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Abort ukax pantjasiwiwa .",
+    "description": "Aborts uka descarga proceso ukaxa mä pantjawi utji."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Abort on undisible fragmento .",
+    "description": "Mä fragmento jan utjki ukhajj descargar aborta."
+  },
+  "add_headers": {
+    "name": "Yaqha p’iqinchanaka .",
+    "description": "Yaqha p’iqinchanaka red ukan mayiwinakapan uñt’ayañataki."
+  },
+  "audio_format": {
+    "name": "Formato de Audio ukax 1.1.",
+    "description": "Formato de audio convertido (MP3, FLAC, OPUS, ukat juk’ampinaka)."
+  },
+  "audio_language": {
+    "name": "Audio ukax .",
+    "description": "Código de Lenguaje Audio ukax wali askiwa."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistrees ukax mä jach’a uñacht’äwiwa.",
+    "description": "Walja audio arroyos ukanakamp mayachthapiñatakiwa."
+  },
+  "audio_quality": {
+    "name": "Audio calidad ukax .",
+    "description": "Audio calidad (0 wali suma, 10 jan wali)."
+  },
+  "batch_file": {
+    "name": "Batch ukax mä archivo .",
+    "description": "Mä archivo ukar sarañ thakhi URLs ukanakax apkatañataki."
+  },
+  "break_on_existing": {
+    "name": "Uka utjir 1.1.",
+    "description": "Uka archivox nayratpach utjki ukhax apkatañwa jayti."
+  },
+  "concurrent_fragments": {
+    "name": "Concurrentes fragmentos ukanaka .",
+    "description": "Jakhuwi Fragmentos simultáneos ukanaka apsuñataki (default 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Convertir jisk’a t’aqanaka .",
+    "description": "Uka jisk’a jisk’a t’aqanakax uñt’ayat formato ukar jaqukipaña."
+  },
+  "cookies": {
+    "name": "Cookies ukaxa 1.1.",
+    "description": "Netscape formato archivo uñakipañataki cookies ukanakat ukat dump cookie jarru in ."
+  },
+  "cookies_from_browser": {
+    "name": "Cookies ukaxa navegador ukankiwa .",
+    "description": "Ukaxa cookies ukanakampiwa uñt’ayata."
+  },
+  "download_archive": {
+    "name": "Archivo apsuña .",
+    "description": "Thakhiru archivo ukar grabañatakix IDs descargados ukanakax jan duplicados ukanakar puriñapataki."
+  },
+  "embed_chapters": {
+    "name": "Embed Capítulos .",
+    "description": "Qhipa archivo ukarux jaljanakaruw uñt’ayi."
+  },
+  "embed_info_json": {
+    "name": "Embed Info JSON ukax mä jach’a uñacht’äwiwa.",
+    "description": "Info json ukax qhipa archivo ukar uñt’ayatawa."
+  },
+  "embed_metadata": {
+    "name": "Embed Metadatos ukax 1.1.",
+    "description": "Metadatos ukax qhipa archivo ukar uñt’ayatawa."
+  },
+  "embed_subs": {
+    "name": "Embed subtítulos .",
+    "description": "Subtítulos ukax qhipa archivo ukar uñt’ayatawa."
+  },
+  "embed_thumbnail": {
+    "name": "Embed Thumbnail ukax mä jach’a uñacht’äwiwa.",
+    "description": "Uka jisk’a jisk’a t’aqax qhipa archivo ukar uñt’ayatawa."
+  },
+  "enable_file_urls": {
+    "name": "Urls archiwunaka ch’amañchaña .",
+    "description": "URLs de archivos uka apnaqañatakix local archivonakatakix ch’amanchatawa."
+  },
+  "extract_audio": {
+    "name": "Audio apsuña .",
+    "description": "Descargado videonakat audio apsu (FFMPEG apnaqi)."
+  },
+  "extractor_retries": {
+    "name": "Extractor ukax wasitat yant’atawa.",
+    "description": "Jakhuwix retry ukax extractor ukan pantjasiwinakapatwa."
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG ukax 1.1.",
+    "description": "Thakhix ffmpeg binario ukaruw puri."
+  },
+  "file_access_retries": {
+    "name": "Archivo Acceso Retry ukax 1.1.",
+    "description": "Jakhuwi retianaka fichero acceso errors ukanxa."
+  },
+  "fixup": {
+    "name": "Fixup ukax mä juk’a pachanakanwa.",
+    "description": "Automáticamente uñt’ata pantjasiwinakaxa video archivo ukanxa chiqapawa."
+  },
+  "font_size": {
+    "name": "Font Tama .",
+    "description": "Font Tama ukax aplicación ukan apnaqatawa."
+  },
+  "force_ipv4": {
+    "name": "Ukax IPv4.",
+    "description": "IPv4 uka apnaqañatakix red conexiones ukanakatakiw ch’amanchasi."
+  },
+  "force_ipv6": {
+    "name": "Ukax IPv6 ukan ch’amanchatawa.",
+    "description": "IPv6 uka apnaqañatakix red conexiones ukanakatakiw ch’amanchasi."
+  },
+  "force_overwrites": {
+    "name": "Fuerza ukax Overwries .",
+    "description": "Uka utjki uka archivonakax jan jiskt’asisaw qillqt’i."
+  },
+  "format": {
+    "name": "Formato ukax 1.1.",
+    "description": "Código(s) de formato de formato de vídeo ukax mä apkatatawa."
+  },
+  "fragment_retries": {
+    "name": "Fragmento retianakax .",
+    "description": "Jakhuwix fragmento ukan pantjasiwinak apkataña."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Verificación ukax mä proxy ukhamawa.",
+    "description": "Servidor proxy ukax geo-verificación ukatakiw apnaqañataki."
+  },
+  "ignore_errors": {
+    "name": "Pantjasiwinak jan yäqaña .",
+    "description": "Jan yäqaña Pantjasiwinak apsuña ukat jutir videompi sarantaskakim."
+  },
+  "impersonate": {
+    "name": "Impersonate .",
+    "description": "Cliente ukaxa mä uñtasita (Chrome, Chrome-110, Chrome:Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Fragmentonak imaña .",
+    "description": "Uka Fragmentos Descargados ukanakax mayachatäxiwa."
+  },
+  "language": {
+    "name": "Aru",
+    "description": "Aplicación uka aru."
+  },
+  "limit_rate": {
+    "name": "Tasa límite ukaxa 1.1.",
+    "description": "Ukax mä juk’a pachanakanwa (e.g., 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Live ukax qalltatpachwa .",
+    "description": "Qalltatpachaw videos ukanakax utji."
+  },
+  "merge_output_format": {
+    "name": "Video formato ukax .",
+    "description": "Qhipa video formato ukax fusionar streams ukanakat apsutawa."
+  },
+  "output": {
+    "name": "Plantilla de Salida ukax 1.1.",
+    "description": "Salida Fichero Suname Plantilla ukax mä plantilla ukankiwa."
+  },
+  "password": {
+    "name": "Chimpu",
+    "description": "Contraseña ukaxa chiqapa uñt’ayañataki."
+  },
+  "paths": {
+    "name": "Thakhinaka .",
+    "description": "Directorios ukanakaxa kunaymana kasta archivonaka imañataki."
+  },
+  "playlist": {
+    "name": "Ukax mä listawa.",
+    "description": "Uñacht’ayiwa, lista de reproducción completa jan ukax mä video ukar apkatañataki."
+  },
+  "prefer_insecure": {
+    "name": "preferir insegura .",
+    "description": "HTTPS lantix HTTP conexión ukampiw apnaqasi (YouTube ukakiw)."
+  },
+  "proxy": {
+    "name": "Proxy .",
+    "description": "Proxy Server ukax red ukan mayiwinakapatakiw apnaqañataki."
+  },
+  "remux_video": {
+    "name": "Remux video ukax .",
+    "description": "Mayjt’ayaña video contenedor jan re-codificación."
+  },
+  "retries": {
+    "name": "Uka yantʼanakajja .",
+    "description": "Jakhuwix retry ukanx pantjasiwinak apkatañatakiw utji."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Pantjasiwinak tukuyatatx ​​lista de reproducción .",
+    "description": "Mä qawqha pantjasiwinak tukuyatatx ​​qhipa lista de reproducción ukarux salt’iwa."
+  },
+  "socket_timeout": {
+    "name": "Socket ukax mä juk’a pachanakanwa.",
+    "description": "Tiempo de conexiones de socket ukax segundos ukjanw utji."
+  },
+  "source_address": {
+    "name": "Ukax mä uñt’atawa.",
+    "description": "Cliente IP dirección ukax conexiones lurañanx ligado ukhamawa."
+  },
+  "sponsorblock_mark": {
+    "name": "PatrocinadorBlock ukax mä jach’a markawa.",
+    "description": "Markachirinakax patrocinadorBlock categorías ukanakat uñt’ayatawa."
+  },
+  "sub_format": {
+    "name": "Subtítulo formato ukax 1.1.",
+    "description": "Subtítulo formato código(s) ukax apsuñataki."
+  },
+  "sub_langs": {
+    "name": "Subtítulo arunaka .",
+    "description": "Subtítulos ukan arunakapa apsuñataki."
+  },
+  "theme_dark": {
+    "name": "Ch’amaka tema .",
+    "description": "Uka aplikacionan temapa."
+  },
+  "twofactor": {
+    "name": "Pä factor autenticación .",
+    "description": "Pä factor autenticación uka chimpu."
+  },
+  "use_extractors": {
+    "name": "Uka extractoranakax .",
+    "description": "Sutinaka Extractores apnaqañataki (Comma separado).(\"Taqi\",\"default\",\"tukuchaña\",expresión regular)"
+  },
+  "username": {
+    "name": "Usuario suti .",
+    "description": "username ukax autenticación ukatakiw."
+  },
+  "video_multistreams": {
+    "name": "Video MultiStreams ukax mä jach’a uñacht’äwiwa.",
+    "description": "Walja video arroyos ukanakamp mayachthapiñatakiwa."
+  },
+  "video_password": {
+    "name": "Video Contraseña ukax 1.1.",
+    "description": "Contraseña ukax contraseña ukamp jark’aqatawa."
+  },
+  "video_resolution": {
+    "name": "Risulusyuna",
+    "description": "Video Resolución ukax wali askiwa ."
+  },
+  "video_subtitles": {
+    "name": "Subtítulos ukanaka .",
+    "description": "Video Subtítulos ukanakax wali askiwa ."
+  },
+  "wait_for_video": {
+    "name": "Video suytʼañamawa .",
+    "description": "Mä video programat suyt’aña janïr apkatañkama."
+  },
+  "write_auto_subs": {
+    "name": "Auto subtítulos ukanaka apsuña .",
+    "description": "Qillqatawa subtítulos automáticos ukanaka."
+  },
+  "write_subs": {
+    "name": "Subtítulos ukanaka apsuña .",
+    "description": "Qillqañani subtítulos manuales ukanaka."
+  },
+  "write_thumbnail": {
+    "name": "Qillqt'aña Thumbnail .",
+    "description": "Ukax mä video uñacht’ayañatakiw disco ukar imañataki."
+  },
+  "xattrs": {
+    "name": "XATTRS ukax mä jach’a .",
+    "description": "Metadatos ukax sistema de ficheros xattrs ukar qillqt’atawa."
+  },
+  "xff": {
+    "name": "X-forwarded-para .",
+    "description": "Ukax X-Forwarded-for p’iqinchaw utt’ayatawa, kawkhantix utjki ukar uñtasita."
+  }
+}

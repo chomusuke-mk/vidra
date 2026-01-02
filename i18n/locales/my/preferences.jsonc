@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "အမှားအပေါ် abort",
+    "description": "အမှားတစ်ခုဖြစ်ပေါ်လျှင် download process ကိုဖျက်သိမ်းလိုက်သည်။"
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "မရနိုင်သောအပိုင်းအစများတွင်ဖျက်သိမ်းပါ",
+    "description": "အပိုင်းအစမရရှိနိုင်ပါက download ကိုဖျက်သိမ်းလိုက်သည်။"
+  },
+  "add_headers": {
+    "name": "အပိုဆောင်းခေါင်းစီးများ",
+    "description": "ကွန်ယက်တောင်းဆိုမှုများတွင်ထည့်သွင်းရန်အပိုဆောင်းခေါင်းစီးများ။"
+  },
+  "audio_format": {
+    "name": "အသံပုံစံ",
+    "description": "ပြောင်းလဲထားသောအသံ (MP3, flac, opus စသည်) ။"
+  },
+  "audio_language": {
+    "name": "အသံသံင်း",
+    "description": "ပိုမိုနှစ်သက်သောအသံဘာသာစကားကုဒ်။"
+  },
+  "audio_multistreams": {
+    "name": "Multistreams",
+    "description": "အသံလွှင့်ကျက်မျိုးစုံပေါင်းစပ်ခွင့်ပြုပါတယ်။"
+  },
+  "audio_quality": {
+    "name": "အသံအရည်အသွေး",
+    "description": "အသံအရည်အသွေး (အကောင်းဆုံး, 10 အဆိုးဆုံး) ။"
+  },
+  "batch_file": {
+    "name": "ဖိုင်တွဲဖိုင်",
+    "description": "ဒေါင်းလုပ်လုပ်ရန် URLs ပါ 0 င်သည့်ဖိုင်တစ်ခုသို့လမ်းကြောင်း။"
+  },
+  "break_on_existing": {
+    "name": "ရှိပြီးသားအပေါ်ချိုး",
+    "description": "ဖိုင်တည်ရှိပြီးပါကဒေါင်းလုပ်လုပ်ခြင်းကိုရပ်ပါ။"
+  },
+  "concurrent_fragments": {
+    "name": "တစ်ပြိုင်နက်တည်းအပိုင်းအစများ",
+    "description": "download လုပ်ရန်တစ်ပြိုင်နက်တည်းအပိုင်းအစများအရေအတွက် (ပုံမှန် 1) ။"
+  },
+  "convert_thumbnails": {
+    "name": "thumbnails ပြောင်း",
+    "description": "thumbnails ကိုသတ်မှတ်ထားသောပုံစံသို့ပြောင်းပါ။"
+  },
+  "cookies": {
+    "name": "ကွတ်ကီး",
+    "description": "cookies များကိုဖတ်ရှုရန် tokes များကိုဖတ်ရန် Formatatted file"
+  },
+  "cookies_from_browser": {
+    "name": "browser မှ cookies များကို",
+    "description": "သတ်မှတ်ထားသော browser မှ cookies များကိုတင်သွင်းသည်။"
+  },
+  "download_archive": {
+    "name": "download archive ကို download လုပ်ပါ",
+    "description": "မိတ္တူပွားများကိုရှောင်ရှားရန် download လုပ်ထားသော IDs များကိုမှတ်တမ်းတင်ရန်လမ်းကြောင်းသို့ path ။"
+  },
+  "embed_chapters": {
+    "name": "embed အခန်းကြီးများ",
+    "description": "နောက်ဆုံးဖိုင်သို့အခန်းကြီးများ embeds ။"
+  },
+  "embed_info_json": {
+    "name": "embo json embed",
+    "description": "နောက်ဆုံးဖိုင်သို့ Info JSON ကို embeds ။"
+  },
+  "embed_metadata": {
+    "name": "metadata embed",
+    "description": "နောက်ဆုံးဖိုင်သို့ metadata embeds ။"
+  },
+  "embed_subs": {
+    "name": "subtitles embed",
+    "description": "နောက်ဆုံးဖိုင်သို့ embeds subtitles ။"
+  },
+  "embed_thumbnail": {
+    "name": "thumbnail embed",
+    "description": "အဆိုပါ thumbnail ကိုနောက်ဆုံးဖိုင်သို့ embeds ။"
+  },
+  "enable_file_urls": {
+    "name": "ဖိုင် URLs ကိုဖွင့်ပါ",
+    "description": "ဒေသဖိုင်များအတွက်ဖိုင် URL များကိုအသုံးပြုခြင်းကိုခွင့်ပြုသည်။"
+  },
+  "extract_audio": {
+    "name": "အသံထုတ်ယူ",
+    "description": "ဒေါင်းလုပ်လုပ်ထားသောဗွီဒီယိုများမှအသံထုတ်ယူခြင်း (FFMPEG ကိုအသုံးပြုသည်) ။"
+  },
+  "extractor_retries": {
+    "name": "Extractracth",
+    "description": "Extractor အမှားအယွင်းများအပေါ်ပြန်လည်ရယူခြင်းအရေအတွက်။"
+  },
+  "ffmpeg_location": {
+    "name": "ffmpeg တည်နေရာ",
+    "description": "ffmpeg binary မှလမ်းကြောင်း။"
+  },
+  "file_access_retries": {
+    "name": "ဖိုင်အိတ်ပြန်လည်ရယူခြင်း",
+    "description": "ဖိုင်တွဲအမှားများတွင်ပြန်လည်ရယူခြင်းအရေအတွက်။"
+  },
+  "fixup": {
+    "name": "ကရိယာတုံှ",
+    "description": "ဗွီဒီယိုဖိုင်တွင်လူသိများသောအမှားများကိုအလိုအလျောက်ပြင်ဆင်သည်။"
+  },
+  "font_size": {
+    "name": "အရွယ်အစား",
+    "description": "လျှောက်လွှာတွင်အသုံးပြုသောဖောင့်အရွယ်အစား။"
+  },
+  "force_ipv4": {
+    "name": "ipv4 force",
+    "description": "ကွန်ယက်ချိတ်ဆက်မှုများအတွက် IPv4 ကိုအသုံးပြုသည်။"
+  },
+  "force_ipv6": {
+    "name": "IPv6 force",
+    "description": "ကွန်ယက်ချိတ်ဆက်မှုများအတွက် IPv6 ကိုအသုံးပြုသည်။"
+  },
+  "force_overwrites": {
+    "name": "overwrites force",
+    "description": "မတောင်းဘဲရှိပြီးသားဖိုင်များကို overwrite ။"
+  },
+  "format": {
+    "name": "ပမာဏ",
+    "description": "ဒေါင်းလုပ်လုပ်ရန်ဗွီဒီယိုအမျိုးအစား (များ) ။"
+  },
+  "fragment_retries": {
+    "name": "အပိုင်းအစများပြန်လည်ရယူပါ",
+    "description": "အပိုင်းအစများမှ download download အမှားအယွင်းများအပေါ်ပြန်လည်ရယူခြင်းအရေအတွက်။"
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Verification proxy",
+    "description": "geo-verification အတွက်အသုံးပြုရန် proxy server ။"
+  },
+  "ignore_errors": {
+    "name": "အမှားအယွင်းများကိုလျစ်လျူရှုပါ",
+    "description": "ဒေါင်းလုပ်အမှားများကိုလျစ်လျူရှုပြီးနောက်ဗီဒီယိုဖြင့်ဆက်လက်ပါ။"
+  },
+  "impersonate": {
+    "name": "အယိုးစား",
+    "description": "0 န်ဆောင်မှုခံယူသူမှ 0 န်ဆောင်မှုခံယူသူ (Chrome, Chrome-110, Chrome: Windows-10) ။"
+  },
+  "keep_fragments": {
+    "name": "အပိုင်းအစများကိုထားပါ",
+    "description": "ပေါင်းစည်းပြီးနောက် downloaded အပိုင်းအစများကိုစောင့်ရှောက်။"
+  },
+  "language": {
+    "name": "ဘာသာစကား",
+    "description": "လျှောက်လွှာ၏ဘာသာစကား။"
+  },
+  "limit_rate": {
+    "name": "ကန့်သတ်နှုန်း",
+    "description": "download speed (e.g. , 50k, 4.2m) ကိုကန့်သတ်ထားသည်။"
+  },
+  "live_from_start": {
+    "name": "စတင်ကနေအသက်ရှင်ပါ",
+    "description": "Downloads အစမှ Live Videos များကို download လုပ်ပါ။"
+  },
+  "merge_output_format": {
+    "name": "ဗွီဒီယိုအမျိုးအစား",
+    "description": "ချောင်းများပေါင်းစည်းခြင်းမှရရှိလာသောနောက်ဆုံးဗီဒီယိုပုံစံ။"
+  },
+  "output": {
+    "name": "output template ကို",
+    "description": "output ကို filename template ကို။"
+  },
+  "password": {
+    "name": "လှျို့ဝှက်စကား",
+    "description": "authentication အတွက်စကားဝှက်။"
+  },
+  "paths": {
+    "name": "လမ်းများ",
+    "description": "ဖိုင်အမျိုးအစားအမျိုးမျိုးကိုသိမ်းဆည်းရန်လမ်းညွှန်များ။"
+  },
+  "playlist": {
+    "name": "သီချင်းစာရင်း",
+    "description": "အပြည့်အဝဖွင့်စာရင်းသို့မဟုတ်ဗီဒီယိုတစ်ခုတည်းကို download လုပ်မရှိမရှိဖော်ပြသည်။"
+  },
+  "prefer_insecure": {
+    "name": "မလုံခြုံမှုကိုကြိုက်တတ်တဲ့",
+    "description": "HTTPS (YouTube သာ) အစား HTTP ဆက်သွယ်မှုကိုအသုံးပြုသည်။"
+  },
+  "proxy": {
+    "name": "မေးရင်း",
+    "description": "ကွန်ယက်တောင်းဆိုမှုများအတွက်အသုံးပြုရန် proxy server ။"
+  },
+  "remux_video": {
+    "name": "Remux ဗီဒီယို",
+    "description": "ဗွီဒီယိုကွန်တိန်နာကို re-encoding မပါဘဲပြောင်းလဲသည်။"
+  },
+  "retries": {
+    "name": "အဆုတ်ပြန်သည်",
+    "description": "download အမှားအယွင်းများအပေါ်ပြန်လည်ကြိုးစားမှုအရေအတွက်။"
+  },
+  "skip_playlist_after_errors": {
+    "name": "အမှားအယွင်းများပြီးနောက် playlist skip",
+    "description": "အမှားအယွင်းများစွာပြီးနောက်ပြဇာတ်စာရင်းကိုကျော်သွားသည်။"
+  },
+  "socket_timeout": {
+    "name": "socket အချိန်",
+    "description": "socket connection များစက္ကန့်ပိုင်းအတွင်းရှိအချိန်ကုန်။"
+  },
+  "source_address": {
+    "name": "အရင်းအမြစ်လိပ်စာ",
+    "description": "connection များပြုလုပ်ခြင်းကိုပြုလုပ်ရာတွင် 0 င်ရောက်ရန် client IP လိပ်စာ။"
+  },
+  "sponsorblock_mark": {
+    "name": "ပံ့ပိုးသည်အမှတ်အသား",
+    "description": "SPOSHORCHBLOCK အမျိုးအစားများမှအစိတ်အပိုင်းများကိုအမှတ်အသားများ။"
+  },
+  "sub_format": {
+    "name": "စာတန်းထိုးပုံစံ",
+    "description": "Subtitle format code (s) ကိုဒေါင်းလုပ်ဆွဲရန်။"
+  },
+  "sub_langs": {
+    "name": "စာတန်းထိုးဘာသာစကားများ",
+    "description": "ဒေါင်းလုပ်လုပ်ရန်စာတန်းထိုး၏ဘာသာစကားများ။"
+  },
+  "theme_dark": {
+    "name": "အမှောင်ဆောင်ပုဒ်",
+    "description": "လျှောက်လွှာ၏အဓိကအကြောင်းအရာ။"
+  },
+  "twofactor": {
+    "name": "Two-Factor authentication ကို",
+    "description": "Two-PASTORD authentication ကိုကုဒ်။"
+  },
+  "use_extractors": {
+    "name": "ထုတ်ယူအသုံးပြုမှုကိုသုံးပါ",
+    "description": "အသုံးပြုသောထုတ်ယူသောအမည်များ (Comma Sexatated) (\"အားလုံး\", \"default\", \"End\", ပုံမှန်စကားရပ်)"
+  },
+  "username": {
+    "name": "အသုံးပြုသူ",
+    "description": "authentication ကိုများအတွက်အသုံးပြုသူအမည်။"
+  },
+  "video_multistreams": {
+    "name": "ဗွီဒီယိုတော်တော်များများ",
+    "description": "မျိုးစုံဗီဒီယိုစီးဆင်းမှုပေါင်းစပ်ခွင့်ပြုပါတယ်။"
+  },
+  "video_password": {
+    "name": "ဗွီဒီယိုစကားဝှက်",
+    "description": "စကားဝှက်ဖြင့်ကာကွယ်ထားသောဗီဒီယိုများအတွက်စကားဝှက်။"
+  },
+  "video_resolution": {
+    "name": "ဆုံးဖြတ်ချက်",
+    "description": "ပိုမိုနှစ်သက်သောဗွီဒီယို resolution"
+  },
+  "video_subtitles": {
+    "name": "ကေြတီ",
+    "description": "ပိုမိုနှစ်သက်သောဗွီဒီယိုခေါင်းစဉ်များ"
+  },
+  "wait_for_video": {
+    "name": "ဗွီဒီယိုကိုစောင့်ပါ",
+    "description": "download မလုပ်မီစီစဉ်ထားသောဗွီဒီယိုတစ်ခုသို့တက်ရန်စောင့်နေသည်။"
+  },
+  "write_auto_subs": {
+    "name": "auto subtitles ကို download လုပ်ပါ",
+    "description": "ရရှိနိုင်အလိုအလျောက်စာတန်းထိုးရေးသားခဲ့သည်။"
+  },
+  "write_subs": {
+    "name": "subtitles download လုပ်ပါ",
+    "description": "ရရှိနိုင်သည့်လက်စွဲစာအုပ်စာတန်းထိုးရေးသားခဲ့သည်။"
+  },
+  "write_thumbnail": {
+    "name": "thumbnail ရေးပါ",
+    "description": "Video Thumbnail ကို disk ကိုသိမ်းဆည်းသည်။"
+  },
+  "xattrs": {
+    "name": "xattrs",
+    "description": "အဆိုပါ filesystem Xattrs မှ metadata ရေးသားခဲ့သည်။"
+  },
+  "xff": {
+    "name": "x-forwarded-for",
+    "description": "တည်နေရာကိုတုပရန် X-forwarded-for up header ကိုသတ်မှတ်သည်။"
+  }
+}

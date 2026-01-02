@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Kɔnɔtiɲɛ fili la .",
+    "description": "A bɛ telesarsecogo tiɲɛ ni fili dɔ kɛra."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Kɔnɔtiɲɛ bɛ sɔrɔ yɔrɔ dɔ kan min tɛ se ka sɔrɔ .",
+    "description": "A bɛ telesarse ni a yɔrɔ dɔ ma sɔrɔ."
+  },
+  "add_headers": {
+    "name": "Kunnafoni wɛrɛw .",
+    "description": "Kumasen wɛrɛw ka kan ka don ɛntɛrinɛti ɲininiw na."
+  },
+  "audio_format": {
+    "name": "Audio Format .",
+    "description": "Odio bεε bεε bε bεn cogo min na (MP3, Flac, Opus, wdfl)."
+  },
+  "audio_language": {
+    "name": "Audio .",
+    "description": "Kode audio kan min ka di."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams .",
+    "description": "A bɛ sira Di odio stream caman faralen ɲɔgɔn kan."
+  },
+  "audio_quality": {
+    "name": "Audio Qualité .",
+    "description": "Audio quality (0 min ka fisa, 10 min ka jugu ni tɔw bɛɛ ye)."
+  },
+  "batch_file": {
+    "name": "Batch file .",
+    "description": "Sira min bɛ taa filen dɔ la min kɔnɔ URLw bɛ sɔrɔ ka telesarse."
+  },
+  "break_on_existing": {
+    "name": "kari ka kɛ 100 ye .",
+    "description": "A bɛ telesarse dabila ni o filen bɛ yen kaban."
+  },
+  "concurrent_fragments": {
+    "name": "Fragments concurrents .",
+    "description": "Yɔrɔ minnu bɛ kɛ waati kelen na, olu hakɛ ka kan ka telesarse (default 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Convertir thumbnails .",
+    "description": "Aw bɛ ja fitininw sɛmɛntiya ka kɛɲɛ ni u cogoya fɔlen ye."
+  },
+  "cookies": {
+    "name": "Cookies .",
+    "description": "Netscape Formatted file ka cookie kalan ka bɔ ani ka cookie jar fili san ."
+  },
+  "cookies_from_browser": {
+    "name": "Cookies ka bɔ navigatɛri .",
+    "description": "A bɛ cookies ladon ka bɔ navigatɛri kofɔlen na."
+  },
+  "download_archive": {
+    "name": "Télécharger Archive .",
+    "description": "Sira min bɛ taa filen na walasa ka ID telesarselenw sɛbɛn walasa ka i yɛrɛ tanga duplicates ma."
+  },
+  "embed_chapters": {
+    "name": "Sapitiri minnu bɛ Embed .",
+    "description": "A bɛ sapitiriw don dosiye laban kɔnɔ."
+  },
+  "embed_info_json": {
+    "name": "Info JSON Embed",
+    "description": "Embeds info json ka don filen laban na."
+  },
+  "embed_metadata": {
+    "name": "metadata embed .",
+    "description": "A bɛ metadata don filen laban kɔnɔ."
+  },
+  "embed_subs": {
+    "name": "Embed subtitles .",
+    "description": "Embeds subtitles ka don file laban na."
+  },
+  "embed_thumbnail": {
+    "name": "Embed thumbnail .",
+    "description": "A bɛ ja fitinin don dosiye laban kɔnɔ."
+  },
+  "enable_file_urls": {
+    "name": "Aw bɛ se ka filen URLw kɛ .",
+    "description": "A bɛ se ka baara kɛ ni filen URLw ye sigida filenw kama."
+  },
+  "extract_audio": {
+    "name": "Aw bɛ odio bɔ .",
+    "description": "A bɛ odio bɔ wideyow la minnu telesarsera (u bɛ baara kɛ ni FFMPEG ye)."
+  },
+  "extractor_retries": {
+    "name": "Extractor retries .",
+    "description": "Retries hakɛ min bɛ sɔrɔ extractor filiw kan."
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG Yɔrɔ .",
+    "description": "sira min bɛ taa FFMPeg binary la."
+  },
+  "file_access_retries": {
+    "name": "File Access Retries .",
+    "description": "Retries hakɛ min bɛ sɔrɔ filenw sɔrɔli filiw kan."
+  },
+  "fixup": {
+    "name": "Fixup .",
+    "description": "A bɛ fili dɔntaw latilen a yɛrɛma wideyow filen kɔnɔ."
+  },
+  "font_size": {
+    "name": "Font size .",
+    "description": "Font hakɛ min bɛ kɛ baarakɛminɛn kɔnɔ."
+  },
+  "force_ipv4": {
+    "name": "fanga IPv4 .",
+    "description": "Wajibiya IPv4 baara la ɛntɛrinɛti jɛɲɔgɔnyaw kama."
+  },
+  "force_ipv6": {
+    "name": "fanga IPv6 .",
+    "description": "Wajibiya IPv6 baara la ɛntɛrinɛti jɛɲɔgɔnyaw kama."
+  },
+  "force_overwrites": {
+    "name": "Force ka sɛbɛnni kɛcogo .",
+    "description": "A bɛ dosiye minnu bɛ yen olu sɛbɛn ka tɛmɛ k’a sɔrɔ u ma ɲininkali kɛ."
+  },
+  "format": {
+    "name": "Format .",
+    "description": "Wideyo cogoya code(w) ka telesarse."
+  },
+  "fragment_retries": {
+    "name": "Fragment retries .",
+    "description": "Retries hakɛ min bɛ sɔrɔ fragment download filiw kan."
+  },
+  "geo_verification_proxy": {
+    "name": "GEO sɛgɛsɛgɛli proxy .",
+    "description": "Proxy server ka baara kɛ ni geo-verification ye."
+  },
+  "ignore_errors": {
+    "name": "I janto filiw la .",
+    "description": "I janto filiw la telesarse ani ka t’a fɛ ni wideyo nata ye."
+  },
+  "impersonate": {
+    "name": "Impersonate .",
+    "description": "Client ka kɛ mɔgɔ ye (Chrome, Chrome-110, Chrome:Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Aw bɛ a yɔrɔw mara .",
+    "description": "A bɛ yɔrɔw mara minnu telesarsera ka fara ɲɔgɔn kan."
+  },
+  "language": {
+    "name": "Kan",
+    "description": "Kan ka application."
+  },
+  "limit_rate": {
+    "name": "dan hakɛ .",
+    "description": "A bɛ dan sigi telesarse teliya la (misali la, 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Live ka bɔ a daminɛ na .",
+    "description": "A bɛ wideyow ɲɛnamaw telesarse kabini a daminɛ na."
+  },
+  "merge_output_format": {
+    "name": "Wideyo cogoya .",
+    "description": "Wideyo cogoya laban min bɛ sɔrɔ ka bɔ ɲɔgɔn na."
+  },
+  "output": {
+    "name": "Modèle output .",
+    "description": "Output filename template."
+  },
+  "password": {
+    "name": "Kɔdi",
+    "description": "Password for authentication."
+  },
+  "paths": {
+    "name": "Siraw .",
+    "description": "Directeurs ka filen suguya wɛrɛw mara."
+  },
+  "playlist": {
+    "name": "Playlist .",
+    "description": "A b’a jira ko a bɛna dɔnkilida-sɛbɛn dafalen walima wideyow kelen telesarse."
+  },
+  "prefer_insecure": {
+    "name": "A ka fisa a ma .",
+    "description": "A bɛ baara Kɛ ni HTTP jὲɲɔgɔnya ye HTTPS nɔ na (YouTube dɔrɔn)."
+  },
+  "proxy": {
+    "name": "Proxy .",
+    "description": "Proxy Server ka baara kɛ ni ɛntɛrinɛti ɲininiw ye."
+  },
+  "remux_video": {
+    "name": "Video Remux .",
+    "description": "Aw bɛ wideyo minɛn Changer k’a sɔrɔ a ma kodɔn kokura."
+  },
+  "retries": {
+    "name": "Retries .",
+    "description": "Retries retries hakɛ min bɛ telesarse filiw kan."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip playlist filiw kɔfɛ .",
+    "description": "A bɛ fɔlisen tɔ Tɛmɛ fili hakɛ dɔ kɔfɛ."
+  },
+  "socket_timeout": {
+    "name": "Socket ka waati tɛmɛnen .",
+    "description": "Waati dafalen don sosɛti jɛɲɔgɔnyaw la segin kɔnɔ."
+  },
+  "source_address": {
+    "name": "source address .",
+    "description": "Client IP adrɛsi ka siri ni ɲɔgɔndanw ye."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark .",
+    "description": "Marka seginw ka bɔ sponsorblock categories la."
+  },
+  "sub_format": {
+    "name": "Subtitle format .",
+    "description": "Subtitle format code(s) ka telesarse."
+  },
+  "sub_langs": {
+    "name": "kanw subtitle .",
+    "description": "kanw ka subtitles ka telesarse."
+  },
+  "theme_dark": {
+    "name": "Barokun dibiman .",
+    "description": "Barokun min bɛ sɔrɔ sɛbɛn kɔnɔ."
+  },
+  "twofactor": {
+    "name": "Factor fila-fila dantigɛli .",
+    "description": "Fɛn fila-fila dantigɛli kode."
+  },
+  "use_extractors": {
+    "name": "Aw bɛ baara kɛ ni extracteurs ye .",
+    "description": "Tɔgɔw bɔlenw ka baara kɛ ni (comma separated).(\"all\",\"default\",\"end\",regular expression)"
+  },
+  "username": {
+    "name": "Baarakɛla tɔgɔ .",
+    "description": "Baarakɛla tɔgɔ ka ɲɛsin dantigɛli ma."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams .",
+    "description": "A bɛ sira di ka wideyow caman fara ɲɔgɔn kan."
+  },
+  "video_password": {
+    "name": "Wideyo ka kumasen .",
+    "description": "Wideyo min bɛ kɛ ka mɔgɔ dogo, o ye wideyow ye minnu bɛ lakana."
+  },
+  "video_resolution": {
+    "name": "Ŋaniya",
+    "description": "Videwo ka ɲɛnatɔmɔcogo ɲuman ."
+  },
+  "video_subtitles": {
+    "name": "Subtitles .",
+    "description": "Video subtitles minnu ka fisa ."
+  },
+  "wait_for_video": {
+    "name": "A jira ko videwo .",
+    "description": "A bɛ wideyo dɔ makɔnɔ min bolodara ka sɔrɔ sani a ka telesarse."
+  },
+  "write_auto_subs": {
+    "name": "Télécharger auto subtitles .",
+    "description": "A bɛ sɛbɛnni kɛ automatique subtitles."
+  },
+  "write_subs": {
+    "name": "Télécharger subtitles .",
+    "description": "A bɛ sɛbɛnni kɛ manuel subtitles kan."
+  },
+  "write_thumbnail": {
+    "name": "Aw ye sɛbɛn ɲɛ fɔlɔ .",
+    "description": "A bɛ videyo kasɛti fitinin mara disiki la."
+  },
+  "xattrs": {
+    "name": "Xattrs .",
+    "description": "A bɛ metadata sɛbɛn ka di filesystem Xattrs ma."
+  },
+  "xff": {
+    "name": "X-Forwarded-for",
+    "description": "A bɛ X-forwarded-for header sigi simulate yɔrɔ la."
+  }
+}

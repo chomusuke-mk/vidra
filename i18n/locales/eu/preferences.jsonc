@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Errore batean bertan behera utzi",
+    "description": "Deskarga-prozesua bertan behera uzten du erroreren bat gertatzen bada."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Abortatu erabilgarri ez dagoen zatian",
+    "description": "Deskarga bertan behera uzten du zati bat erabilgarri ez badago."
+  },
+  "add_headers": {
+    "name": "Goiburu osagarriak",
+    "description": "Sare-eskaeretan sartzeko goiburu gehigarriak."
+  },
+  "audio_format": {
+    "name": "Audio formatua",
+    "description": "Bihurtutako audioaren formatua (mp3, flac, opus, etab.)."
+  },
+  "audio_language": {
+    "name": "Audioa",
+    "description": "Audio hizkuntza-kode hobetsia."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreamak",
+    "description": "Hainbat audio-korronte konbinatzeko aukera ematen du."
+  },
+  "audio_quality": {
+    "name": "Audioaren kalitatea",
+    "description": "Audio-kalitatea (0 onena, 10 okerrena)."
+  },
+  "batch_file": {
+    "name": "Batch Fitxategia",
+    "description": "Deskargatzeko URLak dituen fitxategi baterako bidea."
+  },
+  "break_on_existing": {
+    "name": "Lehendik dagoenean hautsi",
+    "description": "Fitxategia dagoeneko badago deskargatzeari uzten dio."
+  },
+  "concurrent_fragments": {
+    "name": "Aldibereko zatiak",
+    "description": "Deskargatu beharreko aldibereko zati kopurua (lehenetsia 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Bihurtu miniaturak",
+    "description": "Bihurtu miniaturak zehaztutako formatura."
+  },
+  "cookies": {
+    "name": "Cookieak",
+    "description": "Netscape formatuko fitxategia cookieak irakurtzeko eta cookie-ontzia botatzeko"
+  },
+  "cookies_from_browser": {
+    "name": "Nabigatzailearen cookieak",
+    "description": "Cookieak inportatzen ditu zehaztutako arakatzailetik."
+  },
+  "download_archive": {
+    "name": "Deskargatu artxiboa",
+    "description": "Fitxategiaren bidea deskargatutako IDak grabatzeko, bikoiztuak saihesteko."
+  },
+  "embed_chapters": {
+    "name": "Kapituluak txertatu",
+    "description": "Kapituluak azken fitxategian txertatzen ditu."
+  },
+  "embed_info_json": {
+    "name": "JSON informazioa txertatu",
+    "description": "JSON informazioa txertatzen du azken fitxategian."
+  },
+  "embed_metadata": {
+    "name": "Metadatuak txertatu",
+    "description": "Metadatuak azken fitxategian txertatzen ditu."
+  },
+  "embed_subs": {
+    "name": "Kapsulatu azpitituluak",
+    "description": "Azpitituluak azken fitxategian txertatzen ditu."
+  },
+  "embed_thumbnail": {
+    "name": "Kapsulatu miniatura",
+    "description": "Irudi txikia azken fitxategian txertatzen du."
+  },
+  "enable_file_urls": {
+    "name": "Gaitu Fitxategien URLak",
+    "description": "Fitxategien URLak tokiko fitxategietarako erabiltzea gaitzen du."
+  },
+  "extract_audio": {
+    "name": "Atera audioa",
+    "description": "Deskargatutako bideoetatik audioa ateratzen du (ffmpeg erabiltzen du)."
+  },
+  "extractor_retries": {
+    "name": "Erauzgailuaren berrazterketak",
+    "description": "Erauzketa-erroreen berrazterketa kopurua."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg kokapena",
+    "description": "FFmpeg bitarrerako bidea."
+  },
+  "file_access_retries": {
+    "name": "Fitxategiak sartzeko saiakerak",
+    "description": "Fitxategiak atzitzeko akatsen saiakera kopurua."
+  },
+  "fixup": {
+    "name": "Konponketa",
+    "description": "Automatikoki zuzentzen ditu bideo fitxategian ezagutzen diren akatsak."
+  },
+  "font_size": {
+    "name": "Letra-tamaina",
+    "description": "Aplikazioan erabiltzen den letra-tamaina."
+  },
+  "force_ipv4": {
+    "name": "Behartu IPv4",
+    "description": "Sareko konexioetarako IPv4 erabiltzera behartzen du."
+  },
+  "force_ipv6": {
+    "name": "Behartu IPv6",
+    "description": "Sareko konexioetarako IPv6 erabiltzera behartzen du."
+  },
+  "force_overwrites": {
+    "name": "Behartu gainidazketa",
+    "description": "Lehendik dauden fitxategiak gainidazten ditu galdetu gabe."
+  },
+  "format": {
+    "name": "Formatua",
+    "description": "Deskargatu beharreko bideo formatuko kodea(k)."
+  },
+  "fragment_retries": {
+    "name": "Fragmentuen saiakerak",
+    "description": "Zatiak deskargatzeko akatsen saiakera kopurua."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo egiaztapenaren proxy",
+    "description": "Proxy zerbitzaria geo-egiaztapenerako erabiltzeko."
+  },
+  "ignore_errors": {
+    "name": "Ez ikusi erroreak",
+    "description": "Ez ikusi deskargatu akatsak eta jarraitu hurrengo bideoarekin."
+  },
+  "impersonate": {
+    "name": "Pertsonaia egin",
+    "description": "Nortasuna ordezkatzeko bezeroa (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Gorde zatiak",
+    "description": "Batu ondoren deskargatutako zatiak mantentzen ditu."
+  },
+  "language": {
+    "name": "Hizkuntza",
+    "description": "Aplikazioaren hizkuntza."
+  },
+  "limit_rate": {
+    "name": "Muga-tasa",
+    "description": "Deskarga-abiadura mugatzen du (adibidez, 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "Hasieratik zuzenean",
+    "description": "Zuzeneko bideoak deskargatzen ditu hasieratik."
+  },
+  "merge_output_format": {
+    "name": "Bideo formatua",
+    "description": "Korronteak bateratzearen ondoriozko azken bideo formatua."
+  },
+  "output": {
+    "name": "Irteera txantiloia",
+    "description": "Irteera fitxategi-izen txantiloia."
+  },
+  "password": {
+    "name": "Pasahitza",
+    "description": "Autentifikaziorako pasahitza."
+  },
+  "paths": {
+    "name": "Bideak",
+    "description": "Fitxategi mota desberdinak gordetzeko direktorioak."
+  },
+  "playlist": {
+    "name": "Erreprodukzio-zerrenda",
+    "description": "Erreprodukzio-zerrenda osoa ala bideo bakarra deskargatu behar den adierazten du."
+  },
+  "prefer_insecure": {
+    "name": "Nahiago ez segurua",
+    "description": "HTTP konexioa erabiltzen du HTTPSren ordez (YouTube soilik)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Proxy zerbitzaria sare-eskaeretarako erabiltzeko."
+  },
+  "remux_video": {
+    "name": "Remux bideoa",
+    "description": "Bideo-edukiontzia aldatzen du berriro kodetu gabe."
+  },
+  "retries": {
+    "name": "Berriro saiatu",
+    "description": "Deskarga-erroreen saiakera kopurua."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Saltatu Erreprodukzio-zerrenda Akatsen ondoren",
+    "description": "Akats kopuru jakin baten ondoren, gainerako erreprodukzio-zerrenda saltatzen du."
+  },
+  "socket_timeout": {
+    "name": "Socket denbora-muga",
+    "description": "Socket konexioetarako denbora-muga segundotan."
+  },
+  "source_address": {
+    "name": "Iturburu-helbidea",
+    "description": "Konexioak egiterakoan lotzeko bezeroaren IP helbidea."
+  },
+  "sponsorblock_mark": {
+    "name": "BabesleaBlock Mark",
+    "description": "SponsorBlock kategorietako segmentuak markatzen ditu."
+  },
+  "sub_format": {
+    "name": "Azpitituluen formatua",
+    "description": "Deskargatu beharreko azpitituluen formatuaren kodea(k)."
+  },
+  "sub_langs": {
+    "name": "Azpitituluen hizkuntzak",
+    "description": "Deskargatu beharreko azpitituluen hizkuntzak."
+  },
+  "theme_dark": {
+    "name": "Gai iluna",
+    "description": "Aplikazioaren gaia."
+  },
+  "twofactor": {
+    "name": "Bi faktoreko autentifikazioa",
+    "description": "Bi faktoreko autentifikazio-kodea."
+  },
+  "use_extractors": {
+    "name": "Erabili erauzgailuak",
+    "description": "Erabili beharreko erauzgailuen izenak (komaz bereizita). (\"guztiak\",\"lehenetsiak\",\"amaiera\", adierazpen erregularra)"
+  },
+  "username": {
+    "name": "Erabiltzaile izena",
+    "description": "Autentifikaziorako erabiltzaile-izena."
+  },
+  "video_multistreams": {
+    "name": "Bideo Multistreamak",
+    "description": "Hainbat bideo-korronte konbinatzeko aukera ematen du."
+  },
+  "video_password": {
+    "name": "Bideoaren pasahitza",
+    "description": "Pasahitz bidez babestutako bideoen pasahitza."
+  },
+  "video_resolution": {
+    "name": "Ebazpena",
+    "description": "Bideoaren bereizmen hobetsia"
+  },
+  "video_subtitles": {
+    "name": "Azpitituluak",
+    "description": "Bideoaren azpititulu hobetsiak"
+  },
+  "wait_for_video": {
+    "name": "Itxaron bideoa",
+    "description": "Deskargatu aurretik programatutako bideo bat erabilgarri egon arte itxaroten du."
+  },
+  "write_auto_subs": {
+    "name": "Deskargatu Auto azpitituluak",
+    "description": "Eskuragarri dauden azpititulu automatikoak idazten ditu."
+  },
+  "write_subs": {
+    "name": "Deskargatu Azpitituluak",
+    "description": "Eskuzko azpitituluak idazten ditu."
+  },
+  "write_thumbnail": {
+    "name": "Idatzi miniatura",
+    "description": "Bideoaren miniatura diskoan gordetzen du."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Metadatuak fitxategi-sistemako xattrs idazten ditu."
+  },
+  "xff": {
+    "name": "X-Bidali-For",
+    "description": "X-Forwarded-For goiburua ezartzen du kokapena simulatzeko."
+  }
+}

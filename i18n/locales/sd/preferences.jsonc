@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "غلطي تي ختم ڪريو",
+    "description": "ڊائون لوڊ جي عمل کي ختم ڪري ٿو جيڪڏهن ڪا غلطي ٿئي ٿي."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "غير دستياب ٽڪڙي تي ختم ڪريو",
+    "description": "ڊائون لوڊ کي ختم ڪري ٿو جيڪڏهن ڪو ٽڪرو دستياب ناهي."
+  },
+  "add_headers": {
+    "name": "اضافي سر",
+    "description": "نيٽ ورڪ جي درخواستن ۾ شامل ڪرڻ لاءِ اضافي هيڊر."
+  },
+  "audio_format": {
+    "name": "آڊيو فارميٽ",
+    "description": "تبديل ٿيل آڊيو جو فارميٽ (mp3، flac، opus، وغيره)."
+  },
+  "audio_language": {
+    "name": "آڊيو",
+    "description": "ترجيحي آڊيو ٻولي ڪوڊ."
+  },
+  "audio_multistreams": {
+    "name": "آڊيو ملٽي اسٽريم",
+    "description": "ڪيترن ئي آڊيو اسٽريمز کي گڏ ڪرڻ جي اجازت ڏئي ٿي."
+  },
+  "audio_quality": {
+    "name": "آڊيو معيار",
+    "description": "آڊيو معيار (0 بهترين، 10 بدترين)."
+  },
+  "batch_file": {
+    "name": "بيچ فائل",
+    "description": "ھڪڙي فائل ڏانھن رستو جنھن ۾ ڊائون لوڊ ڪرڻ لاء URLs شامل آھن."
+  },
+  "break_on_existing": {
+    "name": "موجوده تي وقفو",
+    "description": "ڊائون لوڊ ٿيڻ بند ڪري ٿو جيڪڏهن فائل اڳ ۾ ئي موجود آهي."
+  },
+  "concurrent_fragments": {
+    "name": "گڏيل ٽڪرا",
+    "description": "ڊائون لوڊ ڪرڻ لاءِ گڏ ٿيل ٽڪرن جو تعداد (ڊفالٽ 1)."
+  },
+  "convert_thumbnails": {
+    "name": "ٺٺوليون تبديل ڪريو",
+    "description": "thumbnails کي مخصوص فارميٽ ۾ تبديل ڪريو."
+  },
+  "cookies": {
+    "name": "ڪوڪيز",
+    "description": "Netscape فارميٽ ٿيل فائل مان ڪوڪيز پڙهڻ لاءِ ۽ ڪوڪي جار اندر ڊمپ ڪريو"
+  },
+  "cookies_from_browser": {
+    "name": "برائوزر کان ڪوڪيز",
+    "description": "مخصوص برائوزر مان ڪوڪيز درآمد ڪري ٿو."
+  },
+  "download_archive": {
+    "name": "ڊائون لوڊ آرڪائيو",
+    "description": "نقل ڪرڻ کان بچڻ لاءِ ڊائون لوڊ ٿيل IDs کي رڪارڊ ڪرڻ لاءِ فائل جو رستو."
+  },
+  "embed_chapters": {
+    "name": "باب شامل ڪريو",
+    "description": "آخري فائل ۾ بابن کي شامل ڪريو."
+  },
+  "embed_info_json": {
+    "name": "شامل ڪريو معلومات JSON",
+    "description": "معلومات JSON کي حتمي فائل ۾ شامل ڪريو."
+  },
+  "embed_metadata": {
+    "name": "ميٽاداٽا شامل ڪريو",
+    "description": "فائنل فائل ۾ ميٽا ڊيٽا کي شامل ڪريو."
+  },
+  "embed_subs": {
+    "name": "شامل ڪريو ذيلي عنوان",
+    "description": "آخري فائل ۾ ذيلي عنوان شامل ڪريو."
+  },
+  "embed_thumbnail": {
+    "name": "ٿمب نيل شامل ڪريو",
+    "description": "ٿمب نيل کي حتمي فائل ۾ شامل ڪري ٿو."
+  },
+  "enable_file_urls": {
+    "name": "فائل URLs کي فعال ڪريو",
+    "description": "مقامي فائلن لاءِ فائل URLs جي استعمال کي قابل بڻائي ٿو."
+  },
+  "extract_audio": {
+    "name": "آڊيو ڪڍو",
+    "description": "ڊائون لوڊ ڪيل وڊيوز مان آڊيو ڪڍي ٿو (ffmpeg استعمال ڪري ٿو)."
+  },
+  "extractor_retries": {
+    "name": "Extractor ٻيهر ڪوششون",
+    "description": "ڪڍڻ جي غلطين تي ٻيهر ڪوششن جو تعداد."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg جڳھ",
+    "description": "رستو FFmpeg بائنري ڏانهن."
+  },
+  "file_access_retries": {
+    "name": "فائل جي رسائي جي ٻيهر ڪوشش",
+    "description": "فائل جي رسائي جي غلطين تي ٻيهر ڪوششن جو تعداد."
+  },
+  "fixup": {
+    "name": "ٺيڪ ڪرڻ",
+    "description": "خودڪار طور تي وڊيو فائل ۾ ڄاڻايل غلطي کي درست ڪري ٿو."
+  },
+  "font_size": {
+    "name": "فونٽ جي ماپ",
+    "description": "ايپليڪيشن ۾ استعمال ٿيل فونٽ سائيز."
+  },
+  "force_ipv4": {
+    "name": "زور IPv4",
+    "description": "نيٽ ورڪ ڪنيڪشن لاءِ IPv4 جي استعمال کي مجبور ڪري ٿو."
+  },
+  "force_ipv6": {
+    "name": "زور IPv6",
+    "description": "نيٽ ورڪ ڪنيڪشن لاءِ IPv6 جي استعمال کي مجبور ڪري ٿو."
+  },
+  "force_overwrites": {
+    "name": "زبردستي Overwrites",
+    "description": "موجوده فائلن کي بغير پڇڻ جي مٿان لکندو آهي."
+  },
+  "format": {
+    "name": "فارميٽ",
+    "description": "وڊيو فارميٽ ڪوڊ(ز) ڊائون لوڊ ڪرڻ لاءِ."
+  },
+  "fragment_retries": {
+    "name": "ٽڪرا ٻيهر ڪوششون",
+    "description": "فريگمينٽ ڊائون لوڊ جي غلطين تي ٻيهر ڪوششن جو تعداد."
+  },
+  "geo_verification_proxy": {
+    "name": "جيو تصديق پراکسي",
+    "description": "جيو-تصديق لاءِ استعمال ڪرڻ لاءِ پراڪسي سرور."
+  },
+  "ignore_errors": {
+    "name": "غلطين کي نظرانداز ڪريو",
+    "description": "ڊائون لوڊ جي غلطين کي نظرانداز ڪريو ۽ ايندڙ وڊيو سان جاري رکو."
+  },
+  "impersonate": {
+    "name": "نقالي",
+    "description": "نقل ڪرڻ لاءِ ڪلائنٽ (ڪروم، ڪروم-110، ڪروم: ونڊوز-10)."
+  },
+  "keep_fragments": {
+    "name": "ٽڪر رکو",
+    "description": "ضم ٿيڻ کان پوء ڊائون لوڊ ٿيل ٽڪرا رکي ٿو."
+  },
+  "language": {
+    "name": "ٻولي",
+    "description": "اپليڪيشن جي ٻولي."
+  },
+  "limit_rate": {
+    "name": "حد جي شرح",
+    "description": "ڊائون لوڊ جي رفتار کي محدود ڪري ٿو (مثال طور، 50K، 4.2M)."
+  },
+  "live_from_start": {
+    "name": "شروع کان لائيو",
+    "description": "ڊائون لوڊ ڪريو لائيو وڊيوز شروع کان."
+  },
+  "merge_output_format": {
+    "name": "وڊيو فارميٽ",
+    "description": "ضم ٿيڻ واري اسٽريم جي نتيجي ۾ حتمي وڊيو فارميٽ."
+  },
+  "output": {
+    "name": "Output Template",
+    "description": "ٻاھر ڪڍو فائل جو نالو ٽيمپليٽ."
+  },
+  "password": {
+    "name": "پاسورڊ",
+    "description": "تصديق لاءِ پاسورڊ."
+  },
+  "paths": {
+    "name": "رستا",
+    "description": "فائلن جي مختلف قسمن کي بچائڻ لاء ڊائريڪٽري."
+  },
+  "playlist": {
+    "name": "پلي لسٽ",
+    "description": "ظاھر ڪري ٿو ته ڇا ڊائون لوڊ ڪرڻ لاء مڪمل پبليڪيشن يا ھڪڙي وڊيو."
+  },
+  "prefer_insecure": {
+    "name": "غير محفوظ کي ترجيح ڏيو",
+    "description": "HTTPS جي بدران HTTP ڪنيڪشن استعمال ڪري ٿو (صرف يوٽيوب)."
+  },
+  "proxy": {
+    "name": "پراڪسي",
+    "description": "نيٽ ورڪ جي درخواستن لاء استعمال ڪرڻ لاء پراکسي سرور."
+  },
+  "remux_video": {
+    "name": "ريمڪس ويڊيو",
+    "description": "ويڊيو ڪنٽينر کي تبديل ڪري ٿو بغير ٻيهر انڪوڊنگ."
+  },
+  "retries": {
+    "name": "ٻيهر ڪوششون",
+    "description": "ڊائون لوڊ جي غلطين تي ٻيهر ڪوششن جو تعداد."
+  },
+  "skip_playlist_after_errors": {
+    "name": "غلطين کان پوءِ پلي لسٽ کي ڇڏي ڏيو",
+    "description": "ھڪڙي خاص تعداد جي غلطين کان پوءِ باقي پلي لسٽ کي ڇڏي ٿو."
+  },
+  "socket_timeout": {
+    "name": "ساکٽ ٽائيم ختم",
+    "description": "سيڪنڊن ۾ ساکٽ ڪنيڪشن لاءِ وقت ختم."
+  },
+  "source_address": {
+    "name": "ذريعو ايڊريس",
+    "description": "ڪنيڪشن ٺاهڻ وقت پابند ڪرڻ لاءِ ڪلائنٽ IP پتو."
+  },
+  "sponsorblock_mark": {
+    "name": "اسپانسر بلاڪ مارڪ",
+    "description": "SponsorBlock زمري جا حصا نشان لڳايو."
+  },
+  "sub_format": {
+    "name": "ذيلي عنوان فارميٽ",
+    "description": "ڊائون لوڊ ڪرڻ لاءِ ذيلي عنوان فارميٽ ڪوڊ(ز)."
+  },
+  "sub_langs": {
+    "name": "ذيلي عنوان ٻوليون",
+    "description": "ڊائون لوڊ ڪرڻ لاءِ سب ٽائيٽل جون ٻوليون."
+  },
+  "theme_dark": {
+    "name": "ڳاڙهو موضوع",
+    "description": "اپليڪيشن جو موضوع."
+  },
+  "twofactor": {
+    "name": "ٻن عنصر جي تصديق",
+    "description": "ٻه عنصر جي تصديق ڪوڊ."
+  },
+  "use_extractors": {
+    "name": "Extractors استعمال ڪريو",
+    "description": "استعمال ڪرڻ لاءِ ڪڍڻ وارن جا نالا (ڪاما الڳ ٿيل) (\"سڀ\"،\"ڊفالٽ\"،\"آخر\"، باقاعده اظهار)"
+  },
+  "username": {
+    "name": "يوزر نالو",
+    "description": "استعمال ڪندڙ جو نالو تصديق لاءِ."
+  },
+  "video_multistreams": {
+    "name": "وڊيو ملٽي اسٽريم",
+    "description": "ڪيترن ئي وڊيو اسٽريمز کي گڏ ڪرڻ جي اجازت ڏئي ٿي."
+  },
+  "video_password": {
+    "name": "وڊيو پاسورڊ",
+    "description": "پاسورڊ-محفوظ وڊيوز لاء پاسورڊ."
+  },
+  "video_resolution": {
+    "name": "قرارداد",
+    "description": "پسنديده وڊيو قرارداد"
+  },
+  "video_subtitles": {
+    "name": "ذيلي عنوان",
+    "description": "پسنديده وڊيو ذيلي عنوان"
+  },
+  "wait_for_video": {
+    "name": "وڊيو لاء انتظار ڪريو",
+    "description": "ڊائون لوڊ ڪرڻ کان پهريان دستياب ٿيڻ لاءِ شيڊول ٿيل وڊيو جو انتظار ڪريو."
+  },
+  "write_auto_subs": {
+    "name": "ڊائون لوڊ خودڪار ذيلي عنوان",
+    "description": "دستياب خودڪار ذيلي عنوان لکي ٿو."
+  },
+  "write_subs": {
+    "name": "ڊائون لوڊ ڪريو ذيلي عنوان",
+    "description": "دستياب دستياب ذيلي عنوان لکي ٿو."
+  },
+  "write_thumbnail": {
+    "name": "ٿمبنيل لکو",
+    "description": "ڊسڪ تي وڊيو ٿامب نيل محفوظ ڪري ٿو."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "فائل سسٽم xattrs ڏانهن ميٽا ڊيٽا لکي ٿو."
+  },
+  "xff": {
+    "name": "X-اڳتي-لاءِ",
+    "description": "سيٽ ڪري ٿو X-Forwarded-For header to the location simulate."
+  }
+}

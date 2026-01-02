@@ -1,0 +1,26 @@
+display_name: Vidra
+package_name: vidra
+
+maintainer:
+  name: chomusuke.dev
+  email: 7k9mc4urn@mozmail.com
+
+priority: optional
+section: x11
+installed_size: 0
+essential: false
+
+icon: assets/icon/icon.png
+
+keywords:
+  - Vidra
+  - yt-dlp
+  - Downloads
+
+generic_name: Video/job manager
+
+categories:
+  - Network
+  - Utility
+
+startup_notify: true

@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "ምፍንጃር ኣብ ጌጋ",
+    "description": "ጌጋ እንተ ኣጋጢሙ ነቲ መስርሕ ምውራድ የቋርጾ።"
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "ምፍንጃር ኣብ ዘይርከብ ቁንጣሮ",
+    "description": "ቁንጣሮ እንተዘይተረኺቡ ነቲ ምውራድ የቋርጾ።"
+  },
+  "add_headers": {
+    "name": "ተወሳኺ ርእሲ",
+    "description": "ኣብ ናይ ኔትወርክ ሕቶታት ከተካትት ተወሳኺ ርእስታት።"
+  },
+  "audio_format": {
+    "name": "ናይ ድምጺ ቅርጺ .",
+    "description": "ቅርጺ ናይቲ ዝተቐየረ ድምጺ (MP3, FLAC, OPUS, ወዘተ)።"
+  },
+  "audio_language": {
+    "name": "ድምጺ .",
+    "description": "ዝምረጽ ናይ ድምጺ ቋንቋ ኮድ።"
+  },
+  "audio_multistreams": {
+    "name": "ናይ ድምጺ ብዙሕ ውቁባት",
+    "description": "ብዙሓት ናይ ድምጺ ዋሕዚ ምውህሃድ የኽእል።"
+  },
+  "audio_quality": {
+    "name": "ጽሬት ድምጺ .",
+    "description": "ጽሬት ድምጺ (0 ዝበለጸ፡ 10 ዝኸፍአ)።"
+  },
+  "batch_file": {
+    "name": "ባትች ፋይል .",
+    "description": "መንገዲ ናብ ሓደ URLs ዝሓዘ ፋይል ክትወርድ ትኽእል።"
+  },
+  "break_on_existing": {
+    "name": "ኣብ ዝጸንሐ ስብርባር",
+    "description": "እቲ ፋይል ድሮ እንተሃልዩ ምውራድ የቋርጽ።"
+  },
+  "concurrent_fragments": {
+    "name": "ተደጋጋሚ ቁርጽራጽ .",
+    "description": "ቁጽሪ ናይ ሓደ ግዜ ቁርጽራጽ ክትወርድ (ነባሪ 1)።"
+  },
+  "convert_thumbnails": {
+    "name": "ንእሽቶ ስእሊ ምቕያር",
+    "description": "ንእሽቶ ስእሊ ናብቲ ዝተገልጸ ቅርጺ ምቕያር።"
+  },
+  "cookies": {
+    "name": "ኩኪስ",
+    "description": "ኔትስኬፕ ፎርማት ዘለዎ ፋይል ኩኪስ ካብን ክድርብዮን ኩኪስ ዕትሮ ኣብ 2019 ንምንባብ"
+  },
+  "cookies_from_browser": {
+    "name": "ኩኪስ ካብ መርበብ ሓበሬታ",
+    "description": "ካብቲ ዝተገልጸ መርበብ ሓበሬታ ኩኪስ የእትዎ።"
+  },
+  "download_archive": {
+    "name": "Download ማህደር",
+    "description": "መንገዲ ናብ ፋይል ንምቕራጽ ዝወረዱ IDs ንኸይድገም።"
+  },
+  "embed_chapters": {
+    "name": "ምዕራፋት embed",
+    "description": "ምዕራፋት ኣብቲ ናይ መወዳእታ ፋይል ይኣቱ።"
+  },
+  "embed_info_json": {
+    "name": "embed info json",
+    "description": "Info JSON ኣብቲ ናይ መወዳእታ ፋይል ይኣቱ።"
+  },
+  "embed_metadata": {
+    "name": "embed ሜታዳታ",
+    "description": "ሜታዳታ ኣብቲ ናይ መወዳእታ ፋይል ይኣቱ።"
+  },
+  "embed_subs": {
+    "name": "embed subtitles",
+    "description": "ኣብ መወዳእታ ፋይል ንንኡስ ጽሑፋት ይኣቱ።"
+  },
+  "embed_thumbnail": {
+    "name": "embed thumbnail",
+    "description": "ነቲ ንእሽቶ ስእሊ ኣብቲ ናይ መወዳእታ ፋይል ይሰፍሮ።"
+  },
+  "enable_file_urls": {
+    "name": "ፋይል URLS ምኽኣል",
+    "description": "ንናይ ከባቢ ፋይላት ፋይል URLs ንምጥቃም የኽእል።"
+  },
+  "extract_audio": {
+    "name": "ድምጺ ምውጻእ",
+    "description": "ካብ ዝተወርዱ ቪድዮታት ድምጺ (FFMPEG uses) ዝብል ድምጺ ቅብኣታት ይወስድ።"
+  },
+  "extractor_retries": {
+    "name": "ናይ ኤክስትራክተር ሪቲስ",
+    "description": "ኣብ ጌጋታት ምውጻእ ቁጽሪ ዳግመ-ፈተነ።"
+  },
+  "ffmpeg_location": {
+    "name": "FFMPEG ቦታ",
+    "description": "መንገዲ ናብ FFMPEG binary."
+  },
+  "file_access_retries": {
+    "name": "ናይ ፋይል መእተዊ ዳግመ-ምድላው",
+    "description": "ኣብ ናይ ፋይል መእተዊ ጌጋታት ብዝሒ ዳግመ-ፈተነ።"
+  },
+  "fixup": {
+    "name": "ፊክስኣፕ",
+    "description": "ኣብቲ ናይ ቪድዮ ፋይል ንዝፍለጡ ጌጋታት ብኣውቶማቲክ ይእርሞ።"
+  },
+  "font_size": {
+    "name": "ቅርጺ ቅርጺ ፊደላት .",
+    "description": "ኣብቲ ኣፕሊኬሽን ዝጥቀመሉ ቅርጺ ቅርጺ ፊደል።"
+  },
+  "force_ipv4": {
+    "name": "ሓይሊ IPv4",
+    "description": "ንኣጠቓቕማ IPv4 ንናይ ኔትወርክ ምትእስሳር የገድድ።"
+  },
+  "force_ipv6": {
+    "name": "ሓይሊ IPv6",
+    "description": "ንኣጠቓቕማ IPv6 ንናይ ኔትወርክ ምትእስሳር የገድድ።"
+  },
+  "force_overwrites": {
+    "name": "ሓይሊ ምድርባይ .",
+    "description": "ነቲ ዝጸንሐ ፋይላት ከይሓተተ ይጽሕፎ።"
+  },
+  "format": {
+    "name": "ፎርማት .",
+    "description": "ቪድዮ ፎርማት ኮድ(ታት) ክትወርድ ትኽእል።"
+  },
+  "fragment_retries": {
+    "name": "ቁርጽራጽ ሪትሪስ .",
+    "description": "ቁጽሪ ዳግመ-ፈተነ ኣብ ቁንጣሮ ምውራድ ጌጋታት።"
+  },
+  "geo_verification_proxy": {
+    "name": "ጂኦ ቨሪፊኬሽን ፕሮክሲ",
+    "description": "ንጂኦ-ምፍራይ ክትጥቀመሉ እትኽእል ፕሮክሲ ሰርቨር።"
+  },
+  "ignore_errors": {
+    "name": "ጌጋታት ዕሽሽ ኢልካ",
+    "description": "ጌጋታት ምውራድ ሸለል ኢልካ ምስታ እትቕጽል ቪድዮ ቀጽል።"
+  },
+  "impersonate": {
+    "name": "ዝመስለካ",
+    "description": "ዓሚል ናብ ምምሳል (Chrome, Chrome-110, Chrome:Windows-10)።"
+  },
+  "keep_fragments": {
+    "name": "ቁርጽራጽ ምሓዝ .",
+    "description": "ድሕሪ ምውህሃድ ነቲ ዝወረደ ቁርጽራጽ ይሕዞ።"
+  },
+  "language": {
+    "name": "ቋንቋ",
+    "description": "ቋንቋ ናይቲ መተግበሪ።"
+  },
+  "limit_rate": {
+    "name": "ደረት ደረጃ .",
+    "description": "ንናይ ምውራድ ፍጥነት ይድርቶ (ንኣብነት 50K, 4.2m)።"
+  },
+  "live_from_start": {
+    "name": "ካብ መጀመርታ ንበር",
+    "description": "ካብ መጀመርታ ቀጥታዊ ቪድዮታት ኣውሪዱ።"
+  },
+  "merge_output_format": {
+    "name": "ቪድዮ ፎርማት",
+    "description": "ናይ መወዳእታ ቪድዮ ፎርማት ካብ ምውህሃድ ስትሪም ዝመጽእ እዩ።"
+  },
+  "output": {
+    "name": "ውጽኢት ቅጥዒ .",
+    "description": "ውጽኢት ፋይል ስም ቅጥዒ።"
+  },
+  "password": {
+    "name": "መሕለፊ ቓል",
+    "description": "ንመረጋገጺ ዝኸውን ምልክት ቃል።"
+  },
+  "paths": {
+    "name": "መንገድታት",
+    "description": "ዝተፈላለዩ ዓይነታት ፋይላት ንምዕቃብ ዝሕግዙ ማህደራት።"
+  },
+  "playlist": {
+    "name": "ዝርዝር ደርፍታት",
+    "description": "ምሉእ ዝርዝር ደርፍታት ወይ ሓንቲ ቪድዮ ከተውርድን ትገልጽን ትሕብር።"
+  },
+  "prefer_insecure": {
+    "name": "ውሕስነት ዘይብሉ ይመርጽ",
+    "description": "ኣብ ክንዲ HTTPS (YouTube ጥራይ) HTTP ምትእስሳር ይጥቀም።"
+  },
+  "proxy": {
+    "name": "ፕሮክሲ",
+    "description": "ንሕቶታት ኔትወርክ ክትጥቀመሉ እትኽእል ፕሮክሲ ሰርቨር።"
+  },
+  "remux_video": {
+    "name": "ሪሙክስ ቪድዮ",
+    "description": "ነቲ ናይ ቪድዮ ኮንተይነር ዳግማይ ብዘይምትሕውዋስ ይቕይሮ።"
+  },
+  "retries": {
+    "name": "ዳግማይ ፈትኖ .",
+    "description": "ኣብ ጌጋታት ምውራድ ቁጽሪ ዳግማይ ይፍትን።"
+  },
+  "skip_playlist_after_errors": {
+    "name": "ድሕሪ ጌጋታት ምዝላል ዝርዝር ምዝላል",
+    "description": "ድሕሪ ዝተወሰነ ቁጽሪ ጌጋታት ንዝተረፈ ዝርዝር ደርፍታት ምዝላል።"
+  },
+  "socket_timeout": {
+    "name": "ሶኬት ግዜ ምውዳእ",
+    "description": "ንሶኬት ምትእስሳራት ዝኸውን ግዜ ምውዳእ ኣብ ካልኢታት።"
+  },
+  "source_address": {
+    "name": "ምንጪ ኣድራሻ",
+    "description": "Client IP address ክትኣስረሉ እትኽእል ምትእስሳራት ኣብ እትገብረሉ እዋን።"
+  },
+  "sponsorblock_mark": {
+    "name": "ስፖንሰርብሎክ ማርክ",
+    "description": "ካብ ስፖንሰርብሎክ ምድባት ዝመጹ ክፍልታት ምልክት ይገብሩ።"
+  },
+  "sub_format": {
+    "name": "ቅርጺ ንኡስ ኣርእስቲ .",
+    "description": "Subtitle Format Code(s) ክትወርድ ትኽእል።"
+  },
+  "sub_langs": {
+    "name": "ቋንቋታት ንኡስ ኣርእስቲ",
+    "description": "ቋንቋታት ናይቶም ንኡሳን ምልክታት ንምውራድ።"
+  },
+  "theme_dark": {
+    "name": "ጸሊም ቴማ",
+    "description": "ቴማ ናይቲ መተግበሪ።"
+  },
+  "twofactor": {
+    "name": "ክልተ ረቛሒታት ምርግጋጽ ምርግጋጽ",
+    "description": "ክልተ ረቛሒታት ዘለዎ ናይ ምርግጋጽ ኮድ።"
+  },
+  "use_extractors": {
+    "name": "ኤክስትራክተራት ምጥቃም .",
+    "description": "ኣስማት ናይቶም ንምጥቃም (comma ተፈላልዮም)።(\"all\",\"default\",\"end\",ስሩዕ መግለጺ)"
+  },
+  "username": {
+    "name": "ስም ተጠቃሚ",
+    "description": "ንመረጋገጺ ዝኸውን ስም ተጠቃሚ።"
+  },
+  "video_multistreams": {
+    "name": "ቪድዮ ማልቲስትሪም",
+    "description": "ብዙሓት ቪድዮታት ምውህሃድ የኽእል።"
+  },
+  "video_password": {
+    "name": "ናይ ቪድዮ ምልክት ቃል",
+    "description": "ንመሕለፊ ቃል ዝከላኸሉ ቪድዮታት ምልክት ቃል።"
+  },
+  "video_resolution": {
+    "name": "መፍትሒ ምሃብ",
+    "description": "ተመራጺ ቪድዮ ርዝነት"
+  },
+  "video_subtitles": {
+    "name": "ንኡስ ኣርእስቲ .",
+    "description": "ተመራጺ ቪድዮ ንኡስ ኣርእስቲ"
+  },
+  "wait_for_video": {
+    "name": "ቪድዮ ተጸበዩ",
+    "description": "ቅድሚ ምውራዱ መደብ ዝተገብረሉ ቪድዮ ክህሉ ይጽበ።"
+  },
+  "write_auto_subs": {
+    "name": "ኣውቶ ንኡስ ኣርእስቲ ኣውርድ",
+    "description": "ኣብ ዝርከቡ ኣውቶማቲክ ንኡስ ኣርእስቲ ይጽሕፍ።"
+  },
+  "write_subs": {
+    "name": "ንኡስ ኣርእስቲ ኣውርድ",
+    "description": "ዝርከብ ማንዋል ንኡስ ኣርእስቲ ይጽሕፍ።"
+  },
+  "write_thumbnail": {
+    "name": "ንእሽቶ ስእሊ ጽሓፍ",
+    "description": "እታ ቪድዮ ኣብ ዲስክ ትዕቅቦ።"
+  },
+  "xattrs": {
+    "name": "Xattrs",
+    "description": "ሜታዳታ ናብ FileSystem XatTRs ይጽሕፍ።"
+  },
+  "xff": {
+    "name": "X-forwarded-for .",
+    "description": "ነቲ x-forwarded-for header ንኣቀማምጣ ንምምሳል የቐምጥ።"
+  }
+}

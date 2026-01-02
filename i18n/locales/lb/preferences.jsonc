@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Ofbriechen op Feeler",
+    "description": "Ofbriechen den Downloadprozess wann e Feeler geschitt."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Ofbriechen op net verfügbar Fragment",
+    "description": "Ofbriechen den Download wann e Fragment net verfügbar ass."
+  },
+  "add_headers": {
+    "name": "Zousätzlech Header",
+    "description": "Zousätzlech Header fir an Netzwierkerfuerderungen opzehuelen."
+  },
+  "audio_format": {
+    "name": "Audio Format",
+    "description": "Format vum ëmgerechent Audio (mp3, flac, opus, etc.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Preferenze Audio Sprooch Code."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams",
+    "description": "Erlaabt Multiple Audio Streams ze kombinéieren."
+  },
+  "audio_quality": {
+    "name": "Audio Qualitéit",
+    "description": "Audioqualitéit (0 Bescht, 10 Schlëmmst)."
+  },
+  "batch_file": {
+    "name": "Batch Datei",
+    "description": "Wee op eng Datei mat URLen fir erofzelueden."
+  },
+  "break_on_existing": {
+    "name": "Break op bestehend",
+    "description": "Stoppen eroflueden wann d'Datei schonn existéiert."
+  },
+  "concurrent_fragments": {
+    "name": "Concurrent Fragmenter",
+    "description": "Zuel vu simultan Fragmenter fir erofzelueden (Standard 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Convertéieren Thumbnails",
+    "description": "Konvertéiert Miniatyren an dat spezifizéiert Format."
+  },
+  "cookies": {
+    "name": "Cookien",
+    "description": "Netscape formatéiert Datei fir Cookien aus ze liesen a Cookie Jar an ze dumpen"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies vum Browser",
+    "description": "Importéiert Cookien aus dem spezifizéierte Browser."
+  },
+  "download_archive": {
+    "name": "Download Archiv",
+    "description": "Wee op Datei fir erofgeluede IDen opzehuelen fir Duplikate ze vermeiden."
+  },
+  "embed_chapters": {
+    "name": "Embed Kapitelen",
+    "description": "Embeds Kapitelen an déi lescht Datei."
+  },
+  "embed_info_json": {
+    "name": "Embed Info JSON",
+    "description": "Embeds Info JSON an déi lescht Datei."
+  },
+  "embed_metadata": {
+    "name": "Embed Metadaten",
+    "description": "Embeds Metadaten an déi lescht Datei."
+  },
+  "embed_subs": {
+    "name": "Ënnertitelen integréiert",
+    "description": "Embeds Ënnertitelen an déi lescht Datei."
+  },
+  "embed_thumbnail": {
+    "name": "Miniaturbild abezéien",
+    "description": "Embedde d'Miniatur an déi lescht Datei."
+  },
+  "enable_file_urls": {
+    "name": "Aktivéiert Datei URLen",
+    "description": "Aktivéiert d'Benotzung vun Datei URLen fir lokal Dateien."
+  },
+  "extract_audio": {
+    "name": "Extrait Audio",
+    "description": "Extrait Audio aus erofgeluede Videoen (benotzt ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Extractor Retries",
+    "description": "Zuel vun Neiversichten op Extraktiounsfehler."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg Location",
+    "description": "Wee zum FFmpeg Binär."
+  },
+  "file_access_retries": {
+    "name": "Datei Access Retries",
+    "description": "Unzuel vun Neiversichten op Fichier Zougang Feeler."
+  },
+  "fixup": {
+    "name": "Fixéieren",
+    "description": "Korrigéiert automatesch bekannte Feeler an der Videodatei."
+  },
+  "font_size": {
+    "name": "Schrëftgréisst",
+    "description": "Schrëftgréisst benotzt an der Applikatioun."
+  },
+  "force_ipv4": {
+    "name": "Kraaft IPv4",
+    "description": "Forcéiert d'Benotzung vun IPv4 fir Netzwierkverbindungen."
+  },
+  "force_ipv6": {
+    "name": "Kraaft IPv6",
+    "description": "Forcéiert d'Benotzung vun IPv6 fir Netzwierkverbindungen."
+  },
+  "force_overwrites": {
+    "name": "Force Iwwerschreift",
+    "description": "Iwwerschreift existent Dateien ouni ze froen."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Video Format Code (en) fir erofzelueden."
+  },
+  "fragment_retries": {
+    "name": "Fragment Wieder probéiert",
+    "description": "Unzuel vun Neiversichten op Fragmenter Downloadfehler."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Verifikatioun Proxy",
+    "description": "Proxy Server fir Geo-Verifizéierung ze benotzen."
+  },
+  "ignore_errors": {
+    "name": "Ignoréieren Feeler",
+    "description": "Ignoréieren Downloadfehler a fuert weider mam nächste Video."
+  },
+  "impersonate": {
+    "name": "Imitéieren",
+    "description": "Client ze imitéieren (chrome, chrome-110, chrome: windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Fragmenter halen",
+    "description": "Hält déi erofgeluede Fragmenter no der Fusioun."
+  },
+  "language": {
+    "name": "Sprooch",
+    "description": "Sprooch vun der Applikatioun."
+  },
+  "limit_rate": {
+    "name": "Limit Taux",
+    "description": "Limitéiert d'Downloadgeschwindegkeet (zB 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "Live vun Ufank un",
+    "description": "Luet Live Videoe vun Ufank un."
+  },
+  "merge_output_format": {
+    "name": "Video Format",
+    "description": "Finale Videoformat entstinn aus Fusiounsstreamen."
+  },
+  "output": {
+    "name": "Ausgang Schabloun",
+    "description": "Output Dateinumm Schabloun."
+  },
+  "password": {
+    "name": "Passwuert",
+    "description": "Passwuert fir Authentifikatioun."
+  },
+  "paths": {
+    "name": "Weeër",
+    "description": "Verzeechnes fir verschidden Aarte vu Dateien ze späicheren."
+  },
+  "playlist": {
+    "name": "Playlist",
+    "description": "Gëtt un ob déi komplett Playlist oder en eenzege Video erofgeluede gëtt."
+  },
+  "prefer_insecure": {
+    "name": "Preferenz Onsécher",
+    "description": "Benotzt HTTP Verbindung amplaz HTTPS (nëmmen YouTube)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Proxy Server fir ze benotzen fir Netz Ufroen."
+  },
+  "remux_video": {
+    "name": "Remux Video",
+    "description": "Ännert de Videocontainer ouni nei Kodéierung."
+  },
+  "retries": {
+    "name": "Wieder probéiert",
+    "description": "Zuel vun Neiversichten op Downloadfehler."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Iwwersprangen Playlist No Feeler",
+    "description": "Spréngt de Rescht vun der Playlist no enger gewësser Zuel vu Feeler."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Timeout fir Socketverbindungen a Sekonnen."
+  },
+  "source_address": {
+    "name": "Quell Adress",
+    "description": "Client IP Adress fir ze binden wann Dir Verbindungen maacht."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Markéiert Segmenter aus SponsorBlock Kategorien."
+  },
+  "sub_format": {
+    "name": "Ënnertitel Format",
+    "description": "Ënnertitel Format Code (en) fir erofzelueden."
+  },
+  "sub_langs": {
+    "name": "Ënnertitel Sproochen",
+    "description": "Sprooche vun den Ënnertitelen fir erofzelueden."
+  },
+  "theme_dark": {
+    "name": "Däischter Thema",
+    "description": "Thema vun der Applikatioun."
+  },
+  "twofactor": {
+    "name": "Zwee-Faktor Authentifikatioun",
+    "description": "Zwee-Faktor Authentifikatioun Code."
+  },
+  "use_extractors": {
+    "name": "Benotzt Extractors",
+    "description": "Nimm vun Extraktoren fir ze benotzen (Komma getrennt).(\"all\",\"Standard\",\"Enn\",regulär Ausdrock)"
+  },
+  "username": {
+    "name": "Benotzernumm",
+    "description": "Benotzernumm fir Authentifikatioun."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams",
+    "description": "Erlaabt Multiple Video Streams ze kombinéieren."
+  },
+  "video_password": {
+    "name": "Video Passwuert",
+    "description": "Passwuert fir Passwuert-geschützt Videoen."
+  },
+  "video_resolution": {
+    "name": "Opléisung",
+    "description": "Preferenze Video Resolutioun"
+  },
+  "video_subtitles": {
+    "name": "Ënnertitelen",
+    "description": "Preferenze Video Ënnertitelen"
+  },
+  "wait_for_video": {
+    "name": "Waart op Video",
+    "description": "Waart op e geplangte Video fir verfügbar ze ginn ier Dir erofluet."
+  },
+  "write_auto_subs": {
+    "name": "Download Auto Ënnertitelen",
+    "description": "Schreift verfügbar automatesch Ënnertitelen."
+  },
+  "write_subs": {
+    "name": "Download Ënnertitelen",
+    "description": "Schreift verfügbar manuell Ënnertitelen."
+  },
+  "write_thumbnail": {
+    "name": "Schreift Thumbnail",
+    "description": "Späichert de Video Miniatur op Disk."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Schreift Metadaten an de Dateiesystem xattrs."
+  },
+  "xff": {
+    "name": "X-Forward-Fir",
+    "description": "Setzt den X-Forwarded-For Header fir d'Location ze simuléieren."
+  }
+}

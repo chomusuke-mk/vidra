@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Batalkan karena Kesalahan",
+    "description": "Membatalkan proses pengunduhan jika terjadi kesalahan."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Batalkan pada Fragmen yang Tidak Tersedia",
+    "description": "Membatalkan pengunduhan jika sebuah fragmen tidak tersedia."
+  },
+  "add_headers": {
+    "name": "Header Tambahan",
+    "description": "Header tambahan untuk disertakan dalam permintaan jaringan."
+  },
+  "audio_format": {
+    "name": "Format Audio",
+    "description": "Format audio yang dikonversi (mp3, flac, opus, dll.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Kode bahasa audio pilihan."
+  },
+  "audio_multistreams": {
+    "name": "Multistream Audio",
+    "description": "Memungkinkan menggabungkan beberapa aliran audio."
+  },
+  "audio_quality": {
+    "name": "Kualitas Audio",
+    "description": "Kualitas audio (0 terbaik, 10 terburuk)."
+  },
+  "batch_file": {
+    "name": "Berkas Batch",
+    "description": "Jalur ke file yang berisi URL untuk diunduh."
+  },
+  "break_on_existing": {
+    "name": "Istirahat pada Yang Ada",
+    "description": "Berhenti mengunduh jika file sudah ada."
+  },
+  "concurrent_fragments": {
+    "name": "Fragmen Bersamaan",
+    "description": "Jumlah fragmen simultan yang akan diunduh (default 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Konversi Thumbnail",
+    "description": "Konversikan thumbnail ke format yang ditentukan."
+  },
+  "cookies": {
+    "name": "kue",
+    "description": "File berformat Netscape untuk membaca cookie dan membuang toples cookie"
+  },
+  "cookies_from_browser": {
+    "name": "Cookie dari Browser",
+    "description": "Mengimpor cookie dari browser yang ditentukan."
+  },
+  "download_archive": {
+    "name": "Unduh Arsip",
+    "description": "Jalur ke file untuk mencatat ID yang diunduh untuk menghindari duplikat."
+  },
+  "embed_chapters": {
+    "name": "Sematkan Bab",
+    "description": "Menyematkan bab ke dalam file akhir."
+  },
+  "embed_info_json": {
+    "name": "Sematkan Info JSON",
+    "description": "Sematkan info JSON ke dalam file akhir."
+  },
+  "embed_metadata": {
+    "name": "Sematkan Metadata",
+    "description": "Menyematkan metadata ke dalam file akhir."
+  },
+  "embed_subs": {
+    "name": "Sematkan Subtitle",
+    "description": "Menyematkan subtitle ke dalam file akhir."
+  },
+  "embed_thumbnail": {
+    "name": "Sematkan Gambar Kecil",
+    "description": "Sematkan thumbnail ke dalam file akhir."
+  },
+  "enable_file_urls": {
+    "name": "Aktifkan URL File",
+    "description": "Memungkinkan penggunaan URL file untuk file lokal."
+  },
+  "extract_audio": {
+    "name": "Ekstrak Audio",
+    "description": "Mengekstrak audio dari video yang diunduh (menggunakan ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Percobaan Ulang Ekstraktor",
+    "description": "Jumlah percobaan ulang pada kesalahan ekstraktor."
+  },
+  "ffmpeg_location": {
+    "name": "Lokasi FFmpeg",
+    "description": "Jalur ke biner FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Percobaan Ulang Akses File",
+    "description": "Jumlah percobaan ulang pada kesalahan akses file."
+  },
+  "fixup": {
+    "name": "Perbaikan",
+    "description": "Secara otomatis memperbaiki kesalahan yang diketahui pada file video."
+  },
+  "font_size": {
+    "name": "Ukuran Huruf",
+    "description": "Ukuran font yang digunakan dalam aplikasi."
+  },
+  "force_ipv4": {
+    "name": "Paksa IPv4",
+    "description": "Memaksa penggunaan IPv4 untuk koneksi jaringan."
+  },
+  "force_ipv6": {
+    "name": "Paksa IPv6",
+    "description": "Memaksa penggunaan IPv6 untuk koneksi jaringan."
+  },
+  "force_overwrites": {
+    "name": "Paksa Timpa",
+    "description": "Menimpa file yang ada tanpa diminta."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Kode format video untuk diunduh."
+  },
+  "fragment_retries": {
+    "name": "Percobaan Ulang Fragmen",
+    "description": "Jumlah percobaan ulang pada kesalahan pengunduhan fragmen."
+  },
+  "geo_verification_proxy": {
+    "name": "Proksi Verifikasi Geo",
+    "description": "Server proxy yang digunakan untuk verifikasi geografis."
+  },
+  "ignore_errors": {
+    "name": "Abaikan Kesalahan",
+    "description": "Abaikan kesalahan pengunduhan dan lanjutkan dengan video berikutnya."
+  },
+  "impersonate": {
+    "name": "Menirukan",
+    "description": "Klien untuk meniru identitas (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Simpan Fragmen",
+    "description": "Menyimpan fragmen yang diunduh setelah digabungkan."
+  },
+  "language": {
+    "name": "Bahasa",
+    "description": "Bahasa aplikasi."
+  },
+  "limit_rate": {
+    "name": "Batasi Tingkat",
+    "description": "Membatasi kecepatan pengunduhan (mis., 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "Hidup dari Awal",
+    "description": "Mengunduh video langsung dari awal."
+  },
+  "merge_output_format": {
+    "name": "Format Video",
+    "description": "Format video akhir yang dihasilkan dari penggabungan aliran."
+  },
+  "output": {
+    "name": "Templat Keluaran",
+    "description": "Templat nama file keluaran."
+  },
+  "password": {
+    "name": "Kata sandi",
+    "description": "Kata sandi untuk otentikasi."
+  },
+  "paths": {
+    "name": "jalan",
+    "description": "Direktori untuk menyimpan berbagai jenis file."
+  },
+  "playlist": {
+    "name": "Daftar putar",
+    "description": "Menunjukkan apakah akan mendownload playlist lengkap atau satu video."
+  },
+  "prefer_insecure": {
+    "name": "Lebih suka Tidak Aman",
+    "description": "Menggunakan koneksi HTTP, bukan HTTPS (khusus YouTube)."
+  },
+  "proxy": {
+    "name": "Proksi",
+    "description": "Server proxy yang digunakan untuk permintaan jaringan."
+  },
+  "remux_video": {
+    "name": "Video Remux",
+    "description": "Mengubah wadah video tanpa pengkodean ulang."
+  },
+  "retries": {
+    "name": "Percobaan ulang",
+    "description": "Jumlah percobaan ulang pada kesalahan pengunduhan."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Lewati Daftar Putar Setelah Terjadi Kesalahan",
+    "description": "Melewati sisa daftar putar setelah sejumlah kesalahan tertentu."
+  },
+  "socket_timeout": {
+    "name": "Batas Waktu Soket habis",
+    "description": "Batas waktu untuk koneksi soket dalam hitungan detik."
+  },
+  "source_address": {
+    "name": "Alamat Sumber",
+    "description": "Alamat IP klien untuk diikat saat membuat koneksi."
+  },
+  "sponsorblock_mark": {
+    "name": "Tanda Blok Sponsor",
+    "description": "Menandai segmen dari kategori SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Format Subjudul",
+    "description": "Kode format subtitle untuk diunduh."
+  },
+  "sub_langs": {
+    "name": "Bahasa Subjudul",
+    "description": "Bahasa subtitle yang akan diunduh."
+  },
+  "theme_dark": {
+    "name": "Tema Gelap",
+    "description": "Tema aplikasi."
+  },
+  "twofactor": {
+    "name": "Otentikasi Dua Faktor",
+    "description": "Kode otentikasi dua faktor."
+  },
+  "use_extractors": {
+    "name": "Gunakan Ekstraktor",
+    "description": "Nama ekstraktor yang akan digunakan (dipisahkan koma).(\"semua\",\"default\",\"akhir\", ekspresi reguler)"
+  },
+  "username": {
+    "name": "Nama belakang",
+    "description": "Nama pengguna untuk otentikasi."
+  },
+  "video_multistreams": {
+    "name": "Multistream Video",
+    "description": "Memungkinkan menggabungkan beberapa aliran video."
+  },
+  "video_password": {
+    "name": "Kata Sandi Video",
+    "description": "Kata sandi untuk video yang dilindungi kata sandi."
+  },
+  "video_resolution": {
+    "name": "Resolusi",
+    "description": "Resolusi video pilihan"
+  },
+  "video_subtitles": {
+    "name": "Subtitle",
+    "description": "Subtitle video pilihan"
+  },
+  "wait_for_video": {
+    "name": "Tunggu Videonya",
+    "description": "Menunggu video terjadwal tersedia sebelum diunduh."
+  },
+  "write_auto_subs": {
+    "name": "Unduh Subtitle Otomatis",
+    "description": "Menulis subtitle otomatis yang tersedia."
+  },
+  "write_subs": {
+    "name": "Unduh Subtitle",
+    "description": "Menulis subtitle manual yang tersedia."
+  },
+  "write_thumbnail": {
+    "name": "Tulis Gambar Kecil",
+    "description": "Menyimpan thumbnail video ke disk."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Menulis metadata ke sistem file xattrs."
+  },
+  "xff": {
+    "name": "X-Diteruskan-Untuk",
+    "description": "Menyetel header X-Forwarded-For untuk menyimulasikan lokasi."
+  }
+}

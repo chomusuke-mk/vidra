@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "오류 발생 시 중단",
+    "description": "오류가 발생하면 다운로드 프로세스를 중단합니다."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "사용할 수 없는 조각에서 중단",
+    "description": "조각을 사용할 수 없는 경우 다운로드를 중단합니다."
+  },
+  "add_headers": {
+    "name": "추가 헤더",
+    "description": "네트워크 요청에 포함할 추가 헤더입니다."
+  },
+  "audio_format": {
+    "name": "오디오 형식",
+    "description": "변환된 오디오의 형식(mp3, flac, opus 등)."
+  },
+  "audio_language": {
+    "name": "오디오",
+    "description": "기본 오디오 언어 코드입니다."
+  },
+  "audio_multistreams": {
+    "name": "오디오 멀티스트림",
+    "description": "여러 오디오 스트림을 결합할 수 있습니다."
+  },
+  "audio_quality": {
+    "name": "오디오 품질",
+    "description": "오디오 품질(0은 최고, 10은 최악)."
+  },
+  "batch_file": {
+    "name": "배치 파일",
+    "description": "다운로드할 URL이 포함된 파일의 경로입니다."
+  },
+  "break_on_existing": {
+    "name": "기존 중단",
+    "description": "파일이 이미 존재하는 경우 다운로드를 중지합니다."
+  },
+  "concurrent_fragments": {
+    "name": "동시 조각",
+    "description": "다운로드할 동시 조각 수(기본값 1)"
+  },
+  "convert_thumbnails": {
+    "name": "축소판 변환",
+    "description": "축소판을 지정된 형식으로 변환합니다."
+  },
+  "cookies": {
+    "name": "쿠키",
+    "description": "쿠키를 읽고 쿠키 항아리를 덤프하는 Netscape 형식의 파일"
+  },
+  "cookies_from_browser": {
+    "name": "브라우저의 쿠키",
+    "description": "지정된 브라우저에서 쿠키를 가져옵니다."
+  },
+  "download_archive": {
+    "name": "아카이브 다운로드",
+    "description": "중복을 방지하기 위해 다운로드한 ID를 기록하는 파일 경로입니다."
+  },
+  "embed_chapters": {
+    "name": "챕터 삽입",
+    "description": "최종 파일에 장을 포함합니다."
+  },
+  "embed_info_json": {
+    "name": "정보 JSON 삽입",
+    "description": "정보 JSON을 최종 파일에 포함합니다."
+  },
+  "embed_metadata": {
+    "name": "메타데이터 삽입",
+    "description": "최종 파일에 메타데이터를 포함합니다."
+  },
+  "embed_subs": {
+    "name": "자막 삽입",
+    "description": "최종 파일에 자막을 포함합니다."
+  },
+  "embed_thumbnail": {
+    "name": "썸네일 삽입",
+    "description": "축소판을 최종 파일에 포함합니다."
+  },
+  "enable_file_urls": {
+    "name": "파일 URL 활성화",
+    "description": "로컬 파일에 대한 파일 URL 사용을 활성화합니다."
+  },
+  "extract_audio": {
+    "name": "오디오 추출",
+    "description": "다운로드한 비디오에서 오디오를 추출합니다(ffmpeg 사용)."
+  },
+  "extractor_retries": {
+    "name": "추출기 재시도",
+    "description": "추출기 오류에 대한 재시도 횟수입니다."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg 위치",
+    "description": "FFmpeg 바이너리의 경로입니다."
+  },
+  "file_access_retries": {
+    "name": "파일 액세스 재시도",
+    "description": "파일 액세스 오류에 대한 재시도 횟수입니다."
+  },
+  "fixup": {
+    "name": "수정",
+    "description": "비디오 파일의 알려진 오류를 자동으로 수정합니다."
+  },
+  "font_size": {
+    "name": "글꼴 크기",
+    "description": "응용 프로그램에 사용되는 글꼴 크기입니다."
+  },
+  "force_ipv4": {
+    "name": "강제 IPv4",
+    "description": "네트워크 연결에 IPv4를 강제로 사용합니다."
+  },
+  "force_ipv6": {
+    "name": "강제 IPv6",
+    "description": "네트워크 연결에 IPv6을 강제로 사용합니다."
+  },
+  "force_overwrites": {
+    "name": "강제 덮어쓰기",
+    "description": "묻지 않고 기존 파일을 덮어씁니다."
+  },
+  "format": {
+    "name": "체재",
+    "description": "다운로드할 비디오 형식 코드입니다."
+  },
+  "fragment_retries": {
+    "name": "조각 재시도",
+    "description": "조각 다운로드 오류에 대한 재시도 횟수입니다."
+  },
+  "geo_verification_proxy": {
+    "name": "지리 검증 프록시",
+    "description": "지역 확인에 사용할 프록시 서버입니다."
+  },
+  "ignore_errors": {
+    "name": "오류 무시",
+    "description": "다운로드 오류를 무시하고 다음 비디오를 계속 진행하세요."
+  },
+  "impersonate": {
+    "name": "가장",
+    "description": "가장할 클라이언트(chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "조각 유지",
+    "description": "병합 후 다운로드된 조각을 유지합니다."
+  },
+  "language": {
+    "name": "언어",
+    "description": "애플리케이션의 언어입니다."
+  },
+  "limit_rate": {
+    "name": "한도율",
+    "description": "다운로드 속도를 제한합니다(예: 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "처음부터 라이브",
+    "description": "처음부터 라이브 비디오를 다운로드합니다."
+  },
+  "merge_output_format": {
+    "name": "비디오 형식",
+    "description": "스트림 병합으로 인한 최종 비디오 형식입니다."
+  },
+  "output": {
+    "name": "출력 템플릿",
+    "description": "출력 파일 이름 템플릿."
+  },
+  "password": {
+    "name": "비밀번호",
+    "description": "인증을 위한 비밀번호입니다."
+  },
+  "paths": {
+    "name": "경로",
+    "description": "다양한 유형의 파일을 저장하는 디렉터리입니다."
+  },
+  "playlist": {
+    "name": "재생목록",
+    "description": "전체 재생목록을 다운로드할지 아니면 단일 비디오를 다운로드할지를 나타냅니다."
+  },
+  "prefer_insecure": {
+    "name": "안전하지 않은 것을 선호",
+    "description": "HTTPS 대신 HTTP 연결을 사용합니다(YouTube에만 해당)."
+  },
+  "proxy": {
+    "name": "대리",
+    "description": "네트워크 요청에 사용할 프록시 서버입니다."
+  },
+  "remux_video": {
+    "name": "비디오 리먹스",
+    "description": "다시 인코딩하지 않고 비디오 컨테이너를 변경합니다."
+  },
+  "retries": {
+    "name": "재시도",
+    "description": "다운로드 오류 시 재시도 횟수입니다."
+  },
+  "skip_playlist_after_errors": {
+    "name": "오류 발생 후 재생 목록 건너뛰기",
+    "description": "특정 횟수의 오류가 발생하면 재생 목록의 나머지 부분을 건너뜁니다."
+  },
+  "socket_timeout": {
+    "name": "소켓 시간 초과",
+    "description": "소켓 연결 시간 초과(초)입니다."
+  },
+  "source_address": {
+    "name": "소스 주소",
+    "description": "연결 시 바인딩할 클라이언트 IP 주소입니다."
+  },
+  "sponsorblock_mark": {
+    "name": "스폰서블록마크",
+    "description": "SponsorBlock 카테고리의 세그먼트를 표시합니다."
+  },
+  "sub_format": {
+    "name": "자막 형식",
+    "description": "다운로드할 자막 형식 코드입니다."
+  },
+  "sub_langs": {
+    "name": "자막 언어",
+    "description": "다운로드할 자막의 언어입니다."
+  },
+  "theme_dark": {
+    "name": "어두운 테마",
+    "description": "응용 프로그램의 테마입니다."
+  },
+  "twofactor": {
+    "name": "2단계 인증",
+    "description": "이중 인증 코드."
+  },
+  "use_extractors": {
+    "name": "추출기 사용",
+    "description": "사용할 추출기의 이름(쉼표로 구분).(\"all\",\"default\",\"end\",정규식)"
+  },
+  "username": {
+    "name": "사용자 이름",
+    "description": "인증을 위한 사용자 이름입니다."
+  },
+  "video_multistreams": {
+    "name": "비디오 멀티스트림",
+    "description": "여러 비디오 스트림을 결합할 수 있습니다."
+  },
+  "video_password": {
+    "name": "비디오 비밀번호",
+    "description": "비밀번호로 보호된 동영상의 비밀번호입니다."
+  },
+  "video_resolution": {
+    "name": "해결",
+    "description": "선호하는 비디오 해상도"
+  },
+  "video_subtitles": {
+    "name": "자막",
+    "description": "선호하는 비디오 자막"
+  },
+  "wait_for_video": {
+    "name": "영상을 기다리세요",
+    "description": "다운로드하기 전에 예약된 비디오를 사용할 수 있을 때까지 기다립니다."
+  },
+  "write_auto_subs": {
+    "name": "자동 자막 다운로드",
+    "description": "사용 가능한 자동 자막을 작성합니다."
+  },
+  "write_subs": {
+    "name": "자막 다운로드",
+    "description": "사용 가능한 수동 자막을 작성합니다."
+  },
+  "write_thumbnail": {
+    "name": "썸네일 쓰기",
+    "description": "비디오 썸네일을 디스크에 저장합니다."
+  },
+  "xattrs": {
+    "name": "XAttr",
+    "description": "파일 시스템 xattrs에 메타데이터를 씁니다."
+  },
+  "xff": {
+    "name": "X-전달-For",
+    "description": "위치를 시뮬레이션하기 위해 X-Forwarded-For 헤더를 설정합니다."
+  }
+}

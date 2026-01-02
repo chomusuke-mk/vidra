@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Anulare din eroare",
+    "description": "Anulează procesul de descărcare dacă apare o eroare."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Anulați pe fragmentul indisponibil",
+    "description": "Anulează descărcarea dacă un fragment nu este disponibil."
+  },
+  "add_headers": {
+    "name": "Anteturi suplimentare",
+    "description": "Anteturi suplimentare de inclus în solicitările de rețea."
+  },
+  "audio_format": {
+    "name": "Format audio",
+    "description": "Formatul audio convertit (mp3, flac, opus etc.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Codul de limbă audio preferat."
+  },
+  "audio_multistreams": {
+    "name": "Multistreamuri audio",
+    "description": "Permite combinarea mai multor fluxuri audio."
+  },
+  "audio_quality": {
+    "name": "Calitate audio",
+    "description": "Calitate audio (0 cel mai bun, 10 cel mai rău)."
+  },
+  "batch_file": {
+    "name": "Fișier lot",
+    "description": "Calea către un fișier care conține adrese URL de descărcat."
+  },
+  "break_on_existing": {
+    "name": "Pauza pe existent",
+    "description": "Se oprește descărcarea dacă fișierul există deja."
+  },
+  "concurrent_fragments": {
+    "name": "Fragmente concurente",
+    "description": "Numărul de fragmente simultane de descărcat (implicit 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Convertiți miniaturile",
+    "description": "Convertiți miniaturile în formatul specificat."
+  },
+  "cookies": {
+    "name": "Cookie-uri",
+    "description": "Fișier formatat Netscape din care să citească cookie-urile și să arunce borcanul pentru cookie-uri"
+  },
+  "cookies_from_browser": {
+    "name": "Cookie-uri din browser",
+    "description": "Importă cookie-uri din browserul specificat."
+  },
+  "download_archive": {
+    "name": "Descărcați arhiva",
+    "description": "Calea către fișier pentru a înregistra ID-urile descărcate pentru a evita duplicatele."
+  },
+  "embed_chapters": {
+    "name": "Încorporați capitole",
+    "description": "Încorporează capitole în fișierul final."
+  },
+  "embed_info_json": {
+    "name": "Încorporați informații JSON",
+    "description": "Încorporează informațiile JSON în fișierul final."
+  },
+  "embed_metadata": {
+    "name": "Încorporați metadate",
+    "description": "Încorporează metadatele în fișierul final."
+  },
+  "embed_subs": {
+    "name": "Încorporați subtitrări",
+    "description": "Încorporează subtitrări în fișierul final."
+  },
+  "embed_thumbnail": {
+    "name": "Încorporați miniatură",
+    "description": "Încorporează miniatura în fișierul final."
+  },
+  "enable_file_urls": {
+    "name": "Activați URL-urile fișierelor",
+    "description": "Permite utilizarea adreselor URL ale fișierelor pentru fișierele locale."
+  },
+  "extract_audio": {
+    "name": "Extrage audio",
+    "description": "Extrage audio din videoclipurile descărcate (folosește ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Reîncercări ale extractorului",
+    "description": "Numărul de reîncercări ale erorilor din extractor."
+  },
+  "ffmpeg_location": {
+    "name": "Locația FFmpeg",
+    "description": "Calea către binarul FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Reîncercări de acces la fișiere",
+    "description": "Numărul de reîncercări privind erorile de acces la fișiere."
+  },
+  "fixup": {
+    "name": "Remediere",
+    "description": "Corectează automat erorile cunoscute din fișierul video."
+  },
+  "font_size": {
+    "name": "Dimensiunea fontului",
+    "description": "Dimensiunea fontului utilizat în aplicație."
+  },
+  "force_ipv4": {
+    "name": "Forțați IPv4",
+    "description": "Forțează utilizarea IPv4 pentru conexiunile la rețea."
+  },
+  "force_ipv6": {
+    "name": "Forțați IPv6",
+    "description": "Forțează utilizarea IPv6 pentru conexiunile la rețea."
+  },
+  "force_overwrites": {
+    "name": "Suprascrie forțată",
+    "description": "Suprascrie fișierele existente fără a cere."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Cod(uri) format video de descărcat."
+  },
+  "fragment_retries": {
+    "name": "Reîncercări de fragmente",
+    "description": "Numărul de reîncercări ale erorilor de descărcare a fragmentelor."
+  },
+  "geo_verification_proxy": {
+    "name": "Proxy de verificare geografică",
+    "description": "Server proxy de utilizat pentru geoverificare."
+  },
+  "ignore_errors": {
+    "name": "Ignorați erorile",
+    "description": "Ignorați erorile de descărcare și continuați cu următorul videoclip."
+  },
+  "impersonate": {
+    "name": "Uzurpare identitatea",
+    "description": "Client pe care să-l uzurpare (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Păstrați fragmente",
+    "description": "Păstrează fragmentele descărcate după îmbinare."
+  },
+  "language": {
+    "name": "Limbă",
+    "description": "Limba aplicației."
+  },
+  "limit_rate": {
+    "name": "Rata limită",
+    "description": "Limitează viteza de descărcare (de exemplu, 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "În direct de la început",
+    "description": "Descărcă videoclipuri live de la început."
+  },
+  "merge_output_format": {
+    "name": "Format video",
+    "description": "Format video final rezultat din fuzionarea fluxurilor."
+  },
+  "output": {
+    "name": "Șablon de ieșire",
+    "description": "Ieșire șablon de nume de fișier."
+  },
+  "password": {
+    "name": "Parolă",
+    "description": "Parola pentru autentificare."
+  },
+  "paths": {
+    "name": "Cărări",
+    "description": "Directoare pentru a salva diferite tipuri de fișiere."
+  },
+  "playlist": {
+    "name": "Lista de redare",
+    "description": "Indică dacă să descărcați lista de redare completă sau un singur videoclip."
+  },
+  "prefer_insecure": {
+    "name": "Prefer Nesigur",
+    "description": "Utilizează conexiunea HTTP în loc de HTTPS (numai YouTube)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Server proxy de utilizat pentru solicitările de rețea."
+  },
+  "remux_video": {
+    "name": "Remux Video",
+    "description": "Schimbă containerul video fără re-codificare."
+  },
+  "retries": {
+    "name": "Reîncercări",
+    "description": "Numărul de reîncercări la erorile de descărcare."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Omite lista de redare după erori",
+    "description": "Omite restul listei de redare după un anumit număr de erori."
+  },
+  "socket_timeout": {
+    "name": "Timeout socket",
+    "description": "Timeout pentru conexiunile prize în secunde."
+  },
+  "source_address": {
+    "name": "Adresa sursă",
+    "description": "Adresa IP a clientului la care trebuie să vă legați atunci când faceți conexiuni."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Marchează segmente din categoriile SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Format subtitrare",
+    "description": "Cod(uri) de format de subtitrare de descărcat."
+  },
+  "sub_langs": {
+    "name": "Limbi de subtitrare",
+    "description": "Limbile subtitrarilor de descărcat."
+  },
+  "theme_dark": {
+    "name": "Tema întunecată",
+    "description": "Tema aplicației."
+  },
+  "twofactor": {
+    "name": "Autentificare cu doi factori",
+    "description": "Cod de autentificare cu doi factori."
+  },
+  "use_extractors": {
+    "name": "Utilizați extractoare",
+    "description": "Numele extractoarelor de utilizat (separate prin virgulă).(„toate”,„implicit”,„sfârșit”, expresie regulată)"
+  },
+  "username": {
+    "name": "Nume de utilizator",
+    "description": "Nume de utilizator pentru autentificare."
+  },
+  "video_multistreams": {
+    "name": "Multistreamuri video",
+    "description": "Permite combinarea mai multor fluxuri video."
+  },
+  "video_password": {
+    "name": "Parola video",
+    "description": "Parolă pentru videoclipurile protejate prin parolă."
+  },
+  "video_resolution": {
+    "name": "Rezoluţie",
+    "description": "Rezoluție video preferată"
+  },
+  "video_subtitles": {
+    "name": "Subtitrări",
+    "description": "Subtitrări video preferate"
+  },
+  "wait_for_video": {
+    "name": "Așteptați videoclipul",
+    "description": "Așteaptă ca un videoclip programat să devină disponibil înainte de descărcare."
+  },
+  "write_auto_subs": {
+    "name": "Descărcați subtitrări automate",
+    "description": "Scrie subtitrări automate disponibile."
+  },
+  "write_subs": {
+    "name": "Descărcați subtitrări",
+    "description": "Scrie subtitrări manuale disponibile."
+  },
+  "write_thumbnail": {
+    "name": "Scrie miniatura",
+    "description": "Salvează miniatura video pe disc."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Scrie metadate în sistemul de fișiere xattrs."
+  },
+  "xff": {
+    "name": "X-Redirecţionat-Pentru",
+    "description": "Setează antetul X-Forwarded-For pentru a simula locația."
+  }
+}

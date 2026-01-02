@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Hætta við villu",
+    "description": "Hættir niðurhalsferlinu ef villa kemur upp."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Hætta við ótiltækt brot",
+    "description": "Hættir niðurhalinu ef brot er ekki tiltækt."
+  },
+  "add_headers": {
+    "name": "Viðbótarhausar",
+    "description": "Viðbótarhausar til að hafa með í netbeiðnum."
+  },
+  "audio_format": {
+    "name": "Hljóðsnið",
+    "description": "Snið umbreytta hljóðsins (mp3, flac, opus osfrv.)."
+  },
+  "audio_language": {
+    "name": "Hljóð",
+    "description": "Æskilegur hljóðmálskóði."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams",
+    "description": "Gerir kleift að sameina marga hljóðstrauma."
+  },
+  "audio_quality": {
+    "name": "Hljóðgæði",
+    "description": "Hljóðgæði (0 best, 10 verstu)."
+  },
+  "batch_file": {
+    "name": "Hópskrá",
+    "description": "Slóð að skrá sem inniheldur vefslóðir til að hlaða niður."
+  },
+  "break_on_existing": {
+    "name": "Brot á núverandi",
+    "description": "Hættir að hlaða niður ef skráin er þegar til."
+  },
+  "concurrent_fragments": {
+    "name": "Samhliða brot",
+    "description": "Fjöldi brota samtímis til að hlaða niður (sjálfgefið 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Umbreyta smámyndum",
+    "description": "Umbreyttu smámyndum í tilgreint snið."
+  },
+  "cookies": {
+    "name": "Kökur",
+    "description": "Netscape sniðin skrá til að lesa vafrakökur úr og henda kökubakkanum í"
+  },
+  "cookies_from_browser": {
+    "name": "Vafrakökur úr vafra",
+    "description": "Flytur inn vafrakökur úr tilgreindum vafra."
+  },
+  "download_archive": {
+    "name": "Sækja skjalasafn",
+    "description": "Slóð að skrá til að skrá niðurhalað auðkenni til að forðast tvítekningar."
+  },
+  "embed_chapters": {
+    "name": "Fella inn kafla",
+    "description": "Felur kafla inn í lokaskrána."
+  },
+  "embed_info_json": {
+    "name": "Fella inn upplýsingar JSON",
+    "description": "Fella upplýsingar JSON inn í lokaskrána."
+  },
+  "embed_metadata": {
+    "name": "Fella inn lýsigögn",
+    "description": "Felur lýsigögn inn í lokaskrána."
+  },
+  "embed_subs": {
+    "name": "Fella inn texta",
+    "description": "Fella texta inn í lokaskrána."
+  },
+  "embed_thumbnail": {
+    "name": "Fella inn smámynd",
+    "description": "Fella smámyndina inn í lokaskrána."
+  },
+  "enable_file_urls": {
+    "name": "Virkja skráarslóðir",
+    "description": "Gerir kleift að nota skráarslóðir fyrir staðbundnar skrár."
+  },
+  "extract_audio": {
+    "name": "Dragðu út hljóð",
+    "description": "Tekur út hljóð úr niðurhaluðum myndböndum (notar ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Útdráttarvél reynir aftur",
+    "description": "Fjöldi endurtekinna tilrauna á útdráttarvillum."
+  },
+  "ffmpeg_location": {
+    "name": "Staðsetning FFmpeg",
+    "description": "Slóð að FFmpeg tvöfaldanum."
+  },
+  "file_access_retries": {
+    "name": "Skráaaðgangur Reynir aftur",
+    "description": "Fjöldi endurtekinna tilrauna vegna villna í skráaaðgangi."
+  },
+  "fixup": {
+    "name": "Lagfæring",
+    "description": "Leiðréttir sjálfkrafa þekktar villur í myndbandsskránni."
+  },
+  "font_size": {
+    "name": "Leturstærð",
+    "description": "Leturstærð notuð í forritinu."
+  },
+  "force_ipv4": {
+    "name": "Þvingaðu IPv4",
+    "description": "Þvingar fram notkun IPv4 fyrir nettengingar."
+  },
+  "force_ipv6": {
+    "name": "Þvingaðu IPv6",
+    "description": "Þvingar fram notkun IPv6 fyrir nettengingar."
+  },
+  "force_overwrites": {
+    "name": "Þvinga yfirskrif",
+    "description": "Skrifar yfir núverandi skrár án þess að spyrja."
+  },
+  "format": {
+    "name": "Snið",
+    "description": "Vídeósniðskóðar til að hlaða niður."
+  },
+  "fragment_retries": {
+    "name": "Brot Reynir aftur",
+    "description": "Fjöldi endurtekinna tilrauna á villum í niðurhali brota."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Verification Proxy",
+    "description": "Umboðsþjónn til að nota fyrir landfræðilega sannprófun."
+  },
+  "ignore_errors": {
+    "name": "Hunsa villur",
+    "description": "Hunsa niðurhalsvillur og haltu áfram með næsta myndband."
+  },
+  "impersonate": {
+    "name": "Herma eftir",
+    "description": "Viðskiptavinur til að líkja eftir (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Geymdu brot",
+    "description": "Geymir niðurhalaða brot eftir sameiningu."
+  },
+  "language": {
+    "name": "Tungumál",
+    "description": "Tungumál umsóknarinnar."
+  },
+  "limit_rate": {
+    "name": "Takmarka hlutfall",
+    "description": "Takmarkar niðurhalshraðann (t.d. 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "Í beinni frá upphafi",
+    "description": "Hleður niður lifandi myndböndum frá upphafi."
+  },
+  "merge_output_format": {
+    "name": "Myndbandssnið",
+    "description": "Endanlegt myndbandssnið sem stafar af sameiningu strauma."
+  },
+  "output": {
+    "name": "Úttakssniðmát",
+    "description": "Sniðmát fyrir úttak skráarnafns."
+  },
+  "password": {
+    "name": "Lykilorð",
+    "description": "Lykilorð fyrir auðkenningu."
+  },
+  "paths": {
+    "name": "Leiðir",
+    "description": "Möppur til að vista mismunandi gerðir af skrám."
+  },
+  "playlist": {
+    "name": "Lagalisti",
+    "description": "Sýnir hvort á að hlaða niður öllum lagalistanum eða einu myndbandi."
+  },
+  "prefer_insecure": {
+    "name": "Frekar Óöruggt",
+    "description": "Notar HTTP tengingu í stað HTTPS (aðeins YouTube)."
+  },
+  "proxy": {
+    "name": "Umboð",
+    "description": "Proxy-þjónn til að nota fyrir netbeiðnir."
+  },
+  "remux_video": {
+    "name": "Remux myndband",
+    "description": "Breytir myndbandsílátinu án þess að endurkóða."
+  },
+  "retries": {
+    "name": "Reynir aftur",
+    "description": "Fjöldi endurtilrauna við niðurhalsvillur."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Slepptu lagalista eftir villur",
+    "description": "Sleppir restinni af lagalistanum eftir ákveðinn fjölda villna."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Tímamörk fyrir innstungutengingar á sekúndum."
+  },
+  "source_address": {
+    "name": "Heimildarfang",
+    "description": "IP tölu viðskiptavinarins til að bindast við þegar tengingar eru teknar."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Merkir hluta úr SponsorBlock flokkum."
+  },
+  "sub_format": {
+    "name": "Textasnið",
+    "description": "Kóðar fyrir textasnið til að hlaða niður."
+  },
+  "sub_langs": {
+    "name": "Tungumál texta",
+    "description": "Tungumál texta til að sækja."
+  },
+  "theme_dark": {
+    "name": "Myrkt þema",
+    "description": "Þema umsóknarinnar."
+  },
+  "twofactor": {
+    "name": "Tveggja þátta auðkenning",
+    "description": "Tveggja þátta auðkenningarkóði."
+  },
+  "use_extractors": {
+    "name": "Notaðu útdráttarvélar",
+    "description": "Nöfn útdráttar sem á að nota (aðskilin með kommum).(\"allt\",\"sjálfgefið\",\"endir\",venjuleg tjáning)"
+  },
+  "username": {
+    "name": "Notendanafn",
+    "description": "Notendanafn fyrir auðkenningu."
+  },
+  "video_multistreams": {
+    "name": "Vídeó Multistreams",
+    "description": "Gerir kleift að sameina marga myndbandsstrauma."
+  },
+  "video_password": {
+    "name": "Lykilorð fyrir myndband",
+    "description": "Lykilorð fyrir myndbönd sem eru vernduð með lykilorði."
+  },
+  "video_resolution": {
+    "name": "Upplausn",
+    "description": "Æskileg myndbandsupplausn"
+  },
+  "video_subtitles": {
+    "name": "Textar",
+    "description": "Æskilegur myndtexti"
+  },
+  "wait_for_video": {
+    "name": "Bíddu eftir myndbandi",
+    "description": "Bíður þar til áætlað myndband verður aðgengilegt áður en það er hlaðið niður."
+  },
+  "write_auto_subs": {
+    "name": "Sækja sjálfvirkan texta",
+    "description": "Skrifar tiltækan sjálfvirkan texta."
+  },
+  "write_subs": {
+    "name": "Sækja texta",
+    "description": "Skrifar tiltækan handvirkan texta."
+  },
+  "write_thumbnail": {
+    "name": "Skrifaðu smámynd",
+    "description": "Vistar smámynd myndbandsins á diskinn."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Skrifar lýsigögn í skráarkerfið xattrs."
+  },
+  "xff": {
+    "name": "X-Forwarded-For",
+    "description": "Stillir X-Forwarded-For hausinn til að líkja eftir staðsetningu."
+  }
+}

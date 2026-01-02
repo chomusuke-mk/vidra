@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Abort sa error",
+    "description": "Aborts ang proseso ng pag -download kung nangyayari ang isang error."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Abort sa hindi magagamit na fragment",
+    "description": "Aborts ang pag -download kung ang isang fragment ay hindi magagamit."
+  },
+  "add_headers": {
+    "name": "Karagdagang mga header",
+    "description": "Karagdagang mga header upang isama sa mga kahilingan sa network."
+  },
+  "audio_format": {
+    "name": "Format ng audio",
+    "description": "Format ng na -convert na audio (mp3, flac, opus, atbp.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Ginustong code ng wika ng audio."
+  },
+  "audio_multistreams": {
+    "name": "Audio Multistreams",
+    "description": "Pinapayagan ang pagsasama ng maraming mga audio stream."
+  },
+  "audio_quality": {
+    "name": "Kalidad ng audio",
+    "description": "Kalidad ng audio (0 pinakamahusay, 10 pinakamasama)."
+  },
+  "batch_file": {
+    "name": "File ng batch",
+    "description": "Landas sa isang file na naglalaman ng mga URL upang i -download."
+  },
+  "break_on_existing": {
+    "name": "Break sa mayroon",
+    "description": "Tumitigil sa pag -download kung mayroon na ang file."
+  },
+  "concurrent_fragments": {
+    "name": "Magkakasabay na mga fragment",
+    "description": "Bilang ng sabay -sabay na mga fragment upang i -download (default 1)."
+  },
+  "convert_thumbnails": {
+    "name": "I -convert ang mga thumbnail",
+    "description": "I -convert ang mga thumbnail sa tinukoy na format."
+  },
+  "cookies": {
+    "name": "Cookies",
+    "description": "Netscape na format na file upang mabasa ang mga cookies mula sa at dump cookie jar in"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies mula sa browser",
+    "description": "Nag -import ng mga cookies mula sa tinukoy na browser."
+  },
+  "download_archive": {
+    "name": "I -download ang Archive",
+    "description": "Landas upang mag -file upang i -record ang mga nai -download na ID upang maiwasan ang mga duplicate."
+  },
+  "embed_chapters": {
+    "name": "Naka -embed na mga kabanata",
+    "description": "Embeds Chapters sa panghuling file."
+  },
+  "embed_info_json": {
+    "name": "I -embed ang Impormasyon JSON",
+    "description": "Embeds Info JSON sa panghuling file."
+  },
+  "embed_metadata": {
+    "name": "Naka -embed na metadata",
+    "description": "Embeds metadata sa panghuling file."
+  },
+  "embed_subs": {
+    "name": "Naka -embed na mga subtitle",
+    "description": "Mga embed na subtitle sa pangwakas na file."
+  },
+  "embed_thumbnail": {
+    "name": "I -embed ang thumbnail",
+    "description": "Embeds ang thumbnail sa panghuling file."
+  },
+  "enable_file_urls": {
+    "name": "Paganahin ang mga URL ng file",
+    "description": "Paganahin ang paggamit ng mga file ng file para sa mga lokal na file."
+  },
+  "extract_audio": {
+    "name": "I -extract ang audio",
+    "description": "Mga extract audio mula sa na -download na mga video (gumagamit ng FFMPEG)."
+  },
+  "extractor_retries": {
+    "name": "Retry ng Extractor",
+    "description": "Bilang ng mga retry sa mga error sa extractor."
+  },
+  "ffmpeg_location": {
+    "name": "Lokasyon ng FFMPEG",
+    "description": "Landas sa ffmpeg binary."
+  },
+  "file_access_retries": {
+    "name": "Mga Retry ng Pag -access sa File",
+    "description": "Bilang ng mga retry sa mga error sa pag -access ng file."
+  },
+  "fixup": {
+    "name": "Pag -aayos",
+    "description": "Awtomatikong itinutuwid ang mga kilalang pagkakamali sa file ng video."
+  },
+  "font_size": {
+    "name": "Laki ng font",
+    "description": "Laki ng font na ginamit sa application."
+  },
+  "force_ipv4": {
+    "name": "Pilitin ang IPv4",
+    "description": "Pinipilit ang paggamit ng IPv4 para sa mga koneksyon sa network."
+  },
+  "force_ipv6": {
+    "name": "Pilitin ang IPv6",
+    "description": "Pinipilit ang paggamit ng IPv6 para sa mga koneksyon sa network."
+  },
+  "force_overwrites": {
+    "name": "Force overwrites",
+    "description": "Overwrites ang mga umiiral na file nang hindi nagtatanong."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Mga Format ng Format ng Video upang i -download."
+  },
+  "fragment_retries": {
+    "name": "Fragment Retries",
+    "description": "Bilang ng mga retry sa mga error sa pag -download ng fragment."
+  },
+  "geo_verification_proxy": {
+    "name": "Geo Verification Proxy",
+    "description": "Proxy Server na gagamitin para sa Geo-Verification."
+  },
+  "ignore_errors": {
+    "name": "Huwag pansinin ang mga error",
+    "description": "Huwag pansinin ang mga error sa pag -download at magpatuloy sa susunod na video."
+  },
+  "impersonate": {
+    "name": "Makilala",
+    "description": "Kliyente upang makipag-ugnay (Chrome, Chrome-110, Chrome: Windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Panatilihin ang mga fragment",
+    "description": "Pinapanatili ang na -download na mga fragment pagkatapos ng pagsasama."
+  },
+  "language": {
+    "name": "Wika",
+    "description": "Wika ng application."
+  },
+  "limit_rate": {
+    "name": "Limitahan ang rate",
+    "description": "Nililimitahan ang bilis ng pag -download (hal., 50k, 4.2m)."
+  },
+  "live_from_start": {
+    "name": "Live mula sa simula",
+    "description": "Nag -download ng mga live na video mula sa simula."
+  },
+  "merge_output_format": {
+    "name": "Format ng video",
+    "description": "Pangwakas na format ng video na nagreresulta mula sa pagsasama ng mga sapa."
+  },
+  "output": {
+    "name": "Template ng output",
+    "description": "Output na template ng filename."
+  },
+  "password": {
+    "name": "Password",
+    "description": "Password para sa pagpapatunay."
+  },
+  "paths": {
+    "name": "Mga landas",
+    "description": "Mga direktoryo upang makatipid ng iba't ibang uri ng mga file."
+  },
+  "playlist": {
+    "name": "Playlist",
+    "description": "Nagpapahiwatig kung i -download ang kumpletong playlist o isang solong video."
+  },
+  "prefer_insecure": {
+    "name": "Mas gusto ang insecure",
+    "description": "Gumagamit ng koneksyon sa HTTP sa halip na HTTPS (YouTube lamang)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Proxy Server na gagamitin para sa mga kahilingan sa network."
+  },
+  "remux_video": {
+    "name": "Video ng Remux",
+    "description": "Binabago ang lalagyan ng video nang hindi muling pag-encode."
+  },
+  "retries": {
+    "name": "Retries",
+    "description": "Bilang ng mga retry sa mga error sa pag -download."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Laktawan ang playlist pagkatapos ng mga pagkakamali",
+    "description": "Laktawan ang natitirang bahagi ng playlist pagkatapos ng isang tiyak na bilang ng mga pagkakamali."
+  },
+  "socket_timeout": {
+    "name": "Socket timeout",
+    "description": "Timeout para sa mga koneksyon sa socket sa ilang segundo."
+  },
+  "source_address": {
+    "name": "SOURCE ADDRESS",
+    "description": "Client IP address upang magbigkis kapag gumagawa ng mga koneksyon."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Marks mga segment mula sa mga kategorya ng sponsorblock."
+  },
+  "sub_format": {
+    "name": "Format ng subtitle",
+    "description": "Subtitle Format Code (s) upang i -download."
+  },
+  "sub_langs": {
+    "name": "Mga wikang subtitle",
+    "description": "Mga wika ng mga subtitle upang i -download."
+  },
+  "theme_dark": {
+    "name": "Madilim na tema",
+    "description": "Tema ng application."
+  },
+  "twofactor": {
+    "name": "Dalawang-factor na pagpapatunay",
+    "description": "Dalawang-Factor Authentication Code."
+  },
+  "use_extractors": {
+    "name": "Gumamit ng mga extractor",
+    "description": "Mga pangalan ng mga extractor na gagamitin (hiwalay ang comma). (\"Lahat\", \"default\", \"end\", regular na expression)"
+  },
+  "username": {
+    "name": "Username",
+    "description": "Username para sa pagpapatunay."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams",
+    "description": "Pinapayagan ang pagsasama ng maraming mga stream ng video."
+  },
+  "video_password": {
+    "name": "Video password",
+    "description": "Password para sa mga video na protektado ng password."
+  },
+  "video_resolution": {
+    "name": "Paglutas",
+    "description": "Ginustong resolusyon ng video"
+  },
+  "video_subtitles": {
+    "name": "Mga subtitle",
+    "description": "Ginustong mga subtitle ng video"
+  },
+  "wait_for_video": {
+    "name": "Maghintay para sa video",
+    "description": "Naghihintay para sa isang naka -iskedyul na video na magagamit bago mag -download."
+  },
+  "write_auto_subs": {
+    "name": "I -download ang mga auto subtitle",
+    "description": "Nagsusulat ng magagamit na mga awtomatikong subtitle."
+  },
+  "write_subs": {
+    "name": "I -download ang mga subtitle",
+    "description": "Nagsusulat ng magagamit na manu -manong mga subtitle."
+  },
+  "write_thumbnail": {
+    "name": "Sumulat ng thumbnail",
+    "description": "Nai -save ang thumbnail ng video sa disk."
+  },
+  "xattrs": {
+    "name": "XATTRS",
+    "description": "Nagsusulat ng metadata sa filesystem xattrs."
+  },
+  "xff": {
+    "name": "X-forwarded-for",
+    "description": "Itinatakda ang X-forwarded-for header upang gayahin ang lokasyon."
+  }
+}

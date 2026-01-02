@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Abandonner en cas d'erreur",
+    "description": "Annule le processus de téléchargement si une erreur se produit."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Abandonner sur un fragment indisponible",
+    "description": "Annule le téléchargement si un fragment n'est pas disponible."
+  },
+  "add_headers": {
+    "name": "En-têtes supplémentaires",
+    "description": "En-têtes supplémentaires à inclure dans les requêtes réseau."
+  },
+  "audio_format": {
+    "name": "Format audio",
+    "description": "Format de l'audio converti (mp3, flac, opus, etc.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Code de langue audio préférée."
+  },
+  "audio_multistreams": {
+    "name": "Multiflux audio",
+    "description": "Permet de combiner plusieurs flux audio."
+  },
+  "audio_quality": {
+    "name": "Qualité audio",
+    "description": "Qualité audio (0 meilleure, 10 pire)."
+  },
+  "batch_file": {
+    "name": "Fichier de commandes",
+    "description": "Chemin d'accès à un fichier contenant les URL à télécharger."
+  },
+  "break_on_existing": {
+    "name": "Pause sur l'existant",
+    "description": "Arrête le téléchargement si le fichier existe déjà."
+  },
+  "concurrent_fragments": {
+    "name": "Fragments simultanés",
+    "description": "Nombre de fragments simultanés à télécharger (par défaut 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Convertir les vignettes",
+    "description": "Convertissez les vignettes au format spécifié."
+  },
+  "cookies": {
+    "name": "Cookies",
+    "description": "Fichier au format Netscape pour lire les cookies et y vider le pot de cookies"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies du navigateur",
+    "description": "Importe les cookies du navigateur spécifié."
+  },
+  "download_archive": {
+    "name": "Télécharger les archives",
+    "description": "Chemin d'accès au fichier pour enregistrer les identifiants téléchargés afin d'éviter les doublons."
+  },
+  "embed_chapters": {
+    "name": "Intégrer des chapitres",
+    "description": "Incorpore les chapitres dans le fichier final."
+  },
+  "embed_info_json": {
+    "name": "Intégrer les informations JSON",
+    "description": "Incorpore les informations JSON dans le fichier final."
+  },
+  "embed_metadata": {
+    "name": "Intégrer des métadonnées",
+    "description": "Incorpore les métadonnées dans le fichier final."
+  },
+  "embed_subs": {
+    "name": "Intégrer les sous-titres",
+    "description": "Incorpore les sous-titres dans le fichier final."
+  },
+  "embed_thumbnail": {
+    "name": "Intégrer la vignette",
+    "description": "Incorpore la vignette dans le fichier final."
+  },
+  "enable_file_urls": {
+    "name": "Activer les URL de fichiers",
+    "description": "Permet l'utilisation d'URL de fichiers pour les fichiers locaux."
+  },
+  "extract_audio": {
+    "name": "Extraire l'audio",
+    "description": "Extrait l'audio des vidéos téléchargées (utilise ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Nouvelles tentatives d'extraction",
+    "description": "Nombre de tentatives sur erreurs d'extraction."
+  },
+  "ffmpeg_location": {
+    "name": "Emplacement FFmpeg",
+    "description": "Chemin d'accès au binaire FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Tentatives d'accès aux fichiers",
+    "description": "Nombre de tentatives sur erreurs d'accès aux fichiers."
+  },
+  "fixup": {
+    "name": "Réparation",
+    "description": "Corrige automatiquement les défauts connus dans le fichier vidéo."
+  },
+  "font_size": {
+    "name": "Taille de la police",
+    "description": "Taille de police utilisée dans l'application."
+  },
+  "force_ipv4": {
+    "name": "Forcer IPv4",
+    "description": "Force l'utilisation d'IPv4 pour les connexions réseau."
+  },
+  "force_ipv6": {
+    "name": "Forcer IPv6",
+    "description": "Force l'utilisation d'IPv6 pour les connexions réseau."
+  },
+  "force_overwrites": {
+    "name": "Forcer les écrasements",
+    "description": "Écrase les fichiers existants sans demander."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Code(s) de format vidéo à télécharger."
+  },
+  "fragment_retries": {
+    "name": "Nouvelles tentatives de fragmentation",
+    "description": "Nombre de tentatives sur des erreurs de téléchargement de fragments."
+  },
+  "geo_verification_proxy": {
+    "name": "Proxy de vérification géographique",
+    "description": "Serveur proxy à utiliser pour la géo-vérification."
+  },
+  "ignore_errors": {
+    "name": "Ignorer les erreurs",
+    "description": "Ignorez les erreurs de téléchargement et passez à la vidéo suivante."
+  },
+  "impersonate": {
+    "name": "Imiter",
+    "description": "Client à usurper l'identité (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Conserver les fragments",
+    "description": "Conserve les fragments téléchargés après la fusion."
+  },
+  "language": {
+    "name": "Langue",
+    "description": "Langue de la candidature."
+  },
+  "limit_rate": {
+    "name": "Taux limite",
+    "description": "Limite la vitesse de téléchargement (par exemple, 50K, 4,2M)."
+  },
+  "live_from_start": {
+    "name": "En direct depuis le début",
+    "description": "Télécharge des vidéos en direct dès le début."
+  },
+  "merge_output_format": {
+    "name": "Format vidéo",
+    "description": "Format vidéo final résultant de la fusion de flux."
+  },
+  "output": {
+    "name": "Modèle de sortie",
+    "description": "Modèle de nom de fichier de sortie."
+  },
+  "password": {
+    "name": "Mot de passe",
+    "description": "Mot de passe pour l'authentification."
+  },
+  "paths": {
+    "name": "Chemins",
+    "description": "Répertoires pour enregistrer différents types de fichiers."
+  },
+  "playlist": {
+    "name": "Liste de lecture",
+    "description": "Indique s’il faut télécharger la playlist complète ou une seule vidéo."
+  },
+  "prefer_insecure": {
+    "name": "Préférez non sécurisé",
+    "description": "Utilise une connexion HTTP au lieu de HTTPS (YouTube uniquement)."
+  },
+  "proxy": {
+    "name": "Procuration",
+    "description": "Serveur proxy à utiliser pour les requêtes réseau."
+  },
+  "remux_video": {
+    "name": "Remux vidéo",
+    "description": "Modifie le conteneur vidéo sans réencodage."
+  },
+  "retries": {
+    "name": "Nouvelles tentatives",
+    "description": "Nombre de tentatives sur erreurs de téléchargement."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Sauter la liste de lecture après des erreurs",
+    "description": "Saute le reste de la playlist après un certain nombre d'erreurs."
+  },
+  "socket_timeout": {
+    "name": "Délai d'expiration du socket",
+    "description": "Délai d'expiration des connexions de socket en secondes."
+  },
+  "source_address": {
+    "name": "Adresse source",
+    "description": "Adresse IP du client à laquelle se lier lors de l'établissement de connexions."
+  },
+  "sponsorblock_mark": {
+    "name": "Marque SponsorBlock",
+    "description": "Marque les segments des catégories SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Format des sous-titres",
+    "description": "Code(s) de format de sous-titre à télécharger."
+  },
+  "sub_langs": {
+    "name": "Langues des sous-titres",
+    "description": "Languages of the subtitles to download."
+  },
+  "theme_dark": {
+    "name": "Thème sombre",
+    "description": "Thème de l'application."
+  },
+  "twofactor": {
+    "name": "Authentification à deux facteurs",
+    "description": "Code d'authentification à deux facteurs."
+  },
+  "use_extractors": {
+    "name": "Utiliser des extracteurs",
+    "description": "Noms des extracteurs à utiliser (séparés par des virgules).(\"all\",\"default\",\"end\",expression régulière)"
+  },
+  "username": {
+    "name": "Nom d'utilisateur",
+    "description": "Nom d'utilisateur pour l'authentification."
+  },
+  "video_multistreams": {
+    "name": "Multiflux vidéo",
+    "description": "Permet de combiner plusieurs flux vidéo."
+  },
+  "video_password": {
+    "name": "Mot de passe vidéo",
+    "description": "Mot de passe pour les vidéos protégées par mot de passe."
+  },
+  "video_resolution": {
+    "name": "Résolution",
+    "description": "Résolution vidéo préférée"
+  },
+  "video_subtitles": {
+    "name": "Sous-titres",
+    "description": "Sous-titres vidéo préférés"
+  },
+  "wait_for_video": {
+    "name": "Attendez la vidéo",
+    "description": "Attend qu'une vidéo programmée soit disponible avant de la télécharger."
+  },
+  "write_auto_subs": {
+    "name": "Télécharger les sous-titres automatiques",
+    "description": "Écrit les sous-titres automatiques disponibles."
+  },
+  "write_subs": {
+    "name": "Télécharger les sous-titres",
+    "description": "Écrit les sous-titres manuels disponibles."
+  },
+  "write_thumbnail": {
+    "name": "Écrire une vignette",
+    "description": "Enregistre la miniature de la vidéo sur le disque."
+  },
+  "xattrs": {
+    "name": "XAttres",
+    "description": "Écrit des métadonnées dans le système de fichiers xattrs."
+  },
+  "xff": {
+    "name": "X-Forwarded-Pour",
+    "description": "Définit l’en-tête X-Forwarded-For pour simuler l’emplacement."
+  }
+}

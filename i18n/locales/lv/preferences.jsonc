@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Pārtraukt kļūdas gadījumā",
+    "description": "Ja rodas kļūda, lejupielādes process tiek pārtraukts."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Pārtraukt nepieejamo fragmentu",
+    "description": "Pārtrauc lejupielādi, ja fragments nav pieejams."
+  },
+  "add_headers": {
+    "name": "Papildu galvenes",
+    "description": "Papildu galvenes, kas jāiekļauj tīkla pieprasījumos."
+  },
+  "audio_format": {
+    "name": "Audio formāts",
+    "description": "Konvertētā audio formāts (mp3, flac, opus utt.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Vēlamā audio valodas kods."
+  },
+  "audio_multistreams": {
+    "name": "Audio daudzstraumes",
+    "description": "Ļauj apvienot vairākas audio straumes."
+  },
+  "audio_quality": {
+    "name": "Audio kvalitāte",
+    "description": "Audio kvalitāte (0 labākā, 10 sliktākā)."
+  },
+  "batch_file": {
+    "name": "Pakešu fails",
+    "description": "Ceļš uz failu, kurā ir lejupielādējamie URL."
+  },
+  "break_on_existing": {
+    "name": "Pārtraukt esošo",
+    "description": "Pārtrauc lejupielādi, ja fails jau pastāv."
+  },
+  "concurrent_fragments": {
+    "name": "Vienlaicīgi fragmenti",
+    "description": "Vienlaicīgi lejupielādējamo fragmentu skaits (noklusējums 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Konvertēt sīktēlus",
+    "description": "Konvertējiet sīktēlus norādītajā formātā."
+  },
+  "cookies": {
+    "name": "Sīkdatnes",
+    "description": "Netscape formatēts fails, lai nolasītu sīkfailus un izmestu tajā sīkfailu burku"
+  },
+  "cookies_from_browser": {
+    "name": "Sīkfaili no pārlūkprogrammas",
+    "description": "Importē sīkfailus no norādītās pārlūkprogrammas."
+  },
+  "download_archive": {
+    "name": "Lejupielādēt arhīvu",
+    "description": "Ceļš uz failu, lai ierakstītu lejupielādētos ID, lai izvairītos no dublikātiem."
+  },
+  "embed_chapters": {
+    "name": "Iegult nodaļas",
+    "description": "Iegulst nodaļas galīgajā failā."
+  },
+  "embed_info_json": {
+    "name": "Iegult informācijas JSON",
+    "description": "Iegulsta informācijas JSON galīgajā failā."
+  },
+  "embed_metadata": {
+    "name": "Iegult metadatus",
+    "description": "Iegulst metadatus galīgajā failā."
+  },
+  "embed_subs": {
+    "name": "Iegult subtitrus",
+    "description": "Iegulst subtitrus galīgajā failā."
+  },
+  "embed_thumbnail": {
+    "name": "Iegult sīktēlu",
+    "description": "Iegulst sīktēlu galīgajā failā."
+  },
+  "enable_file_urls": {
+    "name": "Iespējot failu URL",
+    "description": "Iespējo failu vietrāžu URL izmantošanu lokālajiem failiem."
+  },
+  "extract_audio": {
+    "name": "Izvilkt audio",
+    "description": "Izvelk audio no lejupielādētajiem videoklipiem (izmanto ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Extractor Retries",
+    "description": "Atkārtojumu skaits nosūcēja kļūdām."
+  },
+  "ffmpeg_location": {
+    "name": "FFmpeg atrašanās vieta",
+    "description": "Ceļš uz FFmpeg bināro failu."
+  },
+  "file_access_retries": {
+    "name": "Atkārtoti mēģinājumi piekļūt failiem",
+    "description": "Failu piekļuves kļūdu atkārtotu mēģinājumu skaits."
+  },
+  "fixup": {
+    "name": "Labošana",
+    "description": "Automātiski izlabo zināmās kļūdas video failā."
+  },
+  "font_size": {
+    "name": "Fonta lielums",
+    "description": "Lietojumprogrammā izmantotais fonta lielums."
+  },
+  "force_ipv4": {
+    "name": "Piespiedu kārtā IPv4",
+    "description": "Tīkla savienojumiem liek izmantot IPv4."
+  },
+  "force_ipv6": {
+    "name": "Piespiedu kārtā IPv6",
+    "description": "Tīkla savienojumiem liek izmantot IPv6."
+  },
+  "force_overwrites": {
+    "name": "Piespiedu pārrakstīšana",
+    "description": "Pārraksta esošos failus bez prasīšanas."
+  },
+  "format": {
+    "name": "Formāts",
+    "description": "Video formāta kods(-i), ko lejupielādēt."
+  },
+  "fragment_retries": {
+    "name": "Fragmentu atkārtojumi",
+    "description": "Fragmentu lejupielādes kļūdu atkārtojumu skaits."
+  },
+  "geo_verification_proxy": {
+    "name": "Ģeogrāfiskās verifikācijas starpniekserveris",
+    "description": "Starpniekserveris, ko izmantot ģeogrāfiskai verifikācijai."
+  },
+  "ignore_errors": {
+    "name": "Ignorēt kļūdas",
+    "description": "Ignorējiet lejupielādes kļūdas un turpiniet ar nākamo videoklipu."
+  },
+  "impersonate": {
+    "name": "Uzdoties",
+    "description": "Klients, kas jāuzdodas (chrome, chrome-110, chrome:windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Saglabājiet fragmentus",
+    "description": "Saglabā lejupielādētos fragmentus pēc sapludināšanas."
+  },
+  "language": {
+    "name": "Valoda",
+    "description": "Lietojumprogrammas valoda."
+  },
+  "limit_rate": {
+    "name": "Limita likme",
+    "description": "Ierobežo lejupielādes ātrumu (piemēram, 50 K, 4,2 M)."
+  },
+  "live_from_start": {
+    "name": "Tiešraide no sākuma",
+    "description": "Lejupielādē tiešraides video no paša sākuma."
+  },
+  "merge_output_format": {
+    "name": "Video formāts",
+    "description": "Galīgais video formāts, kas iegūts, apvienojot straumes."
+  },
+  "output": {
+    "name": "Izvades veidne",
+    "description": "Izvades faila nosaukuma veidne."
+  },
+  "password": {
+    "name": "Parole",
+    "description": "Parole autentifikācijai."
+  },
+  "paths": {
+    "name": "Ceļi",
+    "description": "Katalogi dažādu veidu failu saglabāšanai."
+  },
+  "playlist": {
+    "name": "Atskaņošanas saraksts",
+    "description": "Norāda, vai lejupielādēt visu atskaņošanas sarakstu vai atsevišķu videoklipu."
+  },
+  "prefer_insecure": {
+    "name": "Dod priekšroku nedrošajam",
+    "description": "Izmanto HTTP savienojumu, nevis HTTPS (tikai YouTube)."
+  },
+  "proxy": {
+    "name": "Starpniekserveris",
+    "description": "Starpniekserveris, ko izmantot tīkla pieprasījumiem."
+  },
+  "remux_video": {
+    "name": "Remux Video",
+    "description": "Maina video konteineru bez atkārtotas kodēšanas."
+  },
+  "retries": {
+    "name": "Atkārtoti mēģinājumi",
+    "description": "Lejupielādes kļūdu atkārtotu mēģinājumu skaits."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Izlaist atskaņošanas sarakstu pēc kļūdām",
+    "description": "Pēc noteikta kļūdu skaita izlaiž pārējo atskaņošanas sarakstu."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Kontaktligzdu savienojumu taimauts sekundēs."
+  },
+  "source_address": {
+    "name": "Avota adrese",
+    "description": "Klienta IP adrese, ar kuru jāizveido saistība, veidojot savienojumus."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Atzīmē segmentus no SponsorBlock kategorijām."
+  },
+  "sub_format": {
+    "name": "Subtitru formāts",
+    "description": "Lejupielādējamais(-ie) subtitru formāta kods(-i)."
+  },
+  "sub_langs": {
+    "name": "Subtitru valodas",
+    "description": "Lejupielādējamo subtitru valodas."
+  },
+  "theme_dark": {
+    "name": "Tumšā tēma",
+    "description": "Pieteikuma tēma."
+  },
+  "twofactor": {
+    "name": "Divu faktoru autentifikācija",
+    "description": "Divu faktoru autentifikācijas kods."
+  },
+  "use_extractors": {
+    "name": "Izmantojiet ekstraktorus",
+    "description": "Izmantojamo ekstraktoru nosaukumi (atdalīti ar komatu).(\"visi\", \"noklusējums\", \"beigas\", regulārā izteiksme)"
+  },
+  "username": {
+    "name": "Lietotājvārds",
+    "description": "Lietotājvārds autentifikācijai."
+  },
+  "video_multistreams": {
+    "name": "Video daudzstraumes",
+    "description": "Ļauj apvienot vairākas video straumes."
+  },
+  "video_password": {
+    "name": "Video parole",
+    "description": "Parole ar paroli aizsargātiem videoklipiem."
+  },
+  "video_resolution": {
+    "name": "Izšķirtspēja",
+    "description": "Vēlamā video izšķirtspēja"
+  },
+  "video_subtitles": {
+    "name": "Subtitri",
+    "description": "Vēlamie video subtitri"
+  },
+  "wait_for_video": {
+    "name": "Gaidiet video",
+    "description": "Pirms lejupielādes gaida, līdz būs pieejams ieplānotais videoklips."
+  },
+  "write_auto_subs": {
+    "name": "Lejupielādēt automātiskos subtitrus",
+    "description": "Raksta pieejamos automātiskos subtitrus."
+  },
+  "write_subs": {
+    "name": "Lejupielādēt subtitrus",
+    "description": "Raksta pieejamos manuālos subtitrus."
+  },
+  "write_thumbnail": {
+    "name": "Rakstiet sīktēlu",
+    "description": "Saglabā video sīktēlu diskā."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Ieraksta metadatus failu sistēmā xattrs."
+  },
+  "xff": {
+    "name": "X-Forwarded-For",
+    "description": "Iestata galveni X-Forwarded-For, lai simulētu atrašanās vietu."
+  }
+}

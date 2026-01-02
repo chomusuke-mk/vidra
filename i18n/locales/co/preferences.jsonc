@@ -1,0 +1,270 @@
+{
+  "abort_on_error": {
+    "name": "Abort on Error",
+    "description": "Aborta u prucessu di scaricamentu se si verifica un errore."
+  },
+  "abort_on_unavailable_fragments": {
+    "name": "Abort on Fragment Unavailable",
+    "description": "Aborta u scaricamentu se un fragmentu ùn hè micca dispunibule."
+  },
+  "add_headers": {
+    "name": "Intestazioni supplementari",
+    "description": "Intestazioni supplementari da include in e dumande di rete."
+  },
+  "audio_format": {
+    "name": "Format Audio",
+    "description": "Formatu di l'audio cunvertitu (mp3, flac, opus, etc.)."
+  },
+  "audio_language": {
+    "name": "Audio",
+    "description": "Codice di lingua audio preferita."
+  },
+  "audio_multistreams": {
+    "name": "Multistreams audio",
+    "description": "Permette di cumminà parechji flussi audio."
+  },
+  "audio_quality": {
+    "name": "Qualità Audio",
+    "description": "Qualità audio (0 megliu, 10 peghju)."
+  },
+  "batch_file": {
+    "name": "File Batch",
+    "description": "Percorsu à un schedariu chì cuntene URL da scaricà."
+  },
+  "break_on_existing": {
+    "name": "Break on Existing",
+    "description": "Arresta a scaricamentu se u schedariu esiste digià."
+  },
+  "concurrent_fragments": {
+    "name": "Frammenti cuncurrenti",
+    "description": "Numeru di frammenti simultanei à scaricà (predefinitu 1)."
+  },
+  "convert_thumbnails": {
+    "name": "Cunvertite miniature",
+    "description": "Cunvertite miniature in u furmatu specificatu."
+  },
+  "cookies": {
+    "name": "Cookies",
+    "description": "File formattatu Netscape per leghje i cookies è scaricate u jar di cookie"
+  },
+  "cookies_from_browser": {
+    "name": "Cookies da u navigatore",
+    "description": "Importa i cookies da u navigatore specificatu."
+  },
+  "download_archive": {
+    "name": "Scaricate l'Archive",
+    "description": "Percorsu à u schedariu per arregistrà l'ID scaricati per evità i duplicati."
+  },
+  "embed_chapters": {
+    "name": "Incrustà i capituli",
+    "description": "Incrusta i capituli in u schedariu finali."
+  },
+  "embed_info_json": {
+    "name": "Incrustà l'infurmazioni JSON",
+    "description": "Incorpora l'infurmazioni JSON in u schedariu finali."
+  },
+  "embed_metadata": {
+    "name": "Incrustà Metadata",
+    "description": "Incorpora metadata in u schedariu finali."
+  },
+  "embed_subs": {
+    "name": "Incrustà i sottutituli",
+    "description": "Incrusta i sottotitoli in u schedariu finali."
+  },
+  "embed_thumbnail": {
+    "name": "Incrustà miniatura",
+    "description": "Incorpora a miniatura in u schedariu finali."
+  },
+  "enable_file_urls": {
+    "name": "Habilita l'URL di u File",
+    "description": "Permette l'usu di l'URL di u schedariu per i fugliali lucali."
+  },
+  "extract_audio": {
+    "name": "Extract Audio",
+    "description": "Estrae l'audio da i video scaricati (usa ffmpeg)."
+  },
+  "extractor_retries": {
+    "name": "Riprova di l'estrattore",
+    "description": "Numeru di tentativi nantu à l'errore di l'estrattore."
+  },
+  "ffmpeg_location": {
+    "name": "Locu FFmpeg",
+    "description": "Path à u binariu FFmpeg."
+  },
+  "file_access_retries": {
+    "name": "Riprova di accessu à i file",
+    "description": "Numeru di tentativi nantu à l'errori di accessu à i schedari."
+  },
+  "fixup": {
+    "name": "Fixup",
+    "description": "Corrige automaticamente i difetti cunnisciuti in u schedariu video."
+  },
+  "font_size": {
+    "name": "Dimensione di font",
+    "description": "Dimensione di font utilizata in l'applicazione."
+  },
+  "force_ipv4": {
+    "name": "Forza IPv4",
+    "description": "Forza l'usu di IPv4 per e cunnessione di rete."
+  },
+  "force_ipv6": {
+    "name": "Forza IPv6",
+    "description": "Forza l'usu di l'IPv6 per e cunnessione di rete."
+  },
+  "force_overwrites": {
+    "name": "Forza Overwrites",
+    "description": "Sovrascritte i schedari esistenti senza dumandà."
+  },
+  "format": {
+    "name": "Format",
+    "description": "Codici di furmatu di video da scaricà."
+  },
+  "fragment_retries": {
+    "name": "Riprovazioni di frammenti",
+    "description": "Numero di tentativi nantu à l'errori di scaricamentu di frammenti."
+  },
+  "geo_verification_proxy": {
+    "name": "Proxy di verificazione geografica",
+    "description": "Servitore proxy da aduprà per a verificazione geografica."
+  },
+  "ignore_errors": {
+    "name": "Ignore Errori",
+    "description": "Ignore l'errore di scaricamentu è cuntinuà cù u prossimu video."
+  },
+  "impersonate": {
+    "name": "Impersonate",
+    "description": "Cliente per impersonate (chrome, chrome-110, chrome: windows-10)."
+  },
+  "keep_fragments": {
+    "name": "Mantene Fragmenti",
+    "description": "Mantene i frammenti scaricati dopu a fusione."
+  },
+  "language": {
+    "name": "Lingua",
+    "description": "Lingua di l'applicazione."
+  },
+  "limit_rate": {
+    "name": "Limite di a tarifa",
+    "description": "Limita a velocità di scaricamentu (per esempiu, 50K, 4.2M)."
+  },
+  "live_from_start": {
+    "name": "Live da u principiu",
+    "description": "Scaricate video in diretta da u principiu."
+  },
+  "merge_output_format": {
+    "name": "Format Video",
+    "description": "Formatu video finale risultatu da a fusione di flussi."
+  },
+  "output": {
+    "name": "Template di output",
+    "description": "U mudellu di nome di file di output."
+  },
+  "password": {
+    "name": "Codice",
+    "description": "Password per l'autentificazione."
+  },
+  "paths": {
+    "name": "Camini",
+    "description": "Directories to save different types of files."
+  },
+  "playlist": {
+    "name": "Playlist",
+    "description": "Indica s'ellu si deve scaricà a playlist cumpleta o un video unicu."
+  },
+  "prefer_insecure": {
+    "name": "Preferite Insecure",
+    "description": "Utiliza a cunnessione HTTP invece di HTTPS (solu YouTube)."
+  },
+  "proxy": {
+    "name": "Proxy",
+    "description": "Servitore proxy da aduprà per e dumande di rete."
+  },
+  "remux_video": {
+    "name": "Remux Video",
+    "description": "Cambia u cuntenutu di u video senza ricudificà."
+  },
+  "retries": {
+    "name": "Riprova",
+    "description": "Numero di tentativi nantu à l'errori di scaricamentu."
+  },
+  "skip_playlist_after_errors": {
+    "name": "Skip Playlist Dopu à Errori",
+    "description": "Salta u restu di a playlist dopu à un certu numaru di errori."
+  },
+  "socket_timeout": {
+    "name": "Socket Timeout",
+    "description": "Timeout per e cunnessione socket in seconde."
+  },
+  "source_address": {
+    "name": "Indirizzu surghjente",
+    "description": "L'indirizzu IP di u cliente à ligà à quandu facenu cunnessione."
+  },
+  "sponsorblock_mark": {
+    "name": "SponsorBlock Mark",
+    "description": "Marca segmenti da categurie SponsorBlock."
+  },
+  "sub_format": {
+    "name": "Formatu di sottutitulu",
+    "description": "Codici di furmatu di sottutituli à scaricà."
+  },
+  "sub_langs": {
+    "name": "Lingue sous-titres",
+    "description": "Lingue di i sottotitoli da scaricà."
+  },
+  "theme_dark": {
+    "name": "Tema scuru",
+    "description": "Tema di l'applicazione."
+  },
+  "twofactor": {
+    "name": "Autentificazione à dui fattori",
+    "description": "Codice di autentificazione à dui fattori."
+  },
+  "use_extractors": {
+    "name": "Utilizà l'estrattori",
+    "description": "Nomi di l'estrattori à aduprà (separati da virgola). (\"tutti\", \"default\", \"fini\", espressione regulare)"
+  },
+  "username": {
+    "name": "Nome d'utilizatore",
+    "description": "Username per l'autentificazione."
+  },
+  "video_multistreams": {
+    "name": "Video Multistreams",
+    "description": "Permette di cumminà parechji flussi video."
+  },
+  "video_password": {
+    "name": "Video Password",
+    "description": "Password per i video protetti da password."
+  },
+  "video_resolution": {
+    "name": "Risoluzione",
+    "description": "Risoluzione video preferita"
+  },
+  "video_subtitles": {
+    "name": "Sous-titres",
+    "description": "Subtitulos video preferiti"
+  },
+  "wait_for_video": {
+    "name": "Aspettate u Video",
+    "description": "Aspetta chì un video pianificatu sia dispunibule prima di scaricà."
+  },
+  "write_auto_subs": {
+    "name": "Scaricate i sottotitoli auto",
+    "description": "Scrive i sottutituli automatichi dispunibili."
+  },
+  "write_subs": {
+    "name": "Scaricate i sottotitoli",
+    "description": "Scrive i sottotitoli manuali dispunibili."
+  },
+  "write_thumbnail": {
+    "name": "Scrivite una miniatura",
+    "description": "Salvà a miniatura di u video à u discu."
+  },
+  "xattrs": {
+    "name": "XAttrs",
+    "description": "Scrive metadati à u filesystem xattrs."
+  },
+  "xff": {
+    "name": "X-Forwarded-For",
+    "description": "Stabilisce l'intestazione X-Forwarded-For per simulà u locu."
+  }
+}
