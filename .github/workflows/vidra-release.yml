@@ -13,6 +13,7 @@ env:
   # Keep this OUTSIDE build/ because some packaging tools run `flutter clean`
   # which deletes build/ and would break Serious Python asset injection.
   SERIOUS_PYTHON_SITE_PACKAGES: ${{ github.workspace }}/.serious_python/site-packages
+  VIDRA_FFMPEG_REPO: chomusuke-mk/vidra-ffmpeg
 
 jobs:
   resolve-versions:
@@ -27,6 +28,7 @@ jobs:
       build_number: ${{ steps.versions.outputs.build_number }}
       should_build: ${{ steps.versions.outputs.should_build }}
       release_assets_present: ${{ steps.versions.outputs.release_assets_present }}
+      ffmpeg_tag: ${{ steps.vidra_ffmpeg.outputs.ffmpeg_tag }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,6 +46,41 @@ jobs:
             --github-repo "${{ github.repository }}" \
             --github-output "$GITHUB_OUTPUT"
 
+      - name: Resolve latest vidra-ffmpeg release
+        id: vidra_ffmpeg
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os
+          import json
+          import urllib.request
+
+          url = 'https://api.github.com/repos/chomusuke-mk/vidra-ffmpeg/releases/latest'
+          headers = {'Accept': 'application/vnd.github+json'}
+          token = os.environ.get('GITHUB_TOKEN')
+          if token:
+            headers['Authorization'] = f'Bearer {token}'
+          req = urllib.request.Request(url, headers=headers)
+          with urllib.request.urlopen(req) as r:
+            data = json.load(r)
+
+          tag = data.get('tag_name')
+          if not tag:
+            raise SystemExit('Could not resolve vidra-ffmpeg latest release tag_name')
+
+          # GitHub Actions output
+          github_output = os.environ.get('GITHUB_OUTPUT')
+          if not github_output:
+            raise SystemExit('Missing GITHUB_OUTPUT environment variable')
+
+          with open(github_output, 'a', encoding='utf-8') as f:
+            f.write(f"ffmpeg_tag={tag}\n")
+          print(f"Resolved vidra-ffmpeg tag: {tag}")
+          PY
+
   android:
     name: Android packages
     needs: resolve-versions
@@ -56,10 +93,70 @@ jobs:
       BUILD_NUMBER: ${{ needs.resolve-versions.outputs.build_number }}
       YTDLP_VERSION: ${{ needs.resolve-versions.outputs.ytdlp }}
       YTDLPEJS_VERSION: ${{ needs.resolve-versions.outputs.ytdlpejs }}
+      FFMPEG_TAG: ${{ needs.resolve-versions.outputs.ffmpeg_tag }}
       GRADLE_USER_HOME: ${{ github.workspace }}/.gradle
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Cache vidra-ffmpeg downloads
+        uses: actions/cache@v4
+        with:
+          path: .cache/vidra-ffmpeg
+          key: vidra-ffmpeg-${{ needs.resolve-versions.outputs.ffmpeg_tag }}-${{ runner.os }}
+
+      - name: Install vidra-ffmpeg binaries (Android)
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="${FFMPEG_TAG}"
+          repo="${VIDRA_FFMPEG_REPO}"
+          cache_dir=".cache/vidra-ffmpeg"
+          mkdir -p "$cache_dir"
+
+          declare -A suffix_by_abi
+          suffix_by_abi[arm64-v8a]="android-arm64-v8a"
+          suffix_by_abi[armeabi-v7a]="android-armeabi-v7a"
+          suffix_by_abi[x86]="android-x86"
+          suffix_by_abi[x86_64]="android-x86_64"
+
+          for abi in arm64-v8a armeabi-v7a x86 x86_64; do
+            suffix="${suffix_by_abi[$abi]}"
+            zip_path="$cache_dir/${tag}-${suffix}.zip"
+            url="https://github.com/${repo}/releases/download/${tag}/${tag}-${suffix}.zip"
+
+            if [ ! -f "$zip_path" ]; then
+              echo "Downloading $url"
+              curl -L --retry 3 --retry-delay 2 -o "$zip_path" "$url"
+            else
+              echo "Using cached $zip_path"
+            fi
+
+            out_dir="android/app/src/main/jniLibs/${abi}"
+            mkdir -p "$out_dir"
+
+            ZIP_PATH="$zip_path" OUT_DIR="$out_dir" python - <<'PY'
+import os
+import shutil
+import tempfile
+import zipfile
+
+zip_path = os.environ['ZIP_PATH']
+out_dir = os.environ['OUT_DIR']
+
+with zipfile.ZipFile(zip_path) as z:
+  names = {i.filename for i in z.infolist() if not i.is_dir()}
+  for required in ('ffmpeg', 'ffprobe'):
+    if required not in names:
+      raise SystemExit(f"{zip_path} missing {required}; found: {sorted(names)}")
+
+  with tempfile.TemporaryDirectory() as tmp:
+    z.extract('ffmpeg', tmp)
+    z.extract('ffprobe', tmp)
+    shutil.copyfile(os.path.join(tmp, 'ffmpeg'), os.path.join(out_dir, 'libffmpeg.so'))
+    shutil.copyfile(os.path.join(tmp, 'ffprobe'), os.path.join(out_dir, 'libffprobe.so'))
+PY
+          done
 
       - name: Aggressive disk cleanup
         run: |
@@ -143,6 +240,7 @@ jobs:
       BUILD_NUMBER: ${{ needs.resolve-versions.outputs.build_number }}
       YTDLP_VERSION: ${{ needs.resolve-versions.outputs.ytdlp }}
       YTDLPEJS_VERSION: ${{ needs.resolve-versions.outputs.ytdlpejs }}
+      FFMPEG_TAG: ${{ needs.resolve-versions.outputs.ffmpeg_tag }}
       WINDOWS_SIGNING_PFX: ${{ secrets.WINDOWS_SIGNING_PFX }}
       WINDOWS_SIGNING_PASSWORD: ${{ secrets.WINDOWS_SIGNING_PASSWORD }}
       PFX_PATH: ''
@@ -150,6 +248,39 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Cache vidra-ffmpeg downloads
+        uses: actions/cache@v4
+        with:
+          path: .cache/vidra-ffmpeg
+          key: vidra-ffmpeg-${{ needs.resolve-versions.outputs.ffmpeg_tag }}-${{ runner.os }}
+
+      - name: Install vidra-ffmpeg binaries (Windows)
+        shell: pwsh
+        run: |
+          $tag = "$env:FFMPEG_TAG"
+          $repo = "$env:VIDRA_FFMPEG_REPO"
+          $cacheDir = ".cache\\vidra-ffmpeg"
+          New-Item -ItemType Directory -Path $cacheDir -Force | Out-Null
+
+          $zipPath = Join-Path $cacheDir "$tag-windows.zip"
+          $url = "https://github.com/$repo/releases/download/$tag/$tag-windows.zip"
+
+          if (-not (Test-Path $zipPath)) {
+            Write-Host "Downloading $url"
+            Invoke-WebRequest -Uri $url -OutFile $zipPath
+          } else {
+            Write-Host "Using cached $zipPath"
+          }
+
+          $extractDir = Join-Path $cacheDir "extract-windows"
+          if (Test-Path $extractDir) { Remove-Item -Recurse -Force $extractDir }
+          New-Item -ItemType Directory -Path $extractDir -Force | Out-Null
+          Expand-Archive -Path $zipPath -DestinationPath $extractDir -Force
+
+          New-Item -ItemType Directory -Path "windows\\ffmpeg" -Force | Out-Null
+          Copy-Item (Join-Path $extractDir "ffmpeg.exe") "windows\\ffmpeg\\ffmpeg.exe" -Force
+          Copy-Item (Join-Path $extractDir "ffprobe.exe") "windows\\ffmpeg\\ffprobe.exe" -Force
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2
@@ -260,9 +391,55 @@ jobs:
       BUILD_NUMBER: ${{ needs.resolve-versions.outputs.build_number }}
       YTDLP_VERSION: ${{ needs.resolve-versions.outputs.ytdlp }}
       YTDLPEJS_VERSION: ${{ needs.resolve-versions.outputs.ytdlpejs }}
+      FFMPEG_TAG: ${{ needs.resolve-versions.outputs.ffmpeg_tag }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Cache vidra-ffmpeg downloads
+        uses: actions/cache@v4
+        with:
+          path: .cache/vidra-ffmpeg
+          key: vidra-ffmpeg-${{ needs.resolve-versions.outputs.ffmpeg_tag }}-${{ runner.os }}
+
+      - name: Install vidra-ffmpeg binaries (Linux)
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="${FFMPEG_TAG}"
+          repo="${VIDRA_FFMPEG_REPO}"
+          cache_dir=".cache/vidra-ffmpeg"
+          mkdir -p "$cache_dir"
+
+          zip_path="$cache_dir/${tag}-linux.zip"
+          url="https://github.com/${repo}/releases/download/${tag}/${tag}-linux.zip"
+          if [ ! -f "$zip_path" ]; then
+            echo "Downloading $url"
+            curl -L --retry 3 --retry-delay 2 -o "$zip_path" "$url"
+          else
+            echo "Using cached $zip_path"
+          fi
+
+          tmp_dir="$(mktemp -d)"
+          mkdir -p linux/ffmpeg
+
+          ZIP_PATH="$zip_path" TMP_DIR="$tmp_dir" python - <<'PY'
+import os
+import shutil
+import zipfile
+
+zip_path = os.environ['ZIP_PATH']
+tmp_dir = os.environ['TMP_DIR']
+
+with zipfile.ZipFile(zip_path) as z:
+  z.extractall(tmp_dir)
+
+shutil.copyfile(os.path.join(tmp_dir, 'ffmpeg'), 'linux/ffmpeg/ffmpeg')
+shutil.copyfile(os.path.join(tmp_dir, 'ffprobe'), 'linux/ffmpeg/ffprobe')
+PY
+          rm -rf "$tmp_dir"
+
+          chmod +x linux/ffmpeg/ffmpeg linux/ffmpeg/ffprobe
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2
@@ -406,7 +583,7 @@ jobs:
             echo "timestamp=${BUILD_TIMESTAMP}"
             echo "yt-dlp=${YTDLP_VERSION}"
             echo "yt-dlp-ejs=${YTDLPEJS_VERSION}"
-            echo "vidra-ffmpeg=ffmpeg-8.0.1"
+            echo "vidra-ffmpeg=${{ needs.resolve-versions.outputs.ffmpeg_tag }}"
           } > _update
 
       - name: Publish GitHub Release assets
