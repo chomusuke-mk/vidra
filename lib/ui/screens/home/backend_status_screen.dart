@@ -11,6 +11,7 @@ import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart' as crypto;
 import 'package:convert/convert.dart' show AccumulatorSink;
 import 'package:open_file/open_file.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:vidra/constants/app_strings.dart';
@@ -102,17 +103,36 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
   static const String _kDownloadedUpdateShaRecordPath =
       'vidra.app_update.download.sha_record_path';
 
+  BackendUpdateStatus _nextGlobalUpdateIndicatorState() {
+    if (_isInstallReady) {
+      return BackendUpdateStatus.installReady;
+    }
+    if (_isDownloadingUpdate) {
+      return BackendUpdateStatus.downloadingUpdate;
+    }
+    if (_latestRelease?.isUpdateAvailable ?? false) {
+      return BackendUpdateStatus.updateAvailable;
+    }
+    return BackendUpdateStatus.idle;
+  }
+
   void _syncGlobalUpdateIndicator() {
     final indicator = BackendUpdateIndicator.instance;
-    if (_isInstallReady) {
-      indicator.setState(BackendUpdateStatus.installReady);
-    } else if (_isDownloadingUpdate) {
-      indicator.setState(BackendUpdateStatus.downloadingUpdate);
-    } else if (_latestRelease?.isUpdateAvailable ?? false) {
-      indicator.setState(BackendUpdateStatus.updateAvailable);
-    } else {
-      indicator.setState(BackendUpdateStatus.idle);
+    indicator.setState(_nextGlobalUpdateIndicatorState());
+  }
+
+  void _scheduleSyncGlobalUpdateIndicator() {
+    final indicator = BackendUpdateIndicator.instance;
+    final next = _nextGlobalUpdateIndicatorState();
+    if (indicator.current == next) {
+      return;
     }
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) {
+        return;
+      }
+      indicator.setState(_nextGlobalUpdateIndicatorState());
+    });
   }
 
   @override
@@ -443,6 +463,21 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
       return;
     }
 
+    if (Platform.isAndroid) {
+      final allowed = await _ensureAndroidInstallPermission();
+      if (!allowed) {
+        if (!mounted) {
+          return;
+        }
+        setState(() {
+          _isInstallReady = true;
+          _isRefreshing = false;
+        });
+        _syncGlobalUpdateIndicator();
+        return;
+      }
+    }
+
     final expected = _downloadedSha256;
     if (expected == null || expected.trim().isEmpty) {
       await _invalidateDownloadedInstaller(
@@ -478,13 +513,75 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
       return;
     }
     setState(() {
-      _isInstallReady = false;
       _updateErrorMessage = null;
       _isRefreshing = false;
     });
     _syncGlobalUpdateIndicator();
     _showSnack(localizations.ui(AppStringKey.backendStatusSnackInstalling));
-    await OpenFile.open(path);
+
+    final result = await OpenFile.open(path);
+    debugPrint(
+      'OpenFile(open installer) result: ${result.type} ${result.message}',
+    );
+    if (!mounted) {
+      return;
+    }
+    if (result.type != ResultType.done) {
+      setState(() {
+        _isInstallReady = true;
+        _updateErrorMessage = result.message.trim().isNotEmpty == true
+            ? result.message
+            : 'No se pudo abrir el instalador.';
+      });
+      _syncGlobalUpdateIndicator();
+      _showSnack(_updateErrorMessage!);
+    }
+  }
+
+  Future<bool> _ensureAndroidInstallPermission() async {
+    // On Android this is controlled by "Install unknown apps" and may not show
+    // a runtime prompt. permission_handler may route the user to Settings.
+    try {
+      final permission = Permission.requestInstallPackages;
+      final status = await permission.status;
+      if (status.isGranted) {
+        return true;
+      }
+
+      final requested = await permission.request();
+      if (requested.isGranted) {
+        return true;
+      }
+
+      if (!mounted) {
+        return false;
+      }
+
+      final message = requested.isPermanentlyDenied
+          ? 'Permiso para instalar apps deshabilitado permanentemente. Habilítalo en Ajustes.'
+          : 'Permiso requerido para instalar la actualización.';
+
+      setState(() {
+        _updateErrorMessage = message;
+      });
+      _showSnack(message);
+
+      if (requested.isPermanentlyDenied) {
+        await openAppSettings();
+      }
+      return false;
+    } catch (error) {
+      debugPrint('Install permission check failed: $error');
+      if (mounted) {
+        const message =
+            'No se pudo solicitar permiso para instalar la actualización.';
+        setState(() {
+          _updateErrorMessage = message;
+        });
+        _showSnack(message);
+      }
+      return false;
+    }
   }
 
   Future<void> _invalidateDownloadedInstaller(String message) async {
@@ -841,7 +938,7 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
     final actionEnabled =
         !_isRefreshing && actionState != _UpdateActionState.downloadingUpdate;
 
-    _syncGlobalUpdateIndicator();
+    _scheduleSyncGlobalUpdateIndicator();
 
     return Scaffold(
       appBar: AppBar(
@@ -1644,7 +1741,10 @@ IconData _actionIcon(_UpdateActionState state) {
     case _UpdateActionState.downloadingUpdate:
       return Icons.downloading_rounded;
     case _UpdateActionState.install:
-      return Icons.install_mobile_rounded;
+      return (defaultTargetPlatform == TargetPlatform.android ||
+              defaultTargetPlatform == TargetPlatform.iOS)
+          ? Icons.install_mobile_rounded
+          : Icons.install_desktop_rounded;
   }
 }
 
