@@ -223,28 +223,28 @@ jobs:
             out_dir="android/app/src/main/jniLibs/${abi}"
             mkdir -p "$out_dir"
 
-          python - "$zip_path" "$out_dir" <<'PY'
-          import os
-          import shutil
-          import sys
-          import tempfile
-          import zipfile
+            python - "$zip_path" "$out_dir" <<'PY'
+            import os
+            import shutil
+            import sys
+            import tempfile
+            import zipfile
 
-          zip_path = sys.argv[1]
-          out_dir = sys.argv[2]
+            zip_path = sys.argv[1]
+            out_dir = sys.argv[2]
 
-          with zipfile.ZipFile(zip_path) as z:
-            names = {i.filename for i in z.infolist() if not i.is_dir()}
-            for required in ('ffmpeg', 'ffprobe'):
-              if required not in names:
-                raise SystemExit(f"{zip_path} missing {required}; found: {sorted(names)}")
+            with zipfile.ZipFile(zip_path) as z:
+              names = {i.filename for i in z.infolist() if not i.is_dir()}
+              for required in ('ffmpeg', 'ffprobe'):
+                if required not in names:
+                  raise SystemExit(f"{zip_path} missing {required}; found: {sorted(names)}")
 
-            with tempfile.TemporaryDirectory() as tmp:
-              z.extract('ffmpeg', tmp)
-              z.extract('ffprobe', tmp)
-              shutil.copyfile(os.path.join(tmp, 'ffmpeg'), os.path.join(out_dir, 'libffmpeg.so'))
+              with tempfile.TemporaryDirectory() as tmp:
+                z.extract('ffmpeg', tmp)
+                z.extract('ffprobe', tmp)
+                shutil.copyfile(os.path.join(tmp, 'ffmpeg'), os.path.join(out_dir, 'libffmpeg.so'))
                 shutil.copyfile(os.path.join(tmp, 'ffprobe'), os.path.join(out_dir, 'libffprobe.so'))
-              PY
+            PY
           done
 
       - name: Aggressive disk cleanup

@@ -52,6 +52,9 @@ Vidra bundles a Python backend together with a Flutter desktop client, so the ap
 | path | `^1.9.1` | BSD-3-Clause | Same BSD obligations. | `third_party_licenses/path` |
 | super_drag_and_drop | `^0.9.1` | MIT | Retain MIT notice; includes native binaries. | `third_party_licenses/super_drag_and_drop` |
 | super_clipboard | `^0.9.1` | MIT | Retain MIT notice; used for DataReader APIs. | `third_party_licenses/super_clipboard` |
+| openpgp | `^3.10.7` | MIT | Retain MIT notice. | `third_party_licenses/openpgp` |
+| crypto | `^3.0.3` | BSD-3-Clause | Same BSD obligations. | `third_party_licenses/crypto` |
+| convert | `^3.1.1` | BSD-3-Clause | Same BSD obligations. | `third_party_licenses/convert` |
 
 > _Transitive dependencies inherit the licensing of their upstream packages. Keep the Flutter `LICENSE` file emitted by `flutter build` inside your installers to cover those components._
 

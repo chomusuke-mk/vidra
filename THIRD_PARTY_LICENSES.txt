@@ -46,6 +46,9 @@ FLUTTER APPLICATION RUNTIME (pubspec.yaml)
 - path | version: ^1.9.1 | license: BSD-3-Clause | obligations: same BSD requirements | license text: third_party_licenses/path
 - super_drag_and_drop | version: ^0.9.1 | license: MIT | obligations: retain MIT notice; includes native binaries | license text: third_party_licenses/super_drag_and_drop
 - super_clipboard | version: ^0.9.1 | license: MIT | obligations: retain MIT notice; used for DataReader APIs | license text: third_party_licenses/super_clipboard
+- openpgp | version: ^3.10.7 | license: MIT | obligations: retain MIT notice | license text: third_party_licenses/openpgp
+- crypto | version: ^3.0.3 | license: BSD-3-Clause | obligations: same BSD requirements | license text: third_party_licenses/crypto
+- convert | version: ^3.1.1 | license: BSD-3-Clause | obligations: same BSD requirements | license text: third_party_licenses/convert
 
 Note on transitive dependencies: transitive dependencies inherit the licensing of their upstream packages. Keep the Flutter LICENSE file emitted by flutter build inside your installers to cover those components.
 
