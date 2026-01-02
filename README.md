@@ -48,15 +48,14 @@ Place the files with **exact** names in the following locations:
 	- Ensure they are executable: `chmod +x linux/ffmpeg/ffmpeg linux/ffmpeg/ffprobe`
 
 - **Android**
-	- Download the Android artifacts from https://github.com/chomusuke-mk/vidra-ffmpeg.
-	- Rename them to **exactly**:
-		- `libffmpeg.so`
-		- `libffprobe.so`
-	- Place them under these ABI folders:
-		- `android/app/src/main/jniLibs/arm64-v8a/`
-		- `android/app/src/main/jniLibs/armeabi-v7a/`
-		- `android/app/src/main/jniLibs/x86/`
-		- `android/app/src/main/jniLibs/x86_64/`
+	- Download the Android ZIPs from https://github.com/chomusuke-mk/vidra-ffmpeg (either standard or `full-*`).
+	- Each Android ZIP contains two files named `ffmpeg` and `ffprobe`.
+	- Rename them to **exactly** `libffmpeg.so` and `libffprobe.so`.
+	- Place them under these ABI folders (matching the ZIP you downloaded):
+		- `ffmpeg-*-android-arm64-v8a.zip` -> `android/app/src/main/jniLibs/arm64-v8a/`
+		- `ffmpeg-*-android-armeabi-v7a.zip` -> `android/app/src/main/jniLibs/armeabi-v7a/`
+		- `ffmpeg-*-android-x86.zip` -> `android/app/src/main/jniLibs/x86/`
+		- `ffmpeg-*-android-x86_64.zip` -> `android/app/src/main/jniLibs/x86_64/`
 
 ## Quick start
 
