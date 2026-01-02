@@ -136,26 +136,26 @@ jobs:
             mkdir -p "$out_dir"
 
             ZIP_PATH="$zip_path" OUT_DIR="$out_dir" python - <<'PY'
-import os
-import shutil
-import tempfile
-import zipfile
+            import os
+            import shutil
+            import tempfile
+            import zipfile
 
-zip_path = os.environ['ZIP_PATH']
-out_dir = os.environ['OUT_DIR']
+            zip_path = os.environ['ZIP_PATH']
+            out_dir = os.environ['OUT_DIR']
 
-with zipfile.ZipFile(zip_path) as z:
-  names = {i.filename for i in z.infolist() if not i.is_dir()}
-  for required in ('ffmpeg', 'ffprobe'):
-    if required not in names:
-      raise SystemExit(f"{zip_path} missing {required}; found: {sorted(names)}")
+            with zipfile.ZipFile(zip_path) as z:
+              names = {i.filename for i in z.infolist() if not i.is_dir()}
+              for required in ('ffmpeg', 'ffprobe'):
+                if required not in names:
+                  raise SystemExit(f"{zip_path} missing {required}; found: {sorted(names)}")
 
-  with tempfile.TemporaryDirectory() as tmp:
-    z.extract('ffmpeg', tmp)
-    z.extract('ffprobe', tmp)
-    shutil.copyfile(os.path.join(tmp, 'ffmpeg'), os.path.join(out_dir, 'libffmpeg.so'))
-    shutil.copyfile(os.path.join(tmp, 'ffprobe'), os.path.join(out_dir, 'libffprobe.so'))
-PY
+              with tempfile.TemporaryDirectory() as tmp:
+                z.extract('ffmpeg', tmp)
+                z.extract('ffprobe', tmp)
+                shutil.copyfile(os.path.join(tmp, 'ffmpeg'), os.path.join(out_dir, 'libffmpeg.so'))
+                shutil.copyfile(os.path.join(tmp, 'ffprobe'), os.path.join(out_dir, 'libffprobe.so'))
+            PY
           done
 
       - name: Aggressive disk cleanup
@@ -424,19 +424,19 @@ PY
           mkdir -p linux/ffmpeg
 
           ZIP_PATH="$zip_path" TMP_DIR="$tmp_dir" python - <<'PY'
-import os
-import shutil
-import zipfile
+          import os
+          import shutil
+          import zipfile
 
-zip_path = os.environ['ZIP_PATH']
-tmp_dir = os.environ['TMP_DIR']
+          zip_path = os.environ['ZIP_PATH']
+          tmp_dir = os.environ['TMP_DIR']
 
-with zipfile.ZipFile(zip_path) as z:
-  z.extractall(tmp_dir)
+          with zipfile.ZipFile(zip_path) as z:
+            z.extractall(tmp_dir)
 
-shutil.copyfile(os.path.join(tmp_dir, 'ffmpeg'), 'linux/ffmpeg/ffmpeg')
-shutil.copyfile(os.path.join(tmp_dir, 'ffprobe'), 'linux/ffmpeg/ffprobe')
-PY
+          shutil.copyfile(os.path.join(tmp_dir, 'ffmpeg'), 'linux/ffmpeg/ffmpeg')
+          shutil.copyfile(os.path.join(tmp_dir, 'ffprobe'), 'linux/ffmpeg/ffprobe')
+          PY
           rm -rf "$tmp_dir"
 
           chmod +x linux/ffmpeg/ffmpeg linux/ffmpeg/ffprobe
