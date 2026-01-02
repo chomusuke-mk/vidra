@@ -476,25 +476,36 @@ class GitHubReleaseUpdater {
           return 'windows_x64';
         case TargetPlatform.android:
           final info = await DeviceInfoPlugin().androidInfo;
-          final abis = <String>[];
-          // supportedAbis is the most useful; keep some fallbacks.
-          abis.addAll(info.supportedAbis);
-          abis.addAll(info.supported64BitAbis);
-          abis.addAll(info.supported32BitAbis);
-          final normalized = abis.map((e) => e.toLowerCase()).toList();
+          // Prefer the first ABI in the device-reported priority order.
+          // Some devices can report multiple ABIs (e.g. x86_64 + arm64-v8a);
+          // in those cases, respecting order avoids picking a suboptimal one.
+          final orderedAbis = <String>[];
+          void addAllUnique(Iterable<String> values) {
+            for (final value in values) {
+              final trimmed = value.trim();
+              if (trimmed.isEmpty) continue;
+              if (!orderedAbis.contains(trimmed)) {
+                orderedAbis.add(trimmed);
+              }
+            }
+          }
 
-          bool has(String v) => normalized.contains(v.toLowerCase());
-          if (has('arm64-v8a')) {
-            return 'android_arm64_v8a';
-          }
-          if (has('x86_64')) {
-            return 'android_x86_64';
-          }
-          if (has('armeabi-v7a')) {
-            return 'android_armeabi_v7a';
-          }
-          if (has('x86')) {
-            return 'android_x86';
+          // supportedAbis is the most useful; keep some fallbacks.
+          addAllUnique(info.supportedAbis);
+          addAllUnique(info.supported64BitAbis);
+          addAllUnique(info.supported32BitAbis);
+
+          for (final abi in orderedAbis.map((e) => e.toLowerCase())) {
+            switch (abi) {
+              case 'x86_64':
+                return 'android_x86_64';
+              case 'x86':
+                return 'android_x86';
+              case 'arm64-v8a':
+                return 'android_arm64_v8a';
+              case 'armeabi-v7a':
+                return 'android_armeabi_v7a';
+            }
           }
           return 'android';
         case TargetPlatform.linux:

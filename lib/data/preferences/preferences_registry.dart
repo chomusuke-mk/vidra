@@ -448,6 +448,24 @@ class Preferences {
 
   final Preference sponsorblockMark = Preference(
     key: 'sponsorblock_mark',
+    defaultValue: const <String>[
+      'sponsor',
+      'intro',
+      'outro',
+      'selfpromo',
+      'preview',
+      'filler',
+      'interaction',
+      'music_offtopic',
+      'hook',
+      'poi_highlight',
+      'chapter',
+    ],
+    allowedTypes: [List<String>, String],
+  );
+
+  final Preference sponsorblockRemove = Preference(
+    key: 'sponsorblock_remove',
     defaultValue: const <String>[],
     allowedTypes: [List<String>, String],
   );
@@ -530,6 +548,7 @@ class Preferences {
     forceOverwrites,
     writeThumbnail,
     sponsorblockMark,
+    sponsorblockRemove,
     limitRate,
   ];
 

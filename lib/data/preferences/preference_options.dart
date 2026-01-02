@@ -232,11 +232,25 @@ const Map<String, List<String>> autocompleteOptions = {
     'sponsor',
     'intro',
     'outro',
-    'interaction',
     'selfpromo',
-    'music_offtopic',
-    'poi_highlight',
+    'preview',
     'filler',
+    'interaction',
+    'music_offtopic',
+    'hook',
+    'poi_highlight',
+    'chapter',
+  ],
+  'sponsorblock_remove': [
+    'sponsor',
+    'intro',
+    'outro',
+    'selfpromo',
+    'preview',
+    'filler',
+    'interaction',
+    'music_offtopic',
+    'hook',
   ],
   'cookies_from_browser': ['brave', 'chrome'],
 };
@@ -286,12 +300,14 @@ const Map<String, IntegerSpinnerConfig> integerSpinnerConfigs = {
 
 // Controls any preferences
 const Set<String> allowCustomValues = {
-  'sponsorblock_mark',
   'output',
   'format',
   'paths',
 };
-const Set<String> allowSelectionValues = {'sponsorblock_mark'};
+const Set<String> allowSelectionValues = {
+  'sponsorblock_mark',
+  'sponsorblock_remove',
+};
 
 const Set<String> blockedListTextModeKeys = {'output'};
 const Set<String> blockedMapTextModeKeys = {'paths'};

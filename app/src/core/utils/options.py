@@ -208,21 +208,7 @@ def _empty_str_list() -> list[str]:
     return []
 
 
-SponsorBlockCategory = Literal[
-    "sponsor",
-    "intro",
-    "outro",
-    "selfpromo",
-    "preview",
-    "filler",
-    "interaction",
-    "music_offtopic",
-    "poi_highlight",
-    "chapter",
-]
-
-
-def _empty_sponsorblock_list() -> list[SponsorBlockCategory]:
+def _empty_sponsorblock_list() -> list[str]:
     return []
 
 
@@ -431,9 +417,8 @@ class OptionsConfig:
     # Guarda la miniatura del video en disco.
     write_thumbnail: bool = False
     # // SponsorBlock Options ======================================================================
-    sponsorblock_mark: list[SponsorBlockCategory] = field(
-        default_factory=_empty_sponsorblock_list
-    )
+    sponsorblock_mark: list[str] = field(default_factory=_empty_sponsorblock_list)
+    sponsorblock_remove: list[str] = field(default_factory=_empty_sponsorblock_list)
     # // Extractor Options =========================================================================
     # Límite de velocidad, por ejemplo "500K" o "4.2M".
     limit_rate: str = ""
@@ -602,6 +587,7 @@ def parse_options(
     write_thumbnail = params.write_thumbnail
 
     sponsorblock_mark = params.sponsorblock_mark
+    sponsorblock_remove = params.sponsorblock_remove
 
     limit_rate = params.limit_rate
 
@@ -988,6 +974,10 @@ def parse_options(
         marks = [str(item) for item in sponsorblock_mark if item]
         if marks:
             comando.extend(["--sponsorblock-mark", ",".join(marks)])
+    if sponsorblock_remove:
+        removals = [str(item) for item in sponsorblock_remove if item]
+        if removals:
+            comando.extend(["--sponsorblock-remove", ",".join(removals)])
     # Extractor Options
     if extractor_retries:
         comando.extend(["--extractor-retries", str(extractor_retries)])

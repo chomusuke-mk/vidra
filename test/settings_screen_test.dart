@@ -76,6 +76,10 @@ void main() {
       SharedPreferences.setMockInitialValues({});
       preferencesModel = PreferencesModel();
       await preferencesModel.initializePreferences();
+      await preferencesModel.setPreferenceValue(
+        preferencesModel.preferences.language,
+        'es',
+      );
     });
 
     tearDown(() {
@@ -513,14 +517,11 @@ void main() {
 
       await navigateTo(AppStringKey.downloadSection, tester);
 
-      final switchFinder = await ensureControlVisible(
-        'control_playlist_switch',
-        tester,
-      );
-      await tester.tap(switchFinder);
+      final tileFinder = await ensureControlVisible('tile_playlist', tester);
+      await tester.tap(tileFinder);
       await tester.pumpAndSettle();
 
-      expect(preferencesModel.preferences.playlist.getValue<bool>(), isFalse);
+      expect(preferencesModel.preferences.playlist.getValue<bool>(), isTrue);
     });
 
     silentTestWidgets('updates retries integer preference', (
@@ -645,7 +646,7 @@ void main() {
       await tester.pumpWidget(createTestWidget());
       await tester.pumpAndSettle();
 
-      await navigateTo(AppStringKey.downloadSection, tester);
+      await navigateTo(AppStringKey.video, tester);
 
       final sponsorTile = await ensureControlVisible(
         'sponsorblock_mark_chip_sponsor',
@@ -656,6 +657,27 @@ void main() {
       await tester.pumpAndSettle();
 
       final sponsorValue = preferencesModel.preferences.sponsorblockMark
+          .getValue<List<String>>();
+      expect(sponsorValue, isNot(contains('sponsor')));
+    });
+
+    silentTestWidgets('updates sponsorblock remove preference', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(createTestWidget());
+      await tester.pumpAndSettle();
+
+      await navigateTo(AppStringKey.video, tester);
+
+      final sponsorTile = await ensureControlVisible(
+        'sponsorblock_remove_chip_sponsor',
+        tester,
+      );
+
+      await tester.tap(sponsorTile);
+      await tester.pumpAndSettle();
+
+      final sponsorValue = preferencesModel.preferences.sponsorblockRemove
           .getValue<List<String>>();
       expect(sponsorValue, contains('sponsor'));
     });

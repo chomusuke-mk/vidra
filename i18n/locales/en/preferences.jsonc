@@ -203,6 +203,10 @@
     "name": "SponsorBlock Mark",
     "description": "Marks segments from SponsorBlock categories."
   },
+  "sponsorblock_remove": {
+    "name": "SponsorBlock Remove",
+    "description": "Removes segments from SponsorBlock categories."
+  },
   "sub_format": {
     "name": "Subtitle Format",
     "description": "Subtitle format code(s) to download."
