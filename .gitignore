@@ -121,3 +121,8 @@ app.*.symbols
 /temp/
 /app/app.zip
 /app/app.zip.hash
+
+# External binaries (download required; do not commit)
+/windows/ffmpeg/*
+/linux/ffmpeg/*
+/android/app/src/main/jniLibs/**

@@ -30,6 +30,23 @@
 - Android/iOS toolchains (optional, only if targeting mobile builds).
 - `serious_python` CLI (installed via `dart pub global activate serious_python`).
 
+### FFmpeg / ffprobe binaries (required)
+
+This repository does **not** ship FFmpeg binaries anymore. To run Vidra you must provide `ffmpeg` and `ffprobe` yourself.
+
+Recommended source: https://github.com/chomusuke-mk/vidra-ffmpeg
+
+Place the files with **exact** names in the following locations:
+
+- **Windows**
+	- `windows/ffmpeg/ffmpeg.exe`
+	- `windows/ffmpeg/ffprobe.exe`
+
+- **Linux**
+	- `linux/ffmpeg/ffmpeg`
+	- `linux/ffmpeg/ffprobe`
+	- Ensure they are executable: `chmod +x linux/ffmpeg/ffmpeg linux/ffmpeg/ffprobe`
+
 ## Quick start
 
 ### 1. Bootstrap the Python backend
