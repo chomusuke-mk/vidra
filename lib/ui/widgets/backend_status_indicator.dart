@@ -119,6 +119,9 @@ _BackendIndicatorStatus _resolveBackendIndicatorStatus(
   if (updateStatus == BackendUpdateStatus.downloadingUpdate) {
     return _BackendIndicatorStatus.downloading;
   }
+  if (updateStatus == BackendUpdateStatus.updateAvailable) {
+    return _BackendIndicatorStatus.updateAvailable;
+  }
   if (hasUpdateAvailable) {
     return _BackendIndicatorStatus.updateAvailable;
   }

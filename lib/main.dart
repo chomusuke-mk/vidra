@@ -14,6 +14,7 @@ import 'package:vidra/i18n/i18n.dart';
 import 'package:vidra/models/preferences_model.dart';
 import 'package:vidra/share/share_intent_coordinator.dart';
 import 'package:vidra/state/app_lifecycle_observer.dart';
+import 'package:vidra/state/app_update_bootstrapper.dart';
 import 'package:vidra/state/download_controller.dart';
 import 'package:vidra/state/initial_permissions_controller.dart';
 import 'package:vidra/state/notifications/download_notification_manager.dart';
@@ -47,6 +48,8 @@ Future<void> main() async {
     languageResolver: () => preferencesModel.effectiveLanguage,
   );
   await notificationManager.initialize();
+
+  unawaited(AppUpdateBootstrapper().run());
   final appLifecycleObserver = AppLifecycleObserver();
 
   final supportDir = await getApplicationSupportDirectory();

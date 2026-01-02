@@ -1,11 +1,22 @@
 import 'dart:async';
-import 'dart:io' show File, Platform;
+import 'dart:io' show File, Platform, HttpException;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:http/http.dart' as http;
+import 'package:crypto/crypto.dart' as crypto;
+import 'package:convert/convert.dart' show AccumulatorSink;
+import 'package:open_file/open_file.dart';
+import 'package:path/path.dart' as p;
 import 'package:vidra/constants/app_strings.dart';
 import 'package:vidra/config/backend_config.dart';
 import 'package:vidra/i18n/delegates/vidra_localizations.dart';
+import 'package:vidra/models/preferences_model.dart';
+import 'package:vidra/state/app_release_updater.dart';
+import 'package:vidra/state/release_update_cache.dart';
 import 'package:vidra/state/download_controller.dart';
 import 'package:vidra/state/serious_python_server_launcher.dart';
 import 'package:vidra/state/backend_update_indicator.dart';
@@ -62,7 +73,16 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
   bool _isInstallReady = false;
   bool _isRefreshing = false;
   String? _updateErrorMessage;
-  Timer? _downloadTimer;
+
+  final GitHubReleaseUpdater _releaseUpdater = GitHubReleaseUpdater(
+    owner: 'chomusuke-mk',
+    repo: 'vidra',
+  );
+
+  String? _currentAppVersion;
+  ReleaseUpdateInfo? _latestRelease;
+  String? _downloadedInstallerPath;
+  double? _downloadProgress;
 
   void _syncGlobalUpdateIndicator() {
     final indicator = BackendUpdateIndicator.instance;
@@ -70,6 +90,8 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
       indicator.setState(BackendUpdateStatus.installReady);
     } else if (_isDownloadingUpdate) {
       indicator.setState(BackendUpdateStatus.downloadingUpdate);
+    } else if (_latestRelease?.isUpdateAvailable ?? false) {
+      indicator.setState(BackendUpdateStatus.updateAvailable);
     } else {
       indicator.setState(BackendUpdateStatus.idle);
     }
@@ -77,23 +99,43 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
 
   @override
   void dispose() {
-    _downloadTimer?.cancel();
     super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(_bootstrapUpdater());
+  }
+
+  Future<void> _bootstrapUpdater() async {
+    try {
+      final info = await PackageInfo.fromPlatform();
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _currentAppVersion = info.version;
+      });
+      await _refreshUpdateInfo();
+    } catch (error) {
+      debugPrint('Failed to bootstrap updater: $error');
+    }
   }
 
   void _handleUpdateAction({required bool outdated}) {
     final actionState = _resolveActionState(isLatest: !outdated);
     switch (actionState) {
       case _UpdateActionState.refresh:
-        _startRefreshCycle();
+        unawaited(_refreshUpdateInfo());
         return;
       case _UpdateActionState.downloadUpdate:
-        _startMockDownload();
+        unawaited(_downloadUpdate());
         break;
       case _UpdateActionState.downloadingUpdate:
         return;
       case _UpdateActionState.install:
-        _completeMockInstall();
+        unawaited(_runInstaller());
         break;
     }
     setState(() {});
@@ -134,32 +176,212 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
     return localizations.ui(AppStringKey.backendStatusPrimaryUpToDate);
   }
 
-  void _startMockDownload() {
-    _downloadTimer?.cancel();
+  Future<void> _refreshUpdateInfo() async {
+    final current = _currentAppVersion;
+    if (current == null || current.trim().isEmpty) {
+      return;
+    }
+    if (!mounted) {
+      return;
+    }
+
+    setState(() {
+      _isRefreshing = true;
+      _updateErrorMessage = null;
+    });
+    _syncGlobalUpdateIndicator();
+
+    final prefs = await SharedPreferences.getInstance();
+    final now = _releaseUpdater.now();
+    final last = ReleaseUpdateCache.readLastCheck(prefs);
+
+    // Throttle applies to both automatic and manual checks.
+    if (last != null &&
+        now.difference(last) < GitHubReleaseUpdater.throttleWindow) {
+      final cached = ReleaseUpdateCache.read(prefs, currentVersion: current);
+      if (mounted) {
+        setState(() {
+          _latestRelease = cached;
+          _isRefreshing = false;
+        });
+      }
+      _syncGlobalUpdateIndicator();
+      return;
+    }
+
+    try {
+      await ReleaseUpdateCache.writeLastCheck(prefs, now);
+
+      final info = await _releaseUpdater.fetchLatest(
+        currentVersion: current,
+        platform: defaultTargetPlatform,
+      );
+
+      await ReleaseUpdateCache.write(prefs, info);
+
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _latestRelease = info;
+        _isRefreshing = false;
+      });
+    } catch (error) {
+      debugPrint('Update check failed: $error');
+      final cached = ReleaseUpdateCache.read(prefs, currentVersion: current);
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _latestRelease = cached;
+        _isRefreshing = false;
+        _updateErrorMessage = error.toString();
+      });
+    } finally {
+      _syncGlobalUpdateIndicator();
+      if (mounted && _isRefreshing) {
+        setState(() {
+          _isRefreshing = false;
+        });
+      }
+    }
+  }
+
+  Future<void> _downloadUpdate() async {
     final localizations = VidraLocalizations.of(context);
+    final info = _latestRelease;
+    if (info == null || !info.isUpdateAvailable) {
+      return;
+    }
+    if (!mounted) {
+      return;
+    }
+
     setState(() {
       _updateErrorMessage = null;
       _isDownloadingUpdate = true;
       _isInstallReady = false;
       _isRefreshing = false;
+      _downloadProgress = 0;
     });
     _syncGlobalUpdateIndicator();
     _showSnack(localizations.ui(AppStringKey.backendStatusSnackPreparing));
-    _downloadTimer = Timer(const Duration(seconds: 3), () {
+
+    final preferencesModel = context.read<PreferencesModel>();
+    final downloadsDir = await preferencesModel.preferences
+        .ensurePathsHomeEntry();
+    if (downloadsDir == null || downloadsDir.trim().isEmpty) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _isDownloadingUpdate = false;
+        _downloadProgress = null;
+        _updateErrorMessage = 'No se pudo resolver la carpeta de descargas.';
+      });
+      _syncGlobalUpdateIndicator();
+      return;
+    }
+
+    final finalPath = p.join(downloadsDir, info.assetName);
+    final tempPath = '$finalPath.partial';
+    final outFile = File(tempPath);
+    await outFile.parent.create(recursive: true);
+
+    try {
+      final client = http.Client();
+      try {
+        final request = http.Request('GET', info.assetUrl);
+        request.headers['User-Agent'] = 'vidra-app';
+        final response = await client.send(request);
+        if (response.statusCode != 200) {
+          throw HttpException(
+            'Download failed (${response.statusCode})',
+            uri: info.assetUrl,
+          );
+        }
+
+        final total = response.contentLength;
+        final sink = outFile.openWrite();
+        final digestSink = AccumulatorSink<crypto.Digest>();
+        final hasher = crypto.sha256.startChunkedConversion(digestSink);
+        int received = 0;
+        try {
+          await for (final chunk in response.stream) {
+            received += chunk.length;
+            hasher.add(chunk);
+            sink.add(chunk);
+
+            if (total != null && total > 0 && mounted) {
+              setState(() {
+                _downloadProgress = received / total;
+              });
+            }
+          }
+        } finally {
+          await sink.flush();
+          await sink.close();
+          hasher.close();
+        }
+
+        final computed = digestSink.events.single.toString();
+        if (computed.toLowerCase() != info.sha256.toLowerCase()) {
+          throw StateError('Checksum SHA256 inválido para ${info.assetName}');
+        }
+
+        // Move into final name only after checksum verification.
+        final finalFile = File(finalPath);
+        if (await finalFile.exists()) {
+          await finalFile.delete();
+        }
+        await outFile.rename(finalPath);
+
+        // Authenticode validation intentionally disabled.
+      } finally {
+        client.close();
+      }
+
       if (!mounted) {
         return;
       }
       setState(() {
         _isDownloadingUpdate = false;
         _isInstallReady = true;
+        _downloadedInstallerPath = finalPath;
+        _downloadProgress = null;
       });
       _syncGlobalUpdateIndicator();
       _showSnack(localizations.ui(AppStringKey.backendStatusSnackReady));
-    });
+    } catch (error) {
+      debugPrint('Update download failed: $error');
+      try {
+        if (await outFile.exists()) {
+          await outFile.delete();
+        }
+      } catch (_) {}
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _isDownloadingUpdate = false;
+        _isInstallReady = false;
+        _downloadProgress = null;
+        _updateErrorMessage = error.toString();
+      });
+      _syncGlobalUpdateIndicator();
+    }
   }
 
-  void _completeMockInstall() {
+  Future<void> _runInstaller() async {
     final localizations = VidraLocalizations.of(context);
+    final path = _downloadedInstallerPath;
+    if (path == null || path.trim().isEmpty) {
+      return;
+    }
+
+    if (!mounted) {
+      return;
+    }
     setState(() {
       _isInstallReady = false;
       _updateErrorMessage = null;
@@ -167,24 +389,7 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
     });
     _syncGlobalUpdateIndicator();
     _showSnack(localizations.ui(AppStringKey.backendStatusSnackInstalling));
-  }
-
-  void _startRefreshCycle() {
-    _downloadTimer?.cancel();
-    setState(() {
-      _isRefreshing = true;
-      _updateErrorMessage = null;
-    });
-    _syncGlobalUpdateIndicator();
-    _downloadTimer = Timer(const Duration(seconds: 2), () {
-      if (!mounted) {
-        return;
-      }
-      setState(() {
-        _isRefreshing = false;
-      });
-      _syncGlobalUpdateIndicator();
-    });
+    await OpenFile.open(path);
   }
 
   void _showSnack(String message) {
@@ -324,13 +529,19 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
     final unknownVersionText = localizations.ui(
       AppStringKey.backendStatusUnknownVersion,
     );
-    final version = metadata['version']?.toString() ?? unknownVersionText;
+    final version =
+        _currentAppVersion ??
+        metadata['version']?.toString() ??
+        unknownVersionText;
     metadata.putIfAbsent(
       'version',
       () => backendConfig.metadata['version'] ?? unknownVersionText,
     );
-    final String? latestVersion = metadata['latest_version']?.toString();
-    final isLatest = latestVersion == null || latestVersion == version;
+    final String? latestVersion =
+        _latestRelease?.latestVersion ?? metadata['latest_version']?.toString();
+    final isLatest = _latestRelease == null
+        ? (latestVersion == null || latestVersion == version)
+        : !_latestRelease!.isUpdateAvailable;
     final platformLabel = _platformLabel(metadata, localizations);
     final updateStatus = _resolveUpdateStatus(isLatest);
     final actionState = _resolveActionState(isLatest: isLatest);
@@ -379,6 +590,7 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
                   actionState: actionState,
                   errorMessage: _updateErrorMessage,
                   primaryMessage: primaryMessage,
+                  downloadProgress: _downloadProgress,
                   actionEnabled: actionEnabled,
                   onAction: () => _handleUpdateAction(outdated: !isLatest),
                 ),
@@ -496,6 +708,7 @@ class _UpdateCard extends StatelessWidget {
     required this.actionState,
     required this.errorMessage,
     required this.primaryMessage,
+    required this.downloadProgress,
     required this.actionEnabled,
     required this.onAction,
   });
@@ -506,6 +719,7 @@ class _UpdateCard extends StatelessWidget {
   final _UpdateActionState actionState;
   final String? errorMessage;
   final String primaryMessage;
+  final double? downloadProgress;
   final bool actionEnabled;
   final VoidCallback onAction;
 
@@ -517,6 +731,7 @@ class _UpdateCard extends StatelessWidget {
     final actionButton = _UpdateActionButton(
       state: actionState,
       enabled: actionEnabled,
+      progress: downloadProgress,
       onPressed: actionEnabled ? onAction : null,
     );
     return Card(
@@ -1061,11 +1276,13 @@ class _UpdateActionButton extends StatelessWidget {
   const _UpdateActionButton({
     required this.state,
     required this.enabled,
+    required this.progress,
     required this.onPressed,
   });
 
   final _UpdateActionState state;
   final bool enabled;
+  final double? progress;
   final VoidCallback? onPressed;
 
   @override
@@ -1084,6 +1301,7 @@ class _UpdateActionButton extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           child: CircularProgressIndicator.adaptive(
             strokeWidth: 2.5,
+            value: progress,
             valueColor: AlwaysStoppedAnimation<Color>(
               theme.colorScheme.primary,
             ),

@@ -11,6 +11,8 @@ class BackendUpdateIndicator {
 
   ValueListenable<BackendUpdateStatus> get state => _state;
 
+  BackendUpdateStatus get current => _state.value;
+
   void setState(BackendUpdateStatus next) {
     if (_state.value == next) {
       return;
@@ -21,4 +23,9 @@ class BackendUpdateIndicator {
 
 /// Describes the extra update-centric layers that can override the indicator
 /// visuals even when the backend is running.
-enum BackendUpdateStatus { idle, downloadingUpdate, installReady }
+enum BackendUpdateStatus {
+  idle,
+  updateAvailable,
+  downloadingUpdate,
+  installReady,
+}

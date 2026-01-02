@@ -534,8 +534,16 @@ jobs:
         run: |
           set -euo pipefail
           cd dist-artifacts
-          sha256sum * > SHA2-256SUMS
-          sha512sum * > SHA2-512SUMS
+          # Hash only the build artifacts present at this point.
+          # (SUMS and signatures are generated after this step.)
+          shopt -s nullglob
+          files=(*)
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "No artifacts found in dist-artifacts; cannot generate checksums" >&2
+            exit 1
+          fi
+          sha256sum "${files[@]}" > SHA2-256SUMS
+          sha512sum "${files[@]}" > SHA2-512SUMS
 
       - name: Sign SUMS with GPG
         shell: bash
@@ -577,6 +585,21 @@ jobs:
         run: |
           set -euo pipefail
           cd dist-artifacts
+
+          # Optional explicit asset name mapping to make updaters resilient to naming changes.
+          # Keep legacy/short keys (android, windows, etc.) plus the more explicit asset-* keys.
+          tag="${BUILD_TAG}"
+
+          android_universal="vidra-${tag}-android.apk"
+          android_arm64="vidra-${tag}-android-arm64-v8a.apk"
+          android_armeabi="vidra-${tag}-android-armeabi-v7a.apk"
+          android_x86="vidra-${tag}-android-x86.apk"
+          android_x86_64="vidra-${tag}-android-x86_64.apk"
+          windows_exe="vidra-${tag}-windows.exe"
+          linux_appimage="vidra-${tag}-linux.AppImage"
+          linux_deb="vidra-${tag}-linux.deb"
+          linux_rpm="vidra-${tag}-linux.rpm"
+
           {
             echo "version=${APP_VERSION}"
             echo "tag=${BUILD_TAG}"
@@ -584,7 +607,79 @@ jobs:
             echo "yt-dlp=${YTDLP_VERSION}"
             echo "yt-dlp-ejs=${YTDLPEJS_VERSION}"
             echo "vidra-ffmpeg=${{ needs.resolve-versions.outputs.ffmpeg_tag }}"
+
+            # Checksums/signatures filenames
+            echo "sha256sums=SHA2-256SUMS"
+            echo "sha256sums_sig=SHA2-256SUMS.sig"
+            echo "sha512sums=SHA2-512SUMS"
+            echo "sha512sums_sig=SHA2-512SUMS.sig"
+
+            # --- Update routing (from -> to) using stable type identifiers ---
+            # If the app can identify the local install/system id, it should look up:
+            #   upgrade.<from_id>=<to_id>
+            # Then resolve the actual filename via:
+            #   file.<to_id>=<asset_filename>
+            # If it cannot identify, it should fall back to a general id (e.g. android).
+
+            # Windows
+            echo "upgrade.windows_x64=windows_x64"
+
+            # Android (general + per-ABI)
+            echo "upgrade.android=android"
+            echo "upgrade.android_arm64_v8a=android_arm64_v8a"
+            echo "upgrade.android_armeabi_v7a=android_armeabi_v7a"
+            echo "upgrade.android_x86=android_x86"
+            echo "upgrade.android_x86_64=android_x86_64"
+
+            # Linux (kept simple for now)
+            echo "upgrade.linux_x64=linux_x64"
+
+            # --- File mapping (id -> asset filename) ---
+            if [ -f "$windows_exe" ]; then
+              echo "file.windows_x64=$windows_exe"
+            fi
+            if [ -f "$linux_appimage" ]; then
+              echo "file.linux_x64=$linux_appimage"
+              echo "file.linux_appimage=$linux_appimage"
+            fi
+            if [ -f "$android_universal" ]; then
+              echo "file.android=$android_universal"
+            fi
+            if [ -f "$android_arm64" ]; then echo "file.android_arm64_v8a=$android_arm64"; fi
+            if [ -f "$android_armeabi" ]; then echo "file.android_armeabi_v7a=$android_armeabi"; fi
+            if [ -f "$android_x86" ]; then echo "file.android_x86=$android_x86"; fi
+            if [ -f "$android_x86_64" ]; then echo "file.android_x86_64=$android_x86_64"; fi
+
+            # Canonical asset keys used by the app updater
+            if [ -f "$windows_exe" ]; then
+              echo "asset-windows=$windows_exe"
+              echo "windows=$windows_exe"
+            fi
+            if [ -f "$linux_appimage" ]; then
+              echo "asset-linux-appimage=$linux_appimage"
+              echo "linux_appimage=$linux_appimage"
+            fi
+            if [ -f "$android_universal" ]; then
+              echo "asset-android-universal=$android_universal"
+              echo "android=$android_universal"
+            fi
+
+            # Optional per-ABI Android assets
+            if [ -f "$android_arm64" ]; then echo "android_arm64_v8a=$android_arm64"; fi
+            if [ -f "$android_armeabi" ]; then echo "android_armeabi_v7a=$android_armeabi"; fi
+            if [ -f "$android_x86" ]; then echo "android_x86=$android_x86"; fi
+            if [ -f "$android_x86_64" ]; then echo "android_x86_64=$android_x86_64"; fi
+
+            # Optional Linux packages
+            if [ -f "$linux_deb" ]; then echo "linux_deb=$linux_deb"; fi
+            if [ -f "$linux_rpm" ]; then echo "linux_rpm=$linux_rpm"; fi
           } > _update
+
+          # Ensure required checksum assets exist before publishing.
+          test -f SHA2-256SUMS
+          test -f SHA2-512SUMS
+          test -f SHA2-256SUMS.sig
+          test -f SHA2-512SUMS.sig
 
       - name: Publish GitHub Release assets
         shell: bash
@@ -602,4 +697,14 @@ jobs:
             gh release create "$tag" --title "$title" --notes "$notes"
           fi
 
-          gh release upload "$tag" dist-artifacts/* --clobber
+          # Upload checksums + signatures explicitly first (always required).
+          gh release upload "$tag" \
+            dist-artifacts/SHA2-256SUMS \
+            dist-artifacts/SHA2-256SUMS.sig \
+            dist-artifacts/SHA2-512SUMS \
+            dist-artifacts/SHA2-512SUMS.sig \
+            dist-artifacts/_update \
+            --clobber
+
+          # Upload the remaining build artifacts (platform installers/packages).
+          gh release upload "$tag" dist-artifacts/vidra-* --clobber
