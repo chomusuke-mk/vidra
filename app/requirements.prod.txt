@@ -1,4 +1,3 @@
-uvicorn[standard]
 certifi
 httpx
 mutagen
@@ -10,3 +9,4 @@ websockets
 pycryptodomex
 brotli
 cffi
+uvicorn
