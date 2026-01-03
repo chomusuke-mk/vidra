@@ -900,6 +900,18 @@ jobs:
             echo "| Commit | \\`${short_sha}\\` |"
             echo "| CI run | ${run_url} |"
             echo
+            echo "## Which file to download?"
+            echo
+            readme_base_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${tag}/README.md"
+            echo "[![WHICH FILE TO DOWNLOAD?](https://img.shields.io/badge/WHICH%20FILE%20TO%20DOWNLOAD%3F-Windows-blue)](${readme_base_url}#windows)"
+            echo "[![WHICH FILE TO DOWNLOAD?](https://img.shields.io/badge/WHICH%20FILE%20TO%20DOWNLOAD%3F-Linux-blue)](${readme_base_url}#linux)"
+            echo "[![WHICH FILE TO DOWNLOAD?](https://img.shields.io/badge/WHICH%20FILE%20TO%20DOWNLOAD%3F-Android-blue)](${readme_base_url}#android)"
+            echo
+            echo "## Donate"
+            echo
+            echo "[![Donate](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-orange)](https://www.buymeacoffee.com/chomusuke)"
+            echo "[![Donate](https://img.shields.io/badge/Donate-Patreon-critical)](https://www.patreon.com/chomusuke_dev)"
+            echo
             echo "## Changes"
             echo
             if [ -n "$previous_tag" ]; then
@@ -950,6 +962,10 @@ jobs:
             echo "## Integrity"
             echo
             echo "Checksums and signatures: [SHA2-256SUMS](${download_base_url}/SHA2-256SUMS), [SHA2-256SUMS.sig](${download_base_url}/SHA2-256SUMS.sig), [SHA2-512SUMS](${download_base_url}/SHA2-512SUMS), [SHA2-512SUMS.sig](${download_base_url}/SHA2-512SUMS.sig)."
+            echo
+            echo "## Licensing"
+            echo
+            echo "These assets are distributed under [LICENSE](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${tag}/LICENSE) and may include third-party components under other licenses listed in [THIRD_PARTY_LICENSES.md](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${tag}/THIRD_PARTY_LICENSES.md)."
           } > "$notes_file"
 
           if gh release view "$tag" >/dev/null 2>&1; then

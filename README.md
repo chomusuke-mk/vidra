@@ -3,6 +3,8 @@
 [![Flutter 3.9+](https://img.shields.io/badge/Flutter-3.9%2B-blue)](https://flutter.dev)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blueviolet)](https://www.python.org/)
 [![License](https://img.shields.io/badge/Licensing-THIRD__PARTY__LICENSES-informational)](THIRD_PARTY_LICENSES.md)
+[![Donate](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-orange)](https://www.buymeacoffee.com/chomusuke)
+[![Donate](https://img.shields.io/badge/Donate-Patreon-critical)](https://www.patreon.com/chomusuke_dev)
 
 > Vidra is a desktop-grade video/job manager that marries a Flutter UI with an embedded Python backend (FastAPI + yt-dlp). The project is fully localized, scriptable, and ready for packaging via `serious_python`.
 
@@ -12,6 +14,46 @@
 - **Modern client** – A Flutter desktop app with caching, offline awareness, theming, and localization coverage for 150+ locales.
 - **Battle-tested backend** – FastAPI + Uvicorn + yt-dlp provide resumable downloads, queue orchestration, and hook-based automation.
 - **Ops-friendly** – Feature flags, structured logging, translation tooling, and ready-made VS Code tasks keep operations predictable.
+
+## Instalacion
+
+Vidra se distribuye vía **GitHub Releases**. En cada release vas a ver varios *assets* (archivos) para distintas plataformas.
+
+### Windows
+
+- Descarga: `vidra-<tag>-windows.exe`
+- Qué es: instalador para Windows (x64).
+
+### Linux
+
+Elige **uno**:
+
+- Recomendado (portable): `vidra-<tag>-linux.AppImage`
+- Debian/Ubuntu: `vidra-<tag>-linux.deb`
+- Fedora/openSUSE: `vidra-<tag>-linux.rpm`
+
+### Android
+
+Si no estás seguro, descarga el **universal**:
+
+- Universal (más grande, funciona en casi todos): `vidra-<tag>-android.apk`
+
+Si quieres el APK correcto para tu CPU/ABI (más pequeño), descarga el que corresponda:
+
+- ARM 64-bit: `vidra-<tag>-android-arm64-v8a.apk`
+- ARM 32-bit: `vidra-<tag>-android-armeabi-v7a.apk`
+- x86 32-bit: `vidra-<tag>-android-x86.apk`
+- x86 64-bit: `vidra-<tag>-android-x86_64.apk`
+
+Tip para identificar ABI (opcional): `adb shell getprop ro.product.cpu.abilist`
+
+### Otros assets (no son el instalador)
+
+- `_update`: metadatos para el actualizador automático dentro de Vidra.
+- `SHA2-256SUMS`, `SHA2-512SUMS`: checksums.
+- `SHA2-256SUMS.sig`, `SHA2-512SUMS.sig`: firmas GPG de los checksums.
+
+Estos assets se distribuyen bajo la licencia indicada en [LICENSE](LICENSE) y pueden incluir componentes con otras licencias listadas en [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
 
 ## Architecture
 
