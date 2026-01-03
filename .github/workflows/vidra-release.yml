@@ -805,12 +805,159 @@ jobs:
           set -euo pipefail
           tag="${BUILD_TAG}"
           title="Vidra ${BUILD_TAG}"
-          notes="Automated build at ${BUILD_TIMESTAMP}."
+
+          update_file="dist-artifacts/_update"
+          if [ ! -f "$update_file" ]; then
+            echo "Missing $update_file" >&2
+            exit 1
+          fi
+
+          get_update_value() {
+            local key="$1"
+            # Print the value part of the first matching key=value line.
+            local line
+            line=$(grep -m1 -E "^${key}=" "$update_file" || true)
+            if [ -z "$line" ]; then
+              return 1
+            fi
+            printf '%s' "${line#*=}"
+          }
+
+          app_version="$(get_update_value version || true)"
+          build_timestamp_iso="$(get_update_value timestamp || true)"
+          ytdlp_version="$(get_update_value yt-dlp || true)"
+          ytdlpejs_version="$(get_update_value yt-dlp-ejs || true)"
+          ffmpeg_tag="$(get_update_value vidra-ffmpeg || true)"
+
+          if [ -z "$build_timestamp_iso" ]; then
+            build_timestamp_iso="${BUILD_TIMESTAMP}"
+          fi
+
+            build_timestamp_pretty="$(python -c $'import sys\nfrom datetime import datetime, timezone\nraw=sys.argv[1].strip()\nif not raw:\n    print(\"\")\n    raise SystemExit(0)\ns=raw.replace(\"Z\",\"+00:00\")\ntry:\n    dt=datetime.fromisoformat(s)\nexcept Exception:\n    print(raw)\n    raise SystemExit(0)\nprint(dt.astimezone(timezone.utc).strftime(\"%Y-%m-%d %H:%M UTC\"))' "$build_timestamp_iso")"
+
+          short_sha="${GITHUB_SHA::7}"
+          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          download_base_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/download/${tag}"
+
+          # ---- Changes (compare with previous stable release) ----
+          previous_tag=""
+          previous_update_asset_id=""
+          previous_update_path=""
+
+          # Pick the most recent non-draft, non-prerelease tag that isn't the current one.
+          previous_tag=$(gh api "repos/${GITHUB_REPOSITORY}/releases?per_page=50" --jq \
+            --arg current "$tag" \
+            '[.[] | select(.draft==false and .prerelease==false and .tag_name!=$current) | .tag_name][0] // ""' \
+            2>/dev/null || true)
+
+          if [ -n "$previous_tag" ]; then
+            previous_update_asset_id=$(gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${previous_tag}" --jq \
+              '.assets[] | select(.name=="_update") | .id' \
+              2>/dev/null || true)
+          fi
+
+          if [ -n "$previous_update_asset_id" ]; then
+            previous_update_path=$(mktemp)
+            # Download previous _update from GitHub API.
+            gh api \
+              -H "Accept: application/octet-stream" \
+              "repos/${GITHUB_REPOSITORY}/releases/assets/${previous_update_asset_id}" \
+              > "$previous_update_path" || true
+          fi
+
+          prev_get_update_value() {
+            local key="$1"
+            if [ -z "$previous_update_path" ] || [ ! -f "$previous_update_path" ]; then
+              return 1
+            fi
+            local line
+            line=$(grep -m1 -E "^${key}=" "$previous_update_path" || true)
+            if [ -z "$line" ]; then
+              return 1
+            fi
+            printf '%s' "${line#*=}"
+          }
+
+          prev_app_version="$(prev_get_update_value version || true)"
+          prev_ytdlp_version="$(prev_get_update_value yt-dlp || true)"
+          prev_ytdlpejs_version="$(prev_get_update_value yt-dlp-ejs || true)"
+          prev_ffmpeg_tag="$(prev_get_update_value vidra-ffmpeg || true)"
+
+          notes_file=$(mktemp)
+          {
+            echo "## Build information"
+            echo
+            echo "| Field | Value |"
+            echo "|---|---|"
+            echo "| Release tag | \\`${tag}\\` |"
+            if [ -n "$app_version" ]; then echo "| Vidra version | \\`${app_version}\\` |"; fi
+            if [ -n "$build_timestamp_pretty" ]; then
+              echo "| Build time (UTC) | ${build_timestamp_pretty} |"
+            fi
+            if [ -n "$build_timestamp_iso" ]; then
+              echo "| Build timestamp (raw) | \\`${build_timestamp_iso}\\` |"
+            fi
+            echo "| Commit | \\`${short_sha}\\` |"
+            echo "| CI run | ${run_url} |"
+            echo
+            echo "## Changes"
+            echo
+            if [ -n "$previous_tag" ]; then
+              echo "Compared to \\`${previous_tag}\\`."
+              echo
+            else
+              echo "No previous stable release found to compare."
+              echo
+            fi
+
+            change_count=0
+            if [ -n "$prev_app_version" ] && [ -n "$app_version" ] && [ "$prev_app_version" != "$app_version" ]; then
+              echo "- Updated Vidra from \\`${prev_app_version}\\` to \\`${app_version}\\`."
+              change_count=$((change_count + 1))
+            fi
+            if [ -n "$prev_ytdlp_version" ] && [ -n "$ytdlp_version" ] && [ "$prev_ytdlp_version" != "$ytdlp_version" ]; then
+              echo "- Updated yt-dlp from \\`${prev_ytdlp_version}\\` to \\`${ytdlp_version}\\`."
+              change_count=$((change_count + 1))
+            fi
+            if [ -n "$prev_ytdlpejs_version" ] && [ -n "$ytdlpejs_version" ] && [ "$prev_ytdlpejs_version" != "$ytdlpejs_version" ]; then
+              echo "- Updated yt-dlp-ejs from \\`${prev_ytdlpejs_version}\\` to \\`${ytdlpejs_version}\\`."
+              change_count=$((change_count + 1))
+            fi
+            if [ -n "$prev_ffmpeg_tag" ] && [ -n "$ffmpeg_tag" ] && [ "$prev_ffmpeg_tag" != "$ffmpeg_tag" ]; then
+              echo "- Updated bundled FFmpeg from \\`${prev_ffmpeg_tag}\\` to \\`${ffmpeg_tag}\\`."
+              change_count=$((change_count + 1))
+            fi
+
+            # Fallback so every release has a human-friendly summary.
+            if [ "$change_count" -eq 0 ]; then
+              echo "- Minor fixes and stability improvements."
+            else
+              echo "- Minor fixes and stability improvements."
+            fi
+
+            echo
+            echo "## Bundled tools"
+            echo
+            echo "| Tool | Version |"
+            echo "|---|---|"
+            if [ -n "$ytdlp_version" ]; then echo "| yt-dlp | [\\`${ytdlp_version}\\`](https://github.com/yt-dlp/yt-dlp/releases/tag/${ytdlp_version}) |"; fi
+            if [ -n "$ytdlpejs_version" ]; then echo "| yt-dlp-ejs | [\\`${ytdlpejs_version}\\`](https://github.com/yt-dlp/ejs/releases/tag/${ytdlpejs_version}) |"; fi
+            if [ -n "$ffmpeg_tag" ]; then \
+              ffmpeg_repo="${VIDRA_FFMPEG_REPO:-chomusuke-mk/vidra-ffmpeg}"; \
+              echo "| FFmpeg bundle | [\\`${ffmpeg_tag}\\`](https://github.com/${ffmpeg_repo}/releases/tag/${ffmpeg_tag}) |"; \
+            fi
+            echo
+            echo "## Integrity"
+            echo
+            echo "Checksums and signatures: [SHA2-256SUMS](${download_base_url}/SHA2-256SUMS), [SHA2-256SUMS.sig](${download_base_url}/SHA2-256SUMS.sig), [SHA2-512SUMS](${download_base_url}/SHA2-512SUMS), [SHA2-512SUMS.sig](${download_base_url}/SHA2-512SUMS.sig)."
+          } > "$notes_file"
 
           if gh release view "$tag" >/dev/null 2>&1; then
             echo "Release $tag already exists; uploading assets."
+            # Keep release notes up to date on re-runs.
+            gh release edit "$tag" --title "$title" --notes-file "$notes_file"
           else
-            gh release create "$tag" --title "$title" --notes "$notes"
+            gh release create "$tag" --title "$title" --notes-file "$notes_file"
           fi
 
           # Upload checksums + signatures explicitly first (always required).
