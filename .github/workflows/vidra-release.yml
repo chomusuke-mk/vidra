@@ -889,15 +889,15 @@ jobs:
             echo
             echo "| Field | Value |"
             echo "|---|---|"
-            echo "| Release tag | \\`${tag}\\` |"
-            if [ -n "$app_version" ]; then echo "| Vidra version | \\`${app_version}\\` |"; fi
+            echo "| Release tag | \`${tag}\` |"
+            if [ -n "$app_version" ]; then echo "| Vidra version | \`${app_version}\` |"; fi
             if [ -n "$build_timestamp_pretty" ]; then
               echo "| Build time (UTC) | ${build_timestamp_pretty} |"
             fi
             if [ -n "$build_timestamp_iso" ]; then
-              echo "| Build timestamp (raw) | \\`${build_timestamp_iso}\\` |"
+              echo "| Build timestamp (raw) | \`${build_timestamp_iso}\` |"
             fi
-            echo "| Commit | \\`${short_sha}\\` |"
+            echo "| Commit | \`${short_sha}\` |"
             echo "| CI run | ${run_url} |"
             echo
             echo "## Which file to download?"
@@ -915,7 +915,7 @@ jobs:
             echo "## Changes"
             echo
             if [ -n "$previous_tag" ]; then
-              echo "Compared to \\`${previous_tag}\\`."
+              echo "Compared to \`${previous_tag}\`."
               echo
             else
               echo "No previous stable release found to compare."
@@ -924,19 +924,19 @@ jobs:
 
             change_count=0
             if [ -n "$prev_app_version" ] && [ -n "$app_version" ] && [ "$prev_app_version" != "$app_version" ]; then
-              echo "- Updated Vidra from \\`${prev_app_version}\\` to \\`${app_version}\\`."
+              echo "- Updated Vidra from \`${prev_app_version}\` to \`${app_version}\`."
               change_count=$((change_count + 1))
             fi
             if [ -n "$prev_ytdlp_version" ] && [ -n "$ytdlp_version" ] && [ "$prev_ytdlp_version" != "$ytdlp_version" ]; then
-              echo "- Updated yt-dlp from \\`${prev_ytdlp_version}\\` to \\`${ytdlp_version}\\`."
+              echo "- Updated yt-dlp from \`${prev_ytdlp_version}\` to \`${ytdlp_version}\`."
               change_count=$((change_count + 1))
             fi
             if [ -n "$prev_ytdlpejs_version" ] && [ -n "$ytdlpejs_version" ] && [ "$prev_ytdlpejs_version" != "$ytdlpejs_version" ]; then
-              echo "- Updated yt-dlp-ejs from \\`${prev_ytdlpejs_version}\\` to \\`${ytdlpejs_version}\\`."
+              echo "- Updated yt-dlp-ejs from \`${prev_ytdlpejs_version}\` to \`${ytdlpejs_version}\`."
               change_count=$((change_count + 1))
             fi
             if [ -n "$prev_ffmpeg_tag" ] && [ -n "$ffmpeg_tag" ] && [ "$prev_ffmpeg_tag" != "$ffmpeg_tag" ]; then
-              echo "- Updated bundled FFmpeg from \\`${prev_ffmpeg_tag}\\` to \\`${ffmpeg_tag}\\`."
+              echo "- Updated bundled FFmpeg from \`${prev_ffmpeg_tag}\` to \`${ffmpeg_tag}\`."
               change_count=$((change_count + 1))
             fi
 
@@ -952,11 +952,11 @@ jobs:
             echo
             echo "| Tool | Version |"
             echo "|---|---|"
-            if [ -n "$ytdlp_version" ]; then echo "| yt-dlp | [\\`${ytdlp_version}\\`](https://github.com/yt-dlp/yt-dlp/releases/tag/${ytdlp_version}) |"; fi
-            if [ -n "$ytdlpejs_version" ]; then echo "| yt-dlp-ejs | [\\`${ytdlpejs_version}\\`](https://github.com/yt-dlp/ejs/releases/tag/${ytdlpejs_version}) |"; fi
+            if [ -n "$ytdlp_version" ]; then echo "| yt-dlp | [\`${ytdlp_version}\`](https://github.com/yt-dlp/yt-dlp/releases/tag/${ytdlp_version}) |"; fi
+            if [ -n "$ytdlpejs_version" ]; then echo "| yt-dlp-ejs | [\`${ytdlpejs_version}\`](https://github.com/yt-dlp/ejs/releases/tag/${ytdlpejs_version}) |"; fi
             if [ -n "$ffmpeg_tag" ]; then \
               ffmpeg_repo="${VIDRA_FFMPEG_REPO:-chomusuke-mk/vidra-ffmpeg}"; \
-              echo "| FFmpeg bundle | [\\`${ffmpeg_tag}\\`](https://github.com/${ffmpeg_repo}/releases/tag/${ffmpeg_tag}) |"; \
+              echo "| FFmpeg bundle | [\`${ffmpeg_tag}\`](https://github.com/${ffmpeg_repo}/releases/tag/${ffmpeg_tag}) |"; \
             fi
             echo
             echo "## Integrity"
