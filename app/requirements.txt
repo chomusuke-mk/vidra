@@ -5,7 +5,6 @@ requests
 secretstorage
 starlette
 marshmallow
-marshmallow-enum
 websockets
 pycryptodomex
 brotli

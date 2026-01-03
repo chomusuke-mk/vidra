@@ -8,7 +8,7 @@
 | Layer                     | Location                  | Tooling                                                     | Purpose                                                              |
 | ------------------------- | ------------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------- |
 | Unit (backend)            | `app/tests/`              | `pytest`, `hypothesis`                                      | Validate typed models, download manager helpers, and hook utilities. |
-| API/Integration (backend) | `app/tests/test_api_*.py` | `pytest` + `httpx`                                          | Spin up FastAPI test client, cover endpoints + error handling.       |
+| API/Integration (backend) | `app/tests/test_api_*.py` | `pytest` + `starlette.testclient`                           | Spin up Starlette app, cover endpoints + error handling.             |
 | Widget (Flutter)          | `test/*.dart`             | `flutter test`                                              | Ensure widgets render correctly with mocked repositories.            |
 | Integration (Flutter)     | `test/backend/`           | `flutter test --tags integration`                           | Drive flows end-to-end against fake backend.                         |
 | E2E smoke                 | Manual / scripted         | `flutter drive` (optional)                                  | Launch packaged app, validate real backend interactions.             |
@@ -18,7 +18,7 @@
 
 - Activate virtualenv before running tests (`cd app && . .venv/Scripts/activate`).
 - Use `pytest -k job` to focus on job lifecycle tests.
-- Mock yt-dlp by patching `core/ytdlp_adapter.py` to emit synthetic payloads; see `tests/conftest.py` for fixtures.
+- Mock yt-dlp at the domain boundary (e.g., `app/src/core/manager.py` / `app/src/core/downloader.py`) to emit synthetic payloads.
 - Run `pyright` for static type enforcement of the typed architecture.
 
 ## Flutter testing tips
@@ -39,8 +39,7 @@ Use caching for `.venv`, `.dart_tool`, and Flutter pub cache to reduce runtimes.
 
 ## Data seeding for manual QA
 
-- `app/tests/fixtures/sample_jobs.json` (if present) can be replayed by dropping into `<VIDRA_SERVER_DATA>/jobs/` before boot.
-- Alternatively run the CLI helper `python -m app.utils.seed_jobs --count 5` (script to be added) to enqueue synthetic jobs.
+- Persisted state is stored in `<VIDRA_SERVER_DATA>/download_state.json`. For manual QA, prefer creating a few jobs through the UI to generate realistic snapshots.
 
 ## See also
 

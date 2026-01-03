@@ -7,12 +7,12 @@ Vidra bundles a Python backend together with a Flutter desktop client, so the ap
 | Dependency | Declared version | License | Obligations & notes | License text |
 | --- | --- | --- | --- | --- |
 | certifi | latest (unpinned) | MPL-2.0 | Keep the MPL notice with redistributed binaries; publish modifications that touch MPL-covered files. | `third_party_licenses/certifi` |
-| fastapi | latest (unpinned) | MIT | Retain copyright and license text in source and binary form. | `third_party_licenses/fastapi` |
 | httpx | latest (unpinned) | BSD-3-Clause | Keep copyright + disclaimer; no endorsement using maintainer names. | `third_party_licenses/httpx` |
+| marshmallow | latest (unpinned) | MIT | Preserve the MIT license text in redistributions. | `third_party_licenses/marshmallow` |
 | mutagen | latest (unpinned) | GPL-2.0-or-later | Copyleft: distributing Vidra with Mutagen requires providing the corresponding source for the backend bundle. | `third_party_licenses/mutagen` |
-| pydantic (< 2) | `<2` | MIT | Preserve copyright and license text. | `third_party_licenses/pydantic` |
 | requests | latest (unpinned) | Apache-2.0 | Keep LICENSE + NOTICE; document any local changes. | `third_party_licenses/requests` |
 | secretstorage | latest (unpinned) | BSD-3-Clause | Retain copyright/permission statement and liability disclaimer. | `third_party_licenses/secretstorage` |
+| starlette | latest (unpinned) | BSD-3-Clause | Same preservation requirements as other BSD components. | `third_party_licenses/starlette` |
 | uvicorn | latest (unpinned) | BSD-3-Clause | Same preservation requirements as other BSD components. | `third_party_licenses/uvicorn` |
 | websockets | latest (unpinned) | BSD-3-Clause | Same preservation requirements as other BSD components. | `third_party_licenses/websockets` |
 | yt-dlp | latest (unpinned) | Unlicense | Public-domain dedication; still respect YouTube/DRM laws when redistributing. | `third_party_licenses/yt-dlp` |

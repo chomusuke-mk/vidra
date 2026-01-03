@@ -55,7 +55,7 @@ def register_websocket_routes(
             websocket.headers
         )
         if not is_valid_token(token):
-            await websocket.close(code=1008, reason="Token inválido o ausente")
+            await websocket.close(code=1008, reason="Missing or invalid token")
             return False
         return True
 

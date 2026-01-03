@@ -7,30 +7,26 @@ This document captures the target state for eliminating ad-hoc `dict`/`Any`
 payloads inside the Vidra backend. Only two boundaries are allowed to deal with
 untyped mappings, and both are wrapped behind explicit adapters:
 
-1. `app/src/core/ytdlp_adapter.py`: upstream yt-dlp objects can change shape at
-   runtime, so this layer keeps working with `Mapping[str, Any]` and converts the
-   payloads into stable application models.
+1. `app/src/core/downloader.py` + `app/src/core/contract/*`: upstream yt-dlp
+   objects can change shape at runtime, so this layer keeps working with
+   `Mapping[str, Any]` and converts payloads into normalized models.
 2. The HTTP/WebSocket adapters (`app/src/api` and `app/src/socket_manager.py`):
    they accept raw JSON from clients, validate it, and immediately translate it
    into the typed domain models described below.
 
-Every other module interacts exclusively with strongly typed dataclasses housed
-under `app/src/types/`. Typed DTOs are versioned along with persistence to keep
-JSON snapshots on disk aligned with the runtime schema.
+Every other module should prefer typed models under `app/src/models/` and the
+normalized contract layer under `app/src/core/contract/`.
 
 ## Package layout
 
 ```
-app/src/types/
+app/src/models/
 ├── __init__.py
 ├── base.py          # cross-cutting aliases/utilities (ISO timestamps, IDs)
 ├── json_types.py    # JSON-compatible recursive aliases
-├── preview.py       # Preview/thumbnail metadata emitted during IDENTIFICANDO
-├── playlist.py      # Playlist summaries, entries, selection snapshots
-├── progress.py      # Download/playlist progress snapshots
-├── job.py           # Job metadata, logs, persisted snapshots
-├── store.py         # Snapshot schema definitions and persistence helpers
-└── socket.py        # DTOs for websocket payloads (thin wrappers over `models/socket`)
+├── download/        # Download job models and persistence payloads
+├── api/             # Request/response payload models
+└── socket/          # Dataclasses for websocket payloads
 ```
 
 Each dataclass exposes:
@@ -68,22 +64,17 @@ class JobMetadata(JsonMixin):
 
 ## Flow overview
 
-1. **Client → API**: the FastAPI layer parses JSON into `JobRequestPayload`,
+1. **Client → API**: the Starlette layer parses/validates JSON via Marshmallow schemas into request payloads,
    `PlaylistSelectionPayload`, etc. Those are converted into domain models such
    as `DownloadJobSpec` and handed to `DownloadManager`.
 2. **DownloadManager / Mixins**: internal state uses `DownloadJobState`, which
    embeds `JobMetadata`, `PlaylistState`, `ProgressSnapshot`, etc. No ad-hoc
    dictionaries remain—helpers operate over dataclasses and return lightweight
    DTOs for sockets.
-3. **Persistence**: `DownloadStateStore` reads/writes `DownloadJobSnapshot`
-   objects to disk via their `to_json` / `from_json` helpers, guaranteeing the
-   JSON on disk adheres to the same schema the runtime uses. Snapshots include a
-   `schema_version` so migrations can bump structure without breaking older
-   files.
-4. **Sockets**: `models/socket/*` continue to expose dataclasses for outbound
-   payloads. Conversion happens via typed adapters in `types/socket.py` so the
-   emitting code never touches raw dicts. Socket DTOs mirror REST DTOs, letting
-   clients reuse their decoding logic.
+3. **Persistence**: `DownloadStateStore` reads/writes persisted job state to
+   `<VIDRA_SERVER_DATA>/download_state.json`.
+4. **Sockets**: `app/src/models/socket/*` expose dataclasses for outbound
+   payloads; emitting code should avoid passing raw dicts across domain layers.
 5. **yt-dlp**: `core/manager.py` and `download/hook_payloads.py` are updated to
    convert `Mapping[str, Any]` inputs into `Info`, `ProgressUpdate`, and
    `PostprocessorUpdate` dataclasses defined under `types/`. The rest of the
@@ -92,8 +83,9 @@ class JobMetadata(JsonMixin):
 
 ## Refactor stages
 
-1. **Introduce typed dataclasses** under `app/src/types` and update `DownloadJob`
-   plus persistence/state-store helpers to rely on them (this commit).
+1. **Expand typed models/contracts** under `app/src/models` and
+   `app/src/core/contract` and update `DownloadJob` plus persistence/state-store
+   helpers to rely on them.
 2. **Refactor download mixins/manager** to construct/manipulate these models
    instead of raw dictionaries, ensuring playlist/preview/progress helpers return
    typed DTOs.
@@ -104,9 +96,8 @@ class JobMetadata(JsonMixin):
    the two sanctioned boundaries. Add a CI/Pyright check that fails when new
    modules import `typing.Any` without a justification comment.
 
-The refactor proceeds module-by-module but always funnels new data through the
-`types` package, ensuring future features compose existing models instead of
-reinventing ad-hoc dict schemas.
+The refactor proceeds module-by-module; new features should reuse existing
+models/contracts instead of introducing ad-hoc dict schemas.
 
 ## See also
 

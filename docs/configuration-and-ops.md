@@ -5,24 +5,22 @@
 
 ## Environment variables
 
-| Variable                           | Default                          | Description                                                                                                                |
-| ---------------------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `VIDRA_SERVER_DATA`                | `%LOCALAPPDATA%/Vidra` (Windows) | Root folder for logs, job snapshots, downloaded outputs, and crash dumps. Set to an absolute path when running standalone. |
-| `VIDRA_SERVER_HOST`                | `127.0.0.1`                      | Bind address for FastAPI/Uvicorn. Desktop builds keep it loopback-only.                                                    |
-| `VIDRA_SERVER_PORT`                | `5757`                           | REST/WebSocket port. Client reads it from `lib/config/runtime_config.dart`.                                                |
-| `VIDRA_ENABLE_PREVIEW_API`         | `0`                              | Exposes `POST /api/preview` and `POST /api/jobs/dry-run`. Enable only for debugging.                                       |
-| `VIDRA_ENABLE_DOWNLOAD_SOCKET`     | `1`                              | Enables legacy aggregate socket. Set to `0` to rely solely on per-job sockets.                                             |
-| `VIDRA_MAX_CONCURRENT_JOBS`        | `3`                              | Worker pool width. Higher values increase disk/CPU pressure.                                                               |
-| `VIDRA_RETENTION_DAYS`             | `30`                             | Automatic deletion window for `completed`/`cancelled` jobs.                                                                |
-| `VIDRA_HOOK_ENV_FILE`              | `app/json/post_hook.jsonc`       | Optional env var override for hook definitions.                                                                            |
-| `VIDRA_TLS_KEY` / `VIDRA_TLS_CERT` | unset                            | Provide both to expose HTTPS endpoints (useful when embedding behind reverse proxies).                                     |
+| Variable                       | Default                            | Description                                                                                                                        |
+| ------------------------------ | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `VIDRA_SERVER_DATA`            | (required)                         | Root folder for backend logs/state. In dev, `.env` points to `./temp/data`. Must be an absolute path when running standalone.     |
+| `VIDRA_SERVER_CACHE`           | (required)                         | Cache folder used by the backend. In dev, `.env` points to `./temp/cache`. Must be an absolute path when running standalone.      |
+| `VIDRA_SERVER_HOST`            | `0.0.0.0` (backend default)         | Bind address for the ASGI server (Uvicorn). Embedded Flutter runtime typically overrides to `127.0.0.1` via `.env`.               |
+| `VIDRA_SERVER_PORT`            | `5000` (backend default)            | REST/WebSocket port. The embedded `.env` currently sets `59666`.                                                                |
+| `VIDRA_SERVER_LOG_LEVEL`       | `info`                              | Uvicorn log level (`critical|error|warning|info|debug|trace`).                                                                  |
+| `VIDRA_ENABLE_PREVIEW_API`     | `0`                                 | Exposes `POST /api/preview` and `POST /api/jobs/dry-run` (useful for debugging).                                                |
+| `VIDRA_SERVER_TOKEN`           | unset (dev `.env` defines one)      | Optional bearer-like token used by the client/backends for local auth/handshakes (depends on client configuration).             |
+| `VIDRA_SERVER_TIMEOUT_SECONDS` | `30`                                | Backend timeout defaults (used for outbound operations).                                                                          |
 
-> **Tip:** When launching the backend manually (`python -m app.main`), export these variables before starting Uvicorn so the same behavior matches the embedded runtime.
+> **Tip:** When launching the backend manually (`python -m src.main`), export `VIDRA_SERVER_DATA` and `VIDRA_SERVER_CACHE` (and optionally host/port) so behavior matches the embedded runtime.
 
 ## Logging and telemetry
 
 - All structured logs land in `<VIDRA_SERVER_DATA>/release_logs.txt` with JSON lines containing `ts`, `level`, `scope`, `message`, and `context`.
-- Job-specific logs are mirrored to `<VIDRA_SERVER_DATA>/jobs/<job_id>.log` for quick per-job troubleshooting.
 - yt-dlp stdout/stderr is routed through hook payloads and appears in both the global log and the job log (tagged `source=ytdlp`).
 - Crash dumps (uncaught exceptions) yield `temp/native-crash.txt` on the Flutter side and `VIDRA_SERVER_DATA/crash_<timestamp>.log` on the backend.
 
@@ -31,7 +29,7 @@
 | Mode                      | How                                                                                       | Notes                                                                                                               |
 | ------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | Embedded (default)        | Flutter desktop launches backend via `serious_python`                                     | Auto-manages virtualenv and env vars; ideal for production builds.                                                  |
-| Standalone backend        | `cd app && python -m app.main`                                                            | Useful for backend-only development or remote deployments. Ensure `VIDRA_SERVER_HOST=0.0.0.0` if accessed remotely. |
+| Standalone backend        | `cd app && python -m src.main`                                                            | Useful for backend-only development. You must set `VIDRA_SERVER_DATA` and `VIDRA_SERVER_CACHE` before launching.    |
 | Remote backend + local UI | Point the Flutter app to remote host via debug settings (`lib/config/debug_options.dart`) | Secure the channel (TLS + auth) before exposing beyond localhost.                                                   |
 
 ## Operational runbooks
@@ -57,9 +55,8 @@
 
 ## Observability hooks
 
-- Set `VIDRA_EXTRA_LOG_FIELDS` (JSON string) to inject custom fields (e.g., deployment ID) into every log entry.
-- Configure `app/json/post_hook.jsonc` to emit webhooks or desktop notifications upon job completion/failure.
-- `app/json/postprocessor_hook.jsonc` defines chained postprocessors (e.g., transcoders). Each entry can declare `on_states` to limit execution to `completed` only.
+- Backend logging is controlled primarily via `VIDRA_SERVER_LOG_LEVEL` and the on-disk `release_logs.txt` stream.
+- Postprocessor/post-hook events are emitted by the backend as socket/log payloads; there is no `app/json/*.jsonc` configuration directory in this repository.
 
 ## Maintenance windows
 

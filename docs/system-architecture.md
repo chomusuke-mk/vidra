@@ -1,14 +1,14 @@
 # System Architecture
 
 **Who:** Engineers working across Flutter, Python, and packaging layers.
-**Why:** Understand how Vidra stitches together the Flutter desktop client, embedded FastAPI backend, yt-dlp workers, sockets, and packaging pipeline so changes remain coherent.
+**Why:** Understand how Vidra stitches together the Flutter desktop client, embedded Starlette backend, yt-dlp workers, sockets, and packaging pipeline so changes remain coherent.
 
 ## Components at a glance
 
 | Layer            | Location                       | Responsibilities                                | Notes                                                                 |
 | ---------------- | ------------------------------ | ----------------------------------------------- | --------------------------------------------------------------------- |
-| Flutter client   | `lib/`                         | UI, state management, caching, localization     | Uses `provider`, `freezed`, and `serious_python` platform channel.    |
-| Embedded backend | `app/src/`                     | REST + WebSocket API, job orchestration, hooks  | FastAPI + Uvicorn + yt-dlp. Uses typed models under `app/src/types/`. |
+| Flutter client   | `lib/`                         | UI, state management, caching, localization     | Uses `provider` and the `serious_python` plugin to bootstrap backend. |
+| Embedded backend | `app/src/`                     | REST + WebSocket API, job orchestration, hooks  | Starlette + Uvicorn + yt-dlp. Request/response validation uses Marshmallow schemas under `app/src/models/api/`. |
 | Packaging bundle | `app/app.zip`                  | Distributable Python environment                | Built via `serious_python`. Extracted on first run.                   |
 | Native shell     | `windows/`, `macos/`, `linux/` | Platform embedding for Flutter                  | Launch script sets env vars (`VIDRA_SERVER_DATA`, etc.).              |
 | Ops tooling      | `tool/`, `docs/`, `scripts`    | Localization, translation, packaging automation | Scripts are Python or Dart CLIs.                                      |
@@ -22,7 +22,7 @@ flowchart LR
         State[State stores]
         Cache[Disk cache]
     end
-    subgraph Backend[Embedded FastAPI]
+    subgraph Backend[Embedded Starlette]
         API[REST + WebSockets]
         Manager[DownloadManager]
         Store[DownloadStateStore]
@@ -49,10 +49,10 @@ flowchart LR
 
 ### Cold-start sequence
 
-1. Flutter launcher unzips `app/app.zip` (if necessary) to `%LOCALAPPDATA%/Vidra` via the `serious_python` plugin.
-2. Plugin spawns the Python entrypoint (`app/src/main.py`) with environment variables declared in `lib/config/runtime_config.dart`.
-3. FastAPI boots, loads persisted job snapshots, and opens a control socket for per-job updates.
-4. Flutter UI renders splash, pings `GET /` and `GET /api/jobs?summary=1` to warm caches.
+1. Flutter launcher unzips `app/app.zip` (if necessary) to the platform app-support directory via the `serious_python` plugin.
+2. Plugin spawns the Python entrypoint (`src/main.py`) with the environment derived from the embedded `.env` plus runtime overrides.
+3. The Starlette app boots, restores persisted job state, and opens WebSocket endpoints (`/ws/...`).
+4. Flutter UI renders splash, pings the health endpoint (default `/`) and then `GET /api/jobs` to bootstrap the queue.
 5. Once healthy, widgets transition to the queue view and subscribe to sockets per job.
 
 ### Steady-state interactions
@@ -60,7 +60,7 @@ flowchart LR
 - **Commands:** UI invokes REST endpoints (`POST /api/jobs`, `POST /api/jobs/{id}/pause`, etc.). These map to typed request models and feed the `DownloadManager`.
 - **Streaming updates:** Each job exposes a dedicated WebSocket that emits `JobProgressEvent`, `PlaylistUpdateEvent`, and `LogEvent` objects.
 - **Persistence:** `DownloadStateStore` writes JSON snapshots (`DownloadJobSnapshot`) to disk. On restart, the backend rehydrates state before reopening sockets.
-- **Hooks and automation:** Download/postprocessor hooks configured under `app/json/*.jsonc` fire as yt-dlp emits events. Hooks log structured output and can launch shell commands.
+- **Hooks and automation:** Download/postprocessor hooks are internal callbacks that turn yt-dlp events into log/socket payloads.
 
 ### Packaging pipeline overview
 
@@ -88,9 +88,9 @@ Key artifacts:
 
 | Dependency                     | Direction             | Reason                                                |
 | ------------------------------ | --------------------- | ----------------------------------------------------- |
-| Flutter → FastAPI              | REST, sockets         | Command/control plane.                                |
-| FastAPI → yt-dlp               | CLI invocation        | Actual downloads and metadata extraction.             |
-| FastAPI ↔ Hooks                | JSON config           | Extensibility for notifications, post-processing.     |
+| Flutter → backend              | REST, sockets         | Command/control plane.                                |
+| Backend → yt-dlp               | CLI invocation        | Actual downloads and metadata extraction.             |
+| Backend ↔ Hooks                | JSON config           | Extensibility for notifications, post-processing.     |
 | Flutter ↔ Localization scripts | JSON exports          | Ensure UI strings stay in sync with translation data. |
 | Packaging → Ops docs           | Build reproducibility | Release engineers rely on docs to package correctly.  |
 
@@ -99,7 +99,7 @@ Key artifacts:
 - **Backend crash**: Flutter detects socket drop + failed health check, surfaces restart CTA. Logs under `<VIDRA_SERVER_DATA>/release_logs.txt`.
 - **Bundle mismatch**: `serious_python` validates `app/app.zip.hash`. Rebuild via VS Code task if hash mismatch occurs.
 - **Socket churn**: Client throttles reconnect attempts and falls back to polling `GET /api/jobs/{id}` if sockets fail repeatedly.
-- **yt-dlp schema drift**: `ytdlp_adapter` is the only module allowed to touch untyped payloads; all downstream code relies on typed dataclasses.
+- **yt-dlp schema drift**: backend normalizes raw yt-dlp output before exposing it to the client; treat raw payloads as unstable.
 
 ## See also
 

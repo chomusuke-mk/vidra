@@ -10,7 +10,7 @@ Plan to add a `use_gpu: bool` option in incoming requests that enables GPU-accel
 
 ## Implementation Steps
 1) **Extend API contract**
-   - Add `use_gpu: bool` to incoming request schemas (HTTP and websocket requests, Pydantic/dataclass models, TypedDict payloads).
+   - Add `use_gpu: bool` to incoming request schemas (HTTP and websocket requests, Marshmallow schemas, dataclass models, TypedDict payloads).
    - Update validation defaults to `False`; reject non-bool inputs.
    - Document the new field in API docs and examples.
 

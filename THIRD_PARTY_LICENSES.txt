@@ -4,12 +4,12 @@ Vidra bundles a Python backend together with a Flutter desktop client, so the ap
 
 PYTHON BACKEND RUNTIME (app/requirements.txt)
 - certifi | version: latest (unpinned) | license: MPL-2.0 | obligations: keep the MPL notice with redistributed binaries; publish modifications that touch MPL-covered files | license text: third_party_licenses/certifi
-- fastapi | version: latest (unpinned) | license: MIT | obligations: retain copyright and license text in source and binary form | license text: third_party_licenses/fastapi
 - httpx | version: latest (unpinned) | license: BSD-3-Clause | obligations: keep copyright and disclaimer; no endorsement using maintainer names | license text: third_party_licenses/httpx
+- marshmallow | version: latest (unpinned) | license: MIT | obligations: preserve the MIT license text in redistributions | license text: third_party_licenses/marshmallow
 - mutagen | version: latest (unpinned) | license: GPL-2.0-or-later | obligations: copyleft; distributing Vidra with Mutagen requires providing the corresponding source for the backend bundle | license text: third_party_licenses/mutagen
-- pydantic (< 2) | version: <2 | license: MIT | obligations: preserve copyright and license text | license text: third_party_licenses/pydantic
 - requests | version: latest (unpinned) | license: Apache-2.0 | obligations: keep LICENSE and NOTICE; document any local changes | license text: third_party_licenses/requests
 - secretstorage | version: latest (unpinned) | license: BSD-3-Clause | obligations: retain copyright/permission statement and liability disclaimer | license text: third_party_licenses/secretstorage
+- starlette | version: latest (unpinned) | license: BSD-3-Clause | obligations: same preservation requirements as other BSD components | license text: third_party_licenses/starlette
 - uvicorn | version: latest (unpinned) | license: BSD-3-Clause | obligations: same preservation requirements as other BSD components | license text: third_party_licenses/uvicorn
 - websockets | version: latest (unpinned) | license: BSD-3-Clause | obligations: same preservation requirements as other BSD components | license text: third_party_licenses/websockets
 - yt-dlp | version: latest (unpinned) | license: Unlicense | obligations: public-domain dedication; still respect YouTube/DRM laws when redistributing | license text: third_party_licenses/yt-dlp

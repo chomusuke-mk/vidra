@@ -1147,7 +1147,7 @@ class DownloadManager(PreviewMixin, PlaylistMixin, ProgressMixin):
         self._restore_persisted_jobs()
 
     # ------------------------------------------------------------------
-    # Public API expected by FastAPI endpoints
+    # Public API expected by HTTP/WebSocket endpoints
     # ------------------------------------------------------------------
     def create_job(self, request: CreateJobRequest) -> DownloadJob:
         """Create a new download job and queue preview/worker threads.

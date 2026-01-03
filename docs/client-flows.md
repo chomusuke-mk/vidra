@@ -3,7 +3,7 @@
 **Who:** Flutter engineers, QA, and support engineers.
 **Why:** Document how each major UI workflow maps to backend APIs, sockets, and cached state so the client can be debugged or extended safely.
 
-The Flutter shell is a desktop-first experience that interacts with the embedded FastAPI backend through REST calls for commands and per-job WebSockets for streaming updates. Use this guide when diagnosing UI regressions, writing new widgets, or validating that QA scenarios touch the right endpoints.
+The Flutter shell is a desktop-first experience that interacts with the embedded Starlette backend through REST calls for commands and per-job WebSockets for streaming updates. Use this guide when diagnosing UI regressions, writing new widgets, or validating that QA scenarios touch the right endpoints.
 
 ## High-level flow
 
@@ -44,7 +44,7 @@ sequenceDiagram
 
 ## Real-time updates
 
-- Each job card opens a dedicated WebSocket channel (`/ws/jobs/{jobId}`). Messages follow the DTOs defined in `app/src/types/socket.py` (`JobProgressEvent`, `PlaylistUpdateEvent`, `LogEvent`).
+- Each job card opens a dedicated WebSocket channel (`/ws/jobs/{jobId}`). Messages follow the DTOs defined under `app/src/models/socket/`.
 - Connection lifecycle: subscribe when the card becomes visible; dispose when the user leaves the screen to avoid handle leaks.
 - Reconnection policy: exponential backoff with jitter (initial 1s, cap 15s). Pending mutations (pause/cancel) are optimistic and reverted if the socket confirms a conflicting state.
 

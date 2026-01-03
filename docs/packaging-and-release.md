@@ -5,7 +5,7 @@
 
 ## Prerequisites
 
-- Dart SDK + `serious_python` CLI (`dart pub global activate serious_python`).
+- Dart SDK (the repo uses `dart run serious_python:main ...` via the dependency declared in `pubspec.yaml`).
 - Flutter SDK ≥ 3.9 with desktop platforms enabled.
 - Python 3.12 (used to resolve backend dependencies before packaging).
 - Inno Setup (for Windows installer; see `installer.iss`).
@@ -16,7 +16,7 @@
 # 1. Ensure virtualenv is ready
 cd app
 python -m venv .venv
-. .venv/Scripts/activate
+. .venv/Scripts/activate  # PowerShell: .venv\Scripts\Activate.ps1
 pip install -r requirements.txt -r requirements.dev.txt
 
 # 2. Create platform bundle
@@ -39,7 +39,7 @@ Artifacts:
 
 ## Integrating with Flutter
 
-1. Confirm `app/app.zip` and `app/app.zip.hash` appear under the `flutter_assets` list in `pubspec.yaml`.
+1. Confirm `app/app.zip` and `app/app.zip.hash` appear under `flutter: assets:` in `pubspec.yaml`.
 2. Run `flutter pub get` so the build picks up asset changes.
 3. Trigger the desired build:
    - `flutter build windows --release`

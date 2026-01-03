@@ -18,9 +18,9 @@ stateDiagram-v2
     running --> cancelled: POST /cancel or system stop
     paused --> cancelled: POST /cancel
     failed --> running: POST /retry
-    failed --> cancelled: DELETE job
-    completed --> archived: DELETE job (logical)
-    cancelled --> archived: retention policy
+    failed --> [*]: DELETE job
+    completed --> [*]: DELETE job
+    cancelled --> [*]: DELETE job
 ```
 
 Job state is captured in `DownloadJobState` and persisted via `DownloadJobSnapshot`. Every transition emits both a REST response (when triggered via an endpoint) and a socket event (`JobStatusEvent`).
@@ -39,13 +39,13 @@ Job state is captured in `DownloadJobState` and persisted via `DownloadJobSnapsh
 | `running`            | `completed`          | All tasks succeed                      | Implicit                                 | `status:completed`, `progress:100`               |
 | `running`            | `cancelled`          | User cancel / backend shutdown         | `POST /api/jobs/{id}/cancel`             | `status:cancelled`                               |
 | `failed`             | `running`            | Retry                                  | `POST /api/jobs/{id}/retry`              | `status:running` (new attempt counter)           |
-| `failed`             | `cancelled`          | Delete job                             | `DELETE /api/jobs/{id}`                  | `status:cancelled`, socket closed                |
-| `completed`          | `archived`           | Delete job                             | `DELETE /api/jobs/{id}`                  | Socket closed                                    |
-| `cancelled`          | `archived`           | Delete job                             | `DELETE /api/jobs/{id}`                  | Socket closed                                    |
+| `failed`             | `[deleted]`          | Delete job                             | `DELETE /api/jobs/{id}`                  | Socket closed                                    |
+| `completed`          | `[deleted]`          | Delete job                             | `DELETE /api/jobs/{id}`                  | Socket closed                                    |
+| `cancelled`          | `[deleted]`          | Delete job                             | `DELETE /api/jobs/{id}`                  | Socket closed                                    |
 
 ## Persisted snapshots
 
-`DownloadJobSnapshot` tracks:
+Persisted state tracks:
 
 - `metadata`: `JobMetadata` (ID, type, URL, owner, timestamps).
 - `state`: current enum value plus reason fields (`failure_reason`, `cancel_reason`).
@@ -54,11 +54,11 @@ Job state is captured in `DownloadJobState` and persisted via `DownloadJobSnapsh
 - `outputs`: generated files and hook artifacts.
 - `attempt`: retry counter, used for exponential backoff.
 
-Snapshots live under `<VIDRA_SERVER_DATA>/jobs/<job_id>.json`. When the backend restarts:
+State is persisted to `<VIDRA_SERVER_DATA>/download_state.json`. When the backend restarts:
 
-1. All snapshots are loaded and validated against `schema_version`.
-2. Jobs in `running` or `paused` revert to `queued` so the manager can reschedule work.
-3. Jobs in terminal states remain untouched until retention policies delete them.
+1. All snapshots are loaded.
+2. Jobs that were `running`/`queued`/`starting` at the time of shutdown are normalized (typically marked as `failed` with a restart reason).
+3. Jobs waiting for playlist selection are restored into a `starting`/"waiting selection" state.
 
 ## Socket payloads
 
@@ -66,7 +66,7 @@ Every WebSocket message includes:
 
 - `job_id`
 - `event` (e.g., `status`, `progress`, `playlist.entry`, `log`)
-- `payload` (typed DTO from `app/src/types/socket.py`)
+- `payload` (typed DTOs from `app/src/models/socket/`)
 - `ts` (ISO timestamp)
 
 Clients should treat sockets as authoritative; REST endpoints are used for bootstrapping or random access.
@@ -75,10 +75,10 @@ Clients should treat sockets as authoritative; REST endpoints are used for boots
 
 - **Pre-download hooks** can veto a job (transitioning to `failed` immediately) by raising `HookAbortError`.
 - **Postprocessor hooks** emit `log` events and may append outputs; failures transition the job to `failed` unless configured as `best_effort`.
-- **Post-hook scripts** (configured under `app/json/post_hook.jsonc`) run after `completed`. Their exit codes do not change job state but are logged for visibility.
+- **Post-hook callbacks** run after completion and emit log/socket payloads.
 
 ## See also
 
 - `docs/typed-architecture.md` for the dataclasses mentioned above.
-- `docs/configuration-and-ops.md` for retention settings, worker pool size, and feature flags that influence transitions.
+- `docs/configuration-and-ops.md` for environment variables and runtime expectations.
 - `docs/troubleshooting.md` for interpreting failure reasons and log fields.

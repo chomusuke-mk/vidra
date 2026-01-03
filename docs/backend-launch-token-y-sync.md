@@ -1,24 +1,24 @@
-# Backend: lanzamiento, token y sincronización de estado
+# Backend: launch, token, and state synchronization
 
-Este documento describe (con base en el código actual del repositorio) cómo Vidra lanza el backend embebido (Python vía `serious_python`), cómo se maneja el token de acceso y qué archivos usa el backend para persistir/sincronizar estado entre sesiones.
+This document describes (based on the current repository code) how Vidra launches the embedded backend (Python via `serious_python`), how the access token is handled, and which files are used to persist/restore state across sessions.
 
-## 1) Lanzamiento del backend (Flutter → Serious Python)
+## 1) Backend launch (Flutter → Serious Python)
 
-### 1.1 Flujo de arranque desde Flutter
+### 1.1 Startup flow from Flutter
 
-El arranque ocurre en `lib/main.dart`:
+Startup happens in `lib/main.dart`:
 
-- Se carga `.env` con `flutter_dotenv`.
-- Se resuelve la configuración del backend (`BackendConfig.fromEnv()`) y el token (`BackendAuthToken.resolve(dotenv)`).
-- Se calculan rutas en disco (por plataforma) usando:
-  - `getApplicationSupportDirectory()` → carpeta de soporte persistente.
-  - `getApplicationCacheDirectory()` → carpeta de caché.
-- Se arma un `backendDataDir` bajo soporte: `<support>/backend`.
-- Se definen rutas de archivos del launcher/backend en ese directorio:
+- `.env` is loaded via `flutter_dotenv`.
+- Backend configuration (`BackendConfig.fromEnv()`) and the auth token (`BackendAuthToken.resolve(dotenv)`) are resolved.
+- Platform directories are computed using:
+  - `getApplicationSupportDirectory()` → persistent support directory.
+  - `getApplicationCacheDirectory()` → cache directory.
+- A `backendDataDir` is created under support: `<support>/backend`.
+- Launcher/backend file paths are defined under that directory:
   - `startup_status.json`
   - `vidra.start.lock`
   - `release_logs.txt`
-- Se invoca el launcher:
+- The launcher is invoked:
 
 ```dart
 SeriousPythonServerLauncher.instance.ensureStarted(
@@ -34,26 +34,26 @@ SeriousPythonServerLauncher.instance.ensureStarted(
 )
 ```
 
-### 1.2 Qué hace `SeriousPythonServerLauncher`
+### 1.2 What `SeriousPythonServerLauncher` does
 
-La lógica principal está en `lib/state/serious_python_server_launcher.dart`.
+The core logic lives in `lib/state/serious_python_server_launcher.dart`.
 
-A alto nivel:
+High level:
 
-1. Combina variables de entorno:
-   - `dotenv.env` (lo que viene de `.env`).
-   - `extraEnvironment` (lo que pasa `main.dart`).
-2. Prepara rutas en el directorio de soporte y setea (si no existían) variables:
-   - `VIDRA_SERVER_STATUS_FILE`
-   - `VIDRA_SERVER_LOCK_FILE`
-   - `VIDRA_SERVER_LOG_FILE`
-3. Intenta **reusar** un backend ya corriendo:
-   - Verifica si el puerto está abierto.
-   - Llama al health check y valida que el campo `service` coincida con `VIDRA_SERVER_NAME`.
-   - Si coincide, marca el backend como `running` y no relanza.
-4. Evita arranques simultáneos usando un lock de archivo (`vidra.start.lock`).
-5. Determina si debe “desempaquetar” el backend embebido comparando un hash del asset (`app/app.zip.hash`) con un hash persistido en disco.
-6. Lanza el backend con `SeriousPython.run(...)`:
+1. Merge environment variables:
+  - `dotenv.env` (from `.env`).
+  - `extraEnvironment` (provided by `main.dart`).
+2. Prepare paths under the support directory and set (if missing) these variables:
+  - `VIDRA_SERVER_STATUS_FILE`
+  - `VIDRA_SERVER_LOCK_FILE`
+  - `VIDRA_SERVER_LOG_FILE`
+3. Try to **reuse** an already running backend:
+  - Check whether the port is open.
+  - Call the health check and validate the `service` field matches `VIDRA_SERVER_NAME`.
+  - If it matches, mark backend as `running` and do not relaunch.
+4. Prevent simultaneous launches via a file lock (`vidra.start.lock`).
+5. Decide whether the embedded backend needs extracting by comparing the asset hash (`app/app.zip.hash`) with the persisted hash on disk.
+6. Launch the backend via `SeriousPython.run(...)`:
 
 ```dart
 SeriousPython.run(
@@ -64,140 +64,140 @@ SeriousPython.run(
 )
 ```
 
-7. Espera a que el backend esté listo **observando el puerto TCP** (no sólo el proceso).
-8. Escribe `startup_status.json` con fases como `starting`, `success`, `error`, `reused`.
+7. Wait until the backend is ready by **monitoring the TCP port** (not just the process).
+8. Write `startup_status.json` with phases like `starting`, `success`, `error`, `reused`.
 
-## 2) Tratamiento del token (frontend y backend)
+## 2) Token handling (frontend and backend)
 
-### 2.1 Cómo se obtiene el token en Flutter
+### 2.1 How Flutter resolves the token
 
-En `lib/config/backend_auth_token.dart`:
+In `lib/config/backend_auth_token.dart`:
 
-- En **debug/profile**: requiere `VIDRA_SERVER_TOKEN` en `.env` (si falta, lanza error).
-- En **release**: genera un token aleatorio (base64url) en memoria.
+- In **debug/profile**: requires `VIDRA_SERVER_TOKEN` in `.env` (throws if missing).
+- In **release**: generates a random in-memory token (base64url).
 
-Importante: ese valor (`BackendAuthToken.value`) se inyecta al `DownloadController` y se usa para autenticar contra el backend.
+That value (`BackendAuthToken.value`) is injected into the `DownloadController` and used to authenticate against the backend.
 
-### 2.2 Cómo se envía el token al backend
+### 2.2 How the token is sent to the backend
 
-En el frontend:
+In the frontend:
 
-- HTTP: `lib/data/services/download_service.dart` agrega headers cuando hay token:
+- HTTP: `lib/data/services/download_service.dart` adds headers when a token is present:
   - `Authorization: Bearer <token>`
   - `X-API-Token: <token>`
 
-- WebSocket: `lib/state/download_controller.dart` agrega `?token=<token>` a las URLs de socket (por ejemplo, overview/job socket).
+- WebSocket: `lib/state/download_controller.dart` appends `?token=<token>` to socket URLs (overview/job sockets).
 
-### 2.3 Cómo valida el backend el token
+### 2.3 How the backend validates the token
 
-En el backend Python:
+In the Python backend:
 
 - `app/src/security/tokens.py`:
-  - Lee el token esperado desde `VIDRA_SERVER_TOKEN` (variable de entorno) **en import-time**.
-  - Soporta token desde:
+  - Reads the expected token from `VIDRA_SERVER_TOKEN` (environment variable) **at import time**.
+  - Accepts tokens from:
     - `Authorization: Bearer ...`
     - `X-API-Token: ...`
-    - Query param `?token=...` (para websockets)
-  - La validación es igualdad exacta: `candidate == EXPECTED_SERVER_TOKEN`.
+    - Query param `?token=...` (for websockets)
+  - Validation is strict equality: `candidate == EXPECTED_SERVER_TOKEN`.
 
-- HTTP: `app/src/api/http.py` instala un middleware `enforce_token`:
-  - Permite sin token el endpoint de health check y requests `OPTIONS`.
-  - Para el resto: si el token falta o no coincide → responde `401` con código `token_missing_or_invalid`.
+- HTTP: `app/src/api/http.py` installs an `enforce_token` middleware:
+  - Allows health-check and `OPTIONS` requests without a token.
+  - For everything else: missing/mismatched token returns `401` with code `token_missing_or_invalid`.
 
-- WebSockets: `app/src/api/websockets.py` valida token antes de aceptar:
-  - Lee `?token=` o headers.
-  - Si falla: cierra el socket con código `1008`.
+- WebSockets: `app/src/api/websockets.py` validates the token before accepting:
+  - Reads `?token=` or headers.
+  - On failure: closes the socket with code `1008`.
 
-### 2.4 Nota sobre consistencia del token (punto crítico)
+### 2.4 Token consistency (critical)
 
-El backend **siempre** espera `VIDRA_SERVER_TOKEN` en su entorno (Python lanza error si falta).
+The backend expects `VIDRA_SERVER_TOKEN` in its environment.
 
-A la vez, el frontend usa `BackendAuthToken.value` para firmar las requests.
+At the same time, the frontend uses `BackendAuthToken.value` to sign requests.
 
-Por lo tanto, para que el sistema funcione, el token que:
+For the system to work, the token that:
 
-- el backend espera (`VIDRA_SERVER_TOKEN` en el entorno con el que se ejecuta `main.py`),
+- the backend expects (`VIDRA_SERVER_TOKEN` in the environment used to run `main.py`)
 
-DEBE ser el mismo que:
+MUST be the same token that:
 
-- el frontend envía (headers/query).
+- the frontend sends (headers/query).
 
-Actualmente, el launcher arma el entorno del backend usando `dotenv.env` + `extraEnvironment`. Si el token cambia entre ambos lados, el backend va a responder 401 / cerrar websockets.
+The launcher builds the backend environment from `dotenv.env` + `extraEnvironment`. If the token differs between both sides, the backend will return 401 / close websockets.
 
-## 3) Archivos de sincronización/persistencia entre sesiones
+## 3) Persistence/state across sessions
 
-Aquí “sincronización entre sesiones” significa: **persistir estado en disco para restaurarlo en el próximo arranque**.
+Here, “session-to-session synchronization” means: **persisting state to disk so it can be restored on the next startup**.
 
-### 3.1 Directorios base
+### 3.1 Base directories
 
-El backend toma dos rutas desde variables de entorno (ver `app/src/config/environment.py`):
+The backend reads two required paths from environment variables (see `app/src/config/environment.py`):
 
-- `VIDRA_SERVER_DATA` → carpeta persistente de datos.
-- `VIDRA_SERVER_CACHE` → carpeta de caché.
+- `VIDRA_SERVER_DATA` → persistent data folder.
+- `VIDRA_SERVER_CACHE` → cache folder.
 
-En Flutter (ver `lib/main.dart`) estas variables se setean típicamente como:
+In Flutter (see `lib/main.dart`) these are typically set to:
 
 - `VIDRA_SERVER_DATA = <ApplicationSupport>/backend`
 - `VIDRA_SERVER_CACHE = <ApplicationCache>/backend`
 
-### 3.2 Archivos de estado que se restauran
+### 3.2 State files that are restored
 
-En `app/src/download/manager.py` el `DownloadManager` inicializa stores bajo `DATA_FOLDER`:
+In `app/src/download/manager.py`, `DownloadManager` initializes stores under `DATA_FOLDER`:
 
 - `download_state.json`
-  - Guardado por `DownloadStateStore` (`app/src/download/state_store.py`).
-  - Contiene un snapshot de trabajos: `{ "jobs": [ ... ] }`.
-  - Escribe de forma atómica con `*.tmp` y `replace()`.
+  - Persisted by `DownloadStateStore` (`app/src/download/state_store.py`).
+  - Contains a snapshot of jobs: `{ "jobs": [ ... ] }`.
+  - Written atomically using `*.tmp` + `replace()`.
 
 - `playlist_entries/<job_id>.json`
-  - Guardado por `PlaylistEntryStore`.
-  - Contiene `{ "version": <ms>, "entries": [...] }`.
+  - Persisted by `PlaylistEntryStore`.
+  - Contains `{ "version": <ms>, "entries": [...] }`.
 
 - `job_options/<job_id>.json`
-  - Guardado por `JobOptionsStore`.
-  - Contiene `{ "version": <ms>, "options": {...} }`.
+  - Persisted by `JobOptionsStore`.
+  - Contains `{ "version": <ms>, "options": {...} }`.
 
 - `job_logs/<job_id>.json`
-  - Guardado por `JobLogStore`.
-  - Contiene `{ "version": <ms>, "logs": [...] }`.
+  - Persisted by `JobLogStore`.
+  - Contains `{ "version": <ms>, "logs": [...] }`.
 
-En el arranque, `_restore_persisted_jobs()`:
+On startup, `_restore_persisted_jobs()`:
 
-- Carga `download_state.json`.
-- Rehidrata jobs.
-- Emite eventos websocket con razón `RESTORED`.
-- Vuelve a persistir para normalizar el snapshot.
+- Loads `download_state.json`.
+- Rehydrates jobs.
+- Emits websocket events with reason `RESTORED`.
+- Persists again to normalize the snapshot.
 
-### 3.3 Archivos de arranque / diagnóstico
+### 3.3 Startup/diagnostics files
 
-Además del estado de trabajos, se generan archivos para diagnóstico del ciclo de vida:
+In addition to job state, the following files are used for lifecycle diagnostics:
 
 - `startup_status.json`
-  - Escrito tanto por Flutter (`SeriousPythonServerLauncher`) como por el backend (`app/src/main.py`).
-  - Incluye fase (`starting`, `success`, `error`, `reused`), timestamps y (en el caso del launcher) puede incluir `token`.
+  - Written by Flutter (`SeriousPythonServerLauncher`) and by the backend (`app/src/main.py`).
+  - Includes phase (`starting`, `success`, `error`, `reused`), timestamps, and (on the launcher side) may include `token`.
 
 - `release_logs.txt`
-  - En `app/src/main.py` se redirige `stdout`/`stderr` a este archivo (o el que indique `VIDRA_SERVER_LOG_FILE`).
+  - In `app/src/main.py`, `stdout`/`stderr` are redirected to this file (or the path pointed by `VIDRA_SERVER_LOG_FILE`).
 
-### 3.4 ¿Cómo entra el token en la “sincronización”?
+### 3.4 How the token relates to persisted state
 
-El token **no** se usa para construir rutas de los archivos (no hay carpetas “por token” en el código que persiste el estado).
+The token is **not** used to build file paths (there are no “per-token” directories in persistence code).
 
-El rol del token es:
+The token's role is:
 
-- Proteger el acceso al backend (HTTP/WS).
-- Evitar que un cliente sin token correcto lea/modifique el estado persistido.
+- Protect backend access (HTTP/WS).
+- Prevent a client without the correct token from reading/modifying persisted state.
 
-Consecuencia práctica:
+Practical consequence:
 
-- Si el backend conserva `VIDRA_SERVER_DATA` entre sesiones, el estado se restaura.
-- Si el token esperado cambia entre sesiones, el estado sigue existiendo en disco, pero el cliente no podrá acceder hasta que vuelva a usar el token correcto.
+- If the backend keeps `VIDRA_SERVER_DATA` across sessions, state is restored.
+- If the expected token changes between sessions, state still exists on disk, but the client cannot access it until it uses the correct token again.
 
-## 4) Pistas rápidas para depuración
+## 4) Quick debugging hints
 
-- Si el backend no arranca:
-  - Revisar `startup_status.json` y `release_logs.txt` en `VIDRA_SERVER_DATA`.
-  - Verificar que `VIDRA_SERVER_TOKEN` esté presente en el entorno del backend.
+- If the backend does not start:
+  - Check `startup_status.json` and `release_logs.txt` under `VIDRA_SERVER_DATA`.
+  - Verify `VIDRA_SERVER_TOKEN` is present in the backend environment.
 
-- Si ves 401 o websockets que se cierran:
-  - Revisar que el token que envía el frontend coincida con el token esperado por el backend.
+- If you see 401 responses or websockets closing:
+  - Verify the token sent by the frontend matches the token expected by the backend.

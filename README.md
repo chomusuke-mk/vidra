@@ -22,60 +22,60 @@
 	<a href="https://www.patreon.com/chomusuke_dev"><img alt="Donate (Patreon)" src="https://img.shields.io/badge/Donate-Patreon-critical?logo=patreon&logoColor=white" /></a>
 </p>
 
-> Vidra is a desktop-grade video/job manager that marries a Flutter UI with an embedded Python backend (FastAPI + yt-dlp). The project is fully localized, scriptable, and ready for packaging via `serious_python`.
+> Vidra is a desktop-grade video/job manager that marries a Flutter UI with an embedded Python backend (Starlette + yt-dlp). The project is fully localized, scriptable, and ready for packaging via `serious_python`.
 
 ## Highlights
 
 - **Full-stack packaging** – The Python backend is zipped and shipped inside the Flutter assets and unbundled at runtime via `serious_python`.
 - **Modern client** – A Flutter desktop app with caching, offline awareness, theming, and localization coverage for 150+ locales.
-- **Battle-tested backend** – FastAPI + Uvicorn + yt-dlp provide resumable downloads, queue orchestration, and hook-based automation.
+- **Battle-tested backend** – Starlette + Uvicorn + yt-dlp provide resumable downloads, queue orchestration, and hook-based automation.
 - **Ops-friendly** – Feature flags, structured logging, translation tooling, and ready-made VS Code tasks keep operations predictable.
 
-## Instalacion
+## Installation
 
-Vidra se distribuye vía **GitHub Releases**. En cada release vas a ver varios *assets* (archivos) para distintas plataformas.
+Vidra is distributed via **GitHub Releases**. Each release includes multiple assets for different platforms.
 
-###  Windows
+### Windows
 
-- Descarga: `vidra-<tag>-windows.exe`
-- Qué es: instalador para Windows (x64).
+- Download: `vidra-<tag>-windows.exe`
+- What it is: Windows (x64) installer.
 
-###  Linux
+### Linux
 
-Elige **uno**:
+Choose **one**:
 
-- Recomendado (portable): `vidra-<tag>-linux.AppImage`
+- Recommended (portable): `vidra-<tag>-linux.AppImage`
 - Debian/Ubuntu: `vidra-<tag>-linux.deb`
 - Fedora/openSUSE: `vidra-<tag>-linux.rpm`
 
 ### Android
 
-Si no estás seguro, descarga el **universal**:
+If you're not sure, download the **universal** build:
 
-- Universal (más grande, funciona en casi todos): `vidra-<tag>-android.apk`
+- Universal (larger, works on most devices): `vidra-<tag>-android.apk`
 
-Si quieres el APK correcto para tu CPU/ABI (más pequeño), descarga el que corresponda:
+If you want the correct APK for your CPU/ABI (smaller), download the matching one:
 
 - ARM 64-bit: `vidra-<tag>-android-arm64-v8a.apk`
 - ARM 32-bit: `vidra-<tag>-android-armeabi-v7a.apk`
 - x86 32-bit: `vidra-<tag>-android-x86.apk`
 - x86 64-bit: `vidra-<tag>-android-x86_64.apk`
 
-Tip para identificar ABI (opcional): `adb shell getprop ro.product.cpu.abilist`
+ABI detection tip (optional): `adb shell getprop ro.product.cpu.abilist`
 
-### Otros assets (no son el instalador)
+### Other assets (not the installer)
 
-- `_update`: metadatos para el actualizador automático dentro de Vidra.
+- `_update`: metadata for Vidra's built-in updater.
 - `SHA2-256SUMS`, `SHA2-512SUMS`: checksums.
-- `SHA2-256SUMS.sig`, `SHA2-512SUMS.sig`: firmas GPG de los checksums.
+- `SHA2-256SUMS.sig`, `SHA2-512SUMS.sig`: GPG signatures for the checksums.
 
-Estos assets se distribuyen bajo la licencia indicada en [LICENSE](LICENSE) y pueden incluir componentes con otras licencias listadas en [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
+These assets are distributed under the license in [LICENSE](LICENSE) and may include components under other licenses listed in [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
 
 ## Architecture
 
 | Layer | Responsibilities | Key tech |
 | --- | --- | --- |
-| Python backend (`app/src`) | REST + WebSocket API, job orchestration, yt-dlp integration, hook execution. | FastAPI, Uvicorn, Pydantic, yt-dlp, Redis-compatible sockets |
+| Python backend (`app/src`) | REST + WebSocket API, job orchestration, yt-dlp integration, hook execution. | Starlette, Uvicorn, Marshmallow, yt-dlp, websockets |
 | Embedded runtime (`app/app.zip`) | Self-contained Python env extracted by `serious_python` for each platform. | serious_python, pip, uvicorn |
 | Flutter client (`lib/`) | Multi-platform UI, caching, notifications, i18n, persistence. | Flutter 3.9, provider, cached_network_image, serious_python plugin |
 | Tooling (`tool/`, `docs/`) | Localization scripts, translation diffing, typed architecture notes. | Dart CLI, Python scripts |
@@ -139,11 +139,18 @@ dart run flutter_launcher_icons  # optional, regenerates icons
 
 ```bash
 cd app
-export VIDRA_SERVER_DATA="p:/vidra/temp"  # log/output location (set to an absolute path)
-python -m app.main
+# Required for standalone backend runs (set to absolute paths)
+export VIDRA_SERVER_DATA="p:/vidra/temp/data"
+export VIDRA_SERVER_CACHE="p:/vidra/temp/cache"
+
+# Optional, but recommended to match the default client config
+export VIDRA_SERVER_HOST="127.0.0.1"
+export VIDRA_SERVER_PORT="59666"
+
+python -m src.main
 ```
 
-This boots FastAPI with the default host/port declared in `app/src/config`. All stdout/stderr is redirected to `release_logs.txt` inside `VIDRA_SERVER_DATA` for easier troubleshooting.
+This boots the Starlette ASGI app with the host/port declared via env vars (or backend defaults). All stdout/stderr is redirected to `release_logs.txt` inside `VIDRA_SERVER_DATA` for easier troubleshooting.
 
 ### Flutter desktop client
 
@@ -151,7 +158,7 @@ This boots FastAPI with the default host/port declared in `app/src/config`. All 
 flutter run -d windows  # or macos / linux
 ```
 
-The client automatically unpacks `app/app.zip` using the `serious_python` plugin, talks to the local FastAPI instance, and streams job updates through per-job WebSockets.
+The client automatically unpacks `app/app.zip` using the `serious_python` plugin, talks to the local backend instance, and streams job updates through per-job WebSockets.
 
 ### Android share target
 
@@ -185,7 +192,6 @@ The repository includes VS Code tasks (`Serious Python: Package <platform> App`,
 ## Feature flags
 
 - `VIDRA_ENABLE_PREVIEW_API=1` exposes `POST /api/preview` and `POST /api/jobs/dry-run`. Disabled by default to reduce attack surface.
-- `VIDRA_ENABLE_DOWNLOAD_SOCKET=1` re-enables the legacy `/ws/downloads` channel; the new per-job sockets stay enabled regardless.
 
 ## Localization & assets
 
@@ -204,7 +210,7 @@ Use `VIDRA_SERVER_DATA` to point tests at a temporary directory so logs are isol
 
 ## Documentation & troubleshooting
 
-- `docs/system-architecture.md` – end-to-end overview of the Flutter client, FastAPI backend, sockets, and packaging flow.
+- `docs/system-architecture.md` – end-to-end overview of the Flutter client, Starlette backend, sockets, and packaging flow.
 - `docs/client-flows.md` – English descriptions of UI flows mapped to REST/WebSocket contracts.
 - `docs/typed-architecture.md` – explains the typed model refactor and state layers inside the backend.
 - `docs/backend-job-lifecycle.md` – canonical reference for job states, transitions, and related endpoints.
