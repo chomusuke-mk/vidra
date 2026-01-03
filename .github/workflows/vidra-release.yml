@@ -903,14 +903,14 @@ jobs:
             echo "## Which file to download?"
             echo
             readme_base_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${tag}/README.md"
-            echo "[![WHICH FILE TO DOWNLOAD?](https://img.shields.io/badge/WHICH%20FILE%20TO%20DOWNLOAD%3F-Windows-blue)](${readme_base_url}#windows)"
-            echo "[![WHICH FILE TO DOWNLOAD?](https://img.shields.io/badge/WHICH%20FILE%20TO%20DOWNLOAD%3F-Linux-blue)](${readme_base_url}#linux)"
-            echo "[![WHICH FILE TO DOWNLOAD?](https://img.shields.io/badge/WHICH%20FILE%20TO%20DOWNLOAD%3F-Android-blue)](${readme_base_url}#android)"
+            echo "[![WHICH FILE TO DOWNLOAD?](https://img.shields.io/badge/WHICH%20FILE%20TO%20DOWNLOAD%3F-Windows-blue?logo=windows&logoColor=white)](${readme_base_url}#windows)"
+            echo "[![WHICH FILE TO DOWNLOAD?](https://img.shields.io/badge/WHICH%20FILE%20TO%20DOWNLOAD%3F-Linux-blue?logo=linux&logoColor=white)](${readme_base_url}#linux)"
+            echo "[![WHICH FILE TO DOWNLOAD?](https://img.shields.io/badge/WHICH%20FILE%20TO%20DOWNLOAD%3F-Android-blue?logo=android&logoColor=white)](${readme_base_url}#android)"
             echo
             echo "## Donate"
             echo
-            echo "[![Donate](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-orange)](https://www.buymeacoffee.com/chomusuke)"
-            echo "[![Donate](https://img.shields.io/badge/Donate-Patreon-critical)](https://www.patreon.com/chomusuke_dev)"
+            echo "[![Donate](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-orange?logo=buymeacoffee&logoColor=white)](https://www.buymeacoffee.com/chomusuke)"
+            echo "[![Donate](https://img.shields.io/badge/Donate-Patreon-critical?logo=patreon&logoColor=white)](https://www.patreon.com/chomusuke_dev)"
             echo
             echo "## Changes"
             echo

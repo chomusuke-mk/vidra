@@ -1,10 +1,26 @@
-# Vidra
+<p align="center">
+	<img src="assets/icon/icon.png" alt="Vidra" width="256" />
+</p>
 
-[![Flutter 3.9+](https://img.shields.io/badge/Flutter-3.9%2B-blue)](https://flutter.dev)
-[![Python 3.12](https://img.shields.io/badge/Python-3.12-blueviolet)](https://www.python.org/)
-[![License](https://img.shields.io/badge/Licensing-THIRD__PARTY__LICENSES-informational)](THIRD_PARTY_LICENSES.md)
-[![Donate](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-orange)](https://www.buymeacoffee.com/chomusuke)
-[![Donate](https://img.shields.io/badge/Donate-Patreon-critical)](https://www.patreon.com/chomusuke_dev)
+<h1 align="center">Vidra</h1>
+
+<p align="center">
+	Desktop-grade video/job manager (Flutter UI + embedded Python backend)
+</p>
+
+<p align="center">
+	<a href="https://github.com/chomusuke-mk/vidra/releases"><img alt="Releases" src="https://img.shields.io/badge/Releases-Download-success?logo=github&logoColor=white" /></a>
+	<a href="docs/system-architecture.md"><img alt="Docs" src="https://img.shields.io/badge/Docs-System%20architecture-informational?logo=readthedocs&logoColor=white" /></a>
+	<a href="https://github.com/chomusuke-mk/vidra/issues"><img alt="Issues" src="https://img.shields.io/badge/Issues-Report%20a%20bug-important?logo=github&logoColor=white" /></a>
+</p>
+
+<p align="center">
+	<a href="https://flutter.dev"><img alt="Flutter 3.9+" src="https://img.shields.io/badge/Flutter-3.9%2B-blue?logo=flutter&logoColor=white" /></a>
+	<a href="https://www.python.org/"><img alt="Python 3.12" src="https://img.shields.io/badge/Python-3.12-blueviolet?logo=python&logoColor=white" /></a>
+	<a href="THIRD_PARTY_LICENSES.md"><img alt="Licensing" src="https://img.shields.io/badge/Licensing-THIRD__PARTY__LICENSES-informational?logo=github&logoColor=white" /></a>
+	<a href="https://www.buymeacoffee.com/chomusuke"><img alt="Donate (Buy me a coffee)" src="https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-orange?logo=buymeacoffee&logoColor=white" /></a>
+	<a href="https://www.patreon.com/chomusuke_dev"><img alt="Donate (Patreon)" src="https://img.shields.io/badge/Donate-Patreon-critical?logo=patreon&logoColor=white" /></a>
+</p>
 
 > Vidra is a desktop-grade video/job manager that marries a Flutter UI with an embedded Python backend (FastAPI + yt-dlp). The project is fully localized, scriptable, and ready for packaging via `serious_python`.
 
@@ -19,12 +35,12 @@
 
 Vidra se distribuye vía **GitHub Releases**. En cada release vas a ver varios *assets* (archivos) para distintas plataformas.
 
-### Windows
+###  Windows
 
 - Descarga: `vidra-<tag>-windows.exe`
 - Qué es: instalador para Windows (x64).
 
-### Linux
+###  Linux
 
 Elige **uno**:
 
