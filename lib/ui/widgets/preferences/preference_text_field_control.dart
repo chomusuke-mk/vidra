@@ -369,6 +369,7 @@ class _PreferenceTextFieldControlState
       return null;
     }
   }
+
   String? _initialDirectoryForPicker(String? desired) {
     if (desired == null) {
       return null;
@@ -381,6 +382,12 @@ class _PreferenceTextFieldControlState
 
   _PickerBackend _preferredPickerBackend({required bool wantsDirectory}) {
     if (!wantsDirectory) {
+      // Algunos ajustes son archivos pero preferimos FilesystemPicker
+      // en lugar de FilePicker (consistencia con otras rutas de selección).
+      if (preference.key == 'download_archive' ||
+          preference.key == 'ffmpeg_location') {
+        return _PickerBackend.filesystem;
+      }
       return _PickerBackend.filePicker;
     }
     if (Platform.isAndroid || Platform.isIOS) {
@@ -399,7 +406,6 @@ class _PreferenceTextFieldControlState
         foregroundColor: colors.onSurface,
         elevation: 1,
         titleTextStyle: textTheme.titleMedium,
-
       ),
       fileList: FilesystemPickerFileListThemeData(
         folderIcon: Icons.folder_outlined,
