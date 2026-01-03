@@ -89,6 +89,7 @@
   "homeBackendStatusInstallReady": "Instala la nueva versión del backend para completar la actualización.",
   "homeBackendStatusDownloadingUpdate": "Descargando la actualización más reciente del backend...",
   "homeBackendStatusUpdateAvailable": "Hay una nueva actualización del backend disponible.",
+  "homeBackendStatusCheckingUpdates": "Buscando actualizaciones de Vidra...",
   "homeBackendStatusRunning": "El backend está activo.",
   "homeBackendActionDisabledUnknown": "Espera mientras verificamos el backend e inténtalo nuevamente en unos segundos.",
   "homeBackendActionDisabledUnpacking": "Espera a que termine la preparación del backend e inténtalo de nuevo.",

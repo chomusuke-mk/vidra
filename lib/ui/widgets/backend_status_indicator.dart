@@ -96,6 +96,7 @@ class BackendStatusIndicator extends StatelessWidget {
 enum _BackendIndicatorStatus {
   loading,
   error,
+  checkingUpdates,
   installReady,
   downloading,
   updateAvailable,
@@ -112,6 +113,9 @@ _BackendIndicatorStatus _resolveBackendIndicatorStatus(
   }
   if (backendState == BackendState.stopped) {
     return _BackendIndicatorStatus.error;
+  }
+  if (updateStatus == BackendUpdateStatus.checkingForUpdates) {
+    return _BackendIndicatorStatus.checkingUpdates;
   }
   if (updateStatus == BackendUpdateStatus.installReady) {
     return _BackendIndicatorStatus.installReady;
@@ -143,6 +147,27 @@ Widget _buildIndicator(ThemeData theme, _BackendIndicatorStatus status) {
         Icons.stop_circle_outlined,
         size: 22,
         color: theme.colorScheme.error,
+      );
+    case _BackendIndicatorStatus.checkingUpdates:
+      // Distinct from backend loading: use a secondary-colored progress + refresh glyph.
+      return SizedBox.square(
+        dimension: 22,
+        child: Stack(
+          alignment: Alignment.center,
+          children: <Widget>[
+            CircularProgressIndicator.adaptive(
+              strokeWidth: 2.2,
+              valueColor: AlwaysStoppedAnimation<Color>(
+                theme.colorScheme.secondary,
+              ),
+            ),
+            Icon(
+              Icons.refresh_rounded,
+              size: 14,
+              color: theme.colorScheme.secondary,
+            ),
+          ],
+        ),
       );
     case _BackendIndicatorStatus.installReady:
       return Icon(
@@ -176,6 +201,8 @@ String _indicatorTooltip(
     case _BackendIndicatorStatus.loading:
     case _BackendIndicatorStatus.error:
       return backendStatusText(localizations, backendState);
+    case _BackendIndicatorStatus.checkingUpdates:
+      return localizations.ui(AppStringKey.homeBackendStatusCheckingUpdates);
     case _BackendIndicatorStatus.installReady:
       return localizations.ui(AppStringKey.homeBackendStatusInstallReady);
     case _BackendIndicatorStatus.downloading:

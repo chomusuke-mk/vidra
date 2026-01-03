@@ -114,6 +114,8 @@ class AppStringKey {
       'homeBackendStatusDownloadingUpdate';
   static const homeBackendStatusUpdateAvailable =
       'homeBackendStatusUpdateAvailable';
+  static const homeBackendStatusCheckingUpdates =
+      'homeBackendStatusCheckingUpdates';
   static const homeBackendStatusRunning = 'homeBackendStatusRunning';
   static const homeBackendActionDisabledUnknown =
       'homeBackendActionDisabledUnknown';
@@ -544,6 +546,7 @@ class AppStringKey {
     homeBackendStatusInstallReady,
     homeBackendStatusDownloadingUpdate,
     homeBackendStatusUpdateAvailable,
+    homeBackendStatusCheckingUpdates,
     homeBackendStatusRunning,
     homeBackendActionDisabledUnknown,
     homeBackendActionDisabledUnpacking,

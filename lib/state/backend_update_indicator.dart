@@ -25,6 +25,7 @@ class BackendUpdateIndicator {
 /// visuals even when the backend is running.
 enum BackendUpdateStatus {
   idle,
+  checkingForUpdates,
   updateAvailable,
   downloadingUpdate,
   installReady,

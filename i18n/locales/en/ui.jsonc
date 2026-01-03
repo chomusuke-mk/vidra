@@ -89,6 +89,7 @@
   "homeBackendStatusInstallReady": "Install the new backend version to finish updating.",
   "homeBackendStatusDownloadingUpdate": "Downloading the latest backend update...",
   "homeBackendStatusUpdateAvailable": "A new backend update is available.",
+  "homeBackendStatusCheckingUpdates": "Checking for Vidra updates...",
   "homeBackendStatusRunning": "Backend is active.",
   "homeBackendActionDisabledUnknown": "Please wait while we verify the backend and try again in a moment.",
   "homeBackendActionDisabledUnpacking": "Please wait for backend preparation to finish and try again.",

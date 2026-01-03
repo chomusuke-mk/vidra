@@ -110,6 +110,9 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
     if (_isDownloadingUpdate) {
       return BackendUpdateStatus.downloadingUpdate;
     }
+    if (_isRefreshing) {
+      return BackendUpdateStatus.checkingForUpdates;
+    }
     if (_latestRelease?.isUpdateAvailable ?? false) {
       return BackendUpdateStatus.updateAvailable;
     }
@@ -168,7 +171,14 @@ class _BackendStatusScreenState extends State<BackendStatusScreen> {
     final actionState = _resolveActionState(isLatest: !outdated);
     switch (actionState) {
       case _UpdateActionState.refresh:
-        // Manual refresh: always hit the network and update last-check timestamp.
+        // Manual refresh: give immediate UI feedback and always hit the network.
+        if (mounted) {
+          setState(() {
+            _isRefreshing = true;
+            _updateErrorMessage = null;
+          });
+          _syncGlobalUpdateIndicator();
+        }
         unawaited(_refreshUpdateInfo(ignoreThrottle: true));
         return;
       case _UpdateActionState.downloadUpdate:
