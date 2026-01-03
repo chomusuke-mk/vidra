@@ -1892,6 +1892,9 @@ class _HomeScreenState extends State<HomeScreen>
         primaryBuilder: (_) => PreferenceDropdownControl(
           preference: preferences.audioFormat,
           leadingIcon: const Icon(Icons.audiotrack_outlined),
+          label: Text(
+            preferences.audioFormat.get('name', languageValue) as String,
+          ),
           isCompact: true,
           minCompactWidth: _compactControlMinWidth,
         ),
