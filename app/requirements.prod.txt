@@ -9,4 +9,4 @@ websockets
 pycryptodomex
 brotli
 cffi
-uvicorn
+uvicorn[standard]
