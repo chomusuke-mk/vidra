@@ -950,10 +950,13 @@ jobs:
             echo
             echo "## Bundled tools"
             echo
+            echo "yt-dlp repository: https://github.com/yt-dlp/yt-dlp"
+            echo "yt-dlp-ejs repository: https://github.com/yt-dlp/ejs"
+            echo
             echo "| Tool | Version |"
             echo "|---|---|"
-            if [ -n "$ytdlp_version" ]; then echo "| yt-dlp | [\`${ytdlp_version}\`](https://github.com/yt-dlp/yt-dlp/releases/tag/${ytdlp_version}) |"; fi
-            if [ -n "$ytdlpejs_version" ]; then echo "| yt-dlp-ejs | [\`${ytdlpejs_version}\`](https://github.com/yt-dlp/ejs/releases/tag/${ytdlpejs_version}) |"; fi
+            if [ -n "$ytdlp_version" ]; then echo "| yt-dlp | [\`${ytdlp_version}\`](https://pypi.org/project/yt-dlp/${ytdlp_version}/) |"; fi
+            if [ -n "$ytdlpejs_version" ]; then echo "| yt-dlp-ejs | [\`${ytdlpejs_version}\`](https://pypi.org/project/yt-dlp-ejs/${ytdlpejs_version}/) |"; fi
             if [ -n "$ffmpeg_tag" ]; then \
               ffmpeg_repo="${VIDRA_FFMPEG_REPO:-chomusuke-mk/vidra-ffmpeg}"; \
               echo "| FFmpeg bundle | [\`${ffmpeg_tag}\`](https://github.com/${ffmpeg_repo}/releases/tag/${ffmpeg_tag}) |"; \
