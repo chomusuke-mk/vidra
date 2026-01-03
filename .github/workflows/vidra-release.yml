@@ -261,9 +261,9 @@ jobs:
           df -h
 
       - name: Install Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
-          distribution: temurin
+          distribution: microsoft
           java-version: '21'
           cache: gradle
 
@@ -302,6 +302,16 @@ jobs:
           keyAlias=$ANDROID_KEY_ALIAS
           storeFile=upload-keystore.pkcs12
           EOF
+
+      - name: Cache Rust build
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            android/build
+            .dart_tool
+          key: ${{ runner.os }}-rust-flutter-${{ hashFiles('**/Cargo.lock', 'pubspec.lock') }}
 
       - name: Build universal APK (signed)
         run: flutter build apk --release --build-name ${BUILD_TAG} --build-number ${BUILD_NUMBER}
