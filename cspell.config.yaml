@@ -1,5 +1,0 @@
-ignorePaths:
-  - "build/**"
-  - "i18n/**"
-  - "pubspec.yaml"
-  - "cspell.config.yaml"

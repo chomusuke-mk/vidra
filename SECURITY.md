@@ -5,7 +5,7 @@ We appreciate responsible disclosures that keep Vidra safe for everyone.
 ## How to Report a Vulnerability
 
 - **Do not** open a public issue for security problems.
-- Email **7k9mc4urn@mozmail.com** with the subject line `Security Report`.
+- Email **<7k9mc4urn@mozmail.com>** with the subject line `Security Report`.
 - Include:
   - A clear description of the vulnerability and potential impact
   - Steps to reproduce (commands, logs, screenshots)

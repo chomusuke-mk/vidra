@@ -1,216 +1,134 @@
 <p align="center">
-	<img src="assets/icon/icon.png" alt="Vidra" width="256" />
+ <img src="assets/icon/icon.png" alt="Vidra" width="256" />
 </p>
-
 <h1 align="center">Vidra</h1>
 
 <p align="center">
-	Desktop-grade video/job manager (Flutter UI + embedded Python backend)
+  Gestor de vídeo/tareas de nivel de escritorio (interfaz de usuario Flutter + backend Python integrado)
 </p>
 
 <p align="center">
-	<a href="https://github.com/chomusuke-mk/vidra/releases"><img alt="Releases" src="https://img.shields.io/badge/Releases-Download-success?logo=github&logoColor=white" /></a>
-	<a href="docs/system-architecture.md"><img alt="Docs" src="https://img.shields.io/badge/Docs-System%20architecture-informational?logo=readthedocs&logoColor=white" /></a>
-	<a href="https://github.com/chomusuke-mk/vidra/issues"><img alt="Issues" src="https://img.shields.io/badge/Issues-Report%20a%20bug-important?logo=github&logoColor=white" /></a>
+ <a href="https://github.com/chomusuke-mk/vidra/releases"><img alt="Releases" src="https://img.shields.io/badge/Releases-Download-success?logo=github&logoColor=white" /></a>
+ <a href="docs/system-architecture.md"><img alt="Docs" src="https://img.shields.io/badge/Docs-System%20architecture-informational?logo=readthedocs&logoColor=white" /></a>
+ <a href="https://github.com/chomusuke-mk/vidra/issues"><img alt="Issues" src="https://img.shields.io/badge/Issues-Report%20a%20bug-important?logo=github&logoColor=white" /></a>
 </p>
 
 <p align="center">
-	<a href="https://flutter.dev"><img alt="Flutter 3.9+" src="https://img.shields.io/badge/Flutter-3.9%2B-blue?logo=flutter&logoColor=white" /></a>
-	<a href="https://www.python.org/"><img alt="Python 3.12" src="https://img.shields.io/badge/Python-3.12-blueviolet?logo=python&logoColor=white" /></a>
-	<a href="THIRD_PARTY_LICENSES.md"><img alt="Licensing" src="https://img.shields.io/badge/Licensing-THIRD__PARTY__LICENSES-informational?logo=github&logoColor=white" /></a>
-	<a href="https://www.buymeacoffee.com/chomusuke"><img alt="Donate (Buy me a coffee)" src="https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-orange?logo=buymeacoffee&logoColor=white" /></a>
-	<a href="https://www.patreon.com/chomusuke_dev"><img alt="Donate (Patreon)" src="https://img.shields.io/badge/Donate-Patreon-critical?logo=patreon&logoColor=white" /></a>
+ <a href="https://flutter.dev"><img alt="Flutter 3.9+" src="https://img.shields.io/badge/Flutter-3.9%2B-blue?logo=flutter&logoColor=white" /></a>
+ <a href="https://www.python.org/"><img alt="Python 3.12" src="https://img.shields.io/badge/Python-3.12-blueviolet?logo=python&logoColor=white" /></a>
+ <a href="THIRD_PARTY_LICENSES.md"><img alt="Licensing" src="https://img.shields.io/badge/Licensing-THIRD__PARTY__LICENSES-informational?logo=github&logoColor=white" /></a>
+ <a href="https://www.buymeacoffee.com/chomusuke"><img alt="Donate (Buy me a coffee)" src="https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-orange?logo=buymeacoffee&logoColor=white" /></a>
+ <a href="https://www.patreon.com/chomusuke_dev"><img alt="Donate (Patreon)" src="https://img.shields.io/badge/Donate-Patreon-critical?logo=patreon&logoColor=white" /></a>
 </p>
 
-> Vidra is a desktop-grade video/job manager that marries a Flutter UI with an embedded Python backend (Starlette + yt-dlp). The project is fully localized, scriptable, and ready for packaging via `serious_python`.
+> Vidra es un gestor de vídeo y tareas para escritorio que combina una interfaz de usuario Flutter con un backend Python integrado.
 
-## Highlights
+## Aspectos destacados
 
-- **Full-stack packaging** – The Python backend is zipped and shipped inside the Flutter assets and unbundled at runtime via `serious_python`.
-- **Modern client** – A Flutter desktop app with caching, offline awareness, theming, and localization coverage for 150+ locales.
-- **Battle-tested backend** – Starlette + Uvicorn + yt-dlp provide resumable downloads, queue orchestration, and hook-based automation.
-- **Ops-friendly** – Feature flags, structured logging, translation tooling, and ready-made VS Code tasks keep operations predictable.
+- **Cliente moderno** – Una aplicación de escritorio Flutter con temas y localización para más de 150 idiomas.
+- **Backend robusto y ligero** – Flask + event-streams, manejo de cambios mediante deltas.
 
-## Installation
+## Instalación
 
-Vidra is distributed via **GitHub Releases**. Each release includes multiple assets for different platforms.
+Vidra se distribuye a través de **GitHub Releases**. Cada versión incluye instaladores para diferentes plataformas.
 
-### Windows
+| Plataforma | Instalador                                                                                                                                          |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Windows`  | `vidra-windows.exe`                                                                                                                                 |
+| `Linux`    | `vidra-linux.AppImage` <br>`vidra-linux.deb` <br>`vidra-linux.rpm`                                                                                  |
+| `Android`  | `vidra-android.apk`<br> `vidra-android-arm64-v8a.apk`<br>`vidra-android-armeabi-v7a.apk`<br> `vidra-android-x86.apk` <br>`vidra-android-x86_64.apk` |
+| `macOS`    | Próximamente                                                                                                                                        |
 
-- Download: `vidra-<tag>-windows.exe`
-- What it is: Windows (x64) installer.
+### Validar Firmas y Checksums
 
-### Linux
+Cada release incluye los siguientes archivos para verificar la integridad y autenticidad de los instaladores:
 
-Choose **one**:
-
-- Recommended (portable): `vidra-<tag>-linux.AppImage`
-- Debian/Ubuntu: `vidra-<tag>-linux.deb`
-- Fedora/openSUSE: `vidra-<tag>-linux.rpm`
-
-### Android
-
-If you're not sure, download the **universal** build:
-
-- Universal (larger, works on most devices): `vidra-<tag>-android.apk`
-
-If you want the correct APK for your CPU/ABI (smaller), download the matching one:
-
-- ARM 64-bit: `vidra-<tag>-android-arm64-v8a.apk`
-- ARM 32-bit: `vidra-<tag>-android-armeabi-v7a.apk`
-- x86 32-bit: `vidra-<tag>-android-x86.apk`
-- x86 64-bit: `vidra-<tag>-android-x86_64.apk`
-
-ABI detection tip (optional): `adb shell getprop ro.product.cpu.abilist`
-
-### Other assets (not the installer)
-
-- `_update`: metadata for Vidra's built-in updater.
 - `SHA2-256SUMS`, `SHA2-512SUMS`: checksums.
 - `SHA2-256SUMS.sig`, `SHA2-512SUMS.sig`: GPG signatures for the checksums.
 
-These assets are distributed under the license in [LICENSE](LICENSE) and may include components under other licenses listed in [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
+Estos recursos se distribuyen bajo la licencia [LICENSE](LICENSE) y pueden incluir componentes bajo otras licencias enumeradas en [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
 
-## Architecture
+## Arquitectura
 
-| Layer | Responsibilities | Key tech |
-| --- | --- | --- |
-| Python backend (`app/src`) | REST + WebSocket API, job orchestration, yt-dlp integration, hook execution. | Starlette, Uvicorn, Marshmallow, yt-dlp, websockets |
-| Embedded runtime (`app/app.zip`) | Self-contained Python env extracted by `serious_python` for each platform. | serious_python, pip, uvicorn |
-| Flutter client (`lib/`) | Multi-platform UI, caching, notifications, i18n, persistence. | Flutter 3.9, provider, cached_network_image, serious_python plugin |
-| Tooling (`tool/`, `docs/`) | Localization scripts, translation diffing, typed architecture notes. | Dart CLI, Python scripts |
-
-## Prerequisites
-
-- Flutter SDK ≥ 3.9.2 (desktop platforms enabled for Windows/Mac/Linux builds).
-- Dart ≥ 3.9.
-- Python 3.12 (used for backend development and unit tests).
-- Android/iOS toolchains (optional, only if targeting mobile builds).
-- `serious_python` CLI (installed via `dart pub global activate serious_python`).
-
-### FFmpeg / ffprobe binaries (required)
-
-This repository does **not** ship FFmpeg binaries anymore. To run Vidra you must provide `ffmpeg` and `ffprobe` yourself.
-
-Recommended source: https://github.com/chomusuke-mk/vidra-ffmpeg
-
-Place the files with **exact** names in the following locations:
-
-- **Windows**
-	- `windows/ffmpeg/ffmpeg.exe`
-	- `windows/ffmpeg/ffprobe.exe`
-
-- **Linux**
-	- `linux/ffmpeg/ffmpeg`
-	- `linux/ffmpeg/ffprobe`
-	- Ensure they are executable: `chmod +x linux/ffmpeg/ffmpeg linux/ffmpeg/ffprobe`
-
-- **Android**
-	- Download the Android ZIPs from https://github.com/chomusuke-mk/vidra-ffmpeg (either standard or `full-*`).
-	- Each Android ZIP contains two files named `ffmpeg` and `ffprobe`.
-	- Rename them to **exactly** `libffmpeg.so` and `libffprobe.so`.
-	- Place them under these ABI folders (matching the ZIP you downloaded):
-		- `ffmpeg-*-android-arm64-v8a.zip` -> `android/app/src/main/jniLibs/arm64-v8a/`
-		- `ffmpeg-*-android-armeabi-v7a.zip` -> `android/app/src/main/jniLibs/armeabi-v7a/`
-		- `ffmpeg-*-android-x86.zip` -> `android/app/src/main/jniLibs/x86/`
-		- `ffmpeg-*-android-x86_64.zip` -> `android/app/src/main/jniLibs/x86_64/`
-
-## Quick start
-
-### 1. Bootstrap the Python backend
-
-```bash
-cd app
-python -m venv .venv
-. .venv/Scripts/activate  # PowerShell: .venv\Scripts\Activate.ps1
-pip install -r requirements.txt -r requirements.dev.txt
+```mermaid
+graph TD
+  A[Cliente Flutter] <-->|Peticiones HTTP| B[Backend Python]
+  subgraph serious_python
+    B <--> C[yt-dlp]
+    C <--> D[FFmpeg/ffprobe]
+    C --> E[quickjs]
+  end
 ```
 
-### 2. Bootstrap the Flutter workspace
+### FFmpeg / ffprobe ejecutables
+
+Para ejecutar Vidra, debe proporcionar `ffmpeg` y `ffprobe` por su cuenta.
+
+Fuente recomendada: <https://github.com/chomusuke-mk/vidra-ffmpeg>
+
+Coloca los archivos con los nombres **exactos** en las siguientes ubicaciones:
+
+| Plataforma  | Ubicación esperada dentro del proyecto                                                                    |
+| ----------- | --------------------------------------------------------------------------------------------------------- |
+| **Windows** | `windows/ffmpeg/ffmpeg.exe` <br> `windows/ffmpeg/ffprobe.exe`                                             |
+| **Linux**   | `linux/ffmpeg/ffmpeg` <br> `linux/ffmpeg/ffprobe`                                                         |
+| **Android** | `android/app/src/main/jniLibs/<abi>/libffmpeg.so` <br> `android/app/src/main/jniLibs/<abi>/libffprobe.so` |
+
+> - `<abi>` debe ser uno de `arm64-v8a`, `armeabi-v7a`, `x86`, o `x86_64`.
+
+## Inicio rápido
+
+### 1. Inicializar el espacio de trabajo de Flutter
 
 ```bash
 flutter pub get
-dart run flutter_launcher_icons  # optional, regenerates icons
+dart run flutter_launcher_icons # opcional, regenera los iconos
 ```
 
-## Running the stack locally
-
-### Backend API
+### Cliente de escritorio Flutter
 
 ```bash
-cd app
-# Required for standalone backend runs (set to absolute paths)
-export VIDRA_SERVER_DATA="p:/vidra/temp/data"
-export VIDRA_SERVER_CACHE="p:/vidra/temp/cache"
-
-# Optional, but recommended to match the default client config
-export VIDRA_SERVER_HOST="127.0.0.1"
-export VIDRA_SERVER_PORT="59666"
-
-python -m src.main
+flutter run -d windows
+flutter run -d linux
+flutter run -d android
 ```
 
-This boots the Starlette ASGI app with the host/port declared via env vars (or backend defaults). All stdout/stderr is redirected to `release_logs.txt` inside `VIDRA_SERVER_DATA` for easier troubleshooting.
+## Empaquetado y distribución
 
-### Flutter desktop client
+1. Asegúrate de que el paquete backend dentro de `app/app.zip` esté actualizado:
 
-```bash
-flutter run -d windows  # or macos / linux
-```
+   ```bash
+    dart run serious_python:main package app/src \
+    --requirements -r app/requirements.txt \
+    -p Windows --verbose \
+    --output app/app.zip
+   ```
 
-The client automatically unpacks `app/app.zip` using the `serious_python` plugin, talks to the local backend instance, and streams job updates through per-job WebSockets.
+   > Backend se distribuye en <https://github.com/chomusuke-mk/vidra-backend>, contiene app.zip y requirements.txt.
 
-### Android share target
+2. Copia `app/app.zip` y el hash generado (`app/app.zip.hash`) en la lista de recursos de Flutter (ya declarada en `pubspec.yaml`).
 
-On Android you can now push URLs straight into Vidra from any app that exposes the standard `Share` menu:
+3. Compila el artefacto de destino (`flutter build windows`, `flutter build macos`, etc.).
 
-1. Choose **Vidra** in the share sheet to open a translucent overlay with quick presets (Video · Best, Video · H264, Audio · Best, Audio · Speech).
-2. Tap one of the presets to enqueue the new job immediately, or pick **Other downloads** to open the regular quick-options sheet with your full preference controls. The shared URLs are prefilled in the Home screen textbox.
-3. Android's Direct Share row (long-press suggestions) exposes the same presets so you can jump directly into the desired format without opening the overlay.
+    >El repositorio incluye tareas de VS Code (`Serious Python: Empaquetar <plataforma> App`, `Compilar APK de Android (Flutter)`) que encapsulan los mismos comandos.
 
-Each shared job is tagged with metadata (`share_intent`) so you can audit where it came from on the backend.
+## Localización y recursos
 
-## Packaging & distribution
-
-1. Ensure the backend bundle inside `app/app.zip` is current:
-
-	 ```bash
-	 dart run serious_python:main package app/src \
-		 --requirements -r app/requirements.txt \
-		 -p Windows --verbose \
-		 --output app/app.zip
-	 ```
-
-	 (Use `Android`, `Linux`, or `MacOS` for the `-p` flag as needed.)
-
-2. Copy `app/app.zip` and the generated hash (`app/app.zip.hash`) into the Flutter assets list (already declared in `pubspec.yaml`).
-
-3. Build your target artifact (`flutter build windows`, `flutter build macos`, etc.).
-
-The repository includes VS Code tasks (`Serious Python: Package <platform> App`, `Build Android APK (Flutter)`) that wrap the same commands.
-
-## Feature flags
-
-- `VIDRA_ENABLE_PREVIEW_API=1` exposes `POST /api/preview` and `POST /api/jobs/dry-run`. Disabled by default to reduce attack surface.
-
-## Localization & assets
-
-- Translations live under `i18n/locales/<iso-code>/`. Use the helper scripts in `tool/` (e.g., `auto_translate_locales.py`, `generate_translation_progress.py`) to keep locales in sync.
-- The `assets/` directory holds icons, animations, and `.env` templates. All referenced assets are declared in `pubspec.yaml`.
+- Las traducciones se encuentran en `i18n/locales/<código ISO>/`. Utilice los scripts auxiliares en `tool/` (por ejemplo, `auto_translate_locales.py`, `generate_translation_progress.py`) para mantener los idiomas sincronizados.
+- El directorio `assets/` contiene iconos, animaciones y plantillas `.env`. Todos los recursos referenciados se declaran en `pubspec.yaml`.
 
 ## Testing & QA
 
-| Scope | Command |
-| --- | --- |
-| Python backend | `cd app && pytest` (or `python -m pytest`) |
-| Flutter widget/unit tests | `flutter test` |
-| Integration smoke test | `flutter test --tags integration` (tests under `test/` and `test/backend/`) |
+| Scope                     | Command                                                                     |
+| ------------------------- | --------------------------------------------------------------------------- |
+| Flutter widget/unit tests | `flutter test`                                                              |
+| Integration smoke test    | `flutter test --tags integration` (tests under `test/` and `test/backend/`) |
 
 Use `VIDRA_SERVER_DATA` to point tests at a temporary directory so logs are isolated per run.
 
 ## Documentation & troubleshooting
 
-- `docs/system-architecture.md` – end-to-end overview of the Flutter client, Starlette backend, sockets, and packaging flow.
+- `docs/system-architecture.md` – end-to-end overview of the Flutter client, backend, sockets, and packaging flow.
 - `docs/client-flows.md` – English descriptions of UI flows mapped to REST/WebSocket contracts.
 - `docs/typed-architecture.md` – explains the typed model refactor and state layers inside the backend.
 - `docs/backend-job-lifecycle.md` – canonical reference for job states, transitions, and related endpoints.
@@ -229,4 +147,4 @@ Use `VIDRA_SERVER_DATA` to point tests at a temporary directory so logs are isol
 
 - Project licensing follows the root `LICENSE` file.
 - Every third-party dependency (Python + Flutter) is documented in [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md), with verbatim license texts stored under `third_party_licenses/` for inclusion in installers.
-- Remember that `mutagen` is GPL-2.0-or-later; distributing Vidra to end users requires shipping the corresponding backend sources to satisfy GPL obligations. 
+- Remember that `mutagen` is GPL-2.0-or-later; distributing Vidra to end users requires shipping the corresponding backend sources to satisfy GPL obligations.
