@@ -70,8 +70,8 @@ Coloca los archivos con los nombres **exactos** en las siguientes ubicaciones:
 
 | Plataforma  | Ubicación esperada dentro del proyecto                                                                    |
 | ----------- | --------------------------------------------------------------------------------------------------------- |
-| **Windows** | `windows/ffmpeg/ffmpeg.exe` <br> `windows/ffmpeg/ffprobe.exe`                                             |
-| **Linux**   | `linux/ffmpeg/ffmpeg` <br> `linux/ffmpeg/ffprobe`                                                         |
+| **Windows** | `windows/ffmpeg.exe` <br> `windows/ffprobe.exe`                                                           |
+| **Linux**   | `linux/ffmpeg` <br> `linux/ffprobe`                                                                       |
 | **Android** | `android/app/src/main/jniLibs/<abi>/libffmpeg.so` <br> `android/app/src/main/jniLibs/<abi>/libffprobe.so` |
 
 > - `<abi>` debe ser uno de `arm64-v8a`, `armeabi-v7a`, `x86`, o `x86_64`.
