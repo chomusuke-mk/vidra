@@ -123,6 +123,8 @@ app.*.symbols
 /app/app.zip.hash
 
 # External binaries (download required; do not commit)
-/windows/ffmpeg/*
-/linux/ffmpeg/*
+/windows/ffmpeg.exe
+/windows/ffprobe.exe
+/linux/ffmpeg
+/linux/ffprobe
 /android/app/src/main/jniLibs/**

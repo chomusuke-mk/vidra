@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:vidra/constants/app_strings.dart';
-import 'package:vidra/i18n/delegates/vidra_localizations.dart';
+import 'package:vidra/features/locales/domain/locale.dart';
+import '../../../../test/vidra_localizations.dart';
 
 class LicenseViewerScreen extends StatefulWidget {
   const LicenseViewerScreen({super.key});

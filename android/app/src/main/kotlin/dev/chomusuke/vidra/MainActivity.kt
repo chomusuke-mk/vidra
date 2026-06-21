@@ -9,10 +9,12 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodChannel
+import androidx.annotation.NonNull
 
 class MainActivity : FlutterActivity() {
     companion object {
-        private const val CHANNEL_NATIVE = "dev.chomusuke.vidra/native"
+private const val CHANNEL_NATIVE = "vidra_channel"
+
         private const val CHANNEL_SHARE_EVENTS = "dev.chomusuke.vidra/share/events"
         const val EXTRA_SHARE_PRESET = "dev.chomusuke.vidra.EXTRA_SHARE_PRESET"
         const val EXTRA_SHARE_DIRECT = "dev.chomusuke.vidra.EXTRA_SHARE_DIRECT"
@@ -34,7 +36,7 @@ class MainActivity : FlutterActivity() {
         handleShareIntent(intent)
     }
 
-    override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
+    override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL_NATIVE)
             .setMethodCallHandler { call, result ->

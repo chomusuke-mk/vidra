@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:open_file/open_file.dart';
-import 'package:vidra/constants/app_strings.dart';
-import 'package:vidra/data/models/download_job.dart';
-import 'package:vidra/utils/download_formatters.dart';
+import 'package:vidra/features/locales/domain/locale.dart';
+import 'package:vidra/core/data/models/download_job.dart';
+import 'package:vidra/core/utils/download_formatters.dart';
 
 import 'windows_icon_path.dart';
 

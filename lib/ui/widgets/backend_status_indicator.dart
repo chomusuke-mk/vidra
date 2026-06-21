@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:vidra/config/backend_config.dart';
-import 'package:vidra/i18n/i18n.dart';
+import 'package:vidra/core/network/backend_config.dart';
+import 'package:vidra/core/i18n/i18n.dart';
 import 'package:vidra/state/backend_update_indicator.dart';
 import 'package:vidra/state/serious_python_server_launcher.dart';
 

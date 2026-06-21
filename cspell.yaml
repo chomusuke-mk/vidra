@@ -3,15 +3,26 @@ ignorePaths:
   - i18n/**
   - pubspec.yaml
   - cspell.config.yaml
+  - lib/core/constants/languages.dart
 words:
   - acodec
   - alac
+  - animable
   - appimage
   - armeabi
+  - autocompletado
+  - baneos
   - bestaudio
   - bestvideo
   - chomusuke
+  - crasheos
+  - darwin
+  - decrementa
+  - decrementar
+  - deno
   - descomprimiéndolo
+  - DESERIALIZACIÓN
+  - desincronizaciones
   - embedsubtitle
   - embedthumbnail
   - Endonyms
@@ -21,27 +32,49 @@ words:
   - ffmpegvideoconvertor
   - flac
   - healthcheck
+  - heurística
   - infojson
   - libffprobe
   - lowlight
+  - molestoso
+  - multilinea
   - multistreams
   - noplaylist
   - offtopic
+  - Parseamos
+  - parseo
+  - patreon
+  - precargando
+  - prefs
   - pubspec
   - PYTHONUNBUFFERED
   - quickjs
+  - Reactividad
+  - Redibuja
+  - rediseñada
   - remux
+  - renderiza
+  - renderizamos
+  - renderizar
+  - renderizará
   - sdcard
   - selfpromo
+  - SERIALIZACIÓN
   - sponsorblock
+  - Submenús
+  - Subtags
+  - swipeable
   - thumbnailconvertor
   - thumbnailsconvertor
+  - tipado
+  - TIPADO
   - tmpfilename
   - twofactor
   - USERPROFILE
   - uvicorn
   - vidra
   - vivaldi
+  - webp
   - xattrmetadata
   - xattrs
   - youtub

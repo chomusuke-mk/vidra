@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:provider/provider.dart';
-import 'package:vidra/constants/languages.dart';
-import 'package:vidra/i18n/i18n.dart';
-import 'package:vidra/models/preferences_model.dart';
+import 'package:vidra/core/constants/languages.dart';
+import 'package:vidra/core/i18n/i18n.dart';
+import 'package:vidra/core/models/preferences_model.dart';
 import 'package:vidra/state/initial_permissions_controller.dart';
 import 'package:vidra/ui/screens/home/backend_status_screen.dart';
 import 'package:vidra/ui/widgets/backend_status_indicator.dart';

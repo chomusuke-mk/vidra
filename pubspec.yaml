@@ -64,9 +64,12 @@ dependencies:
   openpgp: ^3.10.7
   crypto: ^3.0.3
   convert: ^3.1.1
+  mime: ^2.0.0
 
 dev_dependencies:
   flutter_test:
+    sdk: flutter
+  integration_test:
     sdk: flutter
   flutter_lints: ^6.0.0
   flutter_launcher_icons: ^0.14.4
@@ -75,197 +78,15 @@ flutter:
   uses-material-design: true
   assets:
     - public.key
-    - app/app.zip
-    - app/app.zip.hash
+#    - app/app.zip
+#    - app/app.zip.hash
     - .env
     - THIRD_PARTY_LICENSES.txt
     - LICENSE
     - third_party_licenses/
     - assets/icon/icon.ico
     - assets/icon/icon.png
-    - i18n/locales/aa/
-    - i18n/locales/ab/
-    - i18n/locales/ae/
-    - i18n/locales/af/
-    - i18n/locales/ak/
-    - i18n/locales/am/
-    - i18n/locales/an/
-    - i18n/locales/ar/
-    - i18n/locales/as/
-    - i18n/locales/av/
-    - i18n/locales/ay/
-    - i18n/locales/az/
-    - i18n/locales/ba/
-    - i18n/locales/be/
-    - i18n/locales/bg/
-    - i18n/locales/bi/
-    - i18n/locales/bm/
-    - i18n/locales/bn/
-    - i18n/locales/bo/
-    - i18n/locales/br/
-    - i18n/locales/bs/
-    - i18n/locales/ca/
-    - i18n/locales/ce/
-    - i18n/locales/ch/
-    - i18n/locales/co/
-    - i18n/locales/cr/
-    - i18n/locales/cs/
-    - i18n/locales/cu/
-    - i18n/locales/cv/
-    - i18n/locales/cy/
-    - i18n/locales/da/
-    - i18n/locales/de/
-    - i18n/locales/dv/
-    - i18n/locales/dz/
-    - i18n/locales/ee/
-    - i18n/locales/el/
-    - i18n/locales/en/
-    - i18n/locales/eo/
-    - i18n/locales/es/
-    - i18n/locales/et/
-    - i18n/locales/eu/
-    - i18n/locales/fa/
-    - i18n/locales/ff/
-    - i18n/locales/fi/
-    - i18n/locales/fj/
-    - i18n/locales/fo/
-    - i18n/locales/fr/
-    - i18n/locales/fy/
-    - i18n/locales/ga/
-    - i18n/locales/gd/
-    - i18n/locales/gl/
-    - i18n/locales/gn/
-    - i18n/locales/gu/
-    - i18n/locales/gv/
-    - i18n/locales/ha/
-    - i18n/locales/he/
-    - i18n/locales/hi/
-    - i18n/locales/ho/
-    - i18n/locales/hr/
-    - i18n/locales/ht/
-    - i18n/locales/hu/
-    - i18n/locales/hy/
-    - i18n/locales/hz/
-    - i18n/locales/ia/
-    - i18n/locales/id/
-    - i18n/locales/ie/
-    - i18n/locales/ig/
-    - i18n/locales/ii/
-    - i18n/locales/ik/
-    - i18n/locales/io/
-    - i18n/locales/is/
-    - i18n/locales/it/
-    - i18n/locales/iu/
-    - i18n/locales/ja/
-    - i18n/locales/jv/
-    - i18n/locales/ka/
-    - i18n/locales/kg/
-    - i18n/locales/ki/
-    - i18n/locales/kj/
-    - i18n/locales/kk/
-    - i18n/locales/kl/
-    - i18n/locales/km/
-    - i18n/locales/kn/
-    - i18n/locales/ko/
-    - i18n/locales/kr/
-    - i18n/locales/ks/
-    - i18n/locales/ku/
-    - i18n/locales/kv/
-    - i18n/locales/kw/
-    - i18n/locales/ky/
-    - i18n/locales/la/
-    - i18n/locales/lb/
-    - i18n/locales/lg/
-    - i18n/locales/li/
-    - i18n/locales/ln/
-    - i18n/locales/lo/
-    - i18n/locales/lt/
-    - i18n/locales/lu/
-    - i18n/locales/lv/
-    - i18n/locales/mg/
-    - i18n/locales/mh/
-    - i18n/locales/mi/
-    - i18n/locales/mk/
-    - i18n/locales/ml/
-    - i18n/locales/mn/
-    - i18n/locales/mr/
-    - i18n/locales/ms/
-    - i18n/locales/mt/
-    - i18n/locales/my/
-    - i18n/locales/na/
-    - i18n/locales/nb/
-    - i18n/locales/nd/
-    - i18n/locales/ne/
-    - i18n/locales/ng/
-    - i18n/locales/nl/
-    - i18n/locales/nn/
-    - i18n/locales/no/
-    - i18n/locales/nr/
-    - i18n/locales/nv/
-    - i18n/locales/ny/
-    - i18n/locales/oc/
-    - i18n/locales/oj/
-    - i18n/locales/om/
-    - i18n/locales/or/
-    - i18n/locales/os/
-    - i18n/locales/pa/
-    - i18n/locales/pi/
-    - i18n/locales/pl/
-    - i18n/locales/ps/
-    - i18n/locales/pt/
-    - i18n/locales/qu/
-    - i18n/locales/rm/
-    - i18n/locales/rn/
-    - i18n/locales/ro/
-    - i18n/locales/ru/
-    - i18n/locales/rw/
-    - i18n/locales/sa/
-    - i18n/locales/sc/
-    - i18n/locales/sd/
-    - i18n/locales/se/
-    - i18n/locales/sg/
-    - i18n/locales/si/
-    - i18n/locales/sk/
-    - i18n/locales/sl/
-    - i18n/locales/sm/
-    - i18n/locales/sn/
-    - i18n/locales/so/
-    - i18n/locales/sq/
-    - i18n/locales/sr/
-    - i18n/locales/ss/
-    - i18n/locales/st/
-    - i18n/locales/su/
-    - i18n/locales/sv/
-    - i18n/locales/sw/
-    - i18n/locales/ta/
-    - i18n/locales/te/
-    - i18n/locales/tg/
-    - i18n/locales/th/
-    - i18n/locales/ti/
-    - i18n/locales/tk/
-    - i18n/locales/tl/
-    - i18n/locales/tn/
-    - i18n/locales/to/
-    - i18n/locales/tr/
-    - i18n/locales/ts/
-    - i18n/locales/tt/
-    - i18n/locales/tw/
-    - i18n/locales/ty/
-    - i18n/locales/ug/
-    - i18n/locales/uk/
-    - i18n/locales/ur/
-    - i18n/locales/uz/
-    - i18n/locales/ve/
-    - i18n/locales/vi/
-    - i18n/locales/vo/
-    - i18n/locales/wa/
-    - i18n/locales/wo/
-    - i18n/locales/xh/
-    - i18n/locales/yi/
-    - i18n/locales/yo/
-    - i18n/locales/za/
-    - i18n/locales/zh/
-    - i18n/locales/zu/
+    - i18n/
 
   # fonts:
   #   - family: Schyler
