@@ -12,6 +12,7 @@ import 'features/downloads/presentation/downloads_controller.dart';
 import 'features/settings/data/settings_repository.dart';
 import 'features/settings/presentation/settings_controller.dart';
 import 'package:vidra/shared/utils/notification_service.dart';
+import 'package:vidra/features/downloads/presentation/overlay_main.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -181,3 +182,47 @@ Future<void> main() async {
     ),
   );
 }
+
+// ============================================================================
+// PUNTO DE ENTRADA DEL ISOLATE (OVERLAY WINDOW)
+// ============================================================================
+@pragma("vm:entry-point")
+void overlayMain() {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      home: const QuickShareOverlay(),
+    ),
+  );
+}
+
+/**
+ * MaterialApp(
+      debugShowCheckedModeBanner: false,
+      // --- MAGIA DEL TEMA NATIVO AÑADIDA AQUÍ ---
+      themeMode: ThemeMode.system, // Escucha al SO (Android/iOS)
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor:
+              Colors.blue, // Cambia esto si el color principal de Vidra es otro
+          brightness: Brightness.light,
+        ),
+        useMaterial3: true,
+      ),
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue, // Cambia esto al color de tu app
+          brightness: Brightness.dark,
+        ),
+        useMaterial3: true,
+      ),
+
+      // -------------------------------------------
+      home: const QuickShareOverlay(),
+    ),
+  );
+ */

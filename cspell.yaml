@@ -7,6 +7,7 @@ ignorePaths:
 words:
   - acodec
   - alac
+  - androidx
   - animable
   - appimage
   - armeabi
@@ -15,6 +16,7 @@ words:
   - bestaudio
   - bestvideo
   - chomusuke
+  - Cleartext
   - crasheos
   - darwin
   - decrementa
@@ -34,6 +36,8 @@ words:
   - healthcheck
   - heurística
   - infojson
+  - jetbrains
+  - kotlin
   - libffprobe
   - lowlight
   - molestoso

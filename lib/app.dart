@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vidra/features/downloads/presentation/downloads_screen.dart';
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
+import 'package:vidra/features/downloads/presentation/share_wrapper.dart';
 import 'shared/utils/toast_utils.dart';
 
 class App extends StatelessWidget {
@@ -25,7 +26,9 @@ class App extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       initialRoute: '/',
-      home: const DownloadsScreen(),
+      home: const ShareIntentWrapper(
+        child: DownloadsScreen(), // Tu pantalla normal
+      ),
     );
   }
 }
