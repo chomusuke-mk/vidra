@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vidra/features/downloads/presentation/selection_wrapper.dart';
 import 'package:vidra/features/downloads/presentation/downloads_controller.dart';
+import 'package:vidra/features/system/presentation/system_controller.dart';
 import 'download_detail_controller.dart';
 import 'package:vidra/features/downloads/data/download_repository.dart';
 import 'package:vidra/features/downloads/domain/download.dart' as model;
@@ -18,6 +19,7 @@ class DownloadDetailScreen extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => DownloadDetailController(
         context.read<DownloadRepository>(),
+        context.read<SystemController>(),
         download,
       ),
       // Envolvemos el Scaffold con nuestro SelectionFabWrapper

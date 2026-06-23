@@ -3,10 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:vidra/features/downloads/data/download_repository.dart';
 import 'package:vidra/features/downloads/domain/download.dart';
+import 'package:vidra/features/system/presentation/system_controller.dart';
+import 'package:vidra/features/system/domain/system_state.dart';
 import 'package:vidra/shared/utils/notification_service.dart';
 
 class DownloadsController extends ChangeNotifier {
   final DownloadRepository _repository;
+  final SystemController _systemController; // <-- Inyección del Cerebro
+  
+  final List<Map<String, dynamic>> _pendingQueue = [];
 
   List<Download> _downloads = [];
   List<Download> get downloads => _downloads;
@@ -18,10 +23,48 @@ class DownloadsController extends ChangeNotifier {
 
   final Map<String, String> _imageCache = {};
 
-  DownloadsController(this._repository) {
+  DownloadsController(this._repository, this._systemController) {
+    _systemController.addListener(_onSystemStateChanged);
     _init();
   }
 
+  // ==========================================================================
+  // REACTIVIDAD AL ESTADO DEL SISTEMA
+  // ==========================================================================
+  void _onSystemStateChanged() {
+    if (_systemController.state == SystemState.ready) {
+      flushPendingQueue();
+      _startGlobalSubscription();
+    } else {
+      // Si el backend se cae (retrying, fatalError, etc), cortamos la escucha limpia y pacíficamente.
+      _stopGlobalSubscription();
+    }
+  }
+
+  void _startGlobalSubscription() {
+    if (_globalSseSubscription != null) return; // Ya estamos conectados
+
+    _globalSseSubscription = _repository.watchGlobalProgress().listen(
+      _applyGlobalDeltas,
+      onError: (e) {
+        debugPrint('⚠️ Error SSE Global (Ignorado, esperando al Watchdog): $e');
+        // No cancelamos manualmente aquí. El SystemController (Watchdog)
+        // se dará cuenta de que el backend cayó, cambiará el estado a 'retrying',
+        // y eso disparará _stopGlobalSubscription() automáticamente.
+      },
+      cancelOnError:
+          false, // ¡MAGIA! Evita que el Stream muera y crashee la app si se corta el socket.
+    );
+  }
+
+  void _stopGlobalSubscription() {
+    _globalSseSubscription?.cancel();
+    _globalSseSubscription = null;
+  }
+
+  // ==========================================================================
+  // CORE LOGIC
+  // ==========================================================================
   Future<void> _init() async {
     _isLoading = true;
     notifyListeners();
@@ -36,43 +79,56 @@ class DownloadsController extends ChangeNotifier {
     } finally {
       _isLoading = false;
       notifyListeners();
-      _manageGlobalSubscription();
+      // Si justo arrancamos y el sistema ya estaba listo, nos conectamos.
+      if (_systemController.state == SystemState.ready) {
+        _startGlobalSubscription();
+      }
     }
   }
 
-  Future<void> addDownload(String url, Map<String, dynamic> options) async {
+  Future<void> addDownload(
+    String url,
+    Map<String, dynamic> options, {
+    bool isBackendReady = false,
+  }) async {
     if (url.trim().isEmpty) return;
+
+    // Si el backend aún no está en estado "SystemState.ready"
+    if (!isBackendReady) {
+      debugPrint('Backend no está listo. Encolando descarga...');
+      _pendingQueue.add({"url": url, "options": options});
+      // Aquí puedes lanzar un ToastUtils.showInfo('Preparando motor de descarga...');
+      return;
+    }
+
     try {
       await _repository.addDownload(url, options: options);
-      await _init();
+      await _init(); // Refresca la lista de descargas
     } catch (e) {
       debugPrint('Error al agregar descarga: $e');
     }
   }
 
-  bool _hasActiveDownloads() {
-    return _downloads.any((d) {
-      final state = d.state?.value;
-      return state == DownloadState.requested ||
-          state == DownloadState.pending ||
-          state == DownloadState.identifying ||
-          state == DownloadState.waitForSelection ||
-          state == DownloadState.inProgress;
-    });
-  }
+  /// Nuevo método: Se llamará automáticamente cuando SystemController avise que está Ready
+  Future<void> flushPendingQueue() async {
+    if (_pendingQueue.isEmpty) return;
 
-  void _manageGlobalSubscription() {
-    final hasActive = _hasActiveDownloads();
+    debugPrint(
+      'Vaciando cola de descargas pendientes (${_pendingQueue.length})...',
+    );
 
-    if (hasActive && _globalSseSubscription == null) {
-      _globalSseSubscription = _repository.watchGlobalProgress().listen(
-        _applyGlobalDeltas,
-        onError: (e) => debugPrint('Error SSE Global: $e'),
-      );
-    } else if (!hasActive && _globalSseSubscription != null) {
-      _globalSseSubscription?.cancel();
-      _globalSseSubscription = null;
+    // Extraemos y limpiamos la cola inmediatamente para evitar duplicados
+    final queueCopy = List<Map<String, dynamic>>.from(_pendingQueue);
+    _pendingQueue.clear();
+
+    for (var item in queueCopy) {
+      try {
+        await _repository.addDownload(item["url"], options: item["options"]);
+      } catch (e) {
+        debugPrint('Error procesando elemento encolado: $e');
+      }
     }
+    await _init(); // Sincronizamos la UI al final
   }
 
   /// Descarga y guarda en disco la imagen SIN bloquear el flujo de notificaciones
@@ -198,12 +254,12 @@ class DownloadsController extends ChangeNotifier {
 
     if (listChanged) {
       notifyListeners();
-      _manageGlobalSubscription();
     }
   }
 
   @override
   void dispose() {
+    _systemController.removeListener(_onSystemStateChanged);
     _globalSseSubscription?.cancel();
     super.dispose();
   }

@@ -98,26 +98,9 @@ endif()
 unset(_VIDRA_FFPROBE_EXE)
 
 if(PLUGIN_BUNDLED_LIBRARIES)
-  # Algunos plugins (p.ej. bundling de runtimes) pueden aportar rutas en
-  # formato Windows (C:\\...). CMake genera cmake_install.cmake con strings,
-  # y secuencias como "\W" provocan errores de parseo. Normalizamos a rutas
-  # estilo CMake (C:/...) antes de instalar.
-  set(_vidra_plugin_bundled_libs "")
-  foreach(_vidra_lib IN LISTS PLUGIN_BUNDLED_LIBRARIES)
-    if(_vidra_lib MATCHES "^\\$<")
-      list(APPEND _vidra_plugin_bundled_libs "${_vidra_lib}")
-    else()
-      file(TO_CMAKE_PATH "${_vidra_lib}" _vidra_lib_cmake)
-      list(APPEND _vidra_plugin_bundled_libs "${_vidra_lib_cmake}")
-    endif()
-  endforeach()
-  unset(_vidra_lib)
-  unset(_vidra_lib_cmake)
-
-  install(FILES ${_vidra_plugin_bundled_libs}
+  install(FILES "${PLUGIN_BUNDLED_LIBRARIES}"
     DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"
     COMPONENT Runtime)
-  unset(_vidra_plugin_bundled_libs)
 endif()
 
 # Copy the native assets provided by the build.dart from all packages.

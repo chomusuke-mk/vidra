@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
 import 'package:vidra/app.dart';
+import 'package:vidra/core/network/github_client.dart';
 import 'package:vidra/features/locales/data/locale_repository.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
+import 'package:vidra/features/updates/presentation/update_controller.dart';
 import 'core/network/vidra_http_client.dart';
 import 'features/downloads/data/download_repository.dart';
 import 'features/downloads/presentation/downloads_controller.dart';
@@ -13,97 +14,60 @@ import 'features/settings/data/settings_repository.dart';
 import 'features/settings/presentation/settings_controller.dart';
 import 'package:vidra/shared/utils/notification_service.dart';
 import 'package:vidra/features/downloads/presentation/overlay_main.dart';
+import 'package:vidra/features/system/presentation/system_controller.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: '.env');
   final sharedPreferences = await SharedPreferences.getInstance();
   await NotificationService.init();
-
-  // ! TAL VEZ BORRAR LO SIGUIENTE
-  /*
-  final backendConfig = BackendConfig.fromEnv();
-  final notificationManager = DownloadNotificationManager(
-    languageResolver: () => preferencesModel.effectiveLanguage,
-  );
-  await notificationManager.initialize();
-
-  unawaited(AppUpdateBootstrapper().run());
-  final appLifecycleObserver = AppLifecycleObserver();
-
-  final dataDir = await getApplicationSupportDirectory();
-  final cacheDir = await getApplicationCacheDirectory();
-
-  final pythonLauncher = SeriousPythonServerLauncher.instance;
-
-  final downloadController = DownloadController(
-    backendConfig: backendConfig,
-    authToken: backendAuthToken.value,
-    backendStateListenable: pythonLauncher.state,
-    notificationManager: notificationManager,
-    languageResolver: () => preferencesModel.effectiveLanguage,
-    appLifecycleObserver: appLifecycleObserver,
-  );
-
-  pythonLauncher.launchInfo.addListener(() {
-    final token = pythonLauncher.launchInfo.value?.token;
-    if (token != null && token.trim().isNotEmpty) {
-      downloadController.updateAuthToken(token);
-    }
-  });
-
-  unawaited(
-    pythonLauncher
-        .ensureStarted(
-          extraEnvironment: {
-            'APP_ENV': "development",
-            'API_TOKEN': "1234567890abcdef",
-            'HOST': "",
-            'PORT': 'info',
-            'LOGS_PATH': p.join(cacheDir.path, 'backend', "logs"),
-            'DATA_PATH': p.join(dataDir.path, 'backend'),
-            'TEMP_PATH': p.join(cacheDir.path, 'backend'),
-          },
-        )
-        .catchError((error, stackTrace) {
-          debugPrint('Serious Python launcher error: $error');
-          debugPrint(stackTrace.toString());
-        }),
-  );
-  */
   runApp(
     MultiProvider(
       providers: [
         // =====================================================================
         // CAPA 1: INFRAESTRUCTURA BASE
         // =====================================================================
-        Provider<VidraHttpClient>(
+        ChangeNotifierProvider<SystemController>(
+          create: (_) => SystemController(),
+        ),
+        // =====================================================================
+        // CAPA 2: INFRAESTRUCTURA BASE (Red y Almacenamiento local)
+        // =====================================================================
+        Provider<GithubClient>(create: (_) => GithubClient()),
+        // El Cliente HTTP ahora escucha al cerebro.
+        ProxyProvider<SystemController, VidraHttpClient>(
           create: (_) => VidraHttpClient(
-            baseUrl: 'http://localhost:5000', // Reemplaza con tu URL o IP
+            baseUrl: 'http://127.0.0.1:5000', // Valor inicial de descarte
             defaultHeaders: {},
             token: null,
           ),
+          update: (_, systemCtrl, client) {
+            // MUTACIÓN EN CALIENTE: Actualizamos las propiedades sin destruir el objeto.
+            // Si el puerto aún no existe, usamos 5000 por defecto.
+            client!.baseUrl =
+                'http://127.0.0.1:${systemCtrl.backendPort ?? 5000}';
+            client.token = systemCtrl.backendToken;
+            return client;
+          },
         ),
         Provider<SettingsRepository>(
           create: (_) => SettingsRepository(sharedPreferences),
         ),
         Provider<LocaleRepository>(create: (_) => LocaleRepository()),
+        Provider<SharedPreferences>.value(value: sharedPreferences),
         // =====================================================================
-        // CAPA 2: REPOSITORIOS DEPENDIENTES
+        // CAPA 3: REPOSITORIOS DEPENDIENTES
         // =====================================================================
         ProxyProvider<VidraHttpClient, DownloadRepository>(
-          update: (_, client, _) => DownloadRepository(client),
+          update: (_, client, prev) => prev ?? DownloadRepository(client),
         ),
         // =====================================================================
-        // CAPA 3: CONTROLADORES DE ESTADO (Gestión de la UI)
+        // CAPA 4: CONTROLADORES DE ESTADO (Gestión de la UI)
         // =====================================================================
-        // Settings Controller (Se inicializa primero porque tiene el idioma guardado)
         ChangeNotifierProxyProvider<SettingsRepository, SettingsController>(
           create: (context) =>
               SettingsController(context.read<SettingsRepository>()),
           update: (_, repo, prev) => prev ?? SettingsController(repo),
         ),
-        // Locale Controller (El pegamento mágico: Escucha a SettingsController)
         ChangeNotifierProxyProvider2<
           LocaleRepository,
           SettingsController,
@@ -111,15 +75,10 @@ Future<void> main() async {
         >(
           create: (context) => LocaleController(
             context.read<LocaleRepository>(),
-            context
-                .read<SettingsController>()
-                .appLanguage, // Le inyectamos el idioma inicial
+            context.read<SettingsController>().appLanguage,
           ),
           update: (context, repo, settings, prev) {
             final currentLang = settings.appLanguage;
-
-            // Si el controlador ya existía y el usuario cambió el idioma en Settings,
-            // le avisamos para que descargue y fusione el nuevo JSON.
             if (prev != null && prev.currentLocaleCode != currentLang) {
               prev.setLocale(currentLang);
             }
@@ -127,56 +86,33 @@ Future<void> main() async {
             return prev ?? LocaleController(repo, currentLang);
           },
         ),
-        // Downloads Controller
-        ChangeNotifierProxyProvider<DownloadRepository, DownloadsController>(
-          create: (context) =>
-              DownloadsController(context.read<DownloadRepository>()),
-          update: (_, repo, prev) => prev ?? DownloadsController(repo),
-        ),
-        // ! TAL VEZ BORRAR LO SIGUIENTE
-        /*
-        Provider<BackendConfig>.value(value: backendConfig),
-        ChangeNotifierProvider<PreferencesModel>.value(value: preferencesModel),
-        ChangeNotifierProvider<AppLifecycleObserver>.value(
-          value: appLifecycleObserver,
-        ),
-        Provider<DownloadNotificationManager>.value(value: notificationManager),
-        ChangeNotifierProvider<InitialPermissionsController>(
-          create: (_) => InitialPermissionsController(),
-        ),
-        ChangeNotifierProvider<DownloadController>.value(
-          value: downloadController,
-        ),
-        ChangeNotifierProvider<PendingDownloadInbox>(
-          create: (_) {
-            final inbox = PendingDownloadInbox();
-            unawaited(inbox.pullFromNative());
-            return inbox;
-          },
-        ),
-        ProxyProvider3<
-          DownloadController,
-          PreferencesModel,
-          PendingDownloadInbox,
-          ShareIntentCoordinator
+        // Nuestro Controlador de Descargas escucha al Sistema (Para encolar) y al Repositorio (Para ejecutar)
+        ChangeNotifierProxyProvider2<
+          DownloadRepository,
+          SystemController,
+          DownloadsController
         >(
-          update: (_, downloadController, prefsModel, pendingInbox, previous) {
-            final coordinator =
-                previous ??
-                ShareIntentCoordinator(
-                  downloadController: downloadController,
-                  preferencesModel: prefsModel,
-                  pendingDownloadInbox: pendingInbox,
-                  notificationManager: notificationManager,
-                );
-            if (!coordinator.isInitialized) {
-              coordinator.initialize();
-            }
-            return coordinator;
-          },
-          dispose: (_, coordinator) => coordinator.dispose(),
+          create: (context) => DownloadsController(
+            context.read<DownloadRepository>(),
+            context.read<SystemController>(),
+          ),
+          update: (_, repo, systemCtrl, prev) =>
+              prev ?? DownloadsController(repo, systemCtrl),
         ),
-        */
+        ChangeNotifierProxyProvider3<
+          GithubClient,
+          SystemController,
+          SharedPreferences,
+          UpdateController
+        >(
+          create: (context) => UpdateController(
+            context.read<GithubClient>(),
+            context.read<SystemController>(),
+            context.read<SharedPreferences>(),
+          ),
+          update: (_, github, system, prefs, prev) =>
+              prev ?? UpdateController(github, system, prefs),
+        ),
       ],
       child: const App(),
     ),
@@ -199,30 +135,3 @@ void overlayMain() {
     ),
   );
 }
-
-/**
- * MaterialApp(
-      debugShowCheckedModeBanner: false,
-      // --- MAGIA DEL TEMA NATIVO AÑADIDA AQUÍ ---
-      themeMode: ThemeMode.system, // Escucha al SO (Android/iOS)
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor:
-              Colors.blue, // Cambia esto si el color principal de Vidra es otro
-          brightness: Brightness.light,
-        ),
-        useMaterial3: true,
-      ),
-      darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue, // Cambia esto al color de tu app
-          brightness: Brightness.dark,
-        ),
-        useMaterial3: true,
-      ),
-
-      // -------------------------------------------
-      home: const QuickShareOverlay(),
-    ),
-  );
- */

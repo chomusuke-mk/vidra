@@ -77,4 +77,6 @@ class DownloadRepository {
   Future<void> submitSelectedEntries(String id, List<String> entries) =>
       _client.selectEntries(id: id, entries: entries);
   Future<String> fetchLogs(String? id) => _client.getLogs(id: id);
+  // --- Health Check ---
+  Future<bool> checkHealth() => _client.healthCheck();
 }

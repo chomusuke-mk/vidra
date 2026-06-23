@@ -3,10 +3,11 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class VidraHttpClient {
-  final String baseUrl;
+  String baseUrl;
+  String? token;
+
   final Map<String, String> defaultHeaders;
   final Duration timeout;
-  final String? token;
 
   VidraHttpClient({
     required this.baseUrl,
@@ -22,6 +23,26 @@ class VidraHttpClient {
       'Content-Type': 'application/json',
       if (token != null) 'Authorization': 'Bearer $token',
     };
+  }
+
+  // --- GET / (Health Check) ---
+  Future<bool> healthCheck() async {
+    final uri = Uri.parse('$baseUrl/');
+
+    try {
+      // Un timeout muy corto porque al ser localhost debería responder en 10ms.
+      final response = await http
+          .get(uri, headers: _headers)
+          .timeout(const Duration(seconds: 2));
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        return data['status'] == 'ok';
+      }
+    } catch (e) {
+      return false; // Python está colgado o apagado
+    }
+    return false;
   }
 
   // --- GET /logs ---
@@ -169,5 +190,5 @@ class VidraHttpClient {
     } finally {
       client.close(); // Cerrar si el listener si se desconecta
     }
-  }
+  }  
 }

@@ -5,55 +5,157 @@ ignorePaths:
   - cspell.config.yaml
   - lib/core/constants/languages.dart
 words:
+  - Abis
   - acodec
   - alac
+  - allprojects
   - androidx
   - animable
+  - antidecuelgues
+  - APARTMENTTHREADED
+  - APPICON
   - appimage
+  - APPL
+  - APSTUDIO
   - armeabi
+  - assetcatalog
   - autocompletado
+  - Autolayout
+  - autorecalculates
+  - AUTORELEASING
+  - autoresizing
   - baneos
   - bestaudio
   - bestvideo
+  - BITCODE
+  - Buildables
+  - buildlog
+  - cfbundle
+  - cffi
+  - CFLAGS
   - chomusuke
   - Cleartext
+  - COINIT
+  - crashee
   - crasheos
+  - cupertino
+  - DAPPLICATION
   - darwin
+  - dblite
   - decrementa
   - decrementar
   - deno
   - descomprimiéndolo
   - DESERIALIZACIÓN
   - desincronizaciones
+  - devicelab
+  - dgph
+  - docstates
+  - DPICHANGED
+  - dsym
+  - DUNICODE
+  - dwmapi
+  - DWMCOLORIZATIONCOLORCHANGED
+  - DWMWA
   - embedsubtitle
   - embedthumbnail
+  - endforeach
+  - endfunction
   - Endonyms
+  - ENRUTADOR
   - extractaudio
   - ffmpegmerger
   - ffmpegmetadata
   - ffmpegvideoconvertor
+  - FILEFLAGS
+  - FILEFLAGSMASK
+  - FILEOS
+  - FILESUBTYPE
+  - FILEVERSION
   - flac
+  - FONTCHANGE
+  - gboolean
+  - gchar
+  - gradlew
+  - GWLP
   - healthcheck
   - heurística
+  - HIDPI
+  - HINSTANCE
+  - HKEY
+  - HMONITOR
+  - HREDRAW
+  - httpx
+  - hwnd
+  - HWND
+  - icudtl
+  - ifdef
+  - ifndef
   - infojson
+  - INFOPLIST
+  - Instantitation
+  - ipad
+  - iphone
+  - iphoneos
+  - irondash
   - jetbrains
+  - jvmargs
+  - klass
   - kotlin
+  - libapp
+  - libc
   - libffprobe
+  - libflutter
+  - LLDB
+  - lldbinit
   - lowlight
+  - lparam
+  - LPARAM
+  - lpfn
+  - lproj
+  - lpsz
+  - LRESULT
+  - LSTATUS
+  - Metaspace
+  - mingit
+  - miniaturizable
   - molestoso
+  - MSGSEND
+  - MULTICONFIG
   - multilinea
   - multistreams
+  - NCCREATE
+  - NOMINMAX
+  - nonnull
+  - NONNULL
   - noplaylist
+  - notif
+  - NOZORDER
+  - objc
+  - OBJC
   - offtopic
+  - Onone
+  - openpgp
+  - ORGANIZATIONNAME
+  - OVERLAPPEDWINDOW
+  - parallelizable
   - Parseamos
   - parseo
   - patreon
+  - pbxuser
+  - perspectivev
+  - podspec
   - precargando
   - prefs
+  - prgname
+  - PRODUCTVERSION
   - pubspec
+  - PYTHONPATH
   - PYTHONUNBUFFERED
   - quickjs
   - Reactividad
+  - reconectamos
+  - Reconectando
   - Redibuja
   - rediseñada
   - remux
@@ -61,24 +163,66 @@ words:
   - renderizamos
   - renderizar
   - renderizará
+  - RUNPATH
+  - SANDBOXING
+  - sconsign
   - sdcard
+  - SDKROOT
   - selfpromo
   - SERIALIZACIÓN
+  - sourcecode
   - sponsorblock
+  - sqflite
+  - SRCROOT
+  - starlette
+  - strdupv
+  - strfreev
+  - subcarpeta
+  - SUBLANG
   - Submenús
   - Subtags
+  - subviews
+  - swiftpm
   - swipeable
+  - Symbolication
+  - SYMED
+  - TARG
+  - Testables
+  - TEXTINCLUDE
   - thumbnailconvertor
   - thumbnailsconvertor
   - tipado
   - TIPADO
   - tmpfilename
   - twofactor
+  - unhide
+  - userosscache
   - USERPROFILE
   - uvicorn
+  - VERSIONINFO
   - vidra
   - vivaldi
+  - volcándola
+  - VSACL
+  - Wconditional
   - webp
+  - wholemodule
+  - winres
+  - Wmissing
+  - WNDCLASS
+  - Wnullable
+  - Woverlength
+  - wparam
+  - WPARAM
   - xattrmetadata
   - xattrs
+  - xcassets
+  - xcconfig
+  - xcfilelist
+  - xcodeproj
+  - xctest
+  - xcuserdata
+  - xcworkspace
   - youtub
+  - youtube
+  - ytdlp

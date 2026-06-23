@@ -10,6 +10,9 @@ import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/shared/widgets/download_card.dart';
 import 'download_detail_screen.dart';
 
+// Importamos nuestra pastilla indicadora
+import 'package:vidra/features/system/presentation/system_status_indicator.dart';
+
 class DownloadsScreen extends StatefulWidget {
   const DownloadsScreen({super.key});
 
@@ -114,15 +117,20 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
             ),
             onSubmitted: (_) => _addDownload(),
           ),
-          // 3. Botón Descargar (Derecha)
+          // 3. Botones (Derecha)
           actions: [
+            // LA PASTILLA DEL CEREBRO VA AQUÍ
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
+              child: SystemStatusIndicator(),
+            ),
             IconButton(
               icon: const Icon(Icons.download),
               tooltip: 'Añadir Descarga',
               color: Theme.of(context).colorScheme.primary,
               onPressed: _addDownload,
             ),
-            const SizedBox(width: 8),
+            const SizedBox(width: 4),
           ],
         ),
 

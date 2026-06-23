@@ -2,9 +2,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:vidra/features/downloads/data/download_repository.dart';
 import 'package:vidra/features/downloads/domain/download.dart';
+import 'package:vidra/features/system/presentation/system_controller.dart';
+import 'package:vidra/features/system/domain/system_state.dart';
 
 class DownloadDetailController extends ChangeNotifier {
   final DownloadRepository _repository;
+  final SystemController _systemController; // <-- Inyección del Cerebro
   final Download download;
 
   bool _isLoading = true;
@@ -19,22 +22,45 @@ class DownloadDetailController extends ChangeNotifier {
 
   StreamSubscription? _detailSseSubscription;
 
-  DownloadDetailController(this._repository, this.download) {
+  DownloadDetailController(
+    this._repository,
+    this._systemController,
+    this.download,
+  ) {
+    _systemController.addListener(_onSystemStateChanged);
     _initSequence();
   }
 
+  // ==========================================================================
+  // REACTIVIDAD AL ESTADO DEL SISTEMA
+  // ==========================================================================
+  void _onSystemStateChanged() {
+    if (_systemController.state == SystemState.ready) {
+      // Si el backend revive mientras estamos en esta pantalla,
+      // recargamos los datos frescos y nos reconectamos.
+      _initSequence();
+    } else {
+      // Backend caído, nos desconectamos en silencio.
+      _stopDetailSubscription();
+    }
+  }
+
   Future<void> _initSequence() async {
-    // 1. Mostrar estado de carga
+    // PROTECCIÓN: Si el backend no está listo, no intentamos hacer peticiones.
+    // Solo mostramos los datos estáticos que ya tenemos en memoria (download).
+    if (_systemController.state != SystemState.ready) {
+      _isLoading = false;
+      notifyListeners();
+      return;
+    }
+
     _isLoading = true;
     notifyListeners();
 
     try {
-      // 2. Traer la última verdad absoluta desde el servidor
       final freshDownload = await _repository.getDownloadById(download.id!);
 
       if (freshDownload != null) {
-        // Actualizamos la referencia en memoria con los últimos datos,
-        // especialmente las sub-descargas que la pantalla principal ignoraba.
         download.info = freshDownload.info ?? download.info;
         download.state = freshDownload.state ?? download.state;
         download.subDownloads = freshDownload.subDownloads ?? [];
@@ -44,20 +70,18 @@ class DownloadDetailController extends ChangeNotifier {
     } catch (e) {
       debugPrint('Error sincronizando detalle: $e');
     } finally {
-      // 3. Quitar el loading para renderizar la pantalla
       _isLoading = false;
       notifyListeners();
-
-      // 4. Iniciar la escucha de deltas sobre los datos ya actualizados
-      _startDetailSubscription();
+      _startDetailSubscription(); // Nos conectamos porque sabemos que el backend está listo
     }
   }
 
   Future<void> fetchLogs() async {
+    if (_systemController.state != SystemState.ready) return;
+
     _isLoadingLogs = true;
     notifyListeners();
     try {
-      // ponytail: Asegúrate de que el repositorio tenga este método implementado.
       _logs = await _repository.fetchLogs(download.id!);
     } catch (e) {
       _logs = 'Error obteniendo logs:\n$e';
@@ -68,12 +92,23 @@ class DownloadDetailController extends ChangeNotifier {
   }
 
   void _startDetailSubscription() {
+    if (_detailSseSubscription != null) return;
+
     _detailSseSubscription = _repository
         .watchDetailedProgress(download.id!)
         .listen(
           _applySubDeltas,
-          onError: (e) => debugPrint('Error SSE Detalle: $e'),
+          onError: (e) {
+            debugPrint('⚠️ Error SSE Detalle (Ignorado): $e');
+            // Dejamos que el _onSystemStateChanged se encargue de cerrar esto limpiamente.
+          },
+          cancelOnError: false, // Magia antidecuelgues
         );
+  }
+
+  void _stopDetailSubscription() {
+    _detailSseSubscription?.cancel();
+    _detailSseSubscription = null;
   }
 
   void _applySubDeltas(List<Delta> deltas) {
@@ -116,6 +151,7 @@ class DownloadDetailController extends ChangeNotifier {
 
   @override
   void dispose() {
+    _systemController.removeListener(_onSystemStateChanged);
     _detailSseSubscription?.cancel();
     super.dispose();
   }
