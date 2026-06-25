@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:mime/mime.dart';
-import 'package:open_file/open_file.dart';
+import 'package:open_filex/open_filex.dart';
 import 'package:vidra/features/downloads/domain/download.dart' as model;
 import 'package:vidra/shared/utils/toast_utils.dart';
 
@@ -247,7 +247,7 @@ class DownloadCard extends StatelessWidget {
         if (value == 'details') onTap?.call();
         if (value == 'play') {
           final mimeType = lookupMimeType(info!.file!) ?? 'video/*';
-          await OpenFile.open(info!.file!, type: mimeType);
+          await OpenFilex.open(info!.file!, type: mimeType);
         }
       },
       itemBuilder: (context) => [

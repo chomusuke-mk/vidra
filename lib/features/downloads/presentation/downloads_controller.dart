@@ -10,7 +10,7 @@ import 'package:vidra/shared/utils/notification_service.dart';
 class DownloadsController extends ChangeNotifier {
   final DownloadRepository _repository;
   final SystemController _systemController; // <-- Inyección del Cerebro
-  
+
   final List<Map<String, dynamic>> _pendingQueue = [];
 
   List<Download> _downloads = [];
@@ -25,7 +25,10 @@ class DownloadsController extends ChangeNotifier {
 
   DownloadsController(this._repository, this._systemController) {
     _systemController.addListener(_onSystemStateChanged);
-    _init();
+    // Si por Hot Reload el sistema ya estaba listo, inicializamos inmediatamente.
+    if (_systemController.state == SystemState.ready) {
+      _onSystemStateChanged();
+    }
   }
 
   // ==========================================================================
@@ -33,10 +36,15 @@ class DownloadsController extends ChangeNotifier {
   // ==========================================================================
   void _onSystemStateChanged() {
     if (_systemController.state == SystemState.ready) {
-      flushPendingQueue();
-      _startGlobalSubscription();
+      // 1. El backend ya levantó (Puerto real disponible). Traemos los datos de BD.
+      _init().then((_) {
+        // 2. AHORA SÍ nos suscribimos (porque _downloads ya no está vacío)
+        _startGlobalSubscription();
+        // 3. Enviamos a procesar todo lo que el usuario encoló
+        flushPendingQueue();
+      });
     } else {
-      // Si el backend se cae (retrying, fatalError, etc), cortamos la escucha limpia y pacíficamente.
+      // Si el backend se cae, cortamos la escucha limpia y pacíficamente.
       _stopGlobalSubscription();
     }
   }
@@ -48,12 +56,9 @@ class DownloadsController extends ChangeNotifier {
       _applyGlobalDeltas,
       onError: (e) {
         debugPrint('⚠️ Error SSE Global (Ignorado, esperando al Watchdog): $e');
-        // No cancelamos manualmente aquí. El SystemController (Watchdog)
-        // se dará cuenta de que el backend cayó, cambiará el estado a 'retrying',
-        // y eso disparará _stopGlobalSubscription() automáticamente.
       },
       cancelOnError:
-          false, // ¡MAGIA! Evita que el Stream muera y crashee la app si se corta el socket.
+          false, // ¡MAGIA! Evita que el Stream muera si se corta el socket.
     );
   }
 
@@ -66,6 +71,9 @@ class DownloadsController extends ChangeNotifier {
   // CORE LOGIC
   // ==========================================================================
   Future<void> _init() async {
+    // Bloqueo de seguridad: Evita peticiones si Python no está listo
+    if (_systemController.state != SystemState.ready) return;
+
     _isLoading = true;
     notifyListeners();
 
@@ -79,25 +87,15 @@ class DownloadsController extends ChangeNotifier {
     } finally {
       _isLoading = false;
       notifyListeners();
-      // Si justo arrancamos y el sistema ya estaba listo, nos conectamos.
-      if (_systemController.state == SystemState.ready) {
-        _startGlobalSubscription();
-      }
     }
   }
 
-  Future<void> addDownload(
-    String url,
-    Map<String, dynamic> options, {
-    bool isBackendReady = false,
-  }) async {
+  Future<void> addDownload(String url, Map<String, dynamic> options) async {
     if (url.trim().isEmpty) return;
 
-    // Si el backend aún no está en estado "SystemState.ready"
-    if (!isBackendReady) {
+    if (_systemController.state != SystemState.ready) {
       debugPrint('Backend no está listo. Encolando descarga...');
       _pendingQueue.add({"url": url, "options": options});
-      // Aquí puedes lanzar un ToastUtils.showInfo('Preparando motor de descarga...');
       return;
     }
 
@@ -109,7 +107,6 @@ class DownloadsController extends ChangeNotifier {
     }
   }
 
-  /// Nuevo método: Se llamará automáticamente cuando SystemController avise que está Ready
   Future<void> flushPendingQueue() async {
     if (_pendingQueue.isEmpty) return;
 
@@ -117,7 +114,6 @@ class DownloadsController extends ChangeNotifier {
       'Vaciando cola de descargas pendientes (${_pendingQueue.length})...',
     );
 
-    // Extraemos y limpiamos la cola inmediatamente para evitar duplicados
     final queueCopy = List<Map<String, dynamic>>.from(_pendingQueue);
     _pendingQueue.clear();
 
@@ -128,10 +124,9 @@ class DownloadsController extends ChangeNotifier {
         debugPrint('Error procesando elemento encolado: $e');
       }
     }
-    await _init(); // Sincronizamos la UI al final
+    await _init();
   }
 
-  /// Descarga y guarda en disco la imagen SIN bloquear el flujo de notificaciones
   void _triggerImageCache(String? id, String? url) async {
     if (id == null ||
         url == null ||
@@ -140,27 +135,21 @@ class DownloadsController extends ChangeNotifier {
       return;
     }
 
-    // Ponemos una bandera temporal para no lanzar 20 peticiones a la misma URL en lo que demora la descarga
     _imageCache[id] = '';
 
     try {
-      // Utiliza la MISMA caché que CachedNetworkImage de tus tarjetas de UI
       final file = await DefaultCacheManager().getSingleFile(url);
-      _imageCache[id] = file.path; // Actualizamos con la ruta real en disco
+      _imageCache[id] = file.path;
     } catch (e) {
-      _imageCache.remove(
-        id,
-      ); // Si falla, quitamos la bandera para reintentar después
+      _imageCache.remove(id);
       debugPrint('Error precargando miniatura para notificaciones: $e');
     }
   }
 
-  // Ahora solo procesamos reemplazos totales para el objeto Padre
   void _applyGlobalDeltas(List<Delta> deltas) {
     bool listChanged = false;
 
     for (var delta in deltas) {
-      // Como regla, aquí no llegan deltas con subId, pero lo ignoramos por seguridad si llegara
       if (delta.subId != null) continue;
 
       final downloadIndex = _downloads.indexWhere((d) => d.id == delta.id);
@@ -184,34 +173,29 @@ class DownloadsController extends ChangeNotifier {
           ? '${download.info?.duration} • '
           : '';
       final platform = download.info?.platform ?? '';
-      // Construimos el cuerpo multilinea
+
       String body = '$title\n$durationStr$platform';
       if (download.state?.subState != null) {
         body += '\n${download.state!.subState}';
       }
 
-      // Si la imagen ya terminó de descargar, se pasará la ruta. Si no, irá null y en el próximo tick de 2 seg se adjuntará.
       final currentImagePath =
           _imageCache[download.id] != null &&
               _imageCache[download.id]!.isNotEmpty
           ? _imageCache[download.id]
           : null;
 
-      // Disparador A: En progreso (Cada 2 segundos)
       if (newState == DownloadState.inProgress) {
         final progress = (download.state?.progressValue ?? 0).toInt();
         NotificationService.showProgress(
           id: notificationId,
           title: autor,
-          body:
-              '${download.state?.progressLabel ?? ''}\n$body', // Añadimos velocidad/label arriba
+          body: '${download.state?.progressLabel ?? ''}\n$body',
           progress: progress,
-          maxProgress: 100, // Asumiendo que progressValue es un % de 0 a 100
+          maxProgress: 100,
           imagePath: currentImagePath,
         );
-      }
-      // Disparador B: Transiciones estáticas importantes
-      else if (oldState != newState) {
+      } else if (oldState != newState) {
         if (newState == DownloadState.identifying) {
           NotificationService.showState(
             id: notificationId,
@@ -245,7 +229,7 @@ class DownloadsController extends ChangeNotifier {
         } else if (newState == DownloadState.canceled ||
             newState == DownloadState.deleted) {
           NotificationService.cancel(notificationId);
-          _imageCache.remove(download.id); // Limpieza de memoria
+          _imageCache.remove(download.id);
         }
       }
 

@@ -11,7 +11,8 @@
       "program": "lib/main.dart",
       "flutterMode": "debug",
       "env": {
-        "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages"
+        "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages",
+        "SERIOUS_PYTHON_APP": "${workspaceFolder}/build/app",
       },
       //"preLaunchTask": "Zip App"
     },
@@ -22,7 +23,8 @@
       "program": "lib/main.dart",
       "flutterMode": "profile",
       "env": {
-        "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages"
+        "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages",
+        "SERIOUS_PYTHON_APP": "${workspaceFolder}/build/app",
       },
       //"preLaunchTask": "Zip App"
     },
@@ -33,7 +35,8 @@
       "program": "lib/main.dart",
       "flutterMode": "release",
       "env": {
-        "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages"
+        "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages",
+        "SERIOUS_PYTHON_APP": "${workspaceFolder}/build/app",
       },
       //"preLaunchTask": "Zip App"
     },

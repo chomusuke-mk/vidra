@@ -1,0 +1,10 @@
+certifi
+brotli
+websockets
+requests
+mutagen
+phantomjs
+secretstorage
+
+flask
+waitress

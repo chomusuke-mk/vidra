@@ -48,9 +48,9 @@ app.*.map.json
 /temp/
 /linux/ffmpeg
 /linux/ffprobe
+/linux/quickjs
 /windows/ffmpeg.exe
 /windows/ffprobe.exe
+/windows/quickjs.exe
 /android/app/src/main/jniLibs/**
-
-/app/app.zip
-/app/app.zip.hash
+/app/src/

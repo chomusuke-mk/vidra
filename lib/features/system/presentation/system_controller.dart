@@ -11,6 +11,7 @@ import 'package:http/http.dart' as http;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:vidra/features/system/domain/system_state.dart';
+import 'package:serious_python/serious_python.dart';
 
 class SystemController extends ChangeNotifier {
   SystemState _state = SystemState.initializing;
@@ -21,12 +22,15 @@ class SystemController extends ChangeNotifier {
   // Credenciales dinámicas para el Backend
   int? _backendPort;
   String? _backendToken;
+  String? _serverLogsPath;
 
   int? get backendPort => _backendPort;
   String? get backendToken => _backendToken;
+  String? get serverLogsPath => _serverLogsPath; // Getter para la UI
 
   // Bandera para evitar que el Watchdog pelee con las actualizaciones OTA
   bool _isUpdating = false;
+  int _failedPings = 0;
 
   SystemController() {
     _initSequence();
@@ -45,31 +49,36 @@ class SystemController extends ChangeNotifier {
   // ==========================================================================
   /// El flujo maestro de vida de la aplicación
   Future<void> _initSequence() async {
+    debugPrint('🚀 Iniciando secuencia de arranque...');
     if (_isUpdating) return;
     _setState(SystemState.initializing);
-
+    debugPrint('🔎 Evaluando permisos...');
     // 1. Validar Permisos (Overlay, Notificaciones, etc.)
     final hasPermissions = await _checkPermissions();
     if (!hasPermissions) {
+      debugPrint('❌ Faltan permisos críticos. Bloqueando arranque...');
       _setState(SystemState.missingPermissions);
       return;
     }
-
+    debugPrint('✅ Permisos críticos OK. Evaluando recursos...');
     // 2. Validar Recursos en el disco (yt-dlp y ejs)
     final hasResources = await _checkResources();
     if (!hasResources) {
+      debugPrint('❌ Faltan recursos críticos. Bloqueando arranque...');
       _setState(SystemState.missingResources);
       return;
     }
-
+    debugPrint('✅ Permisos y recursos críticos OK. Iniciando Backend...');
     // 3. Levantar el Backend (Busca puerto, genera token y lanza Python)
     _setState(SystemState.startingBackend);
     final backendStarted = await _startPythonBackend();
 
     if (!backendStarted) {
+      debugPrint('❌ No se pudo iniciar el Backend. Bloqueando arranque...');
       _setState(SystemState.fatalError);
       return;
     }
+    debugPrint('✅ Backend iniciado correctamente. Iniciando Watchdog...');
 
     if (!backendStarted) {
       _setState(SystemState.fatalError);
@@ -81,24 +90,44 @@ class SystemController extends ChangeNotifier {
   }
 
   // ==========================================================================
-  // EL WATCHDOG (PERRO GUARDIÁN)
+  // EL WATCHDOG (PERRO GUARDIÁN) INMORTAL
   // ==========================================================================
   void _startHealthCheck() {
     _healthCheckTimer?.cancel();
+    _failedPings = 0; // Reseteamos al iniciar el watchdog
 
     _healthCheckTimer = Timer.periodic(const Duration(seconds: 2), (
       timer,
     ) async {
+      // Si estamos actualizando OTA o no hay credenciales, no hacemos nada
       if (_isUpdating || _backendPort == null || _backendToken == null) return;
 
       final isAlive = await _pingBackend();
 
       if (isAlive) {
+        _failedPings = 0; // Si responde, ponemos el contador a 0
         _setState(SystemState.ready);
       } else {
-        // Python no responde. Podríamos implementar un contador aquí y
-        // si falla 3 veces seguidas, llamar a _startPythonBackend() de nuevo.
+        _failedPings++;
+        debugPrint(
+          '⚠️ El Backend no responde. Intento fallido ($_failedPings/3)',
+        );
         _setState(SystemState.retrying);
+
+        // Si falla 3 veces seguidas (6 segundos offline), lo revivimos
+        if (_failedPings >= 60) {
+          debugPrint(
+            '🔄 Backend muerto detectado. Intentando auto-resurrección...',
+          );
+          _failedPings =
+              0; // Reseteamos para que no lance 20 arranques a la vez
+          _setState(SystemState.startingBackend);
+
+          final revived = await _startPythonBackend();
+          if (!revived) {
+            _setState(SystemState.fatalError);
+          }
+        }
       }
     });
   }
@@ -155,7 +184,7 @@ class SystemController extends ChangeNotifier {
     try {
       final supportDir = await getApplicationSupportDirectory();
       final ytDlpDir = Directory(
-        p.join(supportDir.path, 'core_modules', 'yt-dlp'),
+        p.join(supportDir.path, 'core_modules', 'yt_dlp'),
       );
       final ejsDir = Directory(
         p.join(supportDir.path, 'core_modules', 'yt_dlp_ejs'),
@@ -183,8 +212,8 @@ class SystemController extends ChangeNotifier {
         0,
       );
       _backendPort = serverSocket.port;
-      await serverSocket
-          .close(); // Liberamos el puerto inmediatamente para Python
+      // Liberamos el puerto inmediatamente para Python
+      await serverSocket.close();
 
       // 2. Generar un Token Aleatorio Criptográficamente Seguro
       final random = Random.secure();
@@ -195,26 +224,28 @@ class SystemController extends ChangeNotifier {
       final supportDir = await getApplicationSupportDirectory();
       final modulesPath = p.join(supportDir.path, 'core_modules');
 
+      // 4. Preparar la ruta de logs del servidor para que la UI pueda leerlo
+      _serverLogsPath = p.join(supportDir.path, 'logs', 'server.log');
+
       debugPrint(
         '🔥 Levantando Python en Puerto: $_backendPort con Token: $_backendToken',
       );
 
-      // TODO: Aquí va la llamada real a serious_python.
-      // Quedará estructuralmente así:
-      /*
       SeriousPython.run(
-        'ruta/a/tu/main.pyc', 
+        appFileName: 'main.py',
         environmentVariables: {
-          'VIDRA_PORT': _backendPort.toString(),
-          'VIDRA_TOKEN': _backendToken!,
+          'APP_ENV': 'production',
+          'API_TOKEN': _backendToken!,
+          'LOGS_PATH': p.join(supportDir.path, 'logs'),
+          'DATA_PATH': p.join(supportDir.path, 'data'),
+          'TEMP_PATH': p.join(supportDir.path, 'temp'),
+          'HOST': '127.0.0.1',
+          'PORT': _backendPort.toString(),
+          'SERVER_LOGS_FILE_PATH': _serverLogsPath!,
         },
         sync: false, // Debe correr en segundo plano
-        extraPaths: [
-          p.join(modulesPath, 'yt-dlp'),
-          p.join(modulesPath, 'yt_dlp_ejs'),
-        ]
+        modulePaths: [modulesPath],
       );
-      */
 
       return true;
     } catch (e) {
@@ -238,8 +269,18 @@ class SystemController extends ChangeNotifier {
     _isUpdating = true;
     _healthCheckTimer?.cancel();
 
-    // TODO: Si tu backend Python soporta una ruta de apagado seguro, llámala aquí.
-    // Ej: await http.post(Uri.parse('http://127.0.0.1:$_backendPort/shutdown'), ...);
+    if (_backendPort != null && _backendToken != null) {
+      try {
+        final uri = Uri.parse('http://127.0.0.1:$_backendPort/shutdown');
+        await http
+            .post(uri, headers: {'Authorization': 'Bearer $_backendToken'})
+            .timeout(const Duration(seconds: 2));
+      } catch (e) {
+        debugPrint(
+          'Aviso: Fallo de red en shutdown, probablemente ya cerró. $e',
+        );
+      }
+    }
 
     _setState(SystemState.initializing); // Ponemos la app en modo espera
   }

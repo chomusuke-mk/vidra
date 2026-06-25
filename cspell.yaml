@@ -18,6 +18,7 @@ words:
   - APPL
   - APSTUDIO
   - armeabi
+  - Ascii
   - assetcatalog
   - autocompletado
   - Autolayout
@@ -50,6 +51,7 @@ words:
   - desincronizaciones
   - devicelab
   - dgph
+  - dists
   - docstates
   - DPICHANGED
   - dsym
@@ -106,6 +108,9 @@ words:
   - libc
   - libffprobe
   - libflutter
+  - libpython
+  - libquickjs
+  - lida
   - LLDB
   - lldbinit
   - lowlight
@@ -116,6 +121,7 @@ words:
   - lpsz
   - LRESULT
   - LSTATUS
+  - mensajito
   - Metaspace
   - mingit
   - miniaturizable
@@ -125,6 +131,7 @@ words:
   - multilinea
   - multistreams
   - NCCREATE
+  - NDEBUG
   - NOMINMAX
   - nonnull
   - NONNULL
@@ -144,11 +151,13 @@ words:
   - patreon
   - pbxuser
   - perspectivev
+  - phantomjs
   - podspec
   - precargando
   - prefs
   - prgname
   - PRODUCTVERSION
+  - proguard
   - pubspec
   - PYTHONPATH
   - PYTHONUNBUFFERED
@@ -157,12 +166,14 @@ words:
   - reconectamos
   - Reconectando
   - Redibuja
+  - Redirección
   - rediseñada
   - remux
   - renderiza
   - renderizamos
   - renderizar
   - renderizará
+  - Reseteamos
   - RUNPATH
   - SANDBOXING
   - sconsign
@@ -180,12 +191,14 @@ words:
   - subcarpeta
   - SUBLANG
   - Submenús
+  - subproyecto
   - Subtags
   - subviews
   - swiftpm
   - swipeable
   - Symbolication
   - SYMED
+  - SYSROOT
   - TARG
   - Testables
   - TEXTINCLUDE
@@ -206,6 +219,7 @@ words:
   - VSACL
   - Wconditional
   - webp
+  - Werror
   - wholemodule
   - winres
   - Wmissing
@@ -214,6 +228,7 @@ words:
   - Woverlength
   - wparam
   - WPARAM
+  - xattr
   - xattrmetadata
   - xattrs
   - xcassets

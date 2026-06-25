@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:vidra/features/updates/domain/update_info.dart';
 
 class GithubClient {
@@ -43,26 +44,41 @@ class GithubClient {
       String? sumsUrl;
       String? sigUrl;
 
+      // Variables para cazar múltiples formatos si usamos búsqueda por prefijo
+      String? foundWhl;
+      String? foundTarGz;
+
       // 2. Extracción de Assets específicos
       for (var asset in assets) {
         final name = asset['name'] as String;
         final url = asset['browser_download_url'] as String;
-        // Si esPrefijo, validamos que inicie con eso (ej: yt_dlp_ejs-)
-        if ((isPrefixMatch &&
-                name.startsWith(targetAssetName) &&
-                name.endsWith('.tar.gz')) ||
-            (!isPrefixMatch && name == targetAssetName)) {
+
+        if (isPrefixMatch && name.startsWith(targetAssetName)) {
+          // Si es por prefijo (EJS), atrapamos los dos posibles formatos
+          if (name.endsWith('.whl')) {
+            foundWhl = url;
+          } else if (name.endsWith('.tar.gz')) {
+            foundTarGz = url;
+          }
+        } else if (!isPrefixMatch && name == targetAssetName) {
+          // Si es búsqueda exacta (App o yt-dlp)
           downloadUrl = url;
-        } else if (name == targetAssetName) {
-          downloadUrl = url;
-        } else if (name == 'SHA2-256SUMS' || name == 'SHA256SUMS') {
+        } else if (name == 'SHA2-512SUMS' || name == 'SHA512SUMS') {
           sumsUrl = url;
-        } else if (name == 'SHA2-256SUMS.sig' || name == 'SHA256SUMS.sig') {
+        } else if (name == 'SHA2-512SUMS.sig' || name == 'SHA512SUMS.sig') {
           sigUrl = url;
         }
       }
 
-      if (downloadUrl == null) return null; // Fallo crítico si no hay binario
+      // 3. Resolución de Prioridad (Wheel > Tarball)
+      if (isPrefixMatch) {
+        downloadUrl = foundWhl ?? foundTarGz;
+      }
+
+      if (downloadUrl == null) {
+        debugPrint('No se encontró el binario para $targetAssetName en $repo');
+        return null; // Fallo crítico si no hay binario
+      }
 
       return UpdateInfo(
         version: version,

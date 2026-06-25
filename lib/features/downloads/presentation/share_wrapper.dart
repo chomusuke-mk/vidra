@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io'; // <-- AÑADIDO PARA LA VALIDACIÓN DE PLATAFORMA
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Para el MethodChannel
 import 'package:provider/provider.dart';
@@ -34,15 +35,32 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
   }
 
   void _initIntents() {
-    ReceiveSharingIntent.instance.getInitialMedia().then((shared) {
-      if (shared.isNotEmpty) _processShare(shared.first.path);
-    });
+    // 🛡️ PROTECCIÓN DE PLATAFORMA: Los Intents de compartir solo existen en Móvil
+    if (!Platform.isAndroid && !Platform.isIOS) {
+      debugPrint(
+        'Plataforma de escritorio detectada. Saltando inicialización de Intents.',
+      );
+      return;
+    }
+    ReceiveSharingIntent.instance
+        .getInitialMedia()
+        .then((shared) {
+          if (shared.isNotEmpty) _processShare(shared.first.path);
+        })
+        .catchError((e) {
+          debugPrint('Error al obtener el Intent inicial: $e');
+        });
 
     _intentDataStreamSubscription = ReceiveSharingIntent.instance
         .getMediaStream()
-        .listen((shared) {
-          if (shared.isNotEmpty) _processShare(shared.first.path);
-        });
+        .listen(
+          (shared) {
+            if (shared.isNotEmpty) _processShare(shared.first.path);
+          },
+          onError: (e) {
+            debugPrint('Error en el Stream de Intents: $e');
+          },
+        );
   }
 
   void _processShare(String payload) async {
@@ -56,34 +74,43 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
       final settingsCtrl = context.read<SettingsController>();
       final currentOptsJson = settingsCtrl.getDownloadOptionsPayload();
 
-      if (!await FlutterOverlayWindow.isPermissionGranted()) {
-        await FlutterOverlayWindow.requestPermission();
-      }
+      // PROTECCIÓN EXTRA: FlutterOverlayWindow solo funciona en Android
+      if (Platform.isAndroid) {
+        if (!await FlutterOverlayWindow.isPermissionGranted()) {
+          await FlutterOverlayWindow.requestPermission();
+        }
 
-      if (await FlutterOverlayWindow.isPermissionGranted()) {
-        await FlutterOverlayWindow.showOverlay(
-          width: WindowSize.matchParent,
-          height: WindowSize.matchParent,
-          alignment: OverlayAlignment.bottomCenter,
-          enableDrag: false,
-          flag: OverlayFlag.focusPointer,
-          startPosition: OverlayPosition(0, 0),
-        );
+        if (await FlutterOverlayWindow.isPermissionGranted()) {
+          await FlutterOverlayWindow.showOverlay(
+            width: WindowSize.matchParent,
+            height: WindowSize.matchParent,
+            alignment: OverlayAlignment.bottomCenter,
+            enableDrag: false,
+            flag: OverlayFlag.focusPointer,
+            startPosition: OverlayPosition(0, 0),
+          );
 
-        // 2. Enviamos los datos + el tema actual
-        await FlutterOverlayWindow.shareData({
-          "url": url,
-          "options": currentOptsJson,
-        });
+          // 2. Enviamos los datos + el tema actual
+          await FlutterOverlayWindow.shareData({
+            "url": url,
+            "options": currentOptsJson,
+          });
 
-        // 3. Mandamos la app al fondo
-        try {
-          await _platform.invokeMethod('moveToBackground');
-        } catch (e) {
-          debugPrint('Error mandando la app al fondo: $e');
+          // 3. Mandamos la app al fondo
+          try {
+            await _platform.invokeMethod('moveToBackground');
+          } catch (e) {
+            debugPrint('Error mandando la app al fondo: $e');
+          }
+        } else {
+          debugPrint('Permiso de overlay no concedido');
         }
       } else {
-        debugPrint('Permiso de overlay no concedido');
+        // Si por algún milagro llega aquí en iOS u otra plataforma,
+        // simplemente agregamos la descarga directamente sin Overlay.
+        if (mounted) {
+          context.read<DownloadsController>().addDownload(url, currentOptsJson);
+        }
       }
     } finally {
       // 4. Apagar el spinner cuando el trabajo nativo haya terminado
@@ -94,15 +121,22 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
   }
 
   void _initOverlayListener() {
-    _overlayListener = FlutterOverlayWindow.overlayListener.listen((event) {
-      if (event is Map && event["action"] == "START_DOWNLOAD") {
-        final url = event["url"];
-        final finalOptions = Map<String, dynamic>.from(event["options"]);
+    // Escuchar el Overlay solo tiene sentido en Android
+    if (!Platform.isAndroid) return;
+    try {
+      _overlayListener = FlutterOverlayWindow.overlayListener.listen((event) {
+        if (event is Map && event["action"] == "START_DOWNLOAD") {
+          final url = event["url"];
+          final finalOptions = Map<String, dynamic>.from(event["options"]);
 
-        // ignore: use_build_context_synchronously
-        context.read<DownloadsController>().addDownload(url, finalOptions);
-      }
-    });
+          if (mounted) {
+            context.read<DownloadsController>().addDownload(url, finalOptions);
+          }
+        }
+      });
+    } catch (e) {
+      debugPrint('Error inicializando el listener del Overlay: $e');
+    }
   }
 
   @override

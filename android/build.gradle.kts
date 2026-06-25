@@ -2,6 +2,7 @@ import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.tasks.compile.JavaCompile
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 allprojects {
     repositories {
@@ -10,6 +11,7 @@ allprojects {
     }
 }
 
+// 1. Redirección del directorio de build
 val newBuildDir: Directory =
     rootProject.layout.buildDirectory
         .dir("../../build")
@@ -18,21 +20,15 @@ rootProject.layout.buildDirectory.value(newBuildDir)
 
 val minimumSupportedJavaVersion = JavaVersion.VERSION_17
 val desiredLibraryJavaVersion = JavaVersion.VERSION_21
+
 val libraryJavaVersion = if (desiredLibraryJavaVersion < minimumSupportedJavaVersion) {
     minimumSupportedJavaVersion
 } else {
     desiredLibraryJavaVersion
 }
-val libraryJavaMajorVersion = libraryJavaVersion.majorVersion.toInt()
-val libraryJavaVersionString = libraryJavaMajorVersion.toString()
 
-subprojects {
-    val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
-    project.layout.buildDirectory.value(newSubprojectBuildDir)
-}
-subprojects {
-    project.evaluationDependsOn(":app")
-}
+val libraryJavaVersionString = libraryJavaVersion.majorVersion
+val libraryJavaMajorVersion = libraryJavaVersionString.toInt()
 
 fun CommonExtension<*, *, *, *, *, *>.applyJavaCompatibility() {
     compileOptions {
@@ -41,36 +37,43 @@ fun CommonExtension<*, *, *, *, *, *>.applyJavaCompatibility() {
     }
 }
 
+// 3. Unificación del bloque subprojects
 subprojects {
-    val configureCompilationTargets: Project.() -> Unit = {
-        tasks.withType(JavaCompile::class.java).configureEach {
-            if (project.name == "app") {
-                return@configureEach
-            }
-            sourceCompatibility = libraryJavaVersionString
-            targetCompatibility = libraryJavaVersionString
-        }
+    // Redirigir el buildDir del subproyecto
+    project.layout.buildDirectory.value(newBuildDir.dir(project.name))
+    
+    // Dependencia de evaluación estándar de Flutter
+    project.evaluationDependsOn(":app")
 
-        tasks.withType(KotlinCompile::class.java).configureEach {
-            if (project.name == "app") {
-                return@configureEach
+    // Aplicar compatibilidad de Java/Kotlin solo a librerías y plugins (excluyendo "app")
+    if (project.name != "app") {
+        val configureCompilationTargets: Project.() -> Unit = {
+            
+            tasks.withType(JavaCompile::class.java).configureEach {
+                sourceCompatibility = libraryJavaVersionString
+                targetCompatibility = libraryJavaVersionString
             }
-            val currentTarget = kotlinOptions.jvmTarget?.toIntOrNull()
-            if (currentTarget == null || currentTarget < libraryJavaMajorVersion) {
-                kotlinOptions.jvmTarget = libraryJavaVersionString
-            }
-        }
 
-        if (project.name != "app") {
+            tasks.withType(KotlinCompile::class.java).configureEach {
+                compilerOptions {
+                    val currentTargetStr = jvmTarget.orNull?.target
+                    val currentTarget = currentTargetStr?.toIntOrNull() ?: 0
+                    
+                    if (currentTarget < libraryJavaMajorVersion) {
+                        jvmTarget.set(JvmTarget.fromTarget(libraryJavaVersionString))
+                    }
+                }
+            }
+
             (extensions.findByName("android") as? CommonExtension<*, *, *, *, *, *>)
                 ?.applyJavaCompatibility()
         }
-    }
 
-    if (state.executed) {
-        configureCompilationTargets()
-    } else {
-        afterEvaluate { configureCompilationTargets() }
+        if (state.executed) {
+            configureCompilationTargets()
+        } else {
+            afterEvaluate { configureCompilationTargets() }
+        }
     }
 }
 

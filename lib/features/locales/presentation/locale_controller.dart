@@ -27,7 +27,6 @@ class LocaleController extends ChangeNotifier {
     if (_currentLocaleCode == _fallbackCode) {
       await _localeStrings.updateFromJson(
         _fallbackCache,
-        // todo: poner en true
         assertAllKeysPresent: true,
       );
       notifyListeners();

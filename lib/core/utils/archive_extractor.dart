@@ -4,41 +4,49 @@ import 'package:path/path.dart' as p;
 import 'package:flutter/foundation.dart';
 
 class ArchiveExtractor {
-  /// Extrae un .tar.gz buscando una subcarpeta específica y volcándola en el destino.
+  /// Extrae un archivo comprimido buscando una subcarpeta específica y volcándola
+  /// directamente en el directorio destino, ignorando el resto del archivo.
   static Future<bool> extractPythonModule({
     required File archiveFile,
-    required Directory destinationDir,
-    required String targetSubfolderName, // Ej: "yt-dlp" o "yt_dlp_ejs"
+    required Directory destinationDir, // Ej: /.../core_modules/yt_dlp
+    required String targetSubfolderName, // Ej: "yt_dlp" o "yt_dlp_ejs"
   }) async {
     try {
-      if (!destinationDir.existsSync()) {
-        destinationDir.createSync(recursive: true);
+      if (destinationDir.existsSync()) {
+        destinationDir.deleteSync(recursive: true);
       }
       destinationDir.createSync(recursive: true);
 
-      // 1. Decodificación en cascada GZip -> Tar
       final bytes = await archiveFile.readAsBytes();
-      final tarBytes = GZipDecoder().decodeBytes(bytes);
-      final archive = TarDecoder().decodeBytes(tarBytes);
+      Archive archive;
+
+      // 1. MAGIA: Detectar si es un Wheel (.whl / .zip) o un Tarball (.tar.gz)
+      if (archiveFile.path.toLowerCase().endsWith('.whl') ||
+          archiveFile.path.toLowerCase().endsWith('.zip')) {
+        archive = ZipDecoder().decodeBytes(bytes);
+      } else {
+        final tarBytes = GZipDecoder().decodeBytes(bytes);
+        archive = TarDecoder().decodeBytes(tarBytes);
+      }
 
       bool foundAtLeastOneFile = false;
 
       // 2. Búsqueda y extracción quirúrgica
       for (final file in archive) {
-        // file.name suele ser: "yt-dlp-master/yt_dlp/extractor/youtube.py"
-        final pathSegments = p.split(file.name);
+        // Unificamos separadores por si el .whl fue compilado en un Windows
+        final normalizedName = file.name.replaceAll('\\', '/');
+        final pathSegments = p.split(normalizedName);
 
         final targetIndex = pathSegments.indexOf(targetSubfolderName);
 
         if (targetIndex != -1) {
-          // Extraemos todo lo que esté DENTRO de la carpeta objetivo.
-          // Si pathSegments = ["yt_dlp_ejs-0.8.0", "yt_dlp_ejs", "__init__.py"]
-          // Y targetIndex = 1
-          // sublist(2) nos da ["__init__.py"]
+          // Extraemos todo lo que esté DENTRO de la carpeta objetivo (yt_dlp_ejs)
+          // Y esto ignorará automáticamente la carpeta "yt_dlp_ejs-0.8.0.dist-info"
+          // porque su nombre no coincide exactamente con "yt_dlp_ejs".
           final relativeSubPathList = pathSegments.sublist(targetIndex + 1);
 
           if (relativeSubPathList.isEmpty) {
-            continue; // Es la propia carpeta raíz, la ignoramos
+            continue; // Es la propia carpeta raíz
           }
 
           final relativePath = p.joinAll(relativeSubPathList);

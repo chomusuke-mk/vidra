@@ -23,11 +23,7 @@ val cleanedKeyPassword = keystoreProperties.readClean("keyPassword")
 val releaseTasksRequested = gradle.startParameter.taskNames.any {
     it.contains("release", ignoreCase = true)
 }
-val minimumJavaVersion = JavaVersion.VERSION_21
 
-if (JavaVersion.current() < minimumJavaVersion) {
-    error("Vidra requiere Java 21 o superior; se detectó ${JavaVersion.current()}.")
-}
 
 plugins {
     id("com.android.application")
@@ -36,32 +32,19 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-kotlin {
-    jvmToolchain(21)
-    compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_21)
-    }
-}
-
 android {
     namespace = "dev.chomusuke.vidra"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility = minimumJavaVersion
-        targetCompatibility = minimumJavaVersion
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
         isCoreLibraryDesugaringEnabled = true
     }
 
-    packaging {
-      jniLibs {
-        useLegacyPackaging = true
-        keepDebugSymbols.add("*/arm64-v8a/libpython*.so")
-        keepDebugSymbols.add("*/armeabi-v7a/libpython*.so")
-        keepDebugSymbols.add("*/x86/libpython*.so")
-        keepDebugSymbols.add("*/x86_64/libpython*.so")
-      }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_21.toString()
     }
 
     defaultConfig {
@@ -73,7 +56,7 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         ndk {
-          abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64"))
+          abiFilters.addAll(listOf("arm64-v8a", "x86_64"))
         }
     }
 
@@ -81,7 +64,7 @@ android {
         abi {
             isEnable = true
             reset()
-            include("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+            include("arm64-v8a", "x86_64")
             // Generate both per-ABI APKs and the universal (fat) APK.
             isUniversalApk = true
         }
@@ -103,7 +86,7 @@ android {
                 }
             } else {
                 val message = buildString {
-                    append("La configuraci\u00f3n del certificado no es v\u00e1lida. ")
+                    append("La configuración del certificado no es válida. ")
                     append("Revisa key.properties y confirma que el archivo exista en \"${cleanedStoreFilePath ?: "(sin ruta)"}\".")
                 }
                 if (releaseTasksRequested) {

@@ -41,8 +41,7 @@ dependencies:
   http: ^1.1.0
   cached_network_image: ^3.4.1
   flutter_cache_manager: ^3.4.1
-  serious_python: ^3.0.0
-  open_file: ^3.3.2
+  serious_python: ^4.0.0
   permission_handler: ^12.0.3
   filesystem_picker: ^4.1.0
   file_picker: ^11.0.2
@@ -60,6 +59,9 @@ dependencies:
   openpgp: ^3.10.7
   dio: ^5.9.2
   archive: ^4.0.9
+  url_launcher: ^6.3.2
+  open_filex: ^4.7.0
+  flutter_slidable: ^4.0.3
 
 dev_dependencies:
   flutter_test:
@@ -72,11 +74,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - public.key
-#    - app/app.zip
-#    - app/app.zip.hash
-    - .env
-    - THIRD_PARTY_LICENSES.txt
     - LICENSE
     - third_party_licenses/
     - assets/icon/icon.ico
@@ -106,4 +103,6 @@ flutter_launcher_icons:
     generate: true
   macos: 
     generate: true
-  linux: true
+  linux: 
+    generate: true
+    image_path: "assets/icon/icon.png"

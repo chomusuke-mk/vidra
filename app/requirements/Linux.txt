@@ -1,0 +1,2 @@
+xattr
+curl-cffi

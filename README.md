@@ -32,12 +32,12 @@
 
 Vidra se distribuye a través de **GitHub Releases**. Cada versión incluye instaladores para diferentes plataformas.
 
-| Plataforma | Instalador                                                                                                                                          |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Windows`  | `vidra-windows.exe`                                                                                                                                 |
-| `Linux`    | `vidra-linux.AppImage` <br>`vidra-linux.deb` <br>`vidra-linux.rpm`                                                                                  |
-| `Android`  | `vidra-android.apk`<br> `vidra-android-arm64-v8a.apk`<br>`vidra-android-armeabi-v7a.apk`<br> `vidra-android-x86.apk` <br>`vidra-android-x86_64.apk` |
-| `macOS`    | Próximamente                                                                                                                                        |
+| Plataforma | Instalador                                                                          |
+| ---------- | ----------------------------------------------------------------------------------- |
+| `Windows`  | `vidra-windows.exe`                                                                 |
+| `Linux`    | `vidra-linux.AppImage` <br>`vidra-linux.deb` <br>`vidra-linux.rpm`                  |
+| `Android`  | `vidra-android.apk`<br> `vidra-android-arm64-v8a.apk`<br>`vidra-android-x86_64.apk` |
+| `macOS`    | Próximamente                                                                        |
 
 ### Validar Firmas y Checksums
 
@@ -74,7 +74,23 @@ Coloca los archivos con los nombres **exactos** en las siguientes ubicaciones:
 | **Linux**   | `linux/ffmpeg` <br> `linux/ffprobe`                                                                       |
 | **Android** | `android/app/src/main/jniLibs/<abi>/libffmpeg.so` <br> `android/app/src/main/jniLibs/<abi>/libffprobe.so` |
 
-> - `<abi>` debe ser uno de `arm64-v8a`, `armeabi-v7a`, `x86`, o `x86_64`.
+> - `<abi>` debe ser uno de `arm64-v8a`, o `x86_64`.
+
+### Quickjs ejecutables
+
+Para ejecutar Vidra, debe proporcionar `quickjs` por su cuenta.
+
+Fuente recomendada: <https://github.com/chomusuke-mk/vidra-quickjs>
+
+Coloca los archivos con los nombres **exactos** en las siguientes ubicaciones:
+
+| Plataforma  | Ubicación esperada dentro del proyecto                                                                     |
+| ----------- | ---------------------------------------------------------------------------------------------------------- |
+| **Windows** | `windows/quickjs.exe` <br> `windows/quickjs.exe`                                                           |
+| **Linux**   | `linux/quickjs` <br> `linux/quickjs`                                                                       |
+| **Android** | `android/app/src/main/jniLibs/<abi>/libquickjs.so` <br> `android/app/src/main/jniLibs/<abi>/libquickjs.so` |
+
+> - `<abi>` debe ser uno de `arm64-v8a`, o `x86_64`.
 
 ## Inicio rápido
 
@@ -99,7 +115,7 @@ flutter run -d android
 
    ```bash
     dart run serious_python:main package app/src \
-    --requirements -r app/requirements.txt \
+    -r -r -r app/requirements.txt \
     -p Windows --verbose \
     --output app/app.zip
    ```
@@ -110,7 +126,7 @@ flutter run -d android
 
 3. Compila el artefacto de destino (`flutter build windows`, `flutter build macos`, etc.).
 
-    >El repositorio incluye tareas de VS Code (`Serious Python: Empaquetar <plataforma> App`, `Compilar APK de Android (Flutter)`) que encapsulan los mismos comandos.
+   > El repositorio incluye tareas de VS Code (`Serious Python: Empaquetar <plataforma> App`, `Compilar APK de Android (Flutter)`) que encapsulan los mismos comandos.
 
 ## Localización y recursos
 

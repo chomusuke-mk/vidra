@@ -35,20 +35,24 @@ class _LicensesScreenState extends State<LicensesScreen> {
       final List<LicenseItem> items = [];
 
       // 1. Agregamos las licencias principales primero
-      if (allAssets.contains('assets/LICENSE')) {
-        items.add(LicenseItem('Licencia de Vidra', 'assets/LICENSE'));
+      if (allAssets.contains('LICENSE')) {
+        items.add(LicenseItem('Licencia de Vidra', 'LICENSE'));
       }
-      if (allAssets.contains('assets/THIRD_PARTY_LICENSES.txt')) {
+      if (allAssets.contains('third_party_licenses/THIRD_PARTY_LICENSES.txt')) {
         items.add(
-          LicenseItem('Resumen de Terceros', 'assets/THIRD_PARTY_LICENSES.txt'),
+          LicenseItem(
+            'Resumen de Terceros',
+            'third_party_licenses/THIRD_PARTY_LICENSES.txt',
+          ),
         );
       }
 
       // 2. Extraemos todos los archivos sueltos de la carpeta (ej. requests, http)
       final thirdPartyFiles = allAssets.where(
         (path) =>
-            path.startsWith('assets/third_party_licenses/') &&
-            !path.endsWith('/'),
+            path.startsWith('third_party_licenses/') &&
+            !path.endsWith('/') &&
+            !path.endsWith("THIRD_PARTY_LICENSES.txt"),
       );
 
       for (final path in thirdPartyFiles) {
@@ -155,19 +159,34 @@ class _LicensesScreenState extends State<LicensesScreen> {
 }
 
 // ============================================================================
-// VISOR DE TEXTO PEREZOSO (FutureBuilder)
+// VISOR DE TEXTO PEREZOSO (FutureBuilder con ScrollController explícito)
 // ============================================================================
-class _LicenseTextViewer extends StatelessWidget {
+class _LicenseTextViewer extends StatefulWidget {
   final LicenseItem license;
 
   const _LicenseTextViewer({super.key, required this.license});
+
+  @override
+  State<_LicenseTextViewer> createState() => _LicenseTextViewerState();
+}
+
+class _LicenseTextViewerState extends State<_LicenseTextViewer> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     // FutureBuilder evita que el hilo principal se congele
     // al cargar archivos de texto gigantes desde los assets.
     return FutureBuilder<String>(
-      future: rootBundle.loadString(license.assetPath),
+      future: rootBundle.loadString(
+        widget.license.assetPath,
+      ), // Ojo aquí: widget.license
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
@@ -180,8 +199,10 @@ class _LicenseTextViewer extends StatelessWidget {
 
         // Usamos SelectableText para que la gente pueda copiar partes del texto si quiere.
         return Scrollbar(
+          controller: _scrollController, // Vinculamos la barra...
           thumbVisibility: true,
           child: SingleChildScrollView(
+            controller: _scrollController, // ...con el contenido!
             padding: const EdgeInsets.all(24.0),
             child: SelectableText(
               snapshot.data ?? 'Archivo vacío.',

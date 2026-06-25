@@ -49,7 +49,7 @@ class VidraHttpClient {
   Future<String> getLogs({String? id}) async {
     final uri = Uri.parse(
       '$baseUrl/logs',
-    ).replace(queryParameters: {'id': ?id});
+    ).replace(queryParameters: id != null ? {'id': id} : null);
 
     final response = await http.get(uri, headers: _headers).timeout(timeout);
 
@@ -63,7 +63,7 @@ class VidraHttpClient {
   Future<dynamic> getDownloads({String? id}) async {
     final uri = Uri.parse(
       '$baseUrl/downloads',
-    ).replace(queryParameters: {'id': ?id});
+    ).replace(queryParameters: id != null ? {'id': id} : null);
 
     final response = await http.get(uri, headers: _headers).timeout(timeout);
 
@@ -159,7 +159,7 @@ class VidraHttpClient {
   Stream<List<dynamic>> subscribeToDeltas({String? id}) async* {
     final uri = Uri.parse(
       '$baseUrl/subscribe',
-    ).replace(queryParameters: {'id': ?id});
+    ).replace(queryParameters: id != null ? {'id': id} : null);
 
     final request = http.Request('GET', uri)..headers.addAll(_headers);
     final client = http.Client();

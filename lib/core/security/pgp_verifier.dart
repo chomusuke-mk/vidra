@@ -4,7 +4,7 @@ import 'package:openpgp/openpgp.dart';
 import 'package:flutter/foundation.dart';
 
 class PgpVerifier {
-  /// Valida un binario físico contra su archivo SHA256SUMS y su firma .sig
+  /// Valida un binario físico contra su archivo SHA512SUMS y su firma .sig
   /// Devuelve [true] solo si es matemáticamente seguro ejecutarlo.
   static Future<bool> verifyBinary({
     required File binaryFile,
@@ -14,15 +14,26 @@ class PgpVerifier {
     required String expectedBinaryName,
   }) async {
     try {
-      // 1. Validar la firma PGP del archivo SHA256SUMS (Detached Signature)
+      // 1. Validar la firma PGP del archivo SHA512SUMS (Detached Signature)
       final sumsContent = await sumsFile.readAsString();
-      final sigContent = await sigFile.readAsString();
+      // 2. Leer la firma PGP (.sig) como BYTES puros para que Dart no crashee
+      final sigBytes = await sigFile.readAsBytes();
+      String sigContent;
+
+      // Detectamos si es ASCII-Armored (empieza con '-') o Raw Binary
+      if (sigBytes.isNotEmpty && sigBytes[0] == 0x2D) {
+        sigContent = await sigFile.readAsString();
+      } else {
+        // Como descubriste el error de los parámetros, sabemos que este
+        // método oficial SI funciona correctamente.
+        sigContent = await OpenPGP.armorEncode('PGP SIGNATURE', sigBytes);
+      }
 
       // Verifica matemáticamente que la firma (.sig) pertenece al texto (sums)
       // y fue generada por el dueño de la llave pública.
       final isValidSignature = await OpenPGP.verify(
-        sumsContent,
         sigContent,
+        sumsContent,
         publicKey,
       );
 
@@ -33,12 +44,10 @@ class PgpVerifier {
         return false;
       }
 
-      // 2. Calcular el SHA-256 del binario físico (Streaming para cuidar la RAM)
+      // 2. Calcular el SHA-512 del binario físico (Streaming para cuidar la RAM)
       final stream = binaryFile.openRead();
-      final digest = await sha256
-          .bind(stream)
-          .first; // Absorbe el archivo pedazo a pedazo
-      final actualHash = digest.toString();
+      final digest = await sha512.bind(stream).first;
+      final actualHash = digest.toString().toLowerCase();
 
       // 3. Buscar el hash esperado dentro del texto ya verificado
       // Formato típico de sums: "hash_largo_1234 *yt-dlp" o "hash  yt-dlp_macos"
@@ -55,7 +64,7 @@ class PgpVerifier {
 
       if (expectedHash == null) {
         debugPrint(
-          '⚠️ ALERTA: El binario "$expectedBinaryName" no está listado en el SHA256SUMS protegido.',
+          '⚠️ ALERTA: El binario "$expectedBinaryName" no está listado en el SHA512SUMS protegido.',
         );
         return false;
       }

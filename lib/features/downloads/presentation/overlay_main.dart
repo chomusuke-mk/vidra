@@ -204,25 +204,26 @@ class _QuickShareBottomSheetContentState
                   return resolutionLabels[val] ?? val;
                 },
                 onChanged: (val) {
-                  if (val == 'defaultOption')
+                  if (val == 'defaultOption') {
                     setState(
                       () => _opts = _opts.copyWith(
                         videoResolution: VideoOption.defaultOption,
                       ),
                     );
-                  else if (val == 'bestvideo')
+                  } else if (val == 'bestvideo') {
                     setState(
                       () => _opts = _opts.copyWith(
                         videoResolution: VideoOption.bestvideo,
                       ),
                     );
-                  else
+                  } else {
                     setState(
                       () => _opts = _opts.copyWith(
                         videoResolution: VideoOption.resolution,
                         videoResolutionValue: val,
                       ),
                     );
+                  }
                 },
               ),
               const SizedBox(height: 12),
@@ -243,25 +244,26 @@ class _QuickShareBottomSheetContentState
                   return '$val - ${languagesEndonyms[val] ?? val}';
                 },
                 onChanged: (val) {
-                  if (val == 'defaultOption')
+                  if (val == 'defaultOption') {
                     setState(
                       () => _opts = _opts.copyWith(
                         audioLanguage: AudioOption.defaultOption,
                       ),
                     );
-                  else if (val == 'bestaudio')
+                  } else if (val == 'bestaudio') {
                     setState(
                       () => _opts = _opts.copyWith(
                         audioLanguage: AudioOption.bestaudio,
                       ),
                     );
-                  else
+                  } else {
                     setState(
                       () => _opts = _opts.copyWith(
                         audioLanguage: AudioOption.language,
                         audioLanguageCode: val,
                       ),
                     );
+                  }
                 },
               ),
               const SizedBox(height: 12),

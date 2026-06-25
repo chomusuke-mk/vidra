@@ -1,11 +1,14 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart'; // NUEVO
 
 import 'package:vidra/features/system/domain/system_state.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
 import 'package:vidra/features/updates/domain/update_info.dart';
 import 'package:vidra/features/updates/presentation/update_controller.dart';
+import 'package:vidra/core/network/vidra_http_client.dart'; // NUEVO
 import 'licenses_screen.dart';
 
 class SystemDetailsScreen extends StatelessWidget {
@@ -103,12 +106,94 @@ class SystemDetailsScreen extends StatelessWidget {
               ? 'Puerto: ${sysCtrl.backendPort}'
               : 'Esperando disponibilidad...',
         ),
-        trailing: OutlinedButton.icon(
-          icon: const Icon(Icons.receipt_long, size: 16),
-          label: const Text('Logs'),
-          onPressed: () {
-            // TODO: Llamar a vidraHttpClient.getLogs() y mostrarlos en un dialog
-          },
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Botón 1: Logs HTTP de la App (Solo si está Ready)
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+              ),
+              onPressed: !isReady
+                  ? null
+                  : () async {
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (_) =>
+                            const Center(child: CircularProgressIndicator()),
+                      );
+                      try {
+                        final client = context.read<VidraHttpClient>();
+                        final logs = await client.getLogs();
+                        if (context.mounted) {
+                          Navigator.pop(context);
+                          showDialog(
+                            context: context,
+                            builder: (_) => _LogsDialog(logs: logs),
+                          );
+                        }
+                      } catch (e) {
+                        if (context.mounted) {
+                          Navigator.pop(context);
+                          ScaffoldMessenger.of(
+                            context,
+                          ).showSnackBar(SnackBar(content: Text('Error: $e')));
+                        }
+                      }
+                    },
+              child: const Text('App', style: TextStyle(fontSize: 12)),
+            ),
+
+            const SizedBox(width: 4),
+
+            // Botón 2: Logs Nativos de Consola (SIEMPRE DISPONIBLE para debug)
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+              ),
+              onPressed: sysCtrl.serverLogsPath == null
+                  ? null
+                  : () async {
+                      try {
+                        final file = File(sysCtrl.serverLogsPath!);
+                        if (await file.exists()) {
+                          // Leemos los últimos 20000 caracteres para no ahogar la RAM si el archivo creció mucho
+                          String rawLogs = await file.readAsString();
+                          if (rawLogs.length > 20000) {
+                            rawLogs =
+                                "... (truncado) ...\n${rawLogs.substring(rawLogs.length - 20000)}";
+                          }
+                          if (context.mounted) {
+                            showDialog(
+                              context: context,
+                              builder: (_) => _LogsDialog(logs: rawLogs),
+                            );
+                          }
+                        } else {
+                          if (context.mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'El archivo de log físico aún no existe.',
+                                ),
+                              ),
+                            );
+                          }
+                        }
+                      } catch (e) {
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Error al leer log físico: $e'),
+                            ),
+                          );
+                        }
+                      }
+                    },
+              child: const Text('Server', style: TextStyle(fontSize: 12)),
+            ),
+          ],
         ),
       ),
     );
@@ -155,18 +240,14 @@ class SystemDetailsScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                // --- BOTÓN PRINCIPAL REACTIVO ---
-                _buildActionButton(context, type, state, updateCtrl),
+                // Le pasamos el "title" para que el mensajito sepa cómo se llama el módulo
+                _buildActionButton(context, type, state, updateCtrl, title),
               ],
             ),
-
-            // Selector de canal (Stable / Nightly) solo para yt-dlp
             if (isYtDlp) ...[
               const Divider(height: 16),
               _buildChannelSelector(context, updateCtrl),
             ],
-
-            // Barra de progreso si está descargando
             if (state.status == ComponentStatus.downloading) ...[
               const SizedBox(height: 8),
               LinearProgressIndicator(value: state.progress),
@@ -177,21 +258,47 @@ class SystemDetailsScreen extends StatelessWidget {
     );
   }
 
+  // --- Lógica del Botón Dinámico ---
   Widget _buildActionButton(
     BuildContext context,
     ComponentType type,
     UpdateState state,
     UpdateController ctrl,
+    String title,
   ) {
     switch (state.status) {
-      case ComponentStatus.upToDate:
+      // NUEVO ESTADO: Oculta el botón y muestra un indicador circular para evitar doble-taps.
+      case ComponentStatus.checking:
+        return const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          child: SizedBox(
+            width: 20,
+            height: 20,
+            child: CircularProgressIndicator(strokeWidth: 2.5),
+          ),
+        );
+
       case ComponentStatus.error:
+        if (state.pendingUpdate != null) {
+          return FilledButton.icon(
+            style: FilledButton.styleFrom(backgroundColor: Colors.orange),
+            icon: const Icon(Icons.refresh, size: 16),
+            label: const Text('Reintentar'),
+            onPressed: () => ctrl.downloadAndInstall(type),
+          );
+        }
         return TextButton(
-          onPressed: () => ctrl.checkForUpdates(manualCall: true),
+          onPressed: () => _handleCheckUpdate(context, ctrl, type, title),
           child: const Text('Buscar'),
         );
+
+      case ComponentStatus.upToDate:
+        return TextButton(
+          onPressed: () => _handleCheckUpdate(context, ctrl, type, title),
+          child: const Text('Buscar'),
+        );
+
       case ComponentStatus.updateAvailable:
-        // Si falta el recurso, resaltamos el botón para guiar al usuario
         final sysState = context.read<SystemController>().state;
         final isMissing =
             sysState == SystemState.missingResources &&
@@ -205,12 +312,54 @@ class SystemDetailsScreen extends StatelessWidget {
           label: Text(isMissing ? 'Instalar Requerido' : 'Actualizar'),
           onPressed: () => ctrl.downloadAndInstall(type),
         );
+
       case ComponentStatus.downloading:
-        return const Text('Descargando...');
+        return const Text(
+          'Descargando...',
+          style: TextStyle(color: Colors.blue),
+        );
       case ComponentStatus.verifying:
-        return const Text('Validando PGP...');
+        return const Text(
+          'Validando PGP...',
+          style: TextStyle(color: Colors.purple),
+        );
       case ComponentStatus.installing:
-        return const Text('Instalando...');
+        return const Text(
+          'Instalando...',
+          style: TextStyle(color: Colors.orange),
+        );
+    }
+  }
+
+  // --- Magia del Mensaje Final (SnackBar) ---
+  Future<void> _handleCheckUpdate(
+    BuildContext context,
+    UpdateController ctrl,
+    ComponentType type,
+    String title,
+  ) async {
+    // Esto mostrará el spinner porque el controlador pondrá el estado en 'checking'
+    final hasUpdate = await ctrl.checkForUpdates(
+      manualCall: true,
+      specificType: type,
+    );
+
+    // Si no encontró nada y el widget aún existe, lanzamos la notificación
+    if (!hasUpdate && context.mounted) {
+      final finalState = ctrl.getState(type).status;
+
+      if (finalState == ComponentStatus.error) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Error de red al conectar con GitHub.'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('¡$title ya está en su última versión!')),
+        );
+      }
     }
   }
 
@@ -235,9 +384,20 @@ class SystemDetailsScreen extends StatelessWidget {
           ],
           selected: {currentChannel},
           showSelectedIcon: false,
-          onSelectionChanged: (Set<String> newSelection) {
+          onSelectionChanged: (Set<String> newSelection) async {
             prefs.setString('channel_ytdlp', newSelection.first);
-            ctrl.checkForUpdates(manualCall: true); // Re-evaluar
+            // Cuando cambias de canal, también hacemos el chequeo visual
+            final hasUpdate = await ctrl.checkForUpdates(
+              manualCall: true,
+              specificType: ComponentType.ytDlp,
+            );
+            if (!hasUpdate && context.mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('No hay nuevas versiones en este canal.'),
+                ),
+              );
+            }
           },
         ),
       ],
@@ -250,21 +410,50 @@ class SystemDetailsScreen extends StatelessWidget {
   Widget _buildAboutSection(BuildContext context) {
     return Column(
       children: [
-        const Text('Vidra App', style: TextStyle(fontWeight: FontWeight.bold)),
-        const Text(
-          'Creado por Chomusuke',
-          style: TextStyle(fontSize: 12, color: Colors.grey),
+        const CircleAvatar(
+          radius: 36,
+          backgroundImage: NetworkImage('https://github.com/chomusuke-mk.png'),
         ),
         const SizedBox(height: 12),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        const Text(
+          'Vidra App',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        ),
+        const Text(
+          'Creado por Chomusuke',
+          style: TextStyle(fontSize: 14, color: Colors.grey),
+        ),
+        const SizedBox(height: 16),
+
+        // Wrap alinea automáticamente todos los botones evitando desbordes (Overflows)
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: 8, // Espacio horizontal
+          runSpacing: 4, // Espacio vertical si hace salto de línea
           children: [
             TextButton.icon(
               icon: const Icon(Icons.favorite, color: Colors.red, size: 16),
               label: const Text('Patreon'),
-              onPressed: () {
-                // TODO: url_launcher para abrir patreon
-              },
+              onPressed: () => launchUrl(
+                Uri.parse('https://www.patreon.com/chomusuke_dev'),
+                mode: LaunchMode.externalApplication,
+              ),
+            ),
+            TextButton.icon(
+              icon: const Icon(Icons.coffee, color: Colors.orange, size: 16),
+              label: const Text('Donar'),
+              onPressed: () => launchUrl(
+                Uri.parse('https://www.buymeacoffee.com/chomusuke'),
+                mode: LaunchMode.externalApplication,
+              ),
+            ),
+            TextButton.icon(
+              icon: const Icon(Icons.code, size: 16),
+              label: const Text('GitHub'),
+              onPressed: () => launchUrl(
+                Uri.parse('https://github.com/chomusuke-mk/vidra'),
+                mode: LaunchMode.externalApplication,
+              ),
             ),
             TextButton.icon(
               icon: const Icon(Icons.gavel, size: 16),
@@ -278,7 +467,55 @@ class SystemDetailsScreen extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 32),
+        const SizedBox(height: 48),
+      ],
+    );
+  }
+}
+
+// ==========================================================================
+// WIDGET ESTADO PARA LOGS (Soluciona el error del ScrollController)
+// ==========================================================================
+class _LogsDialog extends StatefulWidget {
+  final String logs;
+  const _LogsDialog({required this.logs});
+
+  @override
+  State<_LogsDialog> createState() => _LogsDialogState();
+}
+
+class _LogsDialogState extends State<_LogsDialog> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Logs Globales de Vidra'),
+      content: SizedBox(
+        width: double.maxFinite,
+        child: Scrollbar(
+          controller: _scrollController, // Vinculamos la barra...
+          thumbVisibility: true,
+          child: SingleChildScrollView(
+            controller: _scrollController, // ...con el contenido!
+            child: SelectableText(
+              widget.logs.isEmpty ? 'No hay logs aún.' : widget.logs,
+              style: const TextStyle(fontFamily: 'monospace', fontSize: 12),
+            ),
+          ),
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Cerrar'),
+        ),
       ],
     );
   }
