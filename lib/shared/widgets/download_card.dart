@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:vidra/features/downloads/domain/download.dart' as model;
 import 'package:vidra/features/downloads/presentation/downloads_controller.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DownloadCard extends StatelessWidget {
   final String? downloadId;
@@ -144,7 +145,11 @@ class DownloadCard extends StatelessWidget {
                 SlidableAction(
                   onPressed: (_) async {
                     final dir = p.dirname(info!.file!);
-                    await OpenFilex.open(dir);
+                    final Uri directoryUri = Uri.file(dir);
+                    await launchUrl(
+                      directoryUri,
+                      mode: LaunchMode.externalApplication,
+                    );
                   },
                   backgroundColor: Colors.orange,
                   foregroundColor: Colors.white,

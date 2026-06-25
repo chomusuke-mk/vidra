@@ -27,14 +27,13 @@ val releaseTasksRequested = gradle.startParameter.taskNames.any {
 
 plugins {
     id("com.android.application")
-    id("kotlin-android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
 
 android {
     namespace = "dev.chomusuke.vidra"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 37
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -43,8 +42,10 @@ android {
         isCoreLibraryDesugaringEnabled = true
     }
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_21.toString()
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+        }
     }
 
     defaultConfig {
@@ -112,6 +113,12 @@ android {
     }
 }
 
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
+    }
+}
+
 flutter {
     source = "../.."
 }
@@ -121,5 +128,5 @@ dependencies {
     implementation("com.google.android.material:material:1.12.0")
     // Required by Flutter's Play Store deferred components integration; otherwise R8 fails with
     // missing com.google.android.play.core.* classes.
-    implementation("com.google.android.play:core:1.10.3")
+    // implementation("com.google.android.play:core:1.10.3")
 }

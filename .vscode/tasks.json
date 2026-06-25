@@ -29,7 +29,8 @@
       "options": {
         "cwd": "${workspaceFolder}/android",
         "env": {
-          "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages"
+          "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages",
+          "SERIOUS_PYTHON_APP": "${workspaceFolder}/build/app",
         }
       },
       "group": "build",

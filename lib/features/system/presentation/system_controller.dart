@@ -103,6 +103,7 @@ class SystemController extends ChangeNotifier {
       if (_isUpdating || _backendPort == null || _backendToken == null) return;
 
       final isAlive = await _pingBackend();
+      final maxRetries = 10; // 10 intentos fallidos = 20 segundos offline
 
       if (isAlive) {
         _failedPings = 0; // Si responde, ponemos el contador a 0
@@ -110,12 +111,12 @@ class SystemController extends ChangeNotifier {
       } else {
         _failedPings++;
         debugPrint(
-          '⚠️ El Backend no responde. Intento fallido ($_failedPings/3)',
+          '⚠️ El Backend no responde. Intento fallido ($_failedPings/$maxRetries)',
         );
         _setState(SystemState.retrying);
 
-        // Si falla 3 veces seguidas (6 segundos offline), lo revivimos
-        if (_failedPings >= 60) {
+        // Si falla $maxRetries veces seguidas, lo revivimos
+        if (_failedPings >= maxRetries) {
           debugPrint(
             '🔄 Backend muerto detectado. Intentando auto-resurrección...',
           );

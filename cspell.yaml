@@ -16,6 +16,7 @@ words:
   - APPICON
   - appimage
   - APPL
+  - applinks
   - APSTUDIO
   - armeabi
   - Ascii
@@ -102,6 +103,7 @@ words:
   - irondash
   - jetbrains
   - jvmargs
+  - kasem
   - klass
   - kotlin
   - libapp

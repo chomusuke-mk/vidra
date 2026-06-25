@@ -11,7 +11,6 @@ allprojects {
     }
 }
 
-// 1. Redirección del directorio de build
 val newBuildDir: Directory =
     rootProject.layout.buildDirectory
         .dir("../../build")
@@ -30,22 +29,16 @@ val libraryJavaVersion = if (desiredLibraryJavaVersion < minimumSupportedJavaVer
 val libraryJavaVersionString = libraryJavaVersion.majorVersion
 val libraryJavaMajorVersion = libraryJavaVersionString.toInt()
 
-fun CommonExtension<*, *, *, *, *, *>.applyJavaCompatibility() {
-    compileOptions {
-        sourceCompatibility = libraryJavaVersion
-        targetCompatibility = libraryJavaVersion
-    }
+fun CommonExtension.applyJavaCompatibility() {
+    compileOptions.sourceCompatibility = libraryJavaVersion
+    compileOptions.targetCompatibility = libraryJavaVersion
 }
 
-// 3. Unificación del bloque subprojects
-subprojects {
-    // Redirigir el buildDir del subproyecto
-    project.layout.buildDirectory.value(newBuildDir.dir(project.name))
-    
-    // Dependencia de evaluación estándar de Flutter
-    project.evaluationDependsOn(":app")
 
-    // Aplicar compatibilidad de Java/Kotlin solo a librerías y plugins (excluyendo "app")
+subprojects {
+    val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
+    project.layout.buildDirectory.value(newSubprojectBuildDir)
+    project.evaluationDependsOn(":app")
     if (project.name != "app") {
         val configureCompilationTargets: Project.() -> Unit = {
             
@@ -65,7 +58,7 @@ subprojects {
                 }
             }
 
-            (extensions.findByName("android") as? CommonExtension<*, *, *, *, *, *>)
+            (extensions.findByName("android") as? CommonExtension)
                 ?.applyJavaCompatibility()
         }
 

@@ -7,6 +7,7 @@ import 'package:vidra/core/network/github_client.dart';
 import 'package:vidra/features/locales/data/locale_repository.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/updates/presentation/update_controller.dart';
+import 'package:vidra/shared/utils/toast_utils.dart';
 import 'core/network/vidra_http_client.dart';
 import 'features/downloads/data/download_repository.dart';
 import 'features/downloads/presentation/downloads_controller.dart';
@@ -131,6 +132,7 @@ void overlayMain() {
       themeMode: ThemeMode.system,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
+      scaffoldMessengerKey: ToastUtils.messengerKey,
       home: const QuickShareOverlay(),
     ),
   );
