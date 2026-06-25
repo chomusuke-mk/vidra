@@ -38,13 +38,35 @@ class DownloadCard extends StatelessWidget {
         state?.value == model.DownloadState.pending ||
         state?.value == model.DownloadState.requested;
 
+    // --- LÓGICA DE VISIBILIDAD DE BOTONES ---
+    final isList = info?.type == model.DownloadType.list;
+    final hasFile = info?.file != null && info!.file!.isNotEmpty;
+
+    // 1. Mostrar Play y Carpeta si está completado, NO es lista y tiene archivo (Aplica a sub-descargas)
+    final showPlayFolder = isCompleted && !isList && hasFile;
+    // 2. Mostrar Borrar solo en la pantalla principal si está completo o con error
+    final showDelete = !isDetailScreen && (isCompleted || isError);
+    // 3. Mostrar Info solo si es error en la pantalla principal
+    final showInfo = isError && !isDetailScreen;
+    // 4. Pausar y Cancelar si está en progreso (Principal)
+    final showPauseCancel = inProgress && !isDetailScreen;
+    // 5. Solo Cancelar si está pendiente (Principal)
+    final showCancelOnly = isPending && !isDetailScreen;
+
+    int actionCount = 0;
+    if (showPlayFolder) actionCount += 2;
+    if (showDelete) actionCount += 1;
+    if (showInfo) actionCount += 1;
+    if (showPauseCancel) actionCount += 2;
+    if (showCancelOnly) actionCount += 1;
+
     Widget cardContent = Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         _buildImage(context, isError),
         const SizedBox(width: 12),
         Expanded(child: _buildDetails(context)),
-        if (!isDetailScreen)
+        if (actionCount > 0)
           const Icon(
             Icons.chevron_left,
             color: Colors.grey,
@@ -80,20 +102,8 @@ class DownloadCard extends StatelessWidget {
       ),
     );
 
-    if (downloadId == null || isDetailScreen) return cardWidget;
 
-    // --- CÁLCULO INTELIGENTE DE BOTONES ---
-    int actionCount = 0;
-    if (isCompleted) {
-      actionCount = 3; // Reproducir, Carpeta, Borrar
-    } else if (isError) {
-      actionCount = 1; // Borrar
-    } else if (inProgress) {
-      actionCount = 2; // Pausar, Cancelar
-    } else if (isPending) {
-      actionCount = 1; // Cancelar
-    }
-    if (actionCount == 0) return cardWidget;
+    if (downloadId == null || actionCount == 0) return cardWidget;
 
     // =========================================================================
     // LÓGICA DE GESTOS (SLIDABLE)
@@ -112,7 +122,7 @@ class DownloadCard extends StatelessWidget {
             motion: const DrawerMotion(),
             extentRatio: ratio, // <--- AQUÍ APLICAMOS EL CINTURÓN DE SEGURIDAD
             // Borrado gestual a tope SOLO permitido si está completado o en error
-            dismissible: (isCompleted || isError)
+            dismissible: showDelete
                 ? DismissiblePane(
                     onDismissed: () => context
                         .read<DownloadsController>()
@@ -121,7 +131,7 @@ class DownloadCard extends StatelessWidget {
                 : null,
 
             children: [
-              if (isCompleted) ...[
+              if (showPlayFolder) ...[
                 SlidableAction(
                   onPressed: (_) async {
                     final mimeType = lookupMimeType(info!.file!) ?? 'video/*';
@@ -140,6 +150,16 @@ class DownloadCard extends StatelessWidget {
                   foregroundColor: Colors.white,
                   icon: Icons.folder,
                 ),
+              ],
+              if (showInfo) ...[
+                SlidableAction(
+                  onPressed: (_) => onTap?.call(), // Va a detalles
+                  backgroundColor: Colors.indigo,
+                  foregroundColor: Colors.white,
+                  icon: Icons.info,
+                ),
+              ],
+              if (showDelete) ...[
                 SlidableAction(
                   onPressed: (_) => context
                       .read<DownloadsController>()
@@ -148,16 +168,8 @@ class DownloadCard extends StatelessWidget {
                   foregroundColor: Colors.white,
                   icon: Icons.delete,
                 ),
-              ] else if (isError) ...[
-                SlidableAction(
-                  onPressed: (_) => context
-                      .read<DownloadsController>()
-                      .sendAction(downloadId!, 'delete'),
-                  backgroundColor: Colors.red,
-                  foregroundColor: Colors.white,
-                  icon: Icons.delete,
-                ),
-              ] else if (inProgress) ...[
+              ],
+              if (showPauseCancel) ...[
                 SlidableAction(
                   onPressed: (_) => context
                       .read<DownloadsController>()
@@ -172,7 +184,8 @@ class DownloadCard extends StatelessWidget {
                   foregroundColor: Colors.white,
                   icon: Icons.cancel,
                 ),
-              ] else if (isPending) ...[
+              ],
+              if (showCancelOnly) ...[
                 SlidableAction(
                   onPressed: (_) => context
                       .read<DownloadsController>()

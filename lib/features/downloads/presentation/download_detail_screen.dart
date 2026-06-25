@@ -1,4 +1,4 @@
-import 'dart:convert'; // Para el formateo del JSON
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vidra/features/downloads/presentation/selection_wrapper.dart';
@@ -49,16 +49,7 @@ class _DetailViewState extends State<_DetailView> {
     final controller = context.watch<DownloadDetailController>();
     context.watch<DownloadsController>();
     if (controller.isLoading) {
-      return const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircularProgressIndicator(),
-            SizedBox(height: 16),
-            Text('Sincronizando información...'),
-          ],
-        ),
-      );
+      return const Center(child: CircularProgressIndicator());
     }
 
     final currentDownload = controller.download;
@@ -83,7 +74,7 @@ class _DetailViewState extends State<_DetailView> {
           label: Text('Sub-Descargas'),
         ),
       );
-      views.add(_buildSubDownloadsTab(subDownloads));
+      views.add(_buildSubDownloadsTab(context, controller));
     }
 
     // Pestaña Fija: Logs
@@ -111,15 +102,13 @@ class _DetailViewState extends State<_DetailView> {
 
     return Column(
       children: [
-        // ZONA SUPERIOR: El Card Maestro (Fijo)
+        // ZONA SUPERIOR: El Card Maestro
         DownloadCard(
           info: currentDownload.info,
           state: currentDownload.state,
           isDetailScreen: true,
         ),
-
         const Divider(height: 1),
-
         // ZONA INFERIOR: Menús y Contenido
         Expanded(
           child: LayoutBuilder(
@@ -163,24 +152,178 @@ class _DetailViewState extends State<_DetailView> {
   }
 
   // =========================================================================
-  // VISTAS DE LAS PESTAÑAS
+  // VISTA SUB-DESCARGAS CON BUSCADOR Y FILTROS
   // =========================================================================
+  Widget _buildSubDownloadsTab(
+    BuildContext context,
+    DownloadDetailController controller,
+  ) {
+    final list = controller.filteredSubDownloads;
+    final hasActiveFilters =
+        controller.activeFilters.isNotEmpty ||
+        controller.searchQuery.isNotEmpty;
 
-  Widget _buildSubDownloadsTab(List<model.SubDownload> subDownloads) {
-    if (subDownloads.isEmpty) {
-      return const Center(child: Text('Aún no hay sub-descargas.'));
-    }
-    return ListView.builder(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      itemCount: subDownloads.length,
-      itemBuilder: (context, index) {
-        final sub = subDownloads[index];
-        return DownloadCard(
-          info: sub.info,
-          state: sub.state,
-          isDetailScreen: true,
-        );
-      },
+    return Column(
+      children: [
+        // Cabecera con título y botón de visibilidad de filtros
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '${list.length} elementos',
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              IconButton(
+                icon: Icon(
+                  hasActiveFilters
+                      ? Icons.filter_alt
+                      : Icons.filter_alt_outlined,
+                  color: hasActiveFilters ? Colors.blue : null,
+                ),
+                tooltip: 'Buscar y Filtrar',
+                onPressed: controller.toggleSearchVisibility,
+              ),
+            ],
+          ),
+        ),
+
+        // La Barra de Búsqueda y Filtros Animada
+        AnimatedSize(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+          child: !controller.isSearchVisible
+              ? const SizedBox.shrink()
+              : Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                  child: Column(
+                    children: [
+                      TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Buscar en la lista...',
+                          prefixIcon: const Icon(Icons.search),
+                          suffixIcon: controller.searchQuery.isNotEmpty
+                              ? IconButton(
+                                  icon: const Icon(Icons.clear),
+                                  onPressed: () => controller.updateSearch(''),
+                                )
+                              : null,
+                          isDense: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          fillColor: Theme.of(context)
+                              .colorScheme
+                              .surfaceContainerHighest
+                              .withValues(alpha: 0.5),
+                        ),
+                        onChanged: controller.updateSearch,
+                      ),
+                      const SizedBox(height: 8),
+                      SizedBox(
+                        height: 40,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            _buildFilterChip(
+                              controller,
+                              model.DownloadState.failed,
+                              'Errores',
+                              Icons.error,
+                              Colors.red,
+                            ),
+                            const SizedBox(width: 8),
+                            _buildFilterChip(
+                              controller,
+                              model.DownloadState.inProgress,
+                              'Descargando',
+                              Icons.downloading,
+                              Colors.blue,
+                            ),
+                            const SizedBox(width: 8),
+                            _buildFilterChip(
+                              controller,
+                              model.DownloadState.completed,
+                              'Completados',
+                              Icons.check_circle,
+                              Colors.green,
+                            ),
+                            const SizedBox(width: 8),
+                            _buildFilterChip(
+                              controller,
+                              model.DownloadState.pending,
+                              'Pendientes',
+                              Icons.schedule,
+                              Colors.grey,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+        ),
+
+        // La lista
+        Expanded(
+          child: list.isEmpty
+              ? const Center(child: Text('No hay elementos que coincidan.'))
+              : ListView.builder(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  itemCount: list.length,
+                  itemBuilder: (context, index) {
+                    final sub = list[index];
+                    return DownloadCard(
+                      downloadId: sub.subId,
+                      info: sub.info,
+                      state: sub.state,
+                      isDetailScreen: true,
+                    );
+                  },
+                ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildFilterChip(
+    DownloadDetailController ctrl,
+    model.DownloadState state,
+    String label,
+    IconData icon,
+    Color color,
+  ) {
+    final isSelected = ctrl.activeFilters.contains(state);
+    return FilterChip(
+      showCheckmark: false,
+      selected: isSelected,
+      label: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 16, color: isSelected ? color : Colors.grey),
+          const SizedBox(width: 4),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              color: isSelected ? color : null,
+              fontWeight: isSelected ? FontWeight.bold : null,
+            ),
+          ),
+        ],
+      ),
+      onSelected: (_) => ctrl.toggleFilter(state),
+      backgroundColor: Colors.transparent,
+      selectedColor: color.withValues(alpha: 0.15),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: isSelected ? color : Colors.grey.withValues(alpha: 0.3),
+        ),
+      ),
     );
   }
 

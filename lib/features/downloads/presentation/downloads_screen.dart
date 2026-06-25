@@ -22,6 +22,10 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
   final TextEditingController _urlController = TextEditingController();
   int _selectedIndex = 0;
 
+  bool _showFilters = false;
+  String _searchQuery = '';
+  String _typeFilter = 'all'; // 'all', 'video', 'list'
+
   @override
   void dispose() {
     _urlController.dispose();
@@ -40,9 +44,23 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
   @override
   Widget build(BuildContext context) {
     final downloadsCtrl = context.watch<DownloadsController>();
-    final all = downloadsCtrl.downloads;
-
-    final inProgress = all.where((d) {
+    // 1. APLICAMOS EL FILTRADO MAESTRO AQUÍ
+    final filteredAll = downloadsCtrl.downloads.where((d) {
+      if (_searchQuery.isNotEmpty) {
+        final title = d.info?.title?.toLowerCase() ?? '';
+        if (!title.contains(_searchQuery.toLowerCase())) return false;
+      }
+      if (_typeFilter != 'all') {
+        final isList = d.info?.type == download_model.DownloadType.list;
+        if (_typeFilter == 'list' && !isList) return false;
+        if (_typeFilter == 'video' && isList) {
+          return false; // Todo lo que NO sea list cae en video
+        }
+      }
+      return true;
+    }).toList();
+    // 2. SEPARAMOS EN PESTAÑAS BASADOS EN LA LISTA YA FILTRADA
+    final inProgress = filteredAll.where((d) {
       final state = d.state?.value;
       return state == download_model.DownloadState.requested ||
           state == download_model.DownloadState.pending ||
@@ -52,18 +70,19 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
           state == download_model.DownloadState.paused;
     }).toList();
 
-    final completed = all
+    final completed = filteredAll
         .where((d) => d.state?.value == download_model.DownloadState.completed)
         .toList();
 
-    final errors = all.where((d) {
+    final errors = filteredAll.where((d) {
       final state = d.state?.value;
       return state == download_model.DownloadState.failed ||
           state == download_model.DownloadState.canceled ||
           state == download_model.DownloadState.deleted;
     }).toList();
 
-    final lists = [all, inProgress, completed, errors];
+    final lists = [filteredAll, inProgress, completed, errors];
+    final hasActiveFilter = _searchQuery.isNotEmpty || _typeFilter != 'all';
 
     return SelectionFabWrapper(
       child: Scaffold(
@@ -72,7 +91,6 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
           titleSpacing: 0,
           leading: const Padding(
             padding: EdgeInsets.all(8.0),
-            // TODO: Haz que tu SystemStatusIndicator sea más cuadrado/pequeño o solo ícono
             child: SystemStatusIndicator(),
           ),
           // 2. Barra de texto para URL (Centro)
@@ -105,6 +123,14 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
           ),
           actions: [
             IconButton(
+              icon: Icon(
+                hasActiveFilter ? Icons.filter_alt : Icons.filter_alt_outlined,
+                color: hasActiveFilter ? Colors.blue : null,
+              ),
+              tooltip: 'Filtros',
+              onPressed: () => setState(() => _showFilters = !_showFilters),
+            ),
+            IconButton(
               icon: const Icon(Icons.settings),
               tooltip: 'Configuración',
               onPressed: () => Navigator.push(
@@ -123,18 +149,76 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
-        // --- ZONA INFERIOR (Submenús / Tabs Responsivos) ---
-        body: downloadsCtrl.isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : LayoutBuilder(
-                builder: (context, constraints) {
-                  // Layout "Vertical" (Tabs arriba) si el ancho es menor a 600
-                  final isShort = constraints.maxWidth < 600;
-                  if (isShort) return _buildVerticalLayout(lists);
-                  // Layout "Horizontal" (Tabs laterales) si hay espacio
-                  return _buildHorizontalLayout(lists);
-                },
+        // --- CUERPO: Barra de Filtros + Lista de descargas ---
+        body: Column(
+          children: [
+            // BARRA DE FILTROS ANIMADA
+            AnimatedSize(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+              child: _showFilters
+                  ? _buildMainFiltersBar()
+                  : const SizedBox.shrink(),
+            ),
+
+            // ÁREA DE PESTAÑAS (Layout Vertical o Horizontal)
+            Expanded(
+              child: downloadsCtrl.isLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : LayoutBuilder(
+                      builder: (context, constraints) {
+                        final isShort = constraints.maxWidth < 600;
+                        if (isShort) return _buildVerticalLayout(lists);
+                        return _buildHorizontalLayout(lists);
+                      },
+                    ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // --- WIDGET EXCLUSIVO DEL FILTRO MAIN ---
+  Widget _buildMainFiltersBar() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surfaceContainerLow,
+        border: Border(
+          bottom: BorderSide(
+            color: Theme.of(context).dividerColor.withValues(alpha: 0.1),
+          ),
+        ),
+      ),
+      child: Column(
+        children: [
+          TextField(
+            decoration: InputDecoration(
+              hintText: 'Filtrar nombre de descarga...',
+              prefixIcon: const Icon(Icons.search),
+              isDense: true,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
               ),
+            ),
+            onChanged: (v) => setState(() => _searchQuery = v),
+          ),
+          const SizedBox(height: 12),
+          SizedBox(
+            width: double.infinity,
+            child: SegmentedButton<String>(
+              segments: const [
+                ButtonSegment(value: 'all', label: Text('Todas')),
+                ButtonSegment(value: 'video', label: Text('Video / Audio')),
+                ButtonSegment(value: 'list', label: Text('Listas (Playlists)')),
+              ],
+              selected: {_typeFilter},
+              onSelectionChanged: (set) =>
+                  setState(() => _typeFilter = set.first),
+            ),
+          ),
+        ],
       ),
     );
   }

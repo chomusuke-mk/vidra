@@ -22,6 +22,21 @@ class DownloadDetailController extends ChangeNotifier {
 
   StreamSubscription? _detailSseSubscription;
 
+  // --- NUEVO: Lógica de Filtros y Búsqueda ---
+  String _searchQuery = '';
+  String get searchQuery => _searchQuery;
+
+  final Set<DownloadState> _activeFilters = {};
+  Set<DownloadState> get activeFilters => _activeFilters;
+
+  bool _isSearchVisible = false;
+  bool get isSearchVisible => _isSearchVisible;
+
+  void toggleSearchVisibility() {
+    _isSearchVisible = !_isSearchVisible;
+    notifyListeners();
+  }
+
   DownloadDetailController(
     this._repository,
     this._systemController,
@@ -29,6 +44,37 @@ class DownloadDetailController extends ChangeNotifier {
   ) {
     _systemController.addListener(_onSystemStateChanged);
     _initSequence();
+  }
+
+  // --- MÉTODOS DE FILTRADO ---
+  void updateSearch(String query) {
+    _searchQuery = query;
+    notifyListeners();
+  }
+
+  void toggleFilter(DownloadState state) {
+    if (_activeFilters.contains(state)) {
+      _activeFilters.remove(state);
+    } else {
+      _activeFilters.add(state);
+    }
+    notifyListeners();
+  }
+
+  List<SubDownload> get filteredSubDownloads {
+    final subs = download.subDownloads ?? [];
+    return subs.where((sub) {
+      if (_searchQuery.isNotEmpty) {
+        final title = sub.info?.title?.toLowerCase() ?? '';
+        if (!title.contains(_searchQuery.toLowerCase())) return false;
+      }
+      if (_activeFilters.isNotEmpty) {
+        if (sub.state == null || !_activeFilters.contains(sub.state!.value)) {
+          return false;
+        }
+      }
+      return true;
+    }).toList();
   }
 
   // ==========================================================================
