@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // Necesario para el Clipboard (Portapapeles)
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:vidra/features/downloads/presentation/selection_wrapper.dart';
 import 'package:vidra/features/downloads/presentation/downloads_controller.dart';
@@ -9,8 +9,6 @@ import 'package:vidra/features/settings/presentation/settings_screen.dart';
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/shared/widgets/download_card.dart';
 import 'download_detail_screen.dart';
-
-// Importamos nuestra pastilla indicadora
 import 'package:vidra/features/system/presentation/system_status_indicator.dart';
 
 class DownloadsScreen extends StatefulWidget {
@@ -22,7 +20,7 @@ class DownloadsScreen extends StatefulWidget {
 
 class _DownloadsScreenState extends State<DownloadsScreen> {
   final TextEditingController _urlController = TextEditingController();
-  int _selectedIndex = 0; // Para el layout horizontal (NavigationRail)
+  int _selectedIndex = 0;
 
   @override
   void dispose() {
@@ -32,24 +30,16 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
 
   void _addDownload() {
     if (_urlController.text.trim().isEmpty) return;
-
     final settingsCtrl = context.read<SettingsController>();
     final downloadsCtrl = context.read<DownloadsController>();
-
-    // Extraemos el payload JSON del controlador de configuraciones
     final currentOptions = settingsCtrl.getDownloadOptionsPayload();
     downloadsCtrl.addDownload(_urlController.text, currentOptions);
-
     _urlController.clear();
   }
 
   @override
   Widget build(BuildContext context) {
     final downloadsCtrl = context.watch<DownloadsController>();
-
-    // =========================================================================
-    // LÓGICA DE FILTRADO PARA LAS PESTAÑAS
-    // =========================================================================
     final all = downloadsCtrl.downloads;
 
     final inProgress = all.where((d) {
@@ -80,14 +70,10 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
         // --- ZONA SUPERIOR (AppBar rediseñada) ---
         appBar: AppBar(
           titleSpacing: 0,
-          // 1. Botón Settings (Izquierda)
-          leading: IconButton(
-            icon: const Icon(Icons.settings),
-            tooltip: 'Configuración',
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => const SettingsScreen()),
-            ),
+          leading: const Padding(
+            padding: EdgeInsets.all(8.0),
+            // TODO: Haz que tu SystemStatusIndicator sea más cuadrado/pequeño o solo ícono
+            child: SystemStatusIndicator(),
           ),
           // 2. Barra de texto para URL (Centro)
           title: TextField(
@@ -117,23 +103,26 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
             ),
             onSubmitted: (_) => _addDownload(),
           ),
-          // 3. Botones (Derecha)
           actions: [
-            // LA PASTILLA DEL CEREBRO VA AQUÍ
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: SystemStatusIndicator(),
-            ),
             IconButton(
-              icon: const Icon(Icons.download),
-              tooltip: 'Añadir Descarga',
-              color: Theme.of(context).colorScheme.primary,
-              onPressed: _addDownload,
+              icon: const Icon(Icons.settings),
+              tooltip: 'Configuración',
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const SettingsScreen()),
+              ),
             ),
             const SizedBox(width: 4),
           ],
         ),
-
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: _addDownload,
+          icon: const Icon(Icons.download),
+          label: const Text(
+            'Descargar',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
         // --- ZONA INFERIOR (Submenús / Tabs Responsivos) ---
         body: downloadsCtrl.isLoading
             ? const Center(child: CircularProgressIndicator())
@@ -213,16 +202,110 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
     );
   }
 
-  // --- HELPER: Renderiza la lista sin repetir código ---
+  // Busca tu función _buildDownloadList y actualízala así:
   Widget _buildDownloadList(List<download_model.Download> list) {
     if (list.isEmpty) {
-      return const Center(child: Text('No hay descargas en esta categoría.'));
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.inbox,
+              size: 64,
+              color: Theme.of(
+                context,
+              ).colorScheme.onSurface.withValues(alpha: 0.2),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'No hay descargas aquí',
+              style: TextStyle(
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.5),
+                fontSize: 16,
+              ),
+            ),
+          ],
+        ),
+      );
     }
     return ListView.builder(
       itemCount: list.length,
       itemBuilder: (context, index) {
-        return _DownloadListItem(download: list[index]);
+        final download = list[index];
+        return _SlideInListItem(
+          key: ValueKey(download.id),
+          itemId: download.id!, // <-- NUEVO: Le pasamos el ID único
+          child: _DownloadListItem(download: download),
+        );
       },
+    );
+  }
+}
+
+// =========================================================================
+// ANIMADOR DE ENTRADA (Empuja y Desliza)
+// =========================================================================
+class _SlideInListItem extends StatefulWidget {
+  final String itemId;
+  final Widget child;
+  const _SlideInListItem({
+    required this.key,
+    required this.itemId,
+    required this.child,
+  }) : super(key: key);
+  @override
+  // ignore: overridden_fields
+  final Key key;
+  @override
+  State<_SlideInListItem> createState() => _SlideInListItemState();
+}
+
+class _SlideInListItemState extends State<_SlideInListItem>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _ctrl;
+  late Animation<Offset> _slideAnim;
+  late Animation<double> _sizeAnim;
+
+  // Memoria estática que recuerda qué IDs ya fueron animados.
+  static final Set<String> _animatedItems = {};
+
+  @override
+  void initState() {
+    super.initState();
+    _ctrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 350),
+    );
+    _slideAnim = Tween<Offset>(
+      begin: const Offset(1, 0),
+      end: Offset.zero,
+    ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeOutQuart));
+
+    _sizeAnim = CurvedAnimation(parent: _ctrl, curve: Curves.easeOut);
+    // Si la descarga ya se animó antes (porque hicimos scroll abajo/arriba), saltamos la animación.
+    if (_animatedItems.contains(widget.itemId)) {
+      _ctrl.value =
+          1.0; // Lo pintamos abierto y al 100% de tamaño instantáneamente.
+    } else {
+      // Si es una descarga NUEVA, la registramos y hacemos la animación fluida.
+      _animatedItems.add(widget.itemId);
+      _ctrl.forward();
+    }
+  }
+
+  @override
+  void dispose() {
+    _ctrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizeTransition(
+      sizeFactor: _sizeAnim,
+      child: SlideTransition(position: _slideAnim, child: widget.child),
     );
   }
 }
@@ -232,12 +315,12 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
 // =========================================================================
 class _DownloadListItem extends StatelessWidget {
   final download_model.Download download;
-
   const _DownloadListItem({required this.download});
 
   @override
   Widget build(BuildContext context) {
     return DownloadCard(
+      downloadId: download.id,
       info: download.info,
       state: download.state,
       isDetailScreen: false,

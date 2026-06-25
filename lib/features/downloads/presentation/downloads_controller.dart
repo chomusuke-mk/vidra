@@ -6,6 +6,7 @@ import 'package:vidra/features/downloads/domain/download.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
 import 'package:vidra/features/system/domain/system_state.dart';
 import 'package:vidra/shared/utils/notification_service.dart';
+import 'package:vidra/shared/utils/toast_utils.dart';
 
 class DownloadsController extends ChangeNotifier {
   final DownloadRepository _repository;
@@ -20,12 +21,10 @@ class DownloadsController extends ChangeNotifier {
   bool get isLoading => _isLoading;
 
   StreamSubscription? _globalSseSubscription;
-
   final Map<String, String> _imageCache = {};
 
   DownloadsController(this._repository, this._systemController) {
     _systemController.addListener(_onSystemStateChanged);
-    // Si por Hot Reload el sistema ya estaba listo, inicializamos inmediatamente.
     if (_systemController.state == SystemState.ready) {
       _onSystemStateChanged();
     }
@@ -50,15 +49,14 @@ class DownloadsController extends ChangeNotifier {
   }
 
   void _startGlobalSubscription() {
-    if (_globalSseSubscription != null) return; // Ya estamos conectados
+    if (_globalSseSubscription != null) return;
 
     _globalSseSubscription = _repository.watchGlobalProgress().listen(
       _applyGlobalDeltas,
       onError: (e) {
         debugPrint('⚠️ Error SSE Global (Ignorado, esperando al Watchdog): $e');
       },
-      cancelOnError:
-          false, // ¡MAGIA! Evita que el Stream muera si se corta el socket.
+      cancelOnError: false,
     );
   }
 
@@ -73,10 +71,8 @@ class DownloadsController extends ChangeNotifier {
   Future<void> _init() async {
     // Bloqueo de seguridad: Evita peticiones si Python no está listo
     if (_systemController.state != SystemState.ready) return;
-
     _isLoading = true;
     notifyListeners();
-
     try {
       _downloads = await _repository.getAllDownloads();
       for (var d in _downloads) {
@@ -101,22 +97,35 @@ class DownloadsController extends ChangeNotifier {
 
     try {
       await _repository.addDownload(url, options: options);
-      await _init(); // Refresca la lista de descargas
+      await _init();
     } catch (e) {
       debugPrint('Error al agregar descarga: $e');
     }
   }
 
+  // --- NUEVO: Motor de Acciones (Gestos) ---
+  Future<void> sendAction(String id, String action) async {
+    try {
+      // Nota: Asegúrate de tener implementado updateDownload en tu DownloadRepository
+      // que apunte a client.updateDownload(id: id, action: action);
+      // TODO: implementar la acción
+      // await _repository.updateDownload(id, action);
+
+      if (action == 'delete') {
+        // Borrado UI inmediato para que se sienta rápido
+        _downloads.removeWhere((d) => d.id == id);
+        notifyListeners();
+        ToastUtils.showInfo('Descarga eliminada');
+      }
+    } catch (e) {
+      ToastUtils.showError('Error enviando acción: $e');
+    }
+  }
+
   Future<void> flushPendingQueue() async {
     if (_pendingQueue.isEmpty) return;
-
-    debugPrint(
-      'Vaciando cola de descargas pendientes (${_pendingQueue.length})...',
-    );
-
     final queueCopy = List<Map<String, dynamic>>.from(_pendingQueue);
     _pendingQueue.clear();
-
     for (var item in queueCopy) {
       try {
         await _repository.addDownload(item["url"], options: item["options"]);

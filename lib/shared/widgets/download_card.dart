@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:mime/mime.dart';
 import 'package:open_filex/open_filex.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:path/path.dart' as p;
+import 'package:provider/provider.dart';
 import 'package:vidra/features/downloads/domain/download.dart' as model;
+import 'package:vidra/features/downloads/presentation/downloads_controller.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
 
 class DownloadCard extends StatelessWidget {
+  final String? downloadId;
   final model.Info? info;
   final model.State? state;
   final bool isDetailScreen;
@@ -14,6 +19,7 @@ class DownloadCard extends StatelessWidget {
 
   const DownloadCard({
     super.key,
+    this.downloadId,
     required this.info,
     required this.state,
     this.isDetailScreen = false,
@@ -24,6 +30,13 @@ class DownloadCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isError = state?.value == model.DownloadState.failed;
+    final isCompleted = state?.value == model.DownloadState.completed;
+    final inProgress =
+        state?.value == model.DownloadState.inProgress ||
+        state?.value == model.DownloadState.identifying;
+    final isPending =
+        state?.value == model.DownloadState.pending ||
+        state?.value == model.DownloadState.requested;
 
     Widget cardContent = Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -31,26 +44,34 @@ class DownloadCard extends StatelessWidget {
         _buildImage(context, isError),
         const SizedBox(width: 12),
         Expanded(child: _buildDetails(context)),
-        _buildMenu(context),
+        if (!isDetailScreen)
+          const Icon(
+            Icons.chevron_left,
+            color: Colors.grey,
+            size: 16,
+          ), // Pista visual de gesto
       ],
     );
 
-    return Card(
+    final cardWidget = Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+      elevation: 0,
+      color: Theme.of(context).colorScheme.surfaceContainerHigh,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: () {
-          // Interceptar click si es un error
           if (isError) {
             ToastUtils.showError(state?.subState ?? "Error desconocido");
-          }
-          // Acción normal si no es pantalla de detalles
-          else if (!isDetailScreen && onTap != null) {
+          } else if (state?.value == model.DownloadState.waitForSelection) {
+            // TODO: Lanzar Modal de Selección directamente (se hará en la Fase de Overlay)
+            ToastUtils.showInfo("Toca el FAB para seleccionar elementos");
+          } else if (!isDetailScreen && onTap != null) {
             onTap!();
           }
         },
         child: Opacity(
-          opacity: isError ? 0.5 : 1.0,
+          opacity: isError ? 0.6 : 1.0,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: cardContent,
@@ -58,9 +79,144 @@ class DownloadCard extends StatelessWidget {
         ),
       ),
     );
+
+    if (downloadId == null || isDetailScreen) return cardWidget;
+
+    // --- CÁLCULO INTELIGENTE DE BOTONES ---
+    int actionCount = 0;
+    if (isCompleted) {
+      actionCount = 3; // Reproducir, Carpeta, Borrar
+    } else if (isError) {
+      actionCount = 1; // Borrar
+    } else if (inProgress) {
+      actionCount = 2; // Pausar, Cancelar
+    } else if (isPending) {
+      actionCount = 1; // Cancelar
+    }
+    if (actionCount == 0) return cardWidget;
+
+    // =========================================================================
+    // LÓGICA DE GESTOS (SLIDABLE)
+    // =========================================================================
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // MATEMÁTICA PURA: Cada botón mide ~70px. Dividimos ese ancho total
+        // entre el ancho disponible de la pantalla para obtener el ratio exacto.
+        // Lo limitamos (clamp) para que nunca se rompa en pantallas enanas o gigantes.
+        final double ratio = ((70.0 * actionCount) / constraints.maxWidth)
+            .clamp(0.1, 0.8);
+
+        return Slidable(
+          key: ValueKey(downloadId),
+          endActionPane: ActionPane(
+            motion: const DrawerMotion(),
+            extentRatio: ratio, // <--- AQUÍ APLICAMOS EL CINTURÓN DE SEGURIDAD
+            // Borrado gestual a tope SOLO permitido si está completado o en error
+            dismissible: (isCompleted || isError)
+                ? DismissiblePane(
+                    onDismissed: () => context
+                        .read<DownloadsController>()
+                        .sendAction(downloadId!, 'delete'),
+                  )
+                : null,
+
+            children: [
+              if (isCompleted) ...[
+                SlidableAction(
+                  onPressed: (_) async {
+                    final mimeType = lookupMimeType(info!.file!) ?? 'video/*';
+                    await OpenFilex.open(info!.file!, type: mimeType);
+                  },
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  icon: Icons.play_arrow,
+                ),
+                SlidableAction(
+                  onPressed: (_) async {
+                    final dir = p.dirname(info!.file!);
+                    await OpenFilex.open(dir);
+                  },
+                  backgroundColor: Colors.orange,
+                  foregroundColor: Colors.white,
+                  icon: Icons.folder,
+                ),
+                SlidableAction(
+                  onPressed: (_) => context
+                      .read<DownloadsController>()
+                      .sendAction(downloadId!, 'delete'),
+                  backgroundColor: Colors.red,
+                  foregroundColor: Colors.white,
+                  icon: Icons.delete,
+                ),
+              ] else if (isError) ...[
+                SlidableAction(
+                  onPressed: (_) => context
+                      .read<DownloadsController>()
+                      .sendAction(downloadId!, 'delete'),
+                  backgroundColor: Colors.red,
+                  foregroundColor: Colors.white,
+                  icon: Icons.delete,
+                ),
+              ] else if (inProgress) ...[
+                SlidableAction(
+                  onPressed: (_) => context
+                      .read<DownloadsController>()
+                      .sendAction(downloadId!, 'pause'),
+                  backgroundColor: Colors.amber,
+                  foregroundColor: Colors.white,
+                  icon: Icons.pause,
+                ),
+                SlidableAction(
+                  onPressed: (ctx) => _showCancelDialog(ctx, downloadId!),
+                  backgroundColor: Colors.red,
+                  foregroundColor: Colors.white,
+                  icon: Icons.cancel,
+                ),
+              ] else if (isPending) ...[
+                SlidableAction(
+                  onPressed: (_) => context
+                      .read<DownloadsController>()
+                      .sendAction(downloadId!, 'cancel'),
+                  backgroundColor: Colors.red,
+                  foregroundColor: Colors.white,
+                  icon: Icons.cancel,
+                ),
+              ],
+            ],
+          ),
+          child: cardWidget,
+        );
+      },
+    );
   }
 
-  // --- IMAGEN (50x50px con Indicadores) ---
+  void _showCancelDialog(BuildContext context, String id) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Cancelar descarga'),
+        content: const Text(
+          '¿Estás seguro de que deseas cancelar esta descarga en progreso?',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: const Text('No'),
+          ),
+          FilledButton(
+            style: FilledButton.styleFrom(backgroundColor: Colors.red),
+            onPressed: () {
+              context.read<DownloadsController>().sendAction(id, 'cancel');
+              Navigator.pop(ctx);
+            },
+            child: const Text('Cancelar'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // --- IMAGEN (50x50px con Indicadores Animados) ---
   Widget _buildImage(BuildContext context, bool isError) {
     final imageUrl = info?.image ?? '';
 
@@ -69,7 +225,6 @@ class DownloadCard extends StatelessWidget {
       height: 50,
       child: Stack(
         children: [
-          // 1. Imagen en Caché
           ClipRRect(
             borderRadius: BorderRadius.circular(4),
             child: imageUrl.isNotEmpty
@@ -99,11 +254,9 @@ class DownloadCard extends StatelessWidget {
                     ),
                   ),
           ),
-
-          // 2. Icono central de error (!)
           if (isError)
             Container(
-              color: Colors.black45, // Capa oscura para resaltar la advertencia
+              color: Colors.black45,
               child: Center(
                 child: Icon(
                   Icons.priority_high,
@@ -113,30 +266,53 @@ class DownloadCard extends StatelessWidget {
               ),
             ),
 
-          // 3. Indicador Superior Derecho (Estado)
-          Positioned(
-            top: 1,
-            right: 1,
-            child: _buildShadowedIcon(_mapStateIcon(state?.value), 15),
-          ),
+          // Indicador de Estado Animado (Arriba derecha)
+          Positioned(top: 1, right: 1, child: _buildAnimatedStateIcon()),
 
-          // 4. Indicador Inferior Derecho (Tipo)
+          // Indicador de Tipo (Abajo derecha)
           Positioned(
             bottom: 0,
             right: 0,
-            child: _buildShadowedIcon(_mapTypeIcon(info?.type), 17),
+            child: _buildShadowedIcon(
+              _mapTypeIcon(info?.type),
+              17,
+              Colors.white,
+            ),
           ),
         ],
       ),
     );
   }
 
+  Widget _buildAnimatedStateIcon() {
+    final iconData = _mapStateIcon(state?.value);
+    final semanticColor = _mapSemanticColor(state?.value);
+
+    // Animación sutil de rebote para descargas en progreso
+    if (state?.value == model.DownloadState.inProgress) {
+      return TweenAnimationBuilder<double>(
+        tween: Tween(begin: 0, end: 1),
+        duration: const Duration(seconds: 1),
+        builder: (context, value, child) {
+          return Transform.translate(
+            offset: Offset(0, (value * 2).abs() - 1), // Efecto rebote suave
+            child: child,
+          );
+        },
+        child: _buildShadowedIcon(iconData, 15, semanticColor),
+        onEnd:
+            () {}, // Idealmente aquí haríamos un bucle, pero para mantenerlo ligero lo dejamos así
+      );
+    }
+    return _buildShadowedIcon(iconData, 15, semanticColor);
+  }
+
   // Utilidad para íconos con sombra (asegura que se vean sobre fondos blancos o negros)
-  Widget _buildShadowedIcon(IconData iconData, double size) {
+  Widget _buildShadowedIcon(IconData iconData, double size, Color color) {
     return Icon(
       iconData,
       size: size,
-      color: Colors.white,
+      color: color,
       shadows: const [
         Shadow(blurRadius: 3.0, color: Colors.black),
         Shadow(blurRadius: 1.0, color: Colors.black),
@@ -149,14 +325,9 @@ class DownloadCard extends StatelessWidget {
     final type = info?.type ?? model.DownloadType.unknown;
     final autor = info?.autor ?? 'Desconocido';
     final duration = info?.duration ?? '';
-
-    // Lógica condicional del subtitulo
-    String infoText;
-    if (type == model.DownloadType.list) {
-      infoText = autor;
-    } else {
-      infoText = duration.isNotEmpty ? '$autor • $duration' : autor;
-    }
+    String infoText = type == model.DownloadType.list
+        ? autor
+        : (duration.isNotEmpty ? '$autor • $duration' : autor);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -190,13 +361,13 @@ class DownloadCard extends StatelessWidget {
               Expanded(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(1),
-                  child: LinearProgressIndicator(
+                  // MÁGIA: Reemplazamos TweenAnimationBuilder por nuestro widget con memoria
+                  child: _AnimatedProgressBar(
                     value:
                         state?.progressValue ??
                         (state?.value == model.DownloadState.inProgress
                             ? null
-                            : 1.0), // Indeterminado si está en progreso pero sin valor específico
-                    minHeight: 4,
+                            : 1.0),
                     color: _mapColor(state?.progressColor),
                     backgroundColor: Theme.of(
                       context,
@@ -234,35 +405,23 @@ class DownloadCard extends StatelessWidget {
     );
   }
 
-  // --- MENÚ TRES PUNTOS ---
-  Widget _buildMenu(BuildContext context) {
-    final isCompleted = state?.value == model.DownloadState.completed;
-    final isVideo = info?.type == model.DownloadType.video;
-    final hasFile = info?.file != null && info!.file!.isNotEmpty;
-
-    return PopupMenuButton<String>(
-      icon: const Icon(Icons.more_vert),
-      onSelected: (value) async {
-        if (value == 'action') onActionTap?.call();
-        if (value == 'details') onTap?.call();
-        if (value == 'play') {
-          final mimeType = lookupMimeType(info!.file!) ?? 'video/*';
-          await OpenFilex.open(info!.file!, type: mimeType);
-        }
-      },
-      itemBuilder: (context) => [
-        const PopupMenuItem(value: 'action', child: Text('Acción')),
-        if (!isDetailScreen)
-          const PopupMenuItem(value: 'details', child: Text('Detalles')),
-        if (isVideo && isCompleted && hasFile)
-          const PopupMenuItem(value: 'play', child: Text('Reproducir')),
-      ],
-    );
-  }
-
   // =========================================================================
   // MAPPERS
   // =========================================================================
+  Color _mapSemanticColor(model.DownloadState? state) {
+    switch (state) {
+      case model.DownloadState.completed:
+        return Colors.greenAccent;
+      case model.DownloadState.failed:
+        return Colors.redAccent;
+      case model.DownloadState.inProgress:
+        return Colors.blueAccent;
+      case model.DownloadState.paused:
+        return Colors.amber;
+      default:
+        return Colors.white;
+    }
+  }
 
   Color _mapColor(model.ColorEnum? c) {
     switch (c) {
@@ -317,5 +476,91 @@ class DownloadCard extends StatelessWidget {
       default:
         return Icons.cloud_download;
     }
+  }
+}
+
+// =========================================================================
+// BARRA DE PROGRESO INTELIGENTE (Soluciona el bug del Scroll)
+// =========================================================================
+class _AnimatedProgressBar extends StatefulWidget {
+  final double? value;
+  final Color color;
+  final Color backgroundColor;
+
+  const _AnimatedProgressBar({
+    required this.value,
+    required this.color,
+    required this.backgroundColor,
+  });
+
+  @override
+  State<_AnimatedProgressBar> createState() => _AnimatedProgressBarState();
+}
+
+class _AnimatedProgressBarState extends State<_AnimatedProgressBar>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+  double? _lastValue;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 400),
+    );
+    _lastValue = widget.value;
+    // Nace exactamente en el valor actual, sin animar desde 0
+    _animation = Tween<double>(
+      begin: _lastValue ?? 0.0,
+      end: _lastValue ?? 0.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
+  }
+
+  @override
+  void didUpdateWidget(_AnimatedProgressBar oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Solo anima si el valor real vino del backend y es diferente
+    if (widget.value != oldWidget.value && widget.value != null) {
+      _animation =
+          Tween<double>(
+            begin: _animation.value, // Comienza desde donde se quedó
+            end: widget.value!,
+          ).animate(
+            CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic),
+          );
+      _controller.forward(from: 0.0);
+      _lastValue = widget.value;
+    } else if (widget.value == null) {
+      _lastValue = null;
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_lastValue == null) {
+      return LinearProgressIndicator(
+        value: null,
+        minHeight: 4,
+        color: widget.color,
+        backgroundColor: widget.backgroundColor,
+      );
+    }
+    return AnimatedBuilder(
+      animation: _animation,
+      builder: (context, child) => LinearProgressIndicator(
+        value: _animation.value,
+        minHeight: 4,
+        color: widget.color,
+        backgroundColor: widget.backgroundColor,
+      ),
+    );
   }
 }
