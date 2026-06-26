@@ -101,6 +101,7 @@ class DownloadsController extends ChangeNotifier {
     } catch (e) {
       debugPrint('Error al agregar descarga: $e');
     }
+    _checkIfCanSleep();
   }
 
   // --- NUEVO: Motor de Acciones (Gestos) ---
@@ -152,6 +153,26 @@ class DownloadsController extends ChangeNotifier {
     } catch (e) {
       _imageCache.remove(id);
       debugPrint('Error precargando miniatura para notificaciones: $e');
+    }
+  }
+
+  void _checkIfCanSleep() {
+    // Si la cola pendiente está vacía y ninguna descarga está en progreso
+    final isWorking =
+        _pendingQueue.isNotEmpty ||
+        _downloads.any(
+          (d) =>
+              d.state?.value == DownloadState.inProgress ||
+              d.state?.value == DownloadState.identifying ||
+              d.state?.value == DownloadState.pending,
+        );
+
+    if (!isWorking) {
+      // Ya no hay trabajo, dejamos que la app duerma para ahorrar batería
+      NotificationService.letAppSleep();
+    } else {
+      // Hay descargas activas, mantenemos el escudo activo
+      NotificationService.keepAppAlive();
     }
   }
 
@@ -248,6 +269,7 @@ class DownloadsController extends ChangeNotifier {
     if (listChanged) {
       notifyListeners();
     }
+    _checkIfCanSleep();
   }
 
   @override

@@ -175,10 +175,16 @@ class SystemController extends ChangeNotifier {
       notifGranted = await Permission.notification.isGranted;
     }
 
+    // 4. Optimización de batería
+    bool batteryGranted = true;
+    if (Platform.isAndroid) {
+      batteryGranted = await Permission.ignoreBatteryOptimizations.isGranted;
+    }
+
     // El permiso de Instalar Paquetes lo dejaremos opcional para el arranque,
     // pero lo pediremos en la pantalla para dejarlo listo.
 
-    return storageGranted && overlayGranted && notifGranted;
+    return storageGranted && overlayGranted && notifGranted && batteryGranted;
   }
 
   Future<bool> _checkResources() async {

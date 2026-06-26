@@ -21,8 +21,10 @@ class MainActivity : FlutterActivity() {
                 result.success(context.applicationInfo.nativeLibraryDir)
             } else if (call.method == "moveToBackground") {
                 // moveTaskToBack(true) es el equivalente exacto a que el usuario presione el botón Home
-                moveTaskToBack(true) 
-                result.success(true)
+                runOnUiThread {
+                    moveTaskToBack(true)
+                    result.success(true)
+                }
             } else {
                 result.notImplemented()
             }

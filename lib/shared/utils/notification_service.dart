@@ -1,4 +1,5 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'dart:io';
 
 class NotificationService {
   static final FlutterLocalNotificationsPlugin _plugin =
@@ -180,5 +181,44 @@ class NotificationService {
   /// Elimina una notificación
   static Future<void> cancel(int id) async {
     await _plugin.cancel(id: id);
+  }
+  // =====================================================================
+  // MAGIA NATIVA: FOREGROUND SERVICE
+  // =====================================================================
+
+  /// Convierte la app en un servicio nativo intocable por Android
+  static Future<void> keepAppAlive() async {
+    if (!Platform.isAndroid) return;
+
+    final androidImpl = _plugin
+        .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin
+        >();
+
+    await androidImpl?.startForegroundService(
+      id: 9999, // ID fijo para el foreground service
+      title: 'Vidra',
+      body: 'Motor de descargas activo en segundo plano',
+      notificationDetails: const AndroidNotificationDetails(
+        'vidra_bg_channel', // Un canal distinto para el servicio
+        'Servicio de Fondo',
+        channelDescription: 'Mantiene a Python y Flutter despiertos',
+        importance: Importance.low, // Importancia baja para que no suene
+        priority: Priority.low,
+        ongoing: true, // No se puede deslizar para borrar
+      ),
+    );
+  }
+
+  /// Permite que Android vuelva a suspender la app cuando ya no hay descargas
+  static Future<void> letAppSleep() async {
+    if (!Platform.isAndroid) return;
+
+    final androidImpl = _plugin
+        .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin
+        >();
+
+    await androidImpl?.stopForegroundService();
   }
 }

@@ -77,6 +77,7 @@ words:
   - FILESUBTYPE
   - FILEVERSION
   - flac
+  - flutterlocalnotifications
   - FONTCHANGE
   - gboolean
   - gchar
@@ -151,6 +152,7 @@ words:
   - OVERLAPPEDWINDOW
   - parallelizable
   - Parseamos
+  - parseando
   - parseo
   - patreon
   - pbxuser

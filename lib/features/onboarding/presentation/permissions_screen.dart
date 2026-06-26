@@ -20,6 +20,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
   bool _overlayGranted = false;
   bool _notifGranted = false;
   bool _installGranted = false;
+  bool _batteryOptimizationGranted = false;
 
   bool _isChecking = true;
   late int _androidSdkVersion;
@@ -69,12 +70,12 @@ class _PermissionsScreenState extends State<PermissionsScreen>
     if (_androidSdkVersion >= 33) {
       _notifGranted = await Permission.notification.isGranted;
     } else {
-      _notifGranted =
-          true; // No es requerido pedirlo explícitamente antes de Android 13
+      _notifGranted = true;
     }
 
     _installGranted = await Permission.requestInstallPackages.isGranted;
-
+    _batteryOptimizationGranted =
+        await Permission.ignoreBatteryOptimizations.isGranted;
     setState(() => _isChecking = false);
   }
 
@@ -94,6 +95,12 @@ class _PermissionsScreenState extends State<PermissionsScreen>
     // El didChangeAppLifecycleState lo atrapará al volver.
   }
 
+  Future<void> _requestBatteryOptimization() async {
+    await Permission.ignoreBatteryOptimizations.request();
+    // No llamamos a _checkAll() aquí porque manda a Settings.
+    // El didChangeAppLifecycleState lo atrapará al volver.
+  }
+
   Future<void> _requestNotifications() async {
     await Permission.notification.request();
     _checkAllPermissions();
@@ -105,7 +112,10 @@ class _PermissionsScreenState extends State<PermissionsScreen>
   }
 
   bool get _allMandatoryGranted =>
-      _storageGranted && _overlayGranted && _notifGranted;
+      _storageGranted &&
+      _overlayGranted &&
+      _notifGranted &&
+      _batteryOptimizationGranted;
 
   @override
   Widget build(BuildContext context) {
@@ -155,6 +165,15 @@ class _PermissionsScreenState extends State<PermissionsScreen>
                             icon: Icons.layers,
                             isGranted: _overlayGranted,
                             onRequest: _requestOverlay,
+                          ),
+                          const SizedBox(height: 12),
+                          _buildPermissionTile(
+                            title: 'Optimización de Batería',
+                            subtitle:
+                                'Permite que Vidra siga descargando en segundo plano sin ser detenido por el sistema.',
+                            icon: Icons.battery_saver,
+                            isGranted: _batteryOptimizationGranted,
+                            onRequest: _requestBatteryOptimization,
                           ),
                           const SizedBox(height: 12),
                           if (_androidSdkVersion >= 33) ...[

@@ -1,7 +1,9 @@
 import 'dart:ui';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 
 // Constantes y Dominios
 import 'package:vidra/core/constants/languages.dart';
@@ -20,14 +22,6 @@ class QuickShareOverlay extends StatefulWidget {
 }
 
 class _QuickShareOverlayState extends State<QuickShareOverlay> {
-  bool _isReady = false;
-  String _url = '';
-  late DownloadOptions _opts;
-
-  // Estados visuales de la UI
-  bool _isSending = false;
-  bool _showSuccess = false;
-
   @override
   void initState() {
     super.initState();
@@ -37,8 +31,11 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
   void _initListener() {
     FlutterOverlayWindow.overlayListener.listen((event) async {
       if (event is Map && mounted) {
+        debugPrint('🦄 [OVERLAY] Datos iniciales recibidos del canal nativo.');
         final url = event['url'];
-        var incomingOpts = DownloadOptions.fromJson(
+        final port = event['port'] as int?; // <-- RECIBIMOS PUERTO
+        final token = event['token'] as String?; // <-- RECIBIMOS TOKEN
+        var opts = DownloadOptions.fromJson(
           Map<String, dynamic>.from(event['options']),
         );
 
@@ -46,11 +43,12 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
         // MEMORIA DEL OVERLAY: Sobrescribimos con las últimas elecciones locales
         // =====================================================================
         final prefs = await SharedPreferences.getInstance();
+        await prefs.reload();
 
         // 1. Audio / Video (Booleano)
         final extractAudio = prefs.getBool('ov_extractAudio');
         if (extractAudio != null) {
-          incomingOpts = incomingOpts.copyWith(extractAudio: extractAudio);
+          opts = opts.copyWith(extractAudio: extractAudio);
         }
 
         // 2. Formato de Audio (Enum)
@@ -58,9 +56,9 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
         if (audioFmtName != null) {
           final aFmt = AudioFormat.values.firstWhere(
             (e) => e.name == audioFmtName,
-            orElse: () => incomingOpts.audioFormat,
+            orElse: () => opts.audioFormat,
           );
-          incomingOpts = incomingOpts.copyWith(audioFormat: aFmt);
+          opts = opts.copyWith(audioFormat: aFmt);
         }
 
         // 3. Formato de Video (Enum MergeOutputFormat)
@@ -68,9 +66,9 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
         if (videoFmtName != null) {
           final vFmt = MergeOutputFormat.values.firstWhere(
             (e) => e.name == videoFmtName,
-            orElse: () => incomingOpts.mergeOutputFormat,
+            orElse: () => opts.mergeOutputFormat,
           );
-          incomingOpts = incomingOpts.copyWith(mergeOutputFormat: vFmt);
+          opts = opts.copyWith(mergeOutputFormat: vFmt);
         }
 
         // 4. Resolución de Video
@@ -79,9 +77,9 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
         if (vidResType != null) {
           final vOpt = VideoOption.values.firstWhere(
             (e) => e.name == vidResType,
-            orElse: () => incomingOpts.videoResolution,
+            orElse: () => opts.videoResolution,
           );
-          incomingOpts = incomingOpts.copyWith(
+          opts = opts.copyWith(
             videoResolution: vOpt,
             videoResolutionValue: vidResVal,
           );
@@ -93,9 +91,9 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
         if (audLangType != null) {
           final aOpt = AudioOption.values.firstWhere(
             (e) => e.name == audLangType,
-            orElse: () => incomingOpts.audioLanguage,
+            orElse: () => opts.audioLanguage,
           );
-          incomingOpts = incomingOpts.copyWith(
+          opts = opts.copyWith(
             audioLanguage: aOpt,
             audioLanguageCode: audLangVal,
           );
@@ -104,124 +102,213 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
         // 6. Idiomas de Subtítulos
         final subLangs = prefs.getStringList('ov_subLangs');
         if (subLangs != null) {
-          incomingOpts = incomingOpts.copyWith(subLangs: subLangs);
+          opts = opts.copyWith(subLangs: subLangs);
         }
 
         // Actualizamos la UI
-        setState(() {
-          _url = url;
-          _opts = incomingOpts;
-          _isReady = true;
-        });
+        _showBottomSheet(url, opts, port, token);
       }
     });
   }
 
-  Future<void> _sendAndClose() async {
-    setState(() => _isSending = true);
+  Future<void> _showBottomSheet(
+    String url,
+    DownloadOptions opts,
+    int? port,
+    String? token,
+  ) async {
+    await showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      barrierColor: Colors.black.withValues(alpha: 0.65),
+      builder: (context) => _QuickShareBottomSheetContent(
+        url: url,
+        initialOpts: opts,
+        port: port,
+        token: token,
+      ),
+    );
 
-    // 1. Enviamos el mensaje al Isolate principal (share_wrapper lo recibe)
-    await FlutterOverlayWindow.shareData({
-      "action": "START_DOWNLOAD",
-      "url": _url,
-      "options": _opts.toJson(),
-    });
-
-    // 2. Transición a estado de Éxito
-    setState(() {
-      _isSending = false;
-      _showSuccess = true;
-    });
-
-    // 3. Esperamos para que el usuario disfrute la palomita verde y destruimos la ventana
-    await Future.delayed(const Duration(milliseconds: 1200));
+    // ponytail: Si el usuario toca afuera o desliza para abajo, DESTRUIMOS la ventana invisible.
     await FlutterOverlayWindow.closeOverlay();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (!_isReady) return const SizedBox.shrink();
+    return const Scaffold(backgroundColor: Colors.transparent);
+  }
+}
 
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: Stack(
-        children: [
-          // GESTO PARA CERRAR: Si el usuario toca el fondo borroso, se cierra.
-          Positioned.fill(
-            child: GestureDetector(
-              onTap: () => FlutterOverlayWindow.closeOverlay(),
-              child: Container(color: Colors.transparent),
-            ),
+// ============================================================================
+// EL CONTENIDO DEL BOTTOM SHEET
+// ============================================================================
+class _QuickShareBottomSheetContent extends StatefulWidget {
+  final String url;
+  final DownloadOptions initialOpts;
+  final int? port;
+  final String? token;
+
+  const _QuickShareBottomSheetContent({
+    required this.url,
+    required this.initialOpts,
+    this.port,
+    this.token,
+  });
+
+  @override
+  State<_QuickShareBottomSheetContent> createState() =>
+      _QuickShareBottomSheetContentState();
+}
+
+class _QuickShareBottomSheetContentState
+    extends State<_QuickShareBottomSheetContent> {
+  late DownloadOptions _opts;
+  bool _isSending = false;
+  bool _showSuccess = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _opts = widget.initialOpts;
+  }
+
+  void _sendAndClose() async {
+    setState(() => _isSending = true);
+
+    bool bypassSuccess = false;
+
+    try {
+      debugPrint('🦄 [OVERLAY] Iniciando envío de descarga...');
+      final payload = {
+        "action": "START_DOWNLOAD",
+        "url": widget.url,
+        "options": _opts.toJson(),
+      };
+
+      // 1. Red de seguridad (Box pattern)
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.reload();
+      var queue = prefs.getStringList('vidra_pending_queue') ?? [];
+      queue.add(jsonEncode(payload));
+      await prefs.setStringList('vidra_pending_queue', queue);
+      debugPrint(
+        '🦄 [OVERLAY] Guardado en caja fuerte. Elementos en cola: ${queue.length}',
+      );
+
+      // 2. EL BYPASS MAGISTRAL: Disparo HTTP directo a Python
+      //if (widget.port != null && widget.token != null) {
+      //  try {
+      //    debugPrint('🦄 [OVERLAY] Bypass HTTP al puerto ${widget.port}...');
+      //    final response = await http
+      //        .post(
+      //          Uri.parse('http://127.0.0.1:${widget.port}/downloads'),
+      //          headers: {
+      //            'Content-Type': 'application/json',
+      //            'Authorization': 'Bearer ${widget.token}',
+      //          },
+      //          body: jsonEncode({
+      //            'url': widget.url,
+      //            'options': _opts.toJson(),
+      //          }),
+      //        )
+      //        .timeout(const Duration(seconds: 3));
+      //
+      //    if (response.statusCode == 201) {
+      //      debugPrint('🦄 [OVERLAY] Bypass HTTP Exitoso.');
+      //      bypassSuccess = true;
+      //    }
+      //  } catch (e) {
+      //    debugPrint('🦄 [OVERLAY] Fallo Bypass HTTP: $e');
+      //  }
+      //}
+      // 3. Limpiamos caja fuerte si el HTTP funcionó
+      if (bypassSuccess) {
+        await prefs.reload();
+        queue = prefs.getStringList('vidra_pending_queue') ?? [];
+        if (queue.isNotEmpty) queue.removeLast();
+        await prefs.setStringList('vidra_pending_queue', queue);
+      } else {
+        // Fallback: Si por alguna razón Python murió, mandamos el MethodChannel
+        // y la app lo procesará cuando el usuario vuelva a abrirla.
+        FlutterOverlayWindow.shareData(payload);
+      }
+    } catch (e) {
+      debugPrint("🦄 [OVERLAY] Error in overlay send: $e");
+    }
+
+    if (mounted) {
+      setState(() {
+        _isSending = false;
+        _showSuccess = true;
+      });
+    }
+
+    // 3. Esperamos 1 segundo para mostrar el check
+    await Future.delayed(const Duration(milliseconds: 1000));
+
+    // 4. Bajamos el modal visualmente
+    if (mounted) Navigator.pop(context);
+
+    // 5. Fuerza Bruta: Esperamos la animación de bajada y asesinamos la ventana nativa
+    await Future.delayed(const Duration(milliseconds: 300));
+    await FlutterOverlayWindow.closeOverlay();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
+        child: Container(
+          padding: EdgeInsets.only(
+            left: 16,
+            right: 16,
+            top: 12,
+            bottom: MediaQuery.of(context).viewInsets.bottom + 16,
           ),
-
-          // EL PANEL GLASSMORPHISM (Alineado abajo)
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: ClipRect(
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Theme.of(
-                      context,
-                    ).colorScheme.surface.withValues(alpha: 0.85),
-                    borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(24),
-                    ),
-                    border: Border(
-                      top: BorderSide(
-                        color: Colors.white.withValues(alpha: 0.15),
-                        width: 1,
-                      ),
-                    ),
-                  ),
-                  // Mágico: Esto levanta el panel si el teclado nativo aparece
-                  padding: EdgeInsets.only(
-                    left: 16,
-                    right: 16,
-                    top: 16,
-                    bottom: MediaQuery.of(context).viewInsets.bottom + 16,
-                  ),
-                  child: AnimatedSize(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeOutCubic,
-                    child: _showSuccess
-                        ? _buildSuccessView()
-                        : _buildFormView(),
-                  ),
-                ),
+          decoration: BoxDecoration(
+            color: Theme.of(
+              context,
+            ).colorScheme.surface.withValues(alpha: 0.85),
+            border: Border(
+              top: BorderSide(
+                color: Colors.white.withValues(alpha: 0.15),
+                width: 1,
               ),
             ),
           ),
-        ],
+          child: SafeArea(
+            child: AnimatedSize(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeOutCubic,
+              child: _showSuccess ? _buildSuccessView() : _buildFormView(),
+            ),
+          ),
+        ),
       ),
     );
   }
 
-  // =========================================================================
-  // VISTA 1: FORMULARIO DINÁMICO
-  // =========================================================================
   Widget _buildFormView() {
     return SingleChildScrollView(
-      physics: const ClampingScrollPhysics(), // Evita scroll innecesario
+      physics: const ClampingScrollPhysics(),
       child: Column(
-        mainAxisSize: MainAxisSize.min, // Wrap Content
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Pill Handle
           Center(
             child: Container(
-              width: 40,
-              height: 4,
+              width: 48,
+              height: 5,
               margin: const EdgeInsets.only(bottom: 16),
               decoration: BoxDecoration(
                 color: Colors.grey.withValues(alpha: 0.5),
-                borderRadius: BorderRadius.circular(2),
+                borderRadius: BorderRadius.circular(4),
               ),
             ),
           ),
-
           const Text(
             'Descarga Rápida',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -229,7 +316,7 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
           ),
           const SizedBox(height: 4),
           Text(
-            _url,
+            widget.url,
             style: const TextStyle(fontSize: 12, color: Colors.grey),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -237,13 +324,12 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
           ),
           const SizedBox(height: 20),
 
-          // --- SEGMENTED BUTTON GIGANTE (VIDEO / AUDIO) ---
           SegmentedButton<bool>(
             segments: const [
               ButtonSegment(
                 value: false,
                 label: Text(
-                  'Descargar Video',
+                  'Video',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 icon: Icon(Icons.movie),
@@ -251,7 +337,7 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
               ButtonSegment(
                 value: true,
                 label: Text(
-                  'Descargar Audio',
+                  'Audio',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 icon: Icon(Icons.audiotrack),
@@ -267,7 +353,6 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
           ),
           const SizedBox(height: 20),
 
-          // --- CONTENIDO DINÁMICO ---
           if (_opts.extractAudio) ...[
             const Text(
               'Formato de Audio',
@@ -352,7 +437,6 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
 
           const SizedBox(height: 24),
 
-          // --- BOTÓN FINAL ---
           SizedBox(
             height: 50,
             child: FilledButton.icon(
@@ -381,9 +465,6 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
     );
   }
 
-  // =========================================================================
-  // VISTA 2: MENSAJE DE ÉXITO
-  // =========================================================================
   Widget _buildSuccessView() {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 40),
@@ -412,10 +493,7 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
     );
   }
 
-  // =========================================================================
-  // WIDGETS AUXILIARES PARA PREPARAR LAS LISTAS
-  // =========================================================================
-
+  // --- MÉTODOS DE LAZY DROPDOWNS ---
   Widget _buildVideoResDropdown() {
     final List<String> flatRes = [
       'defaultOption',
