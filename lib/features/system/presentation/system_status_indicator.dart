@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vidra/features/system/domain/system_state.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
-import 'system_details_screen.dart'; // La crearemos en el siguiente paso
+import 'system_details_screen.dart';
 
 class SystemStatusIndicator extends StatelessWidget {
   const SystemStatusIndicator({super.key});
@@ -47,7 +47,6 @@ class SystemStatusIndicator extends StatelessWidget {
       side: BorderSide(color: color.withValues(alpha: 0.5)),
       backgroundColor: color.withValues(alpha: 0.1),
       onPressed: () {
-        // Al tocar la pastilla, abrimos el Centro de Mando
         showModalBottomSheet(
           context: context,
           isScrollControlled: true,

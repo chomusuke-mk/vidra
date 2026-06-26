@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// ponytail: Se inyecta un FocusNode para detectar cuándo el usuario
-/// termina de escribir un valor personalizado, ya que DropdownMenu
-/// no expone onSubmitted de forma nativa.
 class LazyDropdown<T> extends StatefulWidget {
   final T? value;
   final List<T> items;

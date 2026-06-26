@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // Para AssetManifest y rootBundle
+import 'package:flutter/services.dart';
 
 class LicenseItem {
   final String title;
@@ -197,7 +197,6 @@ class _LicenseTextViewerState extends State<_LicenseTextViewer> {
           );
         }
 
-        // Usamos SelectableText para que la gente pueda copiar partes del texto si quiere.
         return Scrollbar(
           controller: _scrollController, // Vinculamos la barra...
           thumbVisibility: true,

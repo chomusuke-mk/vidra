@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
-
 import 'package:vidra/features/system/presentation/system_controller.dart';
 
 class PermissionsScreen extends StatefulWidget {

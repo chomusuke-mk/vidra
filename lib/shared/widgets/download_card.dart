@@ -379,7 +379,6 @@ class DownloadCard extends StatelessWidget {
               Expanded(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(1),
-                  // MÁGIA: Reemplazamos TweenAnimationBuilder por nuestro widget con memoria
                   child: _AnimatedProgressBar(
                     value:
                         state?.progressValue ??

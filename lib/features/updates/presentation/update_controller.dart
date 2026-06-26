@@ -14,7 +14,6 @@ import 'package:vidra/core/security/public_keys.dart';
 import 'package:vidra/core/utils/archive_extractor.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
 
-// ¡NUEVO! Añadimos el estado 'checking'
 enum ComponentStatus {
   upToDate,
   checking,

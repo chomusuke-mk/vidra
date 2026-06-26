@@ -4,20 +4,16 @@ import 'package:vidra/core/constants/languages.dart';
 import 'package:vidra/core/constants/resolutions.dart';
 import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
-
-// Importa tus widgets perezosos
 import 'package:vidra/shared/widgets/lazy_dropdown.dart';
 import 'package:vidra/shared/widgets/lazy_list.dart';
 import 'package:vidra/shared/widgets/lazy_map.dart';
 import 'package:vidra/shared/widgets/lazy_text_field.dart';
-
 import 'package:vidra/features/settings/domain/download_options.dart';
 import 'package:vidra/shared/widgets/settings_row.dart';
 import 'settings_controller.dart';
 
 enum SettingCategory { general, network, video, download }
 
-/// Estructura de datos para no repetir código entre pestañas y búsqueda
 class _SettingDef {
   final String title;
   final String? description;

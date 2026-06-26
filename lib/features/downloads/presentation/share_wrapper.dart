@@ -1,14 +1,12 @@
 import 'dart:async';
-import 'dart:io'; // <-- AÑADIDO PARA LA VALIDACIÓN DE PLATAFORMA
+import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // Para el MethodChannel
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
-
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/features/downloads/presentation/downloads_controller.dart';
-import 'package:vidra/shared/utils/toast_utils.dart';
 
 class ShareIntentWrapper extends StatefulWidget {
   final Widget child;
@@ -71,7 +69,7 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
     try {
       final match = RegExp(r'https?://[^\s]+').firstMatch(payload);
       final url = match != null ? match.group(0)! : payload;
-      ToastUtils.showInfo('Preparando selector para: $url');
+      debugPrint('Preparando selector para: $url');
 
       final settingsCtrl = context.read<SettingsController>();
       final currentOptsJson = settingsCtrl.getDownloadOptionsPayload();
@@ -102,10 +100,10 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
           try {
             await _platform.invokeMethod('moveToBackground');
           } catch (e) {
-            ToastUtils.showError('Error mandando la app al fondo: $e');
+            debugPrint('Error mandando la app al fondo: $e');
           }
         } else {
-          ToastUtils.showError('Permiso de overlay no concedido');
+          debugPrint('Permiso de overlay no concedido');
         }
       } else {
         // Si por algún milagro llega aquí en iOS u otra plataforma,
@@ -125,22 +123,22 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
   void _initOverlayListener() {
     // Escuchar el Overlay solo tiene sentido en Android
     if (!Platform.isAndroid) return;
-    ToastUtils.showInfo('Inicializando listener del Overlay...');
+    debugPrint('Inicializando listener del Overlay...');
     try {
       _overlayListener = FlutterOverlayWindow.overlayListener.listen((event) {
-        ToastUtils.showInfo('Evento recibido del Overlay: $event');
+        debugPrint('Evento recibido del Overlay: $event');
         if (event is Map && event["action"] == "START_DOWNLOAD") {
           final url = event["url"];
           final finalOptions = Map<String, dynamic>.from(event["options"]);
 
           if (mounted) {
             context.read<DownloadsController>().addDownload(url, finalOptions);
-            ToastUtils.showSuccess('Descarga iniciada para: $url');
+            debugPrint('Descarga iniciada para: $url');
           }
         }
       });
     } catch (e) {
-      ToastUtils.showError('Error inicializando el listener del Overlay: $e');
+      debugPrint('Error inicializando el listener del Overlay: $e');
     }
   }
 

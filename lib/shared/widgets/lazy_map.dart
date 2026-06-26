@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// ponytail: Eliminado el "Text Mode" (JSON parser). Si necesitas editar JSON, usa un TextField.
-/// Se reemplazaron las tarjetas verticales gigantes por un Wrap de InputChips para la visualización.
-/// Se usa DropdownMenu nativo con expandedInsets para resolver el Autocomplete de claves gratis.
 class LazyMap extends StatefulWidget {
   final Map<String, String> value;
   final ValueChanged<Map<String, String>> onChanged;
@@ -89,8 +86,7 @@ class _LazyMapState extends State<LazyMap> {
                         border: OutlineInputBorder(),
                         isDense: true,
                       ),
-                      onSubmitted: (_) =>
-                          _valFocus.requestFocus(), // Pasa el foco al valor
+                      onSubmitted: (_) => _valFocus.requestFocus(),
                     )
                   : DropdownMenu<String>(
                       controller: _keyCtrl,
@@ -98,8 +94,7 @@ class _LazyMapState extends State<LazyMap> {
                       enableFilter: true,
                       enableSearch: true,
                       requestFocusOnTap: true,
-                      expandedInsets: EdgeInsets
-                          .zero, // Magia: Fuerza al menú a ocupar el Expanded
+                      expandedInsets: EdgeInsets.zero,
                       dropdownMenuEntries: widget.keySuggestions
                           .map((k) => DropdownMenuEntry(value: k, label: k))
                           .toList(growable: false),
@@ -117,8 +112,7 @@ class _LazyMapState extends State<LazyMap> {
                   border: OutlineInputBorder(),
                   isDense: true,
                 ),
-                onSubmitted: (_) =>
-                    _addEntry(), // Enter añade la entrada directamente
+                onSubmitted: (_) => _addEntry(),
               ),
             ),
             const SizedBox(width: 8),

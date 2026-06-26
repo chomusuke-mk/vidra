@@ -4,11 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:filesystem_picker/filesystem_picker.dart';
 
-/// ponytail: Se reincorpora filesystem_picker como alternativa opcional.
-/// El atajo (shortcut) aquí es la resolución del rootDirectory:
-/// En lugar de cientos de líneas intentando adivinar las unidades del sistema,
-/// la heurística parte de la ruta que el usuario ya tenga en el campo de texto,
-/// de su directorio padre, o del directorio actual como último recurso.
 class LazyTextField extends StatefulWidget {
   final String value;
   final ValueChanged<String> onChanged;
