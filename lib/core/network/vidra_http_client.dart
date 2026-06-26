@@ -45,6 +45,20 @@ class VidraHttpClient {
     return false;
   }
 
+  // --- POST /shutdown ---
+  Future<void> shutdown() async {
+    final uri = Uri.parse('$baseUrl/shutdown');
+    try {
+      await http
+          .post(uri, headers: _headers)
+          .timeout(const Duration(seconds: 2));
+    } catch (e) {
+      // Aviso: Fallo de red en shutdown. Es completamente normal porque al apagar
+      // el backend, la conexión HTTP se corta abruptamente o da timeout.
+      // debugPrint('Aviso: Fallo de red en shutdown, probablemente ya cerró. $e');
+    }
+  }
+
   // --- GET /logs ---
   Future<String> getLogs({String? id}) async {
     final uri = Uri.parse(
