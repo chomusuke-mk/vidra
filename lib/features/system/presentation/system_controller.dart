@@ -31,6 +31,8 @@ class SystemController extends ChangeNotifier {
   SendPort? _isolateSendPort;
   final ReceivePort _receivePort = ReceivePort();
   Completer<void>? _pauseCompleter;
+  final Completer<void> _portReadyCompleter = Completer<void>();
+  Future<void> get whenPortReady => _portReadyCompleter.future;
 
   SystemController() {
     _bootIsolate();
@@ -71,6 +73,9 @@ class SystemController extends ChangeNotifier {
       if (message is Map<String, dynamic>) {
         if (message['event'] == 'port') {
           _isolateSendPort = message['value'];
+          if (!_portReadyCompleter.isCompleted) {
+            _portReadyCompleter.complete();
+          }
           debugPrint(
             '🤝 [UI-Controller] Conectado al puerto de escucha del Isolate.',
           );
@@ -132,9 +137,7 @@ class SystemController extends ChangeNotifier {
     debugPrint('✅ [UI-Controller] Python extraído en: $pythonAppPath');
 
     // Nos aseguramos de que el Isolate ya nos haya enviado su puerto de escucha
-    while (_isolateSendPort == null) {
-      await Future.delayed(const Duration(milliseconds: 100));
-    }
+    await whenPortReady;
 
     // Le enviamos la ruta al Isolate
     _isolateSendPort!.send({'cmd': 'python_prepared', 'path': pythonAppPath});

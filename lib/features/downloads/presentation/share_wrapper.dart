@@ -7,6 +7,7 @@ import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/features/downloads/presentation/downloads_controller.dart';
+import 'package:vidra/features/system/presentation/system_controller.dart';
 
 class ShareIntentWrapper extends StatefulWidget {
   final Widget child;
@@ -50,11 +51,14 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
 
     try {
       final settingsCtrl = context.read<SettingsController>();
+      final systemCtrl = context.read<SystemController>();
       final currentOptsJson = settingsCtrl.getDownloadOptionsPayload();
 
       if (Platform.isAndroid) {
         bool isGranted = await FlutterOverlayWindow.isPermissionGranted();
         if (isGranted) {
+          debugPrint('⏳ Esperando confirmación del puerto del Isolate...');
+          await systemCtrl.whenPortReady;
           debugPrint('🦁 [MAIN] Lanzando Overlay...');
           await FlutterOverlayWindow.showOverlay(
             enableDrag: true,

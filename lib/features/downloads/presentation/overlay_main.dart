@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vidra/core/constants/languages.dart';
 import 'package:vidra/core/constants/resolutions.dart';
 import 'package:vidra/features/settings/domain/download_options.dart';
+import 'package:vidra/shared/utils/toast_utils.dart';
 
 // Widgets Perezosos
 import 'package:vidra/shared/widgets/lazy_dropdown.dart';
@@ -20,6 +21,7 @@ class QuickShareOverlay extends StatefulWidget {
 }
 
 class _QuickShareOverlayState extends State<QuickShareOverlay> {
+  bool _isShowingSheet = false;
   @override
   void initState() {
     super.initState();
@@ -28,7 +30,8 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
 
   void _initListener() {
     FlutterOverlayWindow.overlayListener.listen((event) async {
-      if (event is Map && mounted) {
+      if (event is Map && mounted && !_isShowingSheet) {
+        _isShowingSheet = true;
         debugPrint('🦄 [OVERLAY] Datos recibidos de la UI/Wrapper.');
         final url = event['url'];
         var opts = DownloadOptions.fromJson(
@@ -103,6 +106,7 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
 
         // Actualizamos la UI
         _showBottomSheet(url, opts);
+        _isShowingSheet = false;
       }
     });
   }
@@ -171,29 +175,31 @@ class _QuickShareBottomSheetContentState
           'options': _opts.toJson(),
         });
         debugPrint('🦄 [OVERLAY] ¡Mensaje enviado con éxito al Cerebro!');
+        if (mounted) {
+          setState(() {
+            _isSending = false;
+            _showSuccess = true;
+          });
+        }
+        // 3. Esperamos 1 segundo para mostrar el check
+        await Future.delayed(const Duration(milliseconds: 1000));
       } else {
         debugPrint(
-          '🦄 [OVERLAY] ERROR: No se encontró el Isolate de Vidra (¿Aún extrayendo Python?).',
+          '🦄 [OVERLAY] ERROR FATAL: NO SE DEBERÍA HABER LLEGADO AQUÍ!!.',
+        );
+        throw Exception(
+          'No se pudo encontrar el puerto del Isolate. Asegúrate de que la app principal esté corriendo.',
         );
       }
     } catch (e) {
       debugPrint("🦄 [OVERLAY] Error in overlay send: $e");
+      ToastUtils.showError(
+        'No se pudo enviar la descarga. Intenta abrir la app y volver a intentarlo.',
+      );
     }
-
-    if (mounted) {
-      setState(() {
-        _isSending = false;
-        _showSuccess = true;
-      });
-    }
-
-    // 3. Esperamos 1 segundo para mostrar el check
-    await Future.delayed(const Duration(milliseconds: 1000));
 
     // 4. Bajamos el modal visualmente
     if (mounted) Navigator.pop(context);
-
-    // 5. Fuerza Bruta: Esperamos la animación de bajada y asesinamos la ventana nativa
     await Future.delayed(const Duration(milliseconds: 300));
     await FlutterOverlayWindow.closeOverlay();
   }

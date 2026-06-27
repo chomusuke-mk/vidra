@@ -36,7 +36,6 @@ void backendIsolateMain(Map<String, dynamic> config) async {
   BackgroundIsolateBinaryMessenger.ensureInitialized(rootToken);
   DartPluginRegistrant.ensureInitialized();
   NotificationService.init();
-  
 
   debugPrint('🧠 [Isolate] Iniciado correctamente en segundo plano.');
 
@@ -46,6 +45,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
   Timer? healthCheckTimer;
   int failedPings = 0;
   String? pythonAppPath;
+  Future<void>? _cacheRefreshFuture;
 
   // Cola de descargas
   final List<Map<String, dynamic>> pendingQueue = [];
@@ -160,6 +160,15 @@ void backendIsolateMain(Map<String, dynamic> config) async {
     }
   }
 
+  // Nueva función segura para refrescar
+  Future<void> refreshCacheSafe() {
+    // Si ya hay un refresco en curso, devuelve ese mismo Future (no hace llamadas HTTP extra)
+    _cacheRefreshFuture ??= refreshDownloadsCache().whenComplete(() {
+      _cacheRefreshFuture = null;
+    });
+    return _cacheRefreshFuture!;
+  }
+
   void startGlobalSubscription() {
     sseSubscription?.cancel();
     sseSubscription = httpClient.subscribeToDeltas().listen(
@@ -167,21 +176,21 @@ void backendIsolateMain(Map<String, dynamic> config) async {
         final deltas = jsonList
             .map((json) => Delta.fromJson(json as Map<String, dynamic>))
             .toList();
-        bool needsRefresh = false;
 
         for (var delta in deltas) {
-          if (delta.subId != null || delta.id == null) {
-            continue; // Ignoramos sub-descargas para notificaciones globales
-          }
+          if (delta.subId != null || delta.id == null) continue;
 
-          final downloadIndex = cachedDownloads.indexWhere(
+          var downloadIndex = cachedDownloads.indexWhere(
             (d) => d.id == delta.id,
           );
 
           // Si no tenemos este ID en caché, marcamos para refrescar la lista completa en un momento
           if (downloadIndex == -1) {
-            needsRefresh = true;
-            continue;
+            await refreshCacheSafe();
+            downloadIndex = cachedDownloads.indexWhere((d) => d.id == delta.id);
+
+            // Si después del refetch AÚN no existe, entonces lo ignoramos.
+            if (downloadIndex == -1) continue;
           }
 
           final download = cachedDownloads[downloadIndex];
@@ -271,10 +280,6 @@ void backendIsolateMain(Map<String, dynamic> config) async {
               imageCache.remove(download.id);
             }
           }
-        }
-        // Si llegó un ID desconocido, refrescamos la caché.
-        if (needsRefresh) {
-          await refreshDownloadsCache();
         }
 
         // Verificar si hay trabajo activo para mantener la app despierta
@@ -477,6 +482,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
           break;
 
         case 'revalidate':
+          isUpdating = false;
           await initSequence();
           break;
 
