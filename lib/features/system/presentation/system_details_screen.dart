@@ -150,11 +150,11 @@ class SystemDetailsScreen extends StatelessWidget {
               style: OutlinedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
               ),
-              onPressed: sysCtrl.serverLogsPath == null
+              onPressed: sysCtrl.serverLogsFilePath == null
                   ? null
                   : () async {
                       try {
-                        final file = File(sysCtrl.serverLogsPath!);
+                        final file = File(sysCtrl.serverLogsFilePath!);
                         if (await file.exists()) {
                           // Leemos los últimos 20000 caracteres para no ahogar la RAM si el archivo creció mucho
                           String rawLogs = await file.readAsString();

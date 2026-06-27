@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:io';
 
@@ -49,6 +51,7 @@ class NotificationService {
 
   /// Construye los detalles específicos por plataforma, incluyendo la imagen si existe
   static NotificationDetails _buildPlatformDetails({
+    required int notificationId,
     required String channelId,
     required String channelName,
     String? channelDescription,
@@ -56,11 +59,14 @@ class NotificationService {
     Priority priority = Priority.defaultPriority,
     bool showProgress = false,
     int maxProgress = 0,
-    int progress = 0,
+    int? progress = 0,
+    String? progressLabel,
     bool onlyAlertOnce = false,
     bool ongoing = false,
     bool isError = false,
     String? imagePath,
+    Color? color,
+    String? rawBody,
   }) {
     // --- ANDROID ---
     AndroidBitmap<Object>? largeIcon;
@@ -68,6 +74,29 @@ class NotificationService {
       largeIcon = FilePathAndroidBitmap(
         imagePath,
       ); // Carga directa y ultra-rápida desde disco
+    }
+
+    // Configuración del estilo multilínea para Android
+    StyleInformation? androidStyleInfo;
+    if (showProgress) {
+      // BigTextStyleInformation fuerza al sistema operativo a romper las limitaciones de espacio de una sola línea
+      // permitiendo procesar caracteres de escape como '\n'.
+      androidStyleInfo = BigTextStyleInformation(
+        rawBody ?? '',
+        htmlFormatBigText: false,
+        contentTitle:
+            null, // Mantiene el título original pasado en plugin.show()
+        htmlFormatContentTitle: false,
+        summaryText:
+            null, // Evita inyectar metadatos adicionales que saturen la UI de la notificación
+        htmlFormatSummaryText: false,
+      );
+    } else if (imagePath != null) {
+      // Mantenemos tu lógica previa para las vistas de estado estáticas que se expanden a pantalla completa con la miniatura
+      androidStyleInfo = BigPictureStyleInformation(
+        FilePathAndroidBitmap(imagePath),
+        hideExpandedLargeIcon: true,
+      );
     }
 
     final AndroidNotificationDetails
@@ -79,18 +108,17 @@ class NotificationService {
       priority: priority,
       showProgress: showProgress,
       maxProgress: maxProgress,
-      progress: progress,
+      progress: progress ?? 0,
+      indeterminate: showProgress && progress == null,
       onlyAlertOnce: onlyAlertOnce,
       ongoing: ongoing,
+      color: color,
+      colorized: color != null, // Solo aplica el color si no es nulo
       largeIcon: largeIcon, // Imagen a la derecha
+      subText: progressLabel, // Texto pequeño debajo del título
       icon: isError ? '@android:drawable/ic_dialog_alert' : null,
       // Opcional: bigPictureStyle para que la imagen se expanda si deslizan la notificación
-      styleInformation: imagePath != null && showProgress == false
-          ? BigPictureStyleInformation(
-              FilePathAndroidBitmap(imagePath),
-              hideExpandedLargeIcon: true,
-            )
-          : null,
+      styleInformation: androidStyleInfo,
     );
 
     // --- APPLE (iOS / macOS) ---
@@ -112,12 +140,46 @@ class NotificationService {
       );
     }
 
+    // --- WINDOWS ---
+    List<WindowsImage> windowsImages = [];
+    if (imagePath != null && imagePath.isNotEmpty) {
+      // Windows requiere el uso de URIs. Uri.file lee directamente del sistema de archivos local.
+      windowsImages.add(
+        WindowsImage(Uri.file(imagePath), altText: 'Miniatura del archivo'),
+      );
+    }
+    List<WindowsProgressBar> windowsProgressBars = [];
+    if (showProgress) {
+      double? progressValue;
+      if (progress != null && maxProgress > 0) {
+        progressValue = progress / maxProgress;
+      }
+
+      windowsProgressBars.add(
+        WindowsProgressBar(
+          id: 'vidra_progress_bar_$notificationId',
+          status: progress == null
+              ? 'Procesando...'
+              : '${(progressValue! * 100).toStringAsFixed(0)}%',
+          value: progressValue,
+          label: progressLabel,
+        ),
+      );
+    }
+    final WindowsNotificationDetails windowsDetails =
+        WindowsNotificationDetails(
+          images: windowsImages,
+          progressBars: windowsProgressBars,
+          scenario: isError ? WindowsNotificationScenario.urgent : null,
+        );
+
     // Retornamos el empaquetado cross-platform
     return NotificationDetails(
       android: androidDetails,
       iOS: darwinDetails,
       macOS: darwinDetails,
       linux: linuxDetails,
+      windows: windowsDetails,
     );
   }
 
@@ -126,11 +188,14 @@ class NotificationService {
     required int id,
     required String title,
     required String body,
-    required int progress,
+    required int? progress,
     required int maxProgress,
     String? imagePath,
+    Color? color,
+    String? progressLabel,
   }) async {
     final details = _buildPlatformDetails(
+      notificationId: id,
       channelId: 'download_channel',
       channelName: 'Descargas en Progreso',
       channelDescription: 'Muestra el progreso de las descargas activas',
@@ -142,7 +207,18 @@ class NotificationService {
       onlyAlertOnce: true, // Magia: actualiza en silencio
       ongoing: true, // No se puede deslizar
       imagePath: imagePath,
+      color: color,
+      rawBody: body,
+      progressLabel: progressLabel,
     );
+
+    if (!Platform.isAndroid &&
+        !Platform.isWindows &&
+        progress != null &&
+        progressLabel != null &&
+        progressLabel.isNotEmpty) {
+      body = '$progressLabel\n$body';
+    }
 
     await _plugin.show(
       id: id,
@@ -158,9 +234,11 @@ class NotificationService {
     required String title,
     required String body,
     bool isError = false,
+    Color? color,
     String? imagePath,
   }) async {
     final details = _buildPlatformDetails(
+      notificationId: id,
       channelId: 'download_state_channel',
       channelName: 'Eventos de Descarga',
       importance: Importance.high,
@@ -168,6 +246,8 @@ class NotificationService {
       onlyAlertOnce: false, // Queremos que suene/vibre para avisar
       isError: isError,
       imagePath: imagePath,
+      color: color,
+      rawBody: body,
     );
 
     await _plugin.show(

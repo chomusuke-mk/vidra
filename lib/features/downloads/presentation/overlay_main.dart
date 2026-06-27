@@ -1,5 +1,4 @@
 import 'dart:ui';
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -30,10 +29,8 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
   void _initListener() {
     FlutterOverlayWindow.overlayListener.listen((event) async {
       if (event is Map && mounted) {
-        debugPrint('🦄 [OVERLAY] Datos iniciales recibidos del canal nativo.');
+        debugPrint('🦄 [OVERLAY] Datos recibidos de la UI/Wrapper.');
         final url = event['url'];
-        final port = event['port'] as int?; // <-- RECIBIMOS PUERTO
-        final token = event['token'] as String?; // <-- RECIBIMOS TOKEN
         var opts = DownloadOptions.fromJson(
           Map<String, dynamic>.from(event['options']),
         );
@@ -105,30 +102,20 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
         }
 
         // Actualizamos la UI
-        _showBottomSheet(url, opts, port, token);
+        _showBottomSheet(url, opts);
       }
     });
   }
 
-  Future<void> _showBottomSheet(
-    String url,
-    DownloadOptions opts,
-    int? port,
-    String? token,
-  ) async {
+  Future<void> _showBottomSheet(String url, DownloadOptions opts) async {
     await showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       barrierColor: Colors.black.withValues(alpha: 0.65),
-      builder: (context) => _QuickShareBottomSheetContent(
-        url: url,
-        initialOpts: opts,
-        port: port,
-        token: token,
-      ),
+      builder: (context) =>
+          _QuickShareBottomSheetContent(url: url, initialOpts: opts),
     );
-
     // ponytail: Si el usuario toca afuera o desliza para abajo, DESTRUIMOS la ventana invisible.
     await FlutterOverlayWindow.closeOverlay();
   }
@@ -145,14 +132,10 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
 class _QuickShareBottomSheetContent extends StatefulWidget {
   final String url;
   final DownloadOptions initialOpts;
-  final int? port;
-  final String? token;
 
   const _QuickShareBottomSheetContent({
     required this.url,
     required this.initialOpts,
-    this.port,
-    this.token,
   });
 
   @override
@@ -175,62 +158,23 @@ class _QuickShareBottomSheetContentState
   void _sendAndClose() async {
     setState(() => _isSending = true);
 
-    bool bypassSuccess = false;
-
     try {
-      debugPrint('🦄 [OVERLAY] Iniciando envío de descarga...');
-      final payload = {
-        "action": "START_DOWNLOAD",
-        "url": widget.url,
-        "options": _opts.toJson(),
-      };
+      debugPrint('🦄 [OVERLAY] Iniciando comunicación directa con Isolate...');
 
-      // 1. Red de seguridad (Box pattern)
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.reload();
-      var queue = prefs.getStringList('vidra_pending_queue') ?? [];
-      queue.add(jsonEncode(payload));
-      await prefs.setStringList('vidra_pending_queue', queue);
-      debugPrint(
-        '🦄 [OVERLAY] Guardado en caja fuerte. Elementos en cola: ${queue.length}',
-      );
+      // EL BYPASS MAGISTRAL: Hablamos directo a la memoria del Isolate del Backend
+      final sendPort = IsolateNameServer.lookupPortByName('vidra_backend_port');
 
-      // 2. EL BYPASS MAGISTRAL: Disparo HTTP directo a Python
-      //if (widget.port != null && widget.token != null) {
-      //  try {
-      //    debugPrint('🦄 [OVERLAY] Bypass HTTP al puerto ${widget.port}...');
-      //    final response = await http
-      //        .post(
-      //          Uri.parse('http://127.0.0.1:${widget.port}/downloads'),
-      //          headers: {
-      //            'Content-Type': 'application/json',
-      //            'Authorization': 'Bearer ${widget.token}',
-      //          },
-      //          body: jsonEncode({
-      //            'url': widget.url,
-      //            'options': _opts.toJson(),
-      //          }),
-      //        )
-      //        .timeout(const Duration(seconds: 3));
-      //
-      //    if (response.statusCode == 201) {
-      //      debugPrint('🦄 [OVERLAY] Bypass HTTP Exitoso.');
-      //      bypassSuccess = true;
-      //    }
-      //  } catch (e) {
-      //    debugPrint('🦄 [OVERLAY] Fallo Bypass HTTP: $e');
-      //  }
-      //}
-      // 3. Limpiamos caja fuerte si el HTTP funcionó
-      if (bypassSuccess) {
-        await prefs.reload();
-        queue = prefs.getStringList('vidra_pending_queue') ?? [];
-        if (queue.isNotEmpty) queue.removeLast();
-        await prefs.setStringList('vidra_pending_queue', queue);
+      if (sendPort != null) {
+        sendPort.send({
+          'cmd': 'download',
+          'url': widget.url,
+          'options': _opts.toJson(),
+        });
+        debugPrint('🦄 [OVERLAY] ¡Mensaje enviado con éxito al Cerebro!');
       } else {
-        // Fallback: Si por alguna razón Python murió, mandamos el MethodChannel
-        // y la app lo procesará cuando el usuario vuelva a abrirla.
-        FlutterOverlayWindow.shareData(payload);
+        debugPrint(
+          '🦄 [OVERLAY] ERROR: No se encontró el Isolate de Vidra (¿Aún extrayendo Python?).',
+        );
       }
     } catch (e) {
       debugPrint("🦄 [OVERLAY] Error in overlay send: $e");

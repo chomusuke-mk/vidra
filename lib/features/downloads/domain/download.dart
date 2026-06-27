@@ -1,19 +1,39 @@
-enum DownloadType { video, list, unknown }
+import 'dart:ui';
+
+enum DownloadType {
+  video('video'),
+  list('list'),
+  unknown('unknown');
+
+  const DownloadType(this.apiValue);
+  final String apiValue;
+
+  static DownloadType fromApi(String val) {
+    return DownloadType.values.firstWhere(
+      (e) => e.apiValue == val,
+      orElse: () => DownloadType.unknown,
+    );
+  }
+}
 
 enum DownloadState {
-  requested('requested'),
-  pending('pending'),
-  identifying('identifying'),
-  waitForSelection('wait_for_selection'), // ← el valor que viene del API
-  inProgress('in_progress'),
-  completed('completed'),
-  failed('failed'),
-  canceled('canceled'),
-  paused('paused'),
-  deleted('deleted');
+  requested('requested', 'Download Requested'),
+  pending('pending', 'Download Pending'),
+  identifying('identifying', 'Identifying'),
+  waitForSelection(
+    'wait_for_selection',
+    'Waiting for Selection',
+  ), // ← el valor que viene del API
+  inProgress('in_progress', 'In Progress'),
+  completed('completed', 'Download Completed!'),
+  failed('failed', 'Download Failed'),
+  canceled('canceled', 'Canceled'),
+  paused('paused', 'Paused'),
+  deleted('deleted', 'Deleted');
 
-  const DownloadState(this.apiValue);
+  const DownloadState(this.apiValue, this.humanReadable);
   final String apiValue;
+  final String humanReadable;
 
   // Parser estático
   static DownloadState fromApi(String val) {
@@ -24,7 +44,24 @@ enum DownloadState {
   }
 }
 
-enum ColorEnum { green, yellow, red, blue, gray }
+enum ColorEnum {
+  green('green', Color(0xFF4CAF50)), // Verde Material
+  yellow('yellow', Color(0xFFFFEB3B)), // Amarillo Material
+  red('red', Color(0xFFF44336)), // Rojo Material
+  blue('blue', Color(0xFF2196F3)), // Azul Material
+  gray('gray', Color(0xFF9E9E9E)); // Gris Material
+
+  const ColorEnum(this.apiValue, this.color);
+  final String apiValue;
+  final Color color;
+
+  static ColorEnum fromApi(String val) {
+    return ColorEnum.values.firstWhere(
+      (e) => e.apiValue == val,
+      orElse: () => ColorEnum.gray,
+    );
+  }
+}
 
 class Info {
   String? url;
@@ -63,10 +100,7 @@ class Info {
 
   static DownloadType? _parseType(String? val) {
     if (val == null) return null;
-    return DownloadType.values.firstWhere(
-      (e) => e.name == val,
-      orElse: () => DownloadType.unknown,
-    );
+    return DownloadType.fromApi(val);
   }
 }
 
@@ -112,18 +146,12 @@ class State {
 
   static DownloadState? _parseState(String? val) {
     if (val == null) return null;
-    return DownloadState.values.firstWhere(
-      (e) => e.apiValue == val,
-      orElse: () => DownloadState.pending,
-    );
+    return DownloadState.fromApi(val);
   }
 
   static ColorEnum? _parseColor(String? val) {
     if (val == null) return null;
-    return ColorEnum.values.firstWhere(
-      (e) => e.name == val,
-      orElse: () => ColorEnum.gray,
-    );
+    return ColorEnum.fromApi(val);
   }
 }
 

@@ -4,6 +4,7 @@ import 'dart:isolate';
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
@@ -27,12 +28,15 @@ void backendIsolateMain(Map<String, dynamic> config) async {
   final int backendPort = config['backendPort'];
   final String backendToken = config['backendToken'];
   final String supportDirPath = config['supportDirPath'];
+  final String tempDirPath = config['tempDirPath'];
+  final String serverLogsFilePath = config['serverLogsFilePath'];
   final bool isAndroid = config['isAndroid'];
 
   // 2. Inicializamos el entorno para que los canales nativos funcionen en background
   BackgroundIsolateBinaryMessenger.ensureInitialized(rootToken);
   DartPluginRegistrant.ensureInitialized();
-  await NotificationService.init();
+  NotificationService.init();
+  
 
   debugPrint('🧠 [Isolate] Iniciado correctamente en segundo plano.');
 
@@ -195,21 +199,15 @@ void backendIsolateMain(Map<String, dynamic> config) async {
           // CALCULAMOS NOTIFICACIONES BASADO EN LA FUSIÓN
           final newState = download.state?.value;
           final notificationId = download.id.hashCode;
-          final autor = download.info?.autor ?? 'Desconocido';
-          final title = download.info?.title ?? 'Procesando...';
-          final durationStr = download.info?.duration != null
-              ? '${download.info?.duration} • '
-              : '';
-          final platform = download.info?.platform ?? '';
+          final autor = download.info?.autor ?? 'Unknown';
+          final title = download.info?.title ?? 'Processing...';
 
-          String body = '$title\n$durationStr$platform';
-          if (delta.status?.subState != null) {
-            body += '\n${delta.status!.subState}';
+          String body = title;
+          if (download.state?.subState != null) {
+            body += '\n${download.state!.subState}';
           }
+          final Color? color = download.state?.subStateColor?.color;
 
-          if (delta.info?.image != null) {
-            triggerImageCache(delta.id!, delta.info!.image!);
-          }
           final currentImagePath =
               imageCache[download.id] != null &&
                   imageCache[download.id]!.isNotEmpty
@@ -217,38 +215,45 @@ void backendIsolateMain(Map<String, dynamic> config) async {
               : null;
 
           if (newState == DownloadState.inProgress) {
-            final progress = (download.state?.progressValue ?? 0).toInt();
+            final progress = download.state?.progressValue != null
+                ? (download.state!.progressValue! * 100).toInt()
+                : null;
+            final progressLabel = download.state?.progressLabel;
             NotificationService.showProgress(
               id: notificationId,
               title: autor,
-              body: '${download.state?.progressLabel ?? ''}\n$body',
+              body: body,
               progress: progress,
               maxProgress: 100,
               imagePath: currentImagePath,
+              progressLabel: progressLabel,
+              color: color,
             );
           } else if (oldState != newState) {
-            // Transiciones de Estado
             if (newState == DownloadState.identifying) {
               NotificationService.showState(
                 id: notificationId,
                 title: autor,
-                body: 'Identificando: $title',
+                body: '${newState?.humanReadable}\n$title',
                 imagePath: currentImagePath,
+                color: color,
               );
             } else if (newState == DownloadState.waitForSelection) {
               NotificationService.showState(
                 id: notificationId,
                 title: autor,
-                body: 'Esperando selección: $title',
+                body: '${newState?.humanReadable}\n$title',
                 imagePath: currentImagePath,
+                color: color,
               );
             } else if (newState == DownloadState.completed &&
                 oldState == DownloadState.inProgress) {
               NotificationService.showState(
                 id: notificationId,
                 title: autor,
-                body: '¡Descarga completada!\n$title',
+                body: '${newState?.humanReadable}\n$title',
                 imagePath: currentImagePath,
+                color: color,
               );
             } else if (newState == DownloadState.failed) {
               NotificationService.showState(
@@ -258,6 +263,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
                     'Error: ${download.state?.subState ?? "Desconocido"}\n$title',
                 isError: true,
                 imagePath: currentImagePath,
+                color: color,
               );
             } else if (newState == DownloadState.canceled ||
                 newState == DownloadState.deleted) {
@@ -319,22 +325,22 @@ void backendIsolateMain(Map<String, dynamic> config) async {
     try {
       final ffmpegPath = await resolveExecutable('ffmpeg');
       final quickjsPath = await resolveExecutable('quickjs');
+      final coreModulesPath = p.join(supportDirPath, 'core_modules');
 
-      // 1. Replicamos la magia de SeriousPython.run():
-      // Asignar el directorio actual a la carpeta "data" de la app
+      // ========================================================
+      // Lógica para que funcione serious_python
       final dataDir = Directory(p.join(supportDirPath, "data"));
       if (!dataDir.existsSync()) {
         dataDir.createSync(recursive: true);
       }
       Directory.current = dataDir.path;
-
-      // 2. Unimos la ruta que nos mandó la UI con el archivo de entrada
-      // (Si tu compilación genera un main.pyc en el futuro, puedes agregar la lógica de File().exists() aquí)
       final fullAppPath = p.join(pythonAppPath!, "main.py");
+      // ========================================================
 
       debugPrint('🧠 [Isolate] Lanzando SeriousPython en Puerto: $backendPort');
       debugPrint('🧠 [Isolate] FFMPEG_PATH: $ffmpegPath');
       debugPrint('🧠 [Isolate] QUICKJS_PATH: $quickjsPath');
+      debugPrint('🧠 [Isolate] CORE_MODULES: $coreModulesPath');
 
       // 3. Lanzamos directo con runProgram
       SeriousPython.runProgram(
@@ -342,17 +348,17 @@ void backendIsolateMain(Map<String, dynamic> config) async {
         environmentVariables: {
           'APP_ENV': 'production',
           'API_TOKEN': backendToken,
-          'LOGS_PATH': p.join(supportDirPath, 'logs'),
-          'DATA_PATH': p.join(supportDirPath, 'data'),
-          'TEMP_PATH': p.join(supportDirPath, 'temp'),
+          'LOGS_PATH': p.join(tempDirPath, 'vidra_backend', 'logs'),
+          'DATA_PATH': p.join(supportDirPath, 'vidra_backend', 'data'),
+          'TEMP_PATH': p.join(tempDirPath, 'vidra_backend', 'temp'),
           'HOST': '127.0.0.1',
           'PORT': backendPort.toString(),
-          'SERVER_LOGS_FILE_PATH': p.join(supportDirPath, 'logs', 'server.log'),
+          'SERVER_LOGS_FILE_PATH': serverLogsFilePath,
           'FFMPEG_PATH': ffmpegPath,
           'QUICKJS_PATH': quickjsPath,
         },
         sync: false,
-        modulePaths: [p.join(supportDirPath, 'core_modules')],
+        modulePaths: [coreModulesPath],
       );
       return true;
     } catch (e) {
@@ -449,6 +455,11 @@ void backendIsolateMain(Map<String, dynamic> config) async {
   // ESCUCHA DE COMANDOS DESDE LA UI
   // ==========================================================================
   final ReceivePort receivePort = ReceivePort();
+  IsolateNameServer.removePortNameMapping('vidra_backend_port');
+  IsolateNameServer.registerPortWithName(
+    receivePort.sendPort,
+    'vidra_backend_port',
+  );
   sendPort.send({'event': 'port', 'value': receivePort.sendPort});
 
   receivePort.listen((message) async {

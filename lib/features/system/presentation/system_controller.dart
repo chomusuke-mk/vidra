@@ -20,11 +20,11 @@ class SystemController extends ChangeNotifier {
   // Credenciales dinámicas para el Backend
   int? _backendPort;
   String? _backendToken;
-  String? _serverLogsPath;
+  String? _serverLogsFilePath;
 
   int? get backendPort => _backendPort;
   String? get backendToken => _backendToken;
-  String? get serverLogsPath => _serverLogsPath; // Getter para la UI
+  String? get serverLogsFilePath => _serverLogsFilePath; // Getter para la UI
 
   // Comunicación con el Isolate
   Isolate? _backendIsolate;
@@ -63,7 +63,8 @@ class SystemController extends ChangeNotifier {
 
     // 2. Resolver directorios
     final supportDir = await getApplicationSupportDirectory();
-    _serverLogsPath = p.join(supportDir.path, 'logs', 'server.log');
+    final tempDir = await getApplicationCacheDirectory();
+    _serverLogsFilePath = p.join(tempDir.path, 'logs', 'server.log');
 
     // 4. Escuchar respuestas del Isolate
     _receivePort.listen((message) {
@@ -113,6 +114,8 @@ class SystemController extends ChangeNotifier {
       'backendPort': _backendPort,
       'backendToken': _backendToken,
       'supportDirPath': supportDir.path,
+      'tempDirPath': tempDir.path,
+      'serverLogsFilePath': _serverLogsFilePath,
       'isAndroid': Platform.isAndroid,
     }, debugName: 'VidraBackendIsolate');
     _preparePythonAsync();
