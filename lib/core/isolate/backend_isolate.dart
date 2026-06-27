@@ -396,6 +396,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
 
         if (failedPings >= 10) {
           debugPrint('🧠 [Isolate] Resurrección de Python activada...');
+          SeriousPython.terminate();
           failedPings = 0;
           notifyUiState('startingBackend');
           if (!await startPythonBackend()) notifyUiState('fatalError');
