@@ -17,7 +17,6 @@ class SystemController extends ChangeNotifier {
   SystemState _state = SystemState.initializing;
   SystemState get state => _state;
 
-
   // Credenciales dinámicas para el Backend
   int? _backendPort;
   String? _backendToken;
@@ -66,13 +65,6 @@ class SystemController extends ChangeNotifier {
     final supportDir = await getApplicationSupportDirectory();
     _serverLogsPath = p.join(supportDir.path, 'logs', 'server.log');
 
-    // ¡NUEVO! 3. Preparar la app de Python en el hilo principal (Evita crash en el Isolate)
-    debugPrint(
-      '🚀 [UI-Controller] Extrayendo y preparando binarios de Python...',
-    );
-
-    final String pythonAppPath = await SeriousPython.prepareApp();
-
     // 4. Escuchar respuestas del Isolate
     _receivePort.listen((message) {
       if (message is Map<String, dynamic>) {
@@ -85,6 +77,7 @@ class SystemController extends ChangeNotifier {
           final String stateStr = message['value'];
           switch (stateStr) {
             case 'initializing':
+            case 'unpacking':
               _setState(SystemState.initializing);
               break;
             case 'missingPermissions':
@@ -120,10 +113,30 @@ class SystemController extends ChangeNotifier {
       'backendPort': _backendPort,
       'backendToken': _backendToken,
       'supportDirPath': supportDir.path,
-      'pythonAppPath': pythonAppPath,
       'isAndroid': Platform.isAndroid,
     }, debugName: 'VidraBackendIsolate');
+    _preparePythonAsync();
   }
+
+  /// Extrae el binario de Python en el hilo principal y avisa al Isolate cuando termine
+  Future<void> _preparePythonAsync() async {
+    debugPrint(
+      '🚀 [UI-Controller] Extrayendo binarios de Python (Esto puede tardar)...',
+    );
+
+    // Esto puede demorar hasta 20s en Android la primera vez
+    final String pythonAppPath = await SeriousPython.prepareApp();
+    debugPrint('✅ [UI-Controller] Python extraído en: $pythonAppPath');
+
+    // Nos aseguramos de que el Isolate ya nos haya enviado su puerto de escucha
+    while (_isolateSendPort == null) {
+      await Future.delayed(const Duration(milliseconds: 100));
+    }
+
+    // Le enviamos la ruta al Isolate
+    _isolateSendPort!.send({'cmd': 'python_prepared', 'path': pythonAppPath});
+  }
+
   // ==========================================================================
   // MÉTODOS PUENTE (Comandos hacia el Isolate)
   // ==========================================================================

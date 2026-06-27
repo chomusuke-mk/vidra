@@ -27,7 +27,6 @@ void backendIsolateMain(Map<String, dynamic> config) async {
   final int backendPort = config['backendPort'];
   final String backendToken = config['backendToken'];
   final String supportDirPath = config['supportDirPath'];
-  final String pythonAppPath = config['pythonAppPath'];
   final bool isAndroid = config['isAndroid'];
 
   // 2. Inicializamos el entorno para que los canales nativos funcionen en background
@@ -42,6 +41,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
   bool isUpdating = false;
   Timer? healthCheckTimer;
   int failedPings = 0;
+  String? pythonAppPath;
 
   // Cola de descargas
   final List<Map<String, dynamic>> pendingQueue = [];
@@ -330,7 +330,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
 
       // 2. Unimos la ruta que nos mandó la UI con el archivo de entrada
       // (Si tu compilación genera un main.pyc en el futuro, puedes agregar la lógica de File().exists() aquí)
-      final fullAppPath = p.join(pythonAppPath, "main.py");
+      final fullAppPath = p.join(pythonAppPath!, "main.py");
 
       debugPrint('🧠 [Isolate] Lanzando SeriousPython en Puerto: $backendPort');
       debugPrint('🧠 [Isolate] FFMPEG_PATH: $ffmpegPath');
@@ -427,6 +427,15 @@ void backendIsolateMain(Map<String, dynamic> config) async {
       return;
     }
 
+    // NUEVO: El guardián de la extracción
+    if (pythonAppPath == null) {
+      debugPrint(
+        '🧠 [Isolate] Permisos OK. Esperando a que la UI termine de extraer Python...',
+      );
+      notifyUiState('unpacking');
+      return; // Cortamos el flujo aquí. Se retomará cuando llegue el mensaje por IPC.
+    }
+
     notifyUiState('startingBackend');
     if (!await startPythonBackend()) {
       notifyUiState('fatalError');
@@ -448,6 +457,13 @@ void backendIsolateMain(Map<String, dynamic> config) async {
       debugPrint('🧠 [Isolate] Comando recibido desde UI: $cmd');
 
       switch (cmd) {
+        // NUEVO COMANDO
+        case 'python_prepared':
+          pythonAppPath = message['path'];
+          debugPrint('🧠 [Isolate] Ruta de Python recibida desde la UI.');
+          await initSequence(); // Retomamos la secuencia de arranque
+          break;
+
         case 'revalidate':
           await initSequence();
           break;
