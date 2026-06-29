@@ -33,6 +33,11 @@ void backendIsolateMain(Map<String, dynamic> config) async {
 
   // 2. Inicializamos el entorno para que los canales nativos funcionen en background
   BackgroundIsolateBinaryMessenger.ensureInitialized(rootToken);
+  try {
+    WidgetsFlutterBinding.ensureInitialized();
+  } catch (e) {
+    debugPrint('🧠 [Isolate] Error inicializando WidgetsFlutterBinding: $e');
+  }
   DartPluginRegistrant.ensureInitialized();
   try {
     await NotificationService.init();
@@ -358,7 +363,10 @@ void backendIsolateMain(Map<String, dynamic> config) async {
         },
         sync: false,
         modulePaths: [coreModulesPath],
-      );
+      ).catchError((e) {
+        debugPrint('🧠 [Isolate] Error lanzando SeriousPython: $e');
+        return "error";
+      });
       return true;
     } catch (e) {
       debugPrint('🧠 [Isolate] Error fatal ejecutando Python: $e');

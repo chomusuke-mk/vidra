@@ -279,6 +279,7 @@ class NotificationService {
       id: 696969, // ID fijo para el foreground service
       title: 'Vidra',
       body: 'Background service is running',
+      startType: AndroidServiceStartType.startRedeliverIntent,
       notificationDetails: const AndroidNotificationDetails(
         'vidra_bg_channel', // Un canal distinto para el servicio
         'Download in Background',
