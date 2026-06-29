@@ -5,6 +5,8 @@ import 'package:vidra/features/downloads/presentation/selection_wrapper.dart';
 import 'package:vidra/features/downloads/presentation/downloads_controller.dart';
 import 'package:vidra/features/downloads/domain/download.dart'
     as download_model;
+import 'package:vidra/features/locales/domain/locale.dart';
+import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/settings/presentation/settings_screen.dart';
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/shared/widgets/download_card.dart';
@@ -44,6 +46,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
   @override
   Widget build(BuildContext context) {
     final downloadsCtrl = context.watch<DownloadsController>();
+    final locale = context.watch<LocaleController>().localeStrings;
     // 1. APLICAMOS EL FILTRADO MAESTRO AQUÍ
     final filteredAll = downloadsCtrl.downloads.where((d) {
       if (_searchQuery.isNotEmpty) {
@@ -97,7 +100,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
           title: TextField(
             controller: _urlController,
             decoration: InputDecoration(
-              hintText: 'URL del video...',
+              hintText: locale.dVideoUrl,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide.none,
@@ -110,7 +113,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
               // Icono Pegar dentro de la barra
               suffixIcon: IconButton(
                 icon: const Icon(Icons.paste),
-                tooltip: 'Pegar',
+                tooltip: locale.dPaste,
                 onPressed: () async {
                   final data = await Clipboard.getData(Clipboard.kTextPlain);
                   if (data?.text != null) {
@@ -127,12 +130,12 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
                 hasActiveFilter ? Icons.filter_alt : Icons.filter_alt_outlined,
                 color: hasActiveFilter ? Colors.blue : null,
               ),
-              tooltip: 'Filtros',
+              tooltip: locale.dFilters,
               onPressed: () => setState(() => _showFilters = !_showFilters),
             ),
             IconButton(
               icon: const Icon(Icons.settings),
-              tooltip: 'Configuración',
+              tooltip: locale.dSettings,
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (_) => const SettingsScreen()),
@@ -144,8 +147,8 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
         floatingActionButton: FloatingActionButton.extended(
           onPressed: _addDownload,
           icon: const Icon(Icons.download),
-          label: const Text(
-            'Descargar',
+          label: Text(
+            locale.dDownload,
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
@@ -157,7 +160,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
               duration: const Duration(milliseconds: 300),
               curve: Curves.easeInOut,
               child: _showFilters
-                  ? _buildMainFiltersBar()
+                  ? _buildMainFiltersBar(locale)
                   : const SizedBox.shrink(),
             ),
 
@@ -168,8 +171,8 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
                   : LayoutBuilder(
                       builder: (context, constraints) {
                         final isShort = constraints.maxWidth < 600;
-                        if (isShort) return _buildVerticalLayout(lists);
-                        return _buildHorizontalLayout(lists);
+                        if (isShort) return _buildVerticalLayout(lists, locale);
+                        return _buildHorizontalLayout(lists, locale);
                       },
                     ),
             ),
@@ -180,7 +183,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
   }
 
   // --- WIDGET EXCLUSIVO DEL FILTRO MAIN ---
-  Widget _buildMainFiltersBar() {
+  Widget _buildMainFiltersBar(AppStringKey locale) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
@@ -195,7 +198,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
         children: [
           TextField(
             decoration: InputDecoration(
-              hintText: 'Filtrar nombre de descarga...',
+              hintText: locale.dSearchDownloads,
               prefixIcon: const Icon(Icons.search),
               isDense: true,
               border: OutlineInputBorder(
@@ -208,10 +211,19 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
           SizedBox(
             width: double.infinity,
             child: SegmentedButton<String>(
-              segments: const [
-                ButtonSegment(value: 'all', label: Text('Todas')),
-                ButtonSegment(value: 'video', label: Text('Video / Audio')),
-                ButtonSegment(value: 'list', label: Text('Listas (Playlists)')),
+              segments: [
+                ButtonSegment(
+                  value: 'all',
+                  label: Text(locale.dFilterEverything),
+                ),
+                ButtonSegment(
+                  value: 'video',
+                  label: Text(locale.dFilterVideoAudio),
+                ),
+                ButtonSegment(
+                  value: 'list',
+                  label: Text(locale.dFilterPlaylist),
+                ),
               ],
               selected: {_typeFilter},
               onSelectionChanged: (set) =>
@@ -224,22 +236,27 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
   }
 
   // --- LAYOUT VERTICAL (Pantallas estrechas / Móviles) ---
-  Widget _buildVerticalLayout(List<List<download_model.Download>> lists) {
+  Widget _buildVerticalLayout(
+    List<List<download_model.Download>> lists,
+    AppStringKey locale,
+  ) {
     return DefaultTabController(
       length: 4,
       child: Column(
         children: [
-          const TabBar(
+          TabBar(
             tabs: [
-              Tab(text: 'Todo'),
-              Tab(text: 'En progreso'),
-              Tab(text: 'Completado'),
-              Tab(text: 'Error'),
+              Tab(text: locale.dEverything),
+              Tab(text: locale.dInProgress),
+              Tab(text: locale.dCompleted),
+              Tab(text: locale.dError),
             ],
           ),
           Expanded(
             child: TabBarView(
-              children: lists.map((list) => _buildDownloadList(list)).toList(),
+              children: lists
+                  .map((list) => _buildDownloadList(list, locale))
+                  .toList(),
             ),
           ),
         ],
@@ -248,7 +265,10 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
   }
 
   // --- LAYOUT HORIZONTAL (Pantallas anchas / PC) ---
-  Widget _buildHorizontalLayout(List<List<download_model.Download>> lists) {
+  Widget _buildHorizontalLayout(
+    List<List<download_model.Download>> lists,
+    AppStringKey locale,
+  ) {
     return Row(
       children: [
         NavigationRail(
@@ -256,22 +276,22 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
           onDestinationSelected: (int index) =>
               setState(() => _selectedIndex = index),
           labelType: NavigationRailLabelType.all,
-          destinations: const [
+          destinations: [
             NavigationRailDestination(
               icon: Icon(Icons.list),
-              label: Text('Todo'),
+              label: Text(locale.dEverything),
             ),
             NavigationRailDestination(
               icon: Icon(Icons.downloading),
-              label: Text('En progreso'),
+              label: Text(locale.dInProgress),
             ),
             NavigationRailDestination(
               icon: Icon(Icons.done_all),
-              label: Text('Completado'),
+              label: Text(locale.dCompleted),
             ),
             NavigationRailDestination(
               icon: Icon(Icons.error_outline),
-              label: Text('Error'),
+              label: Text(locale.dError),
             ),
           ],
         ),
@@ -279,15 +299,19 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
         Expanded(
           child: IndexedStack(
             index: _selectedIndex,
-            children: lists.map((list) => _buildDownloadList(list)).toList(),
+            children: lists
+                .map((list) => _buildDownloadList(list, locale))
+                .toList(),
           ),
         ),
       ],
     );
   }
 
-  // Busca tu función _buildDownloadList y actualízala así:
-  Widget _buildDownloadList(List<download_model.Download> list) {
+  Widget _buildDownloadList(
+    List<download_model.Download> list,
+    AppStringKey locale,
+  ) {
     if (list.isEmpty) {
       return Center(
         child: Column(
@@ -302,7 +326,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
             ),
             const SizedBox(height: 16),
             Text(
-              'No hay descargas aquí',
+              locale.dNoDownloads,
               style: TextStyle(
                 color: Theme.of(
                   context,

@@ -1,6 +1,43 @@
 {
   // Pantalla Downloads -------------------------------- d_
   "d_title": "Home",
+  "d_everything": "Everything",
+  "d_in_progress": "In Progress",
+  "d_completed": "Completed",
+  "d_error": "Error",
+  // Barra superior
+  "d_video_url": "Video URL...",
+  "d_search_downloads": "Filter by download name...",
+  "d_filter_everything": "Everything",
+  "d_filter_video_audio": "Video/Audio",
+  "d_filter_playlist": "Playlists",
+  // Tooltips
+  "d_paste": "Paste URL",
+  "d_filters": "Filters",
+  "d_settings": "Settings",
+  // Buttons
+  "d_download": "Download",
+  // Messages
+  "d_no_downloads": "There are no downloads here",
+  // Pantalla Download Details -------------------------------- dd_
+  "dd_title": "Download Details",
+  "dd_sub_downloads": "Sub Downloads",
+  "dd_logs": "Logs",
+  "dd_settings": "Settings",
+  // Buttons
+  "dd_reload": "Reload",
+  "dd_errors": "Errors",
+  "dd_downloading": "Downloading",
+  "dd_completed": "Completed",
+  "dd_pending": "Pending",
+  // Messages
+  "dd_elements": "elements",
+  "dd_search_list": "Search in the list...",
+  "dd_no_elements": "No matching items found.",
+  "dd_no_logs": "No logs available.",
+  "dd_no_settings": "No settings available for this download.",
+  // Tooltips
+  "dd_search_filter": "Search and filter",
   // Pantalla Settings -------------------------------- s_
   "s_title": "Settings",
   "s_general": "General",
@@ -116,7 +153,7 @@
   // Download
   "s_output": "Output Template",
   "s_output_desc": "Output filename template.",
-  "s_paths": "Paths",
+  "s_paths": "Save Paths",
   "s_paths_desc": "Directories to save different types of files.",
   "s_download_archive": "Download Archive",
   "s_download_archive_desc": "Path to file to record downloaded IDs to avoid duplicates.",

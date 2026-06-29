@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vidra/features/downloads/presentation/selection_wrapper.dart';
 import 'package:vidra/features/downloads/presentation/downloads_controller.dart';
+import 'package:vidra/features/locales/domain/locale.dart';
+import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
 import 'download_detail_controller.dart';
 import 'package:vidra/features/downloads/data/download_repository.dart';
 import 'package:vidra/features/downloads/domain/download.dart' as model;
-import 'package:vidra/shared/widgets/download_card.dart'; // Tu nueva tarjeta mágica
+import 'package:vidra/shared/widgets/download_card.dart';
 
 class DownloadDetailScreen extends StatelessWidget {
   final model.Download download;
@@ -16,6 +18,7 @@ class DownloadDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.watch<LocaleController>().localeStrings;
     return ChangeNotifierProvider(
       create: (context) => DownloadDetailController(
         context.read<DownloadRepository>(),
@@ -26,7 +29,7 @@ class DownloadDetailScreen extends StatelessWidget {
       child: SelectionFabWrapper(
         child: Scaffold(
           // Quitamos el const de AppBar si tu linter se queja, aunque aquí es seguro
-          appBar: AppBar(title: Text('Detalles de Descarga')),
+          appBar: AppBar(title: Text(locale.ddTitle)),
           body: _DetailView(),
         ),
       ),
@@ -47,6 +50,7 @@ class _DetailViewState extends State<_DetailView> {
   @override
   Widget build(BuildContext context) {
     final controller = context.watch<DownloadDetailController>();
+    final locale = context.watch<LocaleController>().localeStrings;
     context.watch<DownloadsController>();
     if (controller.isLoading) {
       return const Center(child: CircularProgressIndicator());
@@ -67,35 +71,35 @@ class _DetailViewState extends State<_DetailView> {
 
     // Pestaña Opcional: Sub-Descargas
     if (showSubsTab) {
-      tabs.add(const Tab(text: 'Sub-Descargas'));
+      tabs.add(Tab(text: locale.ddSubDownloads));
       destinations.add(
-        const NavigationRailDestination(
+        NavigationRailDestination(
           icon: Icon(Icons.format_list_numbered),
-          label: Text('Sub-Descargas'),
+          label: Text(locale.ddSubDownloads),
         ),
       );
-      views.add(_buildSubDownloadsTab(context, controller));
+      views.add(_buildSubDownloadsTab(context, controller, locale));
     }
 
     // Pestaña Fija: Logs
-    tabs.add(const Tab(text: 'Logs'));
+    tabs.add(Tab(text: locale.ddLogs));
     destinations.add(
-      const NavigationRailDestination(
+      NavigationRailDestination(
         icon: Icon(Icons.receipt_long),
-        label: Text('Logs'),
+        label: Text(locale.ddLogs),
       ),
     );
-    views.add(_buildLogsTab(controller));
+    views.add(_buildLogsTab(controller, locale));
 
     // Pestaña Fija: Configuración
-    tabs.add(const Tab(text: 'Configuración'));
+    tabs.add(Tab(text: locale.ddSettings));
     destinations.add(
-      const NavigationRailDestination(
+      NavigationRailDestination(
         icon: Icon(Icons.settings_applications),
-        label: Text('Configuración'),
+        label: Text(locale.ddSettings),
       ),
     );
-    views.add(_buildConfigTab(currentDownload.options));
+    views.add(_buildConfigTab(currentDownload.options, locale));
 
     // Evitamos desbordamientos del índice si la pestaña de sub-descargas desaparece dinámicamente
     if (_selectedIndex >= views.length) _selectedIndex = 0;
@@ -157,6 +161,7 @@ class _DetailViewState extends State<_DetailView> {
   Widget _buildSubDownloadsTab(
     BuildContext context,
     DownloadDetailController controller,
+    AppStringKey locale,
   ) {
     final list = controller.filteredSubDownloads;
     final hasActiveFilters =
@@ -172,7 +177,7 @@ class _DetailViewState extends State<_DetailView> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '${list.length} elementos',
+                '${list.length} ${locale.ddElements}',
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               IconButton(
@@ -182,7 +187,7 @@ class _DetailViewState extends State<_DetailView> {
                       : Icons.filter_alt_outlined,
                   color: hasActiveFilters ? Colors.blue : null,
                 ),
-                tooltip: 'Buscar y Filtrar',
+                tooltip: locale.ddSearchFilter,
                 onPressed: controller.toggleSearchVisibility,
               ),
             ],
@@ -201,7 +206,7 @@ class _DetailViewState extends State<_DetailView> {
                     children: [
                       TextField(
                         decoration: InputDecoration(
-                          hintText: 'Buscar en la lista...',
+                          hintText: locale.ddSearchList,
                           prefixIcon: const Icon(Icons.search),
                           suffixIcon: controller.searchQuery.isNotEmpty
                               ? IconButton(
@@ -231,7 +236,7 @@ class _DetailViewState extends State<_DetailView> {
                             _buildFilterChip(
                               controller,
                               model.DownloadState.failed,
-                              'Errores',
+                              locale.ddErrors,
                               Icons.error,
                               Colors.red,
                             ),
@@ -239,7 +244,7 @@ class _DetailViewState extends State<_DetailView> {
                             _buildFilterChip(
                               controller,
                               model.DownloadState.inProgress,
-                              'Descargando',
+                              locale.ddDownloading,
                               Icons.downloading,
                               Colors.blue,
                             ),
@@ -247,7 +252,7 @@ class _DetailViewState extends State<_DetailView> {
                             _buildFilterChip(
                               controller,
                               model.DownloadState.completed,
-                              'Completados',
+                              locale.ddCompleted,
                               Icons.check_circle,
                               Colors.green,
                             ),
@@ -255,7 +260,7 @@ class _DetailViewState extends State<_DetailView> {
                             _buildFilterChip(
                               controller,
                               model.DownloadState.pending,
-                              'Pendientes',
+                              locale.ddPending,
                               Icons.schedule,
                               Colors.grey,
                             ),
@@ -270,7 +275,7 @@ class _DetailViewState extends State<_DetailView> {
         // La lista
         Expanded(
           child: list.isEmpty
-              ? const Center(child: Text('No hay elementos que coincidan.'))
+              ? Center(child: Text(locale.ddNoElements))
               : ListView.builder(
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   itemCount: list.length,
@@ -327,7 +332,10 @@ class _DetailViewState extends State<_DetailView> {
     );
   }
 
-  Widget _buildLogsTab(DownloadDetailController controller) {
+  Widget _buildLogsTab(
+    DownloadDetailController controller,
+    AppStringKey locale,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -338,7 +346,7 @@ class _DetailViewState extends State<_DetailView> {
             alignment: Alignment.centerRight,
             child: ElevatedButton.icon(
               icon: const Icon(Icons.refresh, size: 18),
-              label: const Text('Recargar'),
+              label: Text(locale.ddReload),
               onPressed: controller.isLoadingLogs
                   ? null
                   : () => controller.fetchLogs(),
@@ -366,7 +374,7 @@ class _DetailViewState extends State<_DetailView> {
                   child: SingleChildScrollView(
                     child: SelectableText(
                       controller.logs.isEmpty
-                          ? 'No hay logs disponibles.'
+                          ? locale.ddNoLogs
                           : controller.logs,
                       style: const TextStyle(
                         fontFamily: 'monospace',
@@ -380,10 +388,9 @@ class _DetailViewState extends State<_DetailView> {
     );
   }
 
-  Widget _buildConfigTab(Map<String, dynamic>? options) {
+  Widget _buildConfigTab(Map<String, dynamic>? options, AppStringKey locale) {
     if (options == null || options.isEmpty) {
-      return const Center(
-        child: Text('No hay configuración disponible para esta descarga.'),
+      return Center(child: Text(locale.ddNoSettings),
       );
     }
 

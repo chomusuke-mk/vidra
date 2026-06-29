@@ -4,6 +4,46 @@ class AppStringKey {
   final Map<String, String> _cadenasLocalizadas = <String, String>{};
   // Strings de la pantalla de downloads, prefijo d ----------------
   String get dTitle => _cadenasLocalizadas['d_title'] ?? '';
+  String get dEverything => _cadenasLocalizadas['d_everything'] ?? '';
+  String get dInProgress => _cadenasLocalizadas['d_in_progress'] ?? '';
+  String get dCompleted => _cadenasLocalizadas['d_completed'] ?? '';
+  String get dError => _cadenasLocalizadas['d_error'] ?? '';
+  // Barra superior
+  String get dVideoUrl => _cadenasLocalizadas['d_video_url'] ?? '';
+  String get dSearchDownloads =>
+      _cadenasLocalizadas['d_search_downloads'] ?? '';
+  String get dFilterEverything =>
+      _cadenasLocalizadas['d_filter_everything'] ?? '';
+  String get dFilterVideoAudio =>
+      _cadenasLocalizadas['d_filter_video_audio'] ?? '';
+  String get dFilterPlaylist => _cadenasLocalizadas['d_filter_playlist'] ?? '';
+  // Tooltips
+  String get dPaste => _cadenasLocalizadas['d_paste'] ?? '';
+  String get dFilters => _cadenasLocalizadas['d_filters'] ?? '';
+  String get dSettings => _cadenasLocalizadas['d_settings'] ?? '';
+  // Buttons
+  String get dDownload => _cadenasLocalizadas['d_download'] ?? '';
+  // Messages
+  String get dNoDownloads => _cadenasLocalizadas['d_no_downloads'] ?? '';
+  // Strings de la pantalla de download details, prefijo dd  ----------------
+  String get ddTitle => _cadenasLocalizadas['dd_title'] ?? '';
+  String get ddSubDownloads => _cadenasLocalizadas['dd_sub_downloads'] ?? '';
+  String get ddLogs => _cadenasLocalizadas['dd_logs'] ?? '';
+  String get ddSettings => _cadenasLocalizadas['dd_settings'] ?? '';
+  // Buttons
+  String get ddReload => _cadenasLocalizadas['dd_reload'] ?? '';
+  String get ddErrors => _cadenasLocalizadas['dd_errors'] ?? '';
+  String get ddDownloading => _cadenasLocalizadas['dd_downloading'] ?? '';
+  String get ddCompleted => _cadenasLocalizadas['dd_completed'] ?? '';
+  String get ddPending => _cadenasLocalizadas['dd_pending'] ?? '';
+  // Messages
+  String get ddElements => _cadenasLocalizadas['dd_elements'] ?? '';
+  String get ddSearchList => _cadenasLocalizadas['dd_search_list'] ?? '';
+  String get ddNoElements => _cadenasLocalizadas['dd_no_elements'] ?? '';
+  String get ddNoLogs => _cadenasLocalizadas['dd_no_logs'] ?? '';
+  String get ddNoSettings => _cadenasLocalizadas['dd_no_settings'] ?? '';
+  // Tooltips
+  String get ddSearchFilter => _cadenasLocalizadas['dd_search_filter'] ?? '';
   // Strings de la pantalla de settings, prefijo s  ----------------
   String get sTitle => _cadenasLocalizadas['s_title'] ?? '';
   String get sGeneral => _cadenasLocalizadas['s_general'] ?? '';
@@ -222,6 +262,43 @@ class AppStringKey {
   final List<String> _allAppStrings = [
     // Pantalla Downloads -------------------------------- d_
     'd_title',
+    'd_everything',
+    'd_in_progress',
+    'd_completed',
+    'd_error',
+    // Barra superior
+    'd_video_url',
+    'd_search_downloads',
+    'd_filter_everything',
+    'd_filter_video_audio',
+    'd_filter_playlist',
+    // Tooltips
+    'd_paste',
+    'd_filters',
+    'd_settings',
+    // Buttons
+    'd_download',
+    // Messages
+    'd_no_downloads',
+    // Pantalla Download Details -------------------------- dd_
+    'dd_title',
+    'dd_sub_downloads',
+    'dd_logs',
+    'dd_settings',
+    // Buttons
+    'dd_reload',
+    'dd_errors',
+    'dd_downloading',
+    'dd_completed',
+    'dd_pending',
+    // Messages
+    'dd_elements',
+    'dd_search_list',
+    'dd_no_elements',
+    'dd_no_logs',
+    'dd_no_settings',
+    // Tooltips
+    'dd_search_filter',
     // Pantalla Settings -------------------------------- s_
     's_title',
     's_general',
