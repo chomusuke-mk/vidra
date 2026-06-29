@@ -72,12 +72,23 @@ jobs:
           flutter pub get
           dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Android.txt -p Android --verbose
 
+      - name: Configure Android signing
+        env:
+          ANDROID_KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_B64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          echo "$ANDROID_KEYSTORE_B64" | base64 -d > android/upload-keystore.pkcs12
+          echo "storePassword=$ANDROID_KEYSTORE_PASSWORD" > android/key.properties
+          echo "keyPassword=$ANDROID_KEY_PASSWORD" >> android/key.properties
+          echo "keyAlias=$ANDROID_KEY_ALIAS" >> android/key.properties
+          echo "storeFile=upload-keystore.pkcs12" >> android/key.properties
+
       - name: Build Flutter APKs
         run: |
           flutter build apk --release
           cp build/app/outputs/flutter-apk/app-release.apk vidra-android.apk
-          
-          flutter build apk --split-per-abi --release
           cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk vidra-android-arm64-v8a.apk
           cp build/app/outputs/flutter-apk/app-x86_64-release.apk vidra-android-x86_64.apk
 
@@ -252,6 +263,22 @@ jobs:
           path: artifacts
           merge-multiple: true
 
+      - name: Generate Checksums
+        working-directory: artifacts
+        run: |
+          sha256sum vidra-* > SHA2-256SUMS
+          sha512sum vidra-* > SHA2-512SUMS
+
+      - name: Generate GPG Signatures
+        working-directory: artifacts
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+          gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" --detach-sign --output SHA2-256SUMS.sig SHA2-256SUMS
+          gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" --detach-sign --output SHA2-512SUMS.sig SHA2-512SUMS
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
@@ -266,5 +293,9 @@ jobs:
             artifacts/vidra-android.apk
             artifacts/vidra-android-arm64-v8a.apk
             artifacts/vidra-android-x86_64.apk
+            artifacts/SHA2-256SUMS
+            artifacts/SHA2-512SUMS
+            artifacts/SHA2-256SUMS.sig
+            artifacts/SHA2-512SUMS.sig
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
