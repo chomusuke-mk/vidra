@@ -1,1002 +1,270 @@
-name: Vidra Cross-Platform Releases
+name: Vidra Release Workflow
 
-"on":
-  schedule:
-    - cron: '30 6 * * *'
+on:
   workflow_dispatch:
     inputs:
-      force_build:
-        description: 'Force build even if no version changes detected'
-        required: false
-        default: false
-        type: boolean
-
-permissions:
-  contents: write
-
-env:
-  FLUTTER_VERSION: 3.38.5
-  # Keep this OUTSIDE build/ because some packaging tools run `flutter clean`
-  # which deletes build/ and would break Serious Python asset injection.
-  SERIOUS_PYTHON_SITE_PACKAGES: ${{ github.workspace }}/.serious_python/site-packages
-  VIDRA_FFMPEG_REPO: chomusuke-mk/vidra-ffmpeg
+      version:
+        description: 'Versión de la aplicación (ej. v1.0.0)'
+        required: true
+        type: string
 
 jobs:
-  resolve-versions:
-    name: Resolve versions
+  build-android:
+    name: Build Android APKs
     runs-on: ubuntu-latest
-    outputs:
-      ytdlp: ${{ steps.versions.outputs.ytdlp }}
-      ytdlpejs: ${{ steps.versions.outputs.ytdlpejs }}
-      app_version: ${{ steps.versions.outputs.app_version }}
-      tag: ${{ steps.versions.outputs.tag }}
-      timestamp: ${{ steps.versions.outputs.timestamp }}
-      build_number: ${{ steps.versions.outputs.build_number }}
-      should_build: ${{ steps.versions.outputs.should_build }}
-      release_assets_present: ${{ steps.versions.outputs.release_assets_present }}
-      ffmpeg_tag: ${{ steps.vidra_ffmpeg.outputs.ffmpeg_tag }}
-      ffmpeg_windows_zip: ${{ steps.vidra_ffmpeg.outputs.ffmpeg_windows_zip }}
-      ffmpeg_linux_zip: ${{ steps.vidra_ffmpeg.outputs.ffmpeg_linux_zip }}
-      ffmpeg_android_arm64_v8a_zip: ${{ steps.vidra_ffmpeg.outputs.ffmpeg_android_arm64_v8a_zip }}
-      ffmpeg_android_armeabi_v7a_zip: ${{ steps.vidra_ffmpeg.outputs.ffmpeg_android_armeabi_v7a_zip }}
-      ffmpeg_android_x86_zip: ${{ steps.vidra_ffmpeg.outputs.ffmpeg_android_x86_zip }}
-      ffmpeg_android_x86_64_zip: ${{ steps.vidra_ffmpeg.outputs.ffmpeg_android_x86_64_zip }}
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Resolve versions via script
-        id: versions
-        shell: bash
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          python tool/check_latest_ytdlp.py \
-            --requirements app/requirements.txt \
-            --pubspec pubspec.yaml \
-            --github-repo "${{ github.repository }}" \
-            --github-output "$GITHUB_OUTPUT"
-
-      - name: Resolve latest vidra-ffmpeg release
-        id: vidra_ffmpeg
-        shell: bash
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          python - <<'PY'
-          import os
-          import json
-          import urllib.request
-
-          repo = os.environ.get('VIDRA_FFMPEG_REPO', 'chomusuke-mk/vidra-ffmpeg')
-          url = f'https://api.github.com/repos/{repo}/releases/latest'
-          headers = {'Accept': 'application/vnd.github+json'}
-          token = os.environ.get('GITHUB_TOKEN')
-          if token:
-            headers['Authorization'] = f'Bearer {token}'
-          req = urllib.request.Request(url, headers=headers)
-          with urllib.request.urlopen(req) as r:
-            data = json.load(r)
-
-          assets = data.get('assets') or []
-          update_asset = None
-          for asset in assets:
-            if isinstance(asset, dict) and asset.get('name') == '_update':
-              update_asset = asset
-              break
-
-          update_map = {}
-          if update_asset and update_asset.get('browser_download_url'):
-            update_url = update_asset['browser_download_url']
-            req2 = urllib.request.Request(update_url, headers=headers)
-            with urllib.request.urlopen(req2) as r:
-              update_text = r.read().decode('utf-8', 'replace')
-            for raw_line in update_text.splitlines():
-              line = raw_line.strip()
-              if not line or line.startswith('#'):
-                continue
-              if '=' not in line:
-                continue
-              k, v = line.split('=', 1)
-              k = k.strip()
-              v = v.strip()
-              if k:
-                update_map[k] = v
-
-          tag = (update_map.get('tag') or data.get('tag_name') or '').strip()
-          if not tag:
-            raise SystemExit('Could not resolve vidra-ffmpeg latest release tag')
-
-          def _variants(s: str):
-            s = s.strip()
-            if not s:
-              return []
-            swapped = s.replace('-', '_') if '-' in s else s.replace('_', '-')
-            if swapped == s:
-              return [s]
-            return [s, swapped]
-
-          def _resolve_file(system_id: str) -> str:
-            # Prefer direct file.* mapping.
-            for v in _variants(system_id):
-              val = update_map.get(f'file.{v}')
-              if val and val.strip():
-                return val.strip()
-
-            # Then try upgrade.* => file.* (canonical id).
-            to_id = None
-            for v in _variants(system_id):
-              val = update_map.get(f'upgrade.{v}')
-              if val and val.strip():
-                to_id = val.strip()
-                break
-            if to_id:
-              for v in _variants(to_id):
-                val = update_map.get(f'file.{v}')
-                if val and val.strip():
-                  return val.strip()
-
-            return ''
-
-          outputs = {
-            'ffmpeg_tag': tag,
-            'ffmpeg_windows_zip': _resolve_file('windows') or f'{tag}-windows.zip',
-            'ffmpeg_linux_zip': _resolve_file('linux') or f'{tag}-linux.zip',
-            'ffmpeg_android_arm64_v8a_zip': _resolve_file('android-arm64-v8a') or f'{tag}-android-arm64-v8a.zip',
-            'ffmpeg_android_armeabi_v7a_zip': _resolve_file('android-armeabi-v7a') or f'{tag}-android-armeabi-v7a.zip',
-            'ffmpeg_android_x86_zip': _resolve_file('android-x86') or f'{tag}-android-x86.zip',
-            'ffmpeg_android_x86_64_zip': _resolve_file('android-x86_64') or f'{tag}-android-x86_64.zip',
-          }
-
-          # GitHub Actions output
-          github_output = os.environ.get('GITHUB_OUTPUT')
-          if not github_output:
-            raise SystemExit('Missing GITHUB_OUTPUT environment variable')
-
-          with open(github_output, 'a', encoding='utf-8') as f:
-            for k, v in outputs.items():
-              f.write(f"{k}={v}\n")
-          print(f"Resolved vidra-ffmpeg tag: {tag}")
-          PY
-
-  android:
-    name: Android packages
-    needs: resolve-versions
-    if: needs.resolve-versions.outputs.should_build == 'true' || (github.event_name == 'workflow_dispatch' && github.event.inputs.force_build == 'true')
-    runs-on: ubuntu-latest
-    env:
-      APP_VERSION: ${{ needs.resolve-versions.outputs.app_version }}
-      BUILD_TAG: ${{ needs.resolve-versions.outputs.tag }}
-      BUILD_TIMESTAMP: ${{ needs.resolve-versions.outputs.timestamp }}
-      BUILD_NUMBER: ${{ needs.resolve-versions.outputs.build_number }}
-      YTDLP_VERSION: ${{ needs.resolve-versions.outputs.ytdlp }}
-      YTDLPEJS_VERSION: ${{ needs.resolve-versions.outputs.ytdlpejs }}
-      FFMPEG_TAG: ${{ needs.resolve-versions.outputs.ffmpeg_tag }}
-      FFMPEG_ANDROID_ARM64_V8A_ZIP: ${{ needs.resolve-versions.outputs.ffmpeg_android_arm64_v8a_zip }}
-      FFMPEG_ANDROID_ARMEABI_V7A_ZIP: ${{ needs.resolve-versions.outputs.ffmpeg_android_armeabi_v7a_zip }}
-      FFMPEG_ANDROID_X86_ZIP: ${{ needs.resolve-versions.outputs.ffmpeg_android_x86_zip }}
-      FFMPEG_ANDROID_X86_64_ZIP: ${{ needs.resolve-versions.outputs.ffmpeg_android_x86_64_zip }}
-      GRADLE_USER_HOME: ${{ github.workspace }}/.gradle
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Prepare vidra-ffmpeg cache dir
-        shell: bash
-        run: mkdir -p .cache/vidra-ffmpeg
-
-      - name: Cache vidra-ffmpeg downloads
-        uses: actions/cache@v4
+      - name: Setup Java
+        uses: actions/setup-java@v3
         with:
-          path: .cache/vidra-ffmpeg
-          key: vidra-ffmpeg-${{ needs.resolve-versions.outputs.ffmpeg_tag }}-Android
+          distribution: 'zulu'
+          java-version: '17'
 
-      - name: Install vidra-ffmpeg binaries (Android)
-        shell: bash
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Setup Environment Variables
         run: |
-          set -euo pipefail
-          tag="${FFMPEG_TAG}"
-          repo="${VIDRA_FFMPEG_REPO}"
-          cache_dir=".cache/vidra-ffmpeg"
-          mkdir -p "$cache_dir"
+          mkdir -p build/site-packages build/app
+          echo "SERIOUS_PYTHON_SITE_PACKAGES=${GITHUB_WORKSPACE}/build/site-packages" >> $GITHUB_ENV
+          echo "SERIOUS_PYTHON_APP=${GITHUB_WORKSPACE}/build/app" >> $GITHUB_ENV
 
-          declare -A suffix_by_abi
-          suffix_by_abi[arm64-v8a]="android-arm64-v8a"
-          suffix_by_abi[armeabi-v7a]="android-armeabi-v7a"
-          suffix_by_abi[x86]="android-x86"
-          suffix_by_abi[x86_64]="android-x86_64"
+      - name: Download & Extract Backend
+        run: |
+          BACKEND_URL=$(curl -s https://api.github.com/repos/chomusuke-mk/vidra-backend/releases/latest | jq -r '.assets[] | select(.name=="app.zip") | .browser_download_url')
+          wget -qO backend.zip "$BACKEND_URL"
+          mkdir -p app/src
+          unzip -q backend.zip -d app/src
 
-          declare -A file_by_abi
-          file_by_abi[arm64-v8a]="${FFMPEG_ANDROID_ARM64_V8A_ZIP:-}"
-          file_by_abi[armeabi-v7a]="${FFMPEG_ANDROID_ARMEABI_V7A_ZIP:-}"
-          file_by_abi[x86]="${FFMPEG_ANDROID_X86_ZIP:-}"
-          file_by_abi[x86_64]="${FFMPEG_ANDROID_X86_64_ZIP:-}"
-
-          for abi in arm64-v8a armeabi-v7a x86 x86_64; do
-            suffix="${suffix_by_abi[$abi]}"
-            file="${file_by_abi[$abi]}"
-            if [ -z "$file" ]; then
-              file="${tag}-${suffix}.zip"
+      - name: Download FFmpeg (Android)
+        run: |
+          FFMPEG_RELEASE=$(curl -s https://api.github.com/repos/chomusuke-mk/vidra-ffmpeg/releases/latest)
+          for ABI in "arm64-v8a" "x86_64"; do
+            URL=$(echo "$FFMPEG_RELEASE" | jq -r ".assets[] | select(.name | test(\"ffmpeg.*-full-android-$ABI.*\\\\.zip\", \"i\")) | .browser_download_url" | head -n 1)
+            if [ -z "$URL" ] || [ "$URL" == "null" ]; then
+              URL=$(echo "$FFMPEG_RELEASE" | jq -r ".assets[] | select(.name | test(\"ffmpeg.*-android-$ABI.*\\\\.zip\", \"i\")) | .browser_download_url" | head -n 1)
             fi
-            zip_path="$cache_dir/${file}"
-            url="https://github.com/${repo}/releases/download/${tag}/${file}"
-
-            if [ ! -f "$zip_path" ]; then
-              echo "Downloading $url"
-              curl -L --retry 3 --retry-delay 2 -o "$zip_path" "$url"
-            else
-              echo "Using cached $zip_path"
-            fi
-
-            out_dir="android/app/src/main/jniLibs/${abi}"
-            mkdir -p "$out_dir"
-            python - "$zip_path" "$out_dir" <<'PY'
-          import os
-          import shutil
-          import sys
-          import tempfile
-          import zipfile
-          zip_path = sys.argv[1]
-          out_dir = sys.argv[2]
-          with zipfile.ZipFile(zip_path) as z:
-            names = {i.filename for i in z.infolist() if not i.is_dir()}
-            for required in ('ffmpeg', 'ffprobe'):
-              if required not in names:
-                raise SystemExit(f"{zip_path} missing {required}; found: {sorted(names)}")
-            with tempfile.TemporaryDirectory() as tmp:
-              z.extract('ffmpeg', tmp)
-              z.extract('ffprobe', tmp)
-              shutil.copyfile(os.path.join(tmp, 'ffmpeg'), os.path.join(out_dir, 'libffmpeg.so'))
-              shutil.copyfile(os.path.join(tmp, 'ffprobe'), os.path.join(out_dir, 'libffprobe.so'))
-          PY
+            wget -qO ffmpeg_${ABI}.zip "$URL"
+            unzip -q ffmpeg_${ABI}.zip -d ffmpeg_${ABI}
+            
+            OUT_DIR="android/app/src/main/jniLibs/$ABI"
+            mkdir -p "$OUT_DIR"
+            cp ffmpeg_${ABI}/ffmpeg "$OUT_DIR/libffmpeg.so"
+            cp ffmpeg_${ABI}/ffprobe "$OUT_DIR/libffprobe.so"
           done
 
-      - name: Aggressive disk cleanup
+      - name: Download QuickJS (Android)
         run: |
-          sudo rm -rf /usr/share/dotnet /opt/ghc /opt/hostedtoolcache/CodeQL || true
-          sudo rm -rf /usr/local/lib/android/sdk/system-images || true
-          sudo rm -rf /usr/local/lib/android/sdk/.android/build-cache || true
-          df -h
+          QJ_RELEASE=$(curl -s https://api.github.com/repos/chomusuke-mk/vidra-quickjs/releases/latest)
+          for ABI in "arm64-v8a" "x86_64"; do
+            URL=$(echo "$QJ_RELEASE" | jq -r ".assets[] | select(.name | contains(\"quickjs-android-$ABI\")) | .browser_download_url" | head -n 1)
+            OUT_DIR="android/app/src/main/jniLibs/$ABI"
+            mkdir -p "$OUT_DIR"
+            wget -qO "$OUT_DIR/libquickjs.so" "$URL"
+          done
 
-      - name: Install Java
-        uses: actions/setup-java@v5
-        with:
-          distribution: microsoft
-          java-version: '21'
-          cache: gradle
-
-      - name: Install Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: ${{ env.FLUTTER_VERSION }}
-          channel: stable
-
-      - name: Flutter pub get
-        run: flutter pub get
-
-      - name: Prepare site-packages dir
-        run: mkdir -p "$SERIOUS_PYTHON_SITE_PACKAGES"
-
-      - name: Package backend for Android (serious_python)
+      - name: Package Serious Python (Android)
         run: |
-          dart run serious_python:main package app/src \
-            --requirements -rapp/requirements.prod.txt \
-            --requirements yt-dlp=="$YTDLP_VERSION" \
-            --requirements yt-dlp-ejs=="$YTDLPEJS_VERSION" \
-            -p Android \
-            --verbose
+          flutter pub get
+          dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Android.txt -p Android --verbose
 
-      - name: Configure Android signing
-        env:
-          ANDROID_KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_B64 }}
-          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
-          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+      - name: Build Flutter APKs
         run: |
-          echo "$ANDROID_KEYSTORE_B64" | base64 -d > android/upload-keystore.pkcs12
-          cat > android/key.properties <<EOF
-          storePassword=$ANDROID_KEYSTORE_PASSWORD
-          keyPassword=$ANDROID_KEY_PASSWORD
-          keyAlias=$ANDROID_KEY_ALIAS
-          storeFile=upload-keystore.pkcs12
-          EOF
+          flutter build apk --release
+          cp build/app/outputs/flutter-apk/app-release.apk vidra-android.apk
+          
+          flutter build apk --split-per-abi --release
+          cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk vidra-android-arm64-v8a.apk
+          cp build/app/outputs/flutter-apk/app-x86_64-release.apk vidra-android-x86_64.apk
 
-      - name: Cache Rust build
-        uses: actions/cache@v4
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
         with:
+          name: android-apks
           path: |
-            ~/.cargo/registry
-            ~/.cargo/git
-            android/build
-            .dart_tool
-          key: ${{ runner.os }}-rust-flutter-${{ hashFiles('**/Cargo.lock', 'pubspec.lock') }}
+            vidra-android.apk
+            vidra-android-arm64-v8a.apk
+            vidra-android-x86_64.apk
+          retention-days: 1
 
-      - name: Build universal APK (signed)
-        run: flutter build apk --release --build-name ${BUILD_TAG} --build-number ${BUILD_NUMBER}
-
-      - name: Collect Android artifacts
-        run: |
-          mkdir -p dist
-          cp build/app/outputs/apk/release/app-universal-release.apk dist/vidra-${BUILD_TAG}-android.apk
-          cp build/app/outputs/apk/release/app-arm64-v8a-release.apk dist/vidra-${BUILD_TAG}-android-arm64-v8a.apk
-          cp build/app/outputs/apk/release/app-armeabi-v7a-release.apk dist/vidra-${BUILD_TAG}-android-armeabi-v7a.apk
-          cp build/app/outputs/apk/release/app-x86-release.apk dist/vidra-${BUILD_TAG}-android-x86.apk
-          cp build/app/outputs/apk/release/app-x86_64-release.apk dist/vidra-${BUILD_TAG}-android-x86_64.apk
-
-      - name: Upload Android artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: android-${{ env.BUILD_TAG }}
-          path: dist/*.apk
-          compression-level: 0
-          if-no-files-found: error
-
-  windows:
-    name: Windows installer
-    needs: resolve-versions
-    if: needs.resolve-versions.outputs.should_build == 'true' || (github.event_name == 'workflow_dispatch' && github.event.inputs.force_build == 'true')
-    runs-on: windows-latest
-    env:
-      APP_VERSION: ${{ needs.resolve-versions.outputs.app_version }}
-      BUILD_TAG: ${{ needs.resolve-versions.outputs.tag }}
-      BUILD_TIMESTAMP: ${{ needs.resolve-versions.outputs.timestamp }}
-      BUILD_NUMBER: ${{ needs.resolve-versions.outputs.build_number }}
-      YTDLP_VERSION: ${{ needs.resolve-versions.outputs.ytdlp }}
-      YTDLPEJS_VERSION: ${{ needs.resolve-versions.outputs.ytdlpejs }}
-      FFMPEG_TAG: ${{ needs.resolve-versions.outputs.ffmpeg_tag }}
-      FFMPEG_WINDOWS_ZIP: ${{ needs.resolve-versions.outputs.ffmpeg_windows_zip }}
-      WINDOWS_SIGNING_PFX: ${{ secrets.WINDOWS_SIGNING_PFX }}
-      WINDOWS_SIGNING_PASSWORD: ${{ secrets.WINDOWS_SIGNING_PASSWORD }}
-      PFX_PATH: ''
-      SIGNTOOL: ''
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Prepare vidra-ffmpeg cache dir
-        shell: pwsh
-        run: |
-          New-Item -ItemType Directory -Path .cache\vidra-ffmpeg -Force | Out-Null
-
-      - name: Cache vidra-ffmpeg downloads
-        uses: actions/cache@v4
-        with:
-          path: .cache/vidra-ffmpeg
-          key: vidra-ffmpeg-${{ needs.resolve-versions.outputs.ffmpeg_tag }}-Windows
-
-      - name: Install vidra-ffmpeg binaries (Windows)
-        shell: pwsh
-        run: |
-          $tag = "$env:FFMPEG_TAG"
-          $repo = "$env:VIDRA_FFMPEG_REPO"
-          $cacheDir = ".cache\\vidra-ffmpeg"
-          New-Item -ItemType Directory -Path $cacheDir -Force | Out-Null
-
-          $file = "$env:FFMPEG_WINDOWS_ZIP"
-          if ([string]::IsNullOrWhiteSpace($file)) {
-            $file = "$tag-windows.zip"
-          }
-
-          $zipPath = Join-Path $cacheDir $file
-          $url = "https://github.com/$repo/releases/download/$tag/$file"
-
-          if (-not (Test-Path $zipPath)) {
-            Write-Host "Downloading $url"
-            Invoke-WebRequest -Uri $url -OutFile $zipPath
-          } else {
-            Write-Host "Using cached $zipPath"
-          }
-
-          $extractDir = Join-Path $cacheDir "extract-windows"
-          if (Test-Path $extractDir) { Remove-Item -Recurse -Force $extractDir }
-          New-Item -ItemType Directory -Path $extractDir -Force | Out-Null
-          Expand-Archive -Path $zipPath -DestinationPath $extractDir -Force
-
-          New-Item -ItemType Directory -Path "windows\\ffmpeg" -Force | Out-Null
-          Copy-Item (Join-Path $extractDir "ffmpeg.exe") "windows\\ffmpeg\\ffmpeg.exe" -Force
-          Copy-Item (Join-Path $extractDir "ffprobe.exe") "windows\\ffmpeg\\ffprobe.exe" -Force
-
-      - name: Install Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: ${{ env.FLUTTER_VERSION }}
-          channel: stable
-
-      - name: Flutter pub get
-        run: flutter pub get
-
-      - name: Prepare site-packages dir
-        run: mkdir build\site-packages
-        shell: pwsh
-
-      - name: Package backend for Windows (serious_python)
-        shell: pwsh
-        env:
-          SERIOUS_PYTHON_ALLOW_SOURCE_DISTRIBUTIONS: "false"
-        run: |
-          dart run serious_python:main package app/src `
-            --requirements "-rapp/requirements.prod.txt" `
-            --requirements yt-dlp==$env:YTDLP_VERSION `
-            --requirements yt-dlp-ejs==$env:YTDLPEJS_VERSION `
-            -p Windows `
-            --verbose
-
-      - name: Build Flutter Windows app
-        run: flutter build windows --release --build-name $env:BUILD_TAG --build-number $env:BUILD_NUMBER
-        shell: pwsh
-
-      - name: Patch installer metadata for version
-        shell: pwsh
-        run: |
-          (Get-Content installer.iss) `
-            -replace '^AppVersion=.*', "AppVersion=$env:BUILD_TAG" `
-            -replace '^AppVerName=.*', "AppVerName=Vidra $env:BUILD_TAG" `
-            -replace '^OutputBaseFilename=.*', "OutputBaseFilename=Vidra-Installer-$env:BUILD_TAG" `
-            -replace '^VersionInfoVersion=.*', "VersionInfoVersion=$env:BUILD_TAG.0" `
-            -replace '^VersionInfoProductVersion=.*', "VersionInfoProductVersion=$env:BUILD_TAG" `
-            | Set-Content installer.iss
-
-      - name: Build installer (Inno Setup)
-        shell: pwsh
-        run: iscc installer.iss
-
-      - name: Import Windows signing certificate
-        if: env.WINDOWS_SIGNING_PFX != ''
-        shell: pwsh
-        run: |
-          $pfxPath = Join-Path $env:RUNNER_TEMP 'codesign.pfx'
-          [IO.File]::WriteAllBytes($pfxPath, [Convert]::FromBase64String($env:WINDOWS_SIGNING_PFX))
-          echo "PFX_PATH=$pfxPath" >> $env:GITHUB_ENV
-
-      - name: Locate signtool
-        if: env.WINDOWS_SIGNING_PFX != '' && env.WINDOWS_SIGNING_PASSWORD != ''
-        shell: pwsh
-        run: |
-          $candidates = @()
-          $kitRoot = Join-Path "${env:ProgramFiles(x86)}" 'Windows Kits\10\bin'
-          if (Test-Path $kitRoot) {
-            $kitMatches = Get-ChildItem -Path $kitRoot -Recurse -Filter signtool.exe -ErrorAction SilentlyContinue | Sort-Object FullName -Descending | Select-Object -ExpandProperty FullName
-            $candidates += $kitMatches
-          }
-          $vsPath = &"${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -requires Microsoft.Component.MSBuild -property installationPath 2>$null
-          if ($vsPath) {
-            $msvcBin = Get-ChildItem -Path (Join-Path $vsPath 'VC\Tools\MSVC') -Directory | Sort-Object Name -Descending | Select-Object -First 1
-            if ($msvcBin) {
-              $candidates += Join-Path $msvcBin.FullName 'bin\Hostx64\x64\signtool.exe'
-            }
-          }
-          $signtool = $candidates | Where-Object { Test-Path $_ } | Select-Object -First 1
-          if (-not $signtool) {
-            $signtool = (Get-Command signtool.exe -ErrorAction SilentlyContinue).Path
-          }
-          if (-not $signtool) { throw 'signtool.exe not found' }
-          "SIGNTOOL=$signtool" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding ASCII
-
-      - name: Sign installer
-        if: env.PFX_PATH != '' && env.WINDOWS_SIGNING_PASSWORD != ''
-        shell: pwsh
-        run: |
-          $exe = "build\installer\Vidra-Installer-$env:BUILD_TAG.exe"
-          & "$env:SIGNTOOL" sign /f "$env:PFX_PATH" /p "$env:WINDOWS_SIGNING_PASSWORD" /fd SHA256 /tr http://timestamp.digicert.com /td SHA256 "$exe"
-
-      - name: Collect Windows artifact
-        shell: pwsh
-        run: |
-          New-Item -ItemType Directory -Path dist -Force | Out-Null
-          Copy-Item "build\installer\Vidra-Installer-$env:BUILD_TAG.exe" "dist/vidra-$env:BUILD_TAG-windows.exe"
-
-      - name: Upload Windows artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: windows-${{ env.BUILD_TAG }}
-          path: dist/vidra-${{ env.BUILD_TAG }}-windows.exe
-          compression-level: 0
-          if-no-files-found: error
-
-  linux:
-    name: Linux packages
-    needs: resolve-versions
-    if: needs.resolve-versions.outputs.should_build == 'true' || (github.event_name == 'workflow_dispatch' && github.event.inputs.force_build == 'true')
+  build-linux:
+    name: Build Linux Packages
     runs-on: ubuntu-latest
-    env:
-      APP_VERSION: ${{ needs.resolve-versions.outputs.app_version }}
-      BUILD_TAG: ${{ needs.resolve-versions.outputs.tag }}
-      BUILD_TIMESTAMP: ${{ needs.resolve-versions.outputs.timestamp }}
-      BUILD_NUMBER: ${{ needs.resolve-versions.outputs.build_number }}
-      YTDLP_VERSION: ${{ needs.resolve-versions.outputs.ytdlp }}
-      YTDLPEJS_VERSION: ${{ needs.resolve-versions.outputs.ytdlpejs }}
-      FFMPEG_TAG: ${{ needs.resolve-versions.outputs.ffmpeg_tag }}
-      FFMPEG_LINUX_ZIP: ${{ needs.resolve-versions.outputs.ffmpeg_linux_zip }}
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Prepare vidra-ffmpeg cache dir
-        shell: bash
-        run: mkdir -p .cache/vidra-ffmpeg
-
-      - name: Cache vidra-ffmpeg downloads
-        uses: actions/cache@v4
-        with:
-          path: .cache/vidra-ffmpeg
-          key: vidra-ffmpeg-${{ needs.resolve-versions.outputs.ffmpeg_tag }}-Linux
-
-      - name: Install vidra-ffmpeg binaries (Linux)
-        shell: bash
-        run: |
-          set -euo pipefail
-          tag="${FFMPEG_TAG}"
-          repo="${VIDRA_FFMPEG_REPO}"
-          cache_dir=".cache/vidra-ffmpeg"
-          mkdir -p "$cache_dir"
-
-          file="${FFMPEG_LINUX_ZIP:-}"
-          if [ -z "$file" ]; then
-            file="${tag}-linux.zip"
-          fi
-
-          zip_path="$cache_dir/${file}"
-          url="https://github.com/${repo}/releases/download/${tag}/${file}"
-          if [ ! -f "$zip_path" ]; then
-            echo "Downloading $url"
-            curl -L --retry 3 --retry-delay 2 -o "$zip_path" "$url"
-          else
-            echo "Using cached $zip_path"
-          fi
-
-          tmp_dir="$(mktemp -d)"
-          mkdir -p linux/ffmpeg
-
-          ZIP_PATH="$zip_path" TMP_DIR="$tmp_dir" python - <<'PY'
-          import os
-          import shutil
-          import zipfile
-
-          zip_path = os.environ['ZIP_PATH']
-          tmp_dir = os.environ['TMP_DIR']
-
-          with zipfile.ZipFile(zip_path) as z:
-            z.extractall(tmp_dir)
-
-          shutil.copyfile(os.path.join(tmp_dir, 'ffmpeg'), 'linux/ffmpeg/ffmpeg')
-          shutil.copyfile(os.path.join(tmp_dir, 'ffprobe'), 'linux/ffmpeg/ffprobe')
-          PY
-          rm -rf "$tmp_dir"
-
-          chmod +x linux/ffmpeg/ffmpeg linux/ffmpeg/ffprobe
-
-      - name: Install Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: ${{ env.FLUTTER_VERSION }}
-          channel: stable
-
-      - name: Install linux packaging deps
+      - name: Install System Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y \
-            rpm patchelf libfuse2 jq \
-            clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev
-          sudo wget -O /usr/local/bin/appimagetool https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
-          sudo chmod +x /usr/local/bin/appimagetool
+          sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev rpm rpm-common fuse libfuse2
 
-      - name: Flutter pub get
-        run: flutter pub get
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
 
-      - name: Prepare site-packages dir
-        run: mkdir -p "$SERIOUS_PYTHON_SITE_PACKAGES"
-
-      - name: Package backend for Linux (serious_python)
+      - name: Setup Environment Variables
         run: |
-          dart run serious_python:main package app/src \
-            --requirements -rapp/requirements.prod.txt \
-            --requirements yt-dlp=="$YTDLP_VERSION" \
-            --requirements yt-dlp-ejs=="$YTDLPEJS_VERSION" \
-            -p Linux \
-            --verbose
+          mkdir -p build/site-packages build/app
+          echo "SERIOUS_PYTHON_SITE_PACKAGES=${GITHUB_WORKSPACE}/build/site-packages" >> $GITHUB_ENV
+          echo "SERIOUS_PYTHON_APP=${GITHUB_WORKSPACE}/build/app" >> $GITHUB_ENV
 
-      - name: Install fastforge
-        run: dart pub global activate fastforge
-
-      - name: Package linux formats (AppImage, deb, rpm)
+      - name: Download & Extract Backend
         run: |
-          export PATH="$HOME/.pub-cache/bin:$PATH"
-          export VERSION="${BUILD_TAG}"
-          fastforge release --name linux
+          BACKEND_URL=$(curl -s https://api.github.com/repos/chomusuke-mk/vidra-backend/releases/latest | jq -r '.assets[] | select(.name=="app.zip") | .browser_download_url')
+          wget -qO backend.zip "$BACKEND_URL"
+          mkdir -p app/src
+          unzip -q backend.zip -d app/src
 
-      - name: Collect Linux artifacts
+      - name: Download FFmpeg (Linux)
         run: |
-          mkdir -p dist
-          appimage=$(find build -type f -name 'vidra-*-linux.AppImage' | head -n 1)
-          deb=$(find build -type f -name 'vidra-*-linux.deb' | head -n 1)
-          rpm=$(find build -type f -name 'vidra-*-linux.rpm' | head -n 1)
-
-          if [ -z "$appimage" ] || [ -z "$deb" ] || [ -z "$rpm" ]; then
-            echo "Linux artifacts not found under build/" >&2
-            echo "Found AppImage: ${appimage:-<none>}" >&2
-            echo "Found deb: ${deb:-<none>}" >&2
-            echo "Found rpm: ${rpm:-<none>}" >&2
-            find build -maxdepth 5 -type f -print >&2 || true
-            exit 1
+          FFMPEG_RELEASE=$(curl -s https://api.github.com/repos/chomusuke-mk/vidra-ffmpeg/releases/latest)
+          URL=$(echo "$FFMPEG_RELEASE" | jq -r ".assets[] | select(.name | test(\"ffmpeg.*-full-linux.*\\\\.zip\", \"i\")) | .browser_download_url" | head -n 1)
+          if [ -z "$URL" ] || [ "$URL" == "null" ]; then
+            URL=$(echo "$FFMPEG_RELEASE" | jq -r ".assets[] | select(.name | test(\"ffmpeg.*-linux.*\\\\.zip\", \"i\")) | .browser_download_url" | head -n 1)
           fi
+          wget -qO ffmpeg.zip "$URL"
+          unzip -q ffmpeg.zip -d ffmpeg_ext
+          mkdir -p linux
+          cp ffmpeg_ext/ffmpeg linux/ffmpeg
+          cp ffmpeg_ext/ffprobe linux/ffprobe
+          chmod +x linux/ffmpeg linux/ffprobe
 
-          cp "$appimage" "dist/vidra-${BUILD_TAG}-linux.AppImage"
-          cp "$deb" "dist/vidra-${BUILD_TAG}-linux.deb"
-          cp "$rpm" "dist/vidra-${BUILD_TAG}-linux.rpm"
+      - name: Download QuickJS (Linux)
+        run: |
+          QJ_RELEASE=$(curl -s https://api.github.com/repos/chomusuke-mk/vidra-quickjs/releases/latest)
+          URL=$(echo "$QJ_RELEASE" | jq -r '.assets[] | select(.name | contains("quickjs-linux-x86_64")) | .browser_download_url' | head -n 1)
+          mkdir -p linux
+          wget -qO linux/quickjs "$URL"
+          chmod +x linux/quickjs
 
-      - name: Upload Linux artifacts
+      - name: Package Serious Python (Linux)
+        run: |
+          flutter pub get
+          dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Linux.txt -p Linux --verbose
+
+      - name: Build Flutter Linux
+        run: flutter build linux --release
+
+      - name: Create AppImage, DEB and RPM
+        run: |
+          dart pub global activate flutter_distributor
+          export PATH="$PATH":"$HOME/.pub-cache/bin"
+          flutter_distributor package --platform linux --targets appimage,deb,rpm --skip-clean
+          
+          find dist -name "*.AppImage" -exec cp {} vidra-linux.AppImage \;
+          find dist -name "*.deb" -exec cp {} vidra-linux.deb \;
+          find dist -name "*.rpm" -exec cp {} vidra-linux.rpm \;
+
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: linux-${{ env.BUILD_TAG }}
-          path: dist/vidra-${{ env.BUILD_TAG }}-linux.*
-          compression-level: 0
-          if-no-files-found: error
+          name: linux-packages
+          path: |
+            vidra-linux.AppImage
+            vidra-linux.deb
+            vidra-linux.rpm
+          retention-days: 1
 
-  sign-and-sums:
-    name: Final signatures and checksums
-    needs: [resolve-versions, android, windows, linux]
-    if: needs.resolve-versions.outputs.should_build == 'true' || (github.event_name == 'workflow_dispatch' && github.event.inputs.force_build == 'true')
-    runs-on: ubuntu-latest
-    env:
-      BUILD_TAG: ${{ needs.resolve-versions.outputs.tag }}
-      APP_VERSION: ${{ needs.resolve-versions.outputs.app_version }}
-      BUILD_TIMESTAMP: ${{ needs.resolve-versions.outputs.timestamp }}
-      YTDLP_VERSION: ${{ needs.resolve-versions.outputs.ytdlp }}
-      YTDLPEJS_VERSION: ${{ needs.resolve-versions.outputs.ytdlpejs }}
+  build-windows:
+    name: Build Windows Exe
+    runs-on: windows-latest
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Download artifacts
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Setup Environment Variables
+        run: |
+          New-Item -Path "build\site-packages" -ItemType Directory -Force
+          New-Item -Path "build\app" -ItemType Directory -Force
+          echo "SERIOUS_PYTHON_SITE_PACKAGES=${env:GITHUB_WORKSPACE}\build\site-packages" | Out-File -FilePath $env:GITHUB_ENV -Append
+          echo "SERIOUS_PYTHON_APP=${env:GITHUB_WORKSPACE}\build\app" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      - name: Download & Extract Backend
+        run: |
+          $release = Invoke-RestMethod "https://api.github.com/repos/chomusuke-mk/vidra-backend/releases/latest"
+          $asset = $release.assets | Where-Object { $_.name -eq "app.zip" }
+          Invoke-WebRequest -Uri $asset.browser_download_url -OutFile "backend.zip"
+          Expand-Archive -Path "backend.zip" -DestinationPath "app\src" -Force
+
+      - name: Download FFmpeg (Windows)
+        run: |
+          $release = Invoke-RestMethod "https://api.github.com/repos/chomusuke-mk/vidra-ffmpeg/releases/latest"
+          $asset = $release.assets | Where-Object { $_.name -match "ffmpeg.*-full-windows.*\.zip" } | Select-Object -First 1
+          if (-not $asset) {
+              $asset = $release.assets | Where-Object { $_.name -match "ffmpeg.*-windows.*\.zip" } | Select-Object -First 1
+          }
+          Invoke-WebRequest -Uri $asset.browser_download_url -OutFile "ffmpeg.zip"
+          Expand-Archive -Path "ffmpeg.zip" -DestinationPath "ffmpeg_ext" -Force
+          New-Item -ItemType Directory -Force -Path "windows"
+          Copy-Item "ffmpeg_ext\ffmpeg.exe" -Destination "windows\ffmpeg.exe"
+          Copy-Item "ffmpeg_ext\ffprobe.exe" -Destination "windows\ffprobe.exe"
+
+      - name: Download QuickJS (Windows)
+        run: |
+          $release = Invoke-RestMethod "https://api.github.com/repos/chomusuke-mk/vidra-quickjs/releases/latest"
+          $asset = $release.assets | Where-Object { $_.name -match "quickjs-windows-x86_64.exe" } | Select-Object -First 1
+          New-Item -ItemType Directory -Force -Path "windows"
+          Invoke-WebRequest -Uri $asset.browser_download_url -OutFile "windows\quickjs.exe"
+
+      - name: Package Serious Python (Windows)
+        run: |
+          flutter pub get
+          dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Windows.txt -p Windows --verbose
+
+      - name: Build Flutter Windows
+        run: flutter build windows --release
+
+      - name: Package with Inno Setup
+        run: |
+          iscc installer.iss
+          $exe = Get-ChildItem -Path Output -Filter *.exe | Select-Object -First 1
+          Copy-Item $exe.FullName -Destination "vidra-windows.exe"
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-installer
+          path: vidra-windows.exe
+          retention-days: 1
+
+  publish-release:
+    name: Publish Release
+    needs: [build-android, build-linux, build-windows]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download All Artifacts
         uses: actions/download-artifact@v4
         with:
-          path: dist-artifacts
+          path: artifacts
           merge-multiple: true
 
-      - name: Generate SHA2 SUMS
-        shell: bash
-        run: |
-          set -euo pipefail
-          cd dist-artifacts
-          # Hash only the build artifacts present at this point.
-          # (SUMS and signatures are generated after this step.)
-          shopt -s nullglob
-          files=(*)
-          if [ "${#files[@]}" -eq 0 ]; then
-            echo "No artifacts found in dist-artifacts; cannot generate checksums" >&2
-            exit 1
-          fi
-          sha256sum "${files[@]}" > SHA2-256SUMS
-          sha512sum "${files[@]}" > SHA2-512SUMS
-
-      - name: Sign SUMS with GPG
-        shell: bash
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          name: "Vidra ${{ github.event.inputs.version }}"
+          body_path: CHANGELOG.md
+          files: |
+            artifacts/vidra-windows.exe
+            artifacts/vidra-linux.AppImage
+            artifacts/vidra-linux.deb
+            artifacts/vidra-linux.rpm
+            artifacts/vidra-android.apk
+            artifacts/vidra-android-arm64-v8a.apk
+            artifacts/vidra-android-x86_64.apk
         env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-        run: |
-          set -euo pipefail
-
-          if ! command -v gpg >/dev/null 2>&1; then
-            sudo apt-get update
-            sudo apt-get install -y gnupg
-          fi
-
-          if [ -z "${GPG_PRIVATE_KEY:-}" ] || [ -z "${GPG_PASSPHRASE:-}" ]; then
-            echo "Missing GPG_PRIVATE_KEY or GPG_PASSPHRASE secrets; cannot create signatures" >&2
-            exit 1
-          fi
-
-          export GNUPGHOME="$RUNNER_TEMP/gnupg"
-          mkdir -p "$GNUPGHOME"
-          chmod 700 "$GNUPGHOME"
-
-          # Import key (supports either ASCII-armored text or base64-encoded key).
-          if echo "$GPG_PRIVATE_KEY" | grep -q "BEGIN PGP PRIVATE KEY BLOCK"; then
-            printf '%s' "$GPG_PRIVATE_KEY" | gpg --batch --import
-          else
-            printf '%s' "$GPG_PRIVATE_KEY" | base64 -d | gpg --batch --import
-          fi
-
-          cd dist-artifacts
-          gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" \
-            --detach-sign --armor -o SHA2-256SUMS.sig SHA2-256SUMS
-          gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" \
-            --detach-sign --armor -o SHA2-512SUMS.sig SHA2-512SUMS
-
-      - name: Write update metadata
-        shell: bash
-        run: |
-          set -euo pipefail
-          cd dist-artifacts
-
-          # Optional explicit asset name mapping to make updaters resilient to naming changes.
-          # Keep legacy/short keys (android, windows, etc.) plus the more explicit asset-* keys.
-          tag="${BUILD_TAG}"
-
-          android_universal="vidra-${tag}-android.apk"
-          android_arm64="vidra-${tag}-android-arm64-v8a.apk"
-          android_armeabi="vidra-${tag}-android-armeabi-v7a.apk"
-          android_x86="vidra-${tag}-android-x86.apk"
-          android_x86_64="vidra-${tag}-android-x86_64.apk"
-          windows_exe="vidra-${tag}-windows.exe"
-          linux_appimage="vidra-${tag}-linux.AppImage"
-          linux_deb="vidra-${tag}-linux.deb"
-          linux_rpm="vidra-${tag}-linux.rpm"
-
-          {
-            echo "version=${APP_VERSION}"
-            echo "tag=${BUILD_TAG}"
-            echo "timestamp=${BUILD_TIMESTAMP}"
-            echo "yt-dlp=${YTDLP_VERSION}"
-            echo "yt-dlp-ejs=${YTDLPEJS_VERSION}"
-            echo "vidra-ffmpeg=${{ needs.resolve-versions.outputs.ffmpeg_tag }}"
-
-            # Checksums/signatures filenames
-            echo "sha256sums=SHA2-256SUMS"
-            echo "sha256sums_sig=SHA2-256SUMS.sig"
-            echo "sha512sums=SHA2-512SUMS"
-            echo "sha512sums_sig=SHA2-512SUMS.sig"
-
-            # --- Update routing (from -> to) using stable type identifiers ---
-            # If the app can identify the local install/system id, it should look up:
-            #   upgrade.<from_id>=<to_id>
-            # Then resolve the actual filename via:
-            #   file.<to_id>=<asset_filename>
-            # If it cannot identify, it should fall back to a general id (e.g. android).
-
-            # Windows
-            echo "upgrade.windows_x64=windows_x64"
-
-            # Android (general + per-ABI)
-            echo "upgrade.android=android"
-            echo "upgrade.android_arm64_v8a=android_arm64_v8a"
-            echo "upgrade.android_armeabi_v7a=android_armeabi_v7a"
-            echo "upgrade.android_x86=android_x86"
-            echo "upgrade.android_x86_64=android_x86_64"
-
-            # Linux (kept simple for now)
-            echo "upgrade.linux_x64=linux_x64"
-
-            # --- File mapping (id -> asset filename) ---
-            if [ -f "$windows_exe" ]; then
-              echo "file.windows_x64=$windows_exe"
-            fi
-            if [ -f "$linux_appimage" ]; then
-              echo "file.linux_x64=$linux_appimage"
-              echo "file.linux_appimage=$linux_appimage"
-            fi
-            if [ -f "$android_universal" ]; then
-              echo "file.android=$android_universal"
-            fi
-            if [ -f "$android_arm64" ]; then echo "file.android_arm64_v8a=$android_arm64"; fi
-            if [ -f "$android_armeabi" ]; then echo "file.android_armeabi_v7a=$android_armeabi"; fi
-            if [ -f "$android_x86" ]; then echo "file.android_x86=$android_x86"; fi
-            if [ -f "$android_x86_64" ]; then echo "file.android_x86_64=$android_x86_64"; fi
-
-            # Canonical asset keys used by the app updater
-            if [ -f "$windows_exe" ]; then
-              echo "asset-windows=$windows_exe"
-              echo "windows=$windows_exe"
-            fi
-            if [ -f "$linux_appimage" ]; then
-              echo "asset-linux-appimage=$linux_appimage"
-              echo "linux_appimage=$linux_appimage"
-            fi
-            if [ -f "$android_universal" ]; then
-              echo "asset-android-universal=$android_universal"
-              echo "android=$android_universal"
-            fi
-
-            # Optional per-ABI Android assets
-            if [ -f "$android_arm64" ]; then echo "android_arm64_v8a=$android_arm64"; fi
-            if [ -f "$android_armeabi" ]; then echo "android_armeabi_v7a=$android_armeabi"; fi
-            if [ -f "$android_x86" ]; then echo "android_x86=$android_x86"; fi
-            if [ -f "$android_x86_64" ]; then echo "android_x86_64=$android_x86_64"; fi
-
-            # Optional Linux packages
-            if [ -f "$linux_deb" ]; then echo "linux_deb=$linux_deb"; fi
-            if [ -f "$linux_rpm" ]; then echo "linux_rpm=$linux_rpm"; fi
-          } > _update
-
-          # Ensure required checksum assets exist before publishing.
-          test -f SHA2-256SUMS
-          test -f SHA2-512SUMS
-          test -f SHA2-256SUMS.sig
-          test -f SHA2-512SUMS.sig
-
-      - name: Publish GitHub Release assets
-        shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          tag="${BUILD_TAG}"
-          title="Vidra ${BUILD_TAG}"
-
-          update_file="dist-artifacts/_update"
-          if [ ! -f "$update_file" ]; then
-            echo "Missing $update_file" >&2
-            exit 1
-          fi
-
-          get_update_value() {
-            local key="$1"
-            # Print the value part of the first matching key=value line.
-            local line
-            line=$(grep -m1 -E "^${key}=" "$update_file" || true)
-            if [ -z "$line" ]; then
-              return 1
-            fi
-            printf '%s' "${line#*=}"
-          }
-
-          app_version="$(get_update_value version || true)"
-          build_timestamp_iso="$(get_update_value timestamp || true)"
-          ytdlp_version="$(get_update_value yt-dlp || true)"
-          ytdlpejs_version="$(get_update_value yt-dlp-ejs || true)"
-          ffmpeg_tag="$(get_update_value vidra-ffmpeg || true)"
-
-          if [ -z "$build_timestamp_iso" ]; then
-            build_timestamp_iso="${BUILD_TIMESTAMP}"
-          fi
-
-            build_timestamp_pretty="$(python -c $'import sys\nfrom datetime import datetime, timezone\nraw=sys.argv[1].strip()\nif not raw:\n    print(\"\")\n    raise SystemExit(0)\ns=raw.replace(\"Z\",\"+00:00\")\ntry:\n    dt=datetime.fromisoformat(s)\nexcept Exception:\n    print(raw)\n    raise SystemExit(0)\nprint(dt.astimezone(timezone.utc).strftime(\"%Y-%m-%d %H:%M UTC\"))' "$build_timestamp_iso")"
-
-          short_sha="${GITHUB_SHA::7}"
-          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-          download_base_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/download/${tag}"
-
-          # ---- Changes (compare with previous stable release) ----
-          previous_tag=""
-          previous_update_asset_id=""
-          previous_update_path=""
-
-          # Pick the most recent non-draft, non-prerelease tag that isn't the current one.
-          previous_tag=$(gh api "repos/${GITHUB_REPOSITORY}/releases?per_page=50" --jq \
-            --arg current "$tag" \
-            '[.[] | select(.draft==false and .prerelease==false and .tag_name!=$current) | .tag_name][0] // ""' \
-            2>/dev/null || true)
-
-          if [ -n "$previous_tag" ]; then
-            previous_update_asset_id=$(gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${previous_tag}" --jq \
-              '.assets[] | select(.name=="_update") | .id' \
-              2>/dev/null || true)
-          fi
-
-          if [ -n "$previous_update_asset_id" ]; then
-            previous_update_path=$(mktemp)
-            # Download previous _update from GitHub API.
-            gh api \
-              -H "Accept: application/octet-stream" \
-              "repos/${GITHUB_REPOSITORY}/releases/assets/${previous_update_asset_id}" \
-              > "$previous_update_path" || true
-          fi
-
-          prev_get_update_value() {
-            local key="$1"
-            if [ -z "$previous_update_path" ] || [ ! -f "$previous_update_path" ]; then
-              return 1
-            fi
-            local line
-            line=$(grep -m1 -E "^${key}=" "$previous_update_path" || true)
-            if [ -z "$line" ]; then
-              return 1
-            fi
-            printf '%s' "${line#*=}"
-          }
-
-          prev_app_version="$(prev_get_update_value version || true)"
-          prev_ytdlp_version="$(prev_get_update_value yt-dlp || true)"
-          prev_ytdlpejs_version="$(prev_get_update_value yt-dlp-ejs || true)"
-          prev_ffmpeg_tag="$(prev_get_update_value vidra-ffmpeg || true)"
-
-          notes_file=$(mktemp)
-          {
-            echo "## Build information"
-            echo
-            echo "| Field | Value |"
-            echo "|---|---|"
-            echo "| Release tag | \`${tag}\` |"
-            if [ -n "$app_version" ]; then echo "| Vidra version | \`${app_version}\` |"; fi
-            if [ -n "$build_timestamp_pretty" ]; then
-              echo "| Build time (UTC) | ${build_timestamp_pretty} |"
-            fi
-            if [ -n "$build_timestamp_iso" ]; then
-              echo "| Build timestamp (raw) | \`${build_timestamp_iso}\` |"
-            fi
-            echo "| Commit | \`${short_sha}\` |"
-            echo "| CI run | ${run_url} |"
-            echo
-            echo "## Which file to download?"
-            echo
-            readme_base_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${tag}/README.md"
-            echo "[![WHICH FILE TO DOWNLOAD?](https://img.shields.io/badge/WHICH%20FILE%20TO%20DOWNLOAD%3F-Windows-blue?logo=windows&logoColor=white)](${readme_base_url}#windows)"
-            echo "[![WHICH FILE TO DOWNLOAD?](https://img.shields.io/badge/WHICH%20FILE%20TO%20DOWNLOAD%3F-Linux-blue?logo=linux&logoColor=white)](${readme_base_url}#linux)"
-            echo "[![WHICH FILE TO DOWNLOAD?](https://img.shields.io/badge/WHICH%20FILE%20TO%20DOWNLOAD%3F-Android-blue?logo=android&logoColor=white)](${readme_base_url}#android)"
-            echo
-            echo "## Donate"
-            echo
-            echo "[![Donate](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-orange?logo=buymeacoffee&logoColor=white)](https://www.buymeacoffee.com/chomusuke)"
-            echo "[![Donate](https://img.shields.io/badge/Donate-Patreon-critical?logo=patreon&logoColor=white)](https://www.patreon.com/chomusuke_dev)"
-            echo
-            echo "## Changes"
-            echo
-            if [ -n "$previous_tag" ]; then
-              echo "Compared to \`${previous_tag}\`."
-              echo
-            else
-              echo "No previous stable release found to compare."
-              echo
-            fi
-
-            change_count=0
-            if [ -n "$prev_app_version" ] && [ -n "$app_version" ] && [ "$prev_app_version" != "$app_version" ]; then
-              echo "- Updated Vidra from \`${prev_app_version}\` to \`${app_version}\`."
-              change_count=$((change_count + 1))
-            fi
-            if [ -n "$prev_ytdlp_version" ] && [ -n "$ytdlp_version" ] && [ "$prev_ytdlp_version" != "$ytdlp_version" ]; then
-              echo "- Updated yt-dlp from \`${prev_ytdlp_version}\` to \`${ytdlp_version}\`."
-              change_count=$((change_count + 1))
-            fi
-            if [ -n "$prev_ytdlpejs_version" ] && [ -n "$ytdlpejs_version" ] && [ "$prev_ytdlpejs_version" != "$ytdlpejs_version" ]; then
-              echo "- Updated yt-dlp-ejs from \`${prev_ytdlpejs_version}\` to \`${ytdlpejs_version}\`."
-              change_count=$((change_count + 1))
-            fi
-            if [ -n "$prev_ffmpeg_tag" ] && [ -n "$ffmpeg_tag" ] && [ "$prev_ffmpeg_tag" != "$ffmpeg_tag" ]; then
-              echo "- Updated bundled FFmpeg from \`${prev_ffmpeg_tag}\` to \`${ffmpeg_tag}\`."
-              change_count=$((change_count + 1))
-            fi
-
-            # Fallback so every release has a human-friendly summary.
-            if [ "$change_count" -eq 0 ]; then
-              echo "- Minor fixes and stability improvements."
-            else
-              echo "- Minor fixes and stability improvements."
-            fi
-
-            echo
-            echo "## Bundled tools"
-            echo
-            echo "yt-dlp repository: https://github.com/yt-dlp/yt-dlp"
-            echo "yt-dlp-ejs repository: https://github.com/yt-dlp/ejs"
-            echo
-            echo "| Tool | Version |"
-            echo "|---|---|"
-            if [ -n "$ytdlp_version" ]; then echo "| yt-dlp | [\`${ytdlp_version}\`](https://pypi.org/project/yt-dlp/${ytdlp_version}/) |"; fi
-            if [ -n "$ytdlpejs_version" ]; then echo "| yt-dlp-ejs | [\`${ytdlpejs_version}\`](https://pypi.org/project/yt-dlp-ejs/${ytdlpejs_version}/) |"; fi
-            if [ -n "$ffmpeg_tag" ]; then \
-              ffmpeg_repo="${VIDRA_FFMPEG_REPO:-chomusuke-mk/vidra-ffmpeg}"; \
-              echo "| FFmpeg bundle | [\`${ffmpeg_tag}\`](https://github.com/${ffmpeg_repo}/releases/tag/${ffmpeg_tag}) |"; \
-            fi
-            echo
-            echo "## Integrity"
-            echo
-            echo "Checksums and signatures: [SHA2-256SUMS](${download_base_url}/SHA2-256SUMS), [SHA2-256SUMS.sig](${download_base_url}/SHA2-256SUMS.sig), [SHA2-512SUMS](${download_base_url}/SHA2-512SUMS), [SHA2-512SUMS.sig](${download_base_url}/SHA2-512SUMS.sig)."
-            echo
-            echo "## Licensing"
-            echo
-            echo "These assets are distributed under [LICENSE](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${tag}/LICENSE) and may include third-party components under other licenses listed in [THIRD_PARTY_LICENSES.md](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${tag}/THIRD_PARTY_LICENSES.md)."
-          } > "$notes_file"
-
-          if gh release view "$tag" >/dev/null 2>&1; then
-            echo "Release $tag already exists; uploading assets."
-            # Keep release notes up to date on re-runs.
-            gh release edit "$tag" --title "$title" --notes-file "$notes_file"
-          else
-            gh release create "$tag" --title "$title" --notes-file "$notes_file"
-          fi
-
-          # Upload checksums + signatures explicitly first (always required).
-          gh release upload "$tag" \
-            dist-artifacts/SHA2-256SUMS \
-            dist-artifacts/SHA2-256SUMS.sig \
-            dist-artifacts/SHA2-512SUMS \
-            dist-artifacts/SHA2-512SUMS.sig \
-            dist-artifacts/_update \
-            --clobber
-
-          # Upload the remaining build artifacts (platform installers/packages).
-          gh release upload "$tag" dist-artifacts/vidra-* --clobber
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

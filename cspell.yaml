@@ -13,6 +13,7 @@ words:
   - animable
   - antidecuelgues
   - APARTMENTTHREADED
+  - apks
   - APPICON
   - appimage
   - APPL
@@ -99,11 +100,13 @@ words:
   - ifndef
   - infojson
   - INFOPLIST
+  - Inno
   - Instantitation
   - ipad
   - iphone
   - iphoneos
   - irondash
+  - iscc
   - jetbrains
   - jvmargs
   - kasem
@@ -113,6 +116,7 @@ words:
   - libc
   - libffprobe
   - libflutter
+  - libfuse
   - libpython
   - libquickjs
   - lida
@@ -189,6 +193,7 @@ words:
   - SDKROOT
   - selfpromo
   - SERIALIZACIÓN
+  - softprops
   - sourcecode
   - sponsorblock
   - sqflite
@@ -199,6 +204,7 @@ words:
   - subcarpeta
   - SUBLANG
   - Submenús
+  - subosito
   - subproyecto
   - Subtags
   - subviews
@@ -251,3 +257,4 @@ words:
   - youtub
   - youtube
   - ytdlp
+  - zulu
