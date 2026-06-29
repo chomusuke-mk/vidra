@@ -9,10 +9,6 @@ import io.flutter.plugin.common.MethodChannel
 class MainActivity : FlutterActivity() {
     private val CHANNEL = "vidra_channel"
 
-//    override fun getBackgroundMode(): BackgroundMode {
-//      return BackgroundMode.transparent
-//    }
-
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         

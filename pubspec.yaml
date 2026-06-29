@@ -37,7 +37,6 @@ dependencies:
   package_info_plus: ^10.1.0
   shared_preferences: ^2.5.3
   provider: ^6.1.5+1
-  flutter_dotenv: ^6.0.0
   http: ^1.1.0
   cached_network_image: ^3.4.1
   flutter_cache_manager: ^3.4.1
@@ -61,7 +60,6 @@ dependencies:
   open_filex: ^4.7.0
   flutter_slidable: ^4.0.3
   file_picker: ^12.0.0-beta.7
-  flutter_background_service: ^5.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

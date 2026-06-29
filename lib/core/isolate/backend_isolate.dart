@@ -3,7 +3,6 @@ import 'dart:io';
 import 'dart:isolate';
 import 'dart:ui';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
@@ -35,7 +34,19 @@ void backendIsolateMain(Map<String, dynamic> config) async {
   // 2. Inicializamos el entorno para que los canales nativos funcionen en background
   BackgroundIsolateBinaryMessenger.ensureInitialized(rootToken);
   DartPluginRegistrant.ensureInitialized();
-  NotificationService.init();
+  NotificationService.init()
+      .catchError((e) {
+        debugPrint(
+          '🧠 [Isolate] Posible error inicializando NotificationService: $e',
+        );
+      })
+      .whenComplete(() {
+        NotificationService.keepAppAlive().catchError((e) {
+          debugPrint(
+            '🧠 [Isolate] Posible error iniciando keep notification: $e',
+          );
+        });
+      });
 
   debugPrint('🧠 [Isolate] Iniciado correctamente en segundo plano.');
 
@@ -45,7 +56,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
   Timer? healthCheckTimer;
   int failedPings = 0;
   String? pythonAppPath;
-  Future<void>? _cacheRefreshFuture;
+  Future<void>? cacheRefreshFuture;
 
   // Cola de descargas
   final List<Map<String, dynamic>> pendingQueue = [];
@@ -163,10 +174,10 @@ void backendIsolateMain(Map<String, dynamic> config) async {
   // Nueva función segura para refrescar
   Future<void> refreshCacheSafe() {
     // Si ya hay un refresco en curso, devuelve ese mismo Future (no hace llamadas HTTP extra)
-    _cacheRefreshFuture ??= refreshDownloadsCache().whenComplete(() {
-      _cacheRefreshFuture = null;
+    cacheRefreshFuture ??= refreshDownloadsCache().whenComplete(() {
+      cacheRefreshFuture = null;
     });
-    return _cacheRefreshFuture!;
+    return cacheRefreshFuture!;
   }
 
   void startGlobalSubscription() {
@@ -280,22 +291,6 @@ void backendIsolateMain(Map<String, dynamic> config) async {
               imageCache.remove(download.id);
             }
           }
-        }
-
-        // Verificar si hay trabajo activo para mantener la app despierta
-        final isWorking =
-            pendingQueue.isNotEmpty ||
-            cachedDownloads.any(
-              (d) =>
-                  d.state?.value == DownloadState.inProgress ||
-                  d.state?.value == DownloadState.identifying ||
-                  d.state?.value == DownloadState.pending,
-            );
-
-        if (isWorking) {
-          NotificationService.keepAppAlive();
-        } else {
-          NotificationService.letAppSleep();
         }
       },
       onError: (e) {

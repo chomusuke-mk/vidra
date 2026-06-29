@@ -220,6 +220,7 @@ words:
   - userosscache
   - USERPROFILE
   - uvicorn
+  - venv
   - VERSIONINFO
   - vidra
   - vivaldi

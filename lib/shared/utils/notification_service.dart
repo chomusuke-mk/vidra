@@ -276,16 +276,23 @@ class NotificationService {
         >();
 
     await androidImpl?.startForegroundService(
-      id: 9999, // ID fijo para el foreground service
+      id: 696969, // ID fijo para el foreground service
       title: 'Vidra',
-      body: 'Motor de descargas activo en segundo plano',
+      body: 'Background service is running',
       notificationDetails: const AndroidNotificationDetails(
         'vidra_bg_channel', // Un canal distinto para el servicio
-        'Servicio de Fondo',
-        channelDescription: 'Mantiene a Python y Flutter despiertos',
+        'Download in Background',
+        channelDescription: 'Keep Downloads Running in Background',
         importance: Importance.low, // Importancia baja para que no suene
         priority: Priority.low,
+        playSound: false,
+        enableVibration: false,
+        enableLights: false,
+        channelShowBadge: false,
+        visibility: NotificationVisibility.secret,
         ongoing: true, // No se puede deslizar para borrar
+        autoCancel: false, // No se puede borrar automáticamente
+        icon: '@mipmap/ic_launcher', // Icono de la app
       ),
     );
   }

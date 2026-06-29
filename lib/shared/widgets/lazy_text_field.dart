@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:filesystem_picker/filesystem_picker.dart';
+import 'package:vidra/shared/utils/file_picker_service.dart';
 
 class LazyTextField extends StatefulWidget {
   final String value;
@@ -90,7 +91,7 @@ class _LazyTextFieldState extends State<LazyTextField> {
 
       if (widget.library == 'filesystem_picker') {
         // --- Lógica Filesystem Picker ---
-        Directory root = Directory.current;
+        Directory? root;
 
         // Intentamos usar la ruta actual como punto de partida
         if (_controller.text.isNotEmpty) {
@@ -102,14 +103,12 @@ class _LazyTextFieldState extends State<LazyTextField> {
           }
         }
 
-        path = await FilesystemPicker.open(
+        path = await FilePickerService.pickWithFlutter(
           context: context,
           rootDirectory: root,
           fsType: widget.pickDirectory
               ? FilesystemType.folder
               : FilesystemType.file,
-          title: widget.label ?? 'Seleccionar',
-          folderIconColor: Theme.of(context).colorScheme.primary,
         );
       } else {
         // --- Lógica File Picker ---

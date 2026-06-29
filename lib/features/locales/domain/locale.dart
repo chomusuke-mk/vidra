@@ -15,7 +15,7 @@ class AppStringKey {
   // Contenedor
   String get sNoResults => _cadenasLocalizadas['s_no_results'] ?? '';
   String get sDefault => _cadenasLocalizadas['s_default'] ?? '';
-  String get sBest => _cadenasLocalizadas['s_best'] ?? '';
+  String get sBest =>_cadenasLocalizadas['s_best'] ?? '';
   String get sNone => _cadenasLocalizadas['s_none'] ?? '';
   String get sAll => _cadenasLocalizadas['s_all'] ?? '';
   String get sNotConfigured => _cadenasLocalizadas['s_not_configured'] ?? '';
