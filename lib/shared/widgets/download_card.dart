@@ -294,7 +294,7 @@ class DownloadCard extends StatelessWidget {
             child: _buildShadowedIcon(
               _mapTypeIcon(info?.type),
               17,
-              Colors.white,
+              _mapTypeIconColor(info?.type),
             ),
           ),
         ],
@@ -304,7 +304,7 @@ class DownloadCard extends StatelessWidget {
 
   Widget _buildAnimatedStateIcon() {
     final iconData = _mapStateIcon(state?.value);
-    final semanticColor = _mapSemanticColor(state?.value);
+    final semanticColor = state?.subStateColor?.color ?? Colors.white;
 
     // Animación sutil de rebote para descargas en progreso
     if (state?.value == model.DownloadState.inProgress) {
@@ -385,7 +385,7 @@ class DownloadCard extends StatelessWidget {
                         (state?.value == model.DownloadState.inProgress
                             ? null
                             : 1.0),
-                    color: _mapColor(state?.progressColor),
+                    color: state?.progressColor?.color ?? Colors.blue,
                     backgroundColor: Theme.of(
                       context,
                     ).colorScheme.surfaceContainerHighest,
@@ -411,7 +411,7 @@ class DownloadCard extends StatelessWidget {
               state!.subState!,
               style: TextStyle(
                 fontSize: 10,
-                color: _mapColor(state?.subStateColor),
+                color: state?.subStateColor?.color ?? Colors.blue,
               ),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
@@ -425,37 +425,6 @@ class DownloadCard extends StatelessWidget {
   // =========================================================================
   // MAPPERS
   // =========================================================================
-  Color _mapSemanticColor(model.DownloadState? state) {
-    switch (state) {
-      case model.DownloadState.completed:
-        return Colors.greenAccent;
-      case model.DownloadState.failed:
-        return Colors.redAccent;
-      case model.DownloadState.inProgress:
-        return Colors.blueAccent;
-      case model.DownloadState.paused:
-        return Colors.amber;
-      default:
-        return Colors.white;
-    }
-  }
-
-  Color _mapColor(model.ColorEnum? c) {
-    switch (c) {
-      case model.ColorEnum.green:
-        return Colors.green;
-      case model.ColorEnum.yellow:
-        return Colors.amber;
-      case model.ColorEnum.red:
-        return Colors.redAccent;
-      case model.ColorEnum.blue:
-        return Colors.blue;
-      case model.ColorEnum.gray:
-        return Colors.grey;
-      default:
-        return Colors.blue;
-    }
-  }
 
   IconData _mapTypeIcon(model.DownloadType? type) {
     switch (type) {
@@ -466,6 +435,18 @@ class DownloadCard extends StatelessWidget {
       case model.DownloadType.unknown:
       default:
         return Icons.help_outline;
+    }
+  }
+
+  Color _mapTypeIconColor(model.DownloadType? type) {
+    switch (type) {
+      case model.DownloadType.video:
+        return Colors.blue;
+      case model.DownloadType.list:
+        return Colors.deepPurpleAccent;
+      case model.DownloadType.unknown:
+      default:
+        return Colors.grey;
     }
   }
 

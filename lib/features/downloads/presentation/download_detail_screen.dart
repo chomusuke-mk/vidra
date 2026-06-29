@@ -371,16 +371,9 @@ class _DetailViewState extends State<_DetailView> {
                       ).dividerColor.withValues(alpha: 0.1),
                     ),
                   ),
-                  child: SingleChildScrollView(
-                    child: SelectableText(
-                      controller.logs.isEmpty
-                          ? locale.ddNoLogs
-                          : controller.logs,
-                      style: const TextStyle(
-                        fontFamily: 'monospace',
-                        fontSize: 12,
-                      ),
-                    ),
+                  child: _AutoScrollLogsView(
+                    logs: controller.logs,
+                    emptyMessage: locale.ddNoLogs,
                   ),
                 ),
         ),
@@ -416,6 +409,68 @@ class _DetailViewState extends State<_DetailView> {
             jsonString,
             style: const TextStyle(fontFamily: 'monospace', fontSize: 13),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+
+// =========================================================================
+// WIDGET ESTADO PARA AUTO-SCROLL DE LOGS
+// =========================================================================
+class _AutoScrollLogsView extends StatefulWidget {
+  final String logs;
+  final String emptyMessage;
+
+  const _AutoScrollLogsView({required this.logs, required this.emptyMessage});
+
+  @override
+  State<_AutoScrollLogsView> createState() => _AutoScrollLogsViewState();
+}
+
+class _AutoScrollLogsViewState extends State<_AutoScrollLogsView> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollToBottom();
+  }
+
+  @override
+  void didUpdateWidget(covariant _AutoScrollLogsView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Si los logs cambian (por ejemplo, el usuario pulsó "Recargar"), volvemos a bajar
+    if (oldWidget.logs != widget.logs) {
+      _scrollToBottom();
+    }
+  }
+
+  void _scrollToBottom() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) {
+        _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scrollbar(
+      controller: _scrollController,
+      thumbVisibility: true,
+      child: SingleChildScrollView(
+        controller: _scrollController,
+        child: SelectableText(
+          widget.logs.isEmpty ? widget.emptyMessage : widget.logs,
+          style: const TextStyle(fontFamily: 'monospace', fontSize: 12),
         ),
       ),
     );
