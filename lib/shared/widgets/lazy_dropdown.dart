@@ -46,6 +46,35 @@ class _LazyDropdownState<T> extends State<LazyDropdown<T>> {
     }
   }
 
+  @override
+  void didUpdateWidget(LazyDropdown<T> oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    // Cuando el widget se reconstruye (carga diferida de locales o cambio de idioma),
+    // calculamos cuál debería ser el texto correcto en este momento.
+    final expectedLabel = widget.value != null
+        ? widget.labelBuilder(widget.value as T)
+        : '';
+
+    // Si el texto que muestra el controlador es diferente al nuevo texto traducido...
+    if (_controller.text != expectedLabel) {
+      // Validamos para no interrumpir al usuario si está escribiendo una opción personalizada
+      if (!widget.allowCustom || !_focusNode.hasFocus) {
+        _controller.text =
+            expectedLabel; // ¡Forzamos la actualización visual del label!
+      }
+    }
+
+    // Actualizamos el listener en caso de que la propiedad allowCustom cambie en tiempo real
+    if (widget.allowCustom != oldWidget.allowCustom) {
+      if (widget.allowCustom) {
+        _focusNode.addListener(_onFocusChanged);
+      } else {
+        _focusNode.removeListener(_onFocusChanged);
+      }
+    }
+  }
+
   void _onFocusChanged() {
     // Cuando el campo pierde el foco, evaluamos si hay un texto nuevo
     if (!_focusNode.hasFocus && widget.onCustomSubmit != null) {
@@ -73,7 +102,7 @@ class _LazyDropdownState<T> extends State<LazyDropdown<T>> {
   Widget build(BuildContext context) {
     return DropdownMenu<T>(
       initialSelection: widget.value,
-      controller: widget.allowCustom ? _controller : null,
+      controller: _controller,
       focusNode: widget.allowCustom
           ? _focusNode
           : null, // <- Aquí anclamos el nodo
@@ -90,6 +119,7 @@ class _LazyDropdownState<T> extends State<LazyDropdown<T>> {
       onSelected: (T? selection) {
         if (selection != null) {
           widget.onChanged(selection);
+          _controller.text = widget.labelBuilder(selection);
         }
       },
     );
