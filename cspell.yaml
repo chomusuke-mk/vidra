@@ -214,6 +214,7 @@ words:
   - thumbnailsconvertor
   - tipado
   - TIPADO
+  - tldextract
   - tmpfilename
   - twofactor
   - unhide

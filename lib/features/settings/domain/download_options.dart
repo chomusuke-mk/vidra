@@ -184,9 +184,9 @@ class DownloadOptions {
   // Constructor con defaults
   DownloadOptions({
     // General
-    this.videoResolution = VideoOption.defaultOption,
-    this.videoResolutionValue,
-    this.audioLanguage = AudioOption.defaultOption,
+    this.videoResolution = VideoOption.resolution,
+    this.videoResolutionValue = '1080',
+    this.audioLanguage = AudioOption.bestaudio,
     this.audioLanguageCode,
     this.subLangs = const [],
     this.extractAudio = false,
@@ -623,21 +623,27 @@ class DownloadOptions {
   // ==========================================================================
   factory DownloadOptions.fromJson(Map<String, dynamic> json) {
     // Parsers auxiliares para las uniones de String/Enum
-    AudioOption pAudioOption = AudioOption.defaultOption;
+    AudioOption pAudioOption = AudioOption.bestaudio;
     String? pAudioCode;
-    if (json['audio_language'] == 'bestaudio')
+    if (json['audio_language'] == 'default') {
+      pAudioOption = AudioOption.defaultOption;
+    } else if (json['audio_language'] == 'bestaudio') {
       pAudioOption = AudioOption.bestaudio;
-    else if (json['audio_language'] != null &&
+    } else if (json['audio_language'] != null &&
         json['audio_language'] != 'default') {
       pAudioOption = AudioOption.language;
       pAudioCode = json['audio_language'];
     }
 
-    VideoOption pVideoOption = VideoOption.defaultOption;
-    String? pVideoRes;
-    if (json['video_resolution'] == 'bestvideo')
+    VideoOption pVideoOption = VideoOption.resolution;
+    String? pVideoRes = '1080';
+    if (json['video_resolution'] == 'default') {
+      pVideoOption = VideoOption.defaultOption;
+      pVideoRes = null;
+    } else if (json['video_resolution'] == 'bestvideo') {
       pVideoOption = VideoOption.bestvideo;
-    else if (json['video_resolution'] != null &&
+      pVideoRes = null;
+    } else if (json['video_resolution'] != null &&
         json['video_resolution'] != 'default') {
       pVideoOption = VideoOption.resolution;
       pVideoRes = json['video_resolution'];

@@ -340,12 +340,15 @@ class DownloadCard extends StatelessWidget {
 
   // --- DETALLES CENTRALES ---
   Widget _buildDetails(BuildContext context) {
-    final type = info?.type ?? model.DownloadType.unknown;
-    final autor = info?.autor ?? 'Desconocido';
+    final autor = info?.autor ?? '';
     final duration = info?.duration ?? '';
-    String infoText = type == model.DownloadType.list
-        ? autor
-        : (duration.isNotEmpty ? '$autor • $duration' : autor);
+    final platform = info?.platform ?? '';
+    final infoList = [
+      autor,
+      duration,
+      platform,
+    ].where((e) => e.isNotEmpty).toList();
+    String infoText = infoList.join(' • ');
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
