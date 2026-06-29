@@ -13,7 +13,7 @@ import 'package:vidra/features/system/domain/system_state.dart';
 import 'package:vidra/core/isolate/backend_isolate.dart';
 import 'package:serious_python/serious_python.dart';
 
-class SystemController extends ChangeNotifier {
+class SystemController extends ChangeNotifier with WidgetsBindingObserver {
   SystemState _state = SystemState.initializing;
   SystemState get state => _state;
 
@@ -35,7 +35,23 @@ class SystemController extends ChangeNotifier {
   Future<void> get whenPortReady => _portReadyCompleter.future;
 
   SystemController() {
+    WidgetsBinding.instance.addObserver(this);
     _bootIsolate();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.detached) {
+      debugPrint(
+        '🛑 [UI-Controller] App cerrada por el usuario. Matando procesos...',
+      );
+
+      // Matamos el Isolate de inmediato
+      _backendIsolate?.kill(priority: Isolate.immediate);
+
+      // Forzamos el cierre total del proceso de la app (Incluyendo el motor nativo de C/Python)
+      exit(0);
+    }
   }
 
   /// Cambia el estado y avisa a la UI solo si el estado es diferente
@@ -176,6 +192,7 @@ class SystemController extends ChangeNotifier {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _receivePort.close();
     _backendIsolate?.kill(priority: Isolate.immediate);
     super.dispose();

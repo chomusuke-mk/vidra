@@ -57,6 +57,8 @@ void backendIsolateMain(Map<String, dynamic> config) async {
   // 3. Variables de estado locales
   String state = 'initializing';
   bool isUpdating = false;
+  bool isInitializing = false;
+  bool isBackendRunning = false;
   Timer? healthCheckTimer;
   int failedPings = 0;
   String? pythonAppPath;
@@ -389,7 +391,6 @@ void backendIsolateMain(Map<String, dynamic> config) async {
         if (state != 'ready') {
           failedPings = 0;
           notifyUiState('ready');
-          // LA MAGIA OCURRE AQUÍ: Apenas el backend vive, pedimos toda la info.
           await refreshDownloadsCache();
           startGlobalSubscription();
           processDownloadQueue();
@@ -397,16 +398,21 @@ void backendIsolateMain(Map<String, dynamic> config) async {
       } else {
         failedPings++;
         debugPrint(
-          '🧠 [Isolate] Python no responde. Intento ($failedPings/10)',
+          '🧠 [Isolate] Python no responde. Intento ($failedPings/30)',
         );
         notifyUiState('retrying');
 
-        if (failedPings >= 10) {
+        if (failedPings >= 30) {
           debugPrint('🧠 [Isolate] Resurrección de Python activada...');
           SeriousPython.terminate();
+          isBackendRunning = false;
           failedPings = 0;
           notifyUiState('startingBackend');
-          if (!await startPythonBackend()) notifyUiState('fatalError');
+          if (!await startPythonBackend()) {
+            notifyUiState('fatalError');
+          } else {
+            isBackendRunning = true;
+          }
         }
       }
     });
@@ -414,49 +420,63 @@ void backendIsolateMain(Map<String, dynamic> config) async {
 
   // --- Secuencia Maestra de Arranque ---
   Future<void> initSequence() async {
-    if (isUpdating) return;
-    notifyUiState('initializing');
+    // AÑADIDO: Evitamos que dos flujos inicialicen al mismo tiempo
+    if (isUpdating || isInitializing) return;
+    isInitializing = true;
+    try {
+      notifyUiState('initializing');
 
-    debugPrint('🧠 [Isolate] Comprobando permisos...');
-    if (!await checkPermissions()) {
-      notifyUiState('missingPermissions');
-      NotificationService.showState(
-        id: 9991,
-        title: 'Acción Requerida',
-        body: 'Faltan permisos críticos para ejecutar Vidra.',
-        isError: true,
-      );
-      return;
+      debugPrint('🧠 [Isolate] Comprobando permisos...');
+      if (!await checkPermissions()) {
+        notifyUiState('missingPermissions');
+        NotificationService.showState(
+          id: 9991,
+          title: 'Acción Requerida',
+          body: 'Faltan permisos críticos para ejecutar Vidra.',
+          isError: true,
+        );
+        return;
+      }
+
+      debugPrint('🧠 [Isolate] Comprobando recursos...');
+      if (!checkResources()) {
+        notifyUiState('missingResources');
+        NotificationService.showState(
+          id: 9992,
+          title: 'Acción Requerida',
+          body: 'Faltan componentes. Abre la app para descargar.',
+          isError: true,
+        );
+        return;
+      }
+
+      // NUEVO: El guardián de la extracción
+      if (pythonAppPath == null) {
+        debugPrint(
+          '🧠 [Isolate] Permisos OK. Esperando a que la UI termine de extraer Python...',
+        );
+        notifyUiState('unpacking');
+        return; // Cortamos el flujo aquí. Se retomará cuando llegue el mensaje por IPC.
+      }
+
+      // AÑADIDO: Cortafuegos final. Si ya está corriendo, no lo vuelvas a lanzar.
+      if (isBackendRunning) {
+        debugPrint(
+          '🧠 [Isolate] El backend ya está corriendo, ignorando petición.',
+        );
+        return;
+      }
+
+      notifyUiState('startingBackend');
+      if (!await startPythonBackend()) {
+        notifyUiState('fatalError');
+        return;
+      }
+      isBackendRunning = true;
+      startHealthCheck();
+    } finally {
+      isInitializing = false;
     }
-
-    debugPrint('🧠 [Isolate] Comprobando recursos...');
-    if (!checkResources()) {
-      notifyUiState('missingResources');
-      NotificationService.showState(
-        id: 9992,
-        title: 'Acción Requerida',
-        body: 'Faltan componentes. Abre la app para descargar.',
-        isError: true,
-      );
-      return;
-    }
-
-    // NUEVO: El guardián de la extracción
-    if (pythonAppPath == null) {
-      debugPrint(
-        '🧠 [Isolate] Permisos OK. Esperando a que la UI termine de extraer Python...',
-      );
-      notifyUiState('unpacking');
-      return; // Cortamos el flujo aquí. Se retomará cuando llegue el mensaje por IPC.
-    }
-
-    notifyUiState('startingBackend');
-    if (!await startPythonBackend()) {
-      notifyUiState('fatalError');
-      return;
-    }
-
-    startHealthCheck();
   }
 
   // ==========================================================================
