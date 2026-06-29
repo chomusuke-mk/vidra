@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
-import 'package:flutter_overlay_window/flutter_overlay_window.dart';
+import 'package:flutter_screen_overlay/flutter_screen_overlay.dart';
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/features/downloads/presentation/downloads_controller.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
@@ -55,12 +55,12 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
       final currentOptsJson = settingsCtrl.getDownloadOptionsPayload();
 
       if (Platform.isAndroid) {
-        bool isGranted = await FlutterOverlayWindow.isPermissionGranted();
+        bool isGranted = await FlutterScreenOverlay.isPermissionGranted();
         if (isGranted) {
           debugPrint('⏳ Esperando confirmación del puerto del Isolate...');
           await systemCtrl.whenPortReady;
           debugPrint('🦁 [MAIN] Lanzando Overlay...');
-          await FlutterOverlayWindow.showOverlay(
+          await FlutterScreenOverlay.showOverlay(
             enableDrag: true,
             flag: OverlayFlag.defaultFlag,
             alignment: OverlayAlignment.center,
@@ -70,7 +70,7 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
 
           // Solo enviamos URL y Opciones. El puerto y token ya no son necesarios
           // porque el Overlay hablará por IPC (IsolateNameServer)
-          await FlutterOverlayWindow.shareData({
+          await FlutterScreenOverlay.shareData({
             'url': url,
             'options': currentOptsJson,
           });

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:flutter_overlay_window/flutter_overlay_window.dart';
+import 'package:flutter_screen_overlay/flutter_screen_overlay.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
 
 class PermissionsScreen extends StatefulWidget {
@@ -65,7 +65,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
       _storageGranted = await Permission.storage.isGranted;
     }
 
-    _overlayGranted = await FlutterOverlayWindow.isPermissionGranted();
+    _overlayGranted = await FlutterScreenOverlay.isPermissionGranted();
 
     if (_androidSdkVersion >= 33) {
       _notifGranted = await Permission.notification.isGranted;
@@ -90,8 +90,8 @@ class _PermissionsScreenState extends State<PermissionsScreen>
   }
 
   Future<void> _requestOverlay() async {
-    await FlutterOverlayWindow.requestPermission();
-    // No llamamos a _checkAll() aquí porque FlutterOverlayWindow manda a Settings.
+    await FlutterScreenOverlay.requestPermission();
+    // No llamamos a _checkAll() aquí porque FlutterScreenOverlay manda a Settings.
     // El didChangeAppLifecycleState lo atrapará al volver.
   }
 

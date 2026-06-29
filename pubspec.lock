@@ -328,14 +328,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_overlay_window:
-    dependency: "direct main"
-    description:
-      name: flutter_overlay_window
-      sha256: "17988420249da68e421d1b44b511e6113d3de7a9e52c3fbd6d99730508af4580"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.5.0"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -344,6 +336,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.35"
+  flutter_screen_overlay:
+    dependency: "direct main"
+    description:
+      name: flutter_screen_overlay
+      sha256: a196c884033d8ed0857b7c89002924e1c2dce437ccdf6e22103982679b40bf67
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.6"
   flutter_slidable:
     dependency: "direct main"
     description:

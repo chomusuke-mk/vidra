@@ -6,7 +6,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:flutter_overlay_window/flutter_overlay_window.dart';
+import 'package:flutter_screen_overlay/flutter_screen_overlay.dart';
 import 'package:path/path.dart' as p;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
@@ -113,7 +113,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
       bool storageGranted = androidInfo.version.sdkInt >= 30
           ? await Permission.manageExternalStorage.isGranted
           : await Permission.storage.isGranted;
-      bool overlayGranted = await FlutterOverlayWindow.isPermissionGranted();
+      bool overlayGranted = await FlutterScreenOverlay.isPermissionGranted();
       bool notifGranted = androidInfo.version.sdkInt >= 33
           ? await Permission.notification.isGranted
           : true;

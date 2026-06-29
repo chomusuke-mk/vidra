@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_overlay_window/flutter_overlay_window.dart';
+import 'package:flutter_screen_overlay/flutter_screen_overlay.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // Constantes y Dominios
@@ -29,7 +29,7 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
   }
 
   void _initListener() {
-    FlutterOverlayWindow.overlayListener.listen((event) async {
+    FlutterScreenOverlay.overlayListener.listen((event) async {
       if (event is Map && mounted && !_isShowingSheet) {
         _isShowingSheet = true;
         debugPrint('🦄 [OVERLAY] Datos recibidos de la UI/Wrapper.');
@@ -121,7 +121,7 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
           _QuickShareBottomSheetContent(url: url, initialOpts: opts),
     );
     // ponytail: Si el usuario toca afuera o desliza para abajo, DESTRUIMOS la ventana invisible.
-    await FlutterOverlayWindow.closeOverlay();
+    await FlutterScreenOverlay.closeOverlay();
   }
 
   @override
@@ -201,7 +201,7 @@ class _QuickShareBottomSheetContentState
     // 4. Bajamos el modal visualmente
     if (mounted) Navigator.pop(context);
     await Future.delayed(const Duration(milliseconds: 300));
-    await FlutterOverlayWindow.closeOverlay();
+    await FlutterScreenOverlay.closeOverlay();
   }
 
   @override
