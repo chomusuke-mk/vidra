@@ -18,7 +18,8 @@ OutputBaseFilename=Vidra-Installer-2.0.0
 SetupIconFile=assets\icon\icon.ico
 WizardStyle=modern
 LicenseFile=LICENSE
-InfoBeforeFile=THIRD_PARTY_LICENSES.txt
+InfoBeforeFile=third_party_licenses\THIRD_PARTY_LICENSES.txt
+InfoAfterFile=CHANGELOG.md
 UninstallDisplayIcon={app}\vidra.exe
 PrivilegesRequired=lowest
 ArchitecturesAllowed=x64compatible
@@ -41,9 +42,6 @@ VersionInfoProductVersion=2.0.0
 
 [Files]
 Source: "build\windows\x64\runner\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "LICENSE"; DestDir: "{app}"; Flags: ignoreversion
-Source: "THIRD_PARTY_LICENSES.md"; DestDir: "{app}"; DestName: "THIRD_PARTY_LICENSES.txt"; Flags: ignoreversion
-Source: "README.md"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\Vidra"; Filename: "{app}\vidra.exe"; IconFilename: "{app}\vidra.exe"

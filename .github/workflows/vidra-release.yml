@@ -240,7 +240,7 @@ jobs:
       - name: Package with Inno Setup
         run: |
           iscc installer.iss
-          $exe = Get-ChildItem -Path Output -Filter *.exe | Select-Object -First 1
+          $exe = Get-ChildItem -Path "build\installer" -Filter *.exe | Select-Object -First 1
           Copy-Item $exe.FullName -Destination "vidra-windows.exe"
 
       - name: Upload Artifacts
