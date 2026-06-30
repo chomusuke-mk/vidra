@@ -19,8 +19,8 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
-          distribution: "zulu"
-          java-version: "17"
+          distribution: "temurin"
+          java-version: "21"
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -165,15 +165,14 @@ jobs:
       - name: Build Flutter Linux
         run: flutter build linux --release
 
-      - name: Create AppImage, DEB and RPM
+      - name: Create AppImage and DEB
         run: |
           dart pub global activate fastforge
           export PATH="$PATH":"$HOME/.pub-cache/bin"
-          fastforge package --platform linux --targets appimage,deb,rpm --skip-clean
+          fastforge package --platform linux --targets appimage,deb --skip-clean
 
           find build/linux -name "*.AppImage" -exec cp {} vidra-linux.AppImage \;
           find build/linux -name "*.deb" -exec cp {} vidra-linux.deb \;
-          find build/linux -name "*.rpm" -exec cp {} vidra-linux.rpm \;
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
@@ -182,7 +181,6 @@ jobs:
           path: |
             vidra-linux.AppImage
             vidra-linux.deb
-            vidra-linux.rpm
           retention-days: 1
 
   build-windows:
@@ -199,10 +197,10 @@ jobs:
 
       - name: Setup Environment Variables
         run: |
-          New-Item -Path "build\site-packages" -ItemType Directory -Force
-          New-Item -Path "build\app" -ItemType Directory -Force
-          echo "SERIOUS_PYTHON_SITE_PACKAGES=${env:GITHUB_WORKSPACE}\build\site-packages" | Out-File -FilePath $env:GITHUB_ENV -Append
-          echo "SERIOUS_PYTHON_APP=${env:GITHUB_WORKSPACE}\build\app" | Out-File -FilePath $env:GITHUB_ENV -Append
+          New-Item -Path ".serious_python\site-packages" -ItemType Directory -Force
+          New-Item -Path ".serious_python\app" -ItemType Directory -Force
+          echo "SERIOUS_PYTHON_SITE_PACKAGES=${env:GITHUB_WORKSPACE}\.serious_python\site-packages" | Out-File -FilePath $env:GITHUB_ENV -Append
+          echo "SERIOUS_PYTHON_APP=${env:GITHUB_WORKSPACE}\.serious_python\app" | Out-File -FilePath $env:GITHUB_ENV -Append
 
       - name: Download & Extract Backend
         run: |
@@ -292,7 +290,6 @@ jobs:
             artifacts/vidra-windows.exe
             artifacts/vidra-linux.AppImage
             artifacts/vidra-linux.deb
-            artifacts/vidra-linux.rpm
             artifacts/vidra-android.apk
             artifacts/vidra-android-arm64-v8a.apk
             artifacts/vidra-android-x86_64.apk

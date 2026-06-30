@@ -115,6 +115,7 @@ words:
   - kasem
   - klass
   - kotlin
+  - launchable
   - libapp
   - libc
   - libffprobe
@@ -219,6 +220,7 @@ words:
   - SYMED
   - SYSROOT
   - TARG
+  - temurin
   - Testables
   - TEXTINCLUDE
   - thumbnailconvertor

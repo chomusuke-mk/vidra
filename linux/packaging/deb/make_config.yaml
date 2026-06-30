@@ -7,7 +7,7 @@ maintainer:
 
 priority: optional
 section: x11
-installed_size: 500
+installed_size: 250000
 essential: false
 icon: assets/icon/icon.png
 

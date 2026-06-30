@@ -35,7 +35,7 @@ Vidra se distribuye a través de **GitHub Releases**. Cada versión incluye inst
 | Plataforma | Instalador                                                                          |
 | ---------- | ----------------------------------------------------------------------------------- |
 | `Windows`  | `vidra-windows.exe`                                                                 |
-| `Linux`    | `vidra-linux.AppImage` <br>`vidra-linux.deb` <br>`vidra-linux.rpm`                  |
+| `Linux`    | `vidra-linux.AppImage` <br>`vidra-linux.deb`                                        |
 | `Android`  | `vidra-android.apk`<br> `vidra-android-arm64-v8a.apk`<br>`vidra-android-x86_64.apk` |
 | `macOS`    | Próximamente                                                                        |
 

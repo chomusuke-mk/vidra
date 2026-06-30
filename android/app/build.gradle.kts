@@ -128,5 +128,5 @@ dependencies {
     implementation("com.google.android.material:material:1.12.0")
     // Required by Flutter's Play Store deferred components integration; otherwise R8 fails with
     // missing com.google.android.play.core.* classes.
-    // implementation("com.google.android.play:core:1.10.3")
+    implementation("com.google.android.play:core:1.10.3")
 }
