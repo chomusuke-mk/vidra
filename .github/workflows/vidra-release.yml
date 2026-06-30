@@ -44,10 +44,7 @@ jobs:
         run: |
           FFMPEG_RELEASE=$(curl -s https://api.github.com/repos/chomusuke-mk/vidra-ffmpeg/releases/latest)
           for ABI in "arm64-v8a" "x86_64"; do
-            URL=$(echo "$FFMPEG_RELEASE" | jq -r ".assets[] | select(.name | test(\"ffmpeg.*-full-android-$ABI.*\\\\.zip\", \"i\")) | .browser_download_url" | head -n 1)
-            if [ -z "$URL" ] || [ "$URL" == "null" ]; then
-              URL=$(echo "$FFMPEG_RELEASE" | jq -r ".assets[] | select(.name | test(\"ffmpeg.*-android-$ABI.*\\\\.zip\", \"i\")) | .browser_download_url" | head -n 1)
-            fi
+            URL=$(echo "$FFMPEG_RELEASE" | jq -r '.assets[] | select(.name=="ffmpeg-android-$ABI.zip") | .browser_download_url')
             wget -qO ffmpeg_${ABI}.zip "$URL"
             unzip -q ffmpeg_${ABI}.zip -d ffmpeg_${ABI}
             
@@ -61,7 +58,7 @@ jobs:
         run: |
           QJ_RELEASE=$(curl -s https://api.github.com/repos/chomusuke-mk/vidra-quickjs/releases/latest)
           for ABI in "arm64-v8a" "x86_64"; do
-            URL=$(echo "$QJ_RELEASE" | jq -r ".assets[] | select(.name | contains(\"quickjs-android-$ABI\")) | .browser_download_url" | head -n 1)
+            URL=$(echo "$QJ_RELEASE" | jq -r '.assets[] | select(.name=="quickjs-android-$ABI") | .browser_download_url')
             OUT_DIR="android/app/src/main/jniLibs/$ABI"
             mkdir -p "$OUT_DIR"
             wget -qO "$OUT_DIR/libquickjs.so" "$URL"
@@ -138,10 +135,7 @@ jobs:
       - name: Download FFmpeg (Linux)
         run: |
           FFMPEG_RELEASE=$(curl -s https://api.github.com/repos/chomusuke-mk/vidra-ffmpeg/releases/latest)
-          URL=$(echo "$FFMPEG_RELEASE" | jq -r ".assets[] | select(.name | test(\"ffmpeg.*-full-linux.*\\\\.zip\", \"i\")) | .browser_download_url" | head -n 1)
-          if [ -z "$URL" ] || [ "$URL" == "null" ]; then
-            URL=$(echo "$FFMPEG_RELEASE" | jq -r ".assets[] | select(.name | test(\"ffmpeg.*-linux.*\\\\.zip\", \"i\")) | .browser_download_url" | head -n 1)
-          fi
+          URL=$(echo "$FFMPEG_RELEASE" | jq -r '.assets[] | select(.name=="ffmpeg-linux-x86_64.zip") | .browser_download_url')
           wget -qO ffmpeg.zip "$URL"
           unzip -q ffmpeg.zip -d ffmpeg_ext
           mkdir -p linux
@@ -152,7 +146,7 @@ jobs:
       - name: Download QuickJS (Linux)
         run: |
           QJ_RELEASE=$(curl -s https://api.github.com/repos/chomusuke-mk/vidra-quickjs/releases/latest)
-          URL=$(echo "$QJ_RELEASE" | jq -r '.assets[] | select(.name | contains("quickjs-linux-x86_64")) | .browser_download_url' | head -n 1)
+          URL=$(echo "$QJ_RELEASE" | jq -r '.assets[] | select(.name=="quickjs-linux-x86_64") | .browser_download_url')
           mkdir -p linux
           wget -qO linux/quickjs "$URL"
           chmod +x linux/quickjs
@@ -212,10 +206,7 @@ jobs:
       - name: Download FFmpeg (Windows)
         run: |
           $release = Invoke-RestMethod "https://api.github.com/repos/chomusuke-mk/vidra-ffmpeg/releases/latest"
-          $asset = $release.assets | Where-Object { $_.name -match "ffmpeg.*-full-windows.*\.zip" } | Select-Object -First 1
-          if (-not $asset) {
-              $asset = $release.assets | Where-Object { $_.name -match "ffmpeg.*-windows.*\.zip" } | Select-Object -First 1
-          }
+          $asset = $release.assets | Where-Object { $_.name -eq "ffmpeg-windows-x86_64.zip" }
           Invoke-WebRequest -Uri $asset.browser_download_url -OutFile "ffmpeg.zip"
           Expand-Archive -Path "ffmpeg.zip" -DestinationPath "ffmpeg_ext" -Force
           New-Item -ItemType Directory -Force -Path "windows"
@@ -225,7 +216,7 @@ jobs:
       - name: Download QuickJS (Windows)
         run: |
           $release = Invoke-RestMethod "https://api.github.com/repos/chomusuke-mk/vidra-quickjs/releases/latest"
-          $asset = $release.assets | Where-Object { $_.name -match "quickjs-windows-x86_64.exe" } | Select-Object -First 1
+          $asset = $release.assets | Where-Object { $_.name -eq "quickjs-windows-x86_64.exe" }
           New-Item -ItemType Directory -Force -Path "windows"
           Invoke-WebRequest -Uri $asset.browser_download_url -OutFile "windows\quickjs.exe"
 
