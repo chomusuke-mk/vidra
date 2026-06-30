@@ -1,5 +1,4 @@
-import 'dart:ui';
-
+import 'package:flutter/rendering.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:io';
 
@@ -46,7 +45,11 @@ class NotificationService {
       linux: linuxSettings,
     );
 
-    await _plugin.initialize(settings: initSettings);
+    await _plugin.initialize(
+      settings: initSettings,
+      onDidReceiveBackgroundNotificationResponse: null,
+      onDidReceiveNotificationResponse: null,
+    );
   }
 
   /// Construye los detalles específicos por plataforma, incluyendo la imagen si existe
@@ -142,8 +145,10 @@ class NotificationService {
 
     // --- WINDOWS ---
     List<WindowsImage> windowsImages = [];
-    if (imagePath != null && imagePath.isNotEmpty) {
-      // Windows requiere el uso de URIs. Uri.file lee directamente del sistema de archivos local.
+
+    // CAMBIO CLAVE 1: Sutileza en la imagen.
+    // Solo inyectamos la imagen grande si NO es un progreso.
+    if (imagePath != null && imagePath.isNotEmpty && !showProgress) {
       windowsImages.add(
         WindowsImage(Uri.file(imagePath), altText: 'Miniatura del archivo'),
       );
@@ -171,6 +176,7 @@ class NotificationService {
           images: windowsImages,
           progressBars: windowsProgressBars,
           scenario: isError ? WindowsNotificationScenario.urgent : null,
+          audio: showProgress ? WindowsNotificationAudio.silent() : null,
         );
 
     // Retornamos el empaquetado cross-platform
@@ -275,8 +281,17 @@ class NotificationService {
           AndroidFlutterLocalNotificationsPlugin
         >();
 
-    await androidImpl?.startForegroundService(
-      id: 696969, // ID fijo para el foreground service
+    if (androidImpl == null) {
+      debugPrint(
+        'Error: No se pudo obtener la implementación específica de Android.',
+      );
+      return;
+    }
+
+    androidImpl.requestNotificationsPermission();
+
+    await androidImpl.startForegroundService(
+      id: 6969, // ID fijo para el foreground service
       title: 'Vidra',
       body: 'Background service is running',
       startType: AndroidServiceStartType.startRedeliverIntent,

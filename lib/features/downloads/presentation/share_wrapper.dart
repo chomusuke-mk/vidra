@@ -61,11 +61,12 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
           await systemCtrl.whenPortReady;
           debugPrint('🦁 [MAIN] Lanzando Overlay...');
           await FlutterScreenOverlay.showOverlay(
-            enableDrag: true,
+            enableDrag: false,
             flag: OverlayFlag.defaultFlag,
-            alignment: OverlayAlignment.center,
+            alignment: OverlayAlignment.bottomCenter,
             visibility: NotificationVisibility.visibilitySecret,
             positionGravity: PositionGravity.auto,
+            startPosition: OverlayPosition(0, 0),
           );
 
           // Solo enviamos URL y Opciones. El puerto y token ya no son necesarios

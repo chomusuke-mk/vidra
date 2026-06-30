@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:mime/mime.dart';
@@ -43,19 +45,22 @@ class DownloadCard extends StatelessWidget {
     final isList = info?.type == model.DownloadType.list;
     final hasFile = info?.file != null && info!.file!.isNotEmpty;
 
-    // 1. Mostrar Play y Carpeta si está completado, NO es lista y tiene archivo (Aplica a sub-descargas)
-    final showPlayFolder = isCompleted && !isList && hasFile;
-    // 2. Mostrar Borrar solo en la pantalla principal si está completo o con error
+    // 1. Mostrar Play si está completado, NO es lista y tiene archivo (Aplica a sub-descargas)
+    final showPlay = isCompleted && !isList && hasFile;
+    // 2. Mostrar Carpeta si está completado, NO es lista, tiene archivo y NO es Android (Android no permite abrir carpetas)
+    final showFolder = isCompleted && !isList && hasFile && !Platform.isAndroid;
+    // 3. Mostrar Borrar solo en la pantalla principal si está completo o con error
     final showDelete = !isDetailScreen && (isCompleted || isError);
-    // 3. Mostrar Info solo si es error en la pantalla principal
+    // 4. Mostrar Info solo si es error en la pantalla principal
     final showInfo = isError && !isDetailScreen;
-    // 4. Pausar y Cancelar si está en progreso (Principal)
+    // 5. Pausar y Cancelar si está en progreso (Principal)
     final showPauseCancel = inProgress && !isDetailScreen;
-    // 5. Solo Cancelar si está pendiente (Principal)
+    // 6. Solo Cancelar si está pendiente (Principal)
     final showCancelOnly = isPending && !isDetailScreen;
 
     int actionCount = 0;
-    if (showPlayFolder) actionCount += 2;
+    if (showPlay) actionCount += 1;
+    if (showFolder) actionCount += 1;
     if (showDelete) actionCount += 1;
     if (showInfo) actionCount += 1;
     if (showPauseCancel) actionCount += 2;
@@ -103,7 +108,6 @@ class DownloadCard extends StatelessWidget {
       ),
     );
 
-
     if (downloadId == null || actionCount == 0) return cardWidget;
 
     // =========================================================================
@@ -132,7 +136,7 @@ class DownloadCard extends StatelessWidget {
                 : null,
 
             children: [
-              if (showPlayFolder) ...[
+              if (showPlay) ...[
                 SlidableAction(
                   onPressed: (_) async {
                     final mimeType = lookupMimeType(info!.file!) ?? 'video/*';
@@ -142,6 +146,8 @@ class DownloadCard extends StatelessWidget {
                   foregroundColor: Colors.white,
                   icon: Icons.play_arrow,
                 ),
+              ],
+              if (showFolder) ...[
                 SlidableAction(
                   onPressed: (_) async {
                     final dir = p.dirname(info!.file!);

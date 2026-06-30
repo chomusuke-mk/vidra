@@ -33,21 +33,19 @@ void backendIsolateMain(Map<String, dynamic> config) async {
 
   // 2. Inicializamos el entorno para que los canales nativos funcionen en background
   BackgroundIsolateBinaryMessenger.ensureInitialized(rootToken);
-  try {
-    WidgetsFlutterBinding.ensureInitialized();
-  } catch (e) {
-    debugPrint('🧠 [Isolate] Error inicializando WidgetsFlutterBinding: $e');
-  }
   DartPluginRegistrant.ensureInitialized();
-  try {
-    await NotificationService.init();
-  } catch (e) {
-    debugPrint(
-      '🧠 [Isolate] Posible error inicializando NotificationService: $e',
-    );
+  if (!Platform.isAndroid) {
+    try {
+      await NotificationService.init();
+    } catch (e) {
+      debugPrint(
+        '🧠 [Isolate] Posible error inicializando NotificationService: $e',
+      );
+    }
   }
   try {
     await NotificationService.keepAppAlive();
+    debugPrint('🧠 [Isolate] Keep notification iniciada correctamente.');
   } catch (e) {
     debugPrint('🧠 [Isolate] Posible error iniciando keep notification: $e');
   }
