@@ -60,6 +60,7 @@ words:
   - dgph
   - dists
   - docstates
+  - doxxing
   - DPICHANGED
   - dpkg
   - dsym
@@ -105,6 +106,7 @@ words:
   - ifdef
   - ifndef
   - ignoreversion
+  - Inclusivity
   - infojson
   - INFOPLIST
   - Inno
@@ -182,6 +184,7 @@ words:
   - PRODUCTVERSION
   - proguard
   - pubspec
+  - pytest
   - PYTHONPATH
   - PYTHONUNBUFFERED
   - quickjs
