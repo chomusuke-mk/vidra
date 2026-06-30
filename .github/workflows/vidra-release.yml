@@ -299,5 +299,3 @@ jobs:
             artifacts/SHA2-512SUMS
             artifacts/SHA2-256SUMS.sig
             artifacts/SHA2-512SUMS.sig
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
