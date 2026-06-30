@@ -4,6 +4,12 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [2.0.1] - Bug Fix
+
+### 🐛 Bug Fixes
+
+- **Notifications:** Fixed an issue where notifications were not being displayed correctly on certain platforms.
+
 ## [2.0.0] - Major Release
 
 ### 🚀 Features
