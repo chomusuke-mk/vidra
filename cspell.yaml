@@ -37,12 +37,14 @@ words:
   - cfbundle
   - cffi
   - CFLAGS
+  - checkedonce
   - chomusuke
   - Cleartext
   - COINIT
   - crashea
   - crashee
   - crasheos
+  - createallsubdirs
   - cupertino
   - DAPPLICATION
   - darwin
@@ -53,6 +55,7 @@ words:
   - descomprimiéndolo
   - DESERIALIZACIÓN
   - desincronizaciones
+  - desktopicon
   - devicelab
   - dgph
   - dists
@@ -101,6 +104,7 @@ words:
   - icudtl
   - ifdef
   - ifndef
+  - ignoreversion
   - infojson
   - INFOPLIST
   - Inno
@@ -134,6 +138,7 @@ words:
   - lpsz
   - LRESULT
   - LSTATUS
+  - lzma
   - mensajito
   - Metaspace
   - mingit
@@ -151,6 +156,7 @@ words:
   - NONNULL
   - noplaylist
   - notif
+  - nowait
   - NOZORDER
   - objc
   - OBJC
@@ -182,6 +188,7 @@ words:
   - Reactividad
   - reconectamos
   - Reconectando
+  - recursesubdirs
   - Redibuja
   - Redirección
   - rediseñada
@@ -199,6 +206,7 @@ words:
   - SDKROOT
   - selfpromo
   - SERIALIZACIÓN
+  - skipifsilent
   - softprops
   - sourcecode
   - sponsorblock
@@ -231,6 +239,9 @@ words:
   - tmpfilename
   - twofactor
   - unhide
+  - uninstallexe
+  - userappdata
+  - userdesktop
   - userosscache
   - USERPROFILE
   - uvicorn

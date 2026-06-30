@@ -1,8 +1,8 @@
 [Setup]
 AppId={{8A1B20DA-0615-43AF-A7D5-87D090F2CB25}}
 AppName=Vidra
-AppVersion=1.0.0
-AppVerName=Vidra 1.0.0
+AppVersion=2.0.0
+AppVerName=Vidra 2.0.0
 AppPublisher=Chomusuke
 AppPublisherURL=https://github.com/chomusuke-mk/vidra
 AppSupportURL=https://github.com/chomusuke-mk/vidra/issues
@@ -14,7 +14,7 @@ DefaultDirName={userappdata}\Vidra
 DefaultGroupName=Vidra
 DisableProgramGroupPage=yes
 OutputDir=build\installer
-OutputBaseFilename=Vidra-Installer-1.0.0
+OutputBaseFilename=Vidra-Installer-2.0.0
 SetupIconFile=assets\icon\icon.ico
 WizardStyle=modern
 LicenseFile=LICENSE
@@ -33,11 +33,11 @@ CloseApplications=force
 CloseApplicationsFilter=vidra.exe
 SetupLogging=yes
 ChangesAssociations=no
-VersionInfoVersion=1.0.0.0
+VersionInfoVersion=2.0.0.0
 VersionInfoCompany=Chomusuke
 VersionInfoDescription=Vidra Installer
 VersionInfoProductName=Vidra
-VersionInfoProductVersion=1.0.0
+VersionInfoProductVersion=2.0.0
 
 [Files]
 Source: "build\windows\x64\runner\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
