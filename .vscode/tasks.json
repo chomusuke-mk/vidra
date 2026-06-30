@@ -29,8 +29,8 @@
       "options": {
         "cwd": "${workspaceFolder}/android",
         "env": {
-          "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages",
-          "SERIOUS_PYTHON_APP": "${workspaceFolder}/build/app",
+          "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/.serious_python/site-packages",
+          "SERIOUS_PYTHON_APP": "${workspaceFolder}/.serious_python/app",
         }
       },
       "group": "build",
@@ -60,8 +60,8 @@
       "options": {
         "cwd": "${workspaceFolder}",
         "env": {
-          "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages",
-          "SERIOUS_PYTHON_APP": "${workspaceFolder}/build/app",
+          "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/.serious_python/site-packages",
+          "SERIOUS_PYTHON_APP": "${workspaceFolder}/.serious_python/app",
         }
       },
       "dependsOn": [
@@ -81,12 +81,12 @@
         "command": "cmd",
         "args": [
           "/c",
-          "if not exist ${workspaceFolder}\\build\\site-packages mkdir ${workspaceFolder}\\build\\site-packages"
+          "if not exist ${workspaceFolder}\\.serious_python\\site-packages mkdir ${workspaceFolder}\\.serious_python\\site-packages"
         ]
       },
       "args": [
         "-c",
-        "mkdir -p \"${workspaceFolder}/build/site-packages\""
+        "mkdir -p \"${workspaceFolder}/.serious_python/site-packages\""
       ],
       "problemMatcher": [],
       "presentation": {
@@ -107,8 +107,8 @@
       "options": {
         "cwd": "${workspaceFolder}",
         "env": {
-          "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages",
-          "SERIOUS_PYTHON_APP": "${workspaceFolder}/build/app",
+          "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/.serious_python/site-packages",
+          "SERIOUS_PYTHON_APP": "${workspaceFolder}/.serious_python/app",
         }
       },
       "dependsOn": [

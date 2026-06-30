@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Versión de la aplicación (ej. v1.0.0)'
+        description: "Versión de la aplicación (ej. v1.0.0)"
         required: true
         type: string
 
@@ -19,19 +19,19 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'zulu'
-          java-version: '17'
+          distribution: "zulu"
+          java-version: "17"
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
+          channel: "stable"
 
       - name: Setup Environment Variables
         run: |
-          mkdir -p build/site-packages build/app
-          echo "SERIOUS_PYTHON_SITE_PACKAGES=${GITHUB_WORKSPACE}/build/site-packages" >> $GITHUB_ENV
-          echo "SERIOUS_PYTHON_APP=${GITHUB_WORKSPACE}/build/app" >> $GITHUB_ENV
+          mkdir -p .serious_python/site-packages .serious_python/app
+          echo "SERIOUS_PYTHON_SITE_PACKAGES=${GITHUB_WORKSPACE}/.serious_python/site-packages" >> $GITHUB_ENV
+          echo "SERIOUS_PYTHON_APP=${GITHUB_WORKSPACE}/.serious_python/app" >> $GITHUB_ENV
 
       - name: Download & Extract Backend
         run: |
@@ -112,18 +112,21 @@ jobs:
       - name: Install System Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev rpm rpm-common fuse libfuse2
+          sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev rpm rpm-common fuse libfuse2 locate dpkg
+          wget -O appimagetool "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage"
+          chmod +x appimagetool
+          sudo mv appimagetool /usr/local/bin/
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
+          channel: "stable"
 
       - name: Setup Environment Variables
         run: |
-          mkdir -p build/site-packages build/app
-          echo "SERIOUS_PYTHON_SITE_PACKAGES=${GITHUB_WORKSPACE}/build/site-packages" >> $GITHUB_ENV
-          echo "SERIOUS_PYTHON_APP=${GITHUB_WORKSPACE}/build/app" >> $GITHUB_ENV
+          mkdir -p .serious_python/site-packages .serious_python/app
+          echo "SERIOUS_PYTHON_SITE_PACKAGES=${GITHUB_WORKSPACE}/.serious_python/site-packages" >> $GITHUB_ENV
+          echo "SERIOUS_PYTHON_APP=${GITHUB_WORKSPACE}/.serious_python/app" >> $GITHUB_ENV
 
       - name: Download & Extract Backend
         run: |
@@ -164,13 +167,13 @@ jobs:
 
       - name: Create AppImage, DEB and RPM
         run: |
-          dart pub global activate flutter_distributor
+          dart pub global activate fastforge
           export PATH="$PATH":"$HOME/.pub-cache/bin"
-          flutter_distributor package --platform linux --targets appimage,deb,rpm --skip-clean
-          
-          find dist -name "*.AppImage" -exec cp {} vidra-linux.AppImage \;
-          find dist -name "*.deb" -exec cp {} vidra-linux.deb \;
-          find dist -name "*.rpm" -exec cp {} vidra-linux.rpm \;
+          fastforge package --platform linux --targets appimage,deb,rpm --skip-clean
+
+          find build/linux -name "*.AppImage" -exec cp {} vidra-linux.AppImage \;
+          find build/linux -name "*.deb" -exec cp {} vidra-linux.deb \;
+          find build/linux -name "*.rpm" -exec cp {} vidra-linux.rpm \;
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
@@ -192,7 +195,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
+          channel: "stable"
 
       - name: Setup Environment Variables
         run: |

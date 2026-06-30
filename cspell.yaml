@@ -16,6 +16,7 @@ words:
   - apks
   - APPICON
   - appimage
+  - appimagetool
   - APPL
   - applinks
   - APSTUDIO
@@ -57,6 +58,7 @@ words:
   - dists
   - docstates
   - DPICHANGED
+  - dpkg
   - dsym
   - DUNICODE
   - dwmapi
@@ -69,6 +71,7 @@ words:
   - Endonyms
   - ENRUTADOR
   - extractaudio
+  - fastforge
   - ffmpegmerger
   - ffmpegmetadata
   - ffmpegvideoconvertor

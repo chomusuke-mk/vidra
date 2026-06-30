@@ -5,9 +5,9 @@ icon: assets/icon/icon.png
 keywords:
   - Vidra
   - yt-dlp
-  - Downloads
+  - Download
 
-generic_name: Video/job manager
+generic_name: Video Downloader
 
 categories:
   - Network

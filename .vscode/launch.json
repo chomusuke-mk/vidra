@@ -11,10 +11,9 @@
       "program": "lib/main.dart",
       "flutterMode": "debug",
       "env": {
-        "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages",
-        "SERIOUS_PYTHON_APP": "${workspaceFolder}/build/app",
+        "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/.serious_python/site-packages",
+        "SERIOUS_PYTHON_APP": "${workspaceFolder}/.serious_python/app",
       },
-      //"preLaunchTask": "Zip App"
     },
     {
       "name": "vidra (profile mode)",
@@ -23,10 +22,9 @@
       "program": "lib/main.dart",
       "flutterMode": "profile",
       "env": {
-        "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages",
-        "SERIOUS_PYTHON_APP": "${workspaceFolder}/build/app",
+        "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/.serious_python/site-packages",
+        "SERIOUS_PYTHON_APP": "${workspaceFolder}/.serious_python/app",
       },
-      //"preLaunchTask": "Zip App"
     },
     {
       "name": "vidra (release mode)",
@@ -35,10 +33,9 @@
       "program": "lib/main.dart",
       "flutterMode": "release",
       "env": {
-        "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/build/site-packages",
-        "SERIOUS_PYTHON_APP": "${workspaceFolder}/build/app",
+        "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/.serious_python/site-packages",
+        "SERIOUS_PYTHON_APP": "${workspaceFolder}/.serious_python/app",
       },
-      //"preLaunchTask": "Zip App"
     },
   ]
 }
