@@ -1,7 +1,3 @@
-Package: jsonc
-Source: https://pub.dev/packages/jsonc/license
-License: BSD-3-Clause
-
 Copyright 2012, the Dart project authors.
 
 Redistribution and use in source and binary forms, with or without

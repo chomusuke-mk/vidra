@@ -1,7 +1,3 @@
-Package: pycryptodomex
-Source: https://raw.githubusercontent.com/Legrandin/pycryptodome/master/LICENSE.rst
-License: BSD-2-Clause
-
 The source code in PyCryptodome is partially in the public domain
 and partially released under the BSD 2-Clause license.
 

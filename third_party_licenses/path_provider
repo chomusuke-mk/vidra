@@ -1,8 +1,4 @@
-Package: path_provider
-Source: https://pub.dev/packages/path_provider/license
-License: BSD-3-Clause
-
-Copyright 2013 The Flutter Authors. All rights reserved.
+Copyright 2013 The Flutter Authors
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:

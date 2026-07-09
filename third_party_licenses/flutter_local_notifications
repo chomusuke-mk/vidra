@@ -1,7 +1,3 @@
-Package: flutter_local_notifications
-Source: https://pub.dev/packages/flutter_local_notifications/license
-License: BSD-3-Clause
-
 Copyright 2018 Michael Bui. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

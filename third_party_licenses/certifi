@@ -1,7 +1,3 @@
-Package: certifi
-Source: https://github.com/certifi/python-certifi/blob/master/LICENSE
-License: MPL-2.0
-
 This package contains a modified version of ca-bundle.crt:
 
 ca-bundle.crt -- Bundle of CA Root Certificates

@@ -1,7 +1,3 @@
-Package: openpgp
-Source: https://pub.dev/packages/openpgp/license
-License: MIT
-
 MIT License
 
 Copyright (c) 2019 Gerson Alexander Pardo Gamez

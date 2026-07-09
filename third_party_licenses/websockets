@@ -1,7 +1,3 @@
-Package: websockets
-Source: https://raw.githubusercontent.com/python-websockets/websockets/main/LICENSE
-License: BSD-3-Clause
-
 Copyright (c) Aymeric Augustin and contributors
 
 Redistribution and use in source and binary forms, with or without

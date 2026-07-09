@@ -84,6 +84,7 @@ words:
   - FILEOS
   - FILESUBTYPE
   - FILEVERSION
+  - filex
   - flac
   - flutterlocalnotifications
   - FONTCHANGE
@@ -278,4 +279,5 @@ words:
   - youtub
   - youtube
   - ytdlp
+  - Zope
   - zulu

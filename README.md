@@ -4,7 +4,7 @@
 <h1 align="center">Vidra</h1>
 
 <p align="center">
-  Gestor de vídeo/tareas de nivel de escritorio (interfaz de usuario Flutter + backend Python integrado)
+  Gestor de vídeo/tareas de nivel de escritorio (interfaz de usuario Flutter + backend Python en repositorio separado)
 </p>
 
 <p align="center">
@@ -21,12 +21,12 @@
  <a href="https://www.patreon.com/chomusuke_dev"><img alt="Donate (Patreon)" src="https://img.shields.io/badge/Donate-Patreon-critical?logo=patreon&logoColor=white" /></a>
 </p>
 
-> Vidra es un gestor de vídeo y tareas para escritorio que combina una interfaz de usuario Flutter con un backend Python integrado.
+> Vidra es un gestor de vídeo y tareas para escritorio que combina una interfaz de usuario Flutter con un backend Python mantenido en un repositorio separado.
 
 ## Aspectos destacados
 
 - **Cliente moderno** – Una aplicación de escritorio Flutter con temas y localización para más de 150 idiomas.
-- **Backend robusto y ligero** – Flask + event-streams, manejo de cambios mediante deltas.
+- **Backend robusto y ligero** – Backend Python separado, con dependencias dinámicas para descargas y manejo de cambios mediante deltas.
 
 ## Instalación
 
@@ -57,6 +57,7 @@ graph TD
     B <--> C[yt-dlp]
     C <--> D[FFmpeg/ffprobe]
     C --> E[quickjs]
+    C --> F[yt-dlp-ejs]
   end
 ```
 
@@ -120,7 +121,7 @@ flutter run -d android
     --output app/app.zip
    ```
 
-   > Backend se distribuye en <https://github.com/chomusuke-mk/vidra-backend>, contiene app.zip y requirements.txt.
+   > El backend se distribuye en <https://github.com/chomusuke-mk/vidra-backend> y este repositorio solo empaqueta la interfaz Flutter junto con los binarios y dependencias que se descargan al ejecutar la aplicación.
 
 2. Copia `app/app.zip` y el hash generado (`app/app.zip.hash`) en la lista de recursos de Flutter (ya declarada en `pubspec.yaml`).
 
@@ -162,5 +163,5 @@ Use `VIDRA_SERVER_DATA` to point tests at a temporary directory so logs are isol
 ## Licensing & attribution
 
 - Project licensing follows the root `LICENSE` file.
-- Every third-party dependency (Python + Flutter) is documented in [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md), with verbatim license texts stored under `third_party_licenses/` for inclusion in installers.
+- Every third-party dependency (Python + Flutter), incluyendo las descargas dinámicas `yt-dlp` y `yt-dlp-ejs`, is documented in [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md), with verbatim license texts stored under `third_party_licenses/` for inclusion in installers.
 - Remember that `mutagen` is GPL-2.0-or-later; distributing Vidra to end users requires shipping the corresponding backend sources to satisfy GPL obligations.

@@ -1,8 +1,6 @@
-Package: super_drag_and_drop
-Source: https://github.com/superlistapp/super_native_extensions
-License: MIT
+MIT License
 
-Copyright (c) 2022 Superlist, Matej Knopp and the contributors
+Copyright (c) 2018 Romain Rastel
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
