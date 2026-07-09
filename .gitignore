@@ -56,3 +56,4 @@ app.*.map.json
 /app/src/
 /venv/
 /.serious_python/
+/dist/

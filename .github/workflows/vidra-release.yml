@@ -2,11 +2,6 @@ name: Vidra Release Workflow
 
 on:
   workflow_dispatch:
-    inputs:
-      version:
-        description: "Versión de la aplicación (ej. v1.0.0)"
-        required: true
-        type: string
 
 jobs:
   build-android:
@@ -165,8 +160,8 @@ jobs:
           export PATH="$PATH":"$HOME/.pub-cache/bin"
           fastforge package --platform linux --targets appimage,deb --skip-clean
 
-          find build/linux -name "*.AppImage" -exec cp {} vidra-linux.AppImage \;
-          find build/linux -name "*.deb" -exec cp {} vidra-linux.deb \;
+          cp dist/vidra-linux.AppImage vidra-linux.AppImage
+          cp dist/vidra-linux.deb vidra-linux.deb
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -230,9 +225,10 @@ jobs:
 
       - name: Package with Inno Setup
         run: |
-          iscc installer.iss
-          $exe = Get-ChildItem -Path "build\installer" -Filter *.exe | Select-Object -First 1
-          Copy-Item $exe.FullName -Destination "vidra-windows.exe"
+          $content = Get-Content pubspec.yaml | Select-String "^version: "
+          $version = ($content -replace "version: ", "").Split("+")[0].Trim()
+          iscc /DAppVer="$version" installer.iss
+          Copy-Item "dist\vidra-windows.exe" -Destination "vidra-windows.exe"
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -250,6 +246,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v7
+      
+      - name: Extract Version for Release
+        id: get_version
+        run: |
+          VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //' | cut -d'+' -f1 | xargs)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Download All Artifacts
         uses: actions/download-artifact@v8
@@ -276,8 +278,8 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: ${{ github.event.inputs.version }}
-          name: "Vidra ${{ github.event.inputs.version }}"
+          tag_name: ${{ steps.get_version.outputs.VERSION }}
+          name: "Vidra v${{ steps.get_version.outputs.VERSION }}"
           body_path: CHANGELOG.md
           files: |
             artifacts/vidra-windows.exe

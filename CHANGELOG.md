@@ -4,6 +4,10 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [2.1.1] - Better Logs
+
+- **Logs level:** Current backend logging level is INFO.
+
 ## [2.1.0] - New Features
 
 ### ⚡️ New Features

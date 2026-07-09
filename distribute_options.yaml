@@ -1,34 +1,20 @@
-# flutter_distributor configuration for Linux release artifacts
-# Outputs are placed under build/linux with explicit artifact names
-
-output: build/linux/
+output: dist/temp/
 releases:
-  - name: linux
+  - name: linux-release
     jobs:
-      - name: appimage
+      - name: linux-appimage
         package:
           platform: linux
           target: appimage
-          artifactName: "vidra-${VERSION}-linux.AppImage"
-          args:
-            - --flutter-build-arg=--release
-            - --flutter-build-arg=--build-name=${VERSION}
-            - --flutter-build-arg=--build-number=${BUILD_NUMBER}
-      - name: deb
+          hooks:
+            post:
+              - mkdir -p dist/
+              - mv $(find $OUTPUT_DIRECTORY -name "*.AppImage") dist/vidra-linux.AppImage
+      - name: linux-deb
         package:
           platform: linux
           target: deb
-          artifactName: "vidra-${VERSION}-linux.deb"
-          args:
-            - --flutter-build-arg=--release
-            - --flutter-build-arg=--build-name=${VERSION}
-            - --flutter-build-arg=--build-number=${BUILD_NUMBER}
-      - name: rpm
-        package:
-          platform: linux
-          target: rpm
-          artifactName: "vidra-${VERSION}-linux.rpm"
-          args:
-            - --flutter-build-arg=--release
-            - --flutter-build-arg=--build-name=${VERSION}
-            - --flutter-build-arg=--build-number=${BUILD_NUMBER}
+          hooks:
+            post:
+              - mkdir -p dist/
+              - mv $(find $OUTPUT_DIRECTORY -name "*.deb") dist/vidra-linux.deb
