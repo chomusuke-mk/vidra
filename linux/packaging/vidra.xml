@@ -11,6 +11,11 @@
   <url type="homepage">https://github.com/chomusuke-mk/vidra</url>
   <icon type="cached">assets/icon/icon.png</icon>
   <releases>
+    <release version="2.1.0" date="2026-06-03">
+      <description>
+        <p>Added support for download actions.</p>
+      </description>
+    </release>
     <release version="2.0.1" date="2026-06-02">
       <description>
         <p>Fix some notification bugs.</p>
