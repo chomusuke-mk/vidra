@@ -4,6 +4,13 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [2.1.0] - New Features
+
+### ⚡️ New Features
+
+- **Download Actions:** Introduced support for download actions, allowing users to manage and customize their download processes more effectively.
+- **Enhanced User Interface:** Improved the user interface for a more intuitive and seamless experience when interacting with download actions.
+
 ## [2.0.1] - Bug Fix
 
 ### 🐛 Bug Fixes
