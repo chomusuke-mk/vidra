@@ -36,7 +36,7 @@ class DownloadCard extends StatelessWidget {
     final isCompleted = state?.value == model.DownloadState.completed;
     final inProgress =
         state?.value == model.DownloadState.inProgress ||
-        state?.value == model.DownloadState.identifying;
+        state?.value == model.DownloadState.extractingInformation;
     final isPending =
         state?.value == model.DownloadState.pending ||
         state?.value == model.DownloadState.requested;
@@ -91,7 +91,7 @@ class DownloadCard extends StatelessWidget {
         onTap: () {
           if (isError) {
             ToastUtils.showError(state?.subState ?? "Error desconocido");
-          } else if (state?.value == model.DownloadState.waitForSelection) {
+          } else if (state?.value == model.DownloadState.awaitingSelection) {
             // TODO: Lanzar Modal de Selección directamente (se hará en la Fase de Overlay)
             ToastUtils.showInfo("Toca el FAB para seleccionar elementos");
           } else if (!isDetailScreen && onTap != null) {
@@ -464,9 +464,9 @@ class DownloadCard extends StatelessWidget {
       case model.DownloadState.requested:
       case model.DownloadState.pending:
         return Icons.schedule;
-      case model.DownloadState.identifying:
+      case model.DownloadState.extractingInformation:
         return Icons.search;
-      case model.DownloadState.waitForSelection:
+      case model.DownloadState.awaitingSelection:
         return Icons.rule;
       case model.DownloadState.inProgress:
         return Icons.downloading; // Icono de flecha animable/movimiento
@@ -474,7 +474,7 @@ class DownloadCard extends StatelessWidget {
         return Icons.check_circle;
       case model.DownloadState.failed:
         return Icons.error;
-      case model.DownloadState.canceled:
+      case model.DownloadState.cancelled:
         return Icons.cancel;
       case model.DownloadState.paused:
         return Icons.pause_circle;

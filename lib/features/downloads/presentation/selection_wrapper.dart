@@ -18,7 +18,7 @@ class SelectionFabWrapper extends StatelessWidget {
 
     // Filtramos las descargas que requieren acción
     final pending = downloadsCtrl.downloads
-        .where((d) => d.state?.value == DownloadState.waitForSelection)
+        .where((d) => d.state?.value == DownloadState.awaitingSelection)
         .toList();
 
     return Stack(

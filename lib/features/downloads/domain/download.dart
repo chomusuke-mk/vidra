@@ -19,15 +19,19 @@ enum DownloadType {
 enum DownloadState {
   requested('requested', 'Download Requested'),
   pending('pending', 'Download Pending'),
-  identifying('identifying', 'Identifying'),
-  waitForSelection(
-    'wait_for_selection',
+  extractingInformation('extracting_information', 'Extracting Information'),
+  awaitingSelection(
+    'awaiting_selection',
     'Waiting for Selection',
   ), // ← el valor que viene del API
   inProgress('in_progress', 'In Progress'),
   completed('completed', 'Download Completed!'),
+  completedWithErrors(
+    'completed_with_errors',
+    'Download Completed with Errors',
+  ),
   failed('failed', 'Download Failed'),
-  canceled('canceled', 'Canceled'),
+  cancelled('cancelled', 'Cancelled'),
   paused('paused', 'Paused'),
   deleted('deleted', 'Deleted');
 
@@ -49,7 +53,11 @@ enum ColorEnum {
   yellow('yellow', Color(0xFFFFEB3B)), // Amarillo Material
   red('red', Color(0xFFF44336)), // Rojo Material
   blue('blue', Color(0xFF2196F3)), // Azul Material
-  gray('gray', Color(0xFF9E9E9E)); // Gris Material
+  gray('gray', Color(0xFF9E9E9E)), // Gris Material
+  orange('orange', Color(0xFFFF9800)), // Naranja Material
+  purple('purple', Color(0xFF9C27B0)), // Morado Material
+  cyan('cyan', Color(0xFF00BCD4)), // Cyan Material
+  magenta('magenta', Color(0xFFE91E63)); // Magenta Material
 
   const ColorEnum(this.apiValue, this.color);
   final String apiValue;

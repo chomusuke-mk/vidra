@@ -67,8 +67,8 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
       final state = d.state?.value;
       return state == download_model.DownloadState.requested ||
           state == download_model.DownloadState.pending ||
-          state == download_model.DownloadState.identifying ||
-          state == download_model.DownloadState.waitForSelection ||
+          state == download_model.DownloadState.extractingInformation ||
+          state == download_model.DownloadState.awaitingSelection ||
           state == download_model.DownloadState.inProgress ||
           state == download_model.DownloadState.paused;
     }).toList();
@@ -80,7 +80,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
     final errors = filteredAll.where((d) {
       final state = d.state?.value;
       return state == download_model.DownloadState.failed ||
-          state == download_model.DownloadState.canceled ||
+          state == download_model.DownloadState.cancelled ||
           state == download_model.DownloadState.deleted;
     }).toList();
 

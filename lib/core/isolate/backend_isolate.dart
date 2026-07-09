@@ -254,7 +254,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
               color: color,
             );
           } else if (oldState != newState) {
-            if (newState == DownloadState.identifying) {
+            if (newState == DownloadState.extractingInformation) {
               NotificationService.showState(
                 id: notificationId,
                 title: autor,
@@ -262,7 +262,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
                 imagePath: currentImagePath,
                 color: color,
               );
-            } else if (newState == DownloadState.waitForSelection) {
+            } else if (newState == DownloadState.awaitingSelection) {
               NotificationService.showState(
                 id: notificationId,
                 title: autor,
@@ -289,7 +289,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
                 imagePath: currentImagePath,
                 color: color,
               );
-            } else if (newState == DownloadState.canceled ||
+            } else if (newState == DownloadState.cancelled ||
                 newState == DownloadState.deleted) {
               NotificationService.cancel(notificationId);
               imageCache.remove(download.id);
