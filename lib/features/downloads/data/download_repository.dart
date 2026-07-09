@@ -44,6 +44,8 @@ class DownloadRepository {
       _client.updateDownload(id: id, action: 'cancel');
   Future<void> retryDownload(String id) =>
       _client.updateDownload(id: id, action: 'retry');
+  Future<void> deleteDownload(String id) =>
+      _client.updateDownload(id: id, action: 'delete');
 
   // --- Reactividad (Server-Sent Events mapeados a clases Dart) ---
 

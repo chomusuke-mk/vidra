@@ -8,7 +8,7 @@ import 'package:vidra/shared/utils/toast_utils.dart';
 
 class DownloadsController extends ChangeNotifier {
   final DownloadRepository _repository;
-  final SystemController _systemController; // <-- Inyección del Cerebro
+  final SystemController _systemController;
 
   List<Download> _downloads = [];
   List<Download> get downloads => _downloads;
@@ -88,15 +88,16 @@ class DownloadsController extends ChangeNotifier {
   Future<void> sendAction(String id, String action) async {
     try {
       if (action == 'delete') {
-        // Borrado UI inmediato para que se sienta rápido
-        _downloads.removeWhere((d) => d.id == id);
-        notifyListeners();
-        ToastUtils.showInfo('Descarga eliminada');
-        // Enviamos el comando de control por HTTP
-        // (asume que _repository.updateDownload existe o se llama a su client respectivo)
-        await _repository.pauseDownload(
-          id,
-        ); // Ejemplo de fallback basado en tu repository
+        ToastUtils.showInfo('Eliminando...');
+        await _repository.deleteDownload(id);
+      } else if (action == 'pause') {
+        await _repository.pauseDownload(id);
+      } else if (action == 'resume') {
+        await _repository.resumeDownload(id);
+      } else if (action == 'cancel') {
+        await _repository.cancelDownload(id);
+      } else if (action == 'retry') {
+        await _repository.retryDownload(id);
       }
     } catch (e) {
       ToastUtils.showError('Error enviando acción: $e');
@@ -108,6 +109,13 @@ class DownloadsController extends ChangeNotifier {
 
     for (var delta in deltas) {
       if (delta.subId != null) continue;
+
+      // Si nos llega el estado eliminado desde el backend, limpiamos el UI
+      if (delta.status?.value == DownloadState.deleted) {
+        _downloads.removeWhere((d) => d.id == delta.id);
+        listChanged = true;
+        continue;
+      }
 
       final downloadIndex = _downloads.indexWhere((d) => d.id == delta.id);
       // Si el backend reporta una descarga que no tenemos en memoria (recién agregada por el Isolate)

@@ -34,37 +34,53 @@ class DownloadCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final isError = state?.value == model.DownloadState.failed;
     final isCompleted = state?.value == model.DownloadState.completed;
+    final isCompletedWithErrors =
+        state?.value == model.DownloadState.completedWithErrors;
     final inProgress =
         state?.value == model.DownloadState.inProgress ||
         state?.value == model.DownloadState.extractingInformation;
     final isPending =
         state?.value == model.DownloadState.pending ||
         state?.value == model.DownloadState.requested;
+    final isPaused = state?.value == model.DownloadState.paused;
+    final isCancelled = state?.value == model.DownloadState.cancelled;
+    final isAwaiting = state?.value == model.DownloadState.awaitingSelection;
 
     // --- LÓGICA DE VISIBILIDAD DE BOTONES ---
     final isList = info?.type == model.DownloadType.list;
     final hasFile = info?.file != null && info!.file!.isNotEmpty;
 
-    // 1. Mostrar Play si está completado, NO es lista y tiene archivo (Aplica a sub-descargas)
+    // 1. Mostrar Play
     final showPlay = isCompleted && !isList && hasFile;
-    // 2. Mostrar Carpeta si está completado, NO es lista, tiene archivo y NO es Android (Android no permite abrir carpetas)
+    // 2. Mostrar Carpeta
     final showFolder = isCompleted && !isList && hasFile && !Platform.isAndroid;
-    // 3. Mostrar Borrar solo en la pantalla principal si está completo o con error
-    final showDelete = !isDetailScreen && (isCompleted || isError);
-    // 4. Mostrar Info solo si es error en la pantalla principal
+    // 3. Mostrar Info
     final showInfo = isError && !isDetailScreen;
-    // 5. Pausar y Cancelar si está en progreso (Principal)
-    final showPauseCancel = inProgress && !isDetailScreen;
-    // 6. Solo Cancelar si está pendiente (Principal)
-    final showCancelOnly = isPending && !isDetailScreen;
+    // 4. Borrar
+    final showDelete =
+        (isError || isCancelled || isCompleted || isCompletedWithErrors) &&
+        !isDetailScreen;
+    // 5. Pausar
+    final showPause =
+        state?.value == model.DownloadState.inProgress && !isDetailScreen;
+    // 6. Cancelar (Estados pendientes y progreso)
+    final showCancel =
+        (isPending || inProgress || isPaused || isAwaiting) && !isDetailScreen;
+    // 7. Reanudar (Si está en pausa)
+    final showResume = isPaused && !isDetailScreen;
+    // 8. Reintentar (Si canceló manualmente o falló)
+    final showRetry =
+        (isError || isCancelled || isCompletedWithErrors) && !isDetailScreen;
 
     int actionCount = 0;
     if (showPlay) actionCount += 1;
     if (showFolder) actionCount += 1;
-    if (showDelete) actionCount += 1;
     if (showInfo) actionCount += 1;
-    if (showPauseCancel) actionCount += 2;
-    if (showCancelOnly) actionCount += 1;
+    if (showResume) actionCount += 1;
+    if (showRetry) actionCount += 1;
+    if (showPause) actionCount += 1;
+    if (showCancel) actionCount += 1;
+    if (showDelete) actionCount += 1;
 
     Widget cardContent = Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -170,17 +186,27 @@ class DownloadCard extends StatelessWidget {
                   icon: Icons.info,
                 ),
               ],
-              if (showDelete) ...[
+              if (showResume) ...[
                 SlidableAction(
                   onPressed: (_) => context
                       .read<DownloadsController>()
-                      .sendAction(downloadId!, 'delete'),
-                  backgroundColor: Colors.red,
+                      .sendAction(downloadId!, 'resume'),
+                  backgroundColor: Colors.green,
                   foregroundColor: Colors.white,
-                  icon: Icons.delete,
+                  icon: Icons.play_arrow,
                 ),
               ],
-              if (showPauseCancel) ...[
+              if (showRetry) ...[
+                SlidableAction(
+                  onPressed: (_) => context
+                      .read<DownloadsController>()
+                      .sendAction(downloadId!, 'retry'),
+                  backgroundColor: Colors.blueAccent,
+                  foregroundColor: Colors.white,
+                  icon: Icons.refresh,
+                ),
+              ],
+              if (showPause) ...[
                 SlidableAction(
                   onPressed: (_) => context
                       .read<DownloadsController>()
@@ -189,21 +215,23 @@ class DownloadCard extends StatelessWidget {
                   foregroundColor: Colors.white,
                   icon: Icons.pause,
                 ),
+              ],
+              if (showCancel) ...[
                 SlidableAction(
-                  onPressed: (ctx) => _showCancelDialog(ctx, downloadId!),
+                  onPressed: (_) => _showCancelDialog(context, downloadId!),
                   backgroundColor: Colors.red,
                   foregroundColor: Colors.white,
                   icon: Icons.cancel,
                 ),
               ],
-              if (showCancelOnly) ...[
+              if (showDelete) ...[
                 SlidableAction(
                   onPressed: (_) => context
                       .read<DownloadsController>()
-                      .sendAction(downloadId!, 'cancel'),
-                  backgroundColor: Colors.red,
+                      .sendAction(downloadId!, 'delete'),
+                  backgroundColor: Colors.red.shade900,
                   foregroundColor: Colors.white,
-                  icon: Icons.cancel,
+                  icon: Icons.delete,
                 ),
               ],
             ],
@@ -215,6 +243,10 @@ class DownloadCard extends StatelessWidget {
   }
 
   void _showCancelDialog(BuildContext context, String id) {
+    // SOLUCIÓN AL BUG DEL DIÁLOGO: Capturamos la referencia al Controller ANTES
+    // de abrir el Dialog. Así, aunque la Tarjeta se desactive al fondo,
+    // la acción de cancelación no dependerá del contexto del UI.
+    final controller = context.read<DownloadsController>();
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
@@ -230,7 +262,7 @@ class DownloadCard extends StatelessWidget {
           FilledButton(
             style: FilledButton.styleFrom(backgroundColor: Colors.red),
             onPressed: () {
-              context.read<DownloadsController>().sendAction(id, 'cancel');
+              controller.sendAction(id, 'cancel');
               Navigator.pop(ctx);
             },
             child: const Text('Cancelar'),

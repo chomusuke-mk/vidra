@@ -117,10 +117,10 @@ packages:
     dependency: transitive
     description:
       name: cross_file
-      sha256: "28bb3ae56f117b5aec029d702a90f57d285cd975c3c5c281eaca38dbc47c5937"
+      sha256: "92c9c43c383bfa1c32079d3bc492d55d6d4318044b7b47edaff8971cbb555c51"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.5+2"
+    version: "0.3.5+4"
   crypto:
     dependency: "direct main"
     description:
@@ -776,50 +776,50 @@ packages:
     dependency: "direct main"
     description:
       name: serious_python
-      sha256: "71f7f61c9a58df47f4bee27710e2a048e315e50f753a346b3c14f9a8fb9dbbee"
+      sha256: c874db928a28fb48bf9aef3d83d8a282a389c9e2aa453ec62c49872fc5a8f26e
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.1"
+    version: "4.3.0"
   serious_python_android:
     dependency: transitive
     description:
       name: serious_python_android
-      sha256: "55affbba0bbafb38c68fcf0cb73f2ca5210556a3c7651fc66f12203ac1fd29ed"
+      sha256: "25117122a883951688f04be06150005179dc2d140cc887a07538ba934e2c3c3f"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.1"
+    version: "4.3.0"
   serious_python_darwin:
     dependency: transitive
     description:
       name: serious_python_darwin
-      sha256: e7ebf4bf9c0ec0e411871e5c0d0f9e5bef58bedd2ba0db28ee38fe983a0ed67a
+      sha256: "0858030ebab270f937186d8205e0cec0d03a652700ab7a8d8759530f28602673"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.1"
+    version: "4.3.0"
   serious_python_linux:
     dependency: transitive
     description:
       name: serious_python_linux
-      sha256: f9bb7f6608800318554dab397ec6870f7fb51a1dedc816ec57567f4d9801d931
+      sha256: fa7cfebd7863bf2eb6eccff15e327626d8fd8a3e681969bd4fbff5cca3500e35
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.1"
+    version: "4.3.0"
   serious_python_platform_interface:
     dependency: transitive
     description:
       name: serious_python_platform_interface
-      sha256: b469f34e9c93e6e556701ed747d49873a57f2339c4e296f9736bfc273acd26c6
+      sha256: "36f31cbea85aa834092299087510a4716694fff83849e6c09bd135fe8a2d7de0"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.1"
+    version: "4.3.0"
   serious_python_windows:
     dependency: transitive
     description:
       name: serious_python_windows
-      sha256: "95c7f98f82214231d329486f83160ef8fa81079a4d50b27f696505bd076a5439"
+      sha256: "58368280c2620ef0c7b15f6f7d5fc1adac6768f5800641da3501d489836613fc"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.1"
+    version: "4.3.0"
   shared_preferences:
     dependency: "direct main"
     description:

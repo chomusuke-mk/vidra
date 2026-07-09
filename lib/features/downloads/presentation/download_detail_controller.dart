@@ -7,7 +7,7 @@ import 'package:vidra/features/system/domain/system_state.dart';
 
 class DownloadDetailController extends ChangeNotifier {
   final DownloadRepository _repository;
-  final SystemController _systemController; // <-- Inyección del Cerebro
+  final SystemController _systemController;
   final Download download;
 
   bool _isLoading = true;
@@ -167,12 +167,18 @@ class DownloadDetailController extends ChangeNotifier {
 
       download.subDownloads ??= [];
 
+      // Borrado dinámico de sub-descargas si el SSE así lo demanda
+      if (delta.status?.value == DownloadState.deleted) {
+        download.subDownloads!.removeWhere((s) => s.subId == delta.subId);
+        changed = true;
+        continue;
+      }
+
       final subIndex = download.subDownloads!.indexWhere(
         (s) => s.subId == delta.subId,
       );
 
       if (subIndex != -1) {
-        // ACTUALIZAR: El subId ya existe
         final sub = download.subDownloads![subIndex];
         if (delta.status != null) sub.state = delta.status;
         if (delta.info != null) sub.info = delta.info;
@@ -181,7 +187,7 @@ class DownloadDetailController extends ChangeNotifier {
         download.subDownloads!.add(
           SubDownload(
             subId: delta.subId,
-            parentId: delta.id, // o download.id
+            parentId: delta.id,
             state: delta.status,
             info: delta.info,
           ),
