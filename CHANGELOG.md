@@ -4,6 +4,12 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [2.2.0] - New Features
+
+- **Changelog Dialog:** Added a new dialog that displays the changelog for the current version, providing users with a clear overview of updates and changes.
+- **Tutorial System:** Introduced a comprehensive tutorial system to guide users through the application's features and functionalities, enhancing user onboarding and experience.
+- **Enhanced User Interface:** Improved the user interface for a more intuitive and seamless experience when interacting with the application.
+
 ## [2.1.1] - Better Logs
 
 - **Logs level:** Current backend logging level is INFO.
