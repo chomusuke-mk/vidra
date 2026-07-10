@@ -58,11 +58,17 @@ class SystemStatusIndicator extends StatelessWidget {
         break;
     }
 
-    return ActionChip(
-      avatar: Icon(icon, color: color, size: 16),
-      label: Text(label, style: const TextStyle(fontSize: 12)),
-      side: BorderSide(color: color.withValues(alpha: 0.5)),
-      backgroundColor: color.withValues(alpha: 0.1),
+    return IconButton(
+      tooltip: label,
+      icon: Icon(icon, color: color, size: 20),
+      style: IconButton.styleFrom(
+        backgroundColor: color.withValues(alpha: 0.1),
+        side: BorderSide(color: color.withValues(alpha: 0.5)),
+        // Se reduce el padding y el tamaño mínimo para optimizar el espacio horizontal
+        padding: const EdgeInsets.all(8),
+        minimumSize: Size.zero,
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      ),
       onPressed: () {
         showModalBottomSheet(
           context: context,
