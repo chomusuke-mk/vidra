@@ -60,6 +60,26 @@ class UpdateController extends ChangeNotifier {
 
   UpdateState getState(ComponentType type) => _states[type]!;
 
+  bool get hasPendingChecks {
+    final now = DateTime.now().millisecondsSinceEpoch;
+    final appLast = _prefs.getInt('last_update_check_app') ?? 0;
+    final ytdlpLast = _prefs.getInt('last_update_check_yt_dlp') ?? 0;
+    final ejsLast = _prefs.getInt('last_update_check_yt_dlp_ejs') ?? 0;
+
+    final sixHours = const Duration(hours: 6).inMilliseconds;
+    final twelveHours = const Duration(hours: 12).inMilliseconds;
+
+    return (now - appLast > sixHours) ||
+        (now - ytdlpLast > sixHours) ||
+        (now - ejsLast > twelveHours);
+  }
+
+  bool get hasAvailableUpdates =>
+      _states.values.any((s) => s.status == ComponentStatus.updateAvailable);
+
+  bool get isCheckingUpdates =>
+      _states.values.any((s) => s.status == ComponentStatus.checking);
+
   UpdateController(this._github, this._system, this._prefs) {
     _init();
   }
@@ -67,25 +87,36 @@ class UpdateController extends ChangeNotifier {
   Future<void> _init() async {
     await _loadLocalVersions();
 
-    final lastCheck = _prefs.getInt('last_update_check') ?? 0;
     final now = DateTime.now().millisecondsSinceEpoch;
-    final sixHours = const Duration(hours: 6).inMilliseconds;
+    final appLast = _prefs.getInt('last_update_check_app') ?? 0;
+    final ytdlpLast = _prefs.getInt('last_update_check_yt_dlp') ?? 0;
+    final ejsLast = _prefs.getInt('last_update_check_yt_dlp_ejs') ?? 0;
 
-    if (now - lastCheck > sixHours) {
-      await checkForUpdates(manualCall: false);
-    } else {
-      if (!(await _isComponentInstalled(ComponentType.ytDlp))) {
-        await checkForUpdates(
-          manualCall: false,
-          specificType: ComponentType.ytDlp,
-        );
-      }
-      if (!(await _isComponentInstalled(ComponentType.ytDlpEjs))) {
-        await checkForUpdates(
-          manualCall: false,
-          specificType: ComponentType.ytDlpEjs,
-        );
-      }
+    final sixHours = const Duration(hours: 6).inMilliseconds;
+    final twelveHours = const Duration(hours: 12).inMilliseconds;
+
+    bool checkApp = now - appLast > sixHours;
+    bool checkYtdlp =
+        (now - ytdlpLast > sixHours) ||
+        !(await _isComponentInstalled(ComponentType.ytDlp));
+    bool checkEjs =
+        (now - ejsLast > twelveHours) ||
+        !(await _isComponentInstalled(ComponentType.ytDlpEjs));
+
+    if (checkYtdlp) {
+      await checkForUpdates(
+        manualCall: false,
+        specificType: ComponentType.ytDlp,
+      );
+    }
+    if (checkEjs) {
+      await checkForUpdates(
+        manualCall: false,
+        specificType: ComponentType.ytDlpEjs,
+      );
+    }
+    if (checkApp) {
+      await checkForUpdates(manualCall: false, specificType: ComponentType.app);
     }
   }
 
@@ -150,9 +181,19 @@ class UpdateController extends ChangeNotifier {
     bool manualCall = true,
     ComponentType? specificType,
   }) async {
-    if (manualCall && specificType == null) {
-      _prefs.setInt('last_update_check', DateTime.now().millisecondsSinceEpoch);
+    final now = DateTime.now().millisecondsSinceEpoch;
+
+    if (specificType == null || specificType == ComponentType.app) {
+      await _prefs.setInt('last_update_check_app', now);
     }
+    if (specificType == null || specificType == ComponentType.ytDlp) {
+      await _prefs.setInt('last_update_check_yt_dlp', now);
+    }
+    if (specificType == null || specificType == ComponentType.ytDlpEjs) {
+      await _prefs.setInt('last_update_check_yt_dlp_ejs', now);
+    }
+
+    notifyListeners();
 
     final ytDlpChannel = _prefs.getString('channel_ytdlp') == 'nightly'
         ? UpdateChannel.nightly
@@ -330,9 +371,7 @@ class UpdateController extends ChangeNotifier {
       final abi = androidInfo.supportedAbis.firstOrNull ?? '';
 
       if (abi.contains('arm64')) return 'vidra-android-arm64-v8a.apk';
-      if (abi.contains('armeabi-v7a')) return 'vidra-android-armeabi-v7a.apk';
       if (abi.contains('x86_64')) return 'vidra-android-x86_64.apk';
-      if (abi.contains('x86')) return 'vidra-android-x86.apk';
       return 'vidra-android.apk';
     } else if (Platform.isLinux) {
       return 'vidra-linux.AppImage';

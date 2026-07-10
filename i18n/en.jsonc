@@ -168,7 +168,7 @@
   "s_keep_fragments": "Keep Fragments",
   "s_keep_fragments_desc": "Keeps the downloaded fragments after merging.",
   "s_force_overwrites": "Force Overwrites",
-  "s_force_overwrites_desc": "Overwrites existing files without asking.",
+  "s_force_overwrites_desc": "Overwrites existing files without confirmation.\nEnabled: The \"resume\" option will download from the beginning.\nDisabled: The database identifier will be added to the third-to-last position of the output template.",
   "s_write_thumbnail": "Write Thumbnail",
   "s_write_thumbnail_desc": "Saves the video thumbnail to disk.",
   "s_live_from_start": "Live from Start",

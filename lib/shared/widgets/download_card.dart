@@ -106,7 +106,7 @@ class DownloadCard extends StatelessWidget {
       child: InkWell(
         onTap: () {
           if (isError) {
-            ToastUtils.showError(state?.subState ?? "Error desconocido");
+            ToastUtils.showError(state?.errorMessage ?? "Error desconocido");
           } else if (state?.value == model.DownloadState.awaitingSelection) {
             // TODO: Lanzar Modal de Selección directamente (se hará en la Fase de Overlay)
             ToastUtils.showInfo("Toca el FAB para seleccionar elementos");

@@ -248,7 +248,7 @@ class DownloadOptions {
     this.windowsFilenames = true,
     this.abortOnUnavailableFragments = false,
     this.keepFragments = false,
-    this.forceOverwrites = true,
+    this.forceOverwrites = false,
     this.writeThumbnail = false,
     this.liveFromStart = true,
     this.waitForVideo,
@@ -781,7 +781,7 @@ class DownloadOptions {
       abortOnUnavailableFragments:
           json['abort_on_unavailable_fragments'] == true,
       keepFragments: json['keep_fragments'] == true,
-      forceOverwrites: json['force_overwrites'] ?? true,
+      forceOverwrites: json['force_overwrites'] ?? false,
       writeThumbnail: json['write_thumbnail'] == true,
       liveFromStart: json['live_from_start'] ?? true,
       waitForVideo: json['wait_for_video'] is int

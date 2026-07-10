@@ -100,99 +100,108 @@ class SystemDetailsScreen extends StatelessWidget {
               : (hasError ? Colors.red : Colors.orange),
         ),
         title: Text('Servidor Python: ${sysCtrl.state.name}'),
-        subtitle: Text(
-          isReady
-              ? 'Puerto: ${sysCtrl.backendPort}'
-              : 'Esperando disponibilidad...',
-        ),
-        trailing: Row(
-          mainAxisSize: MainAxisSize.min,
+        subtitle: Wrap(
+          alignment: WrapAlignment.spaceBetween,
+          runSpacing: 4,
           children: [
-            // Botón 1: Logs HTTP de la App (Solo si está Ready)
-            TextButton.icon(
-              style: TextButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  side: const BorderSide(color: Colors.grey, width: 1),
-                ),
-              ),
-              onPressed: !isReady
-                  ? null
-                  : () async {
-                      showDialog(
-                        context: context,
-                        barrierDismissible: false,
-                        builder: (_) =>
-                            const Center(child: CircularProgressIndicator()),
-                      );
-                      try {
-                        final client = context.read<VidraHttpClient>();
-                        final logs = await client.getLogs();
-                        if (context.mounted) {
-                          Navigator.pop(context);
+            Text(
+              isReady
+                  ? 'Puerto: ${sysCtrl.backendPort}'
+                  : 'Esperando disponibilidad...',
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Botón 1: Logs HTTP de la App (Solo si está Ready)
+                TextButton.icon(
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      side: const BorderSide(color: Colors.grey, width: 1),
+                    ),
+                  ),
+                  onPressed: !isReady
+                      ? null
+                      : () async {
                           showDialog(
                             context: context,
-                            builder: (_) => _LogsDialog(
-                              logs: logs,
-                              title: 'Logs de la App',
+                            barrierDismissible: false,
+                            builder: (_) => const Center(
+                              child: CircularProgressIndicator(),
                             ),
                           );
-                        }
-                      } catch (e) {
-                        if (context.mounted) {
-                          Navigator.pop(context);
-                        }
-                        ToastUtils.showError('Error: $e');
-                      }
-                    },
-              label: const Text('App', style: TextStyle(fontSize: 12)),
-              icon: const Icon(Icons.receipt_long_rounded),
-            ),
-
-            const SizedBox(width: 4),
-
-            // Botón 2: Logs Nativos de Consola (SIEMPRE DISPONIBLE para debug)
-            TextButton.icon(
-              style: TextButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  side: const BorderSide(color: Colors.grey, width: 1),
-                ),
-              ),
-              onPressed: sysCtrl.serverLogsFilePath == null
-                  ? null
-                  : () async {
-                      try {
-                        final file = File(sysCtrl.serverLogsFilePath!);
-                        if (await file.exists()) {
-                          // Leemos los últimos 20000 caracteres para no ahogar la RAM si el archivo creció mucho
-                          String rawLogs = await file.readAsString();
-                          if (rawLogs.length > 20000) {
-                            rawLogs =
-                                "... (truncado) ...\n${rawLogs.substring(rawLogs.length - 20000)}";
+                          try {
+                            final client = context.read<VidraHttpClient>();
+                            final logs = await client.getLogs();
+                            if (context.mounted) {
+                              Navigator.pop(context);
+                              showDialog(
+                                context: context,
+                                builder: (_) => _LogsDialog(
+                                  logs: logs,
+                                  title: 'Logs de la App',
+                                ),
+                              );
+                            }
+                          } catch (e) {
+                            if (context.mounted) {
+                              Navigator.pop(context);
+                            }
+                            ToastUtils.showError('Error: $e');
                           }
-                          if (context.mounted) {
-                            showDialog(
-                              context: context,
-                              builder: (_) => _LogsDialog(
-                                logs: rawLogs,
-                                title: 'Logs del Servidor Python',
-                              ),
+                        },
+                  label: const Text('App', style: TextStyle(fontSize: 12)),
+                  icon: const Icon(Icons.receipt_long_rounded),
+                ),
+
+                const SizedBox(width: 4),
+
+                // Botón 2: Logs Nativos de Consola (SIEMPRE DISPONIBLE para debug)
+                TextButton.icon(
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      side: const BorderSide(color: Colors.grey, width: 1),
+                    ),
+                  ),
+                  onPressed: sysCtrl.serverLogsFilePath == null
+                      ? null
+                      : () async {
+                          try {
+                            final file = File(sysCtrl.serverLogsFilePath!);
+                            if (await file.exists()) {
+                              // Leemos los últimos 20000 caracteres para no ahogar la RAM si el archivo creció mucho
+                              String rawLogs = await file.readAsString();
+                              if (rawLogs.length > 20000) {
+                                rawLogs =
+                                    "... (truncado) ...\n${rawLogs.substring(rawLogs.length - 20000)}";
+                              }
+                              if (context.mounted) {
+                                showDialog(
+                                  context: context,
+                                  builder: (_) => _LogsDialog(
+                                    logs: rawLogs,
+                                    title: 'Logs del Servidor Python',
+                                  ),
+                                );
+                              }
+                            } else {
+                              ToastUtils.showError(
+                                'El archivo de log físico aún no existe.',
+                              );
+                            }
+                          } catch (e) {
+                            ToastUtils.showError(
+                              'Error al leer log físico: $e',
                             );
                           }
-                        } else {
-                          ToastUtils.showError(
-                            'El archivo de log físico aún no existe.',
-                          );
-                        }
-                      } catch (e) {
-                        ToastUtils.showError('Error al leer log físico: $e');
-                      }
-                    },
-              label: const Text('Server', style: TextStyle(fontSize: 12)),
-              icon: const Icon(Icons.terminal),
+                        },
+                  label: const Text('Server', style: TextStyle(fontSize: 12)),
+                  icon: const Icon(Icons.terminal),
+                ),
+              ],
             ),
           ],
         ),
@@ -294,9 +303,24 @@ class SystemDetailsScreen extends StatelessWidget {
         );
 
       case ComponentStatus.upToDate:
-        return TextButton(
-          onPressed: () => _handleCheckUpdate(context, ctrl, type, title),
-          child: const Text('Buscar'),
+        return Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text(
+              '✅',
+              style: TextStyle(
+                color: Colors.green,
+                fontWeight: FontWeight.bold,
+                fontSize: 12,
+              ),
+            ),
+            const SizedBox(width: 8),
+            IconButton(
+              icon: const Icon(Icons.refresh, size: 20),
+              tooltip: 'Verificar nuevamente',
+              onPressed: () => _handleCheckUpdate(context, ctrl, type, title),
+            ),
+          ],
         );
 
       case ComponentStatus.updateAvailable:
@@ -361,36 +385,43 @@ class SystemDetailsScreen extends StatelessWidget {
     final prefs = context.watch<SharedPreferences>();
     final currentChannel = prefs.getString('channel_ytdlp') ?? 'stable';
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const Text('Canal de actualización:', style: TextStyle(fontSize: 12)),
-        SegmentedButton<String>(
-          segments: const [
-            ButtonSegment(
-              value: 'stable',
-              label: Text('Estable', style: TextStyle(fontSize: 11)),
-            ),
-            ButtonSegment(
-              value: 'nightly',
-              label: Text('Nightly', style: TextStyle(fontSize: 11)),
-            ),
-          ],
-          selected: {currentChannel},
-          showSelectedIcon: false,
-          onSelectionChanged: (Set<String> newSelection) async {
-            prefs.setString('channel_ytdlp', newSelection.first);
-            // Cuando cambias de canal, también hacemos el chequeo visual
-            final hasUpdate = await ctrl.checkForUpdates(
-              manualCall: true,
-              specificType: ComponentType.ytDlp,
-            );
-            if (!hasUpdate) {
-              ToastUtils.showSuccess('No hay nuevas versiones en este canal.');
-            }
-          },
-        ),
-      ],
+    return SizedBox(
+      width: double.infinity,
+      child: Wrap(
+        alignment: WrapAlignment.spaceBetween,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        runSpacing: 4,
+        children: [
+          const Text('Canal de actualización:', style: TextStyle(fontSize: 12)),
+          SegmentedButton<String>(
+            segments: const [
+              ButtonSegment(
+                value: 'stable',
+                label: Text('Estable', style: TextStyle(fontSize: 11)),
+              ),
+              ButtonSegment(
+                value: 'nightly',
+                label: Text('Nightly', style: TextStyle(fontSize: 11)),
+              ),
+            ],
+            selected: {currentChannel},
+            showSelectedIcon: false,
+            onSelectionChanged: (Set<String> newSelection) async {
+              prefs.setString('channel_ytdlp', newSelection.first);
+              // Cuando cambias de canal, también hacemos el chequeo visual
+              final hasUpdate = await ctrl.checkForUpdates(
+                manualCall: true,
+                specificType: ComponentType.ytDlp,
+              );
+              if (!hasUpdate) {
+                ToastUtils.showSuccess(
+                  'No hay nuevas versiones en este canal.',
+                );
+              }
+            },
+          ),
+        ],
+      ),
     );
   }
 

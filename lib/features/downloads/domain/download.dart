@@ -32,8 +32,11 @@ enum DownloadState {
   ),
   failed('failed', 'Download Failed'),
   cancelled('cancelled', 'Cancelled'),
+  cancelling('cancelling', 'Cancelling'),
   paused('paused', 'Paused'),
-  deleted('deleted', 'Deleted');
+  pausing('pausing', 'Pausing'),
+  deleted('deleted', 'Deleted'),
+  deleting('deleting', 'Deleting');
 
   const DownloadState(this.apiValue, this.humanReadable);
   final String apiValue;
@@ -123,6 +126,7 @@ class State {
   String? timeSpent;
   String? timeTotal;
   String? timeLeft;
+  String? errorMessage;
 
   State({
     this.value,
@@ -135,6 +139,7 @@ class State {
     this.timeSpent,
     this.timeTotal,
     this.timeLeft,
+    this.errorMessage,
   });
 
   factory State.fromJson(Map<String, dynamic> json) => State(
@@ -150,6 +155,7 @@ class State {
     timeSpent: json['time_spent']?.toString(),
     timeTotal: json['time_total']?.toString(),
     timeLeft: json['time_left']?.toString(),
+    errorMessage: json['error_message']?.toString()
   );
 
   static DownloadState? _parseState(String? val) {
