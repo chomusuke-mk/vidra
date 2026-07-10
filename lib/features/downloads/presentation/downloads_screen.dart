@@ -34,9 +34,9 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
   void initState() {
     super.initState();
     // Se ejecuta automáticamente al renderizarse la vista principal
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      ChangelogUtils.checkFirstTime(context);
-      Future.delayed(const Duration(milliseconds: 400), () {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await ChangelogUtils.checkFirstTime(context);
+      Future.delayed(const Duration(milliseconds: 300), () {
         if (mounted) TutorialUtils.showMainAppTutorial(context);
       });
     });

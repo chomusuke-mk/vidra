@@ -48,7 +48,7 @@ class ChangelogUtils {
     if (lastVersion != currentVersion) {
       await prefs.setString('last_seen_changelog_version', currentVersion);
       if (context.mounted) {
-        showChangelogDialog(context);
+        await showChangelogDialog(context);
       }
     }
   }
