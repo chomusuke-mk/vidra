@@ -158,7 +158,7 @@ jobs:
         run: |
           dart pub global activate fastforge
           export PATH="$PATH":"$HOME/.pub-cache/bin"
-          fastforge package --platform linux --targets appimage,deb --skip-clean
+          fastforge release --name linux-release --skip-clean
 
           cp dist/vidra-linux.AppImage vidra-linux.AppImage
           cp dist/vidra-linux.deb vidra-linux.deb
