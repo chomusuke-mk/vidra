@@ -109,9 +109,13 @@ class SystemDetailsScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             // Botón 1: Logs HTTP de la App (Solo si está Ready)
-            OutlinedButton(
-              style: OutlinedButton.styleFrom(
+            TextButton.icon(
+              style: TextButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  side: const BorderSide(color: Colors.grey, width: 1),
+                ),
               ),
               onPressed: !isReady
                   ? null
@@ -129,7 +133,10 @@ class SystemDetailsScreen extends StatelessWidget {
                           Navigator.pop(context);
                           showDialog(
                             context: context,
-                            builder: (_) => _LogsDialog(logs: logs),
+                            builder: (_) => _LogsDialog(
+                              logs: logs,
+                              title: 'Logs de la App',
+                            ),
                           );
                         }
                       } catch (e) {
@@ -139,15 +146,20 @@ class SystemDetailsScreen extends StatelessWidget {
                         ToastUtils.showError('Error: $e');
                       }
                     },
-              child: const Text('App', style: TextStyle(fontSize: 12)),
+              label: const Text('App', style: TextStyle(fontSize: 12)),
+              icon: const Icon(Icons.receipt_long_rounded),
             ),
 
             const SizedBox(width: 4),
 
             // Botón 2: Logs Nativos de Consola (SIEMPRE DISPONIBLE para debug)
-            OutlinedButton(
-              style: OutlinedButton.styleFrom(
+            TextButton.icon(
+              style: TextButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  side: const BorderSide(color: Colors.grey, width: 1),
+                ),
               ),
               onPressed: sysCtrl.serverLogsFilePath == null
                   ? null
@@ -164,7 +176,10 @@ class SystemDetailsScreen extends StatelessWidget {
                           if (context.mounted) {
                             showDialog(
                               context: context,
-                              builder: (_) => _LogsDialog(logs: rawLogs),
+                              builder: (_) => _LogsDialog(
+                                logs: rawLogs,
+                                title: 'Logs del Servidor Python',
+                              ),
                             );
                           }
                         } else {
@@ -176,7 +191,8 @@ class SystemDetailsScreen extends StatelessWidget {
                         ToastUtils.showError('Error al leer log físico: $e');
                       }
                     },
-              child: const Text('Server', style: TextStyle(fontSize: 12)),
+              label: const Text('Server', style: TextStyle(fontSize: 12)),
+              icon: const Icon(Icons.terminal),
             ),
           ],
         ),
@@ -452,7 +468,8 @@ class SystemDetailsScreen extends StatelessWidget {
 // ==========================================================================
 class _LogsDialog extends StatefulWidget {
   final String logs;
-  const _LogsDialog({required this.logs});
+  final String title;
+  const _LogsDialog({required this.logs, required this.title});
 
   @override
   State<_LogsDialog> createState() => _LogsDialogState();
@@ -481,7 +498,7 @@ class _LogsDialogState extends State<_LogsDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Logs Globales de Vidra'),
+      title: Text(widget.title),
       content: SizedBox(
         width: double.maxFinite,
         child: Scrollbar(
