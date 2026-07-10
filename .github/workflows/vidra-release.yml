@@ -246,12 +246,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v7
-      
+
       - name: Extract Version for Release
         id: get_version
         run: |
           VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //' | cut -d'+' -f1 | xargs)
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Download All Artifacts
         uses: actions/download-artifact@v8
@@ -278,8 +278,8 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: ${{ steps.get_version.outputs.VERSION }}
-          name: "Vidra v${{ steps.get_version.outputs.VERSION }}"
+          tag_name: ${{ steps.get_version.outputs.version }}
+          name: "Vidra v${{ steps.get_version.outputs.version }}"
           body_path: CHANGELOG.md
           files: |
             artifacts/vidra-windows.exe
