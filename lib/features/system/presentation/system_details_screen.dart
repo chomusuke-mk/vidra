@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 import 'package:vidra/features/system/domain/system_state.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
 import 'package:vidra/features/updates/domain/update_info.dart';
@@ -10,6 +11,7 @@ import 'package:vidra/features/updates/presentation/update_controller.dart';
 import 'package:vidra/features/system/presentation/licenses_screen.dart';
 import 'package:vidra/core/network/vidra_http_client.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
+import 'package:vidra/shared/utils/changelog_utils.dart';
 
 class SystemDetailsScreen extends StatelessWidget {
   const SystemDetailsScreen({super.key});
@@ -475,6 +477,11 @@ class SystemDetailsScreen extends StatelessWidget {
                 Uri.parse('https://github.com/chomusuke-mk/vidra'),
                 mode: LaunchMode.externalApplication,
               ),
+            ),
+            TextButton.icon(
+              icon: const Icon(Icons.history, size: 16),
+              label: const Text('Changelog'),
+              onPressed: () => ChangelogUtils.showChangelogDialog(context),
             ),
             TextButton.icon(
               icon: const Icon(Icons.gavel, size: 16),

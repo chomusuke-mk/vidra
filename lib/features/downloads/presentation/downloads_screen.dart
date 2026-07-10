@@ -12,6 +12,7 @@ import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/shared/widgets/download_card.dart';
 import 'download_detail_screen.dart';
 import 'package:vidra/features/system/presentation/system_status_indicator.dart';
+import 'package:vidra/shared/utils/changelog_utils.dart';
 
 class DownloadsScreen extends StatefulWidget {
   const DownloadsScreen({super.key});
@@ -27,6 +28,15 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
   bool _showFilters = false;
   String _searchQuery = '';
   String _typeFilter = 'all'; // 'all', 'video', 'list'
+
+  @override
+  void initState() {
+    super.initState();
+    // Se ejecuta automáticamente al renderizarse la vista principal
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ChangelogUtils.checkFirstTime(context);
+    });
+  }
 
   @override
   void dispose() {
