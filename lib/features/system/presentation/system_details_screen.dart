@@ -9,6 +9,7 @@ import 'package:vidra/features/updates/domain/update_info.dart';
 import 'package:vidra/features/updates/presentation/update_controller.dart';
 import 'package:vidra/features/system/presentation/licenses_screen.dart';
 import 'package:vidra/core/network/vidra_http_client.dart';
+import 'package:vidra/shared/utils/toast_utils.dart';
 
 class SystemDetailsScreen extends StatelessWidget {
   const SystemDetailsScreen({super.key});
@@ -134,10 +135,8 @@ class SystemDetailsScreen extends StatelessWidget {
                       } catch (e) {
                         if (context.mounted) {
                           Navigator.pop(context);
-                          ScaffoldMessenger.of(
-                            context,
-                          ).showSnackBar(SnackBar(content: Text('Error: $e')));
                         }
+                        ToastUtils.showError('Error: $e');
                       }
                     },
               child: const Text('App', style: TextStyle(fontSize: 12)),
@@ -169,24 +168,12 @@ class SystemDetailsScreen extends StatelessWidget {
                             );
                           }
                         } else {
-                          if (context.mounted) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'El archivo de log físico aún no existe.',
-                                ),
-                              ),
-                            );
-                          }
-                        }
-                      } catch (e) {
-                        if (context.mounted) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Error al leer log físico: $e'),
-                            ),
+                          ToastUtils.showError(
+                            'El archivo de log físico aún no existe.',
                           );
                         }
+                      } catch (e) {
+                        ToastUtils.showError('Error al leer log físico: $e');
                       }
                     },
               child: const Text('Server', style: TextStyle(fontSize: 12)),
@@ -343,20 +330,13 @@ class SystemDetailsScreen extends StatelessWidget {
     );
 
     // Si no encontró nada y el widget aún existe, lanzamos la notificación
-    if (!hasUpdate && context.mounted) {
+    if (!hasUpdate) {
       final finalState = ctrl.getState(type).status;
 
       if (finalState == ComponentStatus.error) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Error de red al conectar con GitHub.'),
-            backgroundColor: Colors.red,
-          ),
-        );
+        ToastUtils.showError('Error de red al conectar con GitHub.');
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('¡$title ya está en su última versión!')),
-        );
+        ToastUtils.showSuccess('¡$title ya está en su última versión!');
       }
     }
   }
@@ -389,12 +369,8 @@ class SystemDetailsScreen extends StatelessWidget {
               manualCall: true,
               specificType: ComponentType.ytDlp,
             );
-            if (!hasUpdate && context.mounted) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('No hay nuevas versiones en este canal.'),
-                ),
-              );
+            if (!hasUpdate) {
+              ToastUtils.showSuccess('No hay nuevas versiones en este canal.');
             }
           },
         ),

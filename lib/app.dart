@@ -25,7 +25,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Vidra",
       locale: Locale(settingsCtrl.appLanguage),
-      scaffoldMessengerKey: ToastUtils.messengerKey,
+      navigatorKey: ToastUtils.navigatorKey,
       themeMode: settingsCtrl.appTheme,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),

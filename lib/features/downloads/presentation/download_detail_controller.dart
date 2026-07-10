@@ -5,6 +5,8 @@ import 'package:vidra/features/downloads/domain/download.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
 import 'package:vidra/features/system/domain/system_state.dart';
 
+enum SubDownloadSortOption { byDefault, alphabetical }
+
 class DownloadDetailController extends ChangeNotifier {
   final DownloadRepository _repository;
   final SystemController _systemController;
@@ -29,6 +31,11 @@ class DownloadDetailController extends ChangeNotifier {
   final Set<DownloadState> _activeFilters = {};
   Set<DownloadState> get activeFilters => _activeFilters;
 
+  SubDownloadSortOption _sortOption = SubDownloadSortOption.byDefault;
+  SubDownloadSortOption get sortOption => _sortOption;
+
+  bool _sortReversed = false;
+  bool get sortReversed => _sortReversed;
   bool _isSearchVisible = false;
   bool get isSearchVisible => _isSearchVisible;
 
@@ -61,9 +68,25 @@ class DownloadDetailController extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setSortOption(SubDownloadSortOption option) {
+    if (_sortOption == option) {
+      // Si el usuario toca la misma opción que ya está seleccionada, invertimos el orden
+      _sortReversed = !_sortReversed;
+    } else {
+      _sortOption = option;
+      _sortReversed = false; // Al cambiar de criterio, empezamos sin reversa
+    }
+    notifyListeners();
+  }
+
+  void toggleSortReverse() {
+    _sortReversed = !_sortReversed;
+    notifyListeners();
+  }
+
   List<SubDownload> get filteredSubDownloads {
     final subs = download.subDownloads ?? [];
-    return subs.where((sub) {
+    final filtered = subs.where((sub) {
       if (_searchQuery.isNotEmpty) {
         final title = sub.info?.title?.toLowerCase() ?? '';
         if (!title.contains(_searchQuery.toLowerCase())) return false;
@@ -75,6 +98,17 @@ class DownloadDetailController extends ChangeNotifier {
       }
       return true;
     }).toList();
+    if (_sortOption == SubDownloadSortOption.alphabetical) {
+      filtered.sort((a, b) {
+        final titleA = a.info?.title ?? '';
+        final titleB = b.info?.title ?? '';
+        return titleA.compareTo(titleB);
+      });
+    }
+    if (_sortReversed) {
+      return filtered.reversed.toList();
+    }
+    return filtered;
   }
 
   // ==========================================================================

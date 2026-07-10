@@ -46,6 +46,14 @@ class _DetailView extends StatefulWidget {
 
 class _DetailViewState extends State<_DetailView> {
   int _selectedIndex = 0;
+  final TextEditingController _searchController = TextEditingController();
+
+  @override
+  void dispose() {
+    // 2. Liberar memoria cuando el widget se destruya
+    _searchController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -180,15 +188,112 @@ class _DetailViewState extends State<_DetailView> {
                 '${list.length} ${locale.ddElements}',
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
-              IconButton(
-                icon: Icon(
-                  hasActiveFilters
-                      ? Icons.filter_alt
-                      : Icons.filter_alt_outlined,
-                  color: hasActiveFilters ? Colors.blue : null,
-                ),
-                tooltip: locale.ddSearchFilter,
-                onPressed: controller.toggleSearchVisibility,
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // Botón Menú para Tipo de Ordenamiento (Defecto / Alfabéticamente)
+                  PopupMenuButton<SubDownloadSortOption>(
+                    icon: Icon(
+                      Icons.sort,
+                      color:
+                          controller.sortOption !=
+                                  SubDownloadSortOption.byDefault ||
+                              controller.sortReversed
+                          ? Colors.blue
+                          : null,
+                    ),
+                    tooltip: 'Ordenar',
+                    onSelected: controller.setSortOption,
+                    itemBuilder: (context) => [
+                      PopupMenuItem(
+                        value: SubDownloadSortOption.byDefault,
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.format_list_numbered,
+                              size: 18,
+                              color:
+                                  controller.sortOption ==
+                                      SubDownloadSortOption.byDefault
+                                  ? Colors.blue
+                                  : null,
+                            ),
+                            const SizedBox(width: 8),
+                            Text(
+                              'Defecto',
+                              style: TextStyle(
+                                color:
+                                    controller.sortOption ==
+                                        SubDownloadSortOption.byDefault
+                                    ? Colors.blue
+                                    : null,
+                                fontWeight:
+                                    controller.sortOption ==
+                                        SubDownloadSortOption.byDefault
+                                    ? FontWeight.bold
+                                    : null,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      PopupMenuItem(
+                        value: SubDownloadSortOption.alphabetical,
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.sort_by_alpha,
+                              size: 18,
+                              color:
+                                  controller.sortOption ==
+                                      SubDownloadSortOption.alphabetical
+                                  ? Colors.blue
+                                  : null,
+                            ),
+                            const SizedBox(width: 8),
+                            Text(
+                              'Alfabéticamente',
+                              style: TextStyle(
+                                color:
+                                    controller.sortOption ==
+                                        SubDownloadSortOption.alphabetical
+                                    ? Colors.blue
+                                    : null,
+                                fontWeight:
+                                    controller.sortOption ==
+                                        SubDownloadSortOption.alphabetical
+                                    ? FontWeight.bold
+                                    : null,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  // Botón para alternar Reversa (Ascendente / Descendente)
+                  IconButton(
+                    icon: Icon(
+                      controller.sortReversed
+                          ? Icons.arrow_upward
+                          : Icons.arrow_downward,
+                      color: controller.sortReversed ? Colors.blue : null,
+                    ),
+                    tooltip: 'Invertir orden (Reverse)',
+                    onPressed: controller.toggleSortReverse,
+                  ),
+                  // Botón de Filtros existente
+                  IconButton(
+                    icon: Icon(
+                      hasActiveFilters
+                          ? Icons.filter_alt
+                          : Icons.filter_alt_outlined,
+                      color: hasActiveFilters ? Colors.blue : null,
+                    ),
+                    tooltip: locale.ddSearchFilter,
+                    onPressed: controller.toggleSearchVisibility,
+                  ),
+                ],
               ),
             ],
           ),
@@ -205,13 +310,17 @@ class _DetailViewState extends State<_DetailView> {
                   child: Column(
                     children: [
                       TextField(
+                        controller: _searchController,
                         decoration: InputDecoration(
                           hintText: locale.ddSearchList,
                           prefixIcon: const Icon(Icons.search),
                           suffixIcon: controller.searchQuery.isNotEmpty
                               ? IconButton(
                                   icon: const Icon(Icons.clear),
-                                  onPressed: () => controller.updateSearch(''),
+                                  onPressed: () {
+                                    _searchController.clear();
+                                    controller.updateSearch('');
+                                  },
                                 )
                               : null,
                           isDense: true,
@@ -383,8 +492,7 @@ class _DetailViewState extends State<_DetailView> {
 
   Widget _buildConfigTab(Map<String, dynamic>? options, AppStringKey locale) {
     if (options == null || options.isEmpty) {
-      return Center(child: Text(locale.ddNoSettings),
-      );
+      return Center(child: Text(locale.ddNoSettings));
     }
 
     // Convertimos el Map a un String JSON formateado (Indented)
@@ -414,7 +522,6 @@ class _DetailViewState extends State<_DetailView> {
     );
   }
 }
-
 
 // =========================================================================
 // WIDGET ESTADO PARA AUTO-SCROLL DE LOGS

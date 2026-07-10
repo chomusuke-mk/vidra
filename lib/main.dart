@@ -132,7 +132,7 @@ void overlayMain() {
       themeMode: ThemeMode.system,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      scaffoldMessengerKey: ToastUtils.messengerKey,
+      navigatorKey: ToastUtils.navigatorKey,
       home: const QuickShareOverlay(),
     ),
   );

@@ -513,6 +513,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
           await httpClient.shutdown();
           notifyUiState('initializing');
           SeriousPython.terminate();
+          isBackendRunning = false;
           sendPort.send({'event': 'paused_ack'});
           break;
 
