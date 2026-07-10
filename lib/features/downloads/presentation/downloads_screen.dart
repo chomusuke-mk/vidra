@@ -13,6 +13,7 @@ import 'package:vidra/shared/widgets/download_card.dart';
 import 'download_detail_screen.dart';
 import 'package:vidra/features/system/presentation/system_status_indicator.dart';
 import 'package:vidra/shared/utils/changelog_utils.dart';
+import 'package:vidra/shared/utils/tutorial_utils.dart';
 
 class DownloadsScreen extends StatefulWidget {
   const DownloadsScreen({super.key});
@@ -35,6 +36,9 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
     // Se ejecuta automáticamente al renderizarse la vista principal
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ChangelogUtils.checkFirstTime(context);
+      Future.delayed(const Duration(milliseconds: 400), () {
+        if (mounted) TutorialUtils.showMainAppTutorial(context);
+      });
     });
   }
 
@@ -104,12 +108,13 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
         // --- ZONA SUPERIOR (AppBar rediseñada) ---
         appBar: AppBar(
           titleSpacing: 0,
-          leading: const Padding(
+          leading: Padding(
             padding: EdgeInsets.all(8.0),
-            child: SystemStatusIndicator(),
+            child: SystemStatusIndicator(key: AppTutorialKeys.mainSystemStatus),
           ),
           // 2. Barra de texto para URL (Centro)
           title: TextField(
+            key: AppTutorialKeys.mainUrlBar,
             controller: _urlController,
             decoration: InputDecoration(
               hintText: locale.dVideoUrl,
@@ -138,6 +143,13 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
           ),
           actions: [
             IconButton(
+              icon: const Icon(Icons.help_outline),
+              tooltip: 'Ver Tutorial',
+              onPressed: () =>
+                  TutorialUtils.showMainAppTutorial(context, force: true),
+            ),
+            IconButton(
+              key: AppTutorialKeys.mainFilter,
               icon: Icon(
                 hasActiveFilter ? Icons.filter_alt : Icons.filter_alt_outlined,
                 color: hasActiveFilter ? Colors.blue : null,
@@ -146,6 +158,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
               onPressed: () => setState(() => _showFilters = !_showFilters),
             ),
             IconButton(
+              key: AppTutorialKeys.mainSettings,
               icon: const Icon(Icons.settings),
               tooltip: locale.dSettings,
               onPressed: () => Navigator.push(

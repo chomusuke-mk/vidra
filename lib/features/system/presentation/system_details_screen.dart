@@ -12,6 +12,7 @@ import 'package:vidra/features/system/presentation/licenses_screen.dart';
 import 'package:vidra/core/network/vidra_http_client.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
 import 'package:vidra/shared/utils/changelog_utils.dart';
+import 'package:vidra/shared/utils/tutorial_utils.dart';
 
 class SystemDetailsScreen extends StatelessWidget {
   const SystemDetailsScreen({super.key});
@@ -45,7 +46,10 @@ class SystemDetailsScreen extends StatelessWidget {
             child: ListView(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               children: [
-                _buildBackendStatus(context),
+                Container(
+                  key: AppTutorialKeys.systemBackend,
+                  child: _buildBackendStatus(context),
+                ),
                 const SizedBox(height: 24),
 
                 const Text(
@@ -53,23 +57,31 @@ class SystemDetailsScreen extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 const SizedBox(height: 8),
-                _buildUpdateCard(
-                  context,
-                  ComponentType.app,
-                  'Vidra App',
-                  Icons.android,
-                ),
-                _buildUpdateCard(
-                  context,
-                  ComponentType.ytDlp,
-                  'Motor yt-dlp',
-                  Icons.terminal,
-                ),
-                _buildUpdateCard(
-                  context,
-                  ComponentType.ytDlpEjs,
-                  'Parche EJS',
-                  Icons.javascript,
+
+                Container(
+                  key: AppTutorialKeys.systemUpdates,
+                  child: Column(
+                    children: [
+                      _buildUpdateCard(
+                        context,
+                        ComponentType.app,
+                        'Vidra App',
+                        Icons.android,
+                      ),
+                      _buildUpdateCard(
+                        context,
+                        ComponentType.ytDlp,
+                        'Motor yt-dlp',
+                        Icons.terminal,
+                      ),
+                      _buildUpdateCard(
+                        context,
+                        ComponentType.ytDlpEjs,
+                        'Parche EJS',
+                        Icons.javascript,
+                      ),
+                    ],
+                  ),
                 ),
 
                 const SizedBox(height: 32),
@@ -482,6 +494,16 @@ class SystemDetailsScreen extends StatelessWidget {
               icon: const Icon(Icons.history, size: 16),
               label: const Text('Changelog'),
               onPressed: () => ChangelogUtils.showChangelogDialog(context),
+            ),
+            TextButton.icon(
+              icon: const Icon(
+                Icons.lightbulb_outline,
+                size: 16,
+                color: Colors.yellow,
+              ),
+              label: const Text('Ver Tutorial'),
+              onPressed: () =>
+                  TutorialUtils.showSystemTutorial(context, force: true),
             ),
             TextButton.icon(
               icon: const Icon(Icons.gavel, size: 16),

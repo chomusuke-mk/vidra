@@ -10,6 +10,7 @@ import 'package:vidra/shared/widgets/lazy_map.dart';
 import 'package:vidra/shared/widgets/lazy_text_field.dart';
 import 'package:vidra/features/settings/domain/download_options.dart';
 import 'package:vidra/shared/widgets/settings_row.dart';
+import 'package:vidra/shared/utils/tutorial_utils.dart';
 import 'settings_controller.dart';
 
 enum SettingCategory { general, network, video, download }
@@ -50,6 +51,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
     _searchFocus.dispose();
     _searchCtrl.dispose();
     super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(const Duration(milliseconds: 300), () {
+        if (mounted) TutorialUtils.showSettingsTutorial(context);
+      });
+    });
   }
 
   // ===========================================================================
@@ -1561,6 +1572,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
       title: Text(locale.sTitle),
       actions: [
         IconButton(
+          icon: const Icon(Icons.help_outline),
+          onPressed: () =>
+              TutorialUtils.showSettingsTutorial(context, force: true),
+        ),
+        IconButton(
+          key: AppTutorialKeys.settingsSearch,
           icon: const Icon(Icons.search),
           onPressed: () => setState(() => _isSearching = true),
         ),
@@ -1615,6 +1632,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       child: Column(
         children: [
           TabBar(
+            key: AppTutorialKeys.settingsTabs,
             tabs: [
               Tab(icon: Icon(Icons.settings), text: locale.sGeneral),
               Tab(icon: Icon(Icons.wifi), text: locale.sNetwork),
@@ -1651,7 +1669,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
           labelType: NavigationRailLabelType.none,
           destinations: [
             NavigationRailDestination(
-              icon: Icon(Icons.settings),
+              icon: Padding(
+                key: AppTutorialKeys.settingsTabs,
+                padding: const EdgeInsets.all(4.0),
+                child: const Icon(Icons.settings),
+              ),
               label: Text(locale.sGeneral),
             ),
             NavigationRailDestination(
