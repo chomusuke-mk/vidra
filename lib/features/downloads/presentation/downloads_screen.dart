@@ -65,23 +65,25 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
     // 2. SEPARAMOS EN PESTAÑAS BASADOS EN LA LISTA YA FILTRADA
     final inProgress = filteredAll.where((d) {
       final state = d.state?.value;
-      return state == download_model.DownloadState.requested ||
-          state == download_model.DownloadState.pending ||
-          state == download_model.DownloadState.extractingInformation ||
-          state == download_model.DownloadState.awaitingSelection ||
-          state == download_model.DownloadState.inProgress ||
-          state == download_model.DownloadState.paused;
+      return state == download_model.DownloadStateEnum.requested ||
+          state == download_model.DownloadStateEnum.pending ||
+          state == download_model.DownloadStateEnum.extractingInformation ||
+          state == download_model.DownloadStateEnum.awaitingSelection ||
+          state == download_model.DownloadStateEnum.inProgress ||
+          state == download_model.DownloadStateEnum.paused;
     }).toList();
 
     final completed = filteredAll
-        .where((d) => d.state?.value == download_model.DownloadState.completed)
+        .where(
+          (d) => d.state?.value == download_model.DownloadStateEnum.completed,
+        )
         .toList();
 
     final errors = filteredAll.where((d) {
       final state = d.state?.value;
-      return state == download_model.DownloadState.failed ||
-          state == download_model.DownloadState.cancelled ||
-          state == download_model.DownloadState.deleted;
+      return state == download_model.DownloadStateEnum.failed ||
+          state == download_model.DownloadStateEnum.cancelled ||
+          state == download_model.DownloadStateEnum.deleted;
     }).toList();
 
     final lists = [filteredAll, inProgress, completed, errors];

@@ -15,7 +15,7 @@ import 'package:url_launcher/url_launcher.dart';
 class DownloadCard extends StatelessWidget {
   final String? downloadId;
   final model.Info? info;
-  final model.State? state;
+  final model.DownloadState? state;
   final bool isDetailScreen;
   final VoidCallback? onTap;
   final VoidCallback? onActionTap;
@@ -32,19 +32,20 @@ class DownloadCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isError = state?.value == model.DownloadState.failed;
-    final isCompleted = state?.value == model.DownloadState.completed;
+    final isError = state?.value == model.DownloadStateEnum.failed;
+    final isCompleted = state?.value == model.DownloadStateEnum.completed;
     final isCompletedWithErrors =
-        state?.value == model.DownloadState.completedWithErrors;
+        state?.value == model.DownloadStateEnum.completedWithErrors;
     final inProgress =
-        state?.value == model.DownloadState.inProgress ||
-        state?.value == model.DownloadState.extractingInformation;
+        state?.value == model.DownloadStateEnum.inProgress ||
+        state?.value == model.DownloadStateEnum.extractingInformation;
     final isPending =
-        state?.value == model.DownloadState.pending ||
-        state?.value == model.DownloadState.requested;
-    final isPaused = state?.value == model.DownloadState.paused;
-    final isCancelled = state?.value == model.DownloadState.cancelled;
-    final isAwaiting = state?.value == model.DownloadState.awaitingSelection;
+        state?.value == model.DownloadStateEnum.pending ||
+        state?.value == model.DownloadStateEnum.requested;
+    final isPaused = state?.value == model.DownloadStateEnum.paused;
+    final isCancelled = state?.value == model.DownloadStateEnum.cancelled;
+    final isAwaiting =
+        state?.value == model.DownloadStateEnum.awaitingSelection;
 
     // --- LÓGICA DE VISIBILIDAD DE BOTONES ---
     final isList = info?.type == model.DownloadType.list;
@@ -62,7 +63,7 @@ class DownloadCard extends StatelessWidget {
         !isDetailScreen;
     // 5. Pausar
     final showPause =
-        state?.value == model.DownloadState.inProgress && !isDetailScreen;
+        state?.value == model.DownloadStateEnum.inProgress && !isDetailScreen;
     // 6. Cancelar (Estados pendientes y progreso)
     final showCancel =
         (isPending || inProgress || isPaused || isAwaiting) && !isDetailScreen;
@@ -107,9 +108,11 @@ class DownloadCard extends StatelessWidget {
         onTap: () {
           if (isError) {
             ToastUtils.showError(state?.errorMessage ?? "Error desconocido");
-          } else if (state?.value == model.DownloadState.awaitingSelection) {
-            // TODO: Lanzar Modal de Selección directamente (se hará en la Fase de Overlay)
-            ToastUtils.showInfo("Toca el FAB para seleccionar elementos");
+          } else if (state?.value ==
+              model.DownloadStateEnum.awaitingSelection) {
+            context.read<DownloadsController>().requestSelectionModal(
+              downloadId!,
+            );
           } else if (!isDetailScreen && onTap != null) {
             onTap!();
           }
@@ -345,7 +348,7 @@ class DownloadCard extends StatelessWidget {
     final semanticColor = state?.subStateColor?.color ?? Colors.white;
 
     // Animación sutil de rebote para descargas en progreso
-    if (state?.value == model.DownloadState.inProgress) {
+    if (state?.value == model.DownloadStateEnum.inProgress) {
       return TweenAnimationBuilder<double>(
         tween: Tween(begin: 0, end: 1),
         duration: const Duration(seconds: 1),
@@ -423,7 +426,7 @@ class DownloadCard extends StatelessWidget {
                   child: _AnimatedProgressBar(
                     value:
                         state?.progressValue ??
-                        (state?.value == model.DownloadState.inProgress
+                        (state?.value == model.DownloadStateEnum.inProgress
                             ? null
                             : 1.0),
                     color: state?.progressColor?.color ?? Colors.blue,
@@ -491,26 +494,26 @@ class DownloadCard extends StatelessWidget {
     }
   }
 
-  IconData _mapStateIcon(model.DownloadState? state) {
+  IconData _mapStateIcon(model.DownloadStateEnum? state) {
     switch (state) {
-      case model.DownloadState.requested:
-      case model.DownloadState.pending:
+      case model.DownloadStateEnum.requested:
+      case model.DownloadStateEnum.pending:
         return Icons.schedule;
-      case model.DownloadState.extractingInformation:
+      case model.DownloadStateEnum.extractingInformation:
         return Icons.search;
-      case model.DownloadState.awaitingSelection:
+      case model.DownloadStateEnum.awaitingSelection:
         return Icons.rule;
-      case model.DownloadState.inProgress:
+      case model.DownloadStateEnum.inProgress:
         return Icons.downloading; // Icono de flecha animable/movimiento
-      case model.DownloadState.completed:
+      case model.DownloadStateEnum.completed:
         return Icons.check_circle;
-      case model.DownloadState.failed:
+      case model.DownloadStateEnum.failed:
         return Icons.error;
-      case model.DownloadState.cancelled:
+      case model.DownloadStateEnum.cancelled:
         return Icons.cancel;
-      case model.DownloadState.paused:
+      case model.DownloadStateEnum.paused:
         return Icons.pause_circle;
-      case model.DownloadState.deleted:
+      case model.DownloadStateEnum.deleted:
         return Icons.delete;
       default:
         return Icons.cloud_download;

@@ -16,7 +16,7 @@ enum DownloadType {
   }
 }
 
-enum DownloadState {
+enum DownloadStateEnum {
   requested('requested', 'Download Requested'),
   pending('pending', 'Download Pending'),
   extractingInformation('extracting_information', 'Extracting Information'),
@@ -38,15 +38,15 @@ enum DownloadState {
   deleted('deleted', 'Deleted'),
   deleting('deleting', 'Deleting');
 
-  const DownloadState(this.apiValue, this.humanReadable);
+  const DownloadStateEnum(this.apiValue, this.humanReadable);
   final String apiValue;
   final String humanReadable;
 
   // Parser estático
-  static DownloadState fromApi(String val) {
-    return DownloadState.values.firstWhere(
+  static DownloadStateEnum fromApi(String val) {
+    return DownloadStateEnum.values.firstWhere(
       (e) => e.apiValue == val,
-      orElse: () => DownloadState.pending,
+      orElse: () => DownloadStateEnum.pending,
     );
   }
 }
@@ -115,8 +115,8 @@ class Info {
   }
 }
 
-class State {
-  DownloadState? value;
+class DownloadState {
+  DownloadStateEnum? value;
   String? subState;
   ColorEnum? subStateColor;
   String? progressLabel;
@@ -128,7 +128,7 @@ class State {
   String? timeLeft;
   String? errorMessage;
 
-  State({
+  DownloadState({
     this.value,
     this.subState,
     this.subStateColor,
@@ -142,7 +142,7 @@ class State {
     this.errorMessage,
   });
 
-  factory State.fromJson(Map<String, dynamic> json) => State(
+  factory DownloadState.fromJson(Map<String, dynamic> json) => DownloadState(
     value: _parseState(json['value']),
     subState: json['sub_state']?.toString(),
     subStateColor: _parseColor(json['sub_state_color']),
@@ -155,12 +155,12 @@ class State {
     timeSpent: json['time_spent']?.toString(),
     timeTotal: json['time_total']?.toString(),
     timeLeft: json['time_left']?.toString(),
-    errorMessage: json['error_message']?.toString()
+    errorMessage: json['error_message']?.toString(),
   );
 
-  static DownloadState? _parseState(String? val) {
+  static DownloadStateEnum? _parseState(String? val) {
     if (val == null) return null;
-    return DownloadState.fromApi(val);
+    return DownloadStateEnum.fromApi(val);
   }
 
   static ColorEnum? _parseColor(String? val) {
@@ -172,14 +172,16 @@ class State {
 class Delta {
   String? id;
   String? subId;
-  State? status;
+  DownloadState? status;
   Info? info;
   Delta({this.id, this.subId, this.status, this.info});
 
   factory Delta.fromJson(Map<String, dynamic> json) => Delta(
     id: json['id']?.toString(),
     subId: json['sub_id']?.toString(),
-    status: json['status'] != null ? State.fromJson(json['status']) : null,
+    status: json['status'] != null
+        ? DownloadState.fromJson(json['status'])
+        : null,
     info: json['info'] != null ? Info.fromJson(json['info']) : null,
   );
 }
@@ -188,20 +190,20 @@ class SubDownload {
   String? subId;
   String? parentId;
   Info? info;
-  State? state;
+  DownloadState? state;
   SubDownload({this.subId, this.parentId, this.info, this.state});
   factory SubDownload.fromJson(Map<String, dynamic> json) => SubDownload(
     subId: json['sub_id']?.toString(),
     parentId: json['parent_id']?.toString(),
     info: json['info'] != null ? Info.fromJson(json['info']) : null,
-    state: json['state'] != null ? State.fromJson(json['state']) : null,
+    state: json['state'] != null ? DownloadState.fromJson(json['state']) : null,
   );
 }
 
 class Download {
   String? id;
   Info? info;
-  State? state;
+  DownloadState? state;
   Map<String, dynamic>? options;
   List<SubDownload>? subDownloads;
 
@@ -210,7 +212,7 @@ class Download {
   factory Download.fromJson(Map<String, dynamic> json) => Download(
     id: json['id']?.toString(),
     info: json['info'] != null ? Info.fromJson(json['info']) : null,
-    state: json['state'] != null ? State.fromJson(json['state']) : null,
+    state: json['state'] != null ? DownloadState.fromJson(json['state']) : null,
     options: json['options'] as Map<String, dynamic>?,
     subDownloads: json['sub_descargas'] != null
         ? (json['sub_descargas'] as List)

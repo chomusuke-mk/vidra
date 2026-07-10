@@ -238,7 +238,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
               ? imageCache[download.id]
               : null;
 
-          if (newState == DownloadState.inProgress) {
+          if (newState == DownloadStateEnum.inProgress) {
             final progress = download.state?.progressValue != null
                 ? (download.state!.progressValue! * 100).toInt()
                 : null;
@@ -254,7 +254,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
               color: color,
             );
           } else if (oldState != newState) {
-            if (newState == DownloadState.extractingInformation) {
+            if (newState == DownloadStateEnum.extractingInformation) {
               NotificationService.showState(
                 id: notificationId,
                 title: autor,
@@ -262,7 +262,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
                 imagePath: currentImagePath,
                 color: color,
               );
-            } else if (newState == DownloadState.awaitingSelection) {
+            } else if (newState == DownloadStateEnum.awaitingSelection) {
               NotificationService.showState(
                 id: notificationId,
                 title: autor,
@@ -270,8 +270,8 @@ void backendIsolateMain(Map<String, dynamic> config) async {
                 imagePath: currentImagePath,
                 color: color,
               );
-            } else if (newState == DownloadState.completed &&
-                oldState == DownloadState.inProgress) {
+            } else if (newState == DownloadStateEnum.completed &&
+                oldState == DownloadStateEnum.inProgress) {
               NotificationService.showState(
                 id: notificationId,
                 title: autor,
@@ -279,7 +279,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
                 imagePath: currentImagePath,
                 color: color,
               );
-            } else if (newState == DownloadState.failed) {
+            } else if (newState == DownloadStateEnum.failed) {
               NotificationService.showState(
                 id: notificationId,
                 title: autor,
@@ -289,8 +289,8 @@ void backendIsolateMain(Map<String, dynamic> config) async {
                 imagePath: currentImagePath,
                 color: color,
               );
-            } else if (newState == DownloadState.cancelled ||
-                newState == DownloadState.deleted) {
+            } else if (newState == DownloadStateEnum.cancelled ||
+                newState == DownloadStateEnum.deleted) {
               NotificationService.cancel(notificationId);
               imageCache.remove(download.id);
             }

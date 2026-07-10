@@ -18,11 +18,26 @@ class DownloadsController extends ChangeNotifier {
 
   StreamSubscription? _globalSseSubscription;
 
+  String? _manualModalRequestId;
+  String? get manualModalRequestId => _manualModalRequestId;
+
   DownloadsController(this._repository, this._systemController) {
     _systemController.addListener(_onSystemStateChanged);
     if (_systemController.state == SystemState.ready) {
       _onSystemStateChanged();
     }
+  }
+
+  // ==========================================================================
+  // MODAL MANUAL DE DESCARGA
+  // ==========================================================================
+  void requestSelectionModal(String id) {
+    _manualModalRequestId = id;
+    notifyListeners();
+  }
+
+  void consumeManualModalRequest() {
+    _manualModalRequestId = null;
   }
 
   // ==========================================================================
@@ -111,7 +126,7 @@ class DownloadsController extends ChangeNotifier {
       if (delta.subId != null) continue;
 
       // Si nos llega el estado eliminado desde el backend, limpiamos el UI
-      if (delta.status?.value == DownloadState.deleted) {
+      if (delta.status?.value == DownloadStateEnum.deleted) {
         _downloads.removeWhere((d) => d.id == delta.id);
         listChanged = true;
         continue;

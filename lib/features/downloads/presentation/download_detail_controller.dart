@@ -28,8 +28,8 @@ class DownloadDetailController extends ChangeNotifier {
   String _searchQuery = '';
   String get searchQuery => _searchQuery;
 
-  final Set<DownloadState> _activeFilters = {};
-  Set<DownloadState> get activeFilters => _activeFilters;
+  final Set<DownloadStateEnum> _activeFilters = {};
+  Set<DownloadStateEnum> get activeFilters => _activeFilters;
 
   SubDownloadSortOption _sortOption = SubDownloadSortOption.byDefault;
   SubDownloadSortOption get sortOption => _sortOption;
@@ -59,7 +59,7 @@ class DownloadDetailController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void toggleFilter(DownloadState state) {
+  void toggleFilter(DownloadStateEnum state) {
     if (_activeFilters.contains(state)) {
       _activeFilters.remove(state);
     } else {
@@ -202,7 +202,7 @@ class DownloadDetailController extends ChangeNotifier {
       download.subDownloads ??= [];
 
       // Borrado dinámico de sub-descargas si el SSE así lo demanda
-      if (delta.status?.value == DownloadState.deleted) {
+      if (delta.status?.value == DownloadStateEnum.deleted) {
         download.subDownloads!.removeWhere((s) => s.subId == delta.subId);
         changed = true;
         continue;

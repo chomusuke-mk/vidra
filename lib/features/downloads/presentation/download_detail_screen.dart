@@ -344,7 +344,7 @@ class _DetailViewState extends State<_DetailView> {
                           children: [
                             _buildFilterChip(
                               controller,
-                              model.DownloadState.failed,
+                              model.DownloadStateEnum.failed,
                               locale.ddErrors,
                               Icons.error,
                               Colors.red,
@@ -352,7 +352,7 @@ class _DetailViewState extends State<_DetailView> {
                             const SizedBox(width: 8),
                             _buildFilterChip(
                               controller,
-                              model.DownloadState.inProgress,
+                              model.DownloadStateEnum.inProgress,
                               locale.ddDownloading,
                               Icons.downloading,
                               Colors.blue,
@@ -360,7 +360,7 @@ class _DetailViewState extends State<_DetailView> {
                             const SizedBox(width: 8),
                             _buildFilterChip(
                               controller,
-                              model.DownloadState.completed,
+                              model.DownloadStateEnum.completed,
                               locale.ddCompleted,
                               Icons.check_circle,
                               Colors.green,
@@ -368,7 +368,7 @@ class _DetailViewState extends State<_DetailView> {
                             const SizedBox(width: 8),
                             _buildFilterChip(
                               controller,
-                              model.DownloadState.pending,
+                              model.DownloadStateEnum.pending,
                               locale.ddPending,
                               Icons.schedule,
                               Colors.grey,
@@ -405,7 +405,7 @@ class _DetailViewState extends State<_DetailView> {
 
   Widget _buildFilterChip(
     DownloadDetailController ctrl,
-    model.DownloadState state,
+    model.DownloadStateEnum state,
     String label,
     IconData icon,
     Color color,
