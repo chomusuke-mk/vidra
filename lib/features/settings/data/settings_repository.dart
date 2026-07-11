@@ -15,7 +15,7 @@ class SettingsRepository {
 
   // --- 1. Opciones Locales de la App ---
 
-  String getAppLanguage() => _prefs.getString(_keyLanguage) ?? 'en';
+  String getAppLanguage() => _prefs.getString(_keyLanguage) ?? 'defaultOption';
 
   Future<void> saveAppLanguage(String lang) =>
       _prefs.setString(_keyLanguage, lang);

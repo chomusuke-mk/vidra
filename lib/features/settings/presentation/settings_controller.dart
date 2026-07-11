@@ -112,13 +112,6 @@ class SettingsController extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> clearCache() async {
-    debugPrint('Limpiando caché local de la app...');
-    await Future.delayed(const Duration(seconds: 1)); // Simulación
-    // Lógica para borrar archivos temporales locales
-    debugPrint('Caché limpiada.');
-  }
-
   // --- Setters para Descargas ---
   void updateDownloadOptions(DownloadOptions newOptions) {
     _downloadOptions = newOptions;

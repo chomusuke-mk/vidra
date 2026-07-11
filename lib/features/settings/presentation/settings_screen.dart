@@ -71,6 +71,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
     AppStringKey locale,
   ) {
     final opts = ctrl.downloadOptions;
+    // app language-------------------
+    final List<String> appLanguageOptions = [
+      'defaultOption',
+      ...languagesCodes,
+    ];
     // audio_options------------------
     final List<String> audioOptionsFlat = [
       'defaultOption',
@@ -125,9 +130,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
         type: ControllerType.dropdown,
         controlBuilder: (c, s) => LazyDropdown<String>(
           value: s.appLanguage,
-          items: languagesCodes,
+          items: appLanguageOptions,
           enableSearch: true,
-          labelBuilder: (t) => languagesEndonyms[t] ?? t.toUpperCase(),
+          labelBuilder: (val) {
+            if (val == "defaultOption") return locale.sDefault;
+            return languagesEndonyms[val] ?? val.toUpperCase();
+          },
           onChanged: (val) => s.setAppLanguage(val),
         ),
       ),
