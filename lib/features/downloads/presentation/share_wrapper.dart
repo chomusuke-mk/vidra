@@ -61,18 +61,24 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
       if (Platform.isAndroid) {
         bool isGranted = await FlutterScreenOverlay.isPermissionGranted();
         if (isGranted) {
-          debugPrint('⏳ Esperando confirmación del puerto del Isolate y Locales...');
+          debugPrint(
+            '⏳ Esperando confirmación del puerto del Isolate y Locales...',
+          );
           await systemCtrl.whenPortReady;
           await localeCtrl.whenReady;
           // Refresh the locale with the updated strings
           final currentLocale = localeCtrl.localeStrings;
           debugPrint('🦁 [MAIN] Lanzando Overlay...');
           await FlutterScreenOverlay.showOverlay(
-            enableDrag: false,
-            flag: OverlayFlag.defaultFlag,
+            height: WindowSize.matchParent,
+            width: WindowSize.matchParent,
             alignment: OverlayAlignment.bottomCenter,
             visibility: NotificationVisibility.visibilitySecret,
-            positionGravity: PositionGravity.auto,
+            flag: OverlayFlag.focusPointer,
+            overlayTitle: "Fast download selector",
+            overlayContent: null,
+            enableDrag: false,
+            positionGravity: PositionGravity.none,
             startPosition: OverlayPosition(0, 0),
           );
 

@@ -287,8 +287,8 @@ class NotificationService {
 
     await androidImpl.startForegroundService(
       id: 6969, // ID fijo para el foreground service
-      title: 'Vidra Background Service',
-      body: null,
+      title: null,
+      body: 'Vidra Background Service',
       startType: AndroidServiceStartType.startRedeliverIntent,
       notificationDetails: const AndroidNotificationDetails(
         'vidra_bg_channel', // Un canal distinto para el servicio
