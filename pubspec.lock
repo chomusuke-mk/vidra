@@ -332,10 +332,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_markdown_plus
-      sha256: "2e4b667a75c08e5710866ae010da392acf5af475f9ad0be9bf406525e9751b0c"
+      sha256: fce641d6c2106cc495de1cd603f97a4f9d615a97a64011928ded380dbdade935
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.11"
+    version: "1.0.12"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -792,50 +792,50 @@ packages:
     dependency: "direct main"
     description:
       name: serious_python
-      sha256: c874db928a28fb48bf9aef3d83d8a282a389c9e2aa453ec62c49872fc5a8f26e
+      sha256: "2596cced9a8bdf711225a70a9b79032ef21911eafd85e0f10dd07e46c2fb0524"
       url: "https://pub.dev"
     source: hosted
-    version: "4.3.0"
+    version: "4.3.1"
   serious_python_android:
     dependency: transitive
     description:
       name: serious_python_android
-      sha256: "25117122a883951688f04be06150005179dc2d140cc887a07538ba934e2c3c3f"
+      sha256: "4888215ddd01e643f3ee811863b997fce7443343515dde6d5b149ceddf60ffbe"
       url: "https://pub.dev"
     source: hosted
-    version: "4.3.0"
+    version: "4.3.1"
   serious_python_darwin:
     dependency: transitive
     description:
       name: serious_python_darwin
-      sha256: "0858030ebab270f937186d8205e0cec0d03a652700ab7a8d8759530f28602673"
+      sha256: "5f2b266da7256c64ea588c0c23b5179bf8c626951cde67da7653212ee26445e6"
       url: "https://pub.dev"
     source: hosted
-    version: "4.3.0"
+    version: "4.3.1"
   serious_python_linux:
     dependency: transitive
     description:
       name: serious_python_linux
-      sha256: fa7cfebd7863bf2eb6eccff15e327626d8fd8a3e681969bd4fbff5cca3500e35
+      sha256: "613f681ece02d47a4a789c6132460e28a896da3009be434250bf0b224e12474c"
       url: "https://pub.dev"
     source: hosted
-    version: "4.3.0"
+    version: "4.3.1"
   serious_python_platform_interface:
     dependency: transitive
     description:
       name: serious_python_platform_interface
-      sha256: "36f31cbea85aa834092299087510a4716694fff83849e6c09bd135fe8a2d7de0"
+      sha256: "7b1b2b2b22e30bd728c7c900024d44f223465b29b9a6f41fc879d0b3fb9e8145"
       url: "https://pub.dev"
     source: hosted
-    version: "4.3.0"
+    version: "4.3.1"
   serious_python_windows:
     dependency: transitive
     description:
       name: serious_python_windows
-      sha256: "58368280c2620ef0c7b15f6f7d5fc1adac6768f5800641da3501d489836613fc"
+      sha256: "7cf252eaa14acae6aa450724d682668cfee4bfb908d88be6c9ccf18d6be4fe74"
       url: "https://pub.dev"
     source: hosted
-    version: "4.3.0"
+    version: "4.3.1"
   shared_preferences:
     dependency: "direct main"
     description:
