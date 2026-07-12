@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vidra/core/constants/languages.dart';
 import 'package:vidra/core/constants/resolutions.dart';
 import 'package:vidra/features/settings/domain/download_options.dart';
+import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
 
 // Widgets Perezosos
@@ -104,21 +105,25 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
           opts = opts.copyWith(subLangs: subLangs);
         }
 
+        // Locale
+        final locData = Map<String, String>.from(event['locale'] ?? {});
+        final locale = AppStringKey()..updateFromJson(locData);
+
         // Actualizamos la UI
-        _showBottomSheet(url, opts);
+        _showBottomSheet(url, opts, locale);
         _isShowingSheet = false;
       }
     });
   }
 
-  Future<void> _showBottomSheet(String url, DownloadOptions opts) async {
+  Future<void> _showBottomSheet(String url, DownloadOptions opts, AppStringKey locale) async {
     await showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       barrierColor: Colors.black.withValues(alpha: 0.65),
       builder: (context) =>
-          _QuickShareBottomSheetContent(url: url, initialOpts: opts),
+          _QuickShareBottomSheetContent(url: url, initialOpts: opts, locale: locale),
     );
     // ponytail: Si el usuario toca afuera o desliza para abajo, DESTRUIMOS la ventana invisible.
     await FlutterScreenOverlay.closeOverlay();
@@ -136,10 +141,12 @@ class _QuickShareOverlayState extends State<QuickShareOverlay> {
 class _QuickShareBottomSheetContent extends StatefulWidget {
   final String url;
   final DownloadOptions initialOpts;
+  final AppStringKey locale;
 
   const _QuickShareBottomSheetContent({
     required this.url,
     required this.initialOpts,
+    required this.locale,
   });
 
   @override
@@ -193,9 +200,7 @@ class _QuickShareBottomSheetContentState
       }
     } catch (e) {
       debugPrint("🦄 [OVERLAY] Error in overlay send: $e");
-      ToastUtils.showError(
-        'No se pudo enviar la descarga. Intenta abrir la app y volver a intentarlo.',
-      );
+      ToastUtils.showError(widget.locale.shwDownloadSentError);
     }
 
     // 4. Bajamos el modal visualmente
@@ -258,9 +263,9 @@ class _QuickShareBottomSheetContentState
               ),
             ),
           ),
-          const Text(
-            'Descarga Rápida',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          Text(
+            widget.locale.ovQuickDownload,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 4),
@@ -274,22 +279,22 @@ class _QuickShareBottomSheetContentState
           const SizedBox(height: 20),
 
           SegmentedButton<bool>(
-            segments: const [
+            segments: [
               ButtonSegment(
                 value: false,
                 label: Text(
-                  'Video',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  widget.locale.sVideo,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
-                icon: Icon(Icons.movie),
+                icon: const Icon(Icons.movie),
               ),
               ButtonSegment(
                 value: true,
                 label: Text(
-                  'Audio',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  widget.locale.sExtractAudio,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
-                icon: Icon(Icons.audiotrack),
+                icon: const Icon(Icons.audiotrack),
               ),
             ],
             selected: {_opts.extractAudio},
@@ -303,9 +308,9 @@ class _QuickShareBottomSheetContentState
           const SizedBox(height: 20),
 
           if (_opts.extractAudio) ...[
-            const Text(
-              'Formato de Audio',
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+            Text(
+              widget.locale.sAudioFormat,
+              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 4),
             LazyDropdown<AudioFormat>(
@@ -325,9 +330,9 @@ class _QuickShareBottomSheetContentState
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Resolución',
-                        style: TextStyle(
+                      Text(
+                        widget.locale.sVideoResolution,
+                        style: const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                         ),
@@ -342,9 +347,9 @@ class _QuickShareBottomSheetContentState
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Formato',
-                        style: TextStyle(
+                      Text(
+                        widget.locale.sMergeOutputFormat,
+                        style: const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                         ),
@@ -369,16 +374,16 @@ class _QuickShareBottomSheetContentState
               ],
             ),
             const SizedBox(height: 12),
-            const Text(
-              'Idioma del Audio',
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+            Text(
+              widget.locale.sAudioLanguage,
+              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 4),
             _buildAudioLangDropdown(),
             const SizedBox(height: 12),
-            const Text(
-              'Idiomas de Subtítulos',
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+            Text(
+              widget.locale.sSubLangs,
+              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 4),
             _buildSubtitlesList(),
@@ -400,7 +405,7 @@ class _QuickShareBottomSheetContentState
                     )
                   : const Icon(Icons.download),
               label: Text(
-                _isSending ? 'Enviando...' : 'Descargar',
+                _isSending ? widget.locale.swSendingSelection : widget.locale.dDownload,
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -423,9 +428,9 @@ class _QuickShareBottomSheetContentState
         children: [
           const Icon(Icons.check_circle, color: Colors.greenAccent, size: 72),
           const SizedBox(height: 16),
-          const Text(
-            '¡Descarga Agregada!',
-            style: TextStyle(
+          Text(
+            widget.locale.shwDownloadSent,
+            style: const TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,
               color: Colors.greenAccent,
@@ -433,7 +438,7 @@ class _QuickShareBottomSheetContentState
           ),
           const SizedBox(height: 8),
           Text(
-            'Puedes seguir navegando.\nVidra se encarga del resto.',
+            widget.locale.ovDownloadAddedDesc,
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.grey.shade400, fontSize: 14),
           ),
@@ -463,8 +468,8 @@ class _QuickShareBottomSheetContentState
       value: currentVal,
       items: flatRes,
       labelBuilder: (val) {
-        if (val == 'defaultOption') return 'Por Defecto';
-        if (val == 'bestvideo') return 'Mejor Calidad';
+        if (val == 'defaultOption') return widget.locale.sDefault;
+        if (val == 'bestvideo') return widget.locale.sBest;
         return resolutionLabels[val] ?? val;
       },
       onChanged: (val) async {
@@ -515,8 +520,8 @@ class _QuickShareBottomSheetContentState
       items: flatAud,
       enableSearch: true,
       labelBuilder: (val) {
-        if (val == 'defaultOption') return 'Por Defecto';
-        if (val == 'bestaudio') return 'Mejor Audio';
+        if (val == 'defaultOption') return widget.locale.sDefault;
+        if (val == 'bestaudio') return widget.locale.sBest;
         return '$val - ${languagesEndonyms[val] ?? val}';
       },
       onChanged: (val) async {
@@ -558,7 +563,7 @@ class _QuickShareBottomSheetContentState
     return LazyList(
       value: visualSubList,
       suggestions: subSuggestions,
-      label: 'Buscar idioma...',
+      label: widget.locale.sSearchLang,
       onChanged: (newList) async {
         final codes = newList.map((i) => i.split(' - ').first.trim()).toList();
         setState(() => _opts = _opts.copyWith(subLangs: codes));

@@ -10,7 +10,7 @@ class ChangelogUtils {
   /// Despliega el modal limitando su tamaño horizontal y vertical
   static Future<void> showChangelogDialog(BuildContext context) async {
     String changelogContent = '';
-    final locale = context.watch<LocaleController>().localeStrings;
+    final locale = context.read<LocaleController>().localeStrings;
     try {
       changelogContent = await rootBundle.loadString('CHANGELOG.md');
     } catch (e) {

@@ -115,6 +115,9 @@
   "sd_licenses": "Licenses",
   "sd_no_logs": "No logs available.",
   "sd_close": "Close",
+  // Pantalla Overlay -------------------------------- ov_
+  "ov_quick_download": "Quick Download",
+  "ov_download_added_desc": "You can keep browsing.\nVidra will handle the rest.",
   // Strings del system status indicator, prefijo ssi ----------------
   "ssi_update_available": "Update Available",
   "ssi_searching_updates": "Searching for Updates...",

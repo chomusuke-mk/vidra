@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:vidra/features/locales/data/locale_repository.dart';
 import 'package:vidra/features/locales/domain/locale.dart';
@@ -7,6 +8,10 @@ class LocaleController extends ChangeNotifier {
   final AppStringKey _localeStrings = AppStringKey();
 
   late String _currentLocaleCode;
+  
+  // Future to track initialization state
+  final Completer<void> _initCompleter = Completer<void>();
+  Future<void> get whenReady => _initCompleter.future;
 
   Map<String, String> _fallbackCache = {};
   static const String _fallbackCode = 'en';
@@ -30,11 +35,13 @@ class LocaleController extends ChangeNotifier {
         assertAllKeysPresent: true,
       );
       notifyListeners();
+      if (!_initCompleter.isCompleted) _initCompleter.complete();
       return;
     }
 
     // 3. Si es otro idioma, lo cargamos y fusionamos.
     await _loadAndMerge(_currentLocaleCode);
+    if (!_initCompleter.isCompleted) _initCompleter.complete();
   }
 
   Future<void> _loadAndMerge(String targetLocale) async {

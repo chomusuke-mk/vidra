@@ -144,6 +144,9 @@ class AppStringKey {
   String get sdLicenses => _cadenasLocalizadas['sd_licenses'] ?? '';
   String get sdNoLogs => _cadenasLocalizadas['sd_no_logs'] ?? '';
   String get sdClose => _cadenasLocalizadas['sd_close'] ?? '';
+  // Strings de la pantalla Overlay, prefijo ov ----------------
+  String get ovQuickDownload => _cadenasLocalizadas['ov_quick_download'] ?? '';
+  String get ovDownloadAddedDesc => _cadenasLocalizadas['ov_download_added_desc'] ?? '';
   // Strings del system status indicator, prefijo ssi ----------------
   String get ssiUpdateAvailable =>
       _cadenasLocalizadas['ssi_update_available'] ?? '';
@@ -558,6 +561,9 @@ class AppStringKey {
     'sd_licenses',
     'sd_no_logs',
     'sd_close',
+    // Pantalla Overlay -------------------------------- ov_
+    'ov_quick_download',
+    'ov_download_added_desc',
     // System Status Indicator -------------------------- ssi_
     'ssi_update_available',
     'ssi_searching_updates',
@@ -766,6 +772,8 @@ class AppStringKey {
     's_limit_rate',
     's_limit_rate_desc',
   ];
+
+  Map<String, String> toJson() => Map.from(_cadenasLocalizadas);
 
   Future<void> updateFromJson(
     Map<String, String> jsonData, {

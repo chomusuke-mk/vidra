@@ -55,13 +55,17 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
       final settingsCtrl = context.read<SettingsController>();
       final systemCtrl = context.read<SystemController>();
       final currentOptsJson = settingsCtrl.getDownloadOptionsPayload();
-      final locale = context.read<LocaleController>().localeStrings;
+      final localeCtrl = context.read<LocaleController>();
+      final locale = localeCtrl.localeStrings;
 
       if (Platform.isAndroid) {
         bool isGranted = await FlutterScreenOverlay.isPermissionGranted();
         if (isGranted) {
-          debugPrint('⏳ Esperando confirmación del puerto del Isolate...');
+          debugPrint('⏳ Esperando confirmación del puerto del Isolate y Locales...');
           await systemCtrl.whenPortReady;
+          await localeCtrl.whenReady;
+          // Refresh the locale with the updated strings
+          final currentLocale = localeCtrl.localeStrings;
           debugPrint('🦁 [MAIN] Lanzando Overlay...');
           await FlutterScreenOverlay.showOverlay(
             enableDrag: false,
@@ -77,6 +81,7 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
           await FlutterScreenOverlay.shareData({
             'url': url,
             'options': currentOptsJson,
+            'locale': currentLocale.toJson(),
           });
 
           // Ocultamos la UI mandándola a segundo plano inmediatamente
