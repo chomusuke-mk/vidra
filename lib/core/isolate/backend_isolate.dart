@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:isolate';
 import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
@@ -223,8 +224,8 @@ void backendIsolateMain(Map<String, dynamic> config) async {
           // CALCULAMOS NOTIFICACIONES BASADO EN LA FUSIÓN
           final newState = download.state?.value;
           final notificationId = download.id.hashCode;
-          final autor = download.info?.autor ?? 'Unknown';
-          final title = download.info?.title ?? 'Processing...';
+          final autor = download.info?.autor ?? 'Unknown Autor';
+          final title = download.info?.title ?? 'Getting Title...';
 
           String body = title;
           if (download.state?.subState != null) {
@@ -238,23 +239,25 @@ void backendIsolateMain(Map<String, dynamic> config) async {
               ? imageCache[download.id]
               : null;
 
-          if (newState == DownloadStateEnum.inProgress) {
-            final progress = download.state?.progressValue != null
-                ? (download.state!.progressValue! * 100).toInt()
-                : null;
+          if (newState == DownloadStateEnum.inProgress ||
+              newState == DownloadStateEnum.requested ||
+              newState == DownloadStateEnum.pending ||
+              newState == DownloadStateEnum.cancelling ||
+              newState == DownloadStateEnum.pausing ||
+              newState == DownloadStateEnum.deleting) {
+            final progress = download.state?.progressValue;
             final progressLabel = download.state?.progressLabel;
             NotificationService.showProgress(
               id: notificationId,
               title: autor,
               body: body,
               progress: progress,
-              maxProgress: 100,
               imagePath: currentImagePath,
               progressLabel: progressLabel,
               color: color,
             );
           } else if (oldState != newState) {
-            if (newState == DownloadStateEnum.extractingInformation) {
+            if (newState == DownloadStateEnum.awaitingSelection) {
               NotificationService.showState(
                 id: notificationId,
                 title: autor,
@@ -262,16 +265,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
                 imagePath: currentImagePath,
                 color: color,
               );
-            } else if (newState == DownloadStateEnum.awaitingSelection) {
-              NotificationService.showState(
-                id: notificationId,
-                title: autor,
-                body: '${newState?.humanReadable}\n$title',
-                imagePath: currentImagePath,
-                color: color,
-              );
-            } else if (newState == DownloadStateEnum.completed &&
-                oldState == DownloadStateEnum.inProgress) {
+            } else if (newState == DownloadStateEnum.completed) {
               NotificationService.showState(
                 id: notificationId,
                 title: autor,
@@ -284,8 +278,24 @@ void backendIsolateMain(Map<String, dynamic> config) async {
                 id: notificationId,
                 title: autor,
                 body:
-                    'Error: ${download.state?.subState ?? "Desconocido"}\n$title',
-                isError: true,
+                    'Error: ${download.state?.errorMessage ?? "Unknown Error"}\n$title',
+                imagePath: currentImagePath,
+                color: color ?? Colors.red,
+              );
+            } else if (newState == DownloadStateEnum.completedWithErrors) {
+              NotificationService.showState(
+                id: notificationId,
+                title: autor,
+                body:
+                    'Completed with errors: ${download.state?.errorMessage ?? "Unknown Error"}\n$title',
+                imagePath: currentImagePath,
+                color: color ?? Colors.orange,
+              );
+            } else if (newState == DownloadStateEnum.paused) {
+              NotificationService.showState(
+                id: notificationId,
+                title: autor,
+                body: '${newState?.humanReadable}\n$title',
                 imagePath: currentImagePath,
                 color: color,
               );
@@ -360,6 +370,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
           'SERVER_LOGS_FILE_PATH': serverLogsFilePath,
           'FFMPEG_PATH': ffmpegPath,
           'QUICKJS_PATH': quickjsPath,
+          'LOG_LEVEL': kReleaseMode ? 'INFO' : 'DEBUG',
         },
         sync: false,
         modulePaths: [coreModulesPath],
@@ -431,9 +442,20 @@ void backendIsolateMain(Map<String, dynamic> config) async {
           id: 9991,
           title: 'Acción Requerida',
           body: 'Faltan permisos críticos para ejecutar Vidra.',
-          isError: true,
+          color: Colors.red,
+          imagePath: p.join(supportDirPath, 'assets', 'icon', 'icon.png'),
         );
         return;
+      }
+      NotificationService.cancel(9991);
+
+      try {
+        await NotificationService.keepAppAlive();
+        debugPrint('🧠 [Isolate] Keep notification iniciada correctamente.');
+      } catch (e) {
+        debugPrint(
+          '🧠 [Isolate] Posible error iniciando keep notification: $e',
+        );
       }
 
       debugPrint('🧠 [Isolate] Comprobando recursos...');
@@ -443,10 +465,12 @@ void backendIsolateMain(Map<String, dynamic> config) async {
           id: 9992,
           title: 'Acción Requerida',
           body: 'Faltan componentes. Abre la app para descargar.',
-          isError: true,
+          color: Colors.red,
+          imagePath: p.join(supportDirPath, 'assets', 'icon', 'icon.png'),
         );
         return;
       }
+      NotificationService.cancel(9992);
 
       // NUEVO: El guardián de la extracción
       if (pythonAppPath == null) {

@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:vidra/features/downloads/data/download_repository.dart';
 import 'package:vidra/features/downloads/domain/download.dart';
+import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
 import 'downloads_controller.dart';
 import 'selection_modal_controller.dart';
@@ -37,6 +38,7 @@ class _SelectionFabWrapperState extends State<SelectionFabWrapper> {
     if (!mounted) return;
 
     final ctrl = context.read<DownloadsController>();
+    final locale = context.read<LocaleController>().localeStrings;
     final awaitingDownloads = ctrl.downloads
         .where((d) => d.state?.value == DownloadStateEnum.awaitingSelection)
         .toList();
@@ -52,7 +54,7 @@ class _SelectionFabWrapperState extends State<SelectionFabWrapper> {
 
       if (_activeModalId != null && _activeModalId != manualReq) {
         // Ya hay un modal abierto y no queremos interrumpirlo
-        ToastUtils.showInfo("Selección encolada");
+        ToastUtils.showInfo(locale.swSelectionEnqueued);
       }
     }
 
@@ -142,11 +144,13 @@ class _SelectionFabWrapperState extends State<SelectionFabWrapper> {
   @override
   Widget build(BuildContext context) {
     // Mantenemos el FAB como indicador general para reabrir cosas descartadas
+    final locale = context.watch<LocaleController>().localeStrings;
     final pending = context
         .watch<DownloadsController>()
         .downloads
         .where((d) => d.state?.value == DownloadStateEnum.awaitingSelection)
         .toList();
+
 
     return Stack(
       children: [
@@ -176,7 +180,7 @@ class _SelectionFabWrapperState extends State<SelectionFabWrapper> {
                 if (_activeModalId == null) {
                   _processQueue(pending);
                 } else if (enqueued) {
-                  ToastUtils.showInfo("Listas re-encoladas");
+                  ToastUtils.showInfo(locale.swListForwarded);
                 }
               },
             ),
@@ -192,6 +196,7 @@ class _SelectionDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ctrl = context.watch<SelectionModalController>();
+    final locale = context.watch<LocaleController>().localeStrings;
     final theme = Theme.of(context);
 
     return Dialog(
@@ -215,7 +220,7 @@ class _SelectionDialog extends StatelessWidget {
                         return DropdownMenuItem(
                           value: d,
                           child: Text(
-                            d.info?.title ?? 'Lista Desconocida',
+                            d.info?.title ?? locale.swUnknownTitle,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(fontWeight: FontWeight.bold),
@@ -241,8 +246,8 @@ class _SelectionDialog extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
-                    decoration: const InputDecoration(
-                      hintText: 'Buscar...',
+                    decoration: InputDecoration(
+                      hintText: locale.swSearch,
                       prefixIcon: Icon(Icons.search),
                       isDense: true,
                       border: OutlineInputBorder(),
@@ -252,7 +257,7 @@ class _SelectionDialog extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 FilterChip(
-                  label: const Text('Elegidos'),
+                  label: Text(locale.swFilterSelected),
                   selected: ctrl.showOnlySelected,
                   onSelected: (_) => ctrl.toggleShowOnlySelected(),
                 ),
@@ -267,17 +272,17 @@ class _SelectionDialog extends StatelessWidget {
                 children: [
                   TextButton.icon(
                     icon: const Icon(Icons.select_all, size: 18),
-                    label: const Text('Todo'),
+                    label: Text(locale.swButtonSelectAll),
                     onPressed: ctrl.selectAll,
                   ),
                   TextButton.icon(
                     icon: const Icon(Icons.deselect, size: 18),
-                    label: const Text('Nada'),
+                    label: Text(locale.swButtonDeselectAll),
                     onPressed: ctrl.selectNone,
                   ),
                   TextButton.icon(
                     icon: const Icon(Icons.flip, size: 18),
-                    label: const Text('Invertir'),
+                    label: Text(locale.swButtonInvertSelection),
                     onPressed: ctrl.invertSelection,
                   ),
                   const SizedBox(width: 16),
@@ -298,7 +303,7 @@ class _SelectionDialog extends StatelessWidget {
               child: ctrl.isLoading
                   ? const Center(child: CircularProgressIndicator())
                   : ctrl.filteredEntries.isEmpty
-                  ? const Center(child: Text('No hay elementos que coincidan.'))
+                  ? Center(child: Text(locale.swNoElementsMatch))
                   // ListView.builder es la magia: solo renderiza lo que ves
                   : ListView.builder(
                       itemCount: ctrl.filteredEntries.length,
@@ -314,7 +319,7 @@ class _SelectionDialog extends StatelessWidget {
                           contentPadding: EdgeInsets.zero,
                           secondary: _buildThumbnail(item.info?.image, context),
                           title: Text(
-                            item.info?.title ?? 'Sin título',
+                            item.info?.title ?? locale.swUnknownTitle,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(fontSize: 14),
@@ -344,12 +349,23 @@ class _SelectionDialog extends StatelessWidget {
                       )
                     : const Icon(Icons.download),
                 label: Text(
-                  ctrl.isSubmitting ? 'Enviando...' : 'Descargar Selección',
+                  ctrl.isSubmitting
+                      ? locale.swSendingSelection
+                      : locale.swButtonDownloadSelected,
                 ),
                 onPressed: ctrl.isSubmitting || ctrl.isLoading
                     ? null
                     : () async {
+                        if (ctrl.selectedIds.isEmpty) {
+                          ToastUtils.showInfo(locale.swNoElementsSelected);
+                          return;
+                        }
                         final success = await ctrl.submit();
+                        if (success) {
+                          ToastUtils.showSuccess(locale.swSendSelectionSuccess);
+                        } else {
+                          ToastUtils.showError(locale.swSendSelectionError);
+                        }
                         if (success && context.mounted) {
                           Navigator.pop(
                             context,

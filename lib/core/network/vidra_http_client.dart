@@ -69,7 +69,7 @@ class VidraHttpClient {
 
     if (response.statusCode == 200) return response.body;
     throw Exception(
-      'Error al obtener logs: ${response.statusCode} - ${response.body}',
+      'Error obtaining logs: ${response.statusCode} - ${response.body}',
     );
   }
 
@@ -83,7 +83,7 @@ class VidraHttpClient {
 
     if (response.statusCode == 200) return jsonDecode(response.body);
     throw Exception(
-      'Error al obtener descargas: ${response.statusCode} - ${response.body}',
+      'Error obtaining downloads: ${response.statusCode} - ${response.body}',
     );
   }
 
@@ -107,7 +107,7 @@ class VidraHttpClient {
       return data['id'].toString();
     }
     throw Exception(
-      'Error al añadir descarga: ${response.statusCode} - ${response.body}',
+      'Error adding download: ${response.statusCode} - ${response.body}',
     );
   }
 
@@ -124,7 +124,7 @@ class VidraHttpClient {
 
     if (response.statusCode != 200) {
       throw Exception(
-        'Error en acción $action: ${response.statusCode} - ${response.body}',
+        'Error in action $action: ${response.statusCode} - ${response.body}',
       );
     }
   }
@@ -145,7 +145,7 @@ class VidraHttpClient {
       return [];
     }
     throw Exception(
-      'Error al obtener entries: ${response.statusCode} - ${response.body}',
+      'Error obtaining entries: ${response.statusCode} - ${response.body}',
     );
   }
 
@@ -164,7 +164,7 @@ class VidraHttpClient {
 
     if (response.statusCode != 200) {
       throw Exception(
-        'Error al seleccionar entries: ${response.statusCode} - ${response.body}',
+        'Error selecting entries: ${response.statusCode} - ${response.body}',
       );
     }
   }
@@ -184,7 +184,7 @@ class VidraHttpClient {
       if (response.statusCode != 200) {
         final errorBody = await response.stream.bytesToString();
         throw Exception(
-          'Error al conectar al stream: ${response.statusCode} - $errorBody',
+          'Error connecting to stream: ${response.statusCode} - $errorBody',
         );
       }
 

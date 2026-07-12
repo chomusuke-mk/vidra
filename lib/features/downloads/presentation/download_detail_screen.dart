@@ -202,7 +202,7 @@ class _DetailViewState extends State<_DetailView> {
                           ? Colors.blue
                           : null,
                     ),
-                    tooltip: 'Ordenar',
+                    tooltip: locale.ddSort,
                     onSelected: controller.setSortOption,
                     itemBuilder: (context) => [
                       PopupMenuItem(
@@ -220,7 +220,7 @@ class _DetailViewState extends State<_DetailView> {
                             ),
                             const SizedBox(width: 8),
                             Text(
-                              'Defecto',
+                              locale.ddSortDefault,
                               style: TextStyle(
                                 color:
                                     controller.sortOption ==
@@ -252,7 +252,7 @@ class _DetailViewState extends State<_DetailView> {
                             ),
                             const SizedBox(width: 8),
                             Text(
-                              'Alfabéticamente',
+                              locale.ddSortAlphabetical,
                               style: TextStyle(
                                 color:
                                     controller.sortOption ==
@@ -279,7 +279,7 @@ class _DetailViewState extends State<_DetailView> {
                           : Icons.arrow_downward,
                       color: controller.sortReversed ? Colors.blue : null,
                     ),
-                    tooltip: 'Invertir orden (Reverse)',
+                    tooltip: locale.ddSortReverse,
                     onPressed: controller.toggleSortReverse,
                   ),
                   // Botón de Filtros existente

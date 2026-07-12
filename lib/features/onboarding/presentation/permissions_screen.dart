@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_screen_overlay/flutter_screen_overlay.dart';
+import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
 
 class PermissionsScreen extends StatefulWidget {
@@ -119,6 +120,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.watch<LocaleController>().localeStrings;
     return Scaffold(
       body: SafeArea(
         child: _isChecking
@@ -130,8 +132,8 @@ class _PermissionsScreenState extends State<PermissionsScreen>
                   children: [
                     const Icon(Icons.security, size: 64, color: Colors.blue),
                     const SizedBox(height: 16),
-                    const Text(
-                      'Permisos Necesarios',
+                    Text(
+                      locale.pTitle,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 24,
@@ -139,8 +141,8 @@ class _PermissionsScreenState extends State<PermissionsScreen>
                       ),
                     ),
                     const SizedBox(height: 8),
-                    const Text(
-                      'Vidra requiere acceso profundo al sistema para descargar en segundo plano y capturar links rápidamente.',
+                    Text(
+                      locale.pDescription,
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.grey),
                     ),
@@ -150,50 +152,50 @@ class _PermissionsScreenState extends State<PermissionsScreen>
                       child: ListView(
                         children: [
                           _buildPermissionTile(
-                            title: 'Almacenamiento Total',
-                            subtitle:
-                                'Necesario para guardar los videos y actualizar el motor de descargas en la memoria interna.',
+                            title: locale.pStorage,
+                            subtitle: locale.pStorageDesc,
                             icon: Icons.folder_special,
                             isGranted: _storageGranted,
                             onRequest: _requestStorage,
+                            grantedText: locale.pButtonGrant,
                           ),
                           const SizedBox(height: 12),
                           _buildPermissionTile(
-                            title: 'Superposición (Overlay)',
-                            subtitle:
-                                'Permite mostrar el selector de calidades como una ventana flotante sobre YouTube u otras apps.',
+                            title: locale.pOverlay,
+                            subtitle: locale.pOverlayDesc,
                             icon: Icons.layers,
                             isGranted: _overlayGranted,
                             onRequest: _requestOverlay,
+                            grantedText: locale.pButtonGrant,
                           ),
                           const SizedBox(height: 12),
                           _buildPermissionTile(
-                            title: 'Optimización de Batería',
-                            subtitle:
-                                'Permite que Vidra siga descargando en segundo plano sin ser detenido por el sistema.',
+                            title: locale.pBattery,
+                            subtitle: locale.pBatteryDesc,
                             icon: Icons.battery_saver,
                             isGranted: _batteryOptimizationGranted,
                             onRequest: _requestBatteryOptimization,
+                            grantedText: locale.pButtonGrant,
                           ),
                           const SizedBox(height: 12),
                           if (_androidSdkVersion >= 33) ...[
                             _buildPermissionTile(
-                              title: 'Notificaciones',
-                              subtitle:
-                                  'Para mostrar el progreso de la descarga en tiempo real en tu barra de estado.',
+                              title: locale.pNotification,
+                              subtitle: locale.pNotificationDesc,
                               icon: Icons.notifications_active,
                               isGranted: _notifGranted,
                               onRequest: _requestNotifications,
+                              grantedText: locale.pButtonGrant,
                             ),
                             const SizedBox(height: 12),
                           ],
                           _buildPermissionTile(
-                            title: 'Instalar Aplicaciones',
-                            subtitle:
-                                '(Opcional) Permite actualizar Vidra automáticamente de forma segura sin salir de la app.',
+                            title: locale.pInstall,
+                            subtitle: locale.pInstallDesc,
                             icon: Icons.system_update,
                             isGranted: _installGranted,
                             onRequest: _requestInstallPackages,
+                            grantedText: locale.pButtonGrant,
                           ),
                         ],
                       ),
@@ -209,10 +211,10 @@ class _PermissionsScreenState extends State<PermissionsScreen>
                                   .resumeInitialization();
                             }
                           : null, // Deshabilitado si falta algún permiso obligatorio
-                      child: const Padding(
+                      child: Padding(
                         padding: EdgeInsets.symmetric(vertical: 16.0),
                         child: Text(
-                          'Continuar',
+                          locale.pButtonContinue,
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -230,6 +232,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
     required IconData icon,
     required bool isGranted,
     required VoidCallback onRequest,
+    required String grantedText,
   }) {
     return Container(
       decoration: BoxDecoration(
@@ -265,7 +268,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   minimumSize: const Size(0, 36),
                 ),
-                child: const Text('Otorgar'),
+                child: Text(grantedText),
               ),
       ),
     );

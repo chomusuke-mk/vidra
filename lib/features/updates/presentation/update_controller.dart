@@ -46,15 +46,15 @@ class UpdateController extends ChangeNotifier {
   final Map<ComponentType, UpdateState> _states = {
     ComponentType.app: UpdateState(
       status: ComponentStatus.upToDate,
-      version: 'Cargando...',
+      version: 'Loading...',
     ),
     ComponentType.ytDlp: UpdateState(
       status: ComponentStatus.upToDate,
-      version: 'Desconocida',
+      version: 'Unknown',
     ),
     ComponentType.ytDlpEjs: UpdateState(
       status: ComponentStatus.upToDate,
-      version: 'Desconocida',
+      version: 'Unknown',
     ),
   };
 
@@ -164,12 +164,12 @@ class UpdateController extends ChangeNotifier {
       final prefKey = type == ComponentType.ytDlp
           ? 'version_yt_dlp'
           : 'version_yt_dlp_ejs';
-      final savedVersion = _prefs.getString(prefKey) ?? 'Desconocida';
+      final savedVersion = _prefs.getString(prefKey) ?? 'Unknown';
       final isInstalled = await _isComponentInstalled(type);
       _setState(
         type,
         ComponentStatus.upToDate,
-        version: isInstalled ? savedVersion : 'Falta módulo',
+        version: isInstalled ? savedVersion : 'Missing module',
       );
     }
   }
@@ -253,7 +253,7 @@ class UpdateController extends ChangeNotifier {
         type,
         ComponentStatus.updateAvailable,
         pendingUpdate: info,
-        version: isMissing ? 'Falta módulo' : null,
+        version: isMissing ? 'Missing module' : null,
       );
       return true; // ¡Se encontró algo nuevo!
     } else if (info != null) {

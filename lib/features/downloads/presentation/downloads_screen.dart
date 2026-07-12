@@ -9,6 +9,7 @@ import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/settings/presentation/settings_screen.dart';
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
+import 'package:vidra/shared/utils/toast_utils.dart';
 import 'package:vidra/shared/widgets/download_card.dart';
 import 'download_detail_screen.dart';
 import 'package:vidra/features/system/presentation/system_status_indicator.dart';
@@ -48,13 +49,22 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
     super.dispose();
   }
 
-  void _addDownload() {
+  void _addDownload() async {
     if (_urlController.text.trim().isEmpty) return;
     final settingsCtrl = context.read<SettingsController>();
     final downloadsCtrl = context.read<DownloadsController>();
     final currentOptions = settingsCtrl.getDownloadOptionsPayload();
-    downloadsCtrl.addDownload(_urlController.text, currentOptions);
-    _urlController.clear();
+    final locale = context.read<LocaleController>().localeStrings;
+    final result = await downloadsCtrl.addDownload(
+      _urlController.text,
+      currentOptions,
+    );
+    if (result) {
+      _urlController.clear();
+      ToastUtils.showInfo(locale.dDownloadSent);
+    } else {
+      ToastUtils.showError(locale.dDownloadSentError);
+    }
   }
 
   @override
@@ -71,7 +81,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
         final isList = d.info?.type == download_model.DownloadType.list;
         if (_typeFilter == 'list' && !isList) return false;
         if (_typeFilter == 'video' && isList) {
-          return false; // Todo lo que NO sea list cae en video
+          return false;
         }
       }
       return true;
@@ -81,15 +91,19 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
       final state = d.state?.value;
       return state == download_model.DownloadStateEnum.requested ||
           state == download_model.DownloadStateEnum.pending ||
-          state == download_model.DownloadStateEnum.extractingInformation ||
           state == download_model.DownloadStateEnum.awaitingSelection ||
           state == download_model.DownloadStateEnum.inProgress ||
-          state == download_model.DownloadStateEnum.paused;
+          state == download_model.DownloadStateEnum.cancelling ||
+          state == download_model.DownloadStateEnum.paused ||
+          state == download_model.DownloadStateEnum.pausing;
     }).toList();
 
     final completed = filteredAll
         .where(
-          (d) => d.state?.value == download_model.DownloadStateEnum.completed,
+          (d) =>
+              d.state?.value == download_model.DownloadStateEnum.completed ||
+              d.state?.value ==
+                  download_model.DownloadStateEnum.completedWithErrors,
         )
         .toList();
 
@@ -97,7 +111,8 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
       final state = d.state?.value;
       return state == download_model.DownloadStateEnum.failed ||
           state == download_model.DownloadStateEnum.cancelled ||
-          state == download_model.DownloadStateEnum.deleted;
+          state == download_model.DownloadStateEnum.deleted ||
+          state == download_model.DownloadStateEnum.completedWithErrors;
     }).toList();
 
     final lists = [filteredAll, inProgress, completed, errors];
@@ -144,7 +159,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
           actions: [
             IconButton(
               icon: const Icon(Icons.help_outline),
-              tooltip: 'Ver Tutorial',
+              tooltip: locale.dShowTutorial,
               onPressed: () =>
                   TutorialUtils.showMainAppTutorial(context, force: true),
             ),

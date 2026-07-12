@@ -9,6 +9,7 @@ import 'package:path/path.dart' as p;
 import 'package:provider/provider.dart';
 import 'package:vidra/features/downloads/domain/download.dart' as model;
 import 'package:vidra/features/downloads/presentation/downloads_controller.dart';
+import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -32,13 +33,13 @@ class DownloadCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Los que lo invocan ya hacen context.watch Locale
+    final locale = context.read<LocaleController>().localeStrings;
     final isError = state?.value == model.DownloadStateEnum.failed;
     final isCompleted = state?.value == model.DownloadStateEnum.completed;
     final isCompletedWithErrors =
         state?.value == model.DownloadStateEnum.completedWithErrors;
-    final inProgress =
-        state?.value == model.DownloadStateEnum.inProgress ||
-        state?.value == model.DownloadStateEnum.extractingInformation;
+    final inProgress = state?.value == model.DownloadStateEnum.inProgress;
     final isPending =
         state?.value == model.DownloadStateEnum.pending ||
         state?.value == model.DownloadStateEnum.requested;
@@ -107,7 +108,7 @@ class DownloadCard extends StatelessWidget {
       child: InkWell(
         onTap: () {
           if (isError) {
-            ToastUtils.showError(state?.errorMessage ?? "Error desconocido");
+            ToastUtils.showError(state?.errorMessage ?? locale.dcUnknownError);
           } else if (state?.value ==
               model.DownloadStateEnum.awaitingSelection) {
             context.read<DownloadsController>().requestSelectionModal(
@@ -148,9 +149,16 @@ class DownloadCard extends StatelessWidget {
             // Borrado gestual a tope SOLO permitido si está completado o en error
             dismissible: showDelete
                 ? DismissiblePane(
-                    onDismissed: () => context
-                        .read<DownloadsController>()
-                        .sendAction(downloadId!, 'delete'),
+                    onDismissed: () async {
+                      final result = await context
+                          .read<DownloadsController>()
+                          .sendAction(downloadId!, 'delete');
+                      if (result) {
+                        ToastUtils.showInfo(locale.dcDownloadRemoving);
+                      } else {
+                        ToastUtils.showError(locale.dcDownloadRemovingError);
+                      }
+                    },
                   )
                 : null,
 
@@ -191,9 +199,16 @@ class DownloadCard extends StatelessWidget {
               ],
               if (showResume) ...[
                 SlidableAction(
-                  onPressed: (_) => context
-                      .read<DownloadsController>()
-                      .sendAction(downloadId!, 'resume'),
+                  onPressed: (_) async {
+                    final result = await context
+                        .read<DownloadsController>()
+                        .sendAction(downloadId!, 'resume');
+                    if (result) {
+                      ToastUtils.showInfo(locale.dcDownloadResuming);
+                    } else {
+                      ToastUtils.showError(locale.dcDownloadResumingError);
+                    }
+                  },
                   backgroundColor: Colors.green,
                   foregroundColor: Colors.white,
                   icon: Icons.play_arrow,
@@ -201,9 +216,16 @@ class DownloadCard extends StatelessWidget {
               ],
               if (showRetry) ...[
                 SlidableAction(
-                  onPressed: (_) => context
-                      .read<DownloadsController>()
-                      .sendAction(downloadId!, 'retry'),
+                  onPressed: (_) async {
+                    final result = await context
+                        .read<DownloadsController>()
+                        .sendAction(downloadId!, 'retry');
+                    if (result) {
+                      ToastUtils.showInfo(locale.dcDownloadRetrying);
+                    } else {
+                      ToastUtils.showError(locale.dcDownloadRetryingError);
+                    }
+                  },
                   backgroundColor: Colors.blueAccent,
                   foregroundColor: Colors.white,
                   icon: Icons.refresh,
@@ -211,9 +233,16 @@ class DownloadCard extends StatelessWidget {
               ],
               if (showPause) ...[
                 SlidableAction(
-                  onPressed: (_) => context
-                      .read<DownloadsController>()
-                      .sendAction(downloadId!, 'pause'),
+                  onPressed: (_) async {
+                    final result = await context
+                        .read<DownloadsController>()
+                        .sendAction(downloadId!, 'pause');
+                    if (result) {
+                      ToastUtils.showInfo(locale.dcDownloadPausing);
+                    } else {
+                      ToastUtils.showError(locale.dcDownloadPausingError);
+                    }
+                  },
                   backgroundColor: Colors.amber,
                   foregroundColor: Colors.white,
                   icon: Icons.pause,
@@ -229,9 +258,16 @@ class DownloadCard extends StatelessWidget {
               ],
               if (showDelete) ...[
                 SlidableAction(
-                  onPressed: (_) => context
-                      .read<DownloadsController>()
-                      .sendAction(downloadId!, 'delete'),
+                  onPressed: (_) async {
+                    final result = await context
+                        .read<DownloadsController>()
+                        .sendAction(downloadId!, 'delete');
+                    if (result) {
+                      ToastUtils.showInfo(locale.dcDownloadRemoving);
+                    } else {
+                      ToastUtils.showError(locale.dcDownloadRemovingError);
+                    }
+                  },
                   backgroundColor: Colors.red.shade900,
                   foregroundColor: Colors.white,
                   icon: Icons.delete,
@@ -250,25 +286,31 @@ class DownloadCard extends StatelessWidget {
     // de abrir el Dialog. Así, aunque la Tarjeta se desactive al fondo,
     // la acción de cancelación no dependerá del contexto del UI.
     final controller = context.read<DownloadsController>();
+    final locale = context.read<LocaleController>().localeStrings;
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Cancelar descarga'),
-        content: const Text(
-          '¿Estás seguro de que deseas cancelar esta descarga en progreso?',
-        ),
+        title: Text(locale.dcDownloadCancelTitle),
+        content: Text(locale.dcDownloadCancelMessage),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
-            child: const Text('No'),
+            child: Text(locale.dcDownloadNoCancel),
           ),
           FilledButton(
             style: FilledButton.styleFrom(backgroundColor: Colors.red),
-            onPressed: () {
-              controller.sendAction(id, 'cancel');
-              Navigator.pop(ctx);
+            onPressed: () async {
+              final result = await controller.sendAction(id, 'cancel');
+              if (result) {
+                ToastUtils.showInfo(locale.dcDownloadCancelling);
+              } else {
+                ToastUtils.showError(locale.dcDownloadCancellingError);
+              }
+              if (ctx.mounted) {
+                Navigator.pop(ctx);
+              }
             },
-            child: const Text('Cancelar'),
+            child: Text(locale.dcDownloadCancel),
           ),
         ],
       ),
@@ -390,6 +432,7 @@ class DownloadCard extends StatelessWidget {
       platform,
     ].where((e) => e.isNotEmpty).toList();
     String infoText = infoList.join(' • ');
+    final locale = context.read<LocaleController>().localeStrings;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -397,7 +440,7 @@ class DownloadCard extends StatelessWidget {
       children: [
         // Título
         Text(
-          info?.title ?? 'Recuperando información...',
+          info?.title ?? locale.dcGettingDownloadInfo,
           style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
@@ -415,52 +458,53 @@ class DownloadCard extends StatelessWidget {
         ),
 
         // Progreso y Estados Secundarios
-        if (state?.progressValue != null ||
-            (state?.subState?.isNotEmpty ?? false)) ...[
-          //const SizedBox(height: 6),
-          Row(
-            children: [
-              Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(1),
-                  child: _AnimatedProgressBar(
-                    value:
-                        state?.progressValue ??
-                        (state?.value == model.DownloadStateEnum.inProgress
-                            ? null
-                            : 1.0),
-                    color: state?.progressColor?.color ?? Colors.blue,
-                    backgroundColor: Theme.of(
-                      context,
-                    ).colorScheme.surfaceContainerHighest,
-                  ),
+        //const SizedBox(height: 6),
+        Row(
+          children: [
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(1),
+                child: _AnimatedProgressBar(
+                  value:
+                      state?.progressValue ??
+                      (state?.value == model.DownloadStateEnum.inProgress
+                          ? null
+                          : 1.0),
+                  color: state?.progressColor?.color ?? Colors.blue,
+                  backgroundColor: Theme.of(
+                    context,
+                  ).colorScheme.surfaceContainerHighest,
                 ),
               ),
-              if (state?.progressLabel != null) ...[
-                const SizedBox(width: 8),
-                Text(
-                  state!.progressLabel!,
-                  style: const TextStyle(fontSize: 10),
-                ),
-              ],
-              if (state?.speed != null) ...[
-                const SizedBox(width: 8),
-                Text(state!.speed!, style: const TextStyle(fontSize: 10)),
-              ],
-            ],
-          ),
-          if (state?.subState != null) ...[
-            //const SizedBox(height: 2),
-            Text(
-              state!.subState!,
-              style: TextStyle(
-                fontSize: 10,
-                color: state?.subStateColor?.color ?? Colors.blue,
-              ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
             ),
+            if (state?.progressLabel != null) ...[
+              const SizedBox(width: 8),
+              Text(state!.progressLabel!, style: const TextStyle(fontSize: 10)),
+            ],
+            if (state?.speed != null) ...[
+              const SizedBox(width: 8),
+              Text(state!.speed!, style: const TextStyle(fontSize: 10)),
+            ],
           ],
+        ),
+        if (state?.subState != null ||
+            state?.value == model.DownloadStateEnum.failed ||
+            state?.value == model.DownloadStateEnum.completedWithErrors) ...[
+          //const SizedBox(height: 2),
+          Text(
+            ((state?.value == model.DownloadStateEnum.failed ||
+                        state?.value ==
+                            model.DownloadStateEnum.completedWithErrors)
+                    ? state?.errorMessage ?? locale.dcUnknownError
+                    : state?.subState) ??
+                '',
+            style: TextStyle(
+              fontSize: 10,
+              color: state?.subStateColor?.color ?? Colors.blue,
+            ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
         ],
       ],
     );
@@ -499,8 +543,6 @@ class DownloadCard extends StatelessWidget {
       case model.DownloadStateEnum.requested:
       case model.DownloadStateEnum.pending:
         return Icons.schedule;
-      case model.DownloadStateEnum.extractingInformation:
-        return Icons.search;
       case model.DownloadStateEnum.awaitingSelection:
         return Icons.rule;
       case model.DownloadStateEnum.inProgress:

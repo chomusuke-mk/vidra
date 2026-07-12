@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:vidra/features/locales/presentation/locale_controller.dart';
 
 import 'package:vidra/features/system/domain/system_state.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
@@ -19,6 +20,7 @@ class SystemDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.watch<LocaleController>().localeStrings;
     return Container(
       padding: const EdgeInsets.only(top: 16),
       decoration: BoxDecoration(
@@ -36,8 +38,8 @@ class SystemDetailsScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          const Text(
-            'Estado del Sistema',
+          Text(
+            locale.sdTitle,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const Divider(height: 32),
@@ -52,8 +54,8 @@ class SystemDetailsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
 
-                const Text(
-                  'Módulos y Actualizaciones',
+                Text(
+                  locale.sdModulesUpdates,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 const SizedBox(height: 8),
@@ -71,13 +73,13 @@ class SystemDetailsScreen extends StatelessWidget {
                       _buildUpdateCard(
                         context,
                         ComponentType.ytDlp,
-                        'Motor yt-dlp',
+                        'Engine yt-dlp',
                         Icons.terminal,
                       ),
                       _buildUpdateCard(
                         context,
                         ComponentType.ytDlpEjs,
-                        'Parche EJS',
+                        'Patch EJS',
                         Icons.javascript,
                       ),
                     ],
@@ -100,6 +102,7 @@ class SystemDetailsScreen extends StatelessWidget {
   Widget _buildBackendStatus(BuildContext context) {
     final sysCtrl = context.watch<SystemController>();
     final isReady = sysCtrl.state == SystemState.ready;
+    final locale = context.watch<LocaleController>().localeStrings;
     final hasError =
         sysCtrl.state == SystemState.missingResources ||
         sysCtrl.state == SystemState.fatalError;
@@ -113,7 +116,7 @@ class SystemDetailsScreen extends StatelessWidget {
               ? Colors.green
               : (hasError ? Colors.red : Colors.orange),
         ),
-        title: Text('Servidor Python: ${sysCtrl.state.name}'),
+        title: Text('${locale.sdPythonServer}: ${sysCtrl.state.name}'),
         subtitle: Wrap(
           alignment: WrapAlignment.spaceBetween,
           runSpacing: 4,
@@ -121,7 +124,7 @@ class SystemDetailsScreen extends StatelessWidget {
             Text(
               isReady
                   ? 'Puerto: ${sysCtrl.backendPort}'
-                  : 'Esperando disponibilidad...',
+                  : locale.sdWaitingAvailable,
             ),
             Row(
               mainAxisSize: MainAxisSize.min,
@@ -154,7 +157,7 @@ class SystemDetailsScreen extends StatelessWidget {
                                 context: context,
                                 builder: (_) => _LogsDialog(
                                   logs: logs,
-                                  title: 'Logs de la App',
+                                  title: locale.sdAppLogs,
                                 ),
                               );
                             }
@@ -190,25 +193,23 @@ class SystemDetailsScreen extends StatelessWidget {
                               String rawLogs = await file.readAsString();
                               if (rawLogs.length > 20000) {
                                 rawLogs =
-                                    "... (truncado) ...\n${rawLogs.substring(rawLogs.length - 20000)}";
+                                    "... (truncated) ...\n${rawLogs.substring(rawLogs.length - 20000)}";
                               }
                               if (context.mounted) {
                                 showDialog(
                                   context: context,
                                   builder: (_) => _LogsDialog(
                                     logs: rawLogs,
-                                    title: 'Logs del Servidor Python',
+                                    title: locale.sdPythonServerLogs,
                                   ),
                                 );
                               }
                             } else {
-                              ToastUtils.showError(
-                                'El archivo de log físico aún no existe.',
-                              );
+                              ToastUtils.showError(locale.sdLogFileNotFound);
                             }
                           } catch (e) {
                             ToastUtils.showError(
-                              'Error al leer log físico: $e',
+                              '${locale.sdLogFileReadError}: $e',
                             );
                           }
                         },
@@ -290,6 +291,7 @@ class SystemDetailsScreen extends StatelessWidget {
     UpdateController ctrl,
     String title,
   ) {
+    final locale = context.watch<LocaleController>().localeStrings;
     switch (state.status) {
       // NUEVO ESTADO: Oculta el botón y muestra un indicador circular para evitar doble-taps.
       case ComponentStatus.checking:
@@ -307,13 +309,13 @@ class SystemDetailsScreen extends StatelessWidget {
           return FilledButton.icon(
             style: FilledButton.styleFrom(backgroundColor: Colors.orange),
             icon: const Icon(Icons.refresh, size: 16),
-            label: const Text('Reintentar'),
+            label: Text(locale.sdButtonRetry),
             onPressed: () => ctrl.downloadAndInstall(type),
           );
         }
         return TextButton(
           onPressed: () => _handleCheckUpdate(context, ctrl, type, title),
-          child: const Text('Buscar'),
+          child: Text(locale.sdButtonSearch),
         );
 
       case ComponentStatus.upToDate:
@@ -331,7 +333,7 @@ class SystemDetailsScreen extends StatelessWidget {
             const SizedBox(width: 8),
             IconButton(
               icon: const Icon(Icons.refresh, size: 20),
-              tooltip: 'Verificar nuevamente',
+              tooltip: locale.sdButtonReCheck,
               onPressed: () => _handleCheckUpdate(context, ctrl, type, title),
             ),
           ],
@@ -348,23 +350,20 @@ class SystemDetailsScreen extends StatelessWidget {
               ? FilledButton.styleFrom(backgroundColor: Colors.red)
               : null,
           icon: const Icon(Icons.download, size: 16),
-          label: Text(isMissing ? 'Instalar Requerido' : 'Actualizar'),
+          label: Text(isMissing ? locale.sdButtonInstall : locale.sdUpdate),
           onPressed: () => ctrl.downloadAndInstall(type),
         );
 
       case ComponentStatus.downloading:
-        return const Text(
-          'Descargando...',
-          style: TextStyle(color: Colors.blue),
-        );
+        return Text(locale.sdDownloading, style: TextStyle(color: Colors.blue));
       case ComponentStatus.verifying:
-        return const Text(
-          'Validando PGP...',
+        return Text(
+          locale.sdCheckingPGP,
           style: TextStyle(color: Colors.purple),
         );
       case ComponentStatus.installing:
-        return const Text(
-          'Instalando...',
+        return Text(
+          locale.sdInstalling,
           style: TextStyle(color: Colors.orange),
         );
     }
@@ -377,6 +376,7 @@ class SystemDetailsScreen extends StatelessWidget {
     ComponentType type,
     String title,
   ) async {
+    final locale = context.read<LocaleController>().localeStrings;
     // Esto mostrará el spinner porque el controlador pondrá el estado en 'checking'
     final hasUpdate = await ctrl.checkForUpdates(
       manualCall: true,
@@ -388,15 +388,16 @@ class SystemDetailsScreen extends StatelessWidget {
       final finalState = ctrl.getState(type).status;
 
       if (finalState == ComponentStatus.error) {
-        ToastUtils.showError('Error de red al conectar con GitHub.');
+        ToastUtils.showError(locale.sdGithubConnectionError);
       } else {
-        ToastUtils.showSuccess('¡$title ya está en su última versión!');
+        ToastUtils.showSuccess('$title ${locale.sdUpToDate}');
       }
     }
   }
 
   Widget _buildChannelSelector(BuildContext context, UpdateController ctrl) {
     final prefs = context.watch<SharedPreferences>();
+    final locale = context.watch<LocaleController>().localeStrings;
     final currentChannel = prefs.getString('channel_ytdlp') ?? 'stable';
 
     return SizedBox(
@@ -406,12 +407,12 @@ class SystemDetailsScreen extends StatelessWidget {
         crossAxisAlignment: WrapCrossAlignment.center,
         runSpacing: 4,
         children: [
-          const Text('Canal de actualización:', style: TextStyle(fontSize: 12)),
+          Text('${locale.sdChannel}:', style: TextStyle(fontSize: 12)),
           SegmentedButton<String>(
             segments: const [
               ButtonSegment(
                 value: 'stable',
-                label: Text('Estable', style: TextStyle(fontSize: 11)),
+                label: Text('Stable', style: TextStyle(fontSize: 11)),
               ),
               ButtonSegment(
                 value: 'nightly',
@@ -428,9 +429,7 @@ class SystemDetailsScreen extends StatelessWidget {
                 specificType: ComponentType.ytDlp,
               );
               if (!hasUpdate) {
-                ToastUtils.showSuccess(
-                  'No hay nuevas versiones en este canal.',
-                );
+                ToastUtils.showSuccess(locale.sdNoUpdatesAvailable);
               }
             },
           ),
@@ -443,6 +442,7 @@ class SystemDetailsScreen extends StatelessWidget {
   // ZONA 3: ABOUT Y LICENCIAS
   // ==========================================================================
   Widget _buildAboutSection(BuildContext context) {
+    final locale = context.watch<LocaleController>().localeStrings;
     return Column(
       children: [
         const CircleAvatar(
@@ -455,7 +455,7 @@ class SystemDetailsScreen extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         const Text(
-          'Creado por Chomusuke',
+          'Created by Chomusuke',
           style: TextStyle(fontSize: 14, color: Colors.grey),
         ),
         const SizedBox(height: 16),
@@ -476,7 +476,7 @@ class SystemDetailsScreen extends StatelessWidget {
             ),
             TextButton.icon(
               icon: const Icon(Icons.coffee, color: Colors.orange, size: 16),
-              label: const Text('Donar'),
+              label: const Text('Donate'),
               onPressed: () => launchUrl(
                 Uri.parse('https://www.buymeacoffee.com/chomusuke'),
                 mode: LaunchMode.externalApplication,
@@ -501,13 +501,13 @@ class SystemDetailsScreen extends StatelessWidget {
                 size: 16,
                 color: Colors.yellow,
               ),
-              label: const Text('Ver Tutorial'),
+              label: Text(locale.sdShowTutorial),
               onPressed: () =>
                   TutorialUtils.showSystemTutorial(context, force: true),
             ),
             TextButton.icon(
               icon: const Icon(Icons.gavel, size: 16),
-              label: const Text('Licencias'),
+              label: Text(locale.sdLicenses),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -557,6 +557,7 @@ class _LogsDialogState extends State<_LogsDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.watch<LocaleController>().localeStrings;
     return AlertDialog(
       title: Text(widget.title),
       content: SizedBox(
@@ -567,7 +568,7 @@ class _LogsDialogState extends State<_LogsDialog> {
           child: SingleChildScrollView(
             controller: _scrollController, // ...con el contenido!
             child: SelectableText(
-              widget.logs.isEmpty ? 'No hay logs aún.' : widget.logs,
+              widget.logs.isEmpty ? locale.sdNoLogs : widget.logs,
               style: const TextStyle(fontFamily: 'monospace', fontSize: 12),
             ),
           ),
@@ -576,7 +577,7 @@ class _LogsDialogState extends State<_LogsDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: const Text('Cerrar'),
+          child: Text(locale.sdClose),
         ),
       ],
     );

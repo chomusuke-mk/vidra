@@ -1581,12 +1581,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
       actions: [
         IconButton(
           icon: const Icon(Icons.help_outline),
+          tooltip: locale.sTutorialTooltip,
           onPressed: () =>
               TutorialUtils.showSettingsTutorial(context, force: true),
         ),
         IconButton(
           key: AppTutorialKeys.settingsSearch,
           icon: const Icon(Icons.search),
+          tooltip: locale.sSearchConfigTooltip,
           onPressed: () => setState(() => _isSearching = true),
         ),
       ],

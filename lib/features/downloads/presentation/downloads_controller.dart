@@ -4,7 +4,6 @@ import 'package:vidra/features/downloads/data/download_repository.dart';
 import 'package:vidra/features/downloads/domain/download.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
 import 'package:vidra/features/system/domain/system_state.dart';
-import 'package:vidra/shared/utils/toast_utils.dart';
 
 class DownloadsController extends ChangeNotifier {
   final DownloadRepository _repository;
@@ -90,20 +89,18 @@ class DownloadsController extends ChangeNotifier {
     }
   }
 
-  Future<void> addDownload(String url, Map<String, dynamic> options) async {
-    if (url.trim().isEmpty) return;
+  Future<bool> addDownload(String url, Map<String, dynamic> options) async {
+    if (url.trim().isEmpty) return false;
     // Delegamos todo el trabajo pesado al Isolate mediante el puente del SystemController
     debugPrint('📤 [UI-Downloads] Solicitando descarga vía puente IPC...');
     _systemController.enqueueDownload(url, options);
-    // Mostramos un Toast amigable en la UI mientras el Isolate procesa en el fondo
-    ToastUtils.showInfo('Descarga enviada...');
+    return true;
   }
 
   // --- NUEVO: Motor de Acciones (Gestos) ---
-  Future<void> sendAction(String id, String action) async {
+  Future<bool> sendAction(String id, String action) async {
     try {
       if (action == 'delete') {
-        ToastUtils.showInfo('Eliminando...');
         await _repository.deleteDownload(id);
       } else if (action == 'pause') {
         await _repository.pauseDownload(id);
@@ -114,8 +111,10 @@ class DownloadsController extends ChangeNotifier {
       } else if (action == 'retry') {
         await _repository.retryDownload(id);
       }
+      return true;
     } catch (e) {
-      ToastUtils.showError('Error enviando acción: $e');
+      debugPrint('Error enviando acción $action para descarga $id: $e');
+      return false;
     }
   }
 

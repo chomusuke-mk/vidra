@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/system/domain/system_state.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
 import 'package:vidra/features/updates/presentation/update_controller.dart';
@@ -12,6 +13,7 @@ class SystemStatusIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = context.watch<SystemController>().state;
     final updateCtrl = context.watch<UpdateController>();
+    final locale = context.watch<LocaleController>().localeStrings;
 
     Color color;
     IconData icon;
@@ -23,19 +25,19 @@ class SystemStatusIndicator extends StatelessWidget {
         if (updateCtrl.hasAvailableUpdates) {
           color = Colors.blue;
           icon = Icons.system_update;
-          label = 'Actualización';
+          label = locale.ssiUpdateAvailable;
         }
         // Si han pasado las horas límite o está buscando en segundo plano
         else if (updateCtrl.isCheckingUpdates || updateCtrl.hasPendingChecks) {
           color = Colors.blueGrey;
           icon = Icons.sync;
-          label = 'Buscando updates';
+          label = locale.ssiSearchingUpdates;
         }
         // Completamente al día
         else {
           color = Colors.green;
           icon = Icons.check_circle;
-          label = 'Listo';
+          label = locale.ssiReady;
         }
         break;
       case SystemState.missingPermissions:
@@ -43,18 +45,18 @@ class SystemStatusIndicator extends StatelessWidget {
       case SystemState.fatalError:
         color = Colors.red;
         icon = Icons.warning_rounded;
-        label = 'Atención';
+        label = locale.ssiAttention;
         break;
       case SystemState.initializing:
       case SystemState.startingBackend:
         color = Colors.blue;
         icon = Icons.hourglass_top;
-        label = 'Iniciando';
+        label = locale.ssiInitializing;
         break;
       case SystemState.retrying:
         color = Colors.orange;
         icon = Icons.sync_problem;
-        label = 'Reconectando';
+        label = locale.ssiReconnecting;
         break;
     }
 

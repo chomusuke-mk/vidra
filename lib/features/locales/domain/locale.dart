@@ -21,10 +21,14 @@ class AppStringKey {
   String get dPaste => _cadenasLocalizadas['d_paste'] ?? '';
   String get dFilters => _cadenasLocalizadas['d_filters'] ?? '';
   String get dSettings => _cadenasLocalizadas['d_settings'] ?? '';
+  String get dShowTutorial => _cadenasLocalizadas['d_show_tutorial'] ?? '';
   // Buttons
   String get dDownload => _cadenasLocalizadas['d_download'] ?? '';
   // Messages
   String get dNoDownloads => _cadenasLocalizadas['d_no_downloads'] ?? '';
+  String get dDownloadSent => _cadenasLocalizadas['d_download_sent'] ?? '';
+  String get dDownloadSentError =>
+      _cadenasLocalizadas['d_download_sent_error'] ?? '';
   // Strings de la pantalla de download details, prefijo dd  ----------------
   String get ddTitle => _cadenasLocalizadas['dd_title'] ?? '';
   String get ddSubDownloads => _cadenasLocalizadas['dd_sub_downloads'] ?? '';
@@ -44,6 +48,179 @@ class AppStringKey {
   String get ddNoSettings => _cadenasLocalizadas['dd_no_settings'] ?? '';
   // Tooltips
   String get ddSearchFilter => _cadenasLocalizadas['dd_search_filter'] ?? '';
+  String get ddSort => _cadenasLocalizadas['dd_sort'] ?? '';
+  String get ddSortDefault => _cadenasLocalizadas['dd_sort_default'] ?? '';
+  String get ddSortAlphabetical =>
+      _cadenasLocalizadas['dd_sort_alphabetical'] ?? '';
+  String get ddSortReverse => _cadenasLocalizadas['dd_sort_reverse'] ?? '';
+  // Strings de la pantalla de selection wrapper, prefijo sw  ----------------
+  // Messages
+  String get swSelectionEnqueued =>
+      _cadenasLocalizadas['sw_selection_enqueued'] ?? '';
+  String get swListForwarded => _cadenasLocalizadas['sw_list_forwarded'] ?? '';
+  String get swUnknownTitle => _cadenasLocalizadas['sw_unknown_title'] ?? '';
+  String get swNoElementsMatch =>
+      _cadenasLocalizadas['sw_no_elements_match'] ?? '';
+  String get swSendingSelection =>
+      _cadenasLocalizadas['sw_sending_selection'] ?? '';
+  String get swNoElementsSelected =>
+      _cadenasLocalizadas['sw_no_elements_selected'] ?? '';
+  String get swSendSelectionSuccess =>
+      _cadenasLocalizadas['sw_send_selection_success'] ?? '';
+  String get swSendSelectionError =>
+      _cadenasLocalizadas['sw_send_selection_error'] ?? '';
+  // Hints
+  String get swSearch => _cadenasLocalizadas['sw_search'] ?? '';
+  // Filters
+  String get swFilterSelected =>
+      _cadenasLocalizadas['sw_filter_selected'] ?? '';
+  // Buttons
+  String get swButtonSelectAll =>
+      _cadenasLocalizadas['sw_button_select_all'] ?? '';
+  String get swButtonDeselectAll =>
+      _cadenasLocalizadas['sw_button_deselect_all'] ?? '';
+  String get swButtonInvertSelection =>
+      _cadenasLocalizadas['sw_button_invert_selection'] ?? '';
+  String get swButtonDownloadSelected =>
+      _cadenasLocalizadas['sw_button_download_selected'] ?? '';
+  // Strings de la pantalla de share wrapper, prefijo shw ----------------
+  // Messages
+  String get shwDownloadSent => _cadenasLocalizadas['shw_download_sent'] ?? '';
+  String get shwDownloadSentError =>
+      _cadenasLocalizadas['shw_download_sent_error'] ?? '';
+  String get shwLoadingSelector =>
+      _cadenasLocalizadas['shw_loading_selector'] ?? '';
+  // Strings de la pantalla de permisos, prefijo p ----------------
+  String get pTitle => _cadenasLocalizadas['p_title'] ?? '';
+  String get pDescription => _cadenasLocalizadas['p_description'] ?? '';
+  String get pStorage => _cadenasLocalizadas['p_storage'] ?? '';
+  String get pStorageDesc => _cadenasLocalizadas['p_storage_desc'] ?? '';
+  String get pOverlay => _cadenasLocalizadas['p_overlay'] ?? '';
+  String get pOverlayDesc => _cadenasLocalizadas['p_overlay_desc'] ?? '';
+  String get pBattery => _cadenasLocalizadas['p_battery'] ?? '';
+  String get pBatteryDesc => _cadenasLocalizadas['p_battery_desc'] ?? '';
+  String get pNotification => _cadenasLocalizadas['p_notification'] ?? '';
+  String get pNotificationDesc =>
+      _cadenasLocalizadas['p_notification_desc'] ?? '';
+  String get pInstall => _cadenasLocalizadas['p_install'] ?? '';
+  String get pInstallDesc => _cadenasLocalizadas['p_install_desc'] ?? '';
+  // Buttons
+  String get pButtonContinue => _cadenasLocalizadas['p_button_continue'] ?? '';
+  String get pButtonGrant => _cadenasLocalizadas['p_button_grant'] ?? '';
+  // Strings de la pantalla de licencias, prefijo l ----------------
+  String get lTitle => _cadenasLocalizadas['l_title'] ?? '';
+  String get lButtonSelect => _cadenasLocalizadas['l_button_select'] ?? '';
+  String get lLoadingError => _cadenasLocalizadas['l_loading_error'] ?? '';
+  String get lEmptyFile => _cadenasLocalizadas['l_empty_file'] ?? '';
+  // Strings de la pantalla de system details, prefijo sd ----------------
+  String get sdTitle => _cadenasLocalizadas['sd_title'] ?? '';
+  String get sdModulesUpdates =>
+      _cadenasLocalizadas['sd_modules_updates'] ?? '';
+  String get sdPythonServer => _cadenasLocalizadas['sd_python_server'] ?? '';
+  String get sdWaitingAvailable =>
+      _cadenasLocalizadas['sd_waiting_available'] ?? '';
+  String get sdAppLogs => _cadenasLocalizadas['sd_app_logs'] ?? '';
+  String get sdPythonServerLogs =>
+      _cadenasLocalizadas['sd_python_server_logs'] ?? '';
+  String get sdLogFileNotFound =>
+      _cadenasLocalizadas['sd_log_file_not_found'] ?? '';
+  String get sdLogFileReadError =>
+      _cadenasLocalizadas['sd_log_file_read_error'] ?? '';
+  String get sdButtonRetry => _cadenasLocalizadas['sd_button_retry'] ?? '';
+  String get sdButtonSearch => _cadenasLocalizadas['sd_button_search'] ?? '';
+  String get sdButtonReCheck => _cadenasLocalizadas['sd_button_recheck'] ?? '';
+  String get sdButtonInstall => _cadenasLocalizadas['sd_button_install'] ?? '';
+  String get sdUpdate => _cadenasLocalizadas['sd_update'] ?? '';
+  String get sdDownloading => _cadenasLocalizadas['sd_downloading'] ?? '';
+  String get sdCheckingPGP => _cadenasLocalizadas['sd_checking_pgp'] ?? '';
+  String get sdInstalling => _cadenasLocalizadas['sd_installing'] ?? '';
+  String get sdGithubConnectionError =>
+      _cadenasLocalizadas['sd_github_connection_error'] ?? '';
+  String get sdUpToDate => _cadenasLocalizadas['sd_up_to_date'] ?? '';
+  String get sdChannel => _cadenasLocalizadas['sd_channel'] ?? '';
+  String get sdNoUpdatesAvailable =>
+      _cadenasLocalizadas['sd_no_updates_available'] ?? '';
+  String get sdShowTutorial => _cadenasLocalizadas['sd_show_tutorial'] ?? '';
+  String get sdLicenses => _cadenasLocalizadas['sd_licenses'] ?? '';
+  String get sdNoLogs => _cadenasLocalizadas['sd_no_logs'] ?? '';
+  String get sdClose => _cadenasLocalizadas['sd_close'] ?? '';
+  // Strings del system status indicator, prefijo ssi ----------------
+  String get ssiUpdateAvailable =>
+      _cadenasLocalizadas['ssi_update_available'] ?? '';
+  String get ssiSearchingUpdates =>
+      _cadenasLocalizadas['ssi_searching_updates'] ?? '';
+  String get ssiReady => _cadenasLocalizadas['ssi_ready'] ?? '';
+  String get ssiAttention => _cadenasLocalizadas['ssi_attention'] ?? '';
+  String get ssiInitializing => _cadenasLocalizadas['ssi_initializing'] ?? '';
+  String get ssiReconnecting => _cadenasLocalizadas['ssi_reconnecting'] ?? '';
+  // Strings del changelog, prefijo cl ----------------
+  String get clTitle => _cadenasLocalizadas['cl_title'] ?? '';
+  String get clClose => _cadenasLocalizadas['cl_close'] ?? '';
+  String get clFileLoadingError =>
+      _cadenasLocalizadas['cl_file_loading_error'] ?? '';
+  // Strings de tutorial utils, prefijo tu -------------------
+  String get tuSkip => _cadenasLocalizadas['tu_skip'] ?? '';
+  String get tuNext => _cadenasLocalizadas['tu_next'] ?? '';
+  String get tuUnderstood => _cadenasLocalizadas['tu_understood'] ?? '';
+  // Pantalla Principal
+  String get tuPPEngineState => _cadenasLocalizadas['tu_engine_state'] ?? '';
+  String get tuPPEngineStateDesc =>
+      _cadenasLocalizadas['tu_engine_state_desc'] ?? '';
+  String get tuPPDownload => _cadenasLocalizadas['tu_download'] ?? '';
+  String get tuPPDownloadDesc => _cadenasLocalizadas['tu_download_desc'] ?? '';
+  String get tuPPFilters => _cadenasLocalizadas['tu_filters'] ?? '';
+  String get tuPPFiltersDesc => _cadenasLocalizadas['tu_filters_desc'] ?? '';
+  String get tuPPSettings => _cadenasLocalizadas['tu_settings'] ?? '';
+  String get tuPPSettingsDesc => _cadenasLocalizadas['tu_settings_desc'] ?? '';
+  // Pantalla Settings
+  String get tuPSCategories =>
+      _cadenasLocalizadas['tu_settings_categories'] ?? '';
+  String get tuPSCategoriesDesc =>
+      _cadenasLocalizadas['tu_settings_categories_desc'] ?? '';
+  String get tuPSSearch => _cadenasLocalizadas['tu_settings_search'] ?? '';
+  String get tuPSSearchDesc =>
+      _cadenasLocalizadas['tu_settings_search_desc'] ?? '';
+  // Pantalla System Details
+  String get tuPSDPythonServer =>
+      _cadenasLocalizadas['tu_system_details_python_server'] ?? '';
+  String get tuPSDPythonServerDesc =>
+      _cadenasLocalizadas['tu_system_details_python_server_desc'] ?? '';
+  String get tuPSDModulesUpdates =>
+      _cadenasLocalizadas['tu_system_details_modules_updates'] ?? '';
+  String get tuPSDModulesUpdatesDesc =>
+      _cadenasLocalizadas['tu_system_details_modules_updates_desc'] ?? '';
+  // Strings de Download Card, prefijo dc ----------------
+  String get dcUnknownError => _cadenasLocalizadas['dc_unknown_error'] ?? '';
+  String get dcDownloadRemoving =>
+      _cadenasLocalizadas['dc_download_removing'] ?? '';
+  String get dcDownloadRemovingError =>
+      _cadenasLocalizadas['dc_download_removing_error'] ?? '';
+  String get dcDownloadResuming =>
+      _cadenasLocalizadas['dc_download_resuming'] ?? '';
+  String get dcDownloadResumingError =>
+      _cadenasLocalizadas['dc_download_resuming_error'] ?? '';
+  String get dcDownloadRetrying =>
+      _cadenasLocalizadas['dc_download_retrying'] ?? '';
+  String get dcDownloadRetryingError =>
+      _cadenasLocalizadas['dc_download_retrying_error'] ?? '';
+  String get dcDownloadPausing =>
+      _cadenasLocalizadas['dc_download_pausing'] ?? '';
+  String get dcDownloadPausingError =>
+      _cadenasLocalizadas['dc_download_pausing_error'] ?? '';
+  String get dcDownloadCancel =>
+      _cadenasLocalizadas['dc_download_cancel'] ?? '';
+  String get dcDownloadNoCancel =>
+      _cadenasLocalizadas['dc_download_no_cancel'] ?? '';
+  String get dcDownloadCancelTitle =>
+      _cadenasLocalizadas['dc_download_cancel_title'] ?? '';
+  String get dcDownloadCancelMessage =>
+      _cadenasLocalizadas['dc_download_cancel_message'] ?? '';
+  String get dcDownloadCancelling =>
+      _cadenasLocalizadas['dc_download_cancelling'] ?? '';
+  String get dcDownloadCancellingError =>
+      _cadenasLocalizadas['dc_download_cancelling_error'] ?? '';
+  String get dcGettingDownloadInfo =>
+      _cadenasLocalizadas['dc_getting_download_info'] ?? '';
   // Strings de la pantalla de settings, prefijo s  ----------------
   String get sTitle => _cadenasLocalizadas['s_title'] ?? '';
   String get sGeneral => _cadenasLocalizadas['s_general'] ?? '';
@@ -52,10 +229,15 @@ class AppStringKey {
   String get sDownload => _cadenasLocalizadas['s_download'] ?? '';
   // Barra superior
   String get sSearchConfig => _cadenasLocalizadas['s_search_config'] ?? '';
+  // Tooltips
+  String get sSearchConfigTooltip =>
+      _cadenasLocalizadas['s_search_config_tooltip'] ?? '';
+  String get sTutorialTooltip =>
+      _cadenasLocalizadas['s_tutorial_tooltip'] ?? '';
   // Contenedor
   String get sNoResults => _cadenasLocalizadas['s_no_results'] ?? '';
   String get sDefault => _cadenasLocalizadas['s_default'] ?? '';
-  String get sBest =>_cadenasLocalizadas['s_best'] ?? '';
+  String get sBest => _cadenasLocalizadas['s_best'] ?? '';
   String get sNone => _cadenasLocalizadas['s_none'] ?? '';
   String get sAll => _cadenasLocalizadas['s_all'] ?? '';
   String get sNotConfigured => _cadenasLocalizadas['s_not_configured'] ?? '';
@@ -276,10 +458,13 @@ class AppStringKey {
     'd_paste',
     'd_filters',
     'd_settings',
+    'd_show_tutorial',
     // Buttons
     'd_download',
     // Messages
     'd_no_downloads',
+    'd_download_sent',
+    'd_download_sent_error',
     // Pantalla Download Details -------------------------- dd_
     'dd_title',
     'dd_sub_downloads',
@@ -299,6 +484,131 @@ class AppStringKey {
     'dd_no_settings',
     // Tooltips
     'dd_search_filter',
+    'dd_sort',
+    'dd_sort_default',
+    'dd_sort_alphabetical',
+    'dd_sort_reverse',
+    // Pantalla Selection Wrapper -------------------------- sw_
+    // Messages
+    'sw_selection_enqueued',
+    'sw_list_forwarded',
+    'sw_unknown_title',
+    'sw_no_elements_match',
+    'sw_sending_selection',
+    'sw_no_elements_selected',
+    'sw_send_selection_success',
+    'sw_send_selection_error',
+    // Hints
+    'sw_search',
+    // Filters
+    'sw_filter_selected',
+    // Buttons
+    'sw_button_select_all',
+    'sw_button_deselect_all',
+    'sw_button_invert_selection',
+    'sw_button_download_selected',
+    // Pantalla Share Wrapper -------------------------- shw_
+    // Messages
+    'shw_download_sent',
+    'shw_download_sent_error',
+    'shw_loading_selector',
+    // Pantalla Permisos -------------------------------- p_
+    'p_title',
+    'p_description',
+    'p_storage',
+    'p_storage_desc',
+    'p_overlay',
+    'p_overlay_desc',
+    'p_battery',
+    'p_battery_desc',
+    'p_notification',
+    'p_notification_desc',
+    'p_install',
+    'p_install_desc',
+    // Buttons
+    'p_button_continue',
+    'p_button_grant',
+    // Pantalla Licencias -------------------------------- l_
+    'l_title',
+    'l_button_select',
+    'l_loading_error',
+    'l_empty_file',
+    // Pantalla System Details -------------------------- sd_
+    'sd_title',
+    'sd_modules_updates',
+    'sd_python_server',
+    'sd_waiting_available',
+    'sd_app_logs',
+    'sd_python_server_logs',
+    'sd_log_file_not_found',
+    'sd_log_file_read_error',
+    'sd_button_retry',
+    'sd_button_search',
+    'sd_button_recheck',
+    'sd_button_install',
+    'sd_update',
+    'sd_downloading',
+    'sd_checking_pgp',
+    'sd_installing',
+    'sd_github_connection_error',
+    'sd_up_to_date',
+    'sd_channel',
+    'sd_no_updates_available',
+    'sd_show_tutorial',
+    'sd_licenses',
+    'sd_no_logs',
+    'sd_close',
+    // System Status Indicator -------------------------- ssi_
+    'ssi_update_available',
+    'ssi_searching_updates',
+    'ssi_ready',
+    'ssi_attention',
+    'ssi_initializing',
+    'ssi_reconnecting',
+    // Changelog -------------------------------- cl_
+    'cl_title',
+    'cl_close',
+    'cl_file_loading_error',
+    // Tutorial Utils -------------------------------- tu_
+    'tu_skip',
+    'tu_next',
+    'tu_understood',
+    // Pantalla Principal
+    'tu_engine_state',
+    'tu_engine_state_desc',
+    'tu_download',
+    'tu_download_desc',
+    'tu_filters',
+    'tu_filters_desc',
+    'tu_settings',
+    'tu_settings_desc',
+    // Pantalla Settings
+    'tu_settings_categories',
+    'tu_settings_categories_desc',
+    'tu_settings_search',
+    'tu_settings_search_desc',
+    // Pantalla System Details
+    'tu_system_details_python_server',
+    'tu_system_details_python_server_desc',
+    'tu_system_details_modules_updates',
+    'tu_system_details_modules_updates_desc',
+    // Strings de Download Card, prefijo dc ----------------
+    'dc_unknown_error',
+    'dc_download_removing',
+    'dc_download_removing_error',
+    'dc_download_resuming',
+    'dc_download_resuming_error',
+    'dc_download_retrying',
+    'dc_download_retrying_error',
+    'dc_download_pausing',
+    'dc_download_pausing_error',
+    'dc_download_cancel',
+    'dc_download_no_cancel',
+    'dc_download_cancel_title',
+    'dc_download_cancel_message',
+    'dc_download_cancelling',
+    'dc_download_cancelling_error',
+    'dc_getting_download_info',
     // Pantalla Settings -------------------------------- s_
     's_title',
     's_general',
@@ -307,6 +617,9 @@ class AppStringKey {
     's_download',
     // Barra superior
     's_search_config',
+    // Tooltips
+    's_search_config_tooltip',
+    's_tutorial_tooltip',
     // Contenedor
     's_no_results',
     's_default',
@@ -462,10 +775,9 @@ class AppStringKey {
       final missingKeys = _allAppStrings
           .where((key) => !jsonData.containsKey(key))
           .toList();
+      debugPrint('Missing localization keys: ${missingKeys.join(', ')}');
       if (assertAllKeysPresent) {
         throw Exception('Missing localization keys: ${missingKeys.join(', ')}');
-      } else {
-        debugPrint('Missing localization keys: ${missingKeys.join(', ')}');
       }
     }
     _cadenasLocalizadas.addAll(jsonData);

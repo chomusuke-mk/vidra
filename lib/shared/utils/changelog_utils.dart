@@ -4,15 +4,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:provider/provider.dart';
+import 'package:vidra/features/locales/presentation/locale_controller.dart';
 
 class ChangelogUtils {
   /// Despliega el modal limitando su tamaño horizontal y vertical
   static Future<void> showChangelogDialog(BuildContext context) async {
     String changelogContent = '';
+    final locale = context.watch<LocaleController>().localeStrings;
     try {
       changelogContent = await rootBundle.loadString('CHANGELOG.md');
     } catch (e) {
-      changelogContent = 'No se pudo cargar el archivo de novedades:\n$e';
+      changelogContent = locale.clFileLoadingError;
     }
 
     if (!context.mounted) return;
@@ -20,7 +22,7 @@ class ChangelogUtils {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Novedades de la Versión'),
+        title: Text(locale.clTitle),
         content: SizedBox(
           width:
               550, // <-- Limita el crecimiento horizontal infinito en pantallas anchas
@@ -31,7 +33,7 @@ class ChangelogUtils {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Cerrar'),
+            child: Text(locale.clClose),
           ),
         ],
       ),

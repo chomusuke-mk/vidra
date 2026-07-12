@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
+import 'package:vidra/features/locales/presentation/locale_controller.dart';
 
 class AppTutorialKeys {
   // Llaves de la pantalla de Sistema (Ya existían)
@@ -28,6 +29,7 @@ class TutorialUtils {
     bool force = false,
   }) async {
     final prefs = context.read<SharedPreferences>();
+    final locale = context.read<LocaleController>().localeStrings;
     final hasSeen = prefs.getBool('has_seen_main_tutorial') ?? false;
     if (hasSeen && !force) return;
 
@@ -43,9 +45,8 @@ class TutorialUtils {
           TargetContent(
             align: ContentAlign.bottom,
             builder: (context, controller) => _TutorialText(
-              title: "Estado del Motor",
-              description:
-                  "Este icono te indica si el servidor interno está listo. Si tienes problemas, toca aquí para ver los errores o revisar los módulos.",
+              title: locale.tuPPEngineState,
+              description: locale.tuPPEngineStateDesc,
               controller: controller,
               nextKey: AppTutorialKeys.mainUrlBar,
             ),
@@ -62,9 +63,8 @@ class TutorialUtils {
           TargetContent(
             align: ContentAlign.bottom,
             builder: (context, controller) => _TutorialText(
-              title: "Descargar Contenido",
-              description:
-                  "Pega el enlace del video o playlist aquí. Al presionar el botón de descarga, se usará la calidad y formato que hayas elegido en tu configuración.",
+              title: locale.tuPPDownload,
+              description: locale.tuPPDownloadDesc,
               controller: controller,
               nextKey: AppTutorialKeys.mainFilter,
             ),
@@ -80,9 +80,8 @@ class TutorialUtils {
           TargetContent(
             align: ContentAlign.bottom,
             builder: (context, controller) => _TutorialText(
-              title: "Filtros y Búsqueda",
-              description:
-                  "Despliega este menú para buscar descargas por nombre o filtrar entre videos individuales y listas de reproducción.",
+              title: locale.tuPPFilters,
+              description: locale.tuPPFiltersDesc,
               controller: controller,
               nextKey: AppTutorialKeys.mainSettings,
             ),
@@ -98,9 +97,8 @@ class TutorialUtils {
           TargetContent(
             align: ContentAlign.bottom,
             builder: (context, controller) => _TutorialText(
-              title: "Ajustes Avanzados",
-              description:
-                  "Entra aquí para configurar resoluciones por defecto, inyectar metadatos, usar proxies o añadir subtítulos automáticos.",
+              title: locale.tuPPSettings,
+              description: locale.tuPPSettingsDesc,
               controller: controller,
               isLast: true,
             ),
@@ -120,6 +118,7 @@ class TutorialUtils {
     bool force = false,
   }) async {
     final prefs = context.read<SharedPreferences>();
+    final locale = context.read<LocaleController>().localeStrings;
     final hasSeen = prefs.getBool('has_seen_settings_tutorial') ?? false;
     if (hasSeen && !force) return;
 
@@ -138,9 +137,8 @@ class TutorialUtils {
           TargetContent(
             align: isWideScreen ? ContentAlign.right : ContentAlign.bottom,
             builder: (context, controller) => _TutorialText(
-              title: "Categorías",
-              description:
-                  "La configuración está dividida en General, Red (Proxies, Cookies), Video (Formatos, Subtítulos) y Descarga (Rutas, Nombres).",
+              title: locale.tuPSCategories,
+              description: locale.tuPSCategoriesDesc,
               controller: controller,
               nextKey: AppTutorialKeys.settingsSearch,
             ),
@@ -156,9 +154,8 @@ class TutorialUtils {
           TargetContent(
             align: ContentAlign.bottom,
             builder: (context, controller) => _TutorialText(
-              title: "Búsqueda Rápida",
-              description:
-                  "Hay decenas de opciones. Si no encuentras algo específico (ej. 'Proxy' o 'Subtítulos'), usa el buscador para filtrar la lista al instante.",
+              title: locale.tuPSSearch,
+              description: locale.tuPSSearchDesc,
               controller: controller,
               isLast: true,
             ),
@@ -178,6 +175,7 @@ class TutorialUtils {
     bool force = false,
   }) async {
     final prefs = context.read<SharedPreferences>();
+    final locale = context.read<LocaleController>().localeStrings;
     final hasSeen = prefs.getBool('has_seen_system_tutorial') ?? false;
 
     if (hasSeen && !force) return;
@@ -205,9 +203,8 @@ class TutorialUtils {
           TargetContent(
             align: ContentAlign.bottom,
             builder: (context, controller) => _TutorialText(
-              title: "Servidor Python",
-              description:
-                  "Vidra utiliza un servidor local para procesar las descargas. Aquí puedes verificar que esté corriendo y revisar sus logs en caso de error.",
+              title: locale.tuPSDPythonServer,
+              description: locale.tuPSDPythonServerDesc,
               controller: controller,
               nextKey: AppTutorialKeys.systemUpdates,
             ),
@@ -224,9 +221,8 @@ class TutorialUtils {
           TargetContent(
             align: ContentAlign.top,
             builder: (context, controller) => _TutorialText(
-              title: "Módulos y Motores",
-              description:
-                  "Mantén yt-dlp y los parches actualizados para asegurar la compatibilidad con las páginas soportadas. Puedes cambiar de canal si buscas versiones experimentales.",
+              title: locale.tuPSDModulesUpdates,
+              description: locale.tuPSDModulesUpdatesDesc,
               controller: controller,
               isLast: true,
             ),
@@ -281,6 +277,7 @@ class _TutorialText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.read<LocaleController>().localeStrings;
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -315,8 +312,8 @@ class _TutorialText extends StatelessWidget {
             if (!isLast)
               TextButton(
                 onPressed: () => controller.skip(),
-                child: const Text(
-                  'Saltar',
+                child: Text(
+                  locale.tuSkip,
                   style: TextStyle(color: Colors.white70),
                 ),
               ),
@@ -342,7 +339,7 @@ class _TutorialText extends StatelessWidget {
                   controller.next();
                 }
               },
-              child: Text(isLast ? 'Entendido' : 'Siguiente'),
+              child: Text(isLast ? locale.tuUnderstood : locale.tuNext),
             ),
           ],
         ),

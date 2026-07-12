@@ -5,9 +5,11 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:flutter_screen_overlay/flutter_screen_overlay.dart';
+import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/features/downloads/presentation/downloads_controller.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
+import 'package:vidra/shared/utils/toast_utils.dart';
 
 class ShareIntentWrapper extends StatefulWidget {
   final Widget child;
@@ -53,6 +55,7 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
       final settingsCtrl = context.read<SettingsController>();
       final systemCtrl = context.read<SystemController>();
       final currentOptsJson = settingsCtrl.getDownloadOptionsPayload();
+      final locale = context.read<LocaleController>().localeStrings;
 
       if (Platform.isAndroid) {
         bool isGranted = await FlutterScreenOverlay.isPermissionGranted();
@@ -85,15 +88,27 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
         } else {
           // Si no hay permiso de overlay, mandamos directo a la UI
           if (mounted) {
-            context.read<DownloadsController>().addDownload(
-              url,
-              currentOptsJson,
-            );
+            final result = await context
+                .read<DownloadsController>()
+                .addDownload(url, currentOptsJson);
+            if (result) {
+              ToastUtils.showInfo(locale.shwDownloadSent);
+            } else {
+              ToastUtils.showError(locale.shwDownloadSentError);
+            }
           }
         }
       } else {
         if (mounted) {
-          context.read<DownloadsController>().addDownload(url, currentOptsJson);
+          final result = await context.read<DownloadsController>().addDownload(
+            url,
+            currentOptsJson,
+          );
+          if (result) {
+            ToastUtils.showInfo(locale.shwDownloadSent);
+          } else {
+            ToastUtils.showError(locale.shwDownloadSentError);
+          }
         }
       }
     } finally {
@@ -109,6 +124,7 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.watch<LocaleController>().localeStrings;
     return Stack(
       children: [
         widget.child,
@@ -116,14 +132,14 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
           Positioned.fill(
             child: Material(
               color: Colors.black.withValues(alpha: 0.6),
-              child: const Center(
+              child: Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     CircularProgressIndicator(),
                     SizedBox(height: 16),
                     Text(
-                      'Cargando selector...',
+                      locale.shwLoadingSelector,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 14,

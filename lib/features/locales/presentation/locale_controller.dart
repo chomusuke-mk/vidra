@@ -46,7 +46,7 @@ class LocaleController extends ChangeNotifier {
       ..addAll(targetStrings);
 
     // Al pasar el mapa fusionado completo, sobrescribimos todo rastro del idioma anterior.
-    await _localeStrings.updateFromJson(merged);
+    await _localeStrings.updateFromJson(merged, assertAllKeysPresent: true);
     notifyListeners();
   }
 

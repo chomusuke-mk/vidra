@@ -164,7 +164,7 @@ class DownloadDetailController extends ChangeNotifier {
     try {
       _logs = await _repository.fetchLogs(download.id!);
     } catch (e) {
-      _logs = 'Error obteniendo logs:\n$e';
+      _logs = 'Error obtaining logs:\n$e';
     } finally {
       _isLoadingLogs = false;
       notifyListeners();

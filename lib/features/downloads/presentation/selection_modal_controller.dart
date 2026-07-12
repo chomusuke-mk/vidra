@@ -40,7 +40,8 @@ class SelectionModalController extends ChangeNotifier {
       // Por defecto, todo seleccionado
       selectedIds = allEntries.map((e) => e.subId!).toSet();
     } catch (e) {
-      ToastUtils.showError('Error cargando elementos: $e');
+      debugPrint('Error cargando elementos: $e');
+      ToastUtils.showError('Error loading elements: $e');
       allEntries = [];
       selectedIds.clear();
     } finally {
@@ -98,7 +99,6 @@ class SelectionModalController extends ChangeNotifier {
 
   Future<bool> submit() async {
     if (selectedIds.isEmpty) {
-      ToastUtils.showInfo('Selecciona al menos un elemento');
       return false;
     }
 
@@ -110,10 +110,9 @@ class SelectionModalController extends ChangeNotifier {
         currentDownload.id!,
         selectedIds.toList(),
       );
-      ToastUtils.showSuccess('Selección enviada con éxito');
       return true;
     } catch (e) {
-      ToastUtils.showError('Error al enviar selección: $e');
+      debugPrint('Error enviando selección: $e');
       return false;
     } finally {
       isSubmitting = false;

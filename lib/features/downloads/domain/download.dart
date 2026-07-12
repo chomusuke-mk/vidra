@@ -19,7 +19,6 @@ enum DownloadType {
 enum DownloadStateEnum {
   requested('requested', 'Download Requested'),
   pending('pending', 'Download Pending'),
-  extractingInformation('extracting_information', 'Extracting Information'),
   awaitingSelection(
     'awaiting_selection',
     'Waiting for Selection',
@@ -28,7 +27,7 @@ enum DownloadStateEnum {
   completed('completed', 'Download Completed!'),
   completedWithErrors(
     'completed_with_errors',
-    'Download Completed with Errors',
+    'Download Completed with Errors!',
   ),
   failed('failed', 'Download Failed'),
   cancelled('cancelled', 'Cancelled'),

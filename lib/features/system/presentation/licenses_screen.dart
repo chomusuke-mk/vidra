@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:vidra/features/locales/presentation/locale_controller.dart';
 
 class LicenseItem {
   final String title;
@@ -36,12 +38,12 @@ class _LicensesScreenState extends State<LicensesScreen> {
 
       // 1. Agregamos las licencias principales primero
       if (allAssets.contains('LICENSE')) {
-        items.add(LicenseItem('Licencia de Vidra', 'LICENSE'));
+        items.add(LicenseItem('Vidra License', 'LICENSE'));
       }
       if (allAssets.contains('third_party_licenses/THIRD_PARTY_LICENSES.txt')) {
         items.add(
           LicenseItem(
-            'Resumen de Terceros',
+            'Third-Party Licenses',
             'third_party_licenses/THIRD_PARTY_LICENSES.txt',
           ),
         );
@@ -78,8 +80,9 @@ class _LicensesScreenState extends State<LicensesScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.watch<LocaleController>().localeStrings;
     return Scaffold(
-      appBar: AppBar(title: const Text('Licencias Open Source')),
+      appBar: AppBar(title: Text(locale.lTitle)),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : LayoutBuilder(
@@ -96,9 +99,7 @@ class _LicensesScreenState extends State<LicensesScreen> {
                       // DETALLE (Texto a la derecha)
                       Expanded(
                         child: _selectedLicense == null
-                            ? const Center(
-                                child: Text('Selecciona una licencia'),
-                              )
+                            ? Center(child: Text(locale.lButtonSelect))
                             : _LicenseTextViewer(
                                 key: ValueKey(_selectedLicense!.assetPath),
                                 license: _selectedLicense!,
@@ -183,6 +184,7 @@ class _LicenseTextViewerState extends State<_LicenseTextViewer> {
   Widget build(BuildContext context) {
     // FutureBuilder evita que el hilo principal se congele
     // al cargar archivos de texto gigantes desde los assets.
+    final locale = context.watch<LocaleController>().localeStrings;
     return FutureBuilder<String>(
       future: rootBundle.loadString(
         widget.license.assetPath,
@@ -193,7 +195,7 @@ class _LicenseTextViewerState extends State<_LicenseTextViewer> {
         }
         if (snapshot.hasError) {
           return Center(
-            child: Text('Error al cargar la licencia: ${snapshot.error}'),
+            child: Text('${locale.lLoadingError}: ${snapshot.error}'),
           );
         }
 
@@ -204,7 +206,7 @@ class _LicenseTextViewerState extends State<_LicenseTextViewer> {
             controller: _scrollController, // ...con el contenido!
             padding: const EdgeInsets.all(24.0),
             child: SelectableText(
-              snapshot.data ?? 'Archivo vacío.',
+              snapshot.data ?? locale.lEmptyFile,
               style: const TextStyle(fontFamily: 'monospace', fontSize: 13),
             ),
           ),

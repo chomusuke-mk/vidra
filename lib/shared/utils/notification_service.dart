@@ -33,7 +33,7 @@ class NotificationService {
         LinuxInitializationSettings(
           defaultActionName: 'Open Vidra',
           defaultIcon: AssetsLinuxIcon('assets/icon/icon.png'),
-          defaultSuppressSound: true,
+          defaultSuppressSound: false,
         );
 
     // Combinar todas las configuraciones
@@ -61,12 +61,10 @@ class NotificationService {
     Importance importance = Importance.defaultImportance,
     Priority priority = Priority.defaultPriority,
     bool showProgress = false,
-    int maxProgress = 0,
-    int? progress = 0,
+    double? progress = 0,
     String? progressLabel,
-    bool onlyAlertOnce = false,
+    bool silence = false,
     bool ongoing = false,
-    bool isError = false,
     String? imagePath,
     Color? color,
     String? rawBody,
@@ -110,16 +108,15 @@ class NotificationService {
       importance: importance,
       priority: priority,
       showProgress: showProgress,
-      maxProgress: maxProgress,
-      progress: progress ?? 0,
+      maxProgress: 1000,
+      progress: progress != null ? (progress * 1000).toInt() : 0,
       indeterminate: showProgress && progress == null,
-      onlyAlertOnce: onlyAlertOnce,
+      onlyAlertOnce: silence,
       ongoing: ongoing,
       color: color,
       colorized: color != null, // Solo aplica el color si no es nulo
       largeIcon: largeIcon, // Imagen a la derecha
       subText: progressLabel, // Texto pequeño debajo del título
-      icon: isError ? '@android:drawable/ic_dialog_alert' : null,
       // Opcional: bigPictureStyle para que la imagen se expanda si deslizan la notificación
       styleInformation: androidStyleInfo,
     );
@@ -133,15 +130,20 @@ class NotificationService {
 
     final DarwinNotificationDetails darwinDetails = DarwinNotificationDetails(
       attachments: darwinAttachments,
+      presentAlert: !silence,
+      presentSound: !silence,
+      presentBadge: !silence,
     );
 
     // --- LINUX ---
-    LinuxNotificationDetails? linuxDetails;
-    if (imagePath != null && imagePath.isNotEmpty) {
-      linuxDetails = LinuxNotificationDetails(
-        icon: FilePathLinuxIcon(imagePath),
-      );
-    }
+    final linuxIconPath = imagePath != null && imagePath.isNotEmpty
+        ? FilePathLinuxIcon(imagePath)
+        : null;
+    LinuxNotificationDetails linuxDetails = LinuxNotificationDetails(
+      icon: linuxIconPath,
+      suppressSound: silence,
+      resident: ongoing,
+    );
 
     // --- WINDOWS ---
     List<WindowsImage> windowsImages = [];
@@ -150,23 +152,18 @@ class NotificationService {
     // Solo inyectamos la imagen grande si NO es un progreso.
     if (imagePath != null && imagePath.isNotEmpty && !showProgress) {
       windowsImages.add(
-        WindowsImage(Uri.file(imagePath), altText: 'Miniatura del archivo'),
+        WindowsImage(Uri.file(imagePath), altText: 'Thumbnail of the file'),
       );
     }
     List<WindowsProgressBar> windowsProgressBars = [];
     if (showProgress) {
-      double? progressValue;
-      if (progress != null && maxProgress > 0) {
-        progressValue = progress / maxProgress;
-      }
-
       windowsProgressBars.add(
         WindowsProgressBar(
           id: 'vidra_progress_bar_$notificationId',
           status: progress == null
-              ? 'Procesando...'
-              : '${(progressValue! * 100).toStringAsFixed(0)}%',
-          value: progressValue,
+              ? 'Processing...'
+              : '${(progress * 100).toStringAsFixed(0)}%',
+          value: progress,
           label: progressLabel,
         ),
       );
@@ -175,8 +172,8 @@ class NotificationService {
         WindowsNotificationDetails(
           images: windowsImages,
           progressBars: windowsProgressBars,
-          scenario: isError ? WindowsNotificationScenario.urgent : null,
-          audio: showProgress ? WindowsNotificationAudio.silent() : null,
+          scenario: null,
+          audio: silence ? WindowsNotificationAudio.silent() : null,
         );
 
     // Retornamos el empaquetado cross-platform
@@ -194,23 +191,21 @@ class NotificationService {
     required int id,
     required String title,
     required String body,
-    required int? progress,
-    required int maxProgress,
+    required double? progress,
     String? imagePath,
-    Color? color,
     String? progressLabel,
+    Color? color,
   }) async {
     final details = _buildPlatformDetails(
       notificationId: id,
       channelId: 'download_channel',
-      channelName: 'Descargas en Progreso',
-      channelDescription: 'Muestra el progreso de las descargas activas',
+      channelName: 'Downloads in Progress',
+      channelDescription: 'Shows the progress of active downloads',
       importance: Importance.low, // Evita popups molestos cada 2 segundos
       priority: Priority.low,
       showProgress: true,
-      maxProgress: maxProgress,
       progress: progress,
-      onlyAlertOnce: true, // Magia: actualiza en silencio
+      silence: true, // Magia: actualiza en silencio
       ongoing: true, // No se puede deslizar
       imagePath: imagePath,
       color: color,
@@ -218,12 +213,10 @@ class NotificationService {
       progressLabel: progressLabel,
     );
 
-    if (!Platform.isAndroid &&
-        !Platform.isWindows &&
-        progress != null &&
-        progressLabel != null &&
-        progressLabel.isNotEmpty) {
-      body = '$progressLabel\n$body';
+    if (!Platform.isAndroid && !Platform.isWindows) {
+      body = progressLabel != null && progressLabel.isNotEmpty
+          ? '$progressLabel\n$body'
+          : body;
     }
 
     await _plugin.show(
@@ -239,18 +232,16 @@ class NotificationService {
     required int id,
     required String title,
     required String body,
-    bool isError = false,
     Color? color,
     String? imagePath,
   }) async {
     final details = _buildPlatformDetails(
       notificationId: id,
       channelId: 'download_state_channel',
-      channelName: 'Eventos de Descarga',
+      channelName: 'Download Events',
       importance: Importance.high,
       priority: Priority.high,
-      onlyAlertOnce: false, // Queremos que suene/vibre para avisar
-      isError: isError,
+      silence: false, // Queremos que suene/vibre para avisar
       imagePath: imagePath,
       color: color,
       rawBody: body,
@@ -266,7 +257,11 @@ class NotificationService {
 
   /// Elimina una notificación
   static Future<void> cancel(int id) async {
-    await _plugin.cancel(id: id);
+    try {
+      await _plugin.cancel(id: id);
+    } catch (e) {
+      debugPrint('Error canceling notification $id: $e');
+    }
   }
   // =====================================================================
   // MAGIA NATIVA: FOREGROUND SERVICE
@@ -292,8 +287,8 @@ class NotificationService {
 
     await androidImpl.startForegroundService(
       id: 6969, // ID fijo para el foreground service
-      title: 'Vidra',
-      body: 'Background service is running',
+      title: 'Vidra Background Service',
+      body: null,
       startType: AndroidServiceStartType.startRedeliverIntent,
       notificationDetails: const AndroidNotificationDetails(
         'vidra_bg_channel', // Un canal distinto para el servicio
@@ -305,6 +300,7 @@ class NotificationService {
         enableVibration: false,
         enableLights: false,
         channelShowBadge: false,
+        silent: true, // No suena ni vibra
         visibility: NotificationVisibility.secret,
         ongoing: true, // No se puede deslizar para borrar
         autoCancel: false, // No se puede borrar automáticamente
