@@ -19,7 +19,7 @@ class ChangelogUtils {
 
     if (!context.mounted) return;
 
-    showDialog(
+    await showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text(locale.clTitle),

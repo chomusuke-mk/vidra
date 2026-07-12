@@ -248,28 +248,41 @@ class _PermissionsScreenState extends State<PermissionsScreen>
         ),
         borderRadius: BorderRadius.circular(12),
       ),
-      child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        leading: Icon(
-          icon,
-          color: isGranted ? Colors.green : Colors.blue,
-          size: 32,
-        ),
-        title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-        subtitle: Padding(
-          padding: const EdgeInsets.only(top: 4.0),
-          child: Text(subtitle, style: const TextStyle(fontSize: 12)),
-        ),
-        trailing: isGranted
-            ? const Icon(Icons.check_circle, color: Colors.green, size: 28)
-            : OutlinedButton(
-                onPressed: onRequest,
-                style: OutlinedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  minimumSize: const Size(0, 36),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ListTile(
+            contentPadding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 4),
+            leading: Icon(
+              icon,
+              color: isGranted ? Colors.green : Colors.blue,
+              size: 32,
+            ),
+            title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+            subtitle: Padding(
+              padding: const EdgeInsets.only(top: 4.0),
+              child: Text(subtitle, style: const TextStyle(fontSize: 12)),
+            ),
+            trailing: isGranted
+                ? const Icon(Icons.check_circle, color: Colors.green, size: 28)
+                : null,
+          ),
+          if (!isGranted)
+            Padding(
+              padding: const EdgeInsets.only(right: 16.0, bottom: 12.0),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: OutlinedButton(
+                  onPressed: onRequest,
+                  style: OutlinedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    minimumSize: const Size(0, 36),
+                  ),
+                  child: Text(grantedText),
                 ),
-                child: Text(grantedText),
               ),
+            ),
+        ],
       ),
     );
   }

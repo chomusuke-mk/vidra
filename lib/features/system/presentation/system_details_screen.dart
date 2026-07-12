@@ -15,8 +15,23 @@ import 'package:vidra/shared/utils/toast_utils.dart';
 import 'package:vidra/shared/utils/changelog_utils.dart';
 import 'package:vidra/shared/utils/tutorial_utils.dart';
 
-class SystemDetailsScreen extends StatelessWidget {
+class SystemDetailsScreen extends StatefulWidget {
   const SystemDetailsScreen({super.key});
+
+  @override
+  State<SystemDetailsScreen> createState() => _SystemDetailsScreenState();
+}
+
+class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(const Duration(milliseconds: 300), () {
+        if (mounted) TutorialUtils.showSystemTutorial(context);
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
