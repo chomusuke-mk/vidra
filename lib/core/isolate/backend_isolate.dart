@@ -231,7 +231,10 @@ void backendIsolateMain(Map<String, dynamic> config) async {
           if (download.state?.subState != null) {
             body += '\n${download.state!.subState}';
           }
-          final Color? color = download.state?.subStateColor?.color;
+          final Color? color = download.state?.progressColor?.color;
+          debugPrint(
+            "Current color: ${download.state?.progressColor?.apiValue}",
+          );
 
           final currentImagePath =
               imageCache[download.id] != null &&
@@ -427,6 +430,22 @@ void backendIsolateMain(Map<String, dynamic> config) async {
     });
   }
 
+  // --- Obtener Ícono para Notificaciones ---
+  Future<String> getIconPath() async {
+    final iconFile = File(p.join(tempDirPath, 'notification_icon.png'));
+    if (!iconFile.existsSync()) {
+      try {
+        final data = await rootBundle.load('assets/icon/icon.png');
+        await iconFile.writeAsBytes(
+          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
+        );
+      } catch (e) {
+        debugPrint('🧠 [Isolate] Error cargando icono: $e');
+      }
+    }
+    return iconFile.path;
+  }
+
   // --- Secuencia Maestra de Arranque ---
   Future<void> initSequence() async {
     // AÑADIDO: Evitamos que dos flujos inicialicen al mismo tiempo
@@ -438,12 +457,13 @@ void backendIsolateMain(Map<String, dynamic> config) async {
       debugPrint('🧠 [Isolate] Comprobando permisos...');
       if (!await checkPermissions()) {
         notifyUiState('missingPermissions');
+        final iconPath = await getIconPath();
         NotificationService.showState(
           id: 9991,
           title: 'Acción Requerida',
           body: 'Faltan permisos críticos para ejecutar Vidra.',
           color: Colors.red,
-          imagePath: p.join(supportDirPath, 'assets', 'icon', 'icon.png'),
+          imagePath: iconPath,
         );
         return;
       }
@@ -461,12 +481,13 @@ void backendIsolateMain(Map<String, dynamic> config) async {
       debugPrint('🧠 [Isolate] Comprobando recursos...');
       if (!checkResources()) {
         notifyUiState('missingResources');
+        final iconPath = await getIconPath();
         NotificationService.showState(
           id: 9992,
           title: 'Acción Requerida',
           body: 'Faltan componentes. Abre la app para descargar.',
           color: Colors.red,
-          imagePath: p.join(supportDirPath, 'assets', 'icon', 'icon.png'),
+          imagePath: iconPath,
         );
         return;
       }
