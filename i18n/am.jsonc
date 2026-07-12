@@ -287,5 +287,7 @@
   "dc_getting_download_info": "የማውረድ መረጃን በማግኘት ላይ...",
   "s_search_config_tooltip": "ፈልግ",
   "s_tutorial_tooltip": "አጋዥ ስልጠና አሳይ",
-  "sd_log_file_not_found": "የምዝግብ ማስታወሻ ፋይል አልተገኘም።"
+  "sd_log_file_not_found": "የምዝግብ ማስታወሻ ፋይል አልተገኘም።",
+  "ov_quick_download": "ፈጣን ማውረድ",
+  "ov_download_added_desc": "ማሰስዎን መቀጠል ይችላሉ።\nቪድራ ቀሪውን ትይዛለች።"
 }

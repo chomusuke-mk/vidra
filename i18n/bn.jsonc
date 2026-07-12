@@ -287,5 +287,7 @@
   "dc_getting_download_info": "ডাউনলোডের তথ্য পাওয়া যাচ্ছে...",
   "s_search_config_tooltip": "অনুসন্ধান করুন",
   "s_tutorial_tooltip": "টিউটোরিয়াল দেখান",
-  "sd_log_file_not_found": "লগ ফাইল পাওয়া যায়নি."
+  "sd_log_file_not_found": "লগ ফাইল পাওয়া যায়নি.",
+  "ov_quick_download": "দ্রুত ডাউনলোড করুন",
+  "ov_download_added_desc": "আপনি ব্রাউজিং চালিয়ে যেতে পারেন.\nবাকিটা সামলাবে বিদ্রা।"
 }

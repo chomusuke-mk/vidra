@@ -287,5 +287,7 @@
   "dc_getting_download_info": "ဒေါင်းလုဒ်အချက်အလက် ရယူနေသည်...",
   "s_search_config_tooltip": "ရှာရန်",
   "s_tutorial_tooltip": "သင်ခန်းစာပြပါ။",
-  "sd_log_file_not_found": "မှတ်တမ်းဖိုင်ကို ရှာမတွေ့ပါ။"
+  "sd_log_file_not_found": "မှတ်တမ်းဖိုင်ကို ရှာမတွေ့ပါ။",
+  "ov_quick_download": "အမြန်ဒေါင်းလုဒ်လုပ်ပါ။",
+  "ov_download_added_desc": "ဆက်လက်ရှာဖွေနိုင်ပါသည်။\nVidra က ကျန်တာကို ကိုင်တွယ်မယ်။"
 }

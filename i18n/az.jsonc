@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Endirmə məlumatı əldə edilir...",
   "s_search_config_tooltip": "Axtar",
   "s_tutorial_tooltip": "Təlimatı göstərin",
-  "sd_log_file_not_found": "Günlük faylı tapılmadı."
+  "sd_log_file_not_found": "Günlük faylı tapılmadı.",
+  "ov_quick_download": "Sürətli Yükləmə",
+  "ov_download_added_desc": "Baxmağa davam edə bilərsiniz.\nQalan işləri Vidra həll edəcək."
 }

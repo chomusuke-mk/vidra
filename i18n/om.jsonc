@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Odeeffannoo buufachuu argachuu...",
   "s_search_config_tooltip": "Barbaaduu",
   "s_tutorial_tooltip": "Barnoota agarsiisi",
-  "sd_log_file_not_found": "Faayilli galmee hin argamne."
+  "sd_log_file_not_found": "Faayilli galmee hin argamne.",
+  "ov_quick_download": "Saffisaan Buufachuuf",
+  "ov_download_added_desc": "Browsing gochuu itti fufuu dandeessu.\nVidraan kan hafe ni qabata."
 }

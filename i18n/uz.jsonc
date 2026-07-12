@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Yuklab olish maʼlumotlari olinmoqda...",
   "s_search_config_tooltip": "Qidiruv",
   "s_tutorial_tooltip": "O'quv qo'llanmasini ko'rsatish",
-  "sd_log_file_not_found": "Jurnal fayli topilmadi."
+  "sd_log_file_not_found": "Jurnal fayli topilmadi.",
+  "ov_quick_download": "Tez yuklab olish",
+  "ov_download_added_desc": "Siz ko'rishni davom ettirishingiz mumkin.\nQolganini Vidra hal qiladi."
 }

@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Letöltési információk lekérése...",
   "s_search_config_tooltip": "Keresés",
   "s_tutorial_tooltip": "Oktatóanyag megjelenítése",
-  "sd_log_file_not_found": "A naplófájl nem található."
+  "sd_log_file_not_found": "A naplófájl nem található.",
+  "ov_quick_download": "Gyors letöltés",
+  "ov_download_added_desc": "Tovább böngészhet.\nA többit Vidra intézi."
 }

@@ -287,5 +287,7 @@
   "s_search_config_tooltip": "Sykje",
   "s_tutorial_tooltip": "Tutorial sjen litte",
   "p_overlay": "Overlay",
-  "sd_log_file_not_found": "Logtriem net fûn."
+  "sd_log_file_not_found": "Logtriem net fûn.",
+  "ov_quick_download": "Fluch Download",
+  "ov_download_added_desc": "Jo kinne bliuwe blêdzjen.\nVidra sil de rest behannelje."
 }

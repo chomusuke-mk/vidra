@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Ngba alaye igbasilẹ...",
   "s_search_config_tooltip": "Wa",
   "s_tutorial_tooltip": "Ṣe afihan ikẹkọ",
-  "sd_log_file_not_found": "Faili wọle ko ri."
+  "sd_log_file_not_found": "Faili wọle ko ri.",
+  "ov_quick_download": "Gbigbasilẹ ni kiakia",
+  "ov_download_added_desc": "O le tẹsiwaju lilọ kiri ayelujara.\nVidra yoo mu awọn iyokù."
 }

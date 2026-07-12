@@ -287,5 +287,7 @@
   "dc_getting_download_info": "چۈشۈرۈش ئۇچۇرىغا ئېرىشىش ...",
   "s_search_config_tooltip": "ئىزدەش",
   "s_tutorial_tooltip": "دەرسلىكنى كۆرسەت",
-  "sd_log_file_not_found": "خاتىرە ھۆججەت تېپىلمىدى."
+  "sd_log_file_not_found": "خاتىرە ھۆججەت تېپىلمىدى.",
+  "ov_quick_download": "تېز چۈشۈرۈش",
+  "ov_download_added_desc": "داۋاملىق كۆرەلەيسىز.\nقالغانلىرىنى ۋىدرا بىر تەرەپ قىلىدۇ."
 }

@@ -2,7 +2,13 @@
 
 All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** project will be documented in this file.
 
----
+---  
+
+## [2.3.0] - New Features
+
+- **Localization System:** Implemented a new localization system that allows users to select their preferred language, enhancing accessibility and user experience across different regions.
+- **Performance Improvements:** Optimized the application's performance, resulting in faster load times and smoother interactions for users.
+- **Bug Fixes:** Addressed various bugs and issues reported by users, improving overall stability and reliability of the application.
 
 ## [2.2.0] - New Features
 

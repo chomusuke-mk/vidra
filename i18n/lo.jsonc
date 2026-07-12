@@ -287,5 +287,7 @@
   "dc_getting_download_info": "ກຳລັງໂຫຼດຂໍ້ມູນການດາວໂຫຼດ...",
   "s_search_config_tooltip": "ຊອກຫາ",
   "s_tutorial_tooltip": "ສະແດງບົດຮຽນ",
-  "sd_log_file_not_found": "ບໍ່ພົບໄຟລ໌ບັນທຶກ."
+  "sd_log_file_not_found": "ບໍ່ພົບໄຟລ໌ບັນທຶກ.",
+  "ov_quick_download": "ດາວໂຫຼດດ່ວນ",
+  "ov_download_added_desc": "ທ່ານສາມາດສືບຕໍ່ຊອກຫາ.\nVidra ຈະຈັດການສ່ວນທີ່ເຫຼືອ."
 }

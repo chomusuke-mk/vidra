@@ -287,5 +287,7 @@
   "s_search_config_tooltip": "সন্ধান",
   "s_tutorial_tooltip": "টিউটোৰিয়েল দেখুৱাওক",
   "shw_loading_selector": "নিৰ্বাচক লোড কৰা হৈছে...",
-  "sd_log_file_not_found": "লগ ফাইল পোৱা নগ'ল।"
+  "sd_log_file_not_found": "লগ ফাইল পোৱা নগ'ল।",
+  "ov_quick_download": "দ্ৰুত ডাউনলোড",
+  "ov_download_added_desc": "আপুনি ব্ৰাউজ কৰি থাকিব পাৰে।\nবাকীখিনি বিদ্ৰাই চম্ভালিব।"
 }

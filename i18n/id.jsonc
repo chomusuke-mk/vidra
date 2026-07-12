@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Mendapatkan info unduhan...",
   "s_search_config_tooltip": "Mencari",
   "s_tutorial_tooltip": "Tampilkan tutorialnya",
-  "sd_log_file_not_found": "Berkas log tidak ditemukan."
+  "sd_log_file_not_found": "Berkas log tidak ditemukan.",
+  "ov_quick_download": "Unduh Cepat",
+  "ov_download_added_desc": "Anda dapat terus menjelajah.\nVidra akan menangani sisanya."
 }

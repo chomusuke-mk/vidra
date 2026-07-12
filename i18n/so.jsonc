@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Helitaanka macluumaadka soo dejinta",
   "s_search_config_tooltip": "Raadi",
   "s_tutorial_tooltip": "Muuji casharrada",
-  "sd_log_file_not_found": "Gal gal lama helin"
+  "sd_log_file_not_found": "Gal gal lama helin",
+  "ov_quick_download": "Soo dejiso Degdeg ah",
+  "ov_download_added_desc": "Waad sii wadi kartaa daalacashada\nVidra ayaa qaban doonta inta soo hartay."
 }

@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Жүктеп алу туралы ақпарат алынуда...",
   "s_search_config_tooltip": "Іздеу",
   "s_tutorial_tooltip": "Оқу құралын көрсету",
-  "sd_log_file_not_found": "Журнал файлы табылмады."
+  "sd_log_file_not_found": "Журнал файлы табылмады.",
+  "ov_quick_download": "Жылдам жүктеп алу",
+  "ov_download_added_desc": "Сіз шолуды жалғастыра аласыз.\nҚалғанын Видра шешеді."
 }

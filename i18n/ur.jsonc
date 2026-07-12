@@ -287,5 +287,7 @@
   "dc_getting_download_info": "ڈاؤن لوڈ کی معلومات حاصل کی جا رہی ہے...",
   "s_search_config_tooltip": "تلاش کریں۔",
   "s_tutorial_tooltip": "ٹیوٹوریل دکھائیں۔",
-  "sd_log_file_not_found": "لاگ فائل نہیں ملی۔"
+  "sd_log_file_not_found": "لاگ فائل نہیں ملی۔",
+  "ov_quick_download": "فوری ڈاؤن لوڈ",
+  "ov_download_added_desc": "آپ براؤزنگ جاری رکھ سکتے ہیں۔\nودرا باقی کو سنبھال لے گا۔"
 }

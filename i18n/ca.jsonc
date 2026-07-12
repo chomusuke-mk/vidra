@@ -287,5 +287,7 @@
   "dc_getting_download_info": "S'està rebent informació de baixada...",
   "s_search_config_tooltip": "Cerca",
   "s_tutorial_tooltip": "Mostra el tutorial",
-  "sd_log_file_not_found": "No s'ha trobat el fitxer de registre."
+  "sd_log_file_not_found": "No s'ha trobat el fitxer de registre.",
+  "ov_quick_download": "Descàrrega ràpida",
+  "ov_download_added_desc": "Podeu seguir navegant.\nVidra s'encarregarà de la resta."
 }

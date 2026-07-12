@@ -287,5 +287,7 @@
   "dc_getting_download_info": "ഡൗൺലോഡ് വിവരം ലഭിക്കുന്നു...",
   "s_search_config_tooltip": "തിരയുക",
   "s_tutorial_tooltip": "ട്യൂട്ടോറിയൽ കാണിക്കുക",
-  "sd_log_file_not_found": "ലോഗ് ഫയൽ കണ്ടെത്തിയില്ല."
+  "sd_log_file_not_found": "ലോഗ് ഫയൽ കണ്ടെത്തിയില്ല.",
+  "ov_quick_download": "ദ്രുത ഡൗൺലോഡ്",
+  "ov_download_added_desc": "നിങ്ങൾക്ക് ബ്രൗസിംഗ് തുടരാം.\nബാക്കി കാര്യങ്ങൾ വിദ്ര കൈകാര്യം ചെയ്യും."
 }

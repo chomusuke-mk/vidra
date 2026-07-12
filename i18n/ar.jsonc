@@ -287,5 +287,7 @@
   "dc_getting_download_info": "جارٍ الحصول على معلومات التنزيل...",
   "s_search_config_tooltip": "يبحث",
   "s_tutorial_tooltip": "عرض البرنامج التعليمي",
-  "sd_log_file_not_found": "لم يتم العثور على ملف السجل."
+  "sd_log_file_not_found": "لم يتم العثور على ملف السجل.",
+  "ov_quick_download": "تحميل سريع",
+  "ov_download_added_desc": "يمكنك الاستمرار في التصفح.\nسوف يتولى فيدرا الباقي."
 }

@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Ներբեռնման տեղեկությունների ստացում...",
   "s_search_config_tooltip": "Որոնում",
   "s_tutorial_tooltip": "Ցույց տալ ձեռնարկը",
-  "sd_log_file_not_found": "Մատյան ֆայլը չի ​​գտնվել:"
+  "sd_log_file_not_found": "Մատյան ֆայլը չի ​​գտնվել:",
+  "ov_quick_download": "Արագ ներբեռնում",
+  "ov_download_added_desc": "Դուք կարող եք շարունակել թերթել:\nՄնացածը Վիդրան կզբաղվի:"
 }

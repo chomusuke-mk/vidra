@@ -287,5 +287,7 @@
   "s_search_config_tooltip": "Soek",
   "s_tutorial_tooltip": "Wys tutoriaal",
   "dc_download_removing": "Verwyder tans aflaai …",
-  "sd_log_file_not_found": "Loglêer nie gevind nie."
+  "sd_log_file_not_found": "Loglêer nie gevind nie.",
+  "ov_quick_download": "Vinnige aflaai",
+  "ov_download_added_desc": "Jy kan aanhou blaai.\nVidra sal die res hanteer."
 }

@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Ku kuma vuxokoxoko byo dawuniloda...",
   "s_search_config_tooltip": "Secha",
   "s_tutorial_tooltip": "Kombisa dyondzo",
-  "sd_log_file_not_found": "Fayili ya log a yi kumeki."
+  "sd_log_file_not_found": "Fayili ya log a yi kumeki.",
+  "ov_quick_download": "Quick Download",
+  "ov_download_added_desc": "U nga ha ya emahlweni u pfula-pfula.\nVidra u ta khoma leswi seleke."
 }

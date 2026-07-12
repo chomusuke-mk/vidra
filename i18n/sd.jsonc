@@ -287,5 +287,7 @@
   "dc_getting_download_info": "ڊائون لوڊ معلومات حاصل ڪري رهيو آهي ...",
   "s_search_config_tooltip": "ڳولا",
   "s_tutorial_tooltip": "سبق ڏيکاريو",
-  "sd_log_file_not_found": "لاگ فائل نه ملي."
+  "sd_log_file_not_found": "لاگ فائل نه ملي.",
+  "ov_quick_download": "جلدي ڊائون لوڊ",
+  "ov_download_added_desc": "توهان برائوزنگ جاري رکي سگهو ٿا.\nويدرا باقي سنڀاليندو."
 }

@@ -287,5 +287,7 @@
   "s_search_config_tooltip": "Tìm kiếm",
   "s_tutorial_tooltip": "Hiển thị hướng dẫn",
   "tu_system_details_python_server_desc": "Vidra sử dụng máy chủ cục bộ để xử lý tải xuống. Tại đây bạn có thể xác minh rằng nó đang chạy và kiểm tra nhật ký của nó trong trường hợp có lỗi.",
-  "sd_log_file_not_found": "Không tìm thấy tệp nhật ký."
+  "sd_log_file_not_found": "Không tìm thấy tệp nhật ký.",
+  "ov_quick_download": "Tải xuống nhanh",
+  "ov_download_added_desc": "Bạn có thể tiếp tục duyệt.\nVidra sẽ xử lý phần còn lại."
 }

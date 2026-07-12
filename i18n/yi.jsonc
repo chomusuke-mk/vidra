@@ -287,5 +287,7 @@
   "dc_getting_download_info": "באַקומען אראפקאפיע אינפֿאָרמאַציע ...",
   "s_search_config_tooltip": "זוכן",
   "s_tutorial_tooltip": "ווייַזן טוטאָריאַל",
-  "sd_log_file_not_found": "קלאָץ טעקע ניט געפֿונען."
+  "sd_log_file_not_found": "קלאָץ טעקע ניט געפֿונען.",
+  "ov_quick_download": "שנעל אראפקאפיע",
+  "ov_download_added_desc": "איר קענען האַלטן בראַוזינג.\nווידראַ וועט שעפּן די מנוחה."
 }

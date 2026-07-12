@@ -287,5 +287,7 @@
   "dc_getting_download_info": "डाउनलोड् सूचनां प्राप्तुं...",
   "s_search_config_tooltip": "अन्वेषण",
   "s_tutorial_tooltip": "पाठ्यक्रमं दर्शयतु",
-  "sd_log_file_not_found": "लॉग् सञ्चिका न प्राप्ता।"
+  "sd_log_file_not_found": "लॉग् सञ्चिका न प्राप्ता।",
+  "ov_quick_download": "त्वरित डाउनलोड",
+  "ov_download_added_desc": "भवन्तः ब्राउज् करणं कुर्वन्तः स्थातुं शक्नुवन्ति।\nविद्रा शेषं सम्पादयिष्यति।"
 }

@@ -287,5 +287,7 @@
   "dc_getting_download_info": "ଡାଉନଲୋଡ୍ ସୂଚନା ପାଇବା ...",
   "s_search_config_tooltip": "ସନ୍ଧାନ କର |",
   "s_tutorial_tooltip": "ଟ୍ୟୁଟୋରିଆଲ୍ ଦେଖାନ୍ତୁ |",
-  "sd_log_file_not_found": "ଲଗ୍ ଫାଇଲ୍ ମିଳିଲା ନାହିଁ |"
+  "sd_log_file_not_found": "ଲଗ୍ ଫାଇଲ୍ ମିଳିଲା ନାହିଁ |",
+  "ov_quick_download": "ଶୀଘ୍ର ଡାଉନଲୋଡ୍ |",
+  "ov_download_added_desc": "ଆପଣ ବ୍ରାଉଜିଂ ଜାରି ରଖିପାରିବେ |\nବିଦ୍ରା ବାକି ସବୁ ପରିଚାଳନା କରିବେ |"
 }

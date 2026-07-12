@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Na-enweta ozi nbudata...",
   "s_search_config_tooltip": "Chọọ",
   "s_tutorial_tooltip": "Gosi nkuzi",
-  "sd_log_file_not_found": "Ahụghị faịlụ ndekọ."
+  "sd_log_file_not_found": "Ahụghị faịlụ ndekọ.",
+  "ov_quick_download": "Nbudata ngwa ngwa",
+  "ov_download_added_desc": "Ị nwere ike ịnọgide na-eme nchọgharị.\nVidra ga-edozi ihe ndị ọzọ."
 }

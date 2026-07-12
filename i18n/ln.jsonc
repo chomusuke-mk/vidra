@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Kozwa info ya téléchargement...",
   "s_search_config_tooltip": "Koluka",
   "s_tutorial_tooltip": "Lakisa mateya",
-  "sd_log_file_not_found": "Fisyé ya journal ezwami te."
+  "sd_log_file_not_found": "Fisyé ya journal ezwami te.",
+  "ov_quick_download": "Téléchargement ya mbangu",
+  "ov_download_added_desc": "Okoki kokoba kosala navigation.\nVidra nde akosimba oyo etikali."
 }

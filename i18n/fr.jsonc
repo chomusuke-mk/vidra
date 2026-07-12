@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Obtention des informations de téléchargement...",
   "s_search_config_tooltip": "Recherche",
   "s_tutorial_tooltip": "Afficher le tutoriel",
-  "sd_log_file_not_found": "Fichier journal introuvable."
+  "sd_log_file_not_found": "Fichier journal introuvable.",
+  "ov_quick_download": "Téléchargement rapide",
+  "ov_download_added_desc": "Vous pouvez continuer à naviguer.\nVidra s'occupera du reste."
 }

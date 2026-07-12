@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Notiek lejupielādes informācijas iegūšana...",
   "s_search_config_tooltip": "Meklēt",
   "s_tutorial_tooltip": "Rādīt pamācību",
-  "sd_log_file_not_found": "Žurnāla fails nav atrasts."
+  "sd_log_file_not_found": "Žurnāla fails nav atrasts.",
+  "ov_quick_download": "Ātrā lejupielāde",
+  "ov_download_added_desc": "Varat turpināt pārlūkošanu.\nPar pārējo parūpēsies Vidra."
 }

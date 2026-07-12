@@ -287,5 +287,7 @@
   "dc_getting_download_info": "ޑައުންލޯޑް އިންފޯ ހޯދަނީ...",
   "s_search_config_tooltip": "ހޯދުން",
   "s_tutorial_tooltip": "ޓިއުޓޯރިއަލް ދައްކާށެވެ",
-  "sd_log_file_not_found": "ލޮގް ފައިލް ނުފެނެއެވެ."
+  "sd_log_file_not_found": "ލޮގް ފައިލް ނުފެނެއެވެ.",
+  "ov_quick_download": "އަވަސް ޑައުންލޯޑް",
+  "ov_download_added_desc": "ބްރައުޒް ކުރަމުން ގެންދެވޭނެއެވެ.\nބާކީ ހުރި ކަންތައްތައް ޙަވާލުކުރާނީ ވިދްރާއެވެ."
 }

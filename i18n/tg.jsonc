@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Гирифтани маълумоти зеркашӣ...",
   "s_search_config_tooltip": "Ҷустуҷӯ",
   "s_tutorial_tooltip": "Нишон додани дастур",
-  "sd_log_file_not_found": "Файли сабт ёфт нашуд."
+  "sd_log_file_not_found": "Файли сабт ёфт нашуд.",
+  "ov_quick_download": "Зеркашии зуд",
+  "ov_download_added_desc": "Шумо метавонед диданро давом диҳед.\nБоқимондаашро Видра ҳал мекунад."
 }

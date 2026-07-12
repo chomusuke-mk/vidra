@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Downloadinformatie ophalen...",
   "s_search_config_tooltip": "Zoekopdracht",
   "s_tutorial_tooltip": "Tutorial tonen",
-  "sd_log_file_not_found": "Logbestand niet gevonden."
+  "sd_log_file_not_found": "Logbestand niet gevonden.",
+  "ov_quick_download": "Snel downloaden",
+  "ov_download_added_desc": "U kunt blijven browsen.\nVidra regelt de rest."
 }

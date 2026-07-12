@@ -287,5 +287,7 @@
   "dc_getting_download_info": "កំពុងទទួលបានព័ត៌មានទាញយក...",
   "s_search_config_tooltip": "ស្វែងរក",
   "s_tutorial_tooltip": "បង្ហាញការបង្រៀន",
-  "sd_log_file_not_found": "រកមិនឃើញឯកសារកំណត់ហេតុទេ។"
+  "sd_log_file_not_found": "រកមិនឃើញឯកសារកំណត់ហេតុទេ។",
+  "ov_quick_download": "ទាញយករហ័ស",
+  "ov_download_added_desc": "អ្នកអាចបន្តរុករក។\nVidra នឹងដោះស្រាយអ្វីដែលនៅសល់។"
 }

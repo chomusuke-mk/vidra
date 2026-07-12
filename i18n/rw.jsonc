@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Kubona amakuru yo gukuramo ...",
   "s_search_config_tooltip": "Shakisha",
   "s_tutorial_tooltip": "Erekana inyigisho",
-  "sd_log_file_not_found": "Idosiye yinjira ntabwo yabonetse."
+  "sd_log_file_not_found": "Idosiye yinjira ntabwo yabonetse.",
+  "ov_quick_download": "Gukuramo vuba",
+  "ov_download_added_desc": "Urashobora gukomeza gushakisha.\nVidra izakora ibisigaye."
 }

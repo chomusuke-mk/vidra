@@ -287,5 +287,7 @@
   "dc_getting_download_info": "ናይ ምውራድ ሓበሬታ ምርካብ...",
   "s_search_config_tooltip": "ምድላይ",
   "s_tutorial_tooltip": "ትምህርቲ ኣርእዩ",
-  "sd_log_file_not_found": "ሎግ ፋይል ኣይተረኽበን።"
+  "sd_log_file_not_found": "ሎግ ፋይል ኣይተረኽበን።",
+  "ov_quick_download": "ቅልጡፍ ምውራድ",
+  "ov_download_added_desc": "ምድህሳስ ክትቅጽል ትኽእል ኢኻ።\nቪድራ ነቲ ዝተረፈ ክትሕዞ እያ።"
 }

@@ -287,5 +287,7 @@
   "dc_getting_download_info": "İndirme bilgisi alınıyor...",
   "s_search_config_tooltip": "Aramak",
   "s_tutorial_tooltip": "Eğiticiyi göster",
-  "sd_log_file_not_found": "Günlük dosyası bulunamadı."
+  "sd_log_file_not_found": "Günlük dosyası bulunamadı.",
+  "ov_quick_download": "Hızlı İndirme",
+  "ov_download_added_desc": "Taramaya devam edebilirsiniz.\nGerisini Vidra halledecek."
 }

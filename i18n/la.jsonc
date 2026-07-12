@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Questus download info...",
   "s_search_config_tooltip": "Investigatio",
   "s_tutorial_tooltip": "Monstra doceo",
-  "sd_log_file_not_found": "Stipes lima non invenitur."
+  "sd_log_file_not_found": "Stipes lima non invenitur.",
+  "ov_quick_download": "Velox Download",
+  "ov_download_added_desc": "Pasco servare potes.\nReliqua vidrtur regam."
 }

@@ -287,5 +287,7 @@
   "dc_getting_download_info": "E fumana lintlha tsa ho khoasolla...",
   "s_search_config_tooltip": "Batla",
   "s_tutorial_tooltip": "Hlahisa thuto",
-  "sd_log_file_not_found": "Faele ea ho kena ha e fumanehe."
+  "sd_log_file_not_found": "Faele ea ho kena ha e fumanehe.",
+  "ov_quick_download": "Khoasolla ka Potlako",
+  "ov_download_added_desc": "U ka lula u ntse u bala.\nVidra o tla sebetsana le tse ling kaofela."
 }

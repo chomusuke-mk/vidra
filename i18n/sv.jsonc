@@ -287,5 +287,7 @@
   "s_search_config_tooltip": "Söka",
   "s_tutorial_tooltip": "Visa handledning",
   "p_description": "Vidra kräver djup systemåtkomst för att ladda ner i bakgrunden och snabbt fånga länkar.",
-  "sd_log_file_not_found": "Loggfilen hittades inte."
+  "sd_log_file_not_found": "Loggfilen hittades inte.",
+  "ov_quick_download": "Snabbnedladdning",
+  "ov_download_added_desc": "Du kan fortsätta surfa.\nVidra tar hand om resten."
 }

@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Deskargaren informazioa lortzen...",
   "s_search_config_tooltip": "Bilatu",
   "s_tutorial_tooltip": "Erakutsi tutoriala",
-  "sd_log_file_not_found": "Ez da aurkitu erregistro-fitxategia."
+  "sd_log_file_not_found": "Ez da aurkitu erregistro-fitxategia.",
+  "ov_quick_download": "Deskarga azkarra",
+  "ov_download_added_desc": "Arakatzen jarrai dezakezu.\nVidra arduratuko da gainerakoa."
 }

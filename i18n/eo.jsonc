@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Akiro de elŝutaj informoj...",
   "s_search_config_tooltip": "Serĉu",
   "s_tutorial_tooltip": "Montri lernilon",
-  "sd_log_file_not_found": "Logdosiero ne trovita."
+  "sd_log_file_not_found": "Logdosiero ne trovita.",
+  "ov_quick_download": "Rapida Elŝuto",
+  "ov_download_added_desc": "Vi povas daŭrigi foliumi.\nVidra pritraktos la reston."
 }

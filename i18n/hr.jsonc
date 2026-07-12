@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Dohvaćanje informacija o preuzimanju...",
   "s_search_config_tooltip": "Pretraživanje",
   "s_tutorial_tooltip": "Prikaži vodič",
-  "sd_log_file_not_found": "Dnevnik nije pronađen."
+  "sd_log_file_not_found": "Dnevnik nije pronađen.",
+  "ov_quick_download": "Brzo preuzimanje",
+  "ov_download_added_desc": "Možete nastaviti pregledavati.\nVidra će se pobrinuti za ostalo."
 }

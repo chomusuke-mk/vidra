@@ -287,5 +287,7 @@
   "dc_getting_download_info": "ダウンロード情報を取得しています...",
   "s_search_config_tooltip": "検索",
   "s_tutorial_tooltip": "チュートリアルを表示する",
-  "sd_log_file_not_found": "ログ ファイルが見つかりません。"
+  "sd_log_file_not_found": "ログ ファイルが見つかりません。",
+  "ov_quick_download": "クイックダウンロード",
+  "ov_download_added_desc": "閲覧を続けることができます。\n残りはVidraが処理します。"
 }

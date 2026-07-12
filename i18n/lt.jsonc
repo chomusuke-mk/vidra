@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Gaunama atsisiuntimo informacija...",
   "s_search_config_tooltip": "Ieškoti",
   "s_tutorial_tooltip": "Rodyti mokymo programą",
-  "sd_log_file_not_found": "Žurnalo failas nerastas."
+  "sd_log_file_not_found": "Žurnalo failas nerastas.",
+  "ov_quick_download": "Greitas atsisiuntimas",
+  "ov_download_added_desc": "Galite toliau naršyti.\nVisa kita pasirūpins Vidra."
 }

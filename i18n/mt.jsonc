@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Qed nikseb informazzjoni dwar it-tniżżil...",
   "s_search_config_tooltip": "Fittex",
   "s_tutorial_tooltip": "Uri tutorja",
-  "sd_log_file_not_found": "Log file ma nstabx."
+  "sd_log_file_not_found": "Log file ma nstabx.",
+  "ov_quick_download": "Niżżel malajr",
+  "ov_download_added_desc": "Tista' tkompli tibbrawżja.\nVidra se tieħu ħsieb il-bqija."
 }

@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Татаж авах мэдээллийг авч байна...",
   "s_search_config_tooltip": "Хайх",
   "s_tutorial_tooltip": "Хичээлийг харуулах",
-  "sd_log_file_not_found": "Лог файл олдсонгүй."
+  "sd_log_file_not_found": "Лог файл олдсонгүй.",
+  "ov_quick_download": "Түргэн татаж авах",
+  "ov_download_added_desc": "Та үргэлжлүүлэн үзэх боломжтой.\nҮлдсэнийг нь Видра шийднэ."
 }

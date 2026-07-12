@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Се добиваат информации за преземање...",
   "s_search_config_tooltip": "Пребарување",
   "s_tutorial_tooltip": "Прикажи упатство",
-  "sd_log_file_not_found": "Датотеката за евиденција не е пронајдена."
+  "sd_log_file_not_found": "Датотеката за евиденција не е пронајдена.",
+  "ov_quick_download": "Брзо преземање",
+  "ov_download_added_desc": "Можете да продолжите да прелистувате.\nВидра ќе се справи со останатото."
 }

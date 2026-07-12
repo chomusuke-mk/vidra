@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Λήψη πληροφοριών λήψης...",
   "s_search_config_tooltip": "Ερευνα",
   "s_tutorial_tooltip": "Εμφάνιση φροντιστηρίου",
-  "sd_log_file_not_found": "Το αρχείο καταγραφής δεν βρέθηκε."
+  "sd_log_file_not_found": "Το αρχείο καταγραφής δεν βρέθηκε.",
+  "ov_quick_download": "Γρήγορη λήψη",
+  "ov_download_added_desc": "Μπορείτε να συνεχίσετε την περιήγηση.\nΗ Vidra θα αναλάβει τα υπόλοιπα."
 }

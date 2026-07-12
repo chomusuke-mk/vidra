@@ -287,5 +287,7 @@
   "dc_getting_download_info": "ਡਾਊਨਲੋਡ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ...",
   "s_search_config_tooltip": "ਖੋਜ",
   "s_tutorial_tooltip": "ਟਿਊਟੋਰਿਅਲ ਦਿਖਾਓ",
-  "sd_log_file_not_found": "ਲੌਗ ਫਾਈਲ ਨਹੀਂ ਮਿਲੀ।"
+  "sd_log_file_not_found": "ਲੌਗ ਫਾਈਲ ਨਹੀਂ ਮਿਲੀ।",
+  "ov_quick_download": "ਤੁਰੰਤ ਡਾਊਨਲੋਡ ਕਰੋ",
+  "ov_download_added_desc": "ਤੁਸੀਂ ਬ੍ਰਾਊਜ਼ਿੰਗ ਜਾਰੀ ਰੱਖ ਸਕਦੇ ਹੋ।\nਵਿਦਰਾ ਬਾਕੀ ਨੂੰ ਸੰਭਾਲੇਗਾ।"
 }

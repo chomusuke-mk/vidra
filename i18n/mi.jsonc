@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Kei te tiki korero tango...",
   "s_search_config_tooltip": "Rapu",
   "s_tutorial_tooltip": "Whakaatuhia he akoranga",
-  "sd_log_file_not_found": "Kāore i kitea te kōnae rangitaki."
+  "sd_log_file_not_found": "Kāore i kitea te kōnae rangitaki.",
+  "ov_quick_download": "Tikiake Tere",
+  "ov_download_added_desc": "Ka taea e koe te tirotiro tonu.\nKa whakahaerehia e Vidra te toenga."
 }

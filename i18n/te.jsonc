@@ -287,5 +287,7 @@
   "dc_getting_download_info": "డౌన్‌లోడ్ సమాచారాన్ని పొందుతోంది...",
   "s_search_config_tooltip": "శోధించండి",
   "s_tutorial_tooltip": "ట్యుటోరియల్ చూపించు",
-  "sd_log_file_not_found": "లాగ్ ఫైల్ కనుగొనబడలేదు."
+  "sd_log_file_not_found": "లాగ్ ఫైల్ కనుగొనబడలేదు.",
+  "ov_quick_download": "త్వరిత డౌన్‌లోడ్",
+  "ov_download_added_desc": "మీరు బ్రౌజింగ్ కొనసాగించవచ్చు.\nమిగిలిన వాటిని విద్రా నిర్వహిస్తుంది."
 }

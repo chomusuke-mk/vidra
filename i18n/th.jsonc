@@ -287,5 +287,7 @@
   "dc_getting_download_info": "กำลังรับข้อมูลการดาวน์โหลด...",
   "s_search_config_tooltip": "ค้นหา",
   "s_tutorial_tooltip": "แสดงบทช่วยสอน",
-  "sd_log_file_not_found": "ไม่พบไฟล์บันทึก"
+  "sd_log_file_not_found": "ไม่พบไฟล์บันทึก",
+  "ov_quick_download": "ดาวน์โหลดด่วน",
+  "ov_download_added_desc": "คุณสามารถเรียกดูต่อไปได้\nวิดราจะจัดการส่วนที่เหลือเอง"
 }

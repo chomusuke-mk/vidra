@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Tikupeza zambiri zotsitsa...",
   "s_search_config_tooltip": "Sakani",
   "s_tutorial_tooltip": "Onetsani maphunziro",
-  "sd_log_file_not_found": "Fayilo yolowera sinapezeke."
+  "sd_log_file_not_found": "Fayilo yolowera sinapezeke.",
+  "ov_quick_download": "Kutsitsa Mwamsanga",
+  "ov_download_added_desc": "Mutha kupitiliza kusakatula.\nVidra adzagwira zina zonse."
 }

@@ -287,5 +287,7 @@
   "dc_getting_download_info": "در حال دریافت اطلاعات دانلود...",
   "s_search_config_tooltip": "جستجو کنید",
   "s_tutorial_tooltip": "نمایش آموزش",
-  "sd_log_file_not_found": "فایل لاگ پیدا نشد"
+  "sd_log_file_not_found": "فایل لاگ پیدا نشد",
+  "ov_quick_download": "دانلود سریع",
+  "ov_download_added_desc": "می توانید به مرور ادامه دهید.\nویدرا بقیه کارها را انجام خواهد داد."
 }

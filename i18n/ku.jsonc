@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Agahdariya dakêşandinê distîne...",
   "s_search_config_tooltip": "Gerr",
   "s_tutorial_tooltip": "Tutorial nîşan bide",
-  "sd_log_file_not_found": "Pelê têketinê nehat dîtin."
+  "sd_log_file_not_found": "Pelê têketinê nehat dîtin.",
+  "ov_quick_download": "Daxistina Zû",
+  "ov_download_added_desc": "Hûn dikarin gerê bidomînin.\nVidra dê mayî bigire."
 }

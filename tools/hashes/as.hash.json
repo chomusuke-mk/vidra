@@ -287,5 +287,7 @@
   "s_search_config_tooltip": "49c266baaaa70981ea188fa714d5c40cf13830d786a861c9943ae0d26a7f3fe9",
   "s_tutorial_tooltip": "6b808f0a7fde3c9dc13b1c9588500ccee87f3481fc98a09a41da133069b7b6f7",
   "shw_loading_selector": "a10303cebf0d8751c2117cb94f85a30c4b45d90fbead8bf0785453b9cf26f314",
-  "sd_log_file_not_found": "0e01d68da72e5116b3b563ab2aae9a4067081d6bdd3c28cf424d996b70e9beb1"
+  "sd_log_file_not_found": "0e01d68da72e5116b3b563ab2aae9a4067081d6bdd3c28cf424d996b70e9beb1",
+  "ov_quick_download": "25df2763d3e8428eeef13dd45781b00f885e1c8b06cc18eff570e8e4e496a16b",
+  "ov_download_added_desc": "6aa44cf5ec246a723b9cf2070f38c28f18fda1f1c4454909a9380015928c5a7e"
 }

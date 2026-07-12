@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Cael gwybodaeth lawrlwytho...",
   "s_search_config_tooltip": "Chwiliwch",
   "s_tutorial_tooltip": "Dangos tiwtorial",
-  "sd_log_file_not_found": "Ni chanfuwyd y ffeil log."
+  "sd_log_file_not_found": "Ni chanfuwyd y ffeil log.",
+  "ov_quick_download": "Lawrlwytho Cyflym",
+  "ov_download_added_desc": "Gallwch barhau i bori.\nBydd Vidra yn trin y gweddill."
 }

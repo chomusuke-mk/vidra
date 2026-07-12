@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Po merr informacionin e shkarkimit...",
   "s_search_config_tooltip": "Kërko",
   "s_tutorial_tooltip": "Shfaq tutorialin",
-  "sd_log_file_not_found": "Skedari i regjistrit nuk u gjet."
+  "sd_log_file_not_found": "Skedari i regjistrit nuk u gjet.",
+  "ov_quick_download": "Shkarkim i Shpejtë",
+  "ov_download_added_desc": "Mund të vazhdoni të shfletoni.\nVidra do të merret me pjesën tjetër."
 }

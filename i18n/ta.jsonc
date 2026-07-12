@@ -287,5 +287,7 @@
   "dc_getting_download_info": "பதிவிறக்கத் தகவலைப் பெறுகிறது...",
   "s_search_config_tooltip": "தேடு",
   "s_tutorial_tooltip": "பயிற்சியைக் காட்டு",
-  "sd_log_file_not_found": "பதிவு கோப்பு கிடைக்கவில்லை."
+  "sd_log_file_not_found": "பதிவு கோப்பு கிடைக்கவில்லை.",
+  "ov_quick_download": "விரைவான பதிவிறக்கம்",
+  "ov_download_added_desc": "நீங்கள் தொடர்ந்து உலாவலாம்.\nமீதியை வித்ரா கையாளும்."
 }

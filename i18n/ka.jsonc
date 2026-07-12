@@ -287,5 +287,7 @@
   "dc_getting_download_info": "მიმდინარეობს ჩამოტვირთვის ინფორმაციის მიღება...",
   "s_search_config_tooltip": "ძიება",
   "s_tutorial_tooltip": "გაკვეთილის ჩვენება",
-  "sd_log_file_not_found": "ჟურნალის ფაილი ვერ მოიძებნა."
+  "sd_log_file_not_found": "ჟურნალის ფაილი ვერ მოიძებნა.",
+  "ov_quick_download": "სწრაფი ჩამოტვირთვა",
+  "ov_download_added_desc": "შეგიძლიათ განაგრძოთ დათვალიერება.\nდანარჩენს ვიდრა მოაგვარებს."
 }

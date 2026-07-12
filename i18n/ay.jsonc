@@ -287,5 +287,7 @@
   "s_search_config_tooltip": "Thaqhata",
   "s_tutorial_tooltip": "Uñacht’ayaña yatichawi",
   "shw_loading_selector": "Ukax ajlliñjamawa...",
-  "sd_log_file_not_found": "Log file ukax janiw jikxataskiti."
+  "sd_log_file_not_found": "Log file ukax janiw jikxataskiti.",
+  "ov_quick_download": "Jank’aki Uñt’ayañataki",
+  "ov_download_added_desc": "Jumax uñakipt’askakismawa.\nVidrax qhipharux uñjaniwa."
 }

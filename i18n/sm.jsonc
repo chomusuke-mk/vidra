@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Mauaina o fa'amatalaga la'uina...",
   "s_search_config_tooltip": "Saili",
   "s_tutorial_tooltip": "Faaali atu aoaoga",
-  "sd_log_file_not_found": "E le'i maua le faila faila."
+  "sd_log_file_not_found": "E le'i maua le faila faila.",
+  "ov_quick_download": "Lave vave",
+  "ov_download_added_desc": "E mafai ona e su'esu'e.\nO le a taulimaina e Vidra le vaega o totoe."
 }

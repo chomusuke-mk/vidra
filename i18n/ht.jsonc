@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Jwenn enfòmasyon telechaje...",
   "s_search_config_tooltip": "Rechèch",
   "s_tutorial_tooltip": "Montre leson patikilye",
-  "sd_log_file_not_found": "Fichye Log pa jwenn."
+  "sd_log_file_not_found": "Fichye Log pa jwenn.",
+  "ov_quick_download": "Telechaje rapid",
+  "ov_download_added_desc": "Ou ka kontinye navige.\nVidra pral okipe rès la."
 }

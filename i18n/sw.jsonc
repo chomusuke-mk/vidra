@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Inapata maelezo ya upakuaji...",
   "s_search_config_tooltip": "Tafuta",
   "s_tutorial_tooltip": "Onyesha mafunzo",
-  "sd_log_file_not_found": "Faili ya kumbukumbu haijapatikana."
+  "sd_log_file_not_found": "Faili ya kumbukumbu haijapatikana.",
+  "ov_quick_download": "Upakuaji wa Haraka",
+  "ov_download_added_desc": "Unaweza kuendelea kuvinjari.\nVidra atashughulikia mengine."
 }

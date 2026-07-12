@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Henter nedlastingsinformasjon...",
   "s_search_config_tooltip": "Søk",
   "s_tutorial_tooltip": "Vis opplæringen",
-  "sd_log_file_not_found": "Loggfilen ble ikke funnet."
+  "sd_log_file_not_found": "Loggfilen ble ikke funnet.",
+  "ov_quick_download": "Rask nedlasting",
+  "ov_download_added_desc": "Du kan fortsette å surfe.\nVidra tar seg av resten."
 }

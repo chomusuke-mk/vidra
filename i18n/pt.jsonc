@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Obtendo informações de download...",
   "s_search_config_tooltip": "Procurar",
   "s_tutorial_tooltip": "Mostrar tutorial",
-  "sd_log_file_not_found": "Arquivo de log não encontrado."
+  "sd_log_file_not_found": "Arquivo de log não encontrado.",
+  "ov_quick_download": "Download rápido",
+  "ov_download_added_desc": "Você pode continuar navegando.\nVidra cuidará do resto."
 }

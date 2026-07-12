@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Obtendo información de descarga...",
   "s_search_config_tooltip": "Busca",
   "s_tutorial_tooltip": "Mostrar titorial",
-  "sd_log_file_not_found": "Non se atopou o ficheiro de rexistro."
+  "sd_log_file_not_found": "Non se atopou o ficheiro de rexistro.",
+  "ov_quick_download": "Descarga rápida",
+  "ov_download_added_desc": "Podes seguir navegando.\nVidra encargarase do resto."
 }

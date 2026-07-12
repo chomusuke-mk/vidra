@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Okufuna amawulire agakwata ku kuwanula...",
   "s_search_config_tooltip": "Okunoonya",
   "s_tutorial_tooltip": "Laga okuyigiriza",
-  "sd_log_file_not_found": "Fayiro ya log tezuuliddwa."
+  "sd_log_file_not_found": "Fayiro ya log tezuuliddwa.",
+  "ov_quick_download": "Okuwanula amangu",
+  "ov_download_added_desc": "Osobola okusigala ng’ogenda okulambula.\nVidra y’agenda okukwata ebisigadde."
 }

@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Ідзе загрузка інфармацыі...",
   "s_search_config_tooltip": "Пошук",
   "s_tutorial_tooltip": "Паказаць падручнік",
-  "sd_log_file_not_found": "Файл журнала не знойдзены."
+  "sd_log_file_not_found": "Файл журнала не знойдзены.",
+  "ov_quick_download": "Хуткая загрузка",
+  "ov_download_added_desc": "Вы можаце працягваць прагляд.\nЗ астатнім справіцца Vidra."
 }

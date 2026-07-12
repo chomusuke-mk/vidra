@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Descarga infota chaskispa...",
   "s_search_config_tooltip": "Maskay",
   "s_tutorial_tooltip": "Yachachiyta rikuchiy",
-  "sd_log_file_not_found": "Qillqa willañiqi mana tarisqachu."
+  "sd_log_file_not_found": "Qillqa willañiqi mana tarisqachu.",
+  "ov_quick_download": "Utqaylla uraykachiy",
+  "ov_download_added_desc": "Navegashallawaqmi.\nVidraqa puchuqnintam allichanqa."
 }

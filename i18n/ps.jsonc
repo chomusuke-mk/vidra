@@ -287,5 +287,7 @@
   "dc_getting_download_info": "د ډاونلوډ معلومات ترلاسه کول ...",
   "s_search_config_tooltip": "لټون",
   "s_tutorial_tooltip": "ښوونه وښایاست",
-  "sd_log_file_not_found": "د ننوتلو فایل ونه موندل شو."
+  "sd_log_file_not_found": "د ننوتلو فایل ونه موندل شو.",
+  "ov_quick_download": "چټک ډاونلوډ",
+  "ov_download_added_desc": "تاسو کولی شئ لټون کولو ته دوام ورکړئ.\nویډرا به پاتې برخه اداره کړي."
 }

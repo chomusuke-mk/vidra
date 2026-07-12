@@ -287,5 +287,7 @@
   "dc_getting_download_info": "Ifumana ulwazi lokhuphelo...",
   "s_search_config_tooltip": "Khangela",
   "s_tutorial_tooltip": "Bonisa isifundo",
-  "sd_log_file_not_found": "Ifayile yelog ayifunyenwanga."
+  "sd_log_file_not_found": "Ifayile yelog ayifunyenwanga.",
+  "ov_quick_download": "Ukukhuphela ngokukhawuleza",
+  "ov_download_added_desc": "Ungaqhubeka ubrawuza.\nUVidra uya kusingatha ukuphumla."
 }

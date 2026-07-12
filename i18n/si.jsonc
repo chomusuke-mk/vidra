@@ -287,5 +287,7 @@
   "dc_getting_download_info": "බාගැනීම් තොරතුරු ලබා ගනිමින්...",
   "s_search_config_tooltip": "සොයන්න",
   "s_tutorial_tooltip": "නිබන්ධනය පෙන්වන්න",
-  "sd_log_file_not_found": "ලොග් ගොනුව හමු නොවීය."
+  "sd_log_file_not_found": "ලොග් ගොනුව හමු නොවීය.",
+  "ov_quick_download": "ඉක්මන් බාගත කිරීම",
+  "ov_download_added_desc": "ඔබට දිගටම බ්‍රවුස් කළ හැක.\nවිද්‍රා ඉතිරිය හසුරුවනු ඇත."
 }
