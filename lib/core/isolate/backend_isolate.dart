@@ -44,12 +44,18 @@ void backendIsolateMain(Map<String, dynamic> config) async {
       );
     }
   }
-  try {
-    await NotificationService.keepAppAlive();
-    debugPrint('🧠 [Isolate] Keep notification iniciada correctamente.');
-  } catch (e) {
-    debugPrint('🧠 [Isolate] Posible error iniciando keep notification: $e');
+
+  void keepAlive() async {
+    if (!Platform.isAndroid) return;
+    try {
+      await NotificationService.keepAppAlive();
+      debugPrint('🧠 [Isolate] Keep notification iniciada correctamente.');
+    } catch (e) {
+      debugPrint('🧠 [Isolate] Posible error iniciando keep notification: $e');
+    }
   }
+
+  keepAlive();
 
   debugPrint('🧠 [Isolate] Iniciado correctamente en segundo plano.');
 
@@ -469,14 +475,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
       }
       NotificationService.cancel(9991);
 
-      try {
-        await NotificationService.keepAppAlive();
-        debugPrint('🧠 [Isolate] Keep notification iniciada correctamente.');
-      } catch (e) {
-        debugPrint(
-          '🧠 [Isolate] Posible error iniciando keep notification: $e',
-        );
-      }
+      keepAlive();
 
       debugPrint('🧠 [Isolate] Comprobando recursos...');
       if (!checkResources()) {

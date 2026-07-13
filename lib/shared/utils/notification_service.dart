@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:io';
@@ -114,7 +115,6 @@ class NotificationService {
       onlyAlertOnce: silence,
       ongoing: ongoing,
       color: color,
-      colorized: color != null, // Solo aplica el color si no es nulo
       largeIcon: largeIcon, // Imagen a la derecha
       subText: progressLabel, // Texto pequeño debajo del título
       // Opcional: bigPictureStyle para que la imagen se expanda si deslizan la notificación
@@ -201,11 +201,11 @@ class NotificationService {
       channelId: 'download_channel',
       channelName: 'Downloads in Progress',
       channelDescription: 'Shows the progress of active downloads',
-      importance: Importance.low, // Evita popups molestos cada 2 segundos
+      importance: Importance.high,
       priority: Priority.low,
       showProgress: true,
       progress: progress,
-      silence: true, // Magia: actualiza en silencio
+      silence: true, // Actualiza en silencio
       ongoing: true, // No se puede deslizar
       imagePath: imagePath,
       color: color,
