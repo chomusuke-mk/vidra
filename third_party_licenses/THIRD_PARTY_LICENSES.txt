@@ -29,7 +29,7 @@ Flutter application runtime (pubspec.yaml)
 - http | ^1.6.0 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/http
 - cached_network_image | ^3.4.1 | MIT | Keep the MIT notice. | third_party_licenses/cached_network_image
 - flutter_cache_manager | ^3.4.1 | MIT | Keep the MIT notice. | third_party_licenses/flutter_cache_manager
-- serious_python | ^4.3.0 | Apache-2.0 | Keep LICENSE and NOTICE for appliance bundles. | third_party_licenses/serious_python
+- serious_python | ^4.3.1 | Apache-2.0 | Keep LICENSE and NOTICE for appliance bundles. | third_party_licenses/serious_python
 - permission_handler | ^12.0.3 | MIT | Keep the MIT notice. | third_party_licenses/permission_handler
 - filesystem_picker | ^4.1.0 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/filesystem_picker
 - external_path | ^2.2.0 | MIT | Keep the MIT notice. | third_party_licenses/external_path
@@ -49,6 +49,8 @@ Flutter application runtime (pubspec.yaml)
 - flutter_slidable | ^4.0.3 | MIT | Keep the MIT notice. | third_party_licenses/flutter_slidable
 - file_picker | ^12.0.0-beta.7 | MIT | Keep the MIT notice. | third_party_licenses/file_picker
 - flutter_screen_overlay | ^1.0.6 | MIT | Keep the MIT notice. | third_party_licenses/flutter_screen_overlay
+- flutter_markdown_plus | ^1.0.12 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/flutter_markdown_plus
+- tutorial_coach_mark | ^1.3.3 | MIT | Keep the MIT notice. | third_party_licenses/tutorial_coach_mark
 
 Transitive dependencies inherit the licensing of their upstream packages. Keep the Flutter LICENSE file emitted by flutter build inside your installers to cover those components.
 
