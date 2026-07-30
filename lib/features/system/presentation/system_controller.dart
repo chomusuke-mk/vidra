@@ -137,7 +137,7 @@ class SystemController extends ChangeNotifier with WidgetsBindingObserver {
       'supportDirPath': supportDir.path,
       'tempDirPath': tempDir.path,
       'serverLogsFilePath': _serverLogsFilePath,
-      'isAndroid': Platform.isAndroid,
+      'iconBytes': await rootBundle.load('assets/icon/icon.png').then((b) => b.buffer.asUint8List()),
     }, debugName: 'VidraBackendIsolate');
     _preparePythonAsync();
   }

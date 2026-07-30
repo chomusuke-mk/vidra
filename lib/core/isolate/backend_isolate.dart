@@ -30,7 +30,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
   final String supportDirPath = config['supportDirPath'];
   final String tempDirPath = config['tempDirPath'];
   final String serverLogsFilePath = config['serverLogsFilePath'];
-  final bool isAndroid = config['isAndroid'];
+  final Uint8List iconBytes = config['iconBytes'];
 
   // 2. Inicializamos el entorno para que los canales nativos funcionen en background
   BackgroundIsolateBinaryMessenger.ensureInitialized(rootToken);
@@ -114,7 +114,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
 
   // --- Validación de Permisos (Copia adaptada del SystemController) ---
   Future<bool> checkPermissions() async {
-    if (!isAndroid) return true;
+    if (!Platform.isAndroid) return true;
     try {
       final androidInfo = await DeviceInfoPlugin().androidInfo;
       bool storageGranted = androidInfo.version.sdkInt >= 30
@@ -135,7 +135,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
 
   // --- Resolutor de Rutas de FFmpeg y QuickJS (Sin bloquear la UI) ---
   Future<String> resolveExecutable(String baseName) async {
-    if (isAndroid) {
+    if (Platform.isAndroid) {
       try {
         const platform = MethodChannel('vidra_channel');
         final nativeLibDir = await platform.invokeMethod<String>(
@@ -238,9 +238,6 @@ void backendIsolateMain(Map<String, dynamic> config) async {
             body += '\n${download.state!.subState}';
           }
           final Color? color = download.state?.progressColor?.color;
-          debugPrint(
-            "Current color: ${download.state?.progressColor?.apiValue}",
-          );
 
           final currentImagePath =
               imageCache[download.id] != null &&
@@ -441,10 +438,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
     final iconFile = File(p.join(tempDirPath, 'notification_icon.png'));
     if (!iconFile.existsSync()) {
       try {
-        final data = await rootBundle.load('assets/icon/icon.png');
-        await iconFile.writeAsBytes(
-          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
-        );
+        await iconFile.writeAsBytes(iconBytes);
       } catch (e) {
         debugPrint('🧠 [Isolate] Error cargando icono: $e');
       }

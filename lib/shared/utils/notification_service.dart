@@ -26,7 +26,7 @@ class NotificationService {
           appName: 'Vidra',
           appUserModelId: 'com.vidra.app',
           guid: '12345678-1234-5678-1234-567812345678',
-          iconPath: 'assets/icon/icon.ico',
+          iconPath: 'assets/icon/icon.png',
         );
 
     // 4. Configuración Linux

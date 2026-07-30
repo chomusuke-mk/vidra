@@ -4,6 +4,11 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---  
 
+## [2.4.0] - New Features
+
+- **New QuickJS Version:** Updated the QuickJS engine to the latest version, enhancing performance and compatibility with modern JavaScript features.
+- **New FFmpeg Version:** Upgraded the FFmpeg module to the latest version, improving media processing capabilities and support for a wider range of formats.
+
 ## [2.3.0] - New Features
 
 - **Localization System:** Implemented a new localization system that allows users to select their preferred language, enhancing accessibility and user experience across different regions.

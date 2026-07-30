@@ -51,7 +51,9 @@ jobs:
           for ABI in "arm64-v8a" "x86_64"; do
             OUT_DIR="android/app/src/main/jniLibs/$ABI"
             mkdir -p "$OUT_DIR"
-            wget -qO "$OUT_DIR/libquickjs.so" https://github.com/chomusuke-mk/vidra-quickjs/releases/latest/download/quickjs-android-${ABI}
+            wget -qO "quickjs_${ABI}.zip" https://github.com/chomusuke-mk/vidra-quickjs/releases/latest/download/quickjs-android-${ABI}.zip
+            unzip -q "quickjs_${ABI}.zip" -d "quickjs_${ABI}"
+            cp "quickjs_${ABI}/quickjs" "$OUT_DIR/libquickjs.so"
           done
 
       - name: Package Serious Python (Android)
@@ -132,8 +134,10 @@ jobs:
 
       - name: Download QuickJS (Linux)
         run: |
+          wget -qO quickjs.zip https://github.com/chomusuke-mk/vidra-quickjs/releases/latest/download/quickjs-linux-x86_64.zip
+          unzip -q quickjs.zip -d quickjs_ext
           mkdir -p linux
-          wget -qO linux/quickjs https://github.com/chomusuke-mk/vidra-quickjs/releases/latest/download/quickjs-linux-x86_64
+          cp quickjs_ext/quickjs linux/quickjs
           chmod +x linux/quickjs
 
       - name: Package Serious Python (Linux)
@@ -196,8 +200,10 @@ jobs:
 
       - name: Download QuickJS (Windows)
         run: |
+          Invoke-WebRequest -Uri "https://github.com/chomusuke-mk/vidra-quickjs/releases/latest/download/quickjs-windows-x86_64.zip" -OutFile "quickjs.zip"
+          Expand-Archive -Path "quickjs.zip" -DestinationPath "quickjs_ext" -Force
           New-Item -ItemType Directory -Force -Path "windows"
-          Invoke-WebRequest -Uri "https://github.com/chomusuke-mk/vidra-quickjs/releases/latest/download/quickjs-windows-x86_64.exe" -OutFile "windows\quickjs.exe"
+          Copy-Item "quickjs_ext\quickjs.exe" -Destination "windows\quickjs.exe"
 
       - name: Package Serious Python (Windows)
         run: |
