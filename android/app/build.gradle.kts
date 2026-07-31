@@ -57,7 +57,7 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         ndk {
-          abiFilters.addAll(listOf("arm64-v8a", "x86_64"))
+          abiFilters.addAll(listOf("arm64-v8a", "x86_64", "x86"))
         }
     }
 
@@ -65,7 +65,7 @@ android {
         abi {
             isEnable = true
             reset()
-            include("arm64-v8a", "x86_64")
+            include("arm64-v8a", "x86_64", "x86")
             // Generate both per-ABI APKs and the universal (fat) APK.
             isUniversalApk = true
         }

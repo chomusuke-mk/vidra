@@ -85,6 +85,15 @@ class NotificationService {
         FilePathAndroidBitmap(imagePath),
         hideExpandedLargeIcon: true,
       );
+    } else {
+      androidStyleInfo = BigTextStyleInformation(
+        body ?? '',
+        htmlFormatBigText: false,
+        contentTitle: null,
+        htmlFormatContentTitle: false,
+        summaryText: null,
+        htmlFormatSummaryText: false,
+      );
     }
     final AndroidNotificationDetails androidDetails =
         AndroidNotificationDetails(
