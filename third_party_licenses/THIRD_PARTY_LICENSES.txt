@@ -28,12 +28,12 @@ Flutter application runtime (pubspec.yaml)
 - provider | ^6.1.5+1 | MIT | Keep the MIT notice. | third_party_licenses/provider
 - http | ^1.6.0 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/http
 - cached_network_image | ^3.4.1 | MIT | Keep the MIT notice. | third_party_licenses/cached_network_image
-- flutter_cache_manager | ^3.4.1 | MIT | Keep the MIT notice. | third_party_licenses/flutter_cache_manager
-- serious_python | ^4.3.1 | Apache-2.0 | Keep LICENSE and NOTICE for appliance bundles. | third_party_licenses/serious_python
+- flutter_cache_manager | ^3.4.2 | MIT | Keep the MIT notice. | third_party_licenses/flutter_cache_manager
+- serious_python | ^4.5.1 | Apache-2.0 | Keep LICENSE and NOTICE for appliance bundles. | third_party_licenses/serious_python
 - permission_handler | ^12.0.3 | MIT | Keep the MIT notice. | third_party_licenses/permission_handler
 - filesystem_picker | ^4.1.0 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/filesystem_picker
 - external_path | ^2.2.0 | MIT | Keep the MIT notice. | third_party_licenses/external_path
-- flutter_local_notifications | ^22.0.1 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/flutter_local_notifications
+- flutter_local_notifications | ^22.2.0 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/flutter_local_notifications
 - jsonc | ^0.0.3 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/jsonc
 - device_info_plus | ^13.2.0 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/device_info_plus
 - path | ^1.9.1 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/path
@@ -48,14 +48,15 @@ Flutter application runtime (pubspec.yaml)
 - open_filex | ^4.7.0 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/open_filex
 - flutter_slidable | ^4.0.3 | MIT | Keep the MIT notice. | third_party_licenses/flutter_slidable
 - file_picker | ^12.0.0-beta.7 | MIT | Keep the MIT notice. | third_party_licenses/file_picker
-- flutter_screen_overlay | ^1.0.6 | MIT | Keep the MIT notice. | third_party_licenses/flutter_screen_overlay
+- flutter_screen_overlay | ^1.0.7 | MIT | Keep the MIT notice. | third_party_licenses/flutter_screen_overlay
 - flutter_markdown_plus | ^1.0.12 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/flutter_markdown_plus
 - tutorial_coach_mark | ^1.3.3 | MIT | Keep the MIT notice. | third_party_licenses/tutorial_coach_mark
 
 Transitive dependencies inherit the licensing of their upstream packages. Keep the Flutter LICENSE file emitted by flutter build inside your installers to cover those components.
 
-Native binaries (FFmpeg)
+Native binaries (FFmpeg, QuickJS)
 - vidra-ffmpeg (FFmpeg binaries) | prebuilt bundle | GPL-3.0-or-later | Built with --enable-gpl and --enable-version3; provide the corresponding source from https://github.com/chomusuke-mk/vidra-ffmpeg and ship GPLv3 notices with redistributed binaries. | third_party_licenses/vidra-ffmpeg
+- vidra-quickjs (QuickJS binaries)| prebuilt bundle | MIT | | third_party_licenses/vidra-quickjs
 
 Compliance approach
 - License texts - Every entry listed above has its upstream license stored verbatim under third_party_licenses/ (or linked when upstream distribution already includes it). Include that directory or a generated THIRD_PARTY_LICENSES.txt in every installer or distribution.
