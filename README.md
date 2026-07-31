@@ -32,12 +32,12 @@
 
 Vidra se distribuye a través de **GitHub Releases**. Cada versión incluye instaladores para diferentes plataformas.
 
-| Plataforma | Instalador                                                                          |
-| ---------- | ----------------------------------------------------------------------------------- |
-| `Windows`  | `vidra-windows.exe`                                                                 |
-| `Linux`    | `vidra-linux.AppImage` <br>`vidra-linux.deb`                                        |
-| `Android`  | `vidra-android.apk`<br> `vidra-android-arm64-v8a.apk`<br>`vidra-android-x86_64.apk` |
-| `macOS`    | Próximamente                                                                        |
+| Plataforma | Instalador                                                                                                              |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `Windows`  | `vidra-windows.exe`                                                                                                     |
+| `Linux`    | `vidra-linux.AppImage` <br>`vidra-linux.deb`                                                                            |
+| `Android`  | `vidra-android.apk`<br> `vidra-android-arm64-v8a.apk`<br>`vidra-android-x86_64.apk` <br>`vidra-android-armeabi-v7a.apk` |
+| `macOS`    | Próximamente                                                                                                            |
 
 ### Validar Firmas y Checksums
 
@@ -75,7 +75,7 @@ Coloca los archivos con los nombres **exactos** en las siguientes ubicaciones:
 | **Linux**   | `linux/ffmpeg` <br> `linux/ffprobe`                                                                       |
 | **Android** | `android/app/src/main/jniLibs/<abi>/libffmpeg.so` <br> `android/app/src/main/jniLibs/<abi>/libffprobe.so` |
 
-> - `<abi>` debe ser uno de `arm64-v8a`, o `x86_64`.
+> - `<abi>` debe ser uno de `arm64-v8a`, `x86_64`, o `armeabi-v7a`.
 
 ### Quickjs ejecutables
 
@@ -91,7 +91,7 @@ Coloca los archivos con los nombres **exactos** en las siguientes ubicaciones:
 | **Linux**   | `linux/quickjs` <br> `linux/quickjs`                                                                       |
 | **Android** | `android/app/src/main/jniLibs/<abi>/libquickjs.so` <br> `android/app/src/main/jniLibs/<abi>/libquickjs.so` |
 
-> - `<abi>` debe ser uno de `arm64-v8a`, o `x86_64`.
+> - `<abi>` debe ser uno de `arm64-v8a`, `x86_64`, o `armeabi-v7a`.
 
 ## Inicio rápido
 

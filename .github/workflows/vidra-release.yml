@@ -36,7 +36,7 @@ jobs:
 
       - name: Download FFmpeg (Android)
         run: |
-          for ABI in "arm64-v8a" "x86_64"; do
+          for ABI in "arm64-v8a" "x86_64" "armeabi-v7a"; do
             wget -qO ffmpeg_${ABI}.zip https://github.com/chomusuke-mk/vidra-ffmpeg/releases/latest/download/ffmpeg-android-${ABI}.zip
             unzip -q ffmpeg_${ABI}.zip -d ffmpeg_${ABI}
             
@@ -48,7 +48,7 @@ jobs:
 
       - name: Download QuickJS (Android)
         run: |
-          for ABI in "arm64-v8a" "x86_64"; do
+          for ABI in "arm64-v8a" "x86_64" "armeabi-v7a"; do
             OUT_DIR="android/app/src/main/jniLibs/$ABI"
             mkdir -p "$OUT_DIR"
             wget -qO "quickjs_${ABI}.zip" https://github.com/chomusuke-mk/vidra-quickjs/releases/latest/download/quickjs-android-${ABI}.zip
@@ -80,6 +80,7 @@ jobs:
           cp build/app/outputs/flutter-apk/app-release.apk vidra-android.apk
           cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk vidra-android-arm64-v8a.apk
           cp build/app/outputs/flutter-apk/app-x86_64-release.apk vidra-android-x86_64.apk
+          cp build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk vidra-android-armeabi-v7a.apk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -89,6 +90,7 @@ jobs:
             vidra-android.apk
             vidra-android-arm64-v8a.apk
             vidra-android-x86_64.apk
+            vidra-android-armeabi-v7a.apk
           retention-days: 1
 
   build-linux:
@@ -278,6 +280,7 @@ jobs:
             artifacts/vidra-android.apk
             artifacts/vidra-android-arm64-v8a.apk
             artifacts/vidra-android-x86_64.apk
+            artifacts/vidra-android-armeabi-v7a.apk
             artifacts/SHA2-256SUMS
             artifacts/SHA2-512SUMS
             artifacts/SHA2-256SUMS.sig
