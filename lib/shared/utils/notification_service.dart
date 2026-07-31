@@ -7,7 +7,7 @@ class NotificationService {
   static final FlutterLocalNotificationsPlugin _plugin =
       FlutterLocalNotificationsPlugin();
 
-  static Future<void> init() async {
+  static Future<void> init({String? iconPath}) async {
     // 1. Configuración Android
     const AndroidInitializationSettings androidSettings =
         AndroidInitializationSettings('@mipmap/ic_launcher');
@@ -21,12 +21,12 @@ class NotificationService {
         );
 
     // 3. Configuración Windows
-    const WindowsInitializationSettings windowsSettings =
+    WindowsInitializationSettings windowsSettings =
         WindowsInitializationSettings(
           appName: 'Vidra',
-          appUserModelId: 'com.vidra.app',
-          guid: '12345678-1234-5678-1234-567812345678',
-          iconPath: 'assets/icon/icon.png',
+          appUserModelId: 'dev.chomusuke.vidra',
+          guid: 'f64fa50b-b4ea-45d9-92f9-c4a54ee64213',
+          iconPath: iconPath,
         );
 
     // 4. Configuración Linux
@@ -64,66 +64,50 @@ class NotificationService {
     bool showProgress = false,
     double? progress = 0,
     String? progressLabel,
+    String? progressSpeed,
     bool silence = false,
     bool ongoing = false,
     String? imagePath,
     Color? color,
-    String? rawBody,
+    String? body,
+    String? title,
+    bool? bigPicture,
   }) {
+    imagePath = imagePath == null || imagePath.isEmpty ? null : imagePath;
     // --- ANDROID ---
     AndroidBitmap<Object>? largeIcon;
-    if (imagePath != null && imagePath.isNotEmpty) {
-      largeIcon = FilePathAndroidBitmap(
-        imagePath,
-      ); // Carga directa y ultra-rápida desde disco
+    if (imagePath != null) {
+      largeIcon = FilePathAndroidBitmap(imagePath);
     }
-
-    // Configuración del estilo multilínea para Android
     StyleInformation? androidStyleInfo;
-    if (showProgress) {
-      // BigTextStyleInformation fuerza al sistema operativo a romper las limitaciones de espacio de una sola línea
-      // permitiendo procesar caracteres de escape como '\n'.
-      androidStyleInfo = BigTextStyleInformation(
-        rawBody ?? '',
-        htmlFormatBigText: false,
-        contentTitle:
-            null, // Mantiene el título original pasado en plugin.show()
-        htmlFormatContentTitle: false,
-        summaryText:
-            null, // Evita inyectar metadatos adicionales que saturen la UI de la notificación
-        htmlFormatSummaryText: false,
-      );
-    } else if (imagePath != null) {
-      // Mantenemos tu lógica previa para las vistas de estado estáticas que se expanden a pantalla completa con la miniatura
+    if (imagePath != null && bigPicture == true) {
       androidStyleInfo = BigPictureStyleInformation(
         FilePathAndroidBitmap(imagePath),
         hideExpandedLargeIcon: true,
       );
     }
-
-    final AndroidNotificationDetails
-    androidDetails = AndroidNotificationDetails(
-      channelId,
-      channelName,
-      channelDescription: channelDescription,
-      importance: importance,
-      priority: priority,
-      showProgress: showProgress,
-      maxProgress: 1000,
-      progress: progress != null ? (progress * 1000).toInt() : 0,
-      indeterminate: showProgress && progress == null,
-      onlyAlertOnce: silence,
-      ongoing: ongoing,
-      color: color,
-      largeIcon: largeIcon, // Imagen a la derecha
-      subText: progressLabel, // Texto pequeño debajo del título
-      // Opcional: bigPictureStyle para que la imagen se expanda si deslizan la notificación
-      styleInformation: androidStyleInfo,
-    );
+    final AndroidNotificationDetails androidDetails =
+        AndroidNotificationDetails(
+          channelId,
+          channelName,
+          channelDescription: channelDescription,
+          importance: importance,
+          priority: priority,
+          showProgress: showProgress,
+          maxProgress: 1000,
+          progress: progress != null ? (progress * 1000).toInt() : 0,
+          indeterminate: showProgress && progress == null,
+          onlyAlertOnce: silence,
+          ongoing: ongoing,
+          color: color,
+          largeIcon: largeIcon,
+          subText: progressLabel,
+          styleInformation: androidStyleInfo,
+        );
 
     // --- APPLE (iOS / macOS) ---
     List<DarwinNotificationAttachment> darwinAttachments = [];
-    if (imagePath != null && imagePath.isNotEmpty) {
+    if (imagePath != null) {
       // En Apple pasamos el archivo como un adjunto local
       darwinAttachments.add(DarwinNotificationAttachment(imagePath));
     }
@@ -136,7 +120,7 @@ class NotificationService {
     );
 
     // --- LINUX ---
-    final linuxIconPath = imagePath != null && imagePath.isNotEmpty
+    final linuxIconPath = imagePath != null
         ? FilePathLinuxIcon(imagePath)
         : null;
     LinuxNotificationDetails linuxDetails = LinuxNotificationDetails(
@@ -147,12 +131,16 @@ class NotificationService {
 
     // --- WINDOWS ---
     List<WindowsImage> windowsImages = [];
-
-    // CAMBIO CLAVE 1: Sutileza en la imagen.
     // Solo inyectamos la imagen grande si NO es un progreso.
-    if (imagePath != null && imagePath.isNotEmpty && !showProgress) {
+    if (imagePath != null) {
       windowsImages.add(
-        WindowsImage(Uri.file(imagePath), altText: 'Thumbnail of the file'),
+        WindowsImage(
+          Uri.file(imagePath),
+          altText: '$title Image',
+          placement: bigPicture == true
+              ? WindowsImagePlacement.hero
+              : WindowsImagePlacement.appLogoOverride,
+        ),
       );
     }
     List<WindowsProgressBar> windowsProgressBars = [];
@@ -160,11 +148,9 @@ class NotificationService {
       windowsProgressBars.add(
         WindowsProgressBar(
           id: 'vidra_progress_bar_$notificationId',
-          status: progress == null
-              ? 'Processing...'
-              : '${(progress * 100).toStringAsFixed(0)}%',
+          status: "{progressSpeed}",
           value: progress,
-          label: progressLabel,
+          label: progressLabel ?? '',
         ),
       );
     }
@@ -172,8 +158,15 @@ class NotificationService {
         WindowsNotificationDetails(
           images: windowsImages,
           progressBars: windowsProgressBars,
-          scenario: null,
-          audio: silence ? WindowsNotificationAudio.silent() : null,
+          duration: ongoing
+              ? WindowsNotificationDuration.long
+              : WindowsNotificationDuration.short,
+          bindings: {
+            "progressSpeed": progressSpeed ?? "",
+            "body": body ?? "",
+            "title": title ?? "",
+          },
+          //audio: silence ? WindowsNotificationAudio.silent() : null,
         );
 
     // Retornamos el empaquetado cross-platform
@@ -192,10 +185,53 @@ class NotificationService {
     required String title,
     required String body,
     required double? progress,
+    String? progressSpeed,
     String? imagePath,
     String? progressLabel,
     Color? color,
   }) async {
+    imagePath = imagePath == null || imagePath.isEmpty ? null : imagePath;
+    progressLabel = progressLabel == null || progressLabel.isEmpty
+        ? null
+        : progressLabel;
+    progressSpeed = progressSpeed == null || progressSpeed.isEmpty
+        ? null
+        : progressSpeed;
+    if (Platform.isWindows) {
+      final windowsImpl = _plugin
+          .resolvePlatformSpecificImplementation<
+            FlutterLocalNotificationsWindows
+          >();
+      if (windowsImpl != null) {
+        try {
+          final progressBar = WindowsProgressBar(
+            id: 'vidra_progress_bar_$id',
+            status: "{progressSpeed}",
+            value: progress,
+            label: progressLabel ?? '',
+          );
+          final updateResultProgress = await windowsImpl.updateProgressBar(
+            notificationId: id,
+            progressBar: progressBar,
+          );
+          final updateResultBindings = await windowsImpl.updateBindings(
+            id: id,
+            bindings: {
+              "body": body,
+              "title": title,
+              "progressSpeed": progressSpeed ?? "",
+            },
+          );
+          if (updateResultProgress == NotificationUpdateResult.success &&
+              updateResultBindings == NotificationUpdateResult.success) {
+            return;
+          }
+        } catch (e) {
+          debugPrint('Error updating Windows progress notification: $e');
+        }
+      }
+    }
+
     final details = _buildPlatformDetails(
       notificationId: id,
       channelId: 'download_channel',
@@ -205,18 +241,28 @@ class NotificationService {
       priority: Priority.low,
       showProgress: true,
       progress: progress,
-      silence: true, // Actualiza en silencio
-      ongoing: true, // No se puede deslizar
+      progressSpeed: progressSpeed,
+      silence: true,
+      ongoing: true,
       imagePath: imagePath,
       color: color,
-      rawBody: body,
+      body: body,
+      title: title,
       progressLabel: progressLabel,
     );
 
-    if (!Platform.isAndroid && !Platform.isWindows) {
-      body = progressLabel != null && progressLabel.isNotEmpty
-          ? '$progressLabel\n$body'
-          : body;
+    if (!Platform.isWindows && !Platform.isAndroid) {
+      if (progressLabel != null && progressSpeed != null) {
+        body += '\n$progressLabel - $progressSpeed';
+      } else if (progressLabel != null) {
+        body += '\n$progressLabel';
+      } else if (progressSpeed != null) {
+        body += '\n$progressSpeed';
+      }
+    }
+    if (Platform.isWindows) {
+      title = "{title}";
+      body = "{body}";
     }
 
     await _plugin.show(
@@ -232,6 +278,7 @@ class NotificationService {
     required int id,
     required String title,
     required String body,
+    bool? bigPicture = false,
     Color? color,
     String? imagePath,
   }) async {
@@ -241,10 +288,10 @@ class NotificationService {
       channelName: 'Download Events',
       importance: Importance.high,
       priority: Priority.high,
-      silence: false, // Queremos que suene/vibre para avisar
+      silence: false,
       imagePath: imagePath,
       color: color,
-      rawBody: body,
+      bigPicture: bigPicture,
     );
 
     await _plugin.show(

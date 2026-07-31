@@ -3,7 +3,7 @@
 #endif
 
 [Setup]
-AppId={{8A1B20DA-0615-43AF-A7D5-87D090F2CB25}}
+AppId={{f64fa50b-b4ea-45d9-92f9-c4a54ee64213}}
 AppName=Vidra
 AppVersion={#AppVer}
 AppVerName=Vidra {#AppVer}
@@ -23,7 +23,6 @@ SetupIconFile=assets\icon\icon.ico
 WizardStyle=modern
 LicenseFile=LICENSE
 InfoBeforeFile=third_party_licenses\THIRD_PARTY_LICENSES.txt
-InfoAfterFile=CHANGELOG.md
 UninstallDisplayIcon={app}\vidra.exe
 PrivilegesRequired=lowest
 ArchitecturesAllowed=x64compatible

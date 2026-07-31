@@ -32,12 +32,25 @@ void backendIsolateMain(Map<String, dynamic> config) async {
   final String serverLogsFilePath = config['serverLogsFilePath'];
   final Uint8List iconBytes = config['iconBytes'];
 
+  // --- Obtener Ícono para Notificaciones ---
+  Future<String> getIconPath() async {
+    final iconFile = File(p.join(tempDirPath, 'notification_icon.png'));
+    if (!iconFile.existsSync()) {
+      try {
+        await iconFile.writeAsBytes(iconBytes);
+      } catch (e) {
+        debugPrint('🧠 [Isolate] Error cargando icono: $e');
+      }
+    }
+    return iconFile.path;
+  }
+
   // 2. Inicializamos el entorno para que los canales nativos funcionen en background
   BackgroundIsolateBinaryMessenger.ensureInitialized(rootToken);
   DartPluginRegistrant.ensureInitialized();
   if (!Platform.isAndroid) {
     try {
-      await NotificationService.init();
+      await NotificationService.init(iconPath: await getIconPath());
     } catch (e) {
       debugPrint(
         '🧠 [Isolate] Posible error inicializando NotificationService: $e',
@@ -233,10 +246,6 @@ void backendIsolateMain(Map<String, dynamic> config) async {
           final autor = download.info?.autor ?? 'Unknown Autor';
           final title = download.info?.title ?? 'Getting Title...';
 
-          String body = title;
-          if (download.state?.subState != null) {
-            body += '\n${download.state!.subState}';
-          }
           final Color? color = download.state?.progressColor?.color;
 
           final currentImagePath =
@@ -253,55 +262,43 @@ void backendIsolateMain(Map<String, dynamic> config) async {
               newState == DownloadStateEnum.deleting) {
             final progress = download.state?.progressValue;
             final progressLabel = download.state?.progressLabel;
+            final progressSpeed = download.state?.speed;
+            final status = download.state?.subState ?? 'Unknown Status';
             NotificationService.showProgress(
               id: notificationId,
-              title: autor,
-              body: body,
+              title: title,
+              body: "$autor • $status",
               progress: progress,
-              imagePath: currentImagePath,
               progressLabel: progressLabel,
+              imagePath: currentImagePath,
               color: color,
+              progressSpeed: progressSpeed,
             );
           } else if (oldState != newState) {
-            if (newState == DownloadStateEnum.awaitingSelection) {
+            if (newState == DownloadStateEnum.awaitingSelection ||
+                newState == DownloadStateEnum.paused) {
               NotificationService.showState(
                 id: notificationId,
-                title: autor,
-                body: '${newState?.humanReadable}\n$title',
+                title: title,
+                body: "$autor • ${newState!.humanReadable}",
                 imagePath: currentImagePath,
                 color: color,
               );
             } else if (newState == DownloadStateEnum.completed) {
               NotificationService.showState(
                 id: notificationId,
-                title: autor,
-                body: '${newState?.humanReadable}\n$title',
+                title: title,
+                body: "$autor • ${newState!.humanReadable}",
                 imagePath: currentImagePath,
+                bigPicture: true,
                 color: color,
               );
-            } else if (newState == DownloadStateEnum.failed) {
+            } else if (newState == DownloadStateEnum.failed ||
+                newState == DownloadStateEnum.completedWithErrors) {
               NotificationService.showState(
                 id: notificationId,
-                title: autor,
-                body:
-                    'Error: ${download.state?.errorMessage ?? "Unknown Error"}\n$title',
-                imagePath: currentImagePath,
-                color: color ?? Colors.red,
-              );
-            } else if (newState == DownloadStateEnum.completedWithErrors) {
-              NotificationService.showState(
-                id: notificationId,
-                title: autor,
-                body:
-                    'Completed with errors: ${download.state?.errorMessage ?? "Unknown Error"}\n$title',
-                imagePath: currentImagePath,
-                color: color ?? Colors.orange,
-              );
-            } else if (newState == DownloadStateEnum.paused) {
-              NotificationService.showState(
-                id: notificationId,
-                title: autor,
-                body: '${newState?.humanReadable}\n$title',
+                title: title,
+                body: download.state?.errorMessage ?? "Unknown Error",
                 imagePath: currentImagePath,
                 color: color,
               );
@@ -433,19 +430,6 @@ void backendIsolateMain(Map<String, dynamic> config) async {
     });
   }
 
-  // --- Obtener Ícono para Notificaciones ---
-  Future<String> getIconPath() async {
-    final iconFile = File(p.join(tempDirPath, 'notification_icon.png'));
-    if (!iconFile.existsSync()) {
-      try {
-        await iconFile.writeAsBytes(iconBytes);
-      } catch (e) {
-        debugPrint('🧠 [Isolate] Error cargando icono: $e');
-      }
-    }
-    return iconFile.path;
-  }
-
   // --- Secuencia Maestra de Arranque ---
   Future<void> initSequence() async {
     // AÑADIDO: Evitamos que dos flujos inicialicen al mismo tiempo
@@ -460,8 +444,8 @@ void backendIsolateMain(Map<String, dynamic> config) async {
         final iconPath = await getIconPath();
         NotificationService.showState(
           id: 9991,
-          title: 'Acción Requerida',
-          body: 'Faltan permisos críticos para ejecutar Vidra.',
+          title: 'Action Required',
+          body: 'Missing permissions. Open the app to grant them.',
           color: Colors.red,
           imagePath: iconPath,
         );
@@ -477,8 +461,8 @@ void backendIsolateMain(Map<String, dynamic> config) async {
         final iconPath = await getIconPath();
         NotificationService.showState(
           id: 9992,
-          title: 'Acción Requerida',
-          body: 'Faltan componentes. Abre la app para descargar.',
+          title: 'Action Required',
+          body: 'Missing resources. Open the app to download them.',
           color: Colors.red,
           imagePath: iconPath,
         );

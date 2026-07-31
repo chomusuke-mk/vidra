@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "vidra (debug mode)",
+      "name": "vidra debug",
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
@@ -13,7 +13,7 @@
       },
     },
     {
-      "name": "vidra (profile mode)",
+      "name": "vidra profile",
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
@@ -24,7 +24,7 @@
       },
     },
     {
-      "name": "vidra (release mode)",
+      "name": "vidra release",
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
