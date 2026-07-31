@@ -800,50 +800,50 @@ packages:
     dependency: "direct main"
     description:
       name: serious_python
-      sha256: "61c7a7b4e9a6dd3d3fe5578bc07c1877df03d590e2add3954e6ebbb0d87eb87a"
+      sha256: "5fbf40b2da00ec488bd7ed819baa726af7e71dbb783f1a93aa319bf4e9e78564"
       url: "https://pub.dev"
     source: hosted
-    version: "4.5.0"
+    version: "4.5.1"
   serious_python_android:
     dependency: transitive
     description:
       name: serious_python_android
-      sha256: "7ee98c4d24bc4d4f253721f5321e605543ac6224917a2962a6ae078ac67ed049"
+      sha256: "7e3a09b372dc6717d6db926fe521c8a5c4e64728c5ccd0987aad45f842b55b73"
       url: "https://pub.dev"
     source: hosted
-    version: "4.5.0"
+    version: "4.5.1"
   serious_python_darwin:
     dependency: transitive
     description:
       name: serious_python_darwin
-      sha256: "9b7076dd74527f9e22f23026d65eacc5ac3ecdc689e45c39d8e64b8c89afc6cc"
+      sha256: c016197e3c522d0d757ba6073ad19cf01e9e340195bd241b49ad935c40635149
       url: "https://pub.dev"
     source: hosted
-    version: "4.5.0"
+    version: "4.5.1"
   serious_python_linux:
     dependency: transitive
     description:
       name: serious_python_linux
-      sha256: "8f177aa84e39f1e78b090d0fd91aabaee1ae36591d3fe3aa348c9bc031b54381"
+      sha256: b78976e2ab5fa13ad53b708249f22aee3ee4a2ec5acf8bb9c990c1367086ac1c
       url: "https://pub.dev"
     source: hosted
-    version: "4.5.0"
+    version: "4.5.1"
   serious_python_platform_interface:
     dependency: transitive
     description:
       name: serious_python_platform_interface
-      sha256: a609945956e49585c029828554724162f253cb35707e401a046a625d13f9b814
+      sha256: ca1891c38b1ab0329e1cde1cd2c55c0bdc7d2396abc8c6703a618de32af51957
       url: "https://pub.dev"
     source: hosted
-    version: "4.5.0"
+    version: "4.5.1"
   serious_python_windows:
     dependency: transitive
     description:
       name: serious_python_windows
-      sha256: b1a825c6f929926d739b97c34cb69cc1365d7b7288bd1e50e289079c2d6680d4
+      sha256: "6299fb01dd737cdc249b8adca9dbf55ee4f463505c8519d571755c6f477a5122"
       url: "https://pub.dev"
     source: hosted
-    version: "4.5.0"
+    version: "4.5.1"
   shared_preferences:
     dependency: "direct main"
     description:

@@ -152,16 +152,16 @@ class _ToastWidgetState extends State<_ToastWidget>
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      // Material es vital en un Overlay para que los textos hereden el estilo por defecto
-      // y no aparezcan con subrayados amarillos
-      child: Material(
-        color: Colors.transparent,
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: SlideTransition(
-            position: _slideAnimation,
-            child: FadeTransition(
-              opacity: _fadeAnimation,
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: SlideTransition(
+          position: _slideAnimation,
+          child: FadeTransition(
+            opacity: _fadeAnimation,
+            // Material es vital en un Overlay para que los textos hereden el estilo por defecto
+            // y no aparezcan con subrayados amarillos. Se ubica aquí para no bloquear clics.
+            child: Material(
+              color: Colors.transparent,
               child: Container(
                 margin: const EdgeInsets.fromLTRB(16, 16, 16, 24),
                 padding: const EdgeInsets.symmetric(
