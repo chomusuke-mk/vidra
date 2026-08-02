@@ -4,7 +4,7 @@ description: "Manager for download videos"
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 2.5.1+31
+version: 2.5.2+32
 
 environment:
   sdk: ^3.12.2
