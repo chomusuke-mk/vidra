@@ -102,9 +102,18 @@ flutter pub get
 dart run flutter_launcher_icons # opcional, regenera los iconos
 ```
 
+### 2. Configurar entorno y dependencias del backend
+
+Vidra requiere un entorno preparado para el backend usando `serious_python`.
+Se recomienda usar los perfiles de lanzamiento de VS Code (`.vscode/launch.json`) que configuran las variables de entorno automáticamente.
+Para ejecución manual, debes configurar estas variables apuntando a los directorios generados:
+- `SERIOUS_PYTHON_SITE_PACKAGES` apuntando a `.serious_python/site-packages`
+- `SERIOUS_PYTHON_APP` apuntando a `.serious_python/app`
+
 ### Cliente de escritorio Flutter
 
 ```bash
+# Configura las variables de entorno primero o ejecuta desde VS Code:
 flutter run -d windows
 flutter run -d linux
 flutter run -d android
@@ -112,22 +121,20 @@ flutter run -d android
 
 ## Empaquetado y distribución
 
-1. Asegúrate de que el paquete backend dentro de `app/app.zip` esté actualizado:
+1. Asegúrate de que el paquete backend se prepare correctamente. En versiones actuales, ya **no** se requiere un archivo `app/app.zip` en los recursos (assets) de Flutter; en su lugar, `serious_python` prepara un entorno en el directorio temporal `.serious_python/`.
 
    ```bash
     dart run serious_python:main package app/src \
-    -r -r -r app/requirements.txt \
-    -p Windows --verbose \
-    --output app/app.zip
+    -r -r -r app/requirements/base.txt \
+    -r -r -r app/requirements/Windows.txt \
+    -p Windows --verbose
    ```
 
-   > El backend se distribuye en <https://github.com/chomusuke-mk/vidra-backend> y este repositorio solo empaqueta la interfaz Flutter junto con los binarios y dependencias que se descargan al ejecutar la aplicación.
+   > El backend se distribuye en <https://github.com/chomusuke-mk/vidra-backend>. Este comando empaqueta la lógica e instala las dependencias (por plataforma) preparándolas para que el compilador de Flutter las integre mediante las variables de entorno declaradas.
 
-2. Copia `app/app.zip` y el hash generado (`app/app.zip.hash`) en la lista de recursos de Flutter (ya declarada en `pubspec.yaml`).
+2. Compila el artefacto de destino (`flutter build windows`, `flutter build linux`, etc.).
 
-3. Compila el artefacto de destino (`flutter build windows`, `flutter build macos`, etc.).
-
-   > El repositorio incluye tareas de VS Code (`Serious Python: Empaquetar <plataforma> App`, `Compilar APK de Android (Flutter)`) que encapsulan los mismos comandos.
+   > El repositorio incluye tareas de VS Code (`Serious Python: Package App`, `Build Android APK (Flutter)`) y un flujo automatizado en `.github/workflows/vidra-release.yml` que encapsulan los comandos correctos, la inyección de variables de entorno (`SERIOUS_PYTHON_SITE_PACKAGES` y `SERIOUS_PYTHON_APP`) y el despliegue dinámico de binarios complementarios (FFmpeg y QuickJS).
 
 ## Localización y recursos
 

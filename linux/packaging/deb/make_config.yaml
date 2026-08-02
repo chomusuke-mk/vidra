@@ -23,3 +23,4 @@ categories:
   - Utility
 
 startup_notify: true
+metainfo: linux/packaging/dev.chomusuke.vidra.appdata.xml

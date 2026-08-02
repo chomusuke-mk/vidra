@@ -6,6 +6,7 @@ keywords:
   - Vidra
   - yt-dlp
   - Download
+  - Video
 
 generic_name: Video Downloader
 
@@ -17,3 +18,5 @@ startup_notify: true
 
 # You can specify shared libraries to bundle manually; keep empty by default.
 include: []
+
+metainfo: linux/packaging/dev.chomusuke.vidra.appdata.xml

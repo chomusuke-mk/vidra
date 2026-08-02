@@ -7,7 +7,7 @@ We want Vidra to remain a focused, welcoming collaboration space. The rules belo
 - **Respect** – Debate ideas, never people. Assume positive intent and keep discussions professional.
 - **Clarity** – Communicate in English, stay on topic, and provide actionable context when reporting bugs or proposing features.
 - **Inclusivity** – No harassment, hate speech, or discrimination of any kind. Accessibility feedback is always welcome.
-- **Stewardship** – Remember that Vidra is source-available, not open-source. Help newcomers understand the license and third-party requirements.
+- **Stewardship** – Remember that Vidra is open-source software under the GPLv3. Help newcomers understand the license and third-party requirements.
 
 ## Unacceptable Behavior
 

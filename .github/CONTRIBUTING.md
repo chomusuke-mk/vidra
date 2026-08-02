@@ -1,6 +1,6 @@
 # Contributing to Vidra
 
-Thanks for collaborating with **chomusuke.dev**. Vidra is source-available under the VSACL, which means contributions are welcome but redistribution is restricted. This document outlines the process for issues, pull requests, and review.
+Thanks for collaborating with **chomusuke.dev**. Vidra is open-source software under the GNU GPLv3. This document outlines the process for issues, pull requests, and review.
 
 ## Ground Rules
 
@@ -45,6 +45,6 @@ Thanks for collaborating with **chomusuke.dev**. Vidra is source-available under
 By submitting code, docs, or media you agree to the terms in [`LICENSE`](./LICENSE):
 
 - chomusuke.dev may redistribute your contribution as part of Vidra (including proprietary builds).
-- You retain copyright but grant an irrevocable license compatible with VSACL.
+- You retain copyright and license your contribution under the GNU GPLv3.
 
 Need help? Contact **<7k9mc4urn@mozmail.com>** with the subject line `Contribution Support`.
