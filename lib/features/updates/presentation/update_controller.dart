@@ -374,7 +374,7 @@ class UpdateController extends ChangeNotifier {
       if (abi.contains('x86_64')) return 'vidra-android-x86_64.apk';
       return 'vidra-android.apk';
     } else if (Platform.isLinux) {
-      return 'vidra-linux.AppImage';
+      return 'vidra-x86_64.AppImage';
     } else if (Platform.isWindows) {
       return 'vidra-windows.exe';
     } else if (Platform.isMacOS) {

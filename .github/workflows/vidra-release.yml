@@ -156,7 +156,7 @@ jobs:
           export PATH="$PATH":"$HOME/.pub-cache/bin"
           fastforge release --name linux-release --skip-clean
 
-          cp dist/vidra-linux.AppImage vidra-linux.AppImage
+          cp dist/vidra-linux.AppImage vidra-x86_64.AppImage
           cp dist/vidra-linux.deb vidra-linux.deb
 
       - name: Upload Artifacts
@@ -164,7 +164,7 @@ jobs:
         with:
           name: linux-packages
           path: |
-            vidra-linux.AppImage
+            vidra-x86_64.AppImage
             vidra-linux.deb
           retention-days: 1
 
@@ -275,7 +275,7 @@ jobs:
           body_path: CHANGELOG.md
           files: |
             artifacts/vidra-windows.exe
-            artifacts/vidra-linux.AppImage
+            artifacts/vidra-x86_64.AppImage
             artifacts/vidra-linux.deb
             artifacts/vidra-android.apk
             artifacts/vidra-android-arm64-v8a.apk

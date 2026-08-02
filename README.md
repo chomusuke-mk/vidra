@@ -35,7 +35,7 @@ Vidra se distribuye a través de **GitHub Releases**. Cada versión incluye inst
 | Plataforma | Instalador                                                                                                              |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `Windows`  | `vidra-windows.exe`                                                                                                     |
-| `Linux`    | `vidra-linux.AppImage` <br>`vidra-linux.deb`                                                                            |
+| `Linux`    | `vidra-x86_64.AppImage` <br>`vidra-linux.deb`                                                                           |
 | `Android`  | `vidra-android.apk`<br> `vidra-android-arm64-v8a.apk`<br>`vidra-android-x86_64.apk` <br>`vidra-android-armeabi-v7a.apk` |
 | `macOS`    | Próximamente                                                                                                            |
 
@@ -107,6 +107,7 @@ dart run flutter_launcher_icons # opcional, regenera los iconos
 Vidra requiere un entorno preparado para el backend usando `serious_python`.
 Se recomienda usar los perfiles de lanzamiento de VS Code (`.vscode/launch.json`) que configuran las variables de entorno automáticamente.
 Para ejecución manual, debes configurar estas variables apuntando a los directorios generados:
+
 - `SERIOUS_PYTHON_SITE_PACKAGES` apuntando a `.serious_python/site-packages`
 - `SERIOUS_PYTHON_APP` apuntando a `.serious_python/app`
 
