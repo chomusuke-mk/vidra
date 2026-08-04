@@ -164,12 +164,17 @@ jobs:
           echo "$GPG_PRIVATE_KEY" | gpg --batch --import
 
           # Create a wrapper for gpg and gpg2 to auto-supply the passphrase during AppImage and DEB signing
-          mkdir -p /tmp/gpg-wrapper
-          echo '#!/bin/bash' > /tmp/gpg-wrapper/gpg2
-          echo '/usr/bin/gpg --batch --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" "$@"' >> /tmp/gpg-wrapper/gpg2
-          chmod +x /tmp/gpg-wrapper/gpg2
-          cp /tmp/gpg-wrapper/gpg2 /tmp/gpg-wrapper/gpg
-          export PATH="/tmp/gpg-wrapper:$PATH"
+          # We must override the system binaries because GPGME (used by appimagetool) hardcodes absolute paths.
+          sudo mv /usr/bin/gpg /usr/bin/gpg-real
+          sudo mv /usr/bin/gpg2 /usr/bin/gpg2-real || true
+          
+          echo '#!/bin/bash' | sudo tee /usr/bin/gpg
+          echo '/usr/bin/gpg-real --batch --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" "$@"' | sudo tee -a /usr/bin/gpg
+          sudo chmod +x /usr/bin/gpg
+          
+          echo '#!/bin/bash' | sudo tee /usr/bin/gpg2
+          echo '/usr/bin/gpg-real --batch --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" "$@"' | sudo tee -a /usr/bin/gpg2
+          sudo chmod +x /usr/bin/gpg2
 
           dart pub global activate fastforge
           export PATH="$PATH":"$HOME/.pub-cache/bin"

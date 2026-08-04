@@ -98,6 +98,7 @@ words:
   - gboolean
   - gchar
   - GLASSMORPHISM
+  - GPGME
   - gradlew
   - GWLP
   - healthcheck
