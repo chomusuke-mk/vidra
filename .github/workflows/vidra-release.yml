@@ -427,6 +427,13 @@ jobs:
           cd apt-repo
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Enable Git LFS for large .deb files (GitHub limits standard files to 100MB)
+          # Since chomusuke.dev uses Cloudflare, Cloudflare will cache the LFS downloads and save GitHub bandwidth!
+          git lfs install
+          git lfs track "*.deb"
+          
+          git add .gitattributes
           git add .
           git commit -m "Update APT repository with new vidra release" || echo "No changes to commit"
           git push origin main
