@@ -9,7 +9,10 @@ releases:
           hooks:
             post:
               - mkdir -p dist/
-              - mv $(find $OUTPUT_DIRECTORY -name "*.AppImage") dist/vidra-linux.AppImage
+              - mv $(find $OUTPUT_DIRECTORY -name "*.AppImage") dist/vidra-x86_64.AppImage
+              - rm -f *.AppImage.zsync
+              - zsyncmake -o dist/vidra-x86_64.AppImage.zsync -u vidra-x86_64.AppImage dist/vidra-x86_64.AppImage
+
       - name: linux-deb
         package:
           platform: linux
