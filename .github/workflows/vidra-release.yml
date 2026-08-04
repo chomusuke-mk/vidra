@@ -361,3 +361,72 @@ jobs:
             artifacts/SHA2-512SUMS
             artifacts/SHA2-256SUMS.sig
             artifacts/SHA2-512SUMS.sig
+
+  publish-apt:
+    name: Publish to APT Repository
+    needs: build-linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Linux Artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: linux-packages
+          path: artifacts
+
+      - name: Checkout APT Repository
+        uses: actions/checkout@v7
+        with:
+          repository: chomusuke-mk/apt-repository
+          token: ${{ secrets.APT_REPO_TOKEN }}
+          path: apt-repo
+
+      - name: Setup reprepro and GPG
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y reprepro
+
+          # Import GPG Key
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+
+          # Export Public Key for users
+          gpg --armor --export > apt-repo/public.key
+
+          # Setup GPG wrapper to provide passphrase for reprepro automatically
+          sudo mv /usr/bin/gpg /usr/bin/gpg-real
+          echo '#!/bin/bash' | sudo tee /usr/bin/gpg
+          echo '/usr/bin/gpg-real --batch --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" "$@"' | sudo tee -a /usr/bin/gpg
+          sudo chmod +x /usr/bin/gpg
+
+      - name: Configure and Update APT Repository
+        run: |
+          cd apt-repo
+          
+          # Initialize reprepro config if missing
+          mkdir -p conf
+          if [ ! -f conf/distributions ]; then
+            KEY_ID=$(gpg --list-secret-keys --with-colons | grep "^sec" | cut -d':' -f5 | head -n 1)
+            cat <<EOF > conf/distributions
+          Origin: chomusuke-mk
+          Label: Vidra APT Repository
+          Codename: stable
+          Architectures: amd64
+          Components: main
+          Description: Official APT Repository for Vidra
+          SignWith: \$KEY_ID
+          EOF
+          fi
+
+          # Inject DEB into repository
+          reprepro -b . includedeb stable ../artifacts/vidra-linux.deb
+
+      - name: Commit and Push to APT Repository
+        run: |
+          cd apt-repo
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Update APT repository with new vidra release" || echo "No changes to commit"
+          git push origin main

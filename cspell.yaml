@@ -115,6 +115,7 @@ words:
   - ifdef
   - ifndef
   - ignoreversion
+  - includedeb
   - Inclusividad
   - Inclusivity
   - infojson
@@ -221,6 +222,7 @@ words:
   - renderizar
   - renderizará
   - renderizarse
+  - reprepro
   - Reseteamos
   - Resolutor
   - RUNPATH
