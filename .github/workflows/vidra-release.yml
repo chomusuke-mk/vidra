@@ -415,7 +415,7 @@ jobs:
           Architectures: amd64
           Components: main
           Description: Official APT Repository for Vidra
-          SignWith: \$KEY_ID
+          SignWith: $KEY_ID
           EOF
           fi
 
