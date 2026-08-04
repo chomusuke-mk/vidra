@@ -7,12 +7,16 @@ keywords:
   - yt-dlp
   - Download
   - Video
+  - Media
+  - Manager
+  - Flutter
 
-generic_name: Video Downloader
+generic_name: Advanced Video Download Manager
 
 categories:
   - Network
   - Utility
+  - AudioVideo
 
 startup_notify: true
 

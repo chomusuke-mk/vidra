@@ -267,12 +267,57 @@ jobs:
           gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" --detach-sign --output SHA2-256SUMS.sig SHA2-256SUMS
           gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" --detach-sign --output SHA2-512SUMS.sig SHA2-512SUMS
 
+      - name: Generate Release Notes
+        working-directory: artifacts
+        env:
+          VERSION: ${{ steps.get_version.outputs.version }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BACKEND_TAG=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" https://api.github.com/repos/chomusuke-mk/vidra-backend/releases/latest | jq -r .tag_name)
+          FFMPEG_TAG=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" https://api.github.com/repos/chomusuke-mk/vidra-ffmpeg/releases/latest | jq -r .tag_name)
+          QUICKJS_TAG=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" https://api.github.com/repos/chomusuke-mk/vidra-quickjs/releases/latest | jq -r .tag_name)
+
+
+          cat <<EOF > RELEASE_NOTES.md
+          # Vidra v${VERSION}
+
+          Vidra is an advanced video download manager for desktop and mobile devices. It combines a modern Flutter user interface with a powerful Python backend (\`yt-dlp\`), integrated seamlessly as a background process.
+
+          ## 📥 Published Executables
+          The following binaries are provided for this release. Download the appropriate file for your platform from the assets below.
+
+          | Platform | Installer                                                                                                           |
+          | -------- | ------------------------------------------------------------------------------------------------------------------- |
+          | Windows  | vidra-windows.exe                                                                                                   |
+          | Linux    | vidra-x86_64.AppImage <br> vidra-linux.deb                                                                          |
+          | Android  | vidra-android.apk <br> vidra-android-arm64-v8a.apk <br> vidra-android-x86_64.apk <br> vidra-android-armeabi-v7a.apk |
+
+          ## 📌 Backend and Native Dependencies
+          This release was dynamically built using the following versions of external dependencies:
+
+          | Component           | Version            | Release Link                                                                              |
+          | ------------------- | ------------------ | ----------------------------------------------------------------------------------------- |
+          | **Vidra Backend**   | \`${BACKEND_TAG}\` | [View Release](https://github.com/chomusuke-mk/vidra-backend/releases/tag/${BACKEND_TAG}) |
+          | **Vidra FFmpeg**    | \`${FFMPEG_TAG}\`  | [View Release](https://github.com/chomusuke-mk/vidra-ffmpeg/releases/tag/${FFMPEG_TAG})   |
+          | **Vidra QuickJS**   | \`${QUICKJS_TAG}\` | [View Release](https://github.com/chomusuke-mk/vidra-quickjs/releases/tag/${QUICKJS_TAG}) |
+
+          ## 🎯 Changelog
+          You can view the full history of changes for this release in the [CHANGELOG.md](https://github.com/chomusuke-mk/vidra/blob/${VERSION}/CHANGELOG.md) file of this repository.
+
+          ## 🔒 SHA2-256 Checksums
+          To verify the integrity of your download, you can use the following SHA2-256 checksums:
+
+          \`\`\`text
+          $(cat SHA2-256SUMS)
+          \`\`\`
+          EOF
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ steps.get_version.outputs.version }}
           name: "Vidra v${{ steps.get_version.outputs.version }}"
-          body_path: CHANGELOG.md
+          body_path: artifacts/RELEASE_NOTES.md
           files: |
             artifacts/vidra-windows.exe
             artifacts/vidra-x86_64.AppImage

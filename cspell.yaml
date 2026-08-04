@@ -22,16 +22,19 @@ words:
   - APSTUDIO
   - armeabi
   - Ascii
+  - asincrónicamente
   - assetcatalog
   - autocompletado
   - Autolayout
   - autorecalculates
   - AUTORELEASING
   - autoresizing
+  - banear
   - baneos
   - bestaudio
   - bestvideo
   - BITCODE
+  - bugtracker
   - Buildables
   - buildlog
   - cfbundle
@@ -41,6 +44,7 @@ words:
   - chomusuke
   - Cleartext
   - COINIT
+  - configúralo
   - crashea
   - crashee
   - crasheos
@@ -51,6 +55,7 @@ words:
   - dblite
   - decrementa
   - decrementar
+  - definirlas
   - deno
   - descomprimiéndolo
   - DESERIALIZACIÓN
@@ -68,11 +73,13 @@ words:
   - dwmapi
   - DWMCOLORIZATIONCOLORCHANGED
   - DWMWA
+  - elimínalo
   - embedsubtitle
   - embedthumbnail
   - endforeach
   - endfunction
   - Endonyms
+  - Enrutador
   - ENRUTADOR
   - extractaudio
   - fastforge
@@ -107,11 +114,14 @@ words:
   - ifdef
   - ifndef
   - ignoreversion
+  - Inclusividad
   - Inclusivity
   - infojson
   - INFOPLIST
   - Inno
+  - instanciado
   - Instantitation
+  - Intercepción
   - ipad
   - iphone
   - iphoneos
@@ -142,6 +152,7 @@ words:
   - LRESULT
   - LSTATUS
   - lzma
+  - márcalo
   - mensajito
   - metainfo
   - Metaspace
@@ -168,6 +179,7 @@ words:
   - Onone
   - openpgp
   - ORGANIZATIONNAME
+  - orquestador
   - OVERLAPPEDWINDOW
   - parallelizable
   - Parseamos
@@ -181,8 +193,11 @@ words:
   - pkcs
   - podspec
   - precargando
+  - precompiladas
+  - precompilados
   - prefs
   - prgname
+  - procesable
   - PRODUCTVERSION
   - proguard
   - pubspec

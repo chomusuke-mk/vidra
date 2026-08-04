@@ -6,21 +6,31 @@ maintainer:
   email: 7k9mc4urn@mozmail.com
 
 priority: optional
-section: x11
+section: net
 installed_size: 250000
 essential: false
 icon: assets/icon/icon.png
+
+description: |
+  Vidra is an advanced video and task manager for the Linux desktop.
+  It combines a modern Flutter user interface with a robust Python backend 
+  powered by yt-dlp, FFmpeg, and QuickJS to seamlessly download and process media.
 
 keywords:
   - Vidra
   - yt-dlp
   - Download
+  - Video
+  - Media
+  - Manager
+  - Flutter
 
-generic_name: Video Downloader
+generic_name: Advanced Video Download Manager
 
 categories:
   - Network
   - Utility
+  - AudioVideo
 
 startup_notify: true
 metainfo: linux/packaging/dev.chomusuke.vidra.appdata.xml

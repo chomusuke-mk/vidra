@@ -1,24 +1,24 @@
-# Vidra Community Code of Conduct
+# Código de Conducta de la Comunidad Vidra
 
-We want Vidra to remain a focused, welcoming collaboration space. The rules below apply to every interaction related to the project—issues, pull requests, discussions, chats, and live events hosted by chomusuke.dev.
+Queremos que Vidra siga siendo un espacio de colaboración centrado y acogedor. Las siguientes reglas se aplican a todas las interacciones relacionadas con el proyecto: issues (problemas), pull requests, debates, chats y eventos organizados por chomusuke.dev.
 
-## Core Principles
+## Principios Fundamentales
 
-- **Respect** – Debate ideas, never people. Assume positive intent and keep discussions professional.
-- **Clarity** – Communicate in English, stay on topic, and provide actionable context when reporting bugs or proposing features.
-- **Inclusivity** – No harassment, hate speech, or discrimination of any kind. Accessibility feedback is always welcome.
-- **Stewardship** – Remember that Vidra is open-source software under the GPLv3. Help newcomers understand the license and third-party requirements.
+- **Respeto:** Debate sobre ideas, no sobre personas. Asume buenas intenciones y mantén las discusiones profesionales.
+- **Claridad:** Comunícate en español (o inglés si es estrictamente necesario), mantente en el tema y proporciona contexto procesable al reportar errores o proponer funcionalidades.
+- **Inclusividad:** Cero tolerancia al acoso, discursos de odio o discriminación de cualquier tipo. Las sugerencias de accesibilidad siempre son bienvenidas.
+- **Responsabilidad (Stewardship):** Recuerda que Vidra es software de código abierto bajo la licencia GPLv3. Ayuda a los recién llegados a comprender la licencia y los requisitos de terceros.
 
-## Unacceptable Behavior
+## Comportamiento Inaceptable
 
-- Threats, sexualized language or imagery, doxxing, or sustained disruption of threads.
-- Sharing confidential or security-sensitive information outside the channels designated by chomusuke.dev.
-- Advertising unrelated products, spamming automated content, or encouraging unauthorized forks/distribution of Vidra.
+- Amenazas, lenguaje o imágenes sexualizadas, doxxing o interrupción sostenida de hilos de discusión.
+- Compartir información confidencial o sensible a la seguridad fuera de los canales designados por chomusuke.dev.
+- Anunciar productos no relacionados, generar spam automatizado o fomentar bifurcaciones (forks)/distribuciones no autorizadas de Vidra.
 
-## Reporting & Enforcement
+## Reportes y Cumplimiento
 
-- If you witness or experience a violation, email **<7k9mc4urn@mozmail.com>** with as much detail as possible (links, screenshots, timestamps).
-- chomusuke.dev may remove content, mute participants, temporarily suspend access, or permanently ban accounts that disregard this code.
-- Appeals can be submitted to the same email with the subject line `Conduct Appeal`.
+- Si eres testigo o experimentas una violación de este código, envía un correo a **<7k9mc4urn@mozmail.com>** con la mayor cantidad de detalles posible (enlaces, capturas de pantalla, fechas y horas).
+- chomusuke.dev se reserva el derecho de eliminar contenido, silenciar participantes, suspender temporalmente el acceso o banear permanentemente a cuentas que ignoren este código de conducta.
+- Las apelaciones pueden ser enviadas al mismo correo electrónico con el asunto `Apelación de Conducta` (Conduct Appeal).
 
-Thanks for helping us maintain a productive, modern collaboration environment.
+Gracias por ayudarnos a mantener un entorno de colaboración moderno y productivo.

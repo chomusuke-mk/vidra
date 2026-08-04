@@ -1,27 +1,27 @@
-# Security Policy
+# Política de Seguridad
 
-We appreciate responsible disclosures that keep Vidra safe for everyone.
+Agradecemos las divulgaciones responsables que ayudan a mantener Vidra seguro para todos.
 
-## How to Report a Vulnerability
+## Cómo Reportar una Vulnerabilidad
 
-- **Do not** open a public issue for security problems.
-- Email **<7k9mc4urn@mozmail.com>** with the subject line `Security Report`.
-- Include:
-  - A clear description of the vulnerability and potential impact
-  - Steps to reproduce (commands, logs, screenshots)
-  - Any temporary mitigations you discovered
-- Please allow 7–10 business days for an initial response. If the issue is critical, mark it as `URGENT` in the subject line.
+- **No abras** un issue público para reportar problemas de seguridad.
+- Envía un correo electrónico a **<7k9mc4urn@mozmail.com>** con el asunto `Reporte de Seguridad` (Security Report).
+- Por favor, incluye:
+  - Una descripción clara de la vulnerabilidad y su impacto potencial.
+  - Pasos para reproducirla (comandos, logs, capturas de pantalla).
+  - Cualquier mitigación temporal que hayas descubierto.
+- Por favor permite un plazo de 7 a 10 días hábiles para recibir una respuesta inicial. Si el problema es crítico, márcalo como `URGENTE` en la línea de asunto.
 
-## Scope
+## Alcance
 
-- All code, assets, and tooling in this repository
-- Official Vidra builds distributed by chomusuke.dev
-- Third-party dependencies only insofar as Vidra’s integration exposes additional risk
+- Todo el código, recursos multimedia (assets) y herramientas en este repositorio.
+- Compilaciones oficiales de Vidra distribuidas por chomusuke.dev.
+- Las dependencias de terceros están cubiertas solo en la medida en que la integración de Vidra exponga un riesgo adicional o inusual.
 
-## Guidelines
+## Directrices
 
-- Do not run destructive tests against production services owned by others.
-- Avoid accessing user data; if unavoidable, explain what was accessed and delete it securely.
-- Keep vulnerability details confidential until a fix is released or chomusuke.dev provides written approval.
+- No ejecutes pruebas destructivas contra servicios de producción propiedad de terceros.
+- Evita acceder a datos de usuarios; si es inevitable, explica qué se accedió y elimínalo de forma segura de inmediato.
+- Mantén los detalles de la vulnerabilidad confidenciales hasta que se lance una corrección o hasta que chomusuke.dev te proporcione aprobación por escrito.
 
-Thanks for helping us maintain a modern, secure collaboration space.
+Gracias por ayudarnos a mantener un espacio de colaboración moderno y seguro.
