@@ -362,78 +362,15 @@ jobs:
             artifacts/SHA2-256SUMS.sig
             artifacts/SHA2-512SUMS.sig
 
-  publish-apt:
-    name: Publish to APT Repository
-    needs: build-linux
+  trigger-apt-update:
+    name: Trigger APT Repository Update
+    needs: publish-release
     runs-on: ubuntu-latest
     steps:
-      - name: Download Linux Artifacts
-        uses: actions/download-artifact@v8
-        with:
-          name: linux-packages
-          path: artifacts
-
-      - name: Checkout APT Repository
-        uses: actions/checkout@v7
-        with:
-          repository: chomusuke-mk/apt-repository
-          token: ${{ secrets.APT_REPO_TOKEN }}
-          path: apt-repo
-
-      - name: Setup reprepro and GPG
-        env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+      - name: Trigger APT Repository GitHub Action
         run: |
-          sudo apt-get update
-          sudo apt-get install -y reprepro
-
-          # Import GPG Key
-          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
-
-          # Export Public Key for users
-          gpg --armor --export > apt-repo/public.key
-
-      - name: Configure and Update APT Repository
-        env:
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-        run: |
-          cd apt-repo
-          
-          # Initialize reprepro config if missing
-          mkdir -p conf
-          if [ ! -f conf/distributions ]; then
-            cat <<EOF > conf/distributions
-          Origin: chomusuke-mk
-          Label: Vidra APT Repository
-          Codename: stable
-          Architectures: amd64
-          Components: main
-          Description: Official APT Repository for Vidra
-          EOF
-          fi
-
-          # Inject DEB into repository (without automatic signing to bypass GPGME issues)
-          reprepro -b . includedeb stable ../artifacts/vidra-linux.deb
-
-          # Manually sign the Release files using the GPG CLI (avoids GPGME tty/passphrase bugs)
-          cd dists/stable
-          rm -f InRelease Release.gpg
-          gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" --clearsign -o InRelease Release
-          gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" -abs -o Release.gpg Release
-          cd ../..
-
-      - name: Commit and Push to APT Repository
-        run: |
-          cd apt-repo
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Enable Git LFS for large .deb files (GitHub limits standard files to 100MB)
-          # Since chomusuke.dev uses Cloudflare, Cloudflare will cache the LFS downloads and save GitHub bandwidth!
-          git lfs install
-          git lfs track "*.deb"
-          
-          git add .gitattributes
-          git add .
-          git commit -m "Update APT repository with new vidra release" || echo "No changes to commit"
-          git push origin main
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.APT_REPO_TOKEN }}" \
+            https://api.github.com/repos/chomusuke-mk/apt-repository/dispatches \
+            -d '{"event_type": "update-apt"}'
