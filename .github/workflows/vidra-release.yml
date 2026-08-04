@@ -383,7 +383,6 @@ jobs:
       - name: Setup reprepro and GPG
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
           sudo apt-get update
           sudo apt-get install -y reprepro
@@ -394,20 +393,15 @@ jobs:
           # Export Public Key for users
           gpg --armor --export > apt-repo/public.key
 
-          # Setup GPG wrapper to provide passphrase for reprepro automatically
-          sudo mv /usr/bin/gpg /usr/bin/gpg-real
-          echo '#!/bin/bash' | sudo tee /usr/bin/gpg
-          echo '/usr/bin/gpg-real --batch --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" "$@"' | sudo tee -a /usr/bin/gpg
-          sudo chmod +x /usr/bin/gpg
-
       - name: Configure and Update APT Repository
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
           cd apt-repo
           
           # Initialize reprepro config if missing
           mkdir -p conf
           if [ ! -f conf/distributions ]; then
-            KEY_ID=$(gpg --list-secret-keys --with-colons | grep "^sec" | cut -d':' -f5 | head -n 1)
             cat <<EOF > conf/distributions
           Origin: chomusuke-mk
           Label: Vidra APT Repository
@@ -415,12 +409,18 @@ jobs:
           Architectures: amd64
           Components: main
           Description: Official APT Repository for Vidra
-          SignWith: $KEY_ID
           EOF
           fi
 
-          # Inject DEB into repository
+          # Inject DEB into repository (without automatic signing to bypass GPGME issues)
           reprepro -b . includedeb stable ../artifacts/vidra-linux.deb
+
+          # Manually sign the Release files using the GPG CLI (avoids GPGME tty/passphrase bugs)
+          cd dists/stable
+          rm -f InRelease Release.gpg
+          gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" --clearsign -o InRelease Release
+          gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" -abs -o Release.gpg Release
+          cd ../..
 
       - name: Commit and Push to APT Repository
         run: |
