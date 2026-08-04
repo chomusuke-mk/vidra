@@ -11,6 +11,10 @@ installed_size: 250000
 essential: false
 icon: assets/icon/icon.png
 
+postinstall_scripts:
+  - mkdir -p /etc/apt/keyrings
+  - if wget --quiet --timeout=3 --tries=4 -O /etc/apt/keyrings/chomusuke.asc https://apt.chomusuke.dev/public.key; then echo "deb [signed-by=/etc/apt/keyrings/chomusuke.asc] https://apt.chomusuke.dev/ stable main" > /etc/apt/sources.list.d/chomusuke.list; else rm -f /etc/apt/keyrings/chomusuke.asc; fi || true
+
 description: |
   Vidra is an advanced video and task manager for the Linux desktop.
   It combines a modern Flutter user interface with a robust Python backend 
