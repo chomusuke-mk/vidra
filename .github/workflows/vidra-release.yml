@@ -103,13 +103,13 @@ jobs:
       - name: Install System Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev rpm rpm-common fuse libfuse2 locate dpkg zsync
+          sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev rpm rpm-common fuse libfuse2 locate dpkg zsync dpkg-sig
           wget -O appimagetool-real "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage"
           chmod +x appimagetool-real
           sudo mv appimagetool-real /usr/local/bin/
           echo '#!/bin/bash' > appimagetool
           echo 'UPDATE_INFO="gh-releases-zsync|chomusuke-mk|vidra|latest|vidra-x86_64.AppImage.zsync"' >> appimagetool
-          echo '/usr/local/bin/appimagetool-real -u "$UPDATE_INFO" "$@"' >> appimagetool
+          echo '/usr/local/bin/appimagetool-real --sign -u "$UPDATE_INFO" "$@"' >> appimagetool
           chmod +x appimagetool
           sudo mv appimagetool /usr/local/bin/
 
@@ -156,7 +156,21 @@ jobs:
         run: flutter build linux --release
 
       - name: Create AppImage and DEB
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
+          # Import GPG key
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+
+          # Create a wrapper for gpg and gpg2 to auto-supply the passphrase during AppImage and DEB signing
+          mkdir -p /tmp/gpg-wrapper
+          echo '#!/bin/bash' > /tmp/gpg-wrapper/gpg2
+          echo '/usr/bin/gpg --batch --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" "$@"' >> /tmp/gpg-wrapper/gpg2
+          chmod +x /tmp/gpg-wrapper/gpg2
+          cp /tmp/gpg-wrapper/gpg2 /tmp/gpg-wrapper/gpg
+          export PATH="/tmp/gpg-wrapper:$PATH"
+
           dart pub global activate fastforge
           export PATH="$PATH":"$HOME/.pub-cache/bin"
           fastforge release --name linux-release --skip-clean
@@ -164,6 +178,10 @@ jobs:
           cp dist/vidra-x86_64.AppImage vidra-x86_64.AppImage
           cp dist/vidra-x86_64.AppImage.zsync vidra-x86_64.AppImage.zsync
           cp dist/vidra-linux.deb vidra-linux.deb
+
+          # Sign the DEB package using the explicitly extracted GPG key ID
+          KEY_ID=$(gpg --list-secret-keys --with-colons | grep "^sec" | cut -d':' -f5 | head -n 1)
+          dpkg-sig -k "$KEY_ID" -s builder vidra-linux.deb
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
