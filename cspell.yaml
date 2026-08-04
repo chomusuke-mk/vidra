@@ -133,6 +133,7 @@ words:
   - jetbrains
   - jvmargs
   - kasem
+  - keyrings
   - klass
   - kotlin
   - launchable
@@ -260,6 +261,7 @@ words:
   - TEXTINCLUDE
   - thumbnailconvertor
   - thumbnailsconvertor
+  - timeframe
   - tipado
   - TIPADO
   - tldextract

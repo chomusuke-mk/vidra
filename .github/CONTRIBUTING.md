@@ -1,52 +1,52 @@
-# Contribuir a Vidra
+# Contributing to Vidra
 
-Gracias por colaborar con **chomusuke.dev**. Vidra es software de código abierto distribuido bajo la licencia GNU GPLv3. Este documento describe el proceso para gestionar issues, pull requests y revisiones.
+Thank you for collaborating with **chomusuke.dev**. Vidra is open-source software distributed under the GNU GPLv3 license. This document outlines the process for managing issues, pull requests, and reviews.
 
-## Reglas Básicas
+## Basic Rules
 
-- Respeta el [Código de Conducta](./CODE_OF_CONDUCT.md) en todo momento.
-- No publiques bifurcaciones (forks) públicas si tienen información sensible. Si tus herramientas requieren un fork para abrir un pull request, configúralo como **privado** y elimínalo una vez que el PR sea fusionado o cerrado.
-- Nunca hagas commit de secretos, datos de producción o recursos de proveedores que no te pertenezcan.
+- Respect the [Code of Conduct](./CODE_OF_CONDUCT.md) at all times.
+- Do not publish public forks if they contain sensitive information. If your tools require a fork to open a pull request, configure it as **private** and delete it once the PR is merged or closed.
+- Never commit secrets, production data, or third-party resources that do not belong to you.
 
-## Reportar Problemas (Issues)
+## Reporting Issues
 
-1. Busca en los issues existentes para evitar duplicados.
-2. Al abrir un nuevo issue, incluye:
-   - Comportamiento esperado vs. comportamiento actual.
-   - Pasos para reproducirlo (comandos, logs, capturas de pantalla).
-   - Información de la plataforma (Sistema Operativo, versión de Flutter, versión de Python).
-3. Para inquietudes de seguridad o licencias, **no abras** un issue público: utiliza el proceso descrito en [SECURITY.md](./SECURITY.md).
+1. Search existing issues to avoid duplicates.
+2. When opening a new issue, include:
+   - Expected behavior vs. actual behavior.
+   - Steps to reproduce it (commands, logs, screenshots).
+   - Platform information (Operating System, Flutter version, Python version).
+3. For security or licensing concerns, **do not open** a public issue: use the process described in [SECURITY.md](./SECURITY.md).
 
-## Enviar Pull Requests
+## Submitting Pull Requests
 
-1. Crea una rama de características (feature branch) localmente (o un fork privado si es absolutamente necesario).
-2. Mantén los cambios enfocados; separa correcciones no relacionadas en PRs distintos.
-3. Ejecuta los linters y pruebas relevantes (`flutter test`) antes de enviar tu código.
-4. Completa la plantilla del PR con:
-   - Declaración del problema.
-   - Solución propuesta y sus compromisos (trade-offs).
-   - Pruebas o pasos de verificación realizados.
-5. Responde a los comentarios de revisión dentro de un plazo de 7 días. Los PRs inactivos podrán ser cerrados.
+1. Create a feature branch locally (or a private fork if absolutely necessary).
+2. Keep changes focused; separate unrelated fixes into distinct PRs.
+3. Run linters and relevant tests (`flutter test`) before submitting your code.
+4. Complete the PR template with:
+   - Problem statement.
+   - Proposed solution and its trade-offs.
+   - Tests or verification steps performed.
+5. Respond to review comments within 7 days. Inactive PRs may be closed.
 
-### Formato y Estilo del Parche
+### Formatting and Patch Style
 
-- Sigue el estilo de código existente (formato Dart estándar para la UI, Black/ruff para Python en el backend).
-- Documenta las decisiones no obvias con comentarios concisos.
-- Actualiza la documentación o la configuración cuando el comportamiento de la aplicación cambie.
+- Follow the existing code style (standard Dart formatting for UI, Black/ruff for Python in the backend).
+- Document non-obvious decisions with concise comments.
+- Update documentation or configuration when the application behavior changes.
 
-### Referencias de Arquitectura y Documentación
+### Architecture and Documentation References
 
-Para entender cómo está estructurado Vidra, por favor lee los siguientes documentos:
+To understand how Vidra is structured, please read the following documents:
 
-- **Arquitectura del Sistema:** [`docs/system-architecture.md`](../docs/system-architecture.md) – Vista general del cliente Flutter, el backend integrado (`serious_python`) y la gestión de procesos nativos.
-- **Flujos del Cliente:** [`docs/client-flows.md`](../docs/client-flows.md) – Detalles sobre el ciclo de vida de la UI, interacciones con el backend y el sistema de Overlay.
-- **Guía de Desarrollo y Empaquetado:** [`docs/development-guide.md`](../docs/development-guide.md) – Prácticas operativas, flujos de empaquetado CI/CD, resolución de problemas y estrategias de prueba.
+- **System Architecture:** [`docs/system-architecture.md`](../docs/system-architecture.md) – Overview of the Flutter client, integrated backend (`serious_python`), and native process management.
+- **Client Flows:** [`docs/client-flows.md`](../docs/client-flows.md) – Details about the UI lifecycle, backend interactions, and the Overlay system.
+- **Development and Packaging Guide:** [`docs/development-guide.md`](../docs/development-guide.md) – Operational practices, CI/CD packaging flows, troubleshooting, and testing strategies.
 
-## Aviso de Licencia para Contribuyentes
+## License Notice for Contributors
 
-Al enviar código, documentación o recursos multimedia, aceptas los términos estipulados en el archivo [`LICENSE`](../LICENSE):
+By submitting code, documentation, or media resources, you agree to the terms outlined in the [`LICENSE`](../LICENSE) file:
 
-- chomusuke.dev puede redistribuir tu contribución como parte de Vidra (incluidas compilaciones propietarias autorizadas).
-- Tú retienes los derechos de autor (copyright) y licencias tu contribución bajo la GNU GPLv3.
+- chomusuke.dev may redistribute your contribution as part of Vidra (including authorized proprietary builds).
+- You retain the copyright and license your contribution under the GNU GPLv3.
 
-¿Necesitas ayuda? Contacta a **<7k9mc4urn@mozmail.com>** con el asunto `Soporte para Contribución` (Contribution Support).
+Need help? Contact **<7k9mc4urn@mozmail.com>** with the subject `Contribution Support`.
