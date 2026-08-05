@@ -44,6 +44,9 @@ parts:
     plugin: flutter
     source: .
     flutter-target: lib/main.dart
+    build-environment:
+      - SERIOUS_PYTHON_SITE_PACKAGES: $CRAFT_PART_SRC/.serious_python/site-packages
+      - SERIOUS_PYTHON_APP: $CRAFT_PART_SRC/.serious_python/app
     stage-packages:
       - libnuma1
     override-build: |
