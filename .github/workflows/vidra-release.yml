@@ -266,6 +266,45 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v7
 
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+
+      - name: Setup Environment Variables
+        run: |
+          mkdir -p .serious_python/site-packages .serious_python/app
+          echo "SERIOUS_PYTHON_SITE_PACKAGES=${GITHUB_WORKSPACE}/.serious_python/site-packages" >> $GITHUB_ENV
+          echo "SERIOUS_PYTHON_APP=${GITHUB_WORKSPACE}/.serious_python/app" >> $GITHUB_ENV
+
+      - name: Download & Extract Backend
+        run: |
+          wget -qO backend.zip https://github.com/chomusuke-mk/vidra-backend/releases/latest/download/app.zip
+          mkdir -p app/src
+          unzip -q backend.zip -d app/src
+
+      - name: Download FFmpeg (Linux)
+        run: |
+          wget -qO ffmpeg.zip https://github.com/chomusuke-mk/vidra-ffmpeg/releases/latest/download/ffmpeg-linux-x86_64.zip
+          unzip -q ffmpeg.zip -d ffmpeg_ext
+          mkdir -p linux
+          cp ffmpeg_ext/ffmpeg linux/ffmpeg
+          cp ffmpeg_ext/ffprobe linux/ffprobe
+          chmod +x linux/ffmpeg linux/ffprobe
+
+      - name: Download QuickJS (Linux)
+        run: |
+          wget -qO quickjs.zip https://github.com/chomusuke-mk/vidra-quickjs/releases/latest/download/quickjs-linux-x86_64.zip
+          unzip -q quickjs.zip -d quickjs_ext
+          mkdir -p linux
+          cp quickjs_ext/quickjs linux/quickjs
+          chmod +x linux/quickjs
+
+      - name: Package Serious Python (Linux)
+        run: |
+          flutter pub get
+          dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Linux.txt -p Linux --verbose
+
       - name: Build Snap
         uses: snapcore/action-build@v1
         id: build
