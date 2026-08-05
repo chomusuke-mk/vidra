@@ -1,10 +1,17 @@
 name: vidra
+title: Vidra
 adopt-info: vidra
 summary: Desktop-grade video download manager
 description: |
   Vidra is an advanced video download manager for desktop and mobile devices. 
   It combines a modern Flutter user interface with a powerful Python backend 
   (yt-dlp), integrated seamlessly as a background process.
+
+contact: https://github.com/chomusuke-mk/vidra/issues
+license: GPL-3.0-or-later
+issues: https://github.com/chomusuke-mk/vidra/issues
+source-code: https://github.com/chomusuke-mk/vidra
+website: https://github.com/chomusuke-mk/vidra
 
 grade: stable
 confinement: strict
@@ -30,10 +37,12 @@ parts:
     plugin: flutter
     source: .
     flutter-target: lib/main.dart
+    stage-packages:
+      - libnuma1
     override-build: |
       # 0. Set dynamic version from pubspec.yaml
       VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //' | cut -d'+' -f1 | xargs)
-      snapcraftctl set-version "$VERSION"
+      craftctl set version="$VERSION"
 
       # Build the Flutter app
-      snapcraftctl build
+      craftctl default

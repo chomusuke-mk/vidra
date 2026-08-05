@@ -46,6 +46,7 @@ words:
   - Cleartext
   - COINIT
   - configúralo
+  - craftctl
   - crashea
   - crashee
   - crasheos
@@ -74,6 +75,7 @@ words:
   - dwmapi
   - DWMCOLORIZATIONCOLORCHANGED
   - DWMWA
+  - dynload
   - elimínalo
   - embedsubtitle
   - embedthumbnail
@@ -139,9 +141,11 @@ words:
   - launchable
   - libapp
   - libc
+  - libdart
   - libffprobe
   - libflutter
   - libfuse
+  - libnuma
   - libpython
   - libquickjs
   - lida
@@ -268,6 +272,7 @@ words:
   - timeframe
   - tipado
   - TIPADO
+  - tkinter
   - tldextract
   - tmpfilename
   - twofactor
