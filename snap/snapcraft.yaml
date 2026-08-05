@@ -1,5 +1,5 @@
 name: vidra
-version: '2.5.6' # Version can be updated automatically or read dynamically
+adopt-info: vidra
 summary: Desktop-grade video download manager
 description: |
   Vidra is an advanced video download manager for desktop and mobile devices. 
@@ -34,6 +34,10 @@ parts:
       - wget
       - unzip
     override-build: |
+      # 0. Set dynamic version from pubspec.yaml
+      VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //' | cut -d'+' -f1 | xargs)
+      snapcraftctl set-version "$VERSION"
+
       # 1. Download and extract Backend
       mkdir -p app/src
       wget -qO backend.zip https://github.com/chomusuke-mk/vidra-backend/releases/latest/download/app.zip
