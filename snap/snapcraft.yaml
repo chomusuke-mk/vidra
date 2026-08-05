@@ -74,5 +74,4 @@ parts:
   dependencias-python-tk:
     plugin: nil
     stage-packages:
-      - libtcl9.0 # Para libtcl9.0.so
       - libtk9.0 # Para libtcl9tk9.0.so
