@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Vidra
+GenericName=Video Downloader
+Exec=vidra %u
+Icon=${SNAP}/meta/gui/vidra.png
+Type=Application
+Terminal=false
+StartupNotify=true
+Categories=Network;Utility;
+Keywords=Vidra;yt-dlp;Download;
