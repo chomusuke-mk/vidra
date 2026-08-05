@@ -167,11 +167,11 @@ jobs:
           # We must override the system binaries because GPGME (used by appimagetool) hardcodes absolute paths.
           sudo mv /usr/bin/gpg /usr/bin/gpg-real
           sudo mv /usr/bin/gpg2 /usr/bin/gpg2-real || true
-          
+
           echo '#!/bin/bash' | sudo tee /usr/bin/gpg
           echo '/usr/bin/gpg-real --batch --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" "$@"' | sudo tee -a /usr/bin/gpg
           sudo chmod +x /usr/bin/gpg
-          
+
           echo '#!/bin/bash' | sudo tee /usr/bin/gpg2
           echo '/usr/bin/gpg-real --batch --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" "$@"' | sudo tee -a /usr/bin/gpg2
           sudo chmod +x /usr/bin/gpg2
@@ -259,9 +259,30 @@ jobs:
           path: vidra-windows.exe
           retention-days: 1
 
+  build-snap:
+    name: Build Snap Package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+
+      - name: Build Snap
+        uses: snapcore/action-build@v1
+        id: build
+
+      - name: Rename Snap
+        run: mv *.snap vidra-linux.snap
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: snap-package
+          path: vidra-linux.snap
+          retention-days: 1
+
   publish-release:
     name: Publish Release
-    needs: [build-android, build-linux, build-windows]
+    needs: [build-android, build-linux, build-windows, build-snap]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -319,7 +340,7 @@ jobs:
           | Platform | Installer                                                                                                           |
           | -------- | ------------------------------------------------------------------------------------------------------------------- |
           | Windows  | vidra-windows.exe                                                                                                   |
-          | Linux    | vidra-x86_64.AppImage <br> vidra-linux.deb                                                                          |
+          | Linux    | vidra-x86_64.AppImage <br> vidra-linux.deb <br> vidra-linux.snap                                                    |
           | Android  | vidra-android.apk <br> vidra-android-arm64-v8a.apk <br> vidra-android-x86_64.apk <br> vidra-android-armeabi-v7a.apk |
 
           ## 📌 Backend and Native Dependencies
@@ -353,6 +374,7 @@ jobs:
             artifacts/vidra-x86_64.AppImage
             artifacts/vidra-x86_64.AppImage.zsync
             artifacts/vidra-linux.deb
+            artifacts/vidra-linux.snap
             artifacts/vidra-android.apk
             artifacts/vidra-android-arm64-v8a.apk
             artifacts/vidra-android-x86_64.apk
@@ -374,3 +396,22 @@ jobs:
             -H "Authorization: token ${{ secrets.APT_REPO_TOKEN }}" \
             https://api.github.com/repos/chomusuke-mk/apt-repository/dispatches \
             -d '{"event_type": "update-apt"}'
+
+  publish-snap:
+    name: Publish to Snap Store
+    needs: publish-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Snap Artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: snap-package
+          path: snap-artifact
+
+      - name: Publish Snap
+        uses: snapcore/action-publish@v1
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+        with:
+          snap: snap-artifact/vidra-linux.snap
+          release: stable

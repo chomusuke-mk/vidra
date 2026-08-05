@@ -1,0 +1,66 @@
+name: vidra
+version: '2.5.6' # Version can be updated automatically or read dynamically
+summary: Desktop-grade video download manager
+description: |
+  Vidra is an advanced video download manager for desktop and mobile devices. 
+  It combines a modern Flutter user interface with a powerful Python backend 
+  (yt-dlp), integrated seamlessly as a background process.
+
+grade: stable
+confinement: strict
+base: core22
+
+apps:
+  vidra:
+    command: vidra
+    extensions: [gnome]
+    plugs:
+      - network
+      - network-bind
+      - home
+      - opengl
+      - wayland
+      - audio-playback
+    environment:
+      # Fix for some Flutter apps under strict confinement finding their own assets
+      FLUTTER_ASSET_DIR: $SNAP/data/flutter_assets
+
+parts:
+  vidra:
+    plugin: flutter
+    source: .
+    flutter-target: lib/main.dart
+    build-packages:
+      - wget
+      - unzip
+    override-build: |
+      # 1. Download and extract Backend
+      mkdir -p app/src
+      wget -qO backend.zip https://github.com/chomusuke-mk/vidra-backend/releases/latest/download/app.zip
+      unzip -q backend.zip -d app/src
+
+      # 2. Download and prepare FFmpeg
+      wget -qO ffmpeg.zip https://github.com/chomusuke-mk/vidra-ffmpeg/releases/latest/download/ffmpeg-linux-x86_64.zip
+      unzip -q ffmpeg.zip -d ffmpeg_ext
+      mkdir -p linux
+      cp ffmpeg_ext/ffmpeg linux/ffmpeg
+      cp ffmpeg_ext/ffprobe linux/ffprobe
+      chmod +x linux/ffmpeg linux/ffprobe
+
+      # 3. Download and prepare QuickJS
+      wget -qO quickjs.zip https://github.com/chomusuke-mk/vidra-quickjs/releases/latest/download/quickjs-linux-x86_64.zip
+      unzip -q quickjs.zip -d quickjs_ext
+      mkdir -p linux
+      cp quickjs_ext/quickjs linux/quickjs
+      chmod +x linux/quickjs
+
+      # 4. Fetch Dart dependencies and package the Python environment using serious_python
+      export SERIOUS_PYTHON_SITE_PACKAGES=$PWD/.serious_python/site-packages
+      export SERIOUS_PYTHON_APP=$PWD/.serious_python/app
+      mkdir -p $SERIOUS_PYTHON_SITE_PACKAGES $SERIOUS_PYTHON_APP
+      
+      flutter pub get
+      dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Linux.txt -p Linux --verbose
+
+      # 5. Build the Flutter app (calls flutter build linux)
+      snapcraftctl build

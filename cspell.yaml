@@ -181,6 +181,7 @@ words:
   - OBJC
   - offtopic
   - Onone
+  - opengl
   - openpgp
   - ORGANIZATIONNAME
   - orquestador
@@ -235,6 +236,9 @@ words:
   - selfpromo
   - SERIALIZACIÓN
   - skipifsilent
+  - snapcore
+  - SNAPCRAFT
+  - snapcraftctl
   - softprops
   - sourcecode
   - sponsorblock
@@ -280,6 +284,7 @@ words:
   - vivaldi
   - volcándola
   - VSACL
+  - wayland
   - Wconditional
   - webp
   - Werror
