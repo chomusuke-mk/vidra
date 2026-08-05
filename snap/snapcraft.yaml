@@ -21,7 +21,7 @@ type: app
 grade: stable
 confinement: strict
 compression: xz
-base: core26
+base: core24
 
 apps:
   vidra:
