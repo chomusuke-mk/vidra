@@ -151,6 +151,8 @@ words:
   - libnuma
   - libpython
   - libquickjs
+  - libtcl
+  - libtk
   - libva
   - libx
   - libxau
