@@ -56,3 +56,21 @@ parts:
 
       # Build the Flutter app
       craftctl default
+  
+  ffmpeg-dependencies:
+    plugin: nil
+    stage-packages:
+      - libbz2-1.0       # Para libbz2.so.1.0
+      - libnuma1         # Para libnuma.so.1
+      - libva-x11-2      # Para libva-x11.so.2
+      - libgomp1         # Para libgomp.so.1
+      - libva2           # Para libva.so.2
+      - libdrm2          # Para libdrm.so.2
+      - libx11-6         # Para libX11.so.6
+      - libxext6         # Para libXext.so.6
+      - libxfixes3       # Para libXfixes.so.3
+      - libx11-xcb1      # Para libX11-xcb.so.1
+      - libxcb1          # Para libxcb.so.1
+      - libxcb-dri3-0    # Para libxcb-dri3.so.0
+      - libxau6          # Para libXau.so.6
+      - libxdmcp6        # Para libXdmcp.so.6

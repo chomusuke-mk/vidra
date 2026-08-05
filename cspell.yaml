@@ -140,14 +140,24 @@ words:
   - kotlin
   - launchable
   - libapp
+  - libbz
   - libc
   - libdart
+  - libdrm
   - libffprobe
   - libflutter
   - libfuse
+  - libgomp
   - libnuma
   - libpython
   - libquickjs
+  - libva
+  - libx
+  - libxau
+  - libxcb
+  - libxdmcp
+  - libxext
+  - libxfixes
   - lida
   - LLDB
   - lldbinit
@@ -311,6 +321,9 @@ words:
   - xctest
   - xcuserdata
   - xcworkspace
+  - Xdmcp
+  - Xext
+  - Xfixes
   - youtub
   - youtube
   - ytdlp
