@@ -14,9 +14,15 @@ AppUpdatesURL=https://github.com/chomusuke-mk/vidra/releases
 AppContact=7k9mc4urn@mozmail.com
 AppComments=Cross-platform playlist-aware media downloader.
 AppCopyright=Copyright (c) 2026 Chomusuke
-DefaultDirName={userappdata}\Vidra
+AppReadmeFile=README.md
+
+DefaultDirName={localappdata}\Programs\Vidra
 DefaultGroupName=Vidra
 DisableProgramGroupPage=yes
+DisableWelcomePage=yes
+DisableDirPage=yes
+DisableReadyPage=yes
+DisableFinishedPage=yes
 OutputDir=dist
 OutputBaseFilename=vidra-windows
 SetupIconFile=assets\icon\icon.ico
@@ -42,13 +48,13 @@ VersionInfoCompany=Chomusuke
 VersionInfoDescription=Vidra Installer
 VersionInfoProductName=Vidra
 VersionInfoProductVersion={#AppVer}
+SetupMutex=SetupMutex{#SetupSetting("AppId")}
 
 [Files]
 Source: "build\windows\x64\runner\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{group}\Vidra"; Filename: "{app}\vidra.exe"; IconFilename: "{app}\vidra.exe"
-Name: "{group}\Uninstall Vidra"; Filename: "{uninstallexe}"
 Name: "{userdesktop}\Vidra"; Filename: "{app}\vidra.exe"; Tasks: desktopicon
 
 [Tasks]
