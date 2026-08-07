@@ -268,6 +268,8 @@ class NotificationService {
       } else if (progressSpeed != null) {
         body += '\n$progressSpeed';
       }
+      // Si no es Windows ni Android, no publicamos este tipo de notificación
+      return;
     }
     if (Platform.isWindows) {
       title = "{title}";
