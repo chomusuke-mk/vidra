@@ -254,6 +254,7 @@ words:
   - SERIALIZACIÓN
   - skipifsilent
   - snapcore
+  - Snapcraft
   - SNAPCRAFT
   - snapcraftctl
   - softprops

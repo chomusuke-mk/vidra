@@ -32,7 +32,7 @@
 
 ## 📥 Installation
 
-Vidra is officially distributed through the **GitHub Releases** section. Each release includes specific installers and packages for the different supported platforms.
+Vidra is officially distributed through the **[GitHub Releases (Latest Assets)](https://github.com/chomusuke-mk/vidra/releases/latest)** section. Each release includes specific installers and packages for the different supported platforms.
 
 | Platform    | File / Installer                                                                                                        |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -40,6 +40,20 @@ Vidra is officially distributed through the **GitHub Releases** section. Each re
 | **Linux**   | `vidra-x86_64.AppImage` <br>`vidra-linux.deb`                                                                           |
 | **Android** | `vidra-android.apk`<br> `vidra-android-arm64-v8a.apk`<br>`vidra-android-x86_64.apk` <br>`vidra-android-armeabi-v7a.apk` |
 | **macOS**   | _Coming soon_                                                                                                           |
+
+### 📱 F-Droid Repository
+
+Vidra is also available through our official **F-Droid Repository**. To install the app and receive automatic background updates, add the repository directly to your F-Droid client (or compatible alternatives like Droid-ify/Neo Store):
+
+- **Repository URL:** `https://fdroid.chomusuke.dev/repo`
+
+### 🐧 Other Directories & Stores
+
+Vidra is also published and available on the following platforms:
+
+- **OpenDesktop:** [http://opendesktop.org/p/2367692](http://opendesktop.org/p/2367692)
+- **Snapcraft:** [https://snapcraft.io/vidra](https://snapcraft.io/vidra)
+- **AppImageHub:** [https://appimage.github.io/Vidra/](https://appimage.github.io/Vidra/)
 
 ### APT Repository (Debian/Ubuntu)
 
