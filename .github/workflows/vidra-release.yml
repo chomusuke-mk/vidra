@@ -436,6 +436,19 @@ jobs:
             https://api.github.com/repos/chomusuke-mk/apt-repository/dispatches \
             -d '{"event_type": "update-apt"}'
 
+  trigger-fdroid-update:
+    name: Trigger F-Droid Repository Update
+    needs: publish-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger F-Droid Repository GitHub Action
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.FDROID_REPO_TOKEN }}" \
+            https://api.github.com/repos/chomusuke-mk/fdroid-repository/dispatches \
+            -d '{"event_type": "update-fdroid"}'
+
   publish-snap:
     name: Publish to Snap Store
     needs: publish-release

@@ -1,0 +1,1 @@
+Vidra is a powerful and open-source video download manager with a Flutter interface and an integrated Python backend via serious_python.
