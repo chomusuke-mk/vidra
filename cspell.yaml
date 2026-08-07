@@ -22,6 +22,7 @@ words:
   - APSTUDIO
   - armeabi
   - Ascii
+  - asíncronamente
   - asincrónicamente
   - assetcatalog
   - autocompletado
@@ -55,6 +56,7 @@ words:
   - DAPPLICATION
   - darwin
   - dblite
+  - debugueando
   - decrementa
   - decrementar
   - definirlas
@@ -105,6 +107,7 @@ words:
   - GPGME
   - gradlew
   - GWLP
+  - hardcodeados
   - healthcheck
   - heurística
   - HIDPI
@@ -234,6 +237,7 @@ words:
   - Redibuja
   - Redirección
   - rediseñada
+  - refactorización
   - reintentando
   - Reintentando
   - remux
