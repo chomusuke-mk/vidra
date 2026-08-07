@@ -1,81 +1,81 @@
-# Arquitectura del Sistema Vidra
+# Vidra System Architecture
 
-Este documento describe la arquitectura global del sistema Vidra. En su versión 2, Vidra se reconstruyó desde cero para adoptar un modelo desacoplado donde la interfaz de usuario y la lógica de descarga pesada operan en procesos o capas distintas, garantizando un rendimiento óptimo y un mantenimiento más sencillo.
+This document describes the overall architecture of the Vidra system. In its version 2, Vidra was rebuilt from scratch to adopt a decoupled model where the user interface and the heavy download logic operate in separate processes or layers, ensuring optimal performance and easier maintenance.
 
-## Visión General
+## Overview
 
-Vidra está compuesto principalmente por dos grandes bloques:
+Vidra is primarily composed of two main blocks:
 
-1. **Cliente Frontend (Flutter):** Gestiona la UI, configuración del usuario, localización, temas y actúa como orquestador del ciclo de vida del backend.
-2. **Motor Backend (Python):** Se ejecuta en segundo plano como un servidor REST encapsulado dentro de un `Isolate`. Utiliza potentes herramientas de línea de comandos como `yt-dlp` y `ffmpeg` para procesar descargas.
+1. **Frontend Client (Flutter):** Manages the UI, user configuration, localization, themes, and acts as the orchestrator of the backend lifecycle.
+2. **Backend Engine (Python):** Runs in the background as a REST server encapsulated within an `Isolate`. It utilizes powerful command-line tools like `yt-dlp` and `ffmpeg` to process downloads.
 
 ```mermaid
 graph TD
-  subgraph Frontend [Aplicación Flutter]
-    UI[Interfaz de Usuario]
+  subgraph Frontend [Flutter Application]
+    UI[User Interface]
     State[Provider / Controllers]
     SysCtrl[System Controller]
   end
 
-  subgraph Backend [Motor Python - serious_python]
-    Server[API REST localhost]
+  subgraph Backend [Python Engine - serious_python]
+    Server[REST API localhost]
     YTDLP[yt-dlp / yt-dlp-ejs]
     FFMPEG[FFmpeg / FFprobe]
     QJS[QuickJS]
   end
 
-  UI -->|Lee Estado| State
-  State -->|Comandos y Control| SysCtrl
-  SysCtrl <-->|HTTP / API REST| Server
-  Server -->|Ejecución| YTDLP
-  YTDLP -->|Procesamiento de A/V| FFMPEG
-  YTDLP -->|Ejecución JS| QJS
+  UI -->|Reads State| State
+  State -->|Commands & Control| SysCtrl
+  SysCtrl <-->|HTTP / REST API| Server
+  Server -->|Execution| YTDLP
+  YTDLP -->|A/V Processing| FFMPEG
+  YTDLP -->|JS Execution| QJS
 ```
 
-## Arquitectura del Cliente Flutter (lib/)
+## Flutter Client Architecture (lib/)
 
-La aplicación Flutter está estructurada siguiendo los principios de **Clean Architecture** para lograr una separación clara de responsabilidades. La inyección de dependencias y la gestión de estado se realiza a través de **Provider**.
+The Flutter application is structured following **Clean Architecture** principles to achieve a clear separation of responsibilities. Dependency injection and state management are handled via **Provider**.
 
-La estructura de carpetas en `lib/` es la siguiente:
+The folder structure in `lib/` is as follows:
 
-- `core/`: Configuración esencial, clientes de red, utilidades, temas e infraestructura (ej. `VidraHttpClient`).
-- `features/`: Las funcionalidades de negocio organizadas por dominio. Cada feature incluye a su vez capas lógicas (`data/`, `presentation/`, `domain/`):
-  - `downloads/`: Pantalla de descargas, encolamiento, y la ventana superpuesta (Overlay Isolate).
-  - `locales/`: Internacionalización (i18n).
-  - `settings/`: Preferencias del usuario.
-  - `system/`: Integración del ciclo de vida de la aplicación y la inyección del backend en Python.
-  - `updates/`: Comprobaciones de actualización y despliegues OTA (Over-The-Air).
-- `shared/`: Componentes UI y utilidades genéricas reutilizables.
+- `core/`: Essential configuration, network clients, utilities, themes, and infrastructure (e.g., `VidraHttpClient`).
+- `features/`: Business features organized by domain. Each feature includes logical layers (`data/`, `presentation/`, `domain/`):
+  - `downloads/`: Downloads screen, queuing, and the overlay window (Overlay Isolate).
+  - `locales/`: Internationalization (i18n).
+  - `settings/`: User preferences.
+  - `system/`: Application lifecycle integration and Python backend injection.
+  - `updates/`: Update checks and OTA (Over-The-Air) deployments.
+- `shared/`: Reusable generic UI components and utilities.
 
-### Flujo de Estado (Provider)
+### State Flow (Provider)
 
-El archivo `main.dart` configura una jerarquía de Providers que dictan cómo fluye la información:
+The `main.dart` file configures a hierarchy of Providers that dictate how information flows:
 
-1. **Capa 1 y 2 (Infraestructura Base):** `SystemController`, `GithubClient`, `VidraHttpClient`, `SettingsRepository`. Aquí el `VidraHttpClient` escucha dinámicamente al `SystemController` para obtener el puerto (usualmente `5000` pero dinámico) y el token de autenticación generados para el backend.
-2. **Capa 3 (Repositorios):** Dependen de la red, como `DownloadRepository`.
-3. **Capa 4 (Controladores de Estado):** Contienen la lógica de negocio consumida por la UI (ej. `DownloadsController`, `SettingsController`, `LocaleController`).
+1. **Layer 1 & 2 (Base Infrastructure):** `SystemController`, `GithubClient`, `VidraHttpClient`, `SettingsRepository`. Here, the `VidraHttpClient` dynamically listens to the `SystemController` to obtain the port (usually `5000` but dynamic) and the authentication token generated for the backend.
+2. **Layer 3 (Repositories):** Network-dependent, such as `DownloadRepository`.
+3. **Layer 4 (State Controllers):** Contain the business logic consumed by the UI (e.g., `DownloadsController`, `SettingsController`, `LocaleController`).
 
-## Integración del Motor Backend (serious_python)
+## Backend Engine Integration (serious_python)
 
-En lugar de requerir que el usuario instale Python, Vidra empaqueta su propio entorno de ejecución a través del paquete `serious_python`.
+Instead of requiring the user to install Python, Vidra packages its own runtime environment via the `serious_python` package.
 
-### Ciclo de vida del Motor
+### Engine Lifecycle
 
-1. **Arranque (`SystemController`):** Cuando la app de Flutter arranca, el `SystemController` busca un puerto libre (Loopback IPv4) y genera un token seguro de 256 bytes.
-2. **Lanzamiento del Isolate:** Se lanza un proceso en segundo plano (Dart Isolate) pasando el puerto, el token, y los directorios de trabajo.
-3. **Desempaquetado (Unpacking):** El Isolate utiliza `serious_python` para extraer el código en Python (ubicado en `app/src`) hacia el almacenamiento local del dispositivo. Esto solo es costoso en el primer inicio.
-4. **Ejecución del Servidor:** El servidor de Python arranca y queda a la escucha en el puerto asignado, esperando peticiones HTTP autenticadas con el token generado en el paso 1.
+1. **Startup (`SystemController`):** When the Flutter app starts, the `SystemController` finds a free port (IPv4 Loopback) and generates a secure 256-byte token.
+2. **Isolate Launch:** A background process (Dart Isolate) is launched, passing the port, the token, and the working directories.
+3. **Unpacking:** The Isolate uses `serious_python` to extract the Python code (located in `app/src`) to the device's local storage. This is only expensive on the first boot.
+4. **Server Execution:** The Python server starts and listens on the assigned port, waiting for HTTP requests authenticated with the token generated in step 1.
 
-### Dependencias Nativas
+### Native Dependencies
 
-El motor Python delega el trabajo pesado a dependencias escritas en C/C++ u otros lenguajes. Estas se incluyen precompiladas en el binario final (gracias al flujo CI/CD) o deben proveerse manualmente durante el desarrollo:
+The Python engine delegates heavy lifting to dependencies written in C/C++ or other languages. These are included precompiled in the final binary (thanks to the CI/CD flow) or must be provided manually during development:
 
-- **yt-dlp:** Extrae metadatos y resuelve enlaces de decenas de sitios web.
-- **FFmpeg/FFprobe:** Encargados de mezclar (mux), convertir y analizar las pistas de audio y video descargadas.
-- **QuickJS:** Un motor ligero de JavaScript utilizado para resolver desafíos de bot protection en ciertas plataformas.
+- **yt-dlp:** Extracts metadata and resolves links from dozens of websites.
+- **FFmpeg/FFprobe:** Responsible for muxing, converting, and analyzing downloaded audio and video tracks.
+- **QuickJS:** A lightweight JavaScript engine used to bypass bot protection challenges on certain platforms.
 
-## Seguridad y Aislamiento
+## Security and Isolation
 
-- **Localhost Bound:** El servidor backend solo escucha en `127.0.0.1`. No es accesible desde otras máquinas en la misma red.
-- **Autenticación con Token:** Todas las llamadas HTTP de Flutter al backend Python requieren el token dinámico en las cabeceras (Headers), previniendo que otras aplicaciones locales envíen comandos al motor de Vidra.
-- **Aislamiento de Hilos (Isolates):** Las descargas de video son intensivas en CPU/I/O. Al ejecutar el motor en un Isolate y el backend en un hilo separado de C/Python, la interfaz de usuario en Flutter se mantiene fluida (60/120 fps) sin bloqueos.
+- **Localhost Bound:** The backend server only listens on `127.0.0.1`. It is not accessible from other machines on the same network.
+- **Token Authentication:** All HTTP calls from Flutter to the Python backend require the dynamic token in the Headers, preventing other local applications from sending commands to the Vidra engine.
+- **Thread Isolation (Isolates):** Video downloads are CPU/I/O intensive. By running the engine in an Isolate and the backend in a separate C/Python thread, the Flutter user interface remains smooth (60/120 fps) without freezing.

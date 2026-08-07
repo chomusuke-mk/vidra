@@ -1,48 +1,48 @@
-# Flujos del Cliente (Client Flows)
+# Client Flows
 
-Este documento detalla los principales flujos de interacción y ciclo de vida de la interfaz de usuario en la aplicación cliente (Flutter).
+This document details the main interaction flows and lifecycle of the user interface in the client application (Flutter).
 
-## 1. Secuencia de Arranque y Configuración
+## 1. Boot Sequence and Configuration
 
-El punto de entrada principal (`main.dart`) inicializa los servicios asíncronos antes de levantar la interfaz de usuario.
+The main entry point (`main.dart`) initializes asynchronous services before bringing up the user interface.
 
-1. **Inicialización Base:** Se asegura la vinculación de los widgets de Flutter (`WidgetsFlutterBinding.ensureInitialized()`), se inicia `SharedPreferences` y el servicio de notificaciones locales (`NotificationService.init()`).
-2. **Inyección de Dependencias:** Se crea la jerarquía del árbol de `Provider`. El `SystemController` es instanciado de inmediato.
-3. **Lanzamiento del Motor (Backend):**
-   - El `SystemController` asigna el puerto y el token dinámico.
-   - Crea el _Isolate_ del backend (`backendIsolateMain`).
-   - Comienza a extraer los binarios de Python (esto ocurre de forma paralela en el hilo principal con un `await SeriousPython.prepareApp()`).
-4. **Validación de la UI:** El componente `App` observa el estado. Si falta completar el inicio, muestra un indicador de carga circular. Una vez listo, se carga el tema, el idioma y se lanza el `MainRouter`.
+1. **Base Initialization:** Ensures Flutter widget binding (`WidgetsFlutterBinding.ensureInitialized()`), initializes `SharedPreferences`, and the local notifications service (`NotificationService.init()`).
+2. **Dependency Injection:** Creates the `Provider` tree hierarchy. The `SystemController` is instantiated immediately.
+3. **Engine (Backend) Launch:**
+   - The `SystemController` assigns the dynamic port and token.
+   - Creates the backend _Isolate_ (`backendIsolateMain`).
+   - Begins extracting the Python binaries (this happens in parallel on the main thread with an `await SeriousPython.prepareApp()`).
+4. **UI Validation:** The `App` component observes the state. If startup is not complete, it shows a circular loading indicator. Once ready, it loads the theme, language, and launches the `MainRouter`.
 
-## 2. Enrutador Principal (`MainRouter`)
+## 2. Main Router (`MainRouter`)
 
-El `MainRouter` decide la vista principal evaluando el estado dictado por `SystemController`:
+The `MainRouter` decides the main view by evaluating the state dictated by `SystemController`:
 
-- **Faltan Permisos (`missingPermissions`):** Muestra la pantalla `PermissionsScreen` solicitando al usuario el acceso al almacenamiento (y notificaciones si corresponde) necesarios para descargar archivos.
-- **Preparado (`ready` o en progreso regular):** Envuelve la vista principal (`DownloadsScreen`) dentro del widget `ShareIntentWrapper`.
+- **Missing Permissions (`missingPermissions`):** Shows the `PermissionsScreen` prompting the user for storage access (and notifications if applicable) required to download files.
+- **Ready (`ready` or in regular progress):** Wraps the main view (`DownloadsScreen`) inside the `ShareIntentWrapper` widget.
 
-## 3. Recepción de Enlaces (Share Intent)
+## 3. Link Reception (Share Intent)
 
-Vidra es capaz de recibir enlaces desde otras aplicaciones (por ejemplo, "Compartir desde YouTube" en dispositivos móviles). Esto se gestiona en `ShareIntentWrapper`.
+Vidra is capable of receiving links from other applications (e.g., "Share from YouTube" on mobile devices). This is handled in `ShareIntentWrapper`.
 
-1. **Intercepción del Enlace:** Mediante el paquete `receive_sharing_intent`, la aplicación detecta cuando es lanzada con una URL entrante o cuando recibe una URL en segundo plano.
-2. **Transferencia al Controlador:** Si el texto entrante es una URL válida, se envía a `SystemController.enqueueDownload(url, options)`.
-3. **Comunicación al Isolate:** El `SystemController` empaqueta la solicitud y la transmite al Isolate del backend a través del `SendPort`.
-4. **Reflejo en la UI:** El backend acusa recibo del comando y comienza la tarea de descarga. El estado es consultado o notificado (según el patrón REST/WebSocket que se implemente), y el `DownloadsController` actualiza la vista.
+1. **Link Interception:** Using the `receive_sharing_intent` package, the application detects when it is launched with an incoming URL or when it receives a URL in the background.
+2. **Transfer to Controller:** If the incoming text is a valid URL, it is sent to `SystemController.enqueueDownload(url, options)`.
+3. **Communication to Isolate:** The `SystemController` packages the request and transmits it to the backend Isolate via the `SendPort`.
+4. **Reflection in the UI:** The backend acknowledges receipt of the command and begins the download task. The state is polled or notified (depending on the REST/WebSocket pattern implemented), and the `DownloadsController` updates the view.
 
-## 4. El Sistema de Overlay (Isolate Independiente)
+## 4. The Overlay System (Independent Isolate)
 
-Para interactuar con la aplicación sin salir completamente del contexto de otras aplicaciones (muy útil en Android), Vidra incorpora un "Quick Share Overlay".
+To interact with the application without completely leaving the context of other applications (very useful on Android), Vidra incorporates a "Quick Share Overlay".
 
-1. **Punto de Entrada Secundario:** En `main.dart` existe la función `@pragma("vm:entry-point") void overlayMain()`.
-2. **Aislamiento:** Este es un árbol de Flutter completamente independiente que corre en su propio Isolate, mostrando la pantalla `QuickShareOverlay`.
-3. **Restricciones:** Al ser un Isolate distinto, no comparte memoria ni la jerarquía de `Provider` principal; se comunica con el sistema central mediante canales o puertos (SendPort/ReceivePort) para inyectar descargas rápidamente sin abrir la interfaz completa de la aplicación principal.
+1. **Secondary Entry Point:** In `main.dart`, there is the `@pragma("vm:entry-point") void overlayMain()` function.
+2. **Isolation:** This is a completely independent Flutter tree running in its own Isolate, displaying the `QuickShareOverlay` screen.
+3. **Restrictions:** Being a separate Isolate, it does not share memory or the main `Provider` hierarchy; it communicates with the central system via channels or ports (SendPort/ReceivePort) to quickly inject downloads without opening the full interface of the main application.
 
-## 5. Actualizaciones OTA (Over-The-Air)
+## 5. OTA (Over-The-Air) Updates
 
-Vidra incluye un gestor de actualizaciones integrado (`UpdateController`).
+Vidra includes an integrated update manager (`UpdateController`).
 
-1. **Comprobación:** Consulta la API de GitHub Releases verificando la versión actual en contraposición a las versiones remotas.
-2. **Pausa del Motor:** Si el usuario decide actualizar, la aplicación envía un comando `pause_for_update` al backend.
-3. **Espera de Ack:** La UI espera confirmación (`paused_ack`) desde el Isolate para garantizar que no hay descriptores de archivos bloqueados ni descargas activas a medias.
-4. **Instalación:** Procede con la descarga e instalación del nuevo paquete o ejecutable de Vidra.
+1. **Check:** Queries the GitHub Releases API, checking the current version against remote versions.
+2. **Engine Pause:** If the user decides to update, the application sends a `pause_for_update` command to the backend.
+3. **Wait for Ack:** The UI waits for confirmation (`paused_ack`) from the Isolate to ensure there are no locked file descriptors or half-active downloads.
+4. **Installation:** Proceeds with downloading and installing the new Vidra package or executable.
