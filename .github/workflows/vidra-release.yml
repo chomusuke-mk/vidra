@@ -369,7 +369,6 @@ jobs:
 
 
           cat <<EOF > RELEASE_NOTES.md
-          # Vidra v${VERSION}
 
           Vidra is an advanced video download manager for desktop and mobile devices. It combines a modern Flutter user interface with a powerful Python backend (\`yt-dlp\`), integrated seamlessly as a background process.
 
