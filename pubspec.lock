@@ -696,10 +696,10 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_html
-      sha256: "6b74008020d08eb95751d4935f3f07ef4658c03a43a51e6148b40e8412edce1b"
+      sha256: "6ea98b3f17f60d3b527f2647ed2ab4dc0f6bfe25b22cb1c363f5d8f62252f6ac"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.4+0"
+    version: "0.1.4+1"
   permission_handler_platform_interface:
     dependency: transitive
     description:
@@ -1157,10 +1157,10 @@ packages:
     dependency: transitive
     description:
       name: win32
-      sha256: ba6f4bba816c8d7e3c1580e170f3786d216951cc6b94babc3b814c08d2cb2738
+      sha256: a0b93865d5644f11cf6a8c3f6db909f1ec168958b5805f6cc684adea957cd63d
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.0"
+    version: "6.4.0"
   win32_registry:
     dependency: transitive
     description:
