@@ -10,3 +10,4 @@
 -keep class io.flutter.plugins.GeneratedPluginRegistrant { *; }
 
 # If you use reflection-based libraries, add keep rules here.
+-dontwarn com.google.android.play.core.**
