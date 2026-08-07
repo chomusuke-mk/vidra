@@ -23,6 +23,21 @@
 
 > Vidra is an advanced video download manager for desktop and mobile devices. This second version, rebuilt from scratch, combines a modern user interface in Flutter with a powerful Python download engine (`yt-dlp`), seamlessly integrated as a background process (isolate).
 
+## 📸 Screenshots
+
+### Desktop (Linux / Windows)
+<p align="center">
+  <img src="assets/screenshots/linux-screenshot-1.png" width="48%" />
+  <img src="assets/screenshots/linux-screenshot-2.png" width="48%" />
+</p>
+
+### Mobile (Android)
+<p align="center">
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.jpg" width="31%" />
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.jpg" width="31%" />
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.jpg" width="31%" />
+</p>
+
 ## ✨ Key Features
 
 - **Modern and Scalable Client:** Built in Flutter under Clean Architecture principles, with full support for themes (light/dark) and internationalization.
