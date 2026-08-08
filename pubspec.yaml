@@ -31,7 +31,7 @@ dependencies:
   serious_python: ^4.5.1
   permission_handler: ^13.0.0
   filesystem_picker: ^4.1.0
-  external_path: ^2.2.0
+  external_path: ^3.0.0
   flutter_local_notifications: ^22.2.0
   jsonc: ^0.0.3
   device_info_plus: ^13.2.0

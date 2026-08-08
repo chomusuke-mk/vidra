@@ -14,8 +14,8 @@
 </p>
 
 <p align="center">
- <a href="https://flutter.dev"><img alt="Flutter 3.9+" src="https://img.shields.io/badge/Flutter-3.9%2B-blue?logo=flutter&logoColor=white" /></a>
- <a href="https://www.python.org/"><img alt="Python 3.12" src="https://img.shields.io/badge/Python-3.12-blueviolet?logo=python&logoColor=white" /></a>
+ <a href="https://flutter.dev"><img alt="Flutter 3.12+" src="https://img.shields.io/badge/Flutter-3.12%2B-blue?logo=flutter&logoColor=white" /></a>
+ <a href="https://www.python.org/"><img alt="Python 3.14" src="https://img.shields.io/badge/Python-3.14-blueviolet?logo=python&logoColor=white" /></a>
  <a href="THIRD_PARTY_LICENSES.md"><img alt="Licensing" src="https://img.shields.io/badge/Licensing-THIRD__PARTY__LICENSES-informational?logo=github&logoColor=white" /></a>
  <a href="https://www.buymeacoffee.com/chomusuke"><img alt="Donate (Buy me a coffee)" src="https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-orange?logo=buymeacoffee&logoColor=white" /></a>
  <a href="https://www.patreon.com/chomusuke_dev"><img alt="Donate (Patreon)" src="https://img.shields.io/badge/Donate-Patreon-critical?logo=patreon&logoColor=white" /></a>
@@ -26,16 +26,18 @@
 ## 📸 Screenshots
 
 ### Desktop (Linux / Windows)
+
 <p align="center">
-  <img src="assets/screenshots/linux-screenshot-1.png" width="48%" />
-  <img src="assets/screenshots/linux-screenshot-2.png" width="48%" />
+  <img src="assets/screenshots/linux-screenshot-1.png" width="48%" alt="Linux Screenshot 1" />
+  <img src="assets/screenshots/linux-screenshot-2.png" width="48%" alt="Linux Screenshot 2" />
 </p>
 
 ### Mobile (Android)
+
 <p align="center">
-  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.jpg" width="31%" />
-  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.jpg" width="31%" />
-  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.jpg" width="31%" />
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.jpg" width="31%" alt="Android Screenshot 1" />
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.jpg" width="31%" alt="Android Screenshot 2" />
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.jpg" width="31%" alt="Android Screenshot 3" />
 </p>
 
 ## ✨ Key Features

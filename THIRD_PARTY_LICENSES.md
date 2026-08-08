@@ -4,68 +4,68 @@ Vidra distributes a Flutter client from this repository and a Python runtime pac
 
 ## Python Runtime Package (`app/requirements/*.txt`)
 
-| Dependency    | Declared Version  | License          | Obligations and Notes                                                                                     | License Text                       |
-| ------------- | ----------------- | ---------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| certifi       | latest (unpinned) | MPL-2.0          | Keep the MPL notice with redistributed binaries; publish modifications that touch MPL files.              | third_party_licenses/certifi       |
-| brotli        | latest (unpinned) | MIT              | Keep the MIT license text in redistributions.                                                             | third_party_licenses/brotli        |
-| websockets    | latest (unpinned) | BSD-3-Clause     | Keep copyright and disclaimer in redistributions.                                                         | third_party_licenses/websockets    |
-| requests      | latest (unpinned) | Apache-2.0       | Keep LICENSE and NOTICE; document local changes if any.                                                   | third_party_licenses/requests      |
-| mutagen       | latest (unpinned) | GPL-2.0-or-later | Copyleft: distributing Vidra with Mutagen requires providing corresponding source code for the backend.   | third_party_licenses/mutagen       |
-| phantomjs     | latest (unpinned) | BSD-3-Clause     | Keep BSD notice and disclaimer.                                                                           | third_party_licenses/phantomjs     |
-| secretstorage | latest (unpinned) | BSD-3-Clause     | Keep copyright/permission notice and disclaimer.                                                          | third_party_licenses/secretstorage |
-| flask         | latest (unpinned) | BSD-3-Clause     | Keep BSD notice and disclaimer.                                                                           | third_party_licenses/flask         |
-| waitress      | latest (unpinned) | ZPL-2.1          | Keep the Zope Public License text with redistributions.                                                   | third_party_licenses/waitress      |
-| tldextract    | latest (unpinned) | BSD-3-Clause     | Keep BSD notice and disclaimer.                                                                           | third_party_licenses/tldextract    |
-| pycryptodomex | latest (unpinned) | BSD-2-Clause     | Keep copyright/permission notice; no explicit commercial endorsement.                                     | third_party_licenses/pycryptodomex |
-| xattr         | latest (unpinned) | BSD-3-Clause     | Keep BSD notice and disclaimer.                                                                           | third_party_licenses/xattr         |
-| curl-cffi     | latest (unpinned) | MIT              | Keep MIT license notice.                                                                                  | third_party_licenses/curl-cffi     |
-| yt-dlp        | latest (unpinned) | Unlicense        | Public domain; still, respect applicable DRM laws when redistributing.                                    | third_party_licenses/yt-dlp        |
-| yt-dlp-ejs    | latest (unpinned) | Unlicense        | Same as yt-dlp.                                                                                           | third_party_licenses/yt-dlp-ejs    |
+| Dependency    | Declared Version  | License          | Obligations and Notes                                                                                   | License Text                       |
+| ------------- | ----------------- | ---------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| certifi       | latest (unpinned) | MPL-2.0          | Keep the MPL notice with redistributed binaries; publish modifications that touch MPL files.            | third_party_licenses/certifi       |
+| brotli        | latest (unpinned) | MIT              | Keep the MIT license text in redistributions.                                                           | third_party_licenses/brotli        |
+| websockets    | latest (unpinned) | BSD-3-Clause     | Keep copyright and disclaimer in redistributions.                                                       | third_party_licenses/websockets    |
+| requests      | latest (unpinned) | Apache-2.0       | Keep LICENSE and NOTICE; document local changes if any.                                                 | third_party_licenses/requests      |
+| mutagen       | latest (unpinned) | GPL-2.0-or-later | Copyleft: distributing Vidra with Mutagen requires providing corresponding source code for the backend. | third_party_licenses/mutagen       |
+| phantomjs     | latest (unpinned) | BSD-3-Clause     | Keep BSD notice and disclaimer.                                                                         | third_party_licenses/phantomjs     |
+| secretstorage | latest (unpinned) | BSD-3-Clause     | Keep copyright/permission notice and disclaimer.                                                        | third_party_licenses/secretstorage |
+| flask         | latest (unpinned) | BSD-3-Clause     | Keep BSD notice and disclaimer.                                                                         | third_party_licenses/flask         |
+| waitress      | latest (unpinned) | ZPL-2.1          | Keep the Zope Public License text with redistributions.                                                 | third_party_licenses/waitress      |
+| tldextract    | latest (unpinned) | BSD-3-Clause     | Keep BSD notice and disclaimer.                                                                         | third_party_licenses/tldextract    |
+| pycryptodomex | latest (unpinned) | BSD-2-Clause     | Keep copyright/permission notice; no explicit commercial endorsement.                                   | third_party_licenses/pycryptodomex |
+| xattr         | latest (unpinned) | BSD-3-Clause     | Keep BSD notice and disclaimer.                                                                         | third_party_licenses/xattr         |
+| curl-cffi     | latest (unpinned) | MIT              | Keep MIT license notice.                                                                                | third_party_licenses/curl-cffi     |
+| yt-dlp        | latest (unpinned) | Unlicense        | Public domain; still, respect applicable DRM laws when redistributing.                                  | third_party_licenses/yt-dlp        |
+| yt-dlp-ejs    | latest (unpinned) | Unlicense        | Same as yt-dlp.                                                                                         | third_party_licenses/yt-dlp-ejs    |
 
 ## Flutter Application Runtime (`pubspec.yaml`)
 
-| Dependency                          | Declared Version  | License      | Obligations and Notes                                                  | License Text                                                       |
-| ----------------------------------- | ----------------- | ------------ | ---------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Flutter SDK / flutter_localizations | sdk               | BSD-3-Clause | Flutter includes its own LICENSE file; include when shipping binaries. | <https://raw.githubusercontent.com/flutter/flutter/master/LICENSE> |
-| cupertino_icons                     | ^1.0.9            | MIT          | Keep MIT license notice.                                               | third_party_licenses/cupertino_icons                               |
-| path_provider                       | ^2.1.6            | BSD-3-Clause | Keep copyright and disclaimer.                                         | third_party_licenses/path_provider                                 |
-| package_info_plus                   | ^10.2.1           | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/package_info_plus                             |
-| shared_preferences                  | ^2.5.5            | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/shared_preferences                            |
-| provider                            | ^6.1.5+1          | MIT          | Keep MIT license notice.                                               | third_party_licenses/provider                                      |
-| http                                | ^1.6.0            | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/http                                          |
-| cached_network_image                | ^3.4.1            | MIT          | Keep MIT license notice.                                               | third_party_licenses/cached_network_image                          |
-| flutter_cache_manager               | ^3.4.2            | MIT          | Keep MIT license notice.                                               | third_party_licenses/flutter_cache_manager                         |
-| serious_python                      | ^4.5.1            | Apache-2.0   | Keep LICENSE and NOTICE for appliance distributions.                   | third_party_licenses/serious_python                                |
-| permission_handler                  | ^13.0.0           | MIT          | Keep MIT license notice.                                               | third_party_licenses/permission_handler                            |
-| filesystem_picker                   | ^4.1.0            | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/filesystem_picker                             |
-| external_path                       | ^2.2.0            | MIT          | Keep MIT license notice.                                               | third_party_licenses/external_path                                 |
-| flutter_local_notifications         | ^22.2.0           | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/flutter_local_notifications                   |
-| jsonc                               | ^0.0.3            | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/jsonc                                         |
-| device_info_plus                    | ^13.2.0           | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/device_info_plus                              |
-| path                                | ^1.9.1            | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/path                                          |
-| crypto                              | ^3.0.7            | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/crypto                                        |
-| convert                             | ^3.1.2            | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/convert                                       |
-| mime                                | ^2.0.0            | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/mime                                          |
-| receive_sharing_intent              | ^1.9.0            | Apache-2.0   | Keep Apache license text in distributions.                             | third_party_licenses/receive_sharing_intent                        |
-| openpgp                             | ^3.10.7           | MIT          | Keep MIT license notice.                                               | third_party_licenses/openpgp                                       |
-| dio                                 | ^5.11.0           | MIT          | Keep MIT license notice.                                               | third_party_licenses/dio                                           |
-| archive                             | ^4.0.9            | MIT          | Keep MIT license notice.                                               | third_party_licenses/archive                                       |
-| url_launcher                        | ^6.3.2            | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/url_launcher                                  |
-| open_filex                          | ^4.7.0            | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/open_filex                                    |
-| flutter_slidable                    | ^4.0.3            | MIT          | Keep MIT license notice.                                               | third_party_licenses/flutter_slidable                              |
-| file_picker                         | ^12.0.0-beta.7    | MIT          | Keep MIT license notice.                                               | third_party_licenses/file_picker                                   |
-| flutter_screen_overlay              | ^1.0.7            | MIT          | Keep MIT license notice.                                               | third_party_licenses/flutter_screen_overlay                        |
-| flutter_markdown_plus               | ^1.0.12           | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/flutter_markdown_plus                         |
-| tutorial_coach_mark                 | ^1.3.3            | MIT          | Keep MIT license notice.                                               | third_party_licenses/tutorial_coach_mark                           |
+| Dependency                          | Declared Version | License      | Obligations and Notes                                                  | License Text                                                       |
+| ----------------------------------- | ---------------- | ------------ | ---------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Flutter SDK / flutter_localizations | sdk              | BSD-3-Clause | Flutter includes its own LICENSE file; include when shipping binaries. | <https://raw.githubusercontent.com/flutter/flutter/master/LICENSE> |
+| cupertino_icons                     | ^1.0.9           | MIT          | Keep MIT license notice.                                               | third_party_licenses/cupertino_icons                               |
+| path_provider                       | ^2.1.6           | BSD-3-Clause | Keep copyright and disclaimer.                                         | third_party_licenses/path_provider                                 |
+| package_info_plus                   | ^10.2.1          | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/package_info_plus                             |
+| shared_preferences                  | ^2.5.5           | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/shared_preferences                            |
+| provider                            | ^6.1.5+1         | MIT          | Keep MIT license notice.                                               | third_party_licenses/provider                                      |
+| http                                | ^1.6.0           | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/http                                          |
+| cached_network_image                | ^3.4.1           | MIT          | Keep MIT license notice.                                               | third_party_licenses/cached_network_image                          |
+| flutter_cache_manager               | ^3.4.2           | MIT          | Keep MIT license notice.                                               | third_party_licenses/flutter_cache_manager                         |
+| serious_python                      | ^4.5.1           | Apache-2.0   | Keep LICENSE and NOTICE for appliance distributions.                   | third_party_licenses/serious_python                                |
+| permission_handler                  | ^13.0.0          | MIT          | Keep MIT license notice.                                               | third_party_licenses/permission_handler                            |
+| filesystem_picker                   | ^4.1.0           | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/filesystem_picker                             |
+| external_path                       | ^2.2.0           | MIT          | Keep MIT license notice.                                               | third_party_licenses/external_path                                 |
+| flutter_local_notifications         | ^22.2.0          | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/flutter_local_notifications                   |
+| jsonc                               | ^0.0.3           | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/jsonc                                         |
+| device_info_plus                    | ^13.2.0          | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/device_info_plus                              |
+| path                                | ^1.9.1           | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/path                                          |
+| crypto                              | ^3.0.7           | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/crypto                                        |
+| convert                             | ^3.1.2           | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/convert                                       |
+| mime                                | ^2.0.0           | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/mime                                          |
+| receive_sharing_intent              | ^1.9.0           | Apache-2.0   | Keep Apache license text in distributions.                             | third_party_licenses/receive_sharing_intent                        |
+| openpgp                             | ^3.10.7          | MIT          | Keep MIT license notice.                                               | third_party_licenses/openpgp                                       |
+| dio                                 | ^5.11.0          | MIT          | Keep MIT license notice.                                               | third_party_licenses/dio                                           |
+| archive                             | ^4.0.9           | MIT          | Keep MIT license notice.                                               | third_party_licenses/archive                                       |
+| url_launcher                        | ^6.3.2           | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/url_launcher                                  |
+| open_filex                          | ^4.7.0           | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/open_filex                                    |
+| flutter_slidable                    | ^4.0.3           | MIT          | Keep MIT license notice.                                               | third_party_licenses/flutter_slidable                              |
+| file_picker                         | ^12.0.0-beta.7   | MIT          | Keep MIT license notice.                                               | third_party_licenses/file_picker                                   |
+| flutter_screen_overlay              | ^1.0.7           | MIT          | Keep MIT license notice.                                               | third_party_licenses/flutter_screen_overlay                        |
+| flutter_markdown_plus               | ^1.0.12          | BSD-3-Clause | Keep BSD notice and disclaimer.                                        | third_party_licenses/flutter_markdown_plus                         |
+| tutorial_coach_mark                 | ^1.3.3           | MIT          | Keep MIT license notice.                                               | third_party_licenses/tutorial_coach_mark                           |
 
 > _Transitive dependencies inherit the license of their upstream packages. Keep the Flutter `LICENSE` file emitted by `flutter build` inside your installers to cover these components._
 
 ## Native Binaries (FFmpeg, QuickJS)
 
-| Dependency                     | Declared Version  | License          | Obligations and Notes                                                                                                                                                                                                            | License Text                       |
-| ------------------------------ | ----------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| vidra-ffmpeg (FFmpeg binaries) | prebuilt bundle   | GPL-3.0-or-later | Compiled with --enable-gpl and --enable-version3; provide the corresponding source code from <https://github.com/chomusuke-mk/vidra-ffmpeg> and deliver the corresponding GPLv3 notices with redistributed binaries.             | third_party_licenses/vidra-ffmpeg  |
-| vidra-quickjs (QuickJS)        | prebuilt bundle   | MIT              | Keep MIT license notice.                                                                                                                                                                                                         | third_party_licenses/vidra-quickjs |
+| Dependency                     | Declared Version | License          | Obligations and Notes                                                                                                                                                                                                | License Text                       |
+| ------------------------------ | ---------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| vidra-ffmpeg (FFmpeg binaries) | prebuilt bundle  | GPL-3.0-or-later | Compiled with --enable-gpl and --enable-version3; provide the corresponding source code from <https://github.com/chomusuke-mk/vidra-ffmpeg> and deliver the corresponding GPLv3 notices with redistributed binaries. | third_party_licenses/vidra-ffmpeg  |
+| vidra-quickjs (QuickJS)        | prebuilt bundle  | MIT              | Keep MIT license notice.                                                                                                                                                                                             | third_party_licenses/vidra-quickjs |
 
 ## Compliance Strategy
 
