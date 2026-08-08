@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter
+enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- == PACKAGE SPECIFIC SECTION == -->
+    <id>vidra</id>
+    <version>__APP_VERSION__</version>
+    <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl
+    is highly recommended for the community feed</packageSourceUrl>-->
+    <owners>Chomusuke</owners>
+
+    <!-- == SOFTWARE SPECIFIC SECTION == -->
+    <!-- This section is about the software itself -->
+    <title>Vidra</title>
+    <authors>Chomusuke</authors>
+    <projectUrl>https://github.com/chomusuke-mk/vidra</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/chomusuke-mk/vidra/main/assets/icon/icon.png</iconUrl>
+    <copyright>2026 Chomusuke</copyright>
+    <licenseUrl>https://github.com/chomusuke-mk/vidra/blob/main/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/chomusuke-mk/vidra</projectSourceUrl>
+    <docsUrl>https://github.com/chomusuke-mk/vidra/tree/main/docs</docsUrl>
+    <bugTrackerUrl>https://github.com/chomusuke-mk/vidra/issues</bugTrackerUrl>
+    <tags>vidra video downloader media yt-dlp youtube audio</tags>
+    <summary>Cross-platform playlist-aware media downloader.</summary>
+    <description>
+      Vidra is an advanced video download manager for desktop and mobile devices. It combines a
+      modern Flutter user interface with a powerful Python backend (`yt-dlp`), integrated seamlessly
+      as a background process.
+
+      Features:
+      - Cross-platform support.
+      - Powered by yt-dlp and FFmpeg.
+      - Playlist aware and format selection.
+    </description>
+    <releaseNotes>https://github.com/chomusuke-mk/vidra/releases/latest</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>

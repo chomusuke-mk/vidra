@@ -42,6 +42,7 @@ words:
   - cffi
   - CFLAGS
   - checkedonce
+  - chocolateyinstall
   - chomusuke
   - clearsign
   - Cleartext
@@ -64,6 +65,7 @@ words:
   - descomprimiéndolo
   - DESERIALIZACIÓN
   - desincronizaciones
+  - desinstalación
   - desktopicon
   - devicelab
   - dgph
@@ -107,6 +109,7 @@ words:
   - GLASSMORPHISM
   - GPGME
   - gradlew
+  - greek
   - GWLP
   - hardcodeados
   - healthcheck
@@ -128,7 +131,9 @@ words:
   - Inclusivity
   - infojson
   - INFOPLIST
+  - inno
   - Inno
+  - INNOSETUP
   - instanciado
   - Instantitation
   - Intercepción
@@ -197,6 +202,7 @@ words:
   - nonnull
   - NONNULL
   - noplaylist
+  - NORESTART
   - notif
   - nowait
   - NOZORDER
@@ -279,6 +285,7 @@ words:
   - subproyecto
   - Subtags
   - subviews
+  - SUPPRESSMSGBOXES
   - swiftpm
   - swipeable
   - Symbolication
@@ -298,6 +305,7 @@ words:
   - tmpfilename
   - twofactor
   - unhide
+  - uninst
   - uninstallexe
   - userappdata
   - userdesktop
@@ -306,6 +314,7 @@ words:
   - uvicorn
   - venv
   - VERSIONINFO
+  - VERYSILENT
   - vidra
   - vivaldi
   - volcándola

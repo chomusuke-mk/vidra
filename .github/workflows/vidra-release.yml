@@ -466,3 +466,46 @@ jobs:
         with:
           snap: snap-artifact/vidra-linux.snap
           release: stable
+
+  publish-choco:
+    name: Publish to Chocolatey
+    needs: publish-release
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+
+      - name: Extract Version
+        id: get_version
+        run: |
+          $content = Get-Content pubspec.yaml | Select-String "^version: "
+          $version = ($content -replace "version: ", "").Split("+")[0].Trim()
+          echo "version=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+
+      - name: Prepare Chocolatey Package
+        env:
+          VERSION: ${{ steps.get_version.outputs.version }}
+        run: |
+          # 1. Download the exe to calculate the hash
+          $url = "https://github.com/chomusuke-mk/vidra/releases/download/$env:VERSION/vidra-windows.exe"
+          Invoke-WebRequest -Uri $url -OutFile "vidra-windows.exe"
+          $hash = (Get-FileHash "vidra-windows.exe" -Algorithm SHA256).Hash
+
+          # 2. Replace placeholders in nuspec
+          $nuspecPath = "choco\vidra\vidra.nuspec"
+          (Get-Content $nuspecPath) -replace '__APP_VERSION__', $env:VERSION | Set-Content $nuspecPath
+
+          # 3. Replace placeholders in install script
+          $installPath = "choco\vidra\tools\chocolateyinstall.ps1"
+          $scriptContent = Get-Content $installPath
+          $scriptContent = $scriptContent -replace '__APP_VERSION__', $env:VERSION
+          $scriptContent = $scriptContent -replace '__SHA256_HASH__', $hash
+          $scriptContent | Set-Content $installPath
+
+      - name: Pack and Push to Chocolatey
+        working-directory: choco/vidra
+        env:
+          CHOCOLATEY_API_KEY: ${{ secrets.CHOCOLATEY_API_KEY }}
+        run: |
+          choco pack
+          choco push --key $env:CHOCOLATEY_API_KEY --source https://push.chocolatey.org/
