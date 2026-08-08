@@ -6,8 +6,7 @@ enclosed in quotation marks, you should use an editor that supports UTF-8, not t
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>vidra</id>
     <version>__APP_VERSION__</version>
-    <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl
-    is highly recommended for the community feed</packageSourceUrl>-->
+    <packageSourceUrl>https://github.com/chomusuke-mk/vidra/tree/main/choco/vidra</packageSourceUrl>
     <owners>Chomusuke</owners>
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
@@ -19,7 +18,6 @@ enclosed in quotation marks, you should use an editor that supports UTF-8, not t
     <copyright>2026 Chomusuke</copyright>
     <licenseUrl>https://github.com/chomusuke-mk/vidra/blob/main/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <projectSourceUrl>https://github.com/chomusuke-mk/vidra</projectSourceUrl>
     <docsUrl>https://github.com/chomusuke-mk/vidra/tree/main/docs</docsUrl>
     <bugTrackerUrl>https://github.com/chomusuke-mk/vidra/issues</bugTrackerUrl>
     <tags>vidra video downloader media yt-dlp youtube audio</tags>
