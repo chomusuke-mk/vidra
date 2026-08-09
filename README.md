@@ -25,8 +25,8 @@
   <a href="https://github.com/chomusuke-mk/vidra/releases/latest" target="_blank"><img alt="Get it on GitHub" src="assets/badges/get-github.png" height="40" /></a>
   <a href="https://fdroid.chomusuke.dev" target="_blank"><img alt="Get it on F-Droid" src="assets/badges/get-fdroid.png" height="40" /></a>
   <a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/chomusuke-mk/vidra" target="_blank"><img alt="Get it on Obtainium" src="assets/badges/get-obtainium.png" height="40" /></a>
-  <a href="http://opendesktop.org/p/2367692" target="_blank"><img alt="Get it on OpenDesktop" src="assets/badges/get-opendesktop.png" height="40" /></a>
   <a href="https://snapcraft.io/vidra" target="_blank"><img alt="Get it on Snapcraft" src="assets/badges/get-snapstore.png" height="40" /></a>
+  <a href="http://opendesktop.org/p/2367692" target="_blank"><img alt="Get it on OpenDesktop" src="assets/badges/get-opendesktop.png" height="40" /></a>
   <a href="https://appimage.github.io/Vidra/" target="_blank"><img alt="Get it on AppImageHub" src="assets/badges/get-appimagehub.png" height="40" /></a>
 </p>
 
