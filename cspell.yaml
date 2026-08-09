@@ -16,6 +16,7 @@ words:
   - apks
   - APPICON
   - appimage
+  - appimagehub
   - appimagetool
   - APPL
   - applinks
@@ -208,8 +209,11 @@ words:
   - NOZORDER
   - objc
   - OBJC
+  - obtainium
+  - Obtainium
   - offtopic
   - Onone
+  - opendesktop
   - opengl
   - openpgp
   - ORGANIZATIONNAME
@@ -270,6 +274,7 @@ words:
   - Snapcraft
   - SNAPCRAFT
   - snapcraftctl
+  - snapstore
   - softprops
   - sourcecode
   - sponsorblock
@@ -304,6 +309,7 @@ words:
   - tldextract
   - tmpfilename
   - twofactor
+  - uncompromised
   - unhide
   - uninst
   - uninstallexe

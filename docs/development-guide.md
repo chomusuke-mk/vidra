@@ -2,9 +2,9 @@
 
 This document centralizes the guidelines for daily development, quality testing, the packaging flow for releases, and solutions to the most common issues in the Vidra development environment.
 
-## 1. Development Environment Setup (Ops)
+## 1. Full Local Compilation
 
-To develop in Vidra, you need to coordinate the Flutter client with the Python backend injected by `serious_python`.
+To compile Vidra entirely from source and test it locally, you need to coordinate the Flutter client alongside the Python backend injected by `serious_python`.
 
 ### Environment Variables
 
@@ -13,15 +13,39 @@ The packaged backend requires certain variables to locate itself correctly when 
 - `SERIOUS_PYTHON_SITE_PACKAGES`: Must point to the `.serious_python/site-packages` directory inside your local repository.
 - `SERIOUS_PYTHON_APP`: Must point to `.serious_python/app`.
 
+### Native Dependencies: FFmpeg and QuickJS
+
+For proper development functionality, Vidra requires external executables (`ffmpeg`, `ffprobe`, and `quickjs`) that are automatically downloaded and managed during the CI/CD pipeline (GitHub Actions).
+
+If you compile the application locally manually, make sure to provide these executables in the following paths depending on your operating system:
+
+| Platform    | Target directory in the project                                                     |
+| ----------- | ----------------------------------------------------------------------------------- |
+| **Windows** | `windows/ffmpeg.exe`, `windows/ffprobe.exe`, `windows/quickjs.exe`                  |
+| **Linux**   | `linux/ffmpeg`, `linux/ffprobe`, `linux/quickjs`                                    |
+| **Android** | `android/app/src/main/jniLibs/<abi>/libffmpeg.so`, `libffprobe.so`, `libquickjs.so` |
+
+_(Where `<abi>` can be `arm64-v8a`, `x86_64`, or `armeabi-v7a`)._
+
 ### Logic Packaging (serious_python)
 
-If you make changes to the Python code inside `app/src`, you need to re-package the engine before compiling Flutter:
+If you make changes to the Python code inside `app/src` or prepare the environment for the first time, you need to re-package the engine before compiling Flutter:
 
 ```bash
 dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Windows.txt -p Windows --verbose
 ```
 
-_(Replace Windows and Windows.txt with Linux or Android as appropriate)._
+_(Change `Windows` and `Windows.txt` to your target platform: `Linux`, `Android`, etc.)_
+
+### Run the Client
+
+Once the backend is packaged and native dependencies are in place, the Flutter build engine will integrate it automatically:
+
+```bash
+flutter pub get
+flutter run -d windows
+# or linux, android, etc.
+```
 
 ## 2. Testing Strategy
 

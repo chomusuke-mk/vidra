@@ -8,9 +8,9 @@
 </p>
 
 <p align="center">
- <a href="https://github.com/chomusuke-mk/vidra/releases"><img alt="Releases" src="https://img.shields.io/badge/Releases-Download-success?logo=github&logoColor=white" /></a>
- <a href="docs/system-architecture.md"><img alt="Docs" src="https://img.shields.io/badge/Docs-System%20architecture-informational?logo=readthedocs&logoColor=white" /></a>
- <a href="https://github.com/chomusuke-mk/vidra/issues"><img alt="Issues" src="https://img.shields.io/badge/Issues-Report%20a%20bug-important?logo=github&logoColor=white" /></a>
+ <a href="https://github.com/chomusuke-mk/vidra/actions/workflows/vidra-release.yml" target="_blank"><img alt="Build Status" src="https://github.com/chomusuke-mk/vidra/actions/workflows/vidra-release.yml/badge.svg" /></a>
+ <a href="docs/system-architecture.md" target="_blank"><img alt="Docs" src="https://img.shields.io/badge/Docs-System%20architecture-informational?logo=readthedocs&logoColor=white" /></a>
+ <a href="https://github.com/chomusuke-mk/vidra/issues" target="_blank"><img alt="Issues" src="https://img.shields.io/badge/Issues-Report%20a%20bug-important?logo=github&logoColor=white" /></a>
 </p>
 
 <p align="center">
@@ -21,35 +21,56 @@
  <a href="https://www.patreon.com/chomusuke_dev"><img alt="Donate (Patreon)" src="https://img.shields.io/badge/Donate-Patreon-critical?logo=patreon&logoColor=white" /></a>
 </p>
 
-> Vidra is an advanced video download manager for desktop and mobile devices. This second version, rebuilt from scratch, combines a modern user interface in Flutter with a powerful Python download engine (`yt-dlp`), seamlessly integrated as a background process (isolate).
+<p align="center">
+  <a href="https://github.com/chomusuke-mk/vidra/releases/latest" target="_blank"><img alt="Get it on GitHub" src="assets/badges/get-github.png" height="40" /></a>
+  <a href="https://fdroid.chomusuke.dev" target="_blank"><img alt="Get it on F-Droid" src="assets/badges/get-fdroid.png" height="40" /></a>
+  <a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/chomusuke-mk/vidra" target="_blank"><img alt="Get it on Obtainium" src="assets/badges/get-obtainium.png" height="40" /></a>
+  <a href="http://opendesktop.org/p/2367692" target="_blank"><img alt="Get it on OpenDesktop" src="assets/badges/get-opendesktop.png" height="40" /></a>
+  <a href="https://snapcraft.io/vidra" target="_blank"><img alt="Get it on Snapcraft" src="assets/badges/get-snapstore.png" height="40" /></a>
+  <a href="https://appimage.github.io/Vidra/" target="_blank"><img alt="Get it on AppImageHub" src="assets/badges/get-appimagehub.png" height="40" /></a>
+</p>
+
+> **The uncompromised power of yt-dlp, accessible to everyone.**  
+> While other mobile and desktop projects rely on limited wrapper packages or imitations that restrict functionality, Vidra embeds the **original** `yt-dlp` engine. This brings its complete, raw feature set and advanced configuration capabilities directly to Android, Windows, and Linux—all wrapped in a beautifully designed, user-friendly interface.
+
+## 📖 Table of Contents
+
+- [📖 Table of Contents](#-table-of-contents)
+- [✨ Key Features \& Insights](#-key-features--insights)
+- [📸 Screenshots](#-screenshots)
+- [📥 Installation](#-installation)
+- [⚠️ Disclaimer](#️-disclaimer)
+- [🏗️ General Architecture](#️-general-architecture)
+- [🚀 Quick Start for Development](#-quick-start-for-development)
+- [🌐 Internationalization (i18n)](#-internationalization-i18n)
+- [📚 Additional Documentation](#-additional-documentation)
+- [🤝 Contributions and Security](#-contributions-and-security)
+- [📄 License](#-license)
+
+---
+
+## ✨ Key Features & Insights
+
+- 🔄 **Always Up-to-Date (OTA):** Built-in Over-The-Air updates ensure your core engines (`yt-dlp` and `yt-dlp-ejs`, including beta channels) are always running the latest versions, fetched directly from their official repositories.
+- 🛡️ **Zero Telemetry:** Vidra is completely offline-first and private. It collects absolutely no personal data, telemetry, or usage metrics.
+- 🔐 **Cryptographically Verified:** All binaries and OTA updates are downloaded from official sources and strictly verified using cryptographic signatures for maximum security.
+- 🎨 **Modern and Scalable Client:** Built in Flutter under Clean Architecture principles, with full support for themes (light/dark) and internationalization.
+- ⚙️ **High-Performance Integrated Backend:** Seamless communication via local RESTful APIs to reflect download progress in real-time using a Python isolate backend.
+
+---
 
 ## 📸 Screenshots
 
-### Desktop (Linux / Windows)
+|                                       Linux / Windows                                        |                                                  Mobile (Android)                                                   |
+| :------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: |
+| <img src="assets/screenshots/linux-screenshot-1.png" width="400" alt="Linux Screenshot 1" /> | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.jpg" height="400" alt="Android Screenshot 1" /> |
+| <img src="assets/screenshots/linux-screenshot-2.png" width="400" alt="Linux Screenshot 2" /> | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.jpg" height="400" alt="Android Screenshot 2" /> |
 
-<p align="center">
-  <img src="assets/screenshots/linux-screenshot-1.png" width="48%" alt="Linux Screenshot 1" />
-  <img src="assets/screenshots/linux-screenshot-2.png" width="48%" alt="Linux Screenshot 2" />
-</p>
-
-### Mobile (Android)
-
-<p align="center">
-  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.jpg" width="31%" alt="Android Screenshot 1" />
-  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.jpg" width="31%" alt="Android Screenshot 2" />
-  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.jpg" width="31%" alt="Android Screenshot 3" />
-</p>
-
-## ✨ Key Features
-
-- **Modern and Scalable Client:** Built in Flutter under Clean Architecture principles, with full support for themes (light/dark) and internationalization.
-- **High-Performance Integrated Backend:** Uses a Python backend packaged directly into the application via `serious_python`.
-- **Cross-Platform Deployment:** Automated CI/CD using GitHub Actions ensuring the generation of binaries for Android, Windows, and Linux.
-- **Advanced Download Management:** Seamless communication via local RESTful APIs to reflect download progress in real-time, using a secure and dynamic port.
+---
 
 ## 📥 Installation
 
-Vidra is officially distributed through the **[GitHub Releases (Latest Assets)](https://github.com/chomusuke-mk/vidra/releases/latest)** section. Each release includes specific installers and packages for the different supported platforms.
+Vidra is officially distributed through the **[GitHub Releases (Latest Assets)](https://github.com/chomusuke-mk/vidra/releases/latest)** section.
 
 | Platform    | File / Installer                                                                                                        |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -58,25 +79,10 @@ Vidra is officially distributed through the **[GitHub Releases (Latest Assets)](
 | **Android** | `vidra-android.apk`<br> `vidra-android-arm64-v8a.apk`<br>`vidra-android-x86_64.apk` <br>`vidra-android-armeabi-v7a.apk` |
 | **macOS**   | _Coming soon_                                                                                                           |
 
-### 📱 F-Droid Repository
+<details>
+<summary><b>🐧 Install via APT Repository (Debian/Ubuntu)</b></summary>
 
-Vidra is also available through our official **F-Droid Repository**. To install the app and receive automatic background updates, add the repository directly to your F-Droid client (or compatible alternatives like Droid-ify/Neo Store):
-
-- **Repository URL:** `https://fdroid.chomusuke.dev/repo`
-
-### 🐧 Other Directories & Stores
-
-Vidra is also published and available on the following platforms:
-
-- **OpenDesktop:** [http://opendesktop.org/p/2367692](http://opendesktop.org/p/2367692)
-- **Snapcraft:** [https://snapcraft.io/vidra](https://snapcraft.io/vidra)
-- **AppImageHub:** [https://appimage.github.io/Vidra/](https://appimage.github.io/Vidra/)
-
-### APT Repository (Debian/Ubuntu)
-
-For Linux users on Debian or Ubuntu-based distributions, Vidra can be installed and kept up-to-date automatically using our official APT repository.
-
-Run the following commands in your terminal:
+For Linux users on Debian or Ubuntu-based distributions, Vidra can be installed and kept up-to-date automatically using our official APT repository. Run the following commands in your terminal:
 
 ```bash
 # 1. Download the public security key
@@ -90,14 +96,25 @@ sudo apt update
 sudo apt install vidra
 ```
 
-### Signature Validation and Checksums
+</details>
+
+<details>
+<summary><b>🔐 Signature Validation and Checksums</b></summary>
 
 Each release includes files to verify the integrity and authenticity of the binaries:
 
 - `SHA2-256SUMS`, `SHA2-512SUMS`: Checksums.
 - `SHA2-256SUMS.sig`, `SHA2-512SUMS.sig`: GPG signatures of the checksums.
+</details>
 
-These resources are distributed under the [LICENSE](LICENSE) and may contain third-party components under various licenses. Check the [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) file for more details.
+---
+
+## ⚠️ Disclaimer
+
+> [!WARNING]
+> Vidra is a powerful tool designed to download media for offline use and archiving. Users are solely responsible for their actions and must ensure they have the legal right or permission to download the content. The developers do not endorse, promote, or support copyright infringement.
+
+---
 
 ## 🏗️ General Architecture
 
@@ -113,64 +130,22 @@ graph TD
 
 For exhaustive details, check the [docs/system-architecture.md](docs/system-architecture.md) document.
 
-### Native Dependencies: FFmpeg and QuickJS
-
-For proper development functionality, Vidra requires external executables (`ffmpeg`, `ffprobe`, and `quickjs`) that are automatically downloaded and managed during the CI/CD pipeline (GitHub Actions).
-
-If you compile the application locally manually, make sure to provide these executables in the following paths depending on your operating system:
-
-| Platform    | Target directory in the project                                                     |
-| ----------- | ----------------------------------------------------------------------------------- |
-| **Windows** | `windows/ffmpeg.exe`, `windows/ffprobe.exe`, `windows/quickjs.exe`                  |
-| **Linux**   | `linux/ffmpeg`, `linux/ffprobe`, `linux/quickjs`                                    |
-| **Android** | `android/app/src/main/jniLibs/<abi>/libffmpeg.so`, `libffprobe.so`, `libquickjs.so` |
-
-_(Where `<abi>` can be `arm64-v8a`, `x86_64`, or `armeabi-v7a`)._
+---
 
 ## 🚀 Quick Start for Development
 
-### 1. Prepare the Flutter environment
+> [!NOTE]
+> To build Vidra locally, you will need to package the Python backend and provide the native dependencies: [FFmpeg](https://ffmpeg.org/) and [QuickJS](https://bellard.org/quickjs/).
 
-```bash
-flutter pub get
-```
+📖 **Please refer to our [Comprehensive Development Guide](docs/development-guide.md) for full compilation steps, testing strategies, and CI/CD documentation.**
 
-### 2. Configure the Python Backend
-
-Vidra's backend is injected using `serious_python`. For local environments:
-
-1. Get the latest backend source code (usually from the backend repository or as a ZIP file).
-2. Extract its contents inside `app/src`.
-3. Package the application by running:
-
-```bash
-dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Windows.txt -p Windows --verbose
-```
-
-_(Change `Windows` and `Windows.txt` to your target platform: `Linux`, `Android`, etc.)_
-
-### 3. Run the Client
-
-Once the backend is packaged, the Flutter build engine will integrate it automatically.
-
-```bash
-flutter run -d windows
-# or linux, android, etc.
-```
-
-## 📦 CI/CD Flow (GitHub Actions)
-
-The repository includes an automated flow in `.github/workflows/vidra-release.yml`. This pipeline handles:
-
-1. Dynamically downloading the latest Python code version (`app.zip` from the external repository).
-2. Downloading pre-compiled native dependencies (FFmpeg and QuickJS).
-3. Packaging everything via `serious_python`.
-4. Compiling the final binaries (APK, EXE, AppImage, DEB).
-5. Cryptographically signing the generated hashes to ensure release authenticity.
+---
 
 ## 🌐 Internationalization (i18n)
 
 Vidra supports multiple languages. Localization files are pre-configured to scale using state managers.
+
+---
 
 ## 📚 Additional Documentation
 
@@ -178,11 +153,15 @@ Vidra supports multiple languages. Localization files are pre-configured to scal
 - [docs/client-flows.md](docs/client-flows.md) – Lifecycle and main user interface flows.
 - [docs/development-guide.md](docs/development-guide.md) – Comprehensive guide for testing, troubleshooting, and configuration.
 
+---
+
 ## 🤝 Contributions and Security
 
 - Check the [CONTRIBUTING.md](.github/CONTRIBUTING.md) to know the coding standards and how to open Pull Requests.
 - Check the [CODE_OF_CONDUCT.md](.github/CODE_OF_CONDUCT.md) to ensure a healthy and professional community environment.
 - To report vulnerabilities, follow the steps outlined in [SECURITY.md](.github/SECURITY.md).
+
+---
 
 ## 📄 License
 
