@@ -23,6 +23,7 @@
 
 <p align="center">
   <a href="https://github.com/chomusuke-mk/vidra/releases/latest"><img alt="Get it on GitHub" src="assets/badges/get-github.png" height="45" /></a>
+  <a href="https://community.chocolatey.org/packages/vidra"><img alt="Get it on Chocolatey" src="assets/badges/get-chocolatey.png" height="45" /></a>
   <a href="https://fdroid.chomusuke.dev"><img alt="Get it on F-Droid" src="assets/badges/get-fdroid.png" height="45" /></a>
   <a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/chomusuke-mk/vidra"><img alt="Get it on Obtainium" src="assets/badges/get-obtainium.png" height="45" /></a>
   <a href="https://snapcraft.io/vidra"><img alt="Get it on Snapcraft" src="assets/badges/get-snapstore.png" height="45" /></a>
