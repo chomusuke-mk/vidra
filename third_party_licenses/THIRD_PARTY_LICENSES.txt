@@ -30,10 +30,10 @@ Flutter application runtime (pubspec.yaml)
 - cached_network_image | ^3.4.1 | MIT | Keep the MIT notice. | third_party_licenses/cached_network_image
 - flutter_cache_manager | ^3.4.2 | MIT | Keep the MIT notice. | third_party_licenses/flutter_cache_manager
 - serious_python | ^4.5.1 | Apache-2.0 | Keep LICENSE and NOTICE for appliance bundles. | third_party_licenses/serious_python
-- permission_handler | ^13.0.0 | MIT | Keep the MIT notice. | third_party_licenses/permission_handler
+- permission_handler | ^13.0.1 | MIT | Keep the MIT notice. | third_party_licenses/permission_handler
 - filesystem_picker | ^4.1.0 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/filesystem_picker
 - external_path | ^2.2.0 | MIT | Keep the MIT notice. | third_party_licenses/external_path
-- flutter_local_notifications | ^22.2.0 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/flutter_local_notifications
+- flutter_local_notifications | ^22.3.0 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/flutter_local_notifications
 - jsonc | ^0.0.3 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/jsonc
 - device_info_plus | ^13.2.0 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/device_info_plus
 - path | ^1.9.1 | BSD-3-Clause | Retain the BSD notice and disclaimer. | third_party_licenses/path

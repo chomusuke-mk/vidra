@@ -4,6 +4,15 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---  
 
+## [2.5.17]
+
+- **Optimization**: Site packages are now precompiled to improve performance and reduce load times.
+
+## [2.5.0]
+
+- **Fixes**: Windows progress notification issue, now notification will be displayed correctly when downloading files on Windows platform.
+- **Notifications**: Progress notifications are disabled on Linux, only show State notifications. This is due to the lack of support for progress notifications on Linux platforms.
+
 ## [2.4.0] - New Features
 
 - **New QuickJS Version:** Updated the QuickJS engine to the latest version, enhancing performance and compatibility with modern JavaScript features.

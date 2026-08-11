@@ -54,6 +54,7 @@
         "-p",
         "${input:targetPlatform}",
         "--verbose",
+        "--compile-packages",
       ],
       "options": {
         "cwd": "${workspaceFolder}",

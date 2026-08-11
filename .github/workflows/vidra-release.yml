@@ -59,7 +59,7 @@ jobs:
       - name: Package Serious Python (Android)
         run: |
           flutter pub get
-          dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Android.txt -p Android --verbose
+          dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Android.txt -p Android --verbose --compile-packages
 
       - name: Configure Android signing
         env:
@@ -150,7 +150,7 @@ jobs:
       - name: Package Serious Python (Linux)
         run: |
           flutter pub get
-          dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Linux.txt -p Linux --verbose
+          dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Linux.txt -p Linux --verbose --compile-packages
 
       - name: Build Flutter Linux
         run: flutter build linux --release
@@ -240,7 +240,7 @@ jobs:
       - name: Package Serious Python (Windows)
         run: |
           flutter pub get
-          dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Windows.txt -p Windows --verbose
+          dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Windows.txt -p Windows --verbose --compile-packages
 
       - name: Build Flutter Windows
         run: flutter build windows --release
@@ -303,7 +303,7 @@ jobs:
       - name: Package Serious Python (Linux)
         run: |
           flutter pub get
-          dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Linux.txt -p Linux --verbose
+          dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Linux.txt -p Linux --verbose --compile-packages
 
       - name: Build Snap
         uses: snapcore/action-build@v1

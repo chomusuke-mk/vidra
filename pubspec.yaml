@@ -4,7 +4,7 @@ description: "Manager for download videos"
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 2.5.16+46
+version: 2.5.17+47
 
 environment:
   sdk: ^3.12.2
@@ -29,10 +29,10 @@ dependencies:
   cached_network_image: ^3.4.1
   flutter_cache_manager: ^3.4.2
   serious_python: ^4.5.1
-  permission_handler: ^13.0.0
+  permission_handler: ^13.0.1
   filesystem_picker: ^4.1.0
   external_path: ^3.0.0
-  flutter_local_notifications: ^22.2.0
+  flutter_local_notifications: ^22.3.0
   jsonc: ^0.0.3
   device_info_plus: ^13.2.0
   path: ^1.9.1
