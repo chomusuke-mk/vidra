@@ -254,7 +254,7 @@
   "tu_next": "Seuraavaksi",
   "tu_understood": "Ymmärretty",
   "tu_engine_state": "Moottorin tila",
-  "tu_engine_state_desc": "Tämä kuvake osoittaa, onko sisäinen palvelin valmis. Jos sinulla on ongelmia, napauta tätä nähdäksesi virheet tai tarkistaaksesi moduulit.",
+  "tu_engine_state_desc": "Tämä kuvake osoittaa, onko sisäinen palvelin valmis. Jos sinulla on ongelmia, napauta tätä nähdäksesi virheet tai tarkistaaksesi moduulit. TÄSSÄ VOI VAIHDETA YT-DLP:N STABILIEN JA YÖKANAVAN VÄLILLÄ.",
   "tu_download": "Lataa sisältöä",
   "tu_download_desc": "Liitä videon tai soittolistan linkki tähän. Kun painat latauspainiketta, käytetään asetuksissa valitsemaasi laatua ja muotoa.",
   "tu_filters": "Suodattimet ja haku",

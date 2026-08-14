@@ -254,7 +254,7 @@
   "tu_next": "Berikutnya",
   "tu_understood": "Dipahami",
   "tu_engine_state": "Status Mesin",
-  "tu_engine_state_desc": "Ikon ini menunjukkan apakah server internal sudah siap. Jika Anda mengalami masalah, ketuk di sini untuk melihat kesalahan atau memeriksa modul.",
+  "tu_engine_state_desc": "Ikon ini menunjukkan apakah server internal sudah siap. Jika Anda mengalami masalah, ketuk di sini untuk melihat kesalahan atau memeriksa modul. DI SINI ANDA DAPAT BERALIH ANTARA SALURAN YT-DLP STABIL DAN MALAM.",
   "tu_download": "Unduh Konten",
   "tu_download_desc": "Tempel tautan video atau daftar putar di sini. Saat Anda menekan tombol unduh, kualitas dan format yang Anda pilih di pengaturan Anda akan digunakan.",
   "tu_filters": "Filter dan Pencarian",

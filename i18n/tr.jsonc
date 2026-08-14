@@ -254,7 +254,7 @@
   "tu_next": "Sonraki",
   "tu_understood": "Anlaşıldı",
   "tu_engine_state": "Motor Durumu",
-  "tu_engine_state_desc": "Bu simge dahili sunucunun hazır olup olmadığını gösterir. Sorun yaşıyorsanız hataları görüntülemek veya modülleri kontrol etmek için buraya dokunun.",
+  "tu_engine_state_desc": "Bu simge dahili sunucunun hazır olup olmadığını gösterir. Sorun yaşıyorsanız hataları görüntülemek veya modülleri kontrol etmek için buraya dokunun. BURADA YT-DLP STABİLİ VE GECE KANALLARI ARASINDA GEÇİŞ YAPABİLİRSİNİZ.",
   "tu_download": "İçeriği İndir",
   "tu_download_desc": "Video veya oynatma listesi bağlantısını buraya yapıştırın. İndir butonuna bastığınızda ayarlarınızda seçtiğiniz kalite ve format kullanılacaktır.",
   "tu_filters": "Filtreler ve Arama",

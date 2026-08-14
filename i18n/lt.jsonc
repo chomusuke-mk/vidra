@@ -254,7 +254,7 @@
   "tu_next": "Kitas",
   "tu_understood": "Suprato",
   "tu_engine_state": "Variklio būsena",
-  "tu_engine_state_desc": "Ši piktograma rodo, ar vidinis serveris yra paruoštas. Jei kyla problemų, bakstelėkite čia, kad peržiūrėtumėte klaidas arba patikrintumėte modulius.",
+  "tu_engine_state_desc": "Ši piktograma rodo, ar vidinis serveris yra paruoštas. Jei kyla problemų, bakstelėkite čia, kad peržiūrėtumėte klaidas arba patikrintumėte modulius. ČIA GALITE PERJUNGTI STABILIUS YT-DLP IR NAKTINIUS KANALUS.",
   "tu_download": "Atsisiųskite turinį",
   "tu_download_desc": "Įklijuokite vaizdo įrašo arba grojaraščio nuorodą čia. Kai paspausite atsisiuntimo mygtuką, bus naudojama nustatymuose pasirinkta kokybė ir formatas.",
   "tu_filters": "Filtrai ir paieška",

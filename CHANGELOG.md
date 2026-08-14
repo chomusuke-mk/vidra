@@ -2,7 +2,21 @@
 
 All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** project will be documented in this file.
 
----  
+---
+
+## [2.5.19]
+
+- **Emergency Bug Fix**: Fix download error detection.
+
+> [!WARNING]
+>
+> ### 🚨 URGENT ADVICE: YouTube Downloads Failing
+>
+> The current **`yt-dlp` stable version is blocked** by YouTube. **Please use the nightly version instead.**
+>
+> Press (?) if you don't know how to switch to the nightly version.
+>
+> _Alternative Workaround:_ Cookies from your browser also fix the YouTube download error. However, this is **not available in Android and Snap** because of the sandbox isolation. Please use a browser to export your cookies manually and import them into Vidra.
 
 ## [2.5.18]
 

@@ -254,7 +254,7 @@
   "tu_next": "Tālāk",
   "tu_understood": "Saprata",
   "tu_engine_state": "Dzinēja stāvoklis",
-  "tu_engine_state_desc": "Šī ikona norāda, vai iekšējais serveris ir gatavs. Ja rodas problēmas, pieskarieties šeit, lai skatītu kļūdas vai pārbaudītu moduļus.",
+  "tu_engine_state_desc": "Šī ikona norāda, vai iekšējais serveris ir gatavs. Ja rodas problēmas, pieskarieties šeit, lai skatītu kļūdas vai pārbaudītu moduļus. ŠEIT VARAT PĀRSLĒGT STABILU YT-DLP STABILU UN NAKTS KANĀLIEM.",
   "tu_download": "Lejupielādēt saturu",
   "tu_download_desc": "Ielīmējiet video vai atskaņošanas saraksta saiti šeit. Nospiežot lejupielādes pogu, tiks izmantota iestatījumos atlasītā kvalitāte un formāts.",
   "tu_filters": "Filtri un meklēšana",

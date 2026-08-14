@@ -254,7 +254,7 @@
   "tu_next": "Nächste",
   "tu_understood": "Verstanden",
   "tu_engine_state": "Motorstatus",
-  "tu_engine_state_desc": "Dieses Symbol zeigt an, ob der interne Server bereit ist. Wenn Sie Probleme haben, tippen Sie hier, um Fehler anzuzeigen oder die Module zu überprüfen.",
+  "tu_engine_state_desc": "Dieses Symbol zeigt an, ob der interne Server bereit ist. Wenn Sie Probleme haben, tippen Sie hier, um Fehler anzuzeigen oder die Module zu überprüfen. HIER KÖNNEN SIE ZWISCHEN YT-DLP STABLE UND NIGHTLY-KANÄLEN WECHSELN.",
   "tu_download": "Inhalte herunterladen",
   "tu_download_desc": "Fügen Sie hier den Video- oder Playlist-Link ein. Wenn Sie auf den Download-Button klicken, werden die Qualität und das Format verwendet, die Sie in Ihren Einstellungen ausgewählt haben.",
   "tu_filters": "Filter und Suche",

@@ -254,7 +254,7 @@
   "tu_next": "Sledeći",
   "tu_understood": "Razumeo",
   "tu_engine_state": "Stanje motora",
-  "tu_engine_state_desc": "Ova ikona pokazuje da li je interni server spreman. Ako imate problema, dodirnite ovdje da vidite greške ili provjerite module.",
+  "tu_engine_state_desc": "Ova ikona pokazuje da li je interni server spreman. Ako imate problema, dodirnite ovdje da vidite greške ili provjerite module. OVDJE MOŽETE PRELAZITI IZMEĐU YT-DLP STABILNIH I NOĆNIH KANALA.",
   "tu_download": "Preuzmi sadržaj",
   "tu_download_desc": "Ovdje zalijepite link za video ili plejlistu. Kada pritisnete dugme za preuzimanje, koristiće se kvalitet i format koji ste odabrali u podešavanjima.",
   "tu_filters": "Filteri i pretraga",

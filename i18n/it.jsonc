@@ -254,7 +254,7 @@
   "tu_next": "Prossimo",
   "tu_understood": "Inteso",
   "tu_engine_state": "Stato del motore",
-  "tu_engine_state_desc": "Questa icona indica se il server interno è pronto. Se riscontri problemi, tocca qui per visualizzare gli errori o controllare i moduli.",
+  "tu_engine_state_desc": "Questa icona indica se il server interno è pronto. Se riscontri problemi, tocca qui per visualizzare gli errori o controllare i moduli. QUI PUOI PASSARE TRA I CANALI YT-DLP STABILE E NOTTURNO.",
   "tu_download": "Scarica contenuto",
   "tu_download_desc": "Incolla qui il collegamento al video o alla playlist. Quando premi il pulsante di download, verranno utilizzati la qualità e il formato selezionati nelle impostazioni.",
   "tu_filters": "Filtri e ricerca",

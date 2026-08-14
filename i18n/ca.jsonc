@@ -254,7 +254,7 @@
   "tu_next": "A continuació",
   "tu_understood": "Entés",
   "tu_engine_state": "Estat del motor",
-  "tu_engine_state_desc": "Aquesta icona indica si el servidor intern està preparat. Si teniu problemes, toqueu aquí per veure els errors o comprovar els mòduls.",
+  "tu_engine_state_desc": "Aquesta icona indica si el servidor intern està preparat. Si teniu problemes, toqueu aquí per veure els errors o comprovar els mòduls. AQUÍ PODEU CANVIAR ENTRE ELS CANALS ESTABLES DE YT-DLP I ELS NIT.",
   "tu_download": "Descarregar contingut",
   "tu_download_desc": "Enganxeu el vídeo o l'enllaç de la llista de reproducció aquí. Quan premeu el botó de descàrrega, s'utilitzaran la qualitat i el format que heu seleccionat a la vostra configuració.",
   "tu_filters": "Filtres i cerca",

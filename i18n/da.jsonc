@@ -254,7 +254,7 @@
   "tu_next": "Næste",
   "tu_understood": "Forstået",
   "tu_engine_state": "Motortilstand",
-  "tu_engine_state_desc": "Dette ikon angiver, om den interne server er klar. Hvis du har problemer, skal du trykke her for at se fejl eller kontrollere modulerne.",
+  "tu_engine_state_desc": "Dette ikon angiver, om den interne server er klar. Hvis du har problemer, skal du trykke her for at se fejl eller kontrollere modulerne. HER KAN DU SKIFTE MELLEM YT-DLP STABIL OG NATKANALER.",
   "tu_download": "Download indhold",
   "tu_download_desc": "Indsæt videoen eller playlistelinket her. Når du trykker på download-knappen, bruges den kvalitet og det format, du valgte i dine indstillinger.",
   "tu_filters": "Filtre og søgning",

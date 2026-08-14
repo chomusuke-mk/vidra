@@ -254,7 +254,7 @@
   "tu_next": "Următorul",
   "tu_understood": "Înțeles",
   "tu_engine_state": "Stare motor",
-  "tu_engine_state_desc": "Această pictogramă indică dacă serverul intern este pregătit. Dacă întâmpinați probleme, atingeți aici pentru a vedea erorile sau pentru a verifica modulele.",
+  "tu_engine_state_desc": "Această pictogramă indică dacă serverul intern este pregătit. Dacă întâmpinați probleme, atingeți aici pentru a vedea erorile sau pentru a verifica modulele. AICI PUTEȚI COMMUTARE ÎNTRE CANALurile YT-DLP STABILE ȘI NOPTE.",
   "tu_download": "Descărcați conținut",
   "tu_download_desc": "Inserați linkul video sau playlist aici. Când apăsați butonul de descărcare, vor fi utilizate calitatea și formatul pe care le-ați selectat în setări.",
   "tu_filters": "Filtre și căutare",

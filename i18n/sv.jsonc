@@ -253,7 +253,7 @@
   "tu_next": "Nästa",
   "tu_understood": "Förstått",
   "tu_engine_state": "Motortillstånd",
-  "tu_engine_state_desc": "Denna ikon indikerar om den interna servern är redo. Om du har problem, tryck här för att se fel eller kontrollera modulerna.",
+  "tu_engine_state_desc": "Denna ikon indikerar om den interna servern är klar. Om du har problem, tryck här för att se fel eller kontrollera modulerna. HÄR KAN DU BYTA MELLAN YT-DLP STABIL OCH NATTKANALER.",
   "tu_download": "Ladda ner innehåll",
   "tu_download_desc": "Klistra in länken till videon eller spellistan här. När du trycker på nedladdningsknappen kommer kvaliteten och formatet du valde i dina inställningar att användas.",
   "tu_filters": "Filter och sökning",

@@ -253,7 +253,7 @@
   "tu_next": "Næst",
   "tu_understood": "Skildi",
   "tu_engine_state": "Vélarástand",
-  "tu_engine_state_desc": "Þetta tákn sýnir hvort innri þjónninn er tilbúinn. Ef þú ert í vandræðum, bankaðu hér til að skoða villur eða athuga einingarnar.",
+  "tu_engine_state_desc": "Þetta tákn sýnir hvort innri þjónninn er tilbúinn. Ef þú ert í vandræðum, bankaðu hér til að skoða villur eða athuga einingarnar. HÉR GETUR SKIPT Á MILLI YT-DLP STÖÐUGLEGA OG Næturrásum.",
   "tu_download": "Sækja efni",
   "tu_download_desc": "Límdu myndbandið eða spilunarlistann hér. Þegar þú ýtir á niðurhalshnappinn verða gæðin og sniðið sem þú valdir í stillingunum þínum notuð.",
   "tu_filters": "Síur og leit",

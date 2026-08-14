@@ -254,7 +254,7 @@
   "tu_next": "Susunod",
   "tu_understood": "Naintindihan",
   "tu_engine_state": "Estado ng Engine",
-  "tu_engine_state_desc": "Isinasaad ng icon na ito kung handa na ang panloob na server. Kung nagkakaproblema ka, mag-tap dito para tingnan ang mga error o tingnan ang mga module.",
+  "tu_engine_state_desc": "Isinasaad ng icon na ito kung handa na ang panloob na server. Kung nagkakaproblema ka, mag-tap dito para tingnan ang mga error o tingnan ang mga module. DITO MAAARING PUMALIT KA SA YT-DLP STABLE AT NIGHTLY CHANNELS.",
   "tu_download": "I-download ang Nilalaman",
   "tu_download_desc": "I-paste ang link ng video o playlist dito. Kapag pinindot mo ang pindutan ng pag-download, ang kalidad at format na iyong pinili sa iyong mga setting ay gagamitin.",
   "tu_filters": "Mga Filter at Paghahanap",

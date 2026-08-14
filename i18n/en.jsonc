@@ -135,7 +135,7 @@
   "tu_understood": "Understood",
   // Pantalla Principal
   "tu_engine_state": "Engine State",
-  "tu_engine_state_desc": "This icon indicates whether the internal server is ready. If you're having problems, tap here to view errors or check the modules.",
+  "tu_engine_state_desc": "This icon indicates whether the internal server is ready. If you're having problems, tap here to view errors or check the modules. HERE YOU CAN SWITCH BETWEEN YT-DLP STABLE AND NIGHTLY CHANNELS.",
   "tu_download": "Download Content",
   "tu_download_desc": "Paste the video or playlist link here. When you press the download button, the quality and format you selected in your settings will be used.",
   "tu_filters": "Filters and Search",

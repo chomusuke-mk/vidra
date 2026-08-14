@@ -254,7 +254,7 @@
   "tu_next": "Sonrakı",
   "tu_understood": "Anladım",
   "tu_engine_state": "Mühərrikin vəziyyəti",
-  "tu_engine_state_desc": "Bu işarə daxili serverin hazır olub olmadığını göstərir. Probleminiz varsa, səhvlərə baxmaq və ya modulları yoxlamaq üçün bura toxunun.",
+  "tu_engine_state_desc": "Bu işarə daxili serverin hazır olub olmadığını göstərir. Probleminiz varsa, səhvlərə baxmaq və ya modulları yoxlamaq üçün bura toxunun. BURADA YT-DLP STABLE VƏ GECE KANALLARI ARASINDA DƏYİŞƏ BİLƏRSİNİZ.",
   "tu_download": "Məzmunu Yükləyin",
   "tu_download_desc": "Video və ya pleylist linkini bura yerləşdirin. Yükləmə düyməsini basdığınız zaman parametrlərinizdə seçdiyiniz keyfiyyət və formatdan istifadə olunacaq.",
   "tu_filters": "Filtrlər və Axtarış",

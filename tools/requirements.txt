@@ -1,0 +1,3 @@
+json-with-comments
+deep-translator
+tqdm

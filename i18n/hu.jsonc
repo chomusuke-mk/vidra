@@ -254,7 +254,7 @@
   "tu_next": "Következő",
   "tu_understood": "Megértve",
   "tu_engine_state": "Motor állapota",
-  "tu_engine_state_desc": "Ez az ikon jelzi, hogy a belső szerver készen áll-e. Ha problémái vannak, érintse meg ide a hibák megtekintéséhez vagy a modulok ellenőrzéséhez.",
+  "tu_engine_state_desc": "Ez az ikon jelzi, hogy a belső szerver készen áll-e. Ha problémái vannak, érintse meg ide a hibák megtekintéséhez vagy a modulok ellenőrzéséhez. ITT VÁLTHATSZ AZ YT-DLP STABIL ÉS ÉJSZAKAI CSATORNÁI KÖZÖTT.",
   "tu_download": "Tartalom letöltése",
   "tu_download_desc": "Illessze be ide a videó vagy a lejátszási lista linkjét. Amikor megnyomja a letöltés gombot, a beállításokban kiválasztott minőség és formátum kerül felhasználásra.",
   "tu_filters": "Szűrők és keresés",

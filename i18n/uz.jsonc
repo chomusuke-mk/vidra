@@ -254,7 +254,7 @@
   "tu_next": "Keyingisi",
   "tu_understood": "Tushundim",
   "tu_engine_state": "Dvigatel holati",
-  "tu_engine_state_desc": "Ushbu belgi ichki server tayyor yoki tayyor emasligini bildiradi. Muammolarga duch kelsangiz, xatolarni ko'rish yoki modullarni tekshirish uchun bu yerga bosing.",
+  "tu_engine_state_desc": "Ushbu belgi ichki server tayyor yoki tayyor emasligini bildiradi. Muammolarga duch kelsangiz, xatolarni ko'rish yoki modullarni tekshirish uchun bu yerga bosing. BU YERDA SIZ YT-DLP SABLE VA TUNGI KANALLAR O'RTINI ALTISHINGIZ MUMKIN.",
   "tu_download": "Kontentni yuklab olish",
   "tu_download_desc": "Video yoki pleylist havolasini shu yerga joylashtiring. Yuklab olish tugmasini bosganingizda sozlamalaringizda tanlagan sifat va format ishlatiladi.",
   "tu_filters": "Filtrlar va qidiruv",

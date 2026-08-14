@@ -1,13 +1,14 @@
+import hashlib
 import json
-import jsonc  # type: ignore[import-untyped]
-from pathlib import Path
-from typing import List, TypedDict
 import os
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from tqdm.auto import tqdm  # type: ignore
+from pathlib import Path
+from typing import List, TypedDict
+
+import jsonc  # type: ignore[import-untyped]
 from deep_translator import GoogleTranslator  # type: ignore[import]
-import hashlib
+from tqdm.auto import tqdm  # type: ignore
 
 
 class LocaleParams(TypedDict):
@@ -210,7 +211,7 @@ LANGS = [
     "zu",
 ]
 
-LOCALES: List[LocaleParams] = [
+LOCALES: list[LocaleParams] = [
     {
         "input_file": BASE_LOCALE_FILE,
         "input_file_hash": BASE_LOCALE_HASH,
@@ -232,7 +233,7 @@ with (
 ):
     input_content = jsonc.load(input_file)
     if not isinstance(input_content, dict):
-        raise ValueError("Input content is not a dictionary.")
+        raise TypeError("Input content is not a dictionary.")
     if not all(
         isinstance(key, str) and isinstance(value, str)
         for key, value in input_content.items()

@@ -254,7 +254,7 @@
   "tu_next": "Edasi",
   "tu_understood": "Arusaadav",
   "tu_engine_state": "Mootori olek",
-  "tu_engine_state_desc": "See ikoon näitab, kas siseserver on valmis. Kui teil on probleeme, puudutage vigade vaatamiseks või moodulite kontrollimiseks siin.",
+  "tu_engine_state_desc": "See ikoon näitab, kas siseserver on valmis. Kui teil on probleeme, puudutage vigade vaatamiseks või moodulite kontrollimiseks siin. SIIT SAATE LÜLITADA YT-DLP STABIILSTE JA ÖÖKANALITE VAHEL.",
   "tu_download": "Sisu allalaadimine",
   "tu_download_desc": "Kleepige video või esitusloendi link siia. Kui vajutate allalaadimisnuppu, kasutatakse seadetes valitud kvaliteeti ja vormingut.",
   "tu_filters": "Filtrid ja otsing",

@@ -254,7 +254,7 @@
   "tu_next": "Další",
   "tu_understood": "Rozuměl",
   "tu_engine_state": "Stav motoru",
-  "tu_engine_state_desc": "Tato ikona označuje, zda je interní server připraven. Pokud máte problémy, klepnutím sem zobrazíte chyby nebo zkontrolujte moduly.",
+  "tu_engine_state_desc": "Tato ikona označuje, zda je interní server připraven. Pokud máte problémy, klepnutím sem zobrazíte chyby nebo zkontrolujte moduly. ZDE MŮŽETE PŘEPÍNAT MEZI YT-DLP STABILNÍ A NOČNÍ KANÁLY.",
   "tu_download": "Stáhnout obsah",
   "tu_download_desc": "Sem vložte odkaz na video nebo seznam videí. Když stisknete tlačítko stahování, použije se kvalita a formát, které jste vybrali v nastavení.",
   "tu_filters_desc": "Rozbalením této nabídky můžete vyhledávat stažené soubory podle názvu nebo filtrovat mezi jednotlivými videi a seznamy skladeb.",

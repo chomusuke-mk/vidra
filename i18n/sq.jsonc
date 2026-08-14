@@ -254,7 +254,7 @@
   "tu_next": "Tjetra",
   "tu_understood": "Kuptohet",
   "tu_engine_state": "Gjendja e motorit",
-  "tu_engine_state_desc": "Kjo ikonë tregon nëse serveri i brendshëm është gati. Nëse keni probleme, trokitni këtu për të parë gabimet ose për të kontrolluar modulet.",
+  "tu_engine_state_desc": "Kjo ikonë tregon nëse serveri i brendshëm është gati. Nëse keni probleme, trokitni këtu për të parë gabimet ose për të kontrolluar modulet. KËTU MUND TË KALONI MIDIS KANALET TË QËLLUESHME DHE TË NATËS YT-DLP.",
   "tu_download": "Shkarkoni Përmbajtjen",
   "tu_download_desc": "Ngjit lidhjen e videos ose listës së luajtjes këtu. Kur shtypni butonin e shkarkimit, do të përdoret cilësia dhe formati që keni zgjedhur në cilësimet tuaja.",
   "tu_filters": "Filtrat dhe Kërkimi",

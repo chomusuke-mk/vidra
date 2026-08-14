@@ -254,7 +254,7 @@
   "tu_next": "Następny",
   "tu_understood": "Zrozumiany",
   "tu_engine_state": "Stan silnika",
-  "tu_engine_state_desc": "Ta ikona wskazuje, czy serwer wewnętrzny jest gotowy. Jeśli masz problemy, dotknij tutaj, aby wyświetlić błędy lub sprawdzić moduły.",
+  "tu_engine_state_desc": "Ta ikona wskazuje, czy serwer wewnętrzny jest gotowy. Jeśli masz problemy, dotknij tutaj, aby wyświetlić błędy lub sprawdzić moduły. TUTAJ MOŻESZ PRZEŁĄCZAĆ MIĘDZY KANAŁAMI YT-DLP STABLE A NIGHTLY.",
   "tu_download": "Pobierz zawartość",
   "tu_download_desc": "Wklej tutaj link do filmu lub playlisty. Po naciśnięciu przycisku pobierania zostanie zastosowana jakość i format wybrany w ustawieniach.",
   "tu_filters": "Filtry i wyszukiwanie",
