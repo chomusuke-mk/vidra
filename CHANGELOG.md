@@ -4,6 +4,12 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---  
 
+## [2.5.18]
+
+- **Backend Bug Fixes**: Fixed pause when collecting entries, add cancel when waiting for selection. Fix losing entries selection when select in pausing state.
+- **Color Fixes**: Pending entries now have correct color. Fix remaining entries color when re-downloading. Fix color of entries when downloading is paused.
+- **Preventive Fixes**: Unique ID now get from unique counter in database instead of using max value of existing entries. This prevents issues when deleting entries and re-downloading them.
+
 ## [2.5.17]
 
 - **Optimization**: Site packages are now precompiled to improve performance and reduce load times.
