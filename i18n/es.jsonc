@@ -291,7 +291,7 @@
   "s_tutorial_tooltip": "mostrar tutorial",
   "sd_log_file_not_found": "Archivo de registro no encontrado.",
   "fe_title": "Error fatal del sistema",
-  "fe_message": "El motor de descarga no se pudo cargar después de una actualización. Reinicie la aplicación.",
-  "fe_restart_button": "Reiniciar la aplicación",
+  "fe_message": "El motor de descargas no pudo cargarse tras la actualización. Por favor, reinicia la aplicación.",
+  "fe_restart_button": "Reiniciar aplicación",
   "fe_view_logs_button": "Ver registros"
 }

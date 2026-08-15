@@ -14,6 +14,19 @@ class PgpVerifier {
     required String expectedBinaryName,
   }) async {
     try {
+      // 0. Validar existencia y tamaño no vacío de todos los archivos involucrados
+      if (!sumsFile.existsSync() ||
+          sumsFile.lengthSync() == 0 ||
+          !sigFile.existsSync() ||
+          sigFile.lengthSync() == 0 ||
+          !binaryFile.existsSync() ||
+          binaryFile.lengthSync() == 0) {
+        debugPrint(
+          '⚠️ Error: Uno o más archivos para la verificación PGP/SHA no existen o están vacíos.',
+        );
+        return false;
+      }
+
       // 1. Validar la firma PGP del archivo SHA512SUMS (Detached Signature)
       final sumsContent = await sumsFile.readAsString();
       // 2. Leer la firma PGP (.sig) como BYTES puros para que Dart no crashee
@@ -55,10 +68,18 @@ class PgpVerifier {
       String? expectedHash;
 
       for (var line in lines) {
-        if (line.contains(expectedBinaryName)) {
-          // Extraemos el hash (la primera cadena de texto antes de los espacios)
-          expectedHash = line.split(RegExp(r'\s+')).first;
-          break;
+        final trimmed = line.trim();
+        if (trimmed.isEmpty || trimmed.startsWith('#')) continue;
+
+        final tokens = trimmed.split(RegExp(r'\s+'));
+        if (tokens.length >= 2) {
+          final hashToken = tokens[0].toLowerCase();
+          final filenameToken = tokens.sublist(1).join(' ').replaceFirst(RegExp(r'^\*'), '');
+
+          if (filenameToken.toLowerCase() == expectedBinaryName.toLowerCase()) {
+            expectedHash = hashToken;
+            break;
+          }
         }
       }
 

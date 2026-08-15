@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:vidra/features/updates/domain/update_info.dart';
@@ -101,6 +102,11 @@ class GithubClient {
     Function(int received, int total)? onProgress,
   }) async {
     try {
+      final file = File(savePath);
+      if (!file.parent.existsSync()) {
+        file.parent.createSync(recursive: true);
+      }
+
       await _dio.download(
         url,
         savePath,
@@ -110,6 +116,10 @@ class GithubClient {
           followRedirects: true, // Crucial porque Github S3 siempre redirige
         ),
       );
+
+      if (!file.existsSync() || file.lengthSync() == 0) {
+        return false;
+      }
       return true;
     } catch (e) {
       return false;

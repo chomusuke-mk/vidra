@@ -275,92 +275,126 @@ class UpdateController extends ChangeNotifier {
     _setState(type, ComponentStatus.downloading, progress: 0.0);
 
     final supportDir = await getApplicationSupportDirectory();
-    final tempDir = Directory(p.join(supportDir.path, 'temp_updates'));
+    final tempDir = Directory(
+      p.join(supportDir.path, 'temp_updates', type.name),
+    );
     if (!tempDir.existsSync()) tempDir.createSync(recursive: true);
 
-    final binaryPath = p.join(tempDir.path, p.basename(info.downloadUrl));
-    final sumsPath = p.join(tempDir.path, 'sums');
-    final sigPath = p.join(tempDir.path, 'sig');
+    final binaryFile = File(p.join(tempDir.path, p.basename(info.downloadUrl)));
+    final sumsFile = File(p.join(tempDir.path, 'sums'));
+    final sigFile = File(p.join(tempDir.path, 'sig'));
 
-    final ok = await _github.downloadFile(
-      url: info.downloadUrl,
-      savePath: binaryPath,
-      onProgress: (rec, total) =>
-          _setState(type, ComponentStatus.downloading, progress: rec / total),
-    );
-
-    if (!ok) return _setState(type, ComponentStatus.error);
-
-    if (info.requiresPgpValidation) {
-      _setState(type, ComponentStatus.verifying);
-      await _github.downloadFile(url: info.sumsUrl!, savePath: sumsPath);
-      await _github.downloadFile(url: info.sigUrl!, savePath: sigPath);
-
-      final isSafe = await PgpVerifier.verifyBinary(
-        binaryFile: File(binaryPath),
-        sumsFile: File(sumsPath),
-        sigFile: File(sigPath),
-        publicKey: PublicKeys.getKeyForComponent(type),
-        expectedBinaryName: p.basename(info.downloadUrl),
+    try {
+      final ok = await _github.downloadFile(
+        url: info.downloadUrl,
+        savePath: binaryFile.path,
+        onProgress: (rec, total) =>
+            _setState(type, ComponentStatus.downloading, progress: rec / total),
       );
 
-      if (!isSafe) {
-        //tempDir.deleteSync(recursive: true);
+      if (!ok || !binaryFile.existsSync() || binaryFile.lengthSync() == 0) {
         return _setState(type, ComponentStatus.error);
       }
-    }
 
-    _setState(type, ComponentStatus.installing);
-
-    if (type == ComponentType.app) {
-      final result = await OpenFilex.open(binaryPath);
-      if (result.type == ResultType.done) {
-        // Al lanzar el intent de instalación con éxito, el sistema operativo tomará el control.
-        // Nosotros regresamos la tarjeta a su estado normal.
-        _setState(
-          type,
-          ComponentStatus.upToDate,
-          version: info.version,
-          pendingUpdate: null,
+      if (info.requiresPgpValidation) {
+        _setState(type, ComponentStatus.verifying);
+        final sumsOk = await _github.downloadFile(
+          url: info.sumsUrl!,
+          savePath: sumsFile.path,
         );
-      } else {
-        // Si el usuario no dio permisos o el archivo es inválido
-        debugPrint('Error al abrir el APK: ${result.message}');
-        _setState(type, ComponentStatus.error);
+        if (!sumsOk || !sumsFile.existsSync() || sumsFile.lengthSync() == 0) {
+          return _setState(type, ComponentStatus.error);
+        }
+
+        final sigOk = await _github.downloadFile(
+          url: info.sigUrl!,
+          savePath: sigFile.path,
+        );
+        if (!sigOk || !sigFile.existsSync() || sigFile.lengthSync() == 0) {
+          return _setState(type, ComponentStatus.error);
+        }
+
+        final isSafe = await PgpVerifier.verifyBinary(
+          binaryFile: binaryFile,
+          sumsFile: sumsFile,
+          sigFile: sigFile,
+          publicKey: PublicKeys.getKeyForComponent(type),
+          expectedBinaryName: p.basename(info.downloadUrl),
+        );
+
+        if (!isSafe) {
+          return _setState(type, ComponentStatus.error);
+        }
       }
-    } else {
-      await _system.stopBackendForUpdate();
-      final modulesDir = Directory(p.join(supportDir.path, 'core_modules'));
-      final pythonPackageName = type == ComponentType.ytDlp
-          ? 'yt_dlp'
-          : 'yt_dlp_ejs';
-      final destDir = Directory(p.join(modulesDir.path, pythonPackageName));
 
-      final extracted = await ArchiveExtractor.extractPythonModule(
-        archiveFile: File(binaryPath),
-        destinationDir: destDir,
-        targetSubfolderName: pythonPackageName,
-      );
+      _setState(type, ComponentStatus.installing);
 
-      if (extracted) {
-        await _prefs.setString(
-          type == ComponentType.ytDlp ? 'version_yt_dlp' : 'version_yt_dlp_ejs',
-          info.version,
-        );
-        _setState(
-          type,
-          ComponentStatus.upToDate,
-          version: info.version,
-          pendingUpdate: null,
-        );
+      if (type == ComponentType.app) {
+        final result = await OpenFilex.open(binaryFile.path);
+        if (result.type == ResultType.done) {
+          // Al lanzar el intent de instalación con éxito, el sistema operativo tomará el control.
+          // Nosotros regresamos la tarjeta a su estado normal.
+          _setState(
+            type,
+            ComponentStatus.upToDate,
+            version: info.version,
+            pendingUpdate: null,
+          );
+        } else {
+          // Si el usuario no dio permisos o el archivo es inválido
+          debugPrint('Error al abrir el APK: ${result.message}');
+          _setState(type, ComponentStatus.error);
+        }
       } else {
-        _setState(type, ComponentStatus.error);
-      }
-      await _system.resumeInitialization();
-    }
+        if (!binaryFile.existsSync() || binaryFile.lengthSync() == 0) {
+          return _setState(type, ComponentStatus.error);
+        }
 
-    if (type != ComponentType.app && tempDir.existsSync()) {
-      tempDir.deleteSync(recursive: true);
+        await _system.stopBackendForUpdate();
+        try {
+          final modulesDir = Directory(p.join(supportDir.path, 'core_modules'));
+          final pythonPackageName = type == ComponentType.ytDlp
+              ? 'yt_dlp'
+              : 'yt_dlp_ejs';
+          final destDir = Directory(p.join(modulesDir.path, pythonPackageName));
+
+          final extracted = await ArchiveExtractor.extractPythonModule(
+            archiveFile: binaryFile,
+            destinationDir: destDir,
+            targetSubfolderName: pythonPackageName,
+          );
+
+          if (extracted) {
+            await _prefs.setString(
+              type == ComponentType.ytDlp
+                  ? 'version_yt_dlp'
+                  : 'version_yt_dlp_ejs',
+              info.version,
+            );
+            _setState(
+              type,
+              ComponentStatus.upToDate,
+              version: info.version,
+              pendingUpdate: null,
+            );
+          } else {
+            _setState(type, ComponentStatus.error);
+          }
+        } finally {
+          await _system.resumeInitialization();
+        }
+      }
+    } catch (e) {
+      debugPrint('Error during downloadAndInstall: $e');
+      _setState(type, ComponentStatus.error);
+    } finally {
+      if (type != ComponentType.app && tempDir.existsSync()) {
+        try {
+          tempDir.deleteSync(recursive: true);
+        } catch (e) {
+          debugPrint('Error cleaning up temp directory: $e');
+        }
+      }
     }
   }
 

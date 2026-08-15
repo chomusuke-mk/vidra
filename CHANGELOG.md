@@ -10,6 +10,7 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 - **Enhanced Update Mechanism:** The new OTA technique supports dynamic module loading and unloading, allowing for more flexible and efficient updates to the backend services.
 - **Info getter Improved:** Now first call to yt-dlp saves a .info.json file in the cache folder, which is used for downloading without re-calling http request. This reduces probability of being blocked by YouTube and improves download speed.
 - **Bug Fix**: Fixed pause/cancel issue when downloading multiple entries. Now pause/cancel will be applied to all entries in the queue.
+- **Bug Fix**: Fixed issue where download/update yt-dlp/yt-dlp-ejs failed because running conditions were not met. Now correctly wait for finishing downloading before valid PGP signs.
 
 ## [2.5.19]
 

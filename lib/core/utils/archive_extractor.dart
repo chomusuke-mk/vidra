@@ -5,17 +5,30 @@ import 'package:flutter/foundation.dart';
 
 class ArchiveExtractor {
   /// Extrae un archivo comprimido buscando una subcarpeta específica y volcándola
-  /// directamente en el directorio destino, ignorando el resto del archivo.
+  /// directamente en el directorio destino de forma atómica y segura mediante staging.
   static Future<bool> extractPythonModule({
     required File archiveFile,
     required Directory destinationDir, // Ej: /.../core_modules/yt_dlp
     required String targetSubfolderName, // Ej: "yt_dlp" o "yt_dlp_ejs"
   }) async {
+    Directory? stagingDir;
     try {
-      if (destinationDir.existsSync()) {
-        destinationDir.deleteSync(recursive: true);
+      // 0. Validar que el archivo comprimido existe y no está vacío
+      if (!archiveFile.existsSync() || archiveFile.lengthSync() == 0) {
+        debugPrint(
+          '❌ Archivo de actualización no existe o está vacío: ${archiveFile.path}',
+        );
+        return false;
       }
-      destinationDir.createSync(recursive: true);
+
+      // Crear carpeta de staging temporal única
+      final stagingDirPath =
+          '${destinationDir.path}_staging_${DateTime.now().microsecondsSinceEpoch}';
+      stagingDir = Directory(stagingDirPath);
+      if (stagingDir.existsSync()) {
+        stagingDir.deleteSync(recursive: true);
+      }
+      stagingDir.createSync(recursive: true);
 
       final bytes = await archiveFile.readAsBytes();
       Archive archive;
@@ -31,7 +44,7 @@ class ArchiveExtractor {
 
       bool foundAtLeastOneFile = false;
 
-      // 2. Búsqueda y extracción quirúrgica
+      // 2. Búsqueda y extracción quirúrgica en stagingDir
       for (final file in archive) {
         // Unificamos separadores por si el .whl fue compilado en un Windows
         final normalizedName = file.name.replaceAll('\\', '/');
@@ -50,7 +63,7 @@ class ArchiveExtractor {
           }
 
           final relativePath = p.joinAll(relativeSubPathList);
-          final finalPath = p.join(destinationDir.path, relativePath);
+          final finalPath = p.join(stagingDir.path, relativePath);
 
           if (file.isFile) {
             final outFile = File(finalPath);
@@ -67,14 +80,49 @@ class ArchiveExtractor {
         debugPrint(
           '❌ No se encontró la carpeta $targetSubfolderName dentro del archivo.',
         );
+        if (stagingDir.existsSync()) {
+          stagingDir.deleteSync(recursive: true);
+        }
         return false;
+      }
+
+      // 3. Reemplazo seguro del directorio destino con staging
+      if (destinationDir.existsSync()) {
+        destinationDir.deleteSync(recursive: true);
+      }
+
+      try {
+        stagingDir.renameSync(destinationDir.path);
+      } catch (_) {
+        destinationDir.createSync(recursive: true);
+        _copyDirectorySync(stagingDir, destinationDir);
+        stagingDir.deleteSync(recursive: true);
       }
 
       debugPrint('✅ Extracción quirúrgica completada: $targetSubfolderName');
       return true;
     } catch (e) {
       debugPrint('❌ Error en extracción: $e');
+      if (stagingDir != null && stagingDir.existsSync()) {
+        try {
+          stagingDir.deleteSync(recursive: true);
+        } catch (_) {}
+      }
       return false;
+    }
+  }
+
+  static void _copyDirectorySync(Directory source, Directory destination) {
+    for (final entity in source.listSync(recursive: false)) {
+      if (entity is Directory) {
+        final newDirectory = Directory(
+          p.join(destination.path, p.basename(entity.path)),
+        );
+        newDirectory.createSync(recursive: true);
+        _copyDirectorySync(entity, newDirectory);
+      } else if (entity is File) {
+        entity.copySync(p.join(destination.path, p.basename(entity.path)));
+      }
     }
   }
 }
