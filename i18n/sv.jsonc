@@ -289,5 +289,9 @@
   "p_description": "Vidra kräver djup systemåtkomst för att ladda ner i bakgrunden och snabbt fånga länkar.",
   "sd_log_file_not_found": "Loggfilen hittades inte.",
   "ov_quick_download": "Snabbnedladdning",
-  "ov_download_added_desc": "Du kan fortsätta surfa.\nVidra tar hand om resten."
+  "ov_download_added_desc": "Du kan fortsätta surfa.\nVidra tar hand om resten.",
+  "fe_title": "Allvarligt systemfel",
+  "fe_message": "Nedladdningsmotorn kunde inte laddas efter en uppdatering. Starta om programmet.",
+  "fe_restart_button": "Starta om programmet",
+  "fe_view_logs_button": "Visa loggar"
 }

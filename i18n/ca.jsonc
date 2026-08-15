@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Mostra el tutorial",
   "sd_log_file_not_found": "No s'ha trobat el fitxer de registre.",
   "ov_quick_download": "Descàrrega ràpida",
-  "ov_download_added_desc": "Podeu seguir navegant.\nVidra s'encarregarà de la resta."
+  "ov_download_added_desc": "Podeu seguir navegant.\nVidra s'encarregarà de la resta.",
+  "fe_title": "Error fatal del sistema",
+  "fe_message": "El motor de descàrrega no s'ha pogut carregar després d'una actualització. Si us plau, reinicieu l'aplicació.",
+  "fe_view_logs_button": "Veure registres",
+  "fe_restart_button": "Reinicieu l'aplicació"
 }

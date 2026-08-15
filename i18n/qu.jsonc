@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Yachachiyta rikuchiy",
   "sd_log_file_not_found": "Qillqa willañiqi mana tarisqachu.",
   "ov_quick_download": "Utqaylla uraykachiy",
-  "ov_download_added_desc": "Navegashallawaqmi.\nVidraqa puchuqnintam allichanqa."
+  "ov_download_added_desc": "Navegashallawaqmi.\nVidraqa puchuqnintam allichanqa.",
+  "fe_title": "Wañuchiq Sistema Pantasqa",
+  "fe_message": "Uraykachina motorqa mana kargayta atirqanchu huk musuqyachiymanta qhipaman. Ama hina kaspa, llamk'anata musuqmanta qallariy.",
+  "fe_restart_button": "Aplicacionta wakmanta qallariy",
+  "fe_view_logs_button": "Registrokunata qhaway"
 }

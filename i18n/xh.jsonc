@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Bonisa isifundo",
   "sd_log_file_not_found": "Ifayile yelog ayifunyenwanga.",
   "ov_quick_download": "Ukukhuphela ngokukhawuleza",
-  "ov_download_added_desc": "Ungaqhubeka ubrawuza.\nUVidra uya kusingatha ukuphumla."
+  "ov_download_added_desc": "Ungaqhubeka ubrawuza.\nUVidra uya kusingatha ukuphumla.",
+  "fe_message": "Injini yokukhuphela ayiphumelelanga ukulayisha emva kohlaziyo. Nceda uqale phantsi usetyenziso.",
+  "fe_restart_button": "Qala kwakhona usetyenziso",
+  "fe_title": "Impazamo yeNkqubo eFatal",
+  "fe_view_logs_button": "Jonga iiLogi"
 }

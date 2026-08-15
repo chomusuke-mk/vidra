@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Barnoota agarsiisi",
   "sd_log_file_not_found": "Faayilli galmee hin argamne.",
   "ov_quick_download": "Saffisaan Buufachuuf",
-  "ov_download_added_desc": "Browsing gochuu itti fufuu dandeessu.\nVidraan kan hafe ni qabata."
+  "ov_download_added_desc": "Browsing gochuu itti fufuu dandeessu.\nVidraan kan hafe ni qabata.",
+  "fe_title": "Dogoggora Sirna Du'aa",
+  "fe_message": "Motorri buufannaa erga haaromfamee booda fe'amuu hin dandeenye. Mee application sana irra deebi'ii jalqabi.",
+  "fe_restart_button": "Appilikeeshinii Irra Deebi'ii Jalqabi",
+  "fe_view_logs_button": "Galmeewwan Ilaaluu"
 }

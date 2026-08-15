@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Ratidza tutori",
   "sd_log_file_not_found": "Log file harina kuwanikwa.",
   "ov_quick_download": "Quick Download",
-  "ov_download_added_desc": "Unogona kuramba uchibhurawuza.\nVidra achabata zvakasara."
+  "ov_download_added_desc": "Unogona kuramba uchibhurawuza.\nVidra achabata zvakasara.",
+  "fe_title": "Inofatal System Error",
+  "fe_message": "Injini yekudhawunirodha yatadza kurodha mushure mekuvandudzwa. Ndokumbira utangezve application.",
+  "fe_restart_button": "Restart Application",
+  "fe_view_logs_button": "Vadivelu Comedy View Logs"
 }

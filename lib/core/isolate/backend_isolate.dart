@@ -525,18 +525,26 @@ void backendIsolateMain(Map<String, dynamic> config) async {
           break;
 
         case 'revalidate':
-          isUpdating = false;
-          await initSequence();
+          if (isBackendRunning) {
+            final ok = await httpClient.otaAction('load');
+            isUpdating = false;
+            if (ok) {
+              startHealthCheck();
+            } else {
+              notifyUiState('fatalError');
+            }
+          } else {
+            isUpdating = false;
+            await initSequence();
+          }
           break;
 
         case 'pause_for_update':
           isUpdating = true;
           healthCheckTimer?.cancel();
           sseSubscription?.cancel();
-          await httpClient.shutdown();
+          await httpClient.otaAction('unload');
           notifyUiState('initializing');
-          SeriousPython.terminate();
-          isBackendRunning = false;
           sendPort.send({'event': 'paused_ack'});
           break;
 

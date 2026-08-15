@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Pokaż tutorial",
   "sd_log_file_not_found": "Nie znaleziono pliku dziennika.",
   "ov_quick_download": "Szybkie pobieranie",
-  "ov_download_added_desc": "Możesz przeglądać dalej.\nResztą zajmie się Vidra."
+  "ov_download_added_desc": "Możesz przeglądać dalej.\nResztą zajmie się Vidra.",
+  "fe_title": "Fatalny błąd systemu",
+  "fe_message": "Po aktualizacji nie udało się załadować silnika pobierania. Proszę ponownie uruchomić aplikację.",
+  "fe_restart_button": "Uruchom ponownie aplikację",
+  "fe_view_logs_button": "Wyświetl dzienniki"
 }

@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Kyerɛ nkyerɛkyerɛ",
   "sd_log_file_not_found": "Wɔanhu Log fael no.",
   "ov_quick_download": "Twe Ntɛmntɛm",
-  "ov_download_added_desc": "Wubetumi akɔ so ahwehwɛ nneɛma mu.\nVidra na obedi nea aka no ho dwuma."
+  "ov_download_added_desc": "Wubetumi akɔ so ahwehwɛ nneɛma mu.\nVidra na obedi nea aka no ho dwuma.",
+  "fe_title": "Mfomso a Ɛfa Nhyehyɛe a Ɛyɛ Owu",
+  "fe_message": "Download engine no antumi ankɔ so wɔ update akyi. Yɛsrɛ sɛ san hyɛ application no ase bio.",
+  "fe_restart_button": "San Hyehyɛ Application no ase",
+  "fe_view_logs_button": "Hwɛ Nsɛm a Wɔakyerɛw"
 }

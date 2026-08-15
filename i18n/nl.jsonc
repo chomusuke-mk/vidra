@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Tutorial tonen",
   "sd_log_file_not_found": "Logbestand niet gevonden.",
   "ov_quick_download": "Snel downloaden",
-  "ov_download_added_desc": "U kunt blijven browsen.\nVidra regelt de rest."
+  "ov_download_added_desc": "U kunt blijven browsen.\nVidra regelt de rest.",
+  "fe_title": "Fatale systeemfout",
+  "fe_message": "De download-engine kon niet worden geladen na een update. Start de applicatie opnieuw.",
+  "fe_restart_button": "Start de applicatie opnieuw",
+  "fe_view_logs_button": "Bekijk logboeken"
 }

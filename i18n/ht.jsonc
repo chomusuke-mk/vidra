@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Montre leson patikilye",
   "sd_log_file_not_found": "Fichye Log pa jwenn.",
   "ov_quick_download": "Telechaje rapid",
-  "ov_download_added_desc": "Ou ka kontinye navige.\nVidra pral okipe rès la."
+  "ov_download_added_desc": "Ou ka kontinye navige.\nVidra pral okipe rès la.",
+  "fe_title": "Erè Fatal Sistèm",
+  "fe_message": "Motè telechaje a echwe pou pou chaje apre yon aktyalizasyon. Tanpri rekòmanse aplikasyon an.",
+  "fe_view_logs_button": "Gade mòso bwa",
+  "fe_restart_button": "Rekòmanse Aplikasyon an"
 }

@@ -289,5 +289,9 @@
   "tu_system_details_python_server_desc": "Vidra sử dụng máy chủ cục bộ để xử lý tải xuống. Tại đây bạn có thể xác minh rằng nó đang chạy và kiểm tra nhật ký của nó trong trường hợp có lỗi.",
   "sd_log_file_not_found": "Không tìm thấy tệp nhật ký.",
   "ov_quick_download": "Tải xuống nhanh",
-  "ov_download_added_desc": "Bạn có thể tiếp tục duyệt.\nVidra sẽ xử lý phần còn lại."
+  "ov_download_added_desc": "Bạn có thể tiếp tục duyệt.\nVidra sẽ xử lý phần còn lại.",
+  "fe_title": "Lỗi hệ thống nghiêm trọng",
+  "fe_message": "Công cụ tải xuống không tải được sau khi cập nhật. Vui lòng khởi động lại ứng dụng.",
+  "fe_restart_button": "Khởi động lại ứng dụng",
+  "fe_view_logs_button": "Xem nhật ký"
 }

@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Mostrar titorial",
   "sd_log_file_not_found": "Non se atopou o ficheiro de rexistro.",
   "ov_quick_download": "Descarga rápida",
-  "ov_download_added_desc": "Podes seguir navegando.\nVidra encargarase do resto."
+  "ov_download_added_desc": "Podes seguir navegando.\nVidra encargarase do resto.",
+  "fe_title": "Erro fatal do sistema",
+  "fe_restart_button": "Reinicie a aplicación",
+  "fe_view_logs_button": "Ver rexistros",
+  "fe_message": "O motor de descarga non se puido cargar despois dunha actualización. Reinicie a aplicación."
 }

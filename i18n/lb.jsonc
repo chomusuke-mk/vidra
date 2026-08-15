@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Show Tutorial",
   "sd_log_file_not_found": "Log Datei net fonnt.",
   "ov_quick_download": "Quick Download",
-  "ov_download_added_desc": "Dir kënnt weiderfueren.\nVidra wäert de Rescht verschaffen."
+  "ov_download_added_desc": "Dir kënnt weiderfueren.\nVidra wäert de Rescht verschaffen.",
+  "fe_title": "Fatal System Feeler",
+  "fe_message": "Den Downloadmotor konnt net no engem Update lueden. Start w.e.g. d'Applikatioun nei.",
+  "fe_restart_button": "Restart Applikatioun",
+  "fe_view_logs_button": "View Logbicher"
 }

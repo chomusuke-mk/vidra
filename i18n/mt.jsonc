@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Uri tutorja",
   "sd_log_file_not_found": "Log file ma nstabx.",
   "ov_quick_download": "Niżżel malajr",
-  "ov_download_added_desc": "Tista' tkompli tibbrawżja.\nVidra se tieħu ħsieb il-bqija."
+  "ov_download_added_desc": "Tista' tkompli tibbrawżja.\nVidra se tieħu ħsieb il-bqija.",
+  "fe_title": "Żball Fatali tas-Sistema",
+  "fe_message": "Il-magna tat-tniżżil naqset milli tgħabbi wara aġġornament. Jekk jogħġbok ibda mill-ġdid l-applikazzjoni.",
+  "fe_restart_button": "Ibda mill-ġdid l-Applikazzjoni",
+  "fe_view_logs_button": "Ara zkuk"
 }

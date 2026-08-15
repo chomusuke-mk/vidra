@@ -443,6 +443,12 @@ class AppStringKey {
       _cadenasLocalizadas['s_extractor_retries_desc'] ?? '';
   String get sLimitRate => _cadenasLocalizadas['s_limit_rate'] ?? '';
   String get sLimitRateDesc => _cadenasLocalizadas['s_limit_rate_desc'] ?? '';
+  // Strings del diálogo de error fatal, prefijo fe ----------------
+  String get feTitle => _cadenasLocalizadas['fe_title'] ?? '';
+  String get feMessage => _cadenasLocalizadas['fe_message'] ?? '';
+  String get feRestartButton => _cadenasLocalizadas['fe_restart_button'] ?? '';
+  String get feViewLogsButton =>
+      _cadenasLocalizadas['fe_view_logs_button'] ?? '';
 
   final List<String> _allAppStrings = [
     // Pantalla Downloads -------------------------------- d_
@@ -771,6 +777,11 @@ class AppStringKey {
     's_extractor_retries_desc',
     's_limit_rate',
     's_limit_rate_desc',
+    // Diálogo de error fatal ----------------------------- fe_
+    'fe_title',
+    'fe_message',
+    'fe_restart_button',
+    'fe_view_logs_button',
   ];
 
   Map<String, String> toJson() => Map.from(_cadenasLocalizadas);

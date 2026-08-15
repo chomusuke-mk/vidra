@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Gosi nkuzi",
   "sd_log_file_not_found": "Ahụghị faịlụ ndekọ.",
   "ov_quick_download": "Nbudata ngwa ngwa",
-  "ov_download_added_desc": "Ị nwere ike ịnọgide na-eme nchọgharị.\nVidra ga-edozi ihe ndị ọzọ."
+  "ov_download_added_desc": "Ị nwere ike ịnọgide na-eme nchọgharị.\nVidra ga-edozi ihe ndị ọzọ.",
+  "fe_message": "Igwe nbudata ahụ erughi ibu mgbe emelitere. Biko malitegharịa ngwa ahụ.",
+  "fe_restart_button": "Malitegharịa ngwa",
+  "fe_view_logs_button": "Lelee ndekọ",
+  "fe_title": "Mperi Sistemu na-egbu egbu"
 }

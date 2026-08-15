@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Prikaži vadnico",
   "sd_log_file_not_found": "Dnevniške datoteke ni mogoče najti.",
   "ov_quick_download": "Hiter prenos",
-  "ov_download_added_desc": "Lahko nadaljujete z brskanjem.\nZa ostalo poskrbi Vidra."
+  "ov_download_added_desc": "Lahko nadaljujete z brskanjem.\nZa ostalo poskrbi Vidra.",
+  "fe_title": "Usodna sistemska napaka",
+  "fe_message": "Mehanizem za prenos se po posodobitvi ni uspel naložiti. Ponovno zaženite aplikacijo.",
+  "fe_restart_button": "Znova zaženite aplikacijo",
+  "fe_view_logs_button": "Ogled dnevnikov"
 }

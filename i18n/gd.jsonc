@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Taisbeanadh tutorial",
   "sd_log_file_not_found": "Cha deach faidhle loga a lorg.",
   "ov_quick_download": "Luchdaich sìos gu sgiobalta",
-  "ov_download_added_desc": "Faodaidh tu cumail a’ brabhsadh.\nBidh Vidra a’ làimhseachadh a’ chòrr."
+  "ov_download_added_desc": "Faodaidh tu cumail a’ brabhsadh.\nBidh Vidra a’ làimhseachadh a’ chòrr.",
+  "fe_title": "Mearachd siostam marbhtach",
+  "fe_restart_button": "Ath-thòiseachadh Iarrtas",
+  "fe_view_logs_button": "Seall Logaichean",
+  "fe_message": "Dh'fhàillig an einnsean luchdaich sìos an dèidh ùrachadh. Feuch an ath-thòisich an tagradh."
 }

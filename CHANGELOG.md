@@ -4,6 +4,13 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [3.0.0] - Major Release
+
+- **New OTA Engine:** Introduced a new Over-The-Air (OTA) technique that allows for hot-reloading of the backend without requiring shutting down backend processes. This enables seamless updates and reduces downtime during maintenance.
+- **Enhanced Update Mechanism:** The new OTA technique supports dynamic module loading and unloading, allowing for more flexible and efficient updates to the backend services.
+- **Info getter Improved:** Now first call to yt-dlp saves a .info.json file in the cache folder, which is used for downloading without re-calling http request. This reduces probability of being blocked by YouTube and improves download speed.
+- **Bug Fix**: Fixed pause/cancel issue when downloading multiple entries. Now pause/cancel will be applied to all entries in the queue.
+
 ## [2.5.19]
 
 - **Emergency Bug Fix**: Fix download error detection.

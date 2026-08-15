@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Témbongkeun tutorial",
   "sd_log_file_not_found": "file log teu kapanggih.",
   "ov_quick_download": "Ngundeur Gancang",
-  "ov_download_added_desc": "Anjeun tiasa tetep browsing.\nVidra bakal nanganan sésana."
+  "ov_download_added_desc": "Anjeun tiasa tetep browsing.\nVidra bakal nanganan sésana.",
+  "fe_title": "Kasalahan Sistim fatal",
+  "fe_message": "Mesin undeuran gagal dimuat saatos apdet. Mangga balikan deui aplikasi.",
+  "fe_restart_button": "Balikan deui Aplikasi",
+  "fe_view_logs_button": "Témbongkeun Log"
 }

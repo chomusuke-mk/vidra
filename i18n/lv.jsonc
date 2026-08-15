@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Rādīt pamācību",
   "sd_log_file_not_found": "Žurnāla fails nav atrasts.",
   "ov_quick_download": "Ātrā lejupielāde",
-  "ov_download_added_desc": "Varat turpināt pārlūkošanu.\nPar pārējo parūpēsies Vidra."
+  "ov_download_added_desc": "Varat turpināt pārlūkošanu.\nPar pārējo parūpēsies Vidra.",
+  "fe_title": "Fatāla sistēmas kļūda",
+  "fe_message": "Lejupielādes programmu neizdevās ielādēt pēc atjaunināšanas. Lūdzu, restartējiet lietojumprogrammu.",
+  "fe_restart_button": "Restartējiet lietojumprogrammu",
+  "fe_view_logs_button": "Skatīt žurnālus"
 }

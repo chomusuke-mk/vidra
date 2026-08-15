@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Lakisa mateya",
   "sd_log_file_not_found": "Fisyé ya journal ezwami te.",
   "ov_quick_download": "Téléchargement ya mbangu",
-  "ov_download_added_desc": "Okoki kokoba kosala navigation.\nVidra nde akosimba oyo etikali."
+  "ov_download_added_desc": "Okoki kokoba kosala navigation.\nVidra nde akosimba oyo etikali.",
+  "fe_title": "Erreur ya Système Fatale",
+  "fe_message": "Moteur ya téléchargement elongaki te ko charger sima ya mise à jour. Svp bobandi lisusu application.",
+  "fe_restart_button": "Kobanda lisusu Application",
+  "fe_view_logs_button": "Tala ba Logs"
 }

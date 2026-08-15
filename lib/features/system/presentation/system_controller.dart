@@ -10,6 +10,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 
 import 'package:vidra/features/system/domain/system_state.dart';
+import 'package:vidra/features/system/presentation/fatal_error_dialog.dart';
 import 'package:vidra/core/isolate/backend_isolate.dart';
 import 'package:serious_python/serious_python.dart';
 
@@ -59,6 +60,9 @@ class SystemController extends ChangeNotifier with WidgetsBindingObserver {
     if (_state != newState) {
       _state = newState;
       notifyListeners();
+      if (_state == SystemState.fatalError) {
+        FatalErrorDialog.show();
+      }
     }
   }
 

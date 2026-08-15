@@ -289,5 +289,9 @@
   "p_overlay": "Overlay",
   "sd_log_file_not_found": "Logtriem net fûn.",
   "ov_quick_download": "Fluch Download",
-  "ov_download_added_desc": "Jo kinne bliuwe blêdzjen.\nVidra sil de rest behannelje."
+  "ov_download_added_desc": "Jo kinne bliuwe blêdzjen.\nVidra sil de rest behannelje.",
+  "fe_title": "Fatale systeemflater",
+  "fe_message": "De ynlaadmotor koe net laden nei in fernijing. Start de applikaasje opnij.",
+  "fe_restart_button": "Applikaasje opnij starte",
+  "fe_view_logs_button": "View Logs"
 }

@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Təlimatı göstərin",
   "sd_log_file_not_found": "Günlük faylı tapılmadı.",
   "ov_quick_download": "Sürətli Yükləmə",
-  "ov_download_added_desc": "Baxmağa davam edə bilərsiniz.\nQalan işləri Vidra həll edəcək."
+  "ov_download_added_desc": "Baxmağa davam edə bilərsiniz.\nQalan işləri Vidra həll edəcək.",
+  "fe_title": "Ölümcül Sistem Xətası",
+  "fe_restart_button": "Tətbiqi yenidən başladın",
+  "fe_view_logs_button": "Qeydlərə baxın",
+  "fe_message": "Yükləmə mühərriki yeniləmədən sonra yüklənə bilmədi. Zəhmət olmasa tətbiqi yenidən başladın."
 }

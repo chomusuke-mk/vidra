@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Hlahisa thuto",
   "sd_log_file_not_found": "Faele ea ho kena ha e fumanehe.",
   "ov_quick_download": "Khoasolla ka Potlako",
-  "ov_download_added_desc": "U ka lula u ntse u bala.\nVidra o tla sebetsana le tse ling kaofela."
+  "ov_download_added_desc": "U ka lula u ntse u bala.\nVidra o tla sebetsana le tse ling kaofela.",
+  "fe_title": "Phoso e Fatal System",
+  "fe_message": "Enjene ea ho jarolla e hlolehile ho bula ka mor'a ntlafatso. Ka kopo qala sesebelisoa hape.",
+  "fe_restart_button": "Qala hape Sesebelisoa",
+  "fe_view_logs_button": "View Logs"
 }

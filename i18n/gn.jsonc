@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Ohechauka mbo’epy",
   "sd_log_file_not_found": "Archivo registro ndojejuhúi.",
   "ov_quick_download": "Ojegueru pya’e",
-  "ov_download_added_desc": "Ikatu resegi rehesaʼỹijo.\nVidra omaneháta pe hembýva."
+  "ov_download_added_desc": "Ikatu resegi rehesaʼỹijo.\nVidra omaneháta pe hembýva.",
+  "fe_title": "Error Sistema Fatal rehegua",
+  "fe_message": "Pe motor descarga ndokargái peteĩ actualización rire. Emoñepyrũ jey pe aplicación.",
+  "fe_restart_button": "Emoñepyrũ jey Aplicación",
+  "fe_view_logs_button": "Ojehechakuaa umi registro"
 }

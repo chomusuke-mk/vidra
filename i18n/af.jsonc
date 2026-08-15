@@ -289,5 +289,9 @@
   "dc_download_removing": "Verwyder tans aflaai …",
   "sd_log_file_not_found": "Loglêer nie gevind nie.",
   "ov_quick_download": "Vinnige aflaai",
-  "ov_download_added_desc": "Jy kan aanhou blaai.\nVidra sal die res hanteer."
+  "ov_download_added_desc": "Jy kan aanhou blaai.\nVidra sal die res hanteer.",
+  "fe_title": "Noodlottige stelselfout",
+  "fe_message": "Die aflaai-enjin kon nie laai na 'n opdatering nie. Herbegin asseblief die toepassing.",
+  "fe_restart_button": "Herbegin toepassing",
+  "fe_view_logs_button": "Bekyk logs"
 }

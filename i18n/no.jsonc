@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Vis opplæringen",
   "sd_log_file_not_found": "Loggfilen ble ikke funnet.",
   "ov_quick_download": "Rask nedlasting",
-  "ov_download_added_desc": "Du kan fortsette å surfe.\nVidra tar seg av resten."
+  "ov_download_added_desc": "Du kan fortsette å surfe.\nVidra tar seg av resten.",
+  "fe_title": "Fatal systemfeil",
+  "fe_message": "Nedlastingsmotoren kunne ikke lastes etter en oppdatering. Start applikasjonen på nytt.",
+  "fe_restart_button": "Start applikasjonen på nytt",
+  "fe_view_logs_button": "Vis logger"
 }

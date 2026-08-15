@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Tutorial anzeigen",
   "sd_log_file_not_found": "Protokolldatei nicht gefunden.",
   "ov_quick_download": "Schneller Download",
-  "ov_download_added_desc": "Sie können weiter stöbern.\nVidra kümmert sich um den Rest."
+  "ov_download_added_desc": "Sie können weiter stöbern.\nVidra kümmert sich um den Rest.",
+  "fe_title": "Schwerwiegender Systemfehler",
+  "fe_message": "Die Download-Engine konnte nach einem Update nicht geladen werden. Bitte starten Sie die Anwendung neu.",
+  "fe_restart_button": "Anwendung neu starten",
+  "fe_view_logs_button": "Protokolle anzeigen"
 }

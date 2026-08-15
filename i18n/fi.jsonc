@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Näytä opetusohjelma",
   "sd_log_file_not_found": "Lokitiedostoa ei löydy.",
   "ov_quick_download": "Pikalataus",
-  "ov_download_added_desc": "Voit jatkaa selaamista.\nVidra hoitaa loput."
+  "ov_download_added_desc": "Voit jatkaa selaamista.\nVidra hoitaa loput.",
+  "fe_title": "Vakava järjestelmävirhe",
+  "fe_message": "Latausmoottori ei latautunut päivityksen jälkeen. Käynnistä sovellus uudelleen.",
+  "fe_restart_button": "Käynnistä sovellus uudelleen",
+  "fe_view_logs_button": "Näytä lokit"
 }

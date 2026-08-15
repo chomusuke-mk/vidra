@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Onyesha mafunzo",
   "sd_log_file_not_found": "Faili ya kumbukumbu haijapatikana.",
   "ov_quick_download": "Upakuaji wa Haraka",
-  "ov_download_added_desc": "Unaweza kuendelea kuvinjari.\nVidra atashughulikia mengine."
+  "ov_download_added_desc": "Unaweza kuendelea kuvinjari.\nVidra atashughulikia mengine.",
+  "fe_title": "Hitilafu mbaya ya Mfumo",
+  "fe_message": "Injini ya upakuaji imeshindwa kupakia baada ya sasisho. Tafadhali anzisha upya programu.",
+  "fe_restart_button": "Anzisha tena Programu",
+  "fe_view_logs_button": "Tazama Kumbukumbu"
 }

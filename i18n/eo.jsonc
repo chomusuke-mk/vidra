@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Montri lernilon",
   "sd_log_file_not_found": "Logdosiero ne trovita.",
   "ov_quick_download": "Rapida Elŝuto",
-  "ov_download_added_desc": "Vi povas daŭrigi foliumi.\nVidra pritraktos la reston."
+  "ov_download_added_desc": "Vi povas daŭrigi foliumi.\nVidra pritraktos la reston.",
+  "fe_title": "Fatala Sistema Eraro",
+  "fe_restart_button": "Rekomencu Aplikon",
+  "fe_view_logs_button": "Vidi Protokolojn",
+  "fe_message": "La elŝuta motoro malsukcesis ŝargi post ĝisdatigo. Bonvolu rekomenci la aplikaĵon."
 }

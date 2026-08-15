@@ -289,5 +289,9 @@
   "p_storage_desc": "Nauðsynlegt til að vista myndbönd og uppfæra niðurhalsvélina í innra minni.",
   "sd_log_file_not_found": "Notkunarskrá fannst ekki.",
   "ov_quick_download": "Fljótt niðurhal",
-  "ov_download_added_desc": "Þú getur haldið áfram að vafra.\nVidra sér um afganginn."
+  "ov_download_added_desc": "Þú getur haldið áfram að vafra.\nVidra sér um afganginn.",
+  "fe_message": "Ekki tókst að hlaða niðurhalsvélinni eftir uppfærslu. Vinsamlegast endurræstu forritið.",
+  "fe_restart_button": "Endurræstu forritið",
+  "fe_view_logs_button": "Skoða logs",
+  "fe_title": "Banvæn kerfisvilla"
 }

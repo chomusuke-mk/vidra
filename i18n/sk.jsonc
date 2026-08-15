@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Zobraziť návod",
   "sd_log_file_not_found": "Súbor denníka sa nenašiel.",
   "ov_quick_download": "Rýchle stiahnutie",
-  "ov_download_added_desc": "Môžete pokračovať v prehliadaní.\nVidra sa postará o zvyšok."
+  "ov_download_added_desc": "Môžete pokračovať v prehliadaní.\nVidra sa postará o zvyšok.",
+  "fe_title": "Závažná systémová chyba",
+  "fe_message": "Po aktualizácii sa nepodarilo načítať mechanizmus sťahovania. Reštartujte aplikáciu.",
+  "fe_restart_button": "Reštartujte aplikáciu",
+  "fe_view_logs_button": "Zobraziť denníky"
 }

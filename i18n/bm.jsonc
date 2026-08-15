@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Kalansen jira",
   "sd_log_file_not_found": "Log file ma sɔrɔ.",
   "ov_quick_download": "Télécharger rapide",
-  "ov_download_added_desc": "I bɛ se ka to ka fɛnw lajɛ.\nVidra bɛna a tɔw ɲɛnabɔ."
+  "ov_download_added_desc": "I bɛ se ka to ka fɛnw lajɛ.\nVidra bɛna a tɔw ɲɛnabɔ.",
+  "fe_title": "Fatal Sistɛmu fili",
+  "fe_message": "Téléchargement masin ma se ka doni kura kɛlen kɔfɛ. Aw ye porogaramu in daminɛ kokura.",
+  "fe_restart_button": "Aplikasi daminɛ kokura",
+  "fe_view_logs_button": "Jateblaw lajɛ"
 }

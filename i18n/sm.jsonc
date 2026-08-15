@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Faaali atu aoaoga",
   "sd_log_file_not_found": "E le'i maua le faila faila.",
   "ov_quick_download": "Lave vave",
-  "ov_download_added_desc": "E mafai ona e su'esu'e.\nO le a taulimaina e Vidra le vaega o totoe."
+  "ov_download_added_desc": "E mafai ona e su'esu'e.\nO le a taulimaina e Vidra le vaega o totoe.",
+  "fe_title": "Fatal System Error",
+  "fe_message": "Ua le mafai ona la'u le afi o le la'uina ina ua uma se faafouga. Faamolemole toe amata le talosaga.",
+  "fe_restart_button": "Toe amata le talosaga",
+  "fe_view_logs_button": "Va'ai ogalaau"
 }

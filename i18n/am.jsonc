@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "አጋዥ ስልጠና አሳይ",
   "sd_log_file_not_found": "የምዝግብ ማስታወሻ ፋይል አልተገኘም።",
   "ov_quick_download": "ፈጣን ማውረድ",
-  "ov_download_added_desc": "ማሰስዎን መቀጠል ይችላሉ።\nቪድራ ቀሪውን ትይዛለች።"
+  "ov_download_added_desc": "ማሰስዎን መቀጠል ይችላሉ።\nቪድራ ቀሪውን ትይዛለች።",
+  "fe_title": "ገዳይ የስርዓት ስህተት",
+  "fe_message": "የማውረድ ሞተር ከዝማኔ በኋላ መጫን አልቻለም። እባክዎ ማመልከቻውን እንደገና ያስጀምሩ።",
+  "fe_restart_button": "መተግበሪያን እንደገና ያስጀምሩ",
+  "fe_view_logs_button": "የምዝግብ ማስታወሻዎችን ይመልከቱ"
 }

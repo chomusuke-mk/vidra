@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Bonisa okokufundisa",
   "sd_log_file_not_found": "Ifayela lokungena alitholakali.",
   "ov_quick_download": "Ukulanda Ngokushesha",
-  "ov_download_added_desc": "Ungaqhubeka nokuphequlula.\nU-Vidra uzophatha okunye."
+  "ov_download_added_desc": "Ungaqhubeka nokuphequlula.\nU-Vidra uzophatha okunye.",
+  "fe_title": "Iphutha Lesistimu Eyingozi",
+  "fe_message": "Injini yokulanda yehlulekile ukulayisha ngemva kokubuyekezwa. Sicela uqale kabusha uhlelo lokusebenza.",
+  "fe_restart_button": "Qala kabusha uhlelo lokusebenza",
+  "fe_view_logs_button": "Buka izingodo"
 }

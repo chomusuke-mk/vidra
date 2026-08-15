@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Ipakita ang tutorial",
   "sd_log_file_not_found": "Hindi nahanap ang log file.",
   "ov_quick_download": "Mabilis na Pag-download",
-  "ov_download_added_desc": "Maaari kang magpatuloy sa pagba-browse.\nSi Vidra na ang bahala sa iba."
+  "ov_download_added_desc": "Maaari kang magpatuloy sa pagba-browse.\nSi Vidra na ang bahala sa iba.",
+  "fe_title": "Fatal System Error",
+  "fe_message": "Nabigong mag-load ang download engine pagkatapos ng update. Mangyaring i-restart ang application.",
+  "fe_restart_button": "I-restart ang Application",
+  "fe_view_logs_button": "Tingnan ang Mga Log"
 }

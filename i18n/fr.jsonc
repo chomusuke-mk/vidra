@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Afficher le tutoriel",
   "sd_log_file_not_found": "Fichier journal introuvable.",
   "ov_quick_download": "Téléchargement rapide",
-  "ov_download_added_desc": "Vous pouvez continuer à naviguer.\nVidra s'occupera du reste."
+  "ov_download_added_desc": "Vous pouvez continuer à naviguer.\nVidra s'occupera du reste.",
+  "fe_title": "Erreur système fatale",
+  "fe_message": "Le moteur de téléchargement n'a pas pu se charger après une mise à jour. Veuillez redémarrer l'application.",
+  "fe_restart_button": "Redémarrer l'application",
+  "fe_view_logs_button": "Afficher les journaux"
 }

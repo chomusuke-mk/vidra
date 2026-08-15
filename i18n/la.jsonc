@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Monstra doceo",
   "sd_log_file_not_found": "Stipes lima non invenitur.",
   "ov_quick_download": "Velox Download",
-  "ov_download_added_desc": "Pasco servare potes.\nReliqua vidrtur regam."
+  "ov_download_added_desc": "Pasco servare potes.\nReliqua vidrtur regam.",
+  "fe_title": "Exitiale Ratio Error",
+  "fe_message": "Machinam download non onerare post renovationem. Quaeso sileo applicationem.",
+  "fe_restart_button": "Applicationem sileo",
+  "fe_view_logs_button": "View Acta publica omnia"
 }

@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Asehoy ny fampianarana",
   "sd_log_file_not_found": "Tsy hita ny rakitra log.",
   "ov_quick_download": "Haingana Download",
-  "ov_download_added_desc": "Afaka manohy mikaroka ianao.\nVidra no hikarakara ny ambiny."
+  "ov_download_added_desc": "Afaka manohy mikaroka ianao.\nVidra no hikarakara ny ambiny.",
+  "fe_title": "Fatal System Error",
+  "fe_message": "Tsy nahomby ny motera fampidinana taorian'ny fanavaozana. Avereno indray ny fampiharana azafady.",
+  "fe_restart_button": "Avereno indray ny fampiharana",
+  "fe_view_logs_button": "Jereo ny Logs"
 }

@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "ትምህርቲ ኣርእዩ",
   "sd_log_file_not_found": "ሎግ ፋይል ኣይተረኽበን።",
   "ov_quick_download": "ቅልጡፍ ምውራድ",
-  "ov_download_added_desc": "ምድህሳስ ክትቅጽል ትኽእል ኢኻ።\nቪድራ ነቲ ዝተረፈ ክትሕዞ እያ።"
+  "ov_download_added_desc": "ምድህሳስ ክትቅጽል ትኽእል ኢኻ።\nቪድራ ነቲ ዝተረፈ ክትሕዞ እያ።",
+  "fe_title": "ቀታሊ ስርዓት ጌጋ",
+  "fe_message": "እቲ ናይ ምውራድ ሞተር ድሕሪ ሓደ ምዕባለ ክጽዕን ኣይከኣለን። በጃኹም ነቲ መተግበሪ ዳግማይ ጀምሮ።",
+  "fe_restart_button": "መተግበሪ ዳግማይ ጀምር",
+  "fe_view_logs_button": "ምዝገባታት ርአ"
 }

@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Prikaži tutorijal",
   "sd_log_file_not_found": "Dnevnik nije pronađen.",
   "ov_quick_download": "Brzo preuzimanje",
-  "ov_download_added_desc": "Možete nastaviti s pretraživanjem.\nVidra će se pobrinuti za ostalo."
+  "ov_download_added_desc": "Možete nastaviti s pretraživanjem.\nVidra će se pobrinuti za ostalo.",
+  "fe_message": "Mehanizam za preuzimanje nije uspio da se učita nakon ažuriranja. Ponovo pokrenite aplikaciju.",
+  "fe_restart_button": "Ponovo pokrenite aplikaciju",
+  "fe_title": "Fatalna sistemska greška",
+  "fe_view_logs_button": "View Logs"
 }

@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Oktatóanyag megjelenítése",
   "sd_log_file_not_found": "A naplófájl nem található.",
   "ov_quick_download": "Gyors letöltés",
-  "ov_download_added_desc": "Tovább böngészhet.\nA többit Vidra intézi."
+  "ov_download_added_desc": "Tovább böngészhet.\nA többit Vidra intézi.",
+  "fe_title": "Végzetes rendszerhiba",
+  "fe_message": "Frissítés után nem sikerült betölteni a letöltőmotort. Kérjük, indítsa újra az alkalmazást.",
+  "fe_restart_button": "Indítsa újra az alkalmazást",
+  "fe_view_logs_button": "Naplók megtekintése"
 }

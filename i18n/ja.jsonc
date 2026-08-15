@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "チュートリアルを表示する",
   "sd_log_file_not_found": "ログ ファイルが見つかりません。",
   "ov_quick_download": "クイックダウンロード",
-  "ov_download_added_desc": "閲覧を続けることができます。\n残りはVidraが処理します。"
+  "ov_download_added_desc": "閲覧を続けることができます。\n残りはVidraが処理します。",
+  "fe_title": "致命的なシステムエラー",
+  "fe_message": "アップデート後にダウンロード エンジンのロードに失敗しました。アプリケーションを再起動してください。",
+  "fe_restart_button": "アプリケーションを再起動する",
+  "fe_view_logs_button": "ログの表示"
 }

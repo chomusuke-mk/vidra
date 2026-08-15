@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Tunjukkan tutorial",
   "sd_log_file_not_found": "Fail log tidak ditemui.",
   "ov_quick_download": "Muat Turun Pantas",
-  "ov_download_added_desc": "Anda boleh terus menyemak imbas.\nVidra akan mengendalikan selebihnya."
+  "ov_download_added_desc": "Anda boleh terus menyemak imbas.\nVidra akan mengendalikan selebihnya.",
+  "fe_title": "Ralat Sistem Maut",
+  "fe_message": "Enjin muat turun gagal dimuatkan selepas kemas kini. Sila mulakan semula aplikasi.",
+  "fe_restart_button": "Mulakan semula Aplikasi",
+  "fe_view_logs_button": "Lihat Log"
 }

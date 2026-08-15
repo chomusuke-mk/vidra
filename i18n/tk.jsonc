@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Gollanma görkez",
   "sd_log_file_not_found": "Fileurnal tapylmady",
   "ov_quick_download": "Çalt göçürip almak",
-  "ov_download_added_desc": "Göz aýlamagy dowam etdirip bilersiňiz.\nGalan zatlary Vidra dolandyrar."
+  "ov_download_added_desc": "Göz aýlamagy dowam etdirip bilersiňiz.\nGalan zatlary Vidra dolandyrar.",
+  "fe_title": "Öldüriji ulgam ýalňyşlygy",
+  "fe_message": "Göçürip almak motory täzelenenden soň ýükläp bilmedi. Programmany täzeden açmagyňyzy haýyş edýäris.",
+  "fe_restart_button": "Programmany täzeden açyň",
+  "fe_view_logs_button": "Surnallary görüň"
 }

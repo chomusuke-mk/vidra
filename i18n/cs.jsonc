@@ -289,5 +289,9 @@
   "tu_filters": "Filtry a vyhledávání",
   "sd_log_file_not_found": "Soubor protokolu nebyl nalezen.",
   "ov_quick_download": "Rychlé stažení",
-  "ov_download_added_desc": "Můžete pokračovat v procházení.\nVidra se postará o zbytek."
+  "ov_download_added_desc": "Můžete pokračovat v procházení.\nVidra se postará o zbytek.",
+  "fe_title": "Závažná systémová chyba",
+  "fe_message": "Stahovací modul se po aktualizaci nepodařilo načíst. Restartujte aplikaci.",
+  "fe_restart_button": "Restartujte aplikaci",
+  "fe_view_logs_button": "Zobrazit protokoly"
 }

@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Ṣe afihan ikẹkọ",
   "sd_log_file_not_found": "Faili wọle ko ri.",
   "ov_quick_download": "Gbigbasilẹ ni kiakia",
-  "ov_download_added_desc": "O le tẹsiwaju lilọ kiri ayelujara.\nVidra yoo mu awọn iyokù."
+  "ov_download_added_desc": "O le tẹsiwaju lilọ kiri ayelujara.\nVidra yoo mu awọn iyokù.",
+  "fe_title": "Aṣiṣe eto buburu",
+  "fe_message": "Ẹrọ igbasilẹ naa kuna lati fifuye lẹhin imudojuiwọn kan. Jọwọ tun ohun elo naa bẹrẹ.",
+  "fe_restart_button": "Tun Ohun elo bẹrẹ",
+  "fe_view_logs_button": "Wo Awọn akọọlẹ"
 }

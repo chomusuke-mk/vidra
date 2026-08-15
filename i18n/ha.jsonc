@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Nuna koyawa",
   "sd_log_file_not_found": "Ba a sami fayil ɗin shiga ba.",
   "ov_quick_download": "Saurin Saukewa",
-  "ov_download_added_desc": "Kuna iya ci gaba da bincike.\nVidra za ta kula da sauran."
+  "ov_download_added_desc": "Kuna iya ci gaba da bincike.\nVidra za ta kula da sauran.",
+  "fe_title": "Kuskuren Tsarin Kisa",
+  "fe_message": "Injin zazzagewar ya kasa ɗauka bayan sabuntawa. Da fatan za a sake kunna aikace-aikacen.",
+  "fe_restart_button": "Sake kunna aikace-aikacen",
+  "fe_view_logs_button": "Duba Logs"
 }

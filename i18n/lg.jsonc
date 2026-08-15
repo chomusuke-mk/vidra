@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Laga okuyigiriza",
   "sd_log_file_not_found": "Fayiro ya log tezuuliddwa.",
   "ov_quick_download": "Okuwanula amangu",
-  "ov_download_added_desc": "Osobola okusigala ng’ogenda okulambula.\nVidra y’agenda okukwata ebisigadde."
+  "ov_download_added_desc": "Osobola okusigala ng’ogenda okulambula.\nVidra y’agenda okukwata ebisigadde.",
+  "fe_title": "Ensobi mu Nkola Etta",
+  "fe_message": "Yingini y'okuwanula yalemererwa okutikka oluvannyuma lw'okulongoosa. Nsaba oddemu okutandika enkola.",
+  "fe_restart_button": "Ddamu okutandika Enkola",
+  "fe_view_logs_button": "Laba Ebiwandiiko"
 }

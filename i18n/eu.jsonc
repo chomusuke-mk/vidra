@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Erakutsi tutoriala",
   "sd_log_file_not_found": "Ez da aurkitu erregistro-fitxategia.",
   "ov_quick_download": "Deskarga azkarra",
-  "ov_download_added_desc": "Arakatzen jarrai dezakezu.\nVidra arduratuko da gainerakoa."
+  "ov_download_added_desc": "Arakatzen jarrai dezakezu.\nVidra arduratuko da gainerakoa.",
+  "fe_title": "Sistemaren errore larria",
+  "fe_message": "Deskarga-motorra ezin izan da kargatu eguneratze baten ondoren. Mesedez, berrabiarazi aplikazioa.",
+  "fe_view_logs_button": "Ikusi Erregistroak",
+  "fe_restart_button": "Berrabiarazi aplikazioa"
 }

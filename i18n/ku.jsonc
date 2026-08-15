@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Tutorial nîşan bide",
   "sd_log_file_not_found": "Pelê têketinê nehat dîtin.",
   "ov_quick_download": "Daxistina Zû",
-  "ov_download_added_desc": "Hûn dikarin gerê bidomînin.\nVidra dê mayî bigire."
+  "ov_download_added_desc": "Hûn dikarin gerê bidomînin.\nVidra dê mayî bigire.",
+  "fe_title": "Çewtiya Sîstema Kujer",
+  "fe_message": "Motora dakêşanê piştî nûvekirinê barkir. Ji kerema xwe sepanê ji nû ve bidin destpêkirin.",
+  "fe_restart_button": "Serlêdanê ji nû ve bidin destpêkirin",
+  "fe_view_logs_button": "Têketinên Binêre"
 }

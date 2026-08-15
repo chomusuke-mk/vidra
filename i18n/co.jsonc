@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Mostra tutoriale",
   "sd_log_file_not_found": "U schedariu di log ùn hè micca truvatu.",
   "ov_quick_download": "Scaricamentu rapidu",
-  "ov_download_added_desc": "Pudete cuntinuà à navigà.\nVidra s'occuperà di u restu."
+  "ov_download_added_desc": "Pudete cuntinuà à navigà.\nVidra s'occuperà di u restu.",
+  "fe_title": "Errore fatale di u sistema",
+  "fe_message": "U mutore di scaricamentu hà fiascatu à carica dopu una aghjurnazione. Per piacè riavvia l'applicazione.",
+  "fe_restart_button": "Riavvia l'applicazione",
+  "fe_view_logs_button": "Vede i logs"
 }

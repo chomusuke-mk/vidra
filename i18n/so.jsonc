@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Muuji casharrada",
   "sd_log_file_not_found": "Gal gal lama helin",
   "ov_quick_download": "Soo dejiso Degdeg ah",
-  "ov_download_added_desc": "Waad sii wadi kartaa daalacashada\nVidra ayaa qaban doonta inta soo hartay."
+  "ov_download_added_desc": "Waad sii wadi kartaa daalacashada\nVidra ayaa qaban doonta inta soo hartay.",
+  "fe_title": "Khaladka Nidaamka Fatal",
+  "fe_message": "Matoorka soo dajintu wuu ku guul daraystay inuu soo shubo cusboonaysiin kadib. Fadlan dib u bilaw codsiga",
+  "fe_restart_button": "Dib u bilaw Codsiga",
+  "fe_view_logs_button": "View Logs"
 }

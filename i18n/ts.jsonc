@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Kombisa dyondzo",
   "sd_log_file_not_found": "Fayili ya log a yi kumeki.",
   "ov_quick_download": "Quick Download",
-  "ov_download_added_desc": "U nga ha ya emahlweni u pfula-pfula.\nVidra u ta khoma leswi seleke."
+  "ov_download_added_desc": "U nga ha ya emahlweni u pfula-pfula.\nVidra u ta khoma leswi seleke.",
+  "fe_title": "Xihoxo xa Sisiteme lexi dlayaka",
+  "fe_message": "Injhini yo dawuniloda yi tsandzekile ku layicha endzhaku ka ku pfuxetiwa. Hi kombela u sungula xitirhisiwa nakambe.",
+  "fe_restart_button": "Sungula Xitirhisiwa nakambe",
+  "fe_view_logs_button": "Languta Tilog"
 }

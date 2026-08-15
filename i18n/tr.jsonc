@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Eğiticiyi göster",
   "sd_log_file_not_found": "Günlük dosyası bulunamadı.",
   "ov_quick_download": "Hızlı İndirme",
-  "ov_download_added_desc": "Taramaya devam edebilirsiniz.\nGerisini Vidra halledecek."
+  "ov_download_added_desc": "Taramaya devam edebilirsiniz.\nGerisini Vidra halledecek.",
+  "fe_title": "Önemli Sistem Hatası",
+  "fe_message": "İndirme motoru güncelleme sonrasında yüklenemedi. Lütfen uygulamayı yeniden başlatın.",
+  "fe_restart_button": "Uygulamayı Yeniden Başlat",
+  "fe_view_logs_button": "Günlükleri Görüntüle"
 }

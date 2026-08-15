@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Näita õpetust",
   "sd_log_file_not_found": "Logifaili ei leitud.",
   "ov_quick_download": "Kiire allalaadimine",
-  "ov_download_added_desc": "Saate sirvimist jätkata.\nÜlejäänuga tegeleb Vidra."
+  "ov_download_added_desc": "Saate sirvimist jätkata.\nÜlejäänuga tegeleb Vidra.",
+  "fe_title": "Saatuslik süsteemiviga",
+  "fe_message": "Allalaadimismootorit ei õnnestunud pärast värskendamist laadida. Palun taaskäivitage rakendus.",
+  "fe_restart_button": "Taaskäivitage rakendus",
+  "fe_view_logs_button": "Vaata logisid"
 }

@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Dangos tiwtorial",
   "sd_log_file_not_found": "Ni chanfuwyd y ffeil log.",
   "ov_quick_download": "Lawrlwytho Cyflym",
-  "ov_download_added_desc": "Gallwch barhau i bori.\nBydd Vidra yn trin y gweddill."
+  "ov_download_added_desc": "Gallwch barhau i bori.\nBydd Vidra yn trin y gweddill.",
+  "fe_title": "Gwall System Angheuol",
+  "fe_message": "Methodd yr injan lawrlwytho â llwytho ar ôl diweddariad. Ailgychwynnwch y cais.",
+  "fe_restart_button": "Ailgychwyn Cais",
+  "fe_view_logs_button": "Gweld Logiau"
 }

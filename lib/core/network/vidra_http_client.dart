@@ -8,13 +8,15 @@ class VidraHttpClient {
 
   final Map<String, String> defaultHeaders;
   final Duration timeout;
+  final http.Client _client;
 
   VidraHttpClient({
     required this.baseUrl,
     required this.defaultHeaders,
     this.timeout = const Duration(seconds: 30),
     this.token,
-  });
+    http.Client? client,
+  }) : _client = client ?? http.Client();
 
   // --- Cabeceras base para todas las peticiones ---
   Map<String, String> get _headers {
@@ -31,7 +33,7 @@ class VidraHttpClient {
 
     try {
       // Un timeout muy corto porque al ser localhost debería responder en 10ms.
-      final response = await http
+      final response = await _client
           .get(uri, headers: _headers)
           .timeout(const Duration(seconds: 2));
 
@@ -45,19 +47,25 @@ class VidraHttpClient {
     return false;
   }
 
-  // --- POST /shutdown ---
-  Future<void> shutdown() async {
-    final uri = Uri.parse('$baseUrl/shutdown');
+  // --- PATCH /ota (Control de Módulos OTA Hot-Reload) ---
+  Future<bool> otaAction(String action) async {
+    final uri = Uri.parse(
+      '$baseUrl/ota',
+    ).replace(queryParameters: {'action': action});
+
     try {
-      await http
-          .post(uri, headers: _headers)
-          .timeout(const Duration(seconds: 2));
+      final response = await _client
+          .patch(uri, headers: _headers)
+          .timeout(const Duration(seconds: 15));
+
+      return response.statusCode == 200;
     } catch (e) {
-      // Aviso: Fallo de red en shutdown. Es completamente normal porque al apagar
-      // el backend, la conexión HTTP se corta abruptamente o da timeout.
-      // debugPrint('Aviso: Fallo de red en shutdown, probablemente ya cerró. $e');
+      return false;
     }
   }
+
+  Future<bool> otaLoad() => otaAction('load');
+  Future<bool> otaUnload() => otaAction('unload');
 
   // --- GET /logs ---
   Future<String> getLogs({String? id}) async {
@@ -65,7 +73,7 @@ class VidraHttpClient {
       '$baseUrl/logs',
     ).replace(queryParameters: id != null ? {'id': id} : null);
 
-    final response = await http.get(uri, headers: _headers).timeout(timeout);
+    final response = await _client.get(uri, headers: _headers).timeout(timeout);
 
     if (response.statusCode == 200) return response.body;
     throw Exception(
@@ -79,7 +87,7 @@ class VidraHttpClient {
       '$baseUrl/downloads',
     ).replace(queryParameters: id != null ? {'id': id} : null);
 
-    final response = await http.get(uri, headers: _headers).timeout(timeout);
+    final response = await _client.get(uri, headers: _headers).timeout(timeout);
 
     if (response.statusCode == 200) return jsonDecode(response.body);
     throw Exception(
@@ -94,7 +102,7 @@ class VidraHttpClient {
   }) async {
     final uri = Uri.parse('$baseUrl/downloads');
 
-    final response = await http
+    final response = await _client
         .post(
           uri,
           headers: _headers,
@@ -120,7 +128,9 @@ class VidraHttpClient {
       '$baseUrl/downloads',
     ).replace(queryParameters: {'id': id, 'action': action});
 
-    final response = await http.patch(uri, headers: _headers).timeout(timeout);
+    final response = await _client
+        .patch(uri, headers: _headers)
+        .timeout(timeout);
 
     if (response.statusCode != 200) {
       throw Exception(
@@ -135,7 +145,7 @@ class VidraHttpClient {
       '$baseUrl/select-entries',
     ).replace(queryParameters: {'id': id});
 
-    final response = await http.get(uri, headers: _headers).timeout(timeout);
+    final response = await _client.get(uri, headers: _headers).timeout(timeout);
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
@@ -158,7 +168,7 @@ class VidraHttpClient {
       '$baseUrl/select-entries',
     ).replace(queryParameters: {'id': id});
 
-    final response = await http
+    final response = await _client
         .post(uri, headers: _headers, body: jsonEncode({'entries': entries}))
         .timeout(timeout);
 
@@ -176,33 +186,28 @@ class VidraHttpClient {
     ).replace(queryParameters: id != null ? {'id': id} : null);
 
     final request = http.Request('GET', uri)..headers.addAll(_headers);
-    final client = http.Client();
 
-    try {
-      final response = await client.send(request);
+    final response = await _client.send(request);
 
-      if (response.statusCode != 200) {
-        final errorBody = await response.stream.bytesToString();
-        throw Exception(
-          'Error connecting to stream: ${response.statusCode} - $errorBody',
-        );
-      }
+    if (response.statusCode != 200) {
+      final errorBody = await response.stream.bytesToString();
+      throw Exception(
+        'Error connecting to stream: ${response.statusCode} - $errorBody',
+      );
+    }
 
-      // Procesamos el stream de texto línea por línea buscando los eventos SSE
-      await for (final line
-          in response.stream
-              .transform(utf8.decoder)
-              .transform(const LineSplitter())) {
-        if (line.startsWith(':')) continue;
-        if (line.startsWith('data: ')) {
-          final payload = line.substring(6).trim();
-          if (payload.isNotEmpty) {
-            yield jsonDecode(payload) as List<dynamic>;
-          }
+    // Procesamos el stream de texto línea por línea buscando los eventos SSE
+    await for (final line
+        in response.stream
+            .transform(utf8.decoder)
+            .transform(const LineSplitter())) {
+      if (line.startsWith(':')) continue;
+      if (line.startsWith('data: ')) {
+        final payload = line.substring(6).trim();
+        if (payload.isNotEmpty) {
+          yield jsonDecode(payload) as List<dynamic>;
         }
       }
-    } finally {
-      client.close(); // Cerrar si el listener si se desconecta
     }
   }  
 }

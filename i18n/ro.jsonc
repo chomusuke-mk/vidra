@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Arată tutorial",
   "sd_log_file_not_found": "Fișierul jurnal nu a fost găsit.",
   "ov_quick_download": "Descărcare rapidă",
-  "ov_download_added_desc": "Puteți continua să navigați.\nVidra se va ocupa de restul."
+  "ov_download_added_desc": "Puteți continua să navigați.\nVidra se va ocupa de restul.",
+  "fe_title": "Eroare fatală de sistem",
+  "fe_message": "Motorul de descărcare nu s-a încărcat după o actualizare. Vă rugăm să reporniți aplicația.",
+  "fe_restart_button": "Reporniți aplicația",
+  "fe_view_logs_button": "Vedeți jurnalele"
 }

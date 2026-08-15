@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Erekana inyigisho",
   "sd_log_file_not_found": "Idosiye yinjira ntabwo yabonetse.",
   "ov_quick_download": "Gukuramo vuba",
-  "ov_download_added_desc": "Urashobora gukomeza gushakisha.\nVidra izakora ibisigaye."
+  "ov_download_added_desc": "Urashobora gukomeza gushakisha.\nVidra izakora ibisigaye.",
+  "fe_title": "Ikosa rya Sisitemu",
+  "fe_message": "Moteri yo gukuramo yananiwe kwikorera nyuma yo kuvugurura. Nyamuneka ongera utangire gusaba.",
+  "fe_restart_button": "Ongera utangire gusaba",
+  "fe_view_logs_button": "Reba Ibiti"
 }

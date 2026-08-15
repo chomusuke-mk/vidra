@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Shfaq tutorialin",
   "sd_log_file_not_found": "Skedari i regjistrit nuk u gjet.",
   "ov_quick_download": "Shkarkim i Shpejtë",
-  "ov_download_added_desc": "Mund të vazhdoni të shfletoni.\nVidra do të merret me pjesën tjetër."
+  "ov_download_added_desc": "Mund të vazhdoni të shfletoni.\nVidra do të merret me pjesën tjetër.",
+  "fe_title": "Gabim fatal i sistemit",
+  "fe_message": "Motori i shkarkimit nuk u ngarkua pas një përditësimi. Ju lutemi rinisni aplikacionin.",
+  "fe_restart_button": "Rinis aplikacionin",
+  "fe_view_logs_button": "Shiko regjistrat"
 }

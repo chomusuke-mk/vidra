@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Mostrar tutorial",
   "sd_log_file_not_found": "Arquivo de log não encontrado.",
   "ov_quick_download": "Download rápido",
-  "ov_download_added_desc": "Você pode continuar navegando.\nVidra cuidará do resto."
+  "ov_download_added_desc": "Você pode continuar navegando.\nVidra cuidará do resto.",
+  "fe_title": "Erro fatal do sistema",
+  "fe_message": "O mecanismo de download falhou ao carregar após uma atualização. Por favor reinicie o aplicativo.",
+  "fe_restart_button": "Reiniciar aplicativo",
+  "fe_view_logs_button": "Ver registros"
 }

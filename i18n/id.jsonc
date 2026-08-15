@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Tampilkan tutorialnya",
   "sd_log_file_not_found": "Berkas log tidak ditemukan.",
   "ov_quick_download": "Unduh Cepat",
-  "ov_download_added_desc": "Anda dapat terus menjelajah.\nVidra akan menangani sisanya."
+  "ov_download_added_desc": "Anda dapat terus menjelajah.\nVidra akan menangani sisanya.",
+  "fe_title": "Kesalahan Sistem Fatal",
+  "fe_message": "Mesin pengunduhan gagal dimuat setelah pembaruan. Silakan restart aplikasinya.",
+  "fe_restart_button": "Mulai ulang Aplikasi",
+  "fe_view_logs_button": "Lihat Log"
 }

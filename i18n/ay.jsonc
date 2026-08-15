@@ -289,5 +289,9 @@
   "shw_loading_selector": "Ukax ajlliñjamawa...",
   "sd_log_file_not_found": "Log file ukax janiw jikxataskiti.",
   "ov_quick_download": "Jank’aki Uñt’ayañataki",
-  "ov_download_added_desc": "Jumax uñakipt’askakismawa.\nVidrax qhipharux uñjaniwa."
+  "ov_download_added_desc": "Jumax uñakipt’askakismawa.\nVidrax qhipharux uñjaniwa.",
+  "fe_title": "Sistema Fatal ukax pantjasiwa",
+  "fe_message": "Motor de descarga ukax mä actualización ukjatx janiw cargañjamäkänti. Ukhamaraki, uka aplicación ukarux wasitat qalltañamawa.",
+  "fe_restart_button": "Aplicación ukar wasitat qalltaña",
+  "fe_view_logs_button": "Uñakipt’añataki Registros"
 }

@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Whakaatuhia he akoranga",
   "sd_log_file_not_found": "Kāore i kitea te kōnae rangitaki.",
   "ov_quick_download": "Tikiake Tere",
-  "ov_download_added_desc": "Ka taea e koe te tirotiro tonu.\nKa whakahaerehia e Vidra te toenga."
+  "ov_download_added_desc": "Ka taea e koe te tirotiro tonu.\nKa whakahaerehia e Vidra te toenga.",
+  "fe_title": "Hapa Pūnaha Whakamate",
+  "fe_message": "I rahua te utaina o te miihini tango i muri i te whakahou. Me tīmata anō te tono.",
+  "fe_restart_button": "Tīmata anō te Taupānga",
+  "fe_view_logs_button": "Tirohia nga Rangitaki"
 }

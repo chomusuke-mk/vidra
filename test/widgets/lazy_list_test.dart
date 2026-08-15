@@ -16,6 +16,7 @@ void main() {
               return LazyList(
                 value: currentList,
                 onChanged: (newList) => setState(() => currentList = newList),
+                restrictToSuggestions: false,
               );
             },
           ),

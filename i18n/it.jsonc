@@ -289,5 +289,9 @@
   "s_tutorial_tooltip": "Mostra tutorial",
   "sd_log_file_not_found": "File di registro non trovato.",
   "ov_quick_download": "Download rapido",
-  "ov_download_added_desc": "Puoi continuare a navigare.\nVidra si occuperà del resto."
+  "ov_download_added_desc": "Puoi continuare a navigare.\nVidra si occuperà del resto.",
+  "fe_title": "Errore irreversibile di sistema",
+  "fe_message": "Impossibile caricare il motore di download dopo un aggiornamento. Riavviare l'applicazione.",
+  "fe_restart_button": "Riavvia l'applicazione",
+  "fe_view_logs_button": "Visualizza registri"
 }
