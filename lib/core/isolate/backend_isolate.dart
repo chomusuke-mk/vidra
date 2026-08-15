@@ -374,6 +374,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
           'FFMPEG_PATH': ffmpegPath,
           'QUICKJS_PATH': quickjsPath,
           'LOG_LEVEL': kReleaseMode ? 'INFO' : 'DEBUG',
+          'CORE_MODULES_PATH': coreModulesPath,
         },
         sync: false,
         modulePaths: [coreModulesPath],

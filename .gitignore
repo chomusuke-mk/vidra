@@ -57,3 +57,5 @@ app.*.map.json
 /venv/
 /.serious_python/
 /dist/
+/.agents/
+/app/src_old/
