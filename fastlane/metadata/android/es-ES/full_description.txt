@@ -1,0 +1,27 @@
+Descubre Vidra, el gestor de descargas de video de código abierto definitivo, diseñado para usuarios exigentes que buscan velocidad, fiabilidad y una interfaz hermosa. Construido con un frontend moderno en Flutter y un robusto backend en Python (impulsado por yt-dlp y FFmpeg), ¡Vidra ofrece una experiencia de descarga de nivel de escritorio directamente en tu dispositivo Android!
+
+🚀 Ultrarrápido y Fiable
+Vidra aprovecha la potencia inigualable de yt-dlp para soportar descargas de cientos de sitios web, asegurando que siempre obtengas la mejor calidad disponible.
+
+✨ Diseño Moderno y Premium
+Despídete de las interfaces anticuadas. Vidra cuenta con un diseño elegante, responsivo e intuitivo. Disfruta de animaciones fluidas, un hermoso modo oscuro y un diseño adaptativo que luce espectacular tanto en teléfonos como en tablets.
+
+🛠️ Procesamiento Avanzado con FFmpeg
+¿Necesitas extraer audio, convertir formatos o fusionar pistas de video y audio? Vidra incluye integración completa con FFmpeg y QuickJS, manejando tareas complejas de procesamiento multimedia en segundo plano sin ralentizar tu dispositivo.
+
+🔒 Enfocado en la Privacidad y Código Abierto
+Cero telemetría, sin analíticas ocultas y sin anuncios. Vidra funciona de forma local (offline-first) y es completamente de código abierto, brindándote total transparencia y control sobre tus datos.
+
+🔄 Siempre Actualizado (OTA)
+Las actualizaciones integradas (Over-The-Air) garantizan que tus motores principales (yt-dlp y yt-dlp-ejs) siempre ejecuten las últimas versiones, descargadas de forma segura desde sus repositorios oficiales.
+
+Características Principales:
+- 📥 Descarga videos y audios de cientos de plataformas compatibles
+- ⚙️ FFmpeg integrado para conversiones de formato avanzadas y fusión de pistas
+- 🎨 Interfaz de usuario premium y personalizable con soporte para modo oscuro
+- ⚡ Descargas en segundo plano asíncronas y sin bloqueos
+- 🛡️ Actualizaciones OTA verificadas criptográficamente
+- 🌍 Soporte para múltiples idiomas
+- 🔓 Software 100% libre y de código abierto (FOSS)
+
+¡Toma el control de tu biblioteca multimedia hoy mismo con Vidra, el gestor de descargas de video más avanzado!

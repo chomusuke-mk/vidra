@@ -105,6 +105,7 @@ words:
   - flac
   - flutterlocalnotifications
   - FONTCHANGE
+  - FOSS
   - gboolean
   - gchar
   - GLASSMORPHISM
@@ -298,6 +299,7 @@ words:
   - SYMED
   - SYSROOT
   - TARG
+  - telemetría
   - temurin
   - Testables
   - TEXTINCLUDE
@@ -310,6 +312,7 @@ words:
   - tldextract
   - tmpfilename
   - twofactor
+  - ultrarrápido
   - uncompromised
   - unhide
   - uninst

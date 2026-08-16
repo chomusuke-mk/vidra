@@ -21,16 +21,15 @@ enclosed in quotation marks, you should use an editor that supports UTF-8, not t
     <docsUrl>https://github.com/chomusuke-mk/vidra/tree/main/docs</docsUrl>
     <bugTrackerUrl>https://github.com/chomusuke-mk/vidra/issues</bugTrackerUrl>
     <tags>vidra video downloader media yt-dlp youtube audio</tags>
-    <summary>Cross-platform playlist-aware media downloader.</summary>
+    <summary>The ultimate, lightning-fast video download manager.</summary>
     <description>
-      Vidra is an advanced video download manager for desktop and mobile devices. It combines a
-      modern Flutter user interface with a powerful Python backend (`yt-dlp`), integrated seamlessly
-      as a background process.
+      Meet Vidra, the ultimate open-source video download manager designed for power users who demand speed, reliability, and a beautiful interface. Built with a modern Flutter frontend and a robust Python backend (powered by yt-dlp and FFmpeg), Vidra brings a premium downloading experience right to your PC!
 
       Features:
-      - Cross-platform support.
-      - Powered by yt-dlp and FFmpeg.
-      - Playlist aware and format selection.
+      - Lightning-Fast &amp; Reliable: Leverages the uncompromised power of yt-dlp to support downloading from hundreds of sites.
+      - Advanced Processing: Integrated FFmpeg handles complex media processing tasks effortlessly in the background.
+      - Privacy-Focused &amp; Open Source: Zero telemetry, offline-first, and 100% Free and Open-Source Software (FOSS).
+      - Always Up-to-Date (OTA): Built-in Over-The-Air updates ensure your core engines are always running the latest versions.
     </description>
     <releaseNotes>https://github.com/chomusuke-mk/vidra/releases/latest</releaseNotes>
   </metadata>

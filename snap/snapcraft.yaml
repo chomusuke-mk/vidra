@@ -1,11 +1,15 @@
 name: vidra
 title: Vidra
 adopt-info: vidra
-summary: Desktop-grade video download manager
+summary: The ultimate, lightning-fast video download manager
 description: |
-  Vidra is an advanced video download manager for desktop and mobile devices. 
-  It combines a modern Flutter user interface with a powerful Python backend 
-  (yt-dlp), integrated seamlessly as a background process.
+  Meet Vidra, the ultimate open-source video download manager designed for power users who demand speed, reliability, and a beautiful interface. Built with a modern Flutter frontend and a robust Python backend (powered by yt-dlp and FFmpeg), Vidra brings a premium downloading experience right to your desktop!
+  
+  Features:
+  - Lightning-Fast & Reliable: Leverages the uncompromised power of yt-dlp to support downloading from hundreds of sites.
+  - Advanced Processing: Integrated FFmpeg handles complex media processing tasks effortlessly in the background.
+  - Privacy-Focused & Open Source: Zero telemetry, offline-first, and 100% Free and Open-Source Software (FOSS).
+  - Always Up-to-Date (OTA): Built-in Over-The-Air updates ensure your core engines are always running the latest versions.
 
 contact: https://github.com/chomusuke-mk/vidra/issues
 license: GPL-3.0-or-later

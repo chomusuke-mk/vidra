@@ -1,1 +1,27 @@
-Vidra is a powerful and open-source video download manager with a Flutter interface and an integrated Python backend via serious_python.
+Meet Vidra, the ultimate open-source video download manager designed for power users who demand speed, reliability, and a beautiful interface. Built with a modern Flutter frontend and a robust Python backend (powered by yt-dlp and FFmpeg), Vidra brings a desktop-grade downloading experience right to your Android device!
+
+🚀 Lightning-Fast & Reliable
+Vidra leverages the uncompromised power of yt-dlp to support downloading from hundreds of sites, ensuring you always get the best quality available. 
+
+✨ Modern & Premium Design
+Say goodbye to clunky interfaces. Vidra features a sleek, responsive, and intuitive design. Enjoy smooth animations, a beautiful dark mode, and an adaptive layout that looks stunning on phones and tablets alike.
+
+🛠️ Advanced Processing with FFmpeg
+Need to extract audio, convert formats, or merge video and audio streams? Vidra comes with integrated FFmpeg and QuickJS support, handling complex media processing tasks effortlessly in the background without slowing down your device.
+
+🔒 Privacy-Focused & Open Source
+Zero telemetry, no hidden analytics, and no ads. Vidra is completely offline-first and open-source, giving you full transparency and control over your data. 
+
+🔄 Always Up-to-Date (OTA)
+Built-in Over-The-Air updates ensure your core engines (yt-dlp and yt-dlp-ejs) are always running the latest versions, fetched securely from their official repositories.
+
+Key Features:
+- 📥 Download videos and audio from hundreds of supported platforms
+- ⚙️ Integrated FFmpeg for advanced format conversions and stream merging
+- 🎨 Premium, customizable UI with dark mode support
+- ⚡ Asynchronous, non-blocking background downloads
+- 🛡️ Cryptographically verified OTA updates
+- 🌍 Multi-language support
+- 🔓 100% Free and Open-Source Software (FOSS)
+
+Take control of your media library today with Vidra – the most advanced video downloader available!
