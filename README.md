@@ -16,7 +16,7 @@
 <p align="center">
  <a href="https://flutter.dev"><img alt="Flutter 3.12+" src="https://img.shields.io/badge/Flutter-3.12%2B-blue?logo=flutter&logoColor=white" /></a>
  <a href="https://www.python.org/"><img alt="Python 3.14" src="https://img.shields.io/badge/Python-3.14-blueviolet?logo=python&logoColor=white" /></a>
- <a href="THIRD_PARTY_LICENSES.md"><img alt="Licensing" src="https://img.shields.io/badge/Licensing-THIRD__PARTY__LICENSES-informational?logo=github&logoColor=white" /></a>
+ <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-GPL--3.0-informational?logo=gnu&logoColor=white" /></a>
  <a href="https://www.buymeacoffee.com/chomusuke"><img alt="Donate (Buy me a coffee)" src="https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-orange?logo=buymeacoffee&logoColor=white" /></a>
  <a href="https://www.patreon.com/chomusuke_dev"><img alt="Donate (Patreon)" src="https://img.shields.io/badge/Donate-Patreon-critical?logo=patreon&logoColor=white" /></a>
 </p>
@@ -73,12 +73,12 @@
 
 Vidra is officially distributed through the **[GitHub Releases (Latest Assets)](https://github.com/chomusuke-mk/vidra/releases/latest)** section.
 
-| Platform    | File / Installer                                                                                                        |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------- |
-| **Windows** | `vidra-windows.exe`                                                                                                     |
-| **Linux**   | `vidra-x86_64.AppImage` <br>`vidra-linux.deb`                                                                           |
-| **Android** | `vidra-android.apk`<br> `vidra-android-arm64-v8a.apk`<br>`vidra-android-x86_64.apk` <br>`vidra-android-armeabi-v7a.apk` |
-| **macOS**   | _Coming soon_                                                                                                           |
+| Platform    | File / Installer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Windows** | [`vidra-windows.exe`](https://github.com/chomusuke-mk/vidra/releases/latest/download/vidra-windows.exe)                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Linux**   | [`vidra-x86_64.AppImage`](https://github.com/chomusuke-mk/vidra/releases/latest/download/vidra-x86_64.AppImage) <br>[`vidra-linux.deb`](https://github.com/chomusuke-mk/vidra/releases/latest/download/vidra-linux.deb)                                                                                                                                                                                                                                                                              |
+| **Android** | [`vidra-android.apk`](https://github.com/chomusuke-mk/vidra/releases/latest/download/vidra-android.apk)<br> [`vidra-android-arm64-v8a.apk`](https://github.com/chomusuke-mk/vidra/releases/latest/download/vidra-android-arm64-v8a.apk)<br>[`vidra-android-x86_64.apk`](https://github.com/chomusuke-mk/vidra/releases/latest/download/vidra-android-x86_64.apk) <br>[`vidra-android-armeabi-v7a.apk`](https://github.com/chomusuke-mk/vidra/releases/latest/download/vidra-android-armeabi-v7a.apk) |
+| **macOS**   | _Coming soon_                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 <details>
 <summary><b>🐧 Install via APT Repository (Debian/Ubuntu)</b></summary>
