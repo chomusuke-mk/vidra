@@ -47,7 +47,6 @@ class ShareIntentWrapperState extends State<ShareIntentWrapper>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    debugPrint('🦁 [MAIN] didChangeAppLifecycleState: $state');
     if (state == AppLifecycleState.resumed) {
       final waiters = List<Completer<void>>.from(_resumeCompleters);
       _resumeCompleters.clear();
