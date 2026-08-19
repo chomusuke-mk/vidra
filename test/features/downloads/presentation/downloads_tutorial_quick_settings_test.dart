@@ -356,7 +356,7 @@ void main() {
         expect(find.text('Configuración rápida'), findsWidgets);
         expect(
           find.text(
-            'Abra este menú para ajustar rápidamente las opciones de descarga al instante sin salir de la pantalla principal.',
+            'Abra este menú para ajustar rápidamente las opciones de descarga sobre la marcha sin salir de la pantalla principal.',
           ),
           findsOneWidget,
         );
@@ -413,11 +413,11 @@ void main() {
         expect(find.text('Einstellungen'), findsOneWidget);
         await advanceTutorialStep(tester, 'Nächste');
 
-        // Step 5: Quick Settings falls back to English seamlessly
-        expect(find.text('Quick Settings'), findsWidgets);
+        // Step 5: Quick Settings in German
+        expect(find.text('Schnelleinstellungen'), findsWidgets);
         expect(
           find.text(
-            'Open this menu to quickly adjust download options on the fly without leaving the main screen.',
+            'Öffnen Sie dieses Menü, um die Download-Optionen schnell anzupassen, ohne den Hauptbildschirm zu verlassen.',
           ),
           findsOneWidget,
         );
@@ -432,7 +432,7 @@ void main() {
     );
 
     testWidgets(
-      'Tutorial renders French localized steps with seamless English fallback for Quick Settings',
+      'Tutorial renders French localized steps for Quick Settings',
       (WidgetTester tester) async {
         final frLocaleController = LocaleController(mockLocaleRepo, 'fr');
         await frLocaleController.whenReady;
@@ -474,11 +474,11 @@ void main() {
         expect(find.text('Paramètres'), findsOneWidget);
         await advanceTutorialStep(tester, 'Suivant');
 
-        // Step 5: Quick Settings falls back to English seamlessly
-        expect(find.text('Quick Settings'), findsWidgets);
+        // Step 5: Quick Settings in French
+        expect(find.text('Paramètres rapides'), findsWidgets);
         expect(
           find.text(
-            'Open this menu to quickly adjust download options on the fly without leaving the main screen.',
+            "Ouvrez ce menu pour ajuster rapidement les options de téléchargement à la volée sans quitter l'écran principal.",
           ),
           findsOneWidget,
         );

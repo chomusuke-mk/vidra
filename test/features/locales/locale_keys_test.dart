@@ -94,7 +94,7 @@ void main() {
       expect(
         esStrings.tuPPQuickSettingsDesc,
         equals(
-          'Abra este menú para ajustar rápidamente las opciones de descarga al instante sin salir de la pantalla principal.',
+          'Abra este menú para ajustar rápidamente las opciones de descarga sobre la marcha sin salir de la pantalla principal.',
         ),
       );
     });

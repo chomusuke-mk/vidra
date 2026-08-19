@@ -20,7 +20,8 @@ class ShareIntentWrapper extends StatefulWidget {
   State<ShareIntentWrapper> createState() => ShareIntentWrapperState();
 }
 
-class ShareIntentWrapperState extends State<ShareIntentWrapper> {
+class ShareIntentWrapperState extends State<ShareIntentWrapper>
+    with WidgetsBindingObserver {
   @visibleForTesting
   static bool? debugOverrideIsAndroid;
 
@@ -28,13 +29,50 @@ class ShareIntentWrapperState extends State<ShareIntentWrapper> {
 
   StreamSubscription? _intentDataStreamSubscription;
   static const _platform = MethodChannel('vidra_channel');
-  bool _isPreparingOverlay = false;
+  int _activeIntentCount = 0;
+  bool get _isPreparingOverlay => _activeIntentCount > 0;
+
+  final List<Completer<void>> _resumeCompleters = [];
+
+  @visibleForTesting
+  Duration resumeTimeout = const Duration(seconds: 60);
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     debugPrint('🦁 [MAIN] Wrapper limpio iniciado. Escuchando intents...');
     _initIntents();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    debugPrint('🦁 [MAIN] didChangeAppLifecycleState: $state');
+    if (state == AppLifecycleState.resumed) {
+      final waiters = List<Completer<void>>.from(_resumeCompleters);
+      _resumeCompleters.clear();
+      for (final completer in waiters) {
+        if (!completer.isCompleted) {
+          completer.complete();
+        }
+      }
+    }
+  }
+
+  Future<void> _waitForResume() async {
+    final completer = Completer<void>();
+    _resumeCompleters.add(completer);
+    try {
+      await completer.future.timeout(resumeTimeout);
+    } on TimeoutException {
+      debugPrint(
+        '⏳ [ShareWrapper] Timeout esperando el retorno a la aplicación (resumed)',
+      );
+    } catch (e) {
+      debugPrint('⚠️ [ShareWrapper] Error esperando resumed: $e');
+    } finally {
+      _resumeCompleters.remove(completer);
+    }
   }
 
   // --- LÓGICA DE COMPARTIR NATIVA ---
@@ -58,7 +96,7 @@ class ShareIntentWrapperState extends State<ShareIntentWrapper> {
   Future<void> _processIntent(String url) async {
     if (url.trim().isEmpty) return;
     if (!mounted) return;
-    setState(() => _isPreparingOverlay = true);
+    setState(() => _activeIntentCount++);
 
     try {
       final settingsCtrl = context.read<SettingsController>();
@@ -72,7 +110,12 @@ class ShareIntentWrapperState extends State<ShareIntentWrapper> {
         try {
           isGranted = await FlutterScreenOverlay.isPermissionGranted();
           if (!isGranted) {
-            await FlutterScreenOverlay.requestPermission();
+            unawaited(FlutterScreenOverlay.requestPermission());
+            debugPrint(
+              '⏳ Esperando que el usuario regrese a la app para continuar...',
+            );
+            await _waitForResume();
+            if (!mounted) return;
             isGranted = await FlutterScreenOverlay.isPermissionGranted();
           }
         } catch (e) {
@@ -82,6 +125,8 @@ class ShareIntentWrapperState extends State<ShareIntentWrapper> {
           isGranted = false;
         }
 
+        if (!mounted) return;
+
         if (isGranted) {
           try {
             debugPrint(
@@ -89,6 +134,7 @@ class ShareIntentWrapperState extends State<ShareIntentWrapper> {
             );
             await systemCtrl.whenPortReady;
             await localeCtrl.whenReady;
+            if (!mounted) return;
             // Refresh the locale with the updated strings
             final currentLocale = localeCtrl.localeStrings;
             debugPrint('🦁 [MAIN] Lanzando Overlay...');
@@ -161,13 +207,25 @@ class ShareIntentWrapperState extends State<ShareIntentWrapper> {
         }
       }
     } finally {
-      if (mounted) setState(() => _isPreparingOverlay = false);
+      if (mounted) {
+        setState(() {
+          if (_activeIntentCount > 0) _activeIntentCount--;
+        });
+      }
     }
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _intentDataStreamSubscription?.cancel();
+    final waiters = List<Completer<void>>.from(_resumeCompleters);
+    _resumeCompleters.clear();
+    for (final completer in waiters) {
+      if (!completer.isCompleted) {
+        completer.complete();
+      }
+    }
     super.dispose();
   }
 

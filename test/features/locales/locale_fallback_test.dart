@@ -43,12 +43,16 @@ void main() {
     });
 
     test('initialization with non-English language lacking qs_* keys falls back to en values seamlessly', () async {
-      // fr.jsonc does not have qs_title, qs_close, qs_audio, d_quick_settings
-      final frMap = await mockRepo.getLocaleStrings('fr');
+      mockRepo.setCustomLocale('fr_partial', {
+        'd_download': 'Télécharger',
+        'd_title': 'Accueil',
+      });
+
+      final frMap = await mockRepo.getLocaleStrings('fr_partial');
       expect(frMap.containsKey('qs_title'), isFalse);
       expect(frMap.containsKey('d_quick_settings'), isFalse);
 
-      final controller = LocaleController(mockRepo, 'fr');
+      final controller = LocaleController(mockRepo, 'fr_partial');
       await controller.whenReady;
 
       final strings = controller.localeStrings;
@@ -73,6 +77,10 @@ void main() {
     });
 
     test('switching between languages preserves fallback for missing keys and updates present keys', () async {
+      mockRepo.setCustomLocale('de_partial', {
+        'd_download': 'Herunterladen',
+      });
+
       final controller = LocaleController(mockRepo, 'en');
       await controller.whenReady;
 
@@ -93,12 +101,12 @@ void main() {
       expect(
         controller.localeStrings.tuPPQuickSettingsDesc,
         equals(
-          'Abra este menú para ajustar rápidamente las opciones de descarga al instante sin salir de la pantalla principal.',
+          'Abra este menú para ajustar rápidamente las opciones de descarga sobre la marcha sin salir de la pantalla principal.',
         ),
       );
 
-      // Switch to German (which lacks qs_* keys)
-      controller.setLocale('de');
+      // Switch to de_partial (which lacks qs_* keys)
+      controller.setLocale('de_partial');
       await Future<void>.delayed(const Duration(milliseconds: 50));
 
       // qs_* and tu_* falls back to English
@@ -115,7 +123,7 @@ void main() {
       );
 
       // de keys are used where available
-      final deMap = await mockRepo.getLocaleStrings('de');
+      final deMap = await mockRepo.getLocaleStrings('de_partial');
       expect(controller.localeStrings.dDownload, equals(deMap['d_download']));
     });
 
