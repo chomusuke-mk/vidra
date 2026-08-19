@@ -293,5 +293,11 @@
   "fe_title": "Usodna sistemska napaka",
   "fe_message": "Mehanizem za prenos se po posodobitvi ni uspel naložiti. Ponovno zaženite aplikacijo.",
   "fe_restart_button": "Znova zaženite aplikacijo",
-  "fe_view_logs_button": "Ogled dnevnikov"
+  "fe_view_logs_button": "Ogled dnevnikov",
+  "d_quick_settings": "Hitre nastavitve",
+  "shw_overlay_denied_downloading": "Dovoljenje za prekrivanje zavrnjeno, prenos neposredno",
+  "p_optional": "Neobvezno",
+  "qs_title": "Hitre nastavitve",
+  "qs_close": "Zapri",
+  "qs_audio": "Avdio"
 }

@@ -293,5 +293,11 @@
   "fe_title": "Żball Fatali tas-Sistema",
   "fe_message": "Il-magna tat-tniżżil naqset milli tgħabbi wara aġġornament. Jekk jogħġbok ibda mill-ġdid l-applikazzjoni.",
   "fe_restart_button": "Ibda mill-ġdid l-Applikazzjoni",
-  "fe_view_logs_button": "Ara zkuk"
+  "fe_view_logs_button": "Ara zkuk",
+  "shw_overlay_denied_downloading": "Permess overlay miċħud, tniżżil direttament",
+  "p_optional": "Fakultattiv",
+  "qs_title": "Settings Quick",
+  "qs_close": "Agħlaq",
+  "qs_audio": "Awdjo",
+  "d_quick_settings": "Settings Quick"
 }

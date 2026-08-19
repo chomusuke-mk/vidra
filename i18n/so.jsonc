@@ -293,5 +293,11 @@
   "fe_title": "Khaladka Nidaamka Fatal",
   "fe_message": "Matoorka soo dajintu wuu ku guul daraystay inuu soo shubo cusboonaysiin kadib. Fadlan dib u bilaw codsiga",
   "fe_restart_button": "Dib u bilaw Codsiga",
-  "fe_view_logs_button": "View Logs"
+  "fe_view_logs_button": "View Logs",
+  "d_quick_settings": "Dejinta degdega ah",
+  "shw_overlay_denied_downloading": "Oggolaanshaha dulsaarku waa la diiday, si toos ah loo soo dejinayay",
+  "qs_title": "Dejinta degdega ah",
+  "qs_close": "Xir",
+  "qs_audio": "Maqal",
+  "p_optional": "Ikhtiyaari"
 }

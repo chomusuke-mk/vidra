@@ -293,5 +293,11 @@
   "fe_title": "Végzetes rendszerhiba",
   "fe_message": "Frissítés után nem sikerült betölteni a letöltőmotort. Kérjük, indítsa újra az alkalmazást.",
   "fe_restart_button": "Indítsa újra az alkalmazást",
-  "fe_view_logs_button": "Naplók megtekintése"
+  "fe_view_logs_button": "Naplók megtekintése",
+  "d_quick_settings": "Gyorsbeállítások",
+  "shw_overlay_denied_downloading": "Fedvényengedély megtagadva, közvetlen letöltés",
+  "p_optional": "Választható",
+  "qs_title": "Gyorsbeállítások",
+  "qs_close": "Közeli",
+  "qs_audio": "Hang"
 }

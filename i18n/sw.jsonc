@@ -293,5 +293,11 @@
   "fe_title": "Hitilafu mbaya ya Mfumo",
   "fe_message": "Injini ya upakuaji imeshindwa kupakia baada ya sasisho. Tafadhali anzisha upya programu.",
   "fe_restart_button": "Anzisha tena Programu",
-  "fe_view_logs_button": "Tazama Kumbukumbu"
+  "fe_view_logs_button": "Tazama Kumbukumbu",
+  "shw_overlay_denied_downloading": "Ruhusa ya kuwekelea imekataliwa, inapakuliwa moja kwa moja",
+  "qs_title": "Mipangilio ya Haraka",
+  "qs_close": "Funga",
+  "qs_audio": "Sauti",
+  "d_quick_settings": "Mipangilio ya Haraka",
+  "p_optional": "Hiari"
 }

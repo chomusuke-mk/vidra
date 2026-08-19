@@ -293,5 +293,11 @@
   "fe_title": "Fatāla sistēmas kļūda",
   "fe_message": "Lejupielādes programmu neizdevās ielādēt pēc atjaunināšanas. Lūdzu, restartējiet lietojumprogrammu.",
   "fe_restart_button": "Restartējiet lietojumprogrammu",
-  "fe_view_logs_button": "Skatīt žurnālus"
+  "fe_view_logs_button": "Skatīt žurnālus",
+  "p_optional": "Pēc izvēles",
+  "qs_title": "Ātrie iestatījumi",
+  "qs_close": "Aizvērt",
+  "qs_audio": "Audio",
+  "d_quick_settings": "Ātrie iestatījumi",
+  "shw_overlay_denied_downloading": "Pārklājuma atļauja liegta, lejupielāde notiek tieši"
 }

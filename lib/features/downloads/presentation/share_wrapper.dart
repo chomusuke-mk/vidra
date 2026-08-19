@@ -17,10 +17,15 @@ class ShareIntentWrapper extends StatefulWidget {
   const ShareIntentWrapper({super.key, required this.child});
 
   @override
-  State<ShareIntentWrapper> createState() => _ShareIntentWrapperState();
+  State<ShareIntentWrapper> createState() => ShareIntentWrapperState();
 }
 
-class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
+class ShareIntentWrapperState extends State<ShareIntentWrapper> {
+  @visibleForTesting
+  static bool? debugOverrideIsAndroid;
+
+  bool get _isAndroid => debugOverrideIsAndroid ?? Platform.isAndroid;
+
   StreamSubscription? _intentDataStreamSubscription;
   static const _platform = MethodChannel('vidra_channel');
   bool _isPreparingOverlay = false;
@@ -34,7 +39,7 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
 
   // --- LÓGICA DE COMPARTIR NATIVA ---
   void _initIntents() {
-    if (!Platform.isAndroid && !Platform.isIOS) return;
+    if (!_isAndroid && !Platform.isIOS) return;
     // 1. App en memoria (segundo plano)
     _intentDataStreamSubscription = ReceiveSharingIntent.instance
         .getMediaStream()
@@ -47,8 +52,12 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
     });
   }
 
+  @visibleForTesting
+  Future<void> processIntentForTesting(String url) => _processIntent(url);
+
   Future<void> _processIntent(String url) async {
     if (url.trim().isEmpty) return;
+    if (!mounted) return;
     setState(() => _isPreparingOverlay = true);
 
     try {
@@ -58,43 +67,72 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
       final localeCtrl = context.read<LocaleController>();
       final locale = localeCtrl.localeStrings;
 
-      if (Platform.isAndroid) {
-        bool isGranted = await FlutterScreenOverlay.isPermissionGranted();
-        if (isGranted) {
+      if (_isAndroid) {
+        bool isGranted = false;
+        try {
+          isGranted = await FlutterScreenOverlay.isPermissionGranted();
+          if (!isGranted) {
+            await FlutterScreenOverlay.requestPermission();
+            isGranted = await FlutterScreenOverlay.isPermissionGranted();
+          }
+        } catch (e) {
           debugPrint(
-            '⏳ Esperando confirmación del puerto del Isolate y Locales...',
+            '⚠️ [ShareWrapper] Error verificando/solicitando permiso de overlay: $e',
           );
-          await systemCtrl.whenPortReady;
-          await localeCtrl.whenReady;
-          // Refresh the locale with the updated strings
-          final currentLocale = localeCtrl.localeStrings;
-          debugPrint('🦁 [MAIN] Lanzando Overlay...');
-          await FlutterScreenOverlay.showOverlay(
-            height: WindowSize.matchParent,
-            width: WindowSize.matchParent,
-            alignment: OverlayAlignment.bottomCenter,
-            visibility: NotificationVisibility.visibilitySecret,
-            flag: OverlayFlag.focusPointer,
-            overlayTitle: "Fast download selector",
-            overlayContent: null,
-            enableDrag: false,
-            positionGravity: PositionGravity.none,
-            startPosition: OverlayPosition(0, 0),
-          );
+          isGranted = false;
+        }
 
-          // Solo enviamos URL y Opciones. El puerto y token ya no son necesarios
-          // porque el Overlay hablará por IPC (IsolateNameServer)
-          await FlutterScreenOverlay.shareData({
-            'url': url,
-            'options': currentOptsJson,
-            'locale': currentLocale.toJson(),
-          });
-
-          // Ocultamos la UI mandándola a segundo plano inmediatamente
+        if (isGranted) {
           try {
-            await _platform.invokeMethod('moveToBackground');
+            debugPrint(
+              '⏳ Esperando confirmación del puerto del Isolate y Locales...',
+            );
+            await systemCtrl.whenPortReady;
+            await localeCtrl.whenReady;
+            // Refresh the locale with the updated strings
+            final currentLocale = localeCtrl.localeStrings;
+            debugPrint('🦁 [MAIN] Lanzando Overlay...');
+            await FlutterScreenOverlay.showOverlay(
+              height: WindowSize.matchParent,
+              width: WindowSize.matchParent,
+              alignment: OverlayAlignment.bottomCenter,
+              visibility: NotificationVisibility.visibilitySecret,
+              flag: OverlayFlag.focusPointer,
+              overlayTitle: "Fast download selector",
+              overlayContent: null,
+              enableDrag: false,
+              positionGravity: PositionGravity.none,
+              startPosition: OverlayPosition(0, 0),
+            );
+
+            // Solo enviamos URL y Opciones. El puerto y token ya no son necesarios
+            // porque el Overlay hablará por IPC (IsolateNameServer)
+            await FlutterScreenOverlay.shareData({
+              'url': url,
+              'options': currentOptsJson,
+              'locale': currentLocale.toJson(),
+            });
+
+            // Ocultamos la UI mandándola a segundo plano inmediatamente
+            try {
+              await _platform.invokeMethod('moveToBackground');
+            } catch (e) {
+              debugPrint('Error enviando al background: $e');
+            }
           } catch (e) {
-            debugPrint('Error enviando al background: $e');
+            debugPrint(
+              '⚠️ [ShareWrapper] Fallo al mostrar overlay, enviando directo a descargas: $e',
+            );
+            if (mounted) {
+              final result = await context
+                  .read<DownloadsController>()
+                  .addDownload(url, currentOptsJson);
+              if (result) {
+                ToastUtils.showInfo(locale.shwOverlayDeniedDownloading);
+              } else {
+                ToastUtils.showError(locale.shwDownloadSentError);
+              }
+            }
           }
         } else {
           // Si no hay permiso de overlay, mandamos directo a la UI
@@ -103,7 +141,7 @@ class _ShareIntentWrapperState extends State<ShareIntentWrapper> {
                 .read<DownloadsController>()
                 .addDownload(url, currentOptsJson);
             if (result) {
-              ToastUtils.showInfo(locale.shwDownloadSent);
+              ToastUtils.showInfo(locale.shwOverlayDeniedDownloading);
             } else {
               ToastUtils.showError(locale.shwDownloadSentError);
             }

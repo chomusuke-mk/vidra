@@ -293,5 +293,11 @@
   "fe_title": "Fatal System Feeler",
   "fe_message": "Den Downloadmotor konnt net no engem Update lueden. Start w.e.g. d'Applikatioun nei.",
   "fe_restart_button": "Restart Applikatioun",
-  "fe_view_logs_button": "View Logbicher"
+  "fe_view_logs_button": "View Logbicher",
+  "d_quick_settings": "Quick Astellunge",
+  "shw_overlay_denied_downloading": "Overlay Erlaabnis refuséiert, direkt eroflueden",
+  "p_optional": "Fakultativ",
+  "qs_title": "Quick Astellunge",
+  "qs_close": "Zoumaachen",
+  "qs_audio": "Audio"
 }

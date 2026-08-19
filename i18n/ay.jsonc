@@ -293,5 +293,11 @@
   "fe_title": "Sistema Fatal ukax pantjasiwa",
   "fe_message": "Motor de descarga ukax mä actualización ukjatx janiw cargañjamäkänti. Ukhamaraki, uka aplicación ukarux wasitat qalltañamawa.",
   "fe_restart_button": "Aplicación ukar wasitat qalltaña",
-  "fe_view_logs_button": "Uñakipt’añataki Registros"
+  "fe_view_logs_button": "Uñakipt’añataki Registros",
+  "d_quick_settings": "Jank’aki Configuración ukanaka",
+  "shw_overlay_denied_downloading": "Permiso de superposición ukax janiw satawa, chiqak apkatañataki",
+  "qs_title": "Jank’aki Configuración ukanaka",
+  "qs_close": "Jist'antaña",
+  "qs_audio": "Audio uñt’ayaña",
+  "p_optional": "Ajlliwi"
 }

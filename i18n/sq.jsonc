@@ -293,5 +293,11 @@
   "fe_title": "Gabim fatal i sistemit",
   "fe_message": "Motori i shkarkimit nuk u ngarkua pas një përditësimi. Ju lutemi rinisni aplikacionin.",
   "fe_restart_button": "Rinis aplikacionin",
-  "fe_view_logs_button": "Shiko regjistrat"
+  "fe_view_logs_button": "Shiko regjistrat",
+  "d_quick_settings": "Cilësimet e shpejta",
+  "p_optional": "Fakultative",
+  "qs_title": "Cilësimet e shpejta",
+  "qs_close": "Mbylle",
+  "qs_audio": "Audio",
+  "shw_overlay_denied_downloading": "Leja e mbivendosjes u refuzua, duke u shkarkuar drejtpërdrejt"
 }

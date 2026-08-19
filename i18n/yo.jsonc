@@ -293,5 +293,11 @@
   "fe_title": "Aṣiṣe eto buburu",
   "fe_message": "Ẹrọ igbasilẹ naa kuna lati fifuye lẹhin imudojuiwọn kan. Jọwọ tun ohun elo naa bẹrẹ.",
   "fe_restart_button": "Tun Ohun elo bẹrẹ",
-  "fe_view_logs_button": "Wo Awọn akọọlẹ"
+  "fe_view_logs_button": "Wo Awọn akọọlẹ",
+  "d_quick_settings": "Awọn eto iyara",
+  "shw_overlay_denied_downloading": "Ti kọ igbanilaaye agbekọja, gbigba lati ayelujara taara",
+  "p_optional": "iyan",
+  "qs_title": "Awọn eto iyara",
+  "qs_close": "Sunmọ",
+  "qs_audio": "Ohun"
 }

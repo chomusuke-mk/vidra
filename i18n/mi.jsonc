@@ -293,5 +293,11 @@
   "fe_title": "Hapa Pūnaha Whakamate",
   "fe_message": "I rahua te utaina o te miihini tango i muri i te whakahou. Me tīmata anō te tono.",
   "fe_restart_button": "Tīmata anō te Taupānga",
-  "fe_view_logs_button": "Tirohia nga Rangitaki"
+  "fe_view_logs_button": "Tirohia nga Rangitaki",
+  "p_optional": "Kōwhiringa",
+  "qs_close": "Katia",
+  "qs_audio": "Ororongo",
+  "d_quick_settings": "Tautuhinga Tere",
+  "shw_overlay_denied_downloading": "Kua whakakorehia te whakaaetanga whakakikorua, e tika ana te tango",
+  "qs_title": "Tautuhinga Tere"
 }

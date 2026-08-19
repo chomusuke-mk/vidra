@@ -293,5 +293,11 @@
   "fe_title": "Fatal System Error",
   "fe_message": "Tsy nahomby ny motera fampidinana taorian'ny fanavaozana. Avereno indray ny fampiharana azafady.",
   "fe_restart_button": "Avereno indray ny fampiharana",
-  "fe_view_logs_button": "Jereo ny Logs"
+  "fe_view_logs_button": "Jereo ny Logs",
+  "d_quick_settings": "Fikirana haingana",
+  "p_optional": "tsy voatery",
+  "qs_audio": "teny",
+  "shw_overlay_denied_downloading": "Nolavina ny fahazoan-dàlana overlay, misintona mivantana",
+  "qs_title": "Fikirana haingana",
+  "qs_close": "AKAIKY"
 }

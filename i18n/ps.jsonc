@@ -293,5 +293,11 @@
   "fe_title": "وژونکي سیسټم تېروتنه",
   "fe_message": "د ډاونلوډ انجن د تازه کولو وروسته په بارولو کې پاتې راغلی. مهرباني وکړئ غوښتنلیک بیا پیل کړئ.",
   "fe_restart_button": "غوښتنلیک بیا پیل کړئ",
-  "fe_view_logs_button": "ننداره وګورئ"
+  "fe_view_logs_button": "ننداره وګورئ",
+  "shw_overlay_denied_downloading": "د پوښښ اجازه رد شوه، مستقیم ډاونلوډ کول",
+  "p_optional": "اختیاري",
+  "qs_title": "چټک ترتیبات",
+  "qs_audio": "آډیو",
+  "d_quick_settings": "چټک ترتیبات",
+  "qs_close": "تړل"
 }

@@ -293,5 +293,11 @@
   "fe_title": "410cce11c65e311d48c0a54d443cb76263a793857e8282906462cadffc983fae",
   "fe_message": "b0f645d53ba2e8547448c273d6e628f1135f14e2ae567d9a3cea36e208323054",
   "fe_restart_button": "e00387aa7e64b975a02436731f6e318032c3888c82ace8286cc16b0f4f925f86",
-  "fe_view_logs_button": "e087f046dc3cda9a511e31ff1f693ca587e4888291141e59dec6d2cdfa50d669"
+  "fe_view_logs_button": "e087f046dc3cda9a511e31ff1f693ca587e4888291141e59dec6d2cdfa50d669",
+  "shw_overlay_denied_downloading": "2fc034f2d967847ca6e8d85c5b9b96b28a7d245f2e152c72f897a61b8b60f159",
+  "qs_title": "d4bea702b12b7ab2ad76c59073cfe2b2db0d119cdbb3853aa2aa9be19a522a3f",
+  "d_quick_settings": "d4bea702b12b7ab2ad76c59073cfe2b2db0d119cdbb3853aa2aa9be19a522a3f",
+  "p_optional": "59be71333c960fd08e7e4fe9862206d9355f0a9884121a5b50ef8b36efdfe4cf",
+  "qs_close": "7d9eb7acb13e24625c404401d8e88b2350e32162455885f18276cf802f7701ed",
+  "qs_audio": "bc1b88907d3b748af99cb9d4ffc07a0118dad5dab21a9dbdcc5a17a09641364a"
 }

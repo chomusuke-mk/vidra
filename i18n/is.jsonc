@@ -293,5 +293,11 @@
   "fe_message": "Ekki tókst að hlaða niðurhalsvélinni eftir uppfærslu. Vinsamlegast endurræstu forritið.",
   "fe_restart_button": "Endurræstu forritið",
   "fe_view_logs_button": "Skoða logs",
-  "fe_title": "Banvæn kerfisvilla"
+  "fe_title": "Banvæn kerfisvilla",
+  "d_quick_settings": "Flýtistillingar",
+  "shw_overlay_denied_downloading": "Yfirlagsheimild hafnað, niðurhal beint",
+  "p_optional": "Valfrjálst",
+  "qs_title": "Flýtistillingar",
+  "qs_close": "Loka",
+  "qs_audio": "Hljóð"
 }

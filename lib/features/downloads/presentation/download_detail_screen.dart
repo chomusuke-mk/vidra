@@ -116,6 +116,7 @@ class _DetailViewState extends State<_DetailView> {
       children: [
         // ZONA SUPERIOR: El Card Maestro
         DownloadCard(
+          downloadId: currentDownload.id,
           info: currentDownload.info,
           state: currentDownload.state,
           isDetailScreen: true,
@@ -395,6 +396,7 @@ class _DetailViewState extends State<_DetailView> {
                       info: sub.info,
                       state: sub.state,
                       isDetailScreen: true,
+                      isSubItem: true,
                     );
                   },
                 ),

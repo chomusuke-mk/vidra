@@ -293,5 +293,11 @@
   "fe_title": "خطای سیستم مرگبار",
   "fe_message": "موتور دانلود پس از به‌روزرسانی بارگیری نشد. لطفاً برنامه را مجدداً راه اندازی کنید.",
   "fe_restart_button": "راه اندازی مجدد برنامه",
-  "fe_view_logs_button": "مشاهده گزارش‌ها"
+  "fe_view_logs_button": "مشاهده گزارش‌ها",
+  "d_quick_settings": "تنظیمات سریع",
+  "shw_overlay_denied_downloading": "مجوز همپوشانی رد شد، دانلود مستقیم",
+  "p_optional": "اختیاری",
+  "qs_title": "تنظیمات سریع",
+  "qs_close": "بستن",
+  "qs_audio": "صوتی"
 }

@@ -293,5 +293,11 @@
   "fe_title": "Závažná systémová chyba",
   "fe_message": "Po aktualizácii sa nepodarilo načítať mechanizmus sťahovania. Reštartujte aplikáciu.",
   "fe_restart_button": "Reštartujte aplikáciu",
-  "fe_view_logs_button": "Zobraziť denníky"
+  "fe_view_logs_button": "Zobraziť denníky",
+  "d_quick_settings": "Rýchle nastavenia",
+  "shw_overlay_denied_downloading": "Povolenie na prekrytie bolo odmietnuté, sťahovanie priamo",
+  "p_optional": "Voliteľné",
+  "qs_title": "Rýchle nastavenia",
+  "qs_close": "Zavrieť",
+  "qs_audio": "Zvuk"
 }

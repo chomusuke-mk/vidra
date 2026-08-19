@@ -195,9 +195,9 @@ class UpdateController extends ChangeNotifier {
 
     notifyListeners();
 
-    final ytDlpChannel = _prefs.getString('channel_ytdlp') == 'nightly'
-        ? UpdateChannel.nightly
-        : UpdateChannel.stable;
+    final ytDlpChannel = _prefs.getString('channel_ytdlp') == 'stable'
+        ? UpdateChannel.stable
+        : UpdateChannel.nightly;
     bool updateFound = false;
 
     if (specificType == null || specificType == ComponentType.ytDlp) {

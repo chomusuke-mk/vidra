@@ -15,6 +15,7 @@
   "d_paste": "Paste URL",
   "d_filters": "Filters",
   "d_settings": "Settings",
+  "d_quick_settings": "Quick Settings",
   "d_show_tutorial": "Show Tutorial",
   // Buttons
   "d_download": "Download",
@@ -69,6 +70,7 @@
   "shw_download_sent": "Download sent",
   "shw_download_sent_error": "Error sending download.",
   "shw_loading_selector": "Loading selector...",
+  "shw_overlay_denied_downloading": "Overlay permission denied, downloading directly",
   // Pantalla Permisos -------------------------------- p_
   "p_title": "Permissions",
   "p_description": "Vidra requires deep system access to download in the background and quickly capture links.",
@@ -82,6 +84,7 @@
   "p_notification_desc": "To show the download progress in real time in your status bar.",
   "p_install": "Install applications",
   "p_install_desc": "(Optional) Allows you to update Vidra automatically and securely without leaving the app.",
+  "p_optional": "Optional",
   // Buttons
   "p_button_continue": "Continue",
   "p_button_grant": "Grant Permission",
@@ -118,6 +121,10 @@
   // Pantalla Overlay -------------------------------- ov_
   "ov_quick_download": "Quick Download",
   "ov_download_added_desc": "You can keep browsing.\nVidra will handle the rest.",
+  // Modal Quick Settings -------------------------------- qs_
+  "qs_title": "Quick Settings",
+  "qs_close": "Close",
+  "qs_audio": "Audio",
   // Strings del system status indicator, prefijo ssi ----------------
   "ssi_update_available": "Update Available",
   "ssi_searching_updates": "Searching for Updates...",

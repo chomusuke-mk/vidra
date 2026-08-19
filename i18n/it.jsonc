@@ -293,5 +293,11 @@
   "fe_title": "Errore irreversibile di sistema",
   "fe_message": "Impossibile caricare il motore di download dopo un aggiornamento. Riavviare l'applicazione.",
   "fe_restart_button": "Riavvia l'applicazione",
-  "fe_view_logs_button": "Visualizza registri"
+  "fe_view_logs_button": "Visualizza registri",
+  "d_quick_settings": "Impostazioni rapide",
+  "shw_overlay_denied_downloading": "Autorizzazione di sovrapposizione negata, download diretto",
+  "p_optional": "Opzionale",
+  "qs_title": "Impostazioni rapide",
+  "qs_close": "Vicino",
+  "qs_audio": "Audio"
 }

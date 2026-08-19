@@ -293,5 +293,11 @@
   "fe_title": "Dogoggora Sirna Du'aa",
   "fe_message": "Motorri buufannaa erga haaromfamee booda fe'amuu hin dandeenye. Mee application sana irra deebi'ii jalqabi.",
   "fe_restart_button": "Appilikeeshinii Irra Deebi'ii Jalqabi",
-  "fe_view_logs_button": "Galmeewwan Ilaaluu"
+  "fe_view_logs_button": "Galmeewwan Ilaaluu",
+  "d_quick_settings": "Sajoo Saffisaa",
+  "shw_overlay_denied_downloading": "Hayyamni uwwisaa dhorkame, kallattiin buufachuu",
+  "p_optional": "Dirqama kan hinta'in",
+  "qs_title": "Sajoo Saffisaa",
+  "qs_close": "Cufuu",
+  "qs_audio": "Sagalee"
 }

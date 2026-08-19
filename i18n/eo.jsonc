@@ -293,5 +293,11 @@
   "fe_title": "Fatala Sistema Eraro",
   "fe_restart_button": "Rekomencu Aplikon",
   "fe_view_logs_button": "Vidi Protokolojn",
-  "fe_message": "La elŝuta motoro malsukcesis ŝargi post ĝisdatigo. Bonvolu rekomenci la aplikaĵon."
+  "fe_message": "La elŝuta motoro malsukcesis ŝargi post ĝisdatigo. Bonvolu rekomenci la aplikaĵon.",
+  "d_quick_settings": "Rapidaj Agordoj",
+  "shw_overlay_denied_downloading": "Superkovra permeso rifuzita, rekte elŝutante",
+  "p_optional": "Laŭvola",
+  "qs_title": "Rapidaj Agordoj",
+  "qs_close": "Fermu",
+  "qs_audio": "Aŭdio"
 }

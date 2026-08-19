@@ -293,5 +293,11 @@
   "fe_title": "Lỗi hệ thống nghiêm trọng",
   "fe_message": "Công cụ tải xuống không tải được sau khi cập nhật. Vui lòng khởi động lại ứng dụng.",
   "fe_restart_button": "Khởi động lại ứng dụng",
-  "fe_view_logs_button": "Xem nhật ký"
+  "fe_view_logs_button": "Xem nhật ký",
+  "d_quick_settings": "Cài đặt nhanh",
+  "shw_overlay_denied_downloading": "Quyền lớp phủ bị từ chối, tải xuống trực tiếp",
+  "p_optional": "Không bắt buộc",
+  "qs_title": "Cài đặt nhanh",
+  "qs_close": "Đóng",
+  "qs_audio": "Âm thanh"
 }

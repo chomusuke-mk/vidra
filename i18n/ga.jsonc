@@ -293,5 +293,11 @@
   "fe_title": "Earráid Chórais Mharfaigh",
   "fe_message": "Theip ar an inneall íoslódála a luchtú tar éis nuashonraithe. Atosaigh an feidhmchlár le do thoil.",
   "fe_restart_button": "Iarratas a atosú",
-  "fe_view_logs_button": "Amharc ar Logchomhaid"
+  "fe_view_logs_button": "Amharc ar Logchomhaid",
+  "d_quick_settings": "Socruithe Tapa",
+  "shw_overlay_denied_downloading": "Cead forleagan diúltaithe, é a íoslódáil go díreach",
+  "p_optional": "Roghnach",
+  "qs_title": "Socruithe Tapa",
+  "qs_close": "Dún",
+  "qs_audio": "Fuaime"
 }

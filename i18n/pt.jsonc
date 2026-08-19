@@ -293,5 +293,11 @@
   "fe_title": "Erro fatal do sistema",
   "fe_message": "O mecanismo de download falhou ao carregar após uma atualização. Por favor reinicie o aplicativo.",
   "fe_restart_button": "Reiniciar aplicativo",
-  "fe_view_logs_button": "Ver registros"
+  "fe_view_logs_button": "Ver registros",
+  "d_quick_settings": "Configurações rápidas",
+  "shw_overlay_denied_downloading": "Permissão de sobreposição negada, baixando diretamente",
+  "p_optional": "Opcional",
+  "qs_title": "Configurações rápidas",
+  "qs_close": "Fechar",
+  "qs_audio": "Áudio"
 }

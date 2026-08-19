@@ -293,5 +293,11 @@
   "fe_title": "Erreur ya Système Fatale",
   "fe_message": "Moteur ya téléchargement elongaki te ko charger sima ya mise à jour. Svp bobandi lisusu application.",
   "fe_restart_button": "Kobanda lisusu Application",
-  "fe_view_logs_button": "Tala ba Logs"
+  "fe_view_logs_button": "Tala ba Logs",
+  "d_quick_settings": "Paramètres ya mbangu",
+  "shw_overlay_denied_downloading": "Ndingisa ya kozipa eboyami, kozwama mbala moko",
+  "p_optional": "Soki olingi",
+  "qs_title": "Paramètres ya mbangu",
+  "qs_close": "Kokanga",
+  "qs_audio": "Audio"
 }

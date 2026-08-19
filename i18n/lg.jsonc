@@ -293,5 +293,11 @@
   "fe_title": "Ensobi mu Nkola Etta",
   "fe_message": "Yingini y'okuwanula yalemererwa okutikka oluvannyuma lw'okulongoosa. Nsaba oddemu okutandika enkola.",
   "fe_restart_button": "Ddamu okutandika Enkola",
-  "fe_view_logs_button": "Laba Ebiwandiiko"
+  "fe_view_logs_button": "Laba Ebiwandiiko",
+  "d_quick_settings": "Enteekateeka ez’amangu",
+  "shw_overlay_denied_downloading": "Olukusa lw'okubikka kugaaniddwa, okuwanula butereevu",
+  "qs_title": "Enteekateeka ez’amangu",
+  "qs_close": "Okuggalawo",
+  "qs_audio": "Amaloboozi",
+  "p_optional": "Kya kusalawo"
 }

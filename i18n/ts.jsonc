@@ -293,5 +293,11 @@
   "fe_title": "Xihoxo xa Sisiteme lexi dlayaka",
   "fe_message": "Injhini yo dawuniloda yi tsandzekile ku layicha endzhaku ka ku pfuxetiwa. Hi kombela u sungula xitirhisiwa nakambe.",
   "fe_restart_button": "Sungula Xitirhisiwa nakambe",
-  "fe_view_logs_button": "Languta Tilog"
+  "fe_view_logs_button": "Languta Tilog",
+  "d_quick_settings": "Switirhisiwa swa Xihatla",
+  "shw_overlay_denied_downloading": "Mpfumelelo wo hlanganisa wu ariwile, ku dawuniloda hi ku kongoma",
+  "p_optional": "Hlawula",
+  "qs_title": "Switirhisiwa swa Xihatla",
+  "qs_close": "Pfala",
+  "qs_audio": "Audio"
 }

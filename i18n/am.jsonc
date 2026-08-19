@@ -293,5 +293,11 @@
   "fe_title": "ገዳይ የስርዓት ስህተት",
   "fe_message": "የማውረድ ሞተር ከዝማኔ በኋላ መጫን አልቻለም። እባክዎ ማመልከቻውን እንደገና ያስጀምሩ።",
   "fe_restart_button": "መተግበሪያን እንደገና ያስጀምሩ",
-  "fe_view_logs_button": "የምዝግብ ማስታወሻዎችን ይመልከቱ"
+  "fe_view_logs_button": "የምዝግብ ማስታወሻዎችን ይመልከቱ",
+  "d_quick_settings": "ፈጣን ቅንብሮች",
+  "shw_overlay_denied_downloading": "የተደራቢ ፍቃድ ተከልክሏል፣ በቀጥታ ማውረድ",
+  "p_optional": "አማራጭ",
+  "qs_title": "ፈጣን ቅንብሮች",
+  "qs_close": "ገጠመ",
+  "qs_audio": "ኦዲዮ"
 }

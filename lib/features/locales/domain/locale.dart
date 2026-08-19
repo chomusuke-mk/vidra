@@ -21,6 +21,7 @@ class AppStringKey {
   String get dPaste => _cadenasLocalizadas['d_paste'] ?? '';
   String get dFilters => _cadenasLocalizadas['d_filters'] ?? '';
   String get dSettings => _cadenasLocalizadas['d_settings'] ?? '';
+  String get dQuickSettings => _cadenasLocalizadas['d_quick_settings'] ?? '';
   String get dShowTutorial => _cadenasLocalizadas['d_show_tutorial'] ?? '';
   // Buttons
   String get dDownload => _cadenasLocalizadas['d_download'] ?? '';
@@ -90,6 +91,8 @@ class AppStringKey {
       _cadenasLocalizadas['shw_download_sent_error'] ?? '';
   String get shwLoadingSelector =>
       _cadenasLocalizadas['shw_loading_selector'] ?? '';
+  String get shwOverlayDeniedDownloading =>
+      _cadenasLocalizadas['shw_overlay_denied_downloading'] ?? '';
   // Strings de la pantalla de permisos, prefijo p ----------------
   String get pTitle => _cadenasLocalizadas['p_title'] ?? '';
   String get pDescription => _cadenasLocalizadas['p_description'] ?? '';
@@ -104,6 +107,7 @@ class AppStringKey {
       _cadenasLocalizadas['p_notification_desc'] ?? '';
   String get pInstall => _cadenasLocalizadas['p_install'] ?? '';
   String get pInstallDesc => _cadenasLocalizadas['p_install_desc'] ?? '';
+  String get pOptional => _cadenasLocalizadas['p_optional'] ?? '';
   // Buttons
   String get pButtonContinue => _cadenasLocalizadas['p_button_continue'] ?? '';
   String get pButtonGrant => _cadenasLocalizadas['p_button_grant'] ?? '';
@@ -147,6 +151,10 @@ class AppStringKey {
   // Strings de la pantalla Overlay, prefijo ov ----------------
   String get ovQuickDownload => _cadenasLocalizadas['ov_quick_download'] ?? '';
   String get ovDownloadAddedDesc => _cadenasLocalizadas['ov_download_added_desc'] ?? '';
+  // Strings de la modal Quick Settings, prefijo qs ----------------
+  String get qsTitle => _cadenasLocalizadas['qs_title'] ?? '';
+  String get qsClose => _cadenasLocalizadas['qs_close'] ?? '';
+  String get qsAudio => _cadenasLocalizadas['qs_audio'] ?? '';
   // Strings del system status indicator, prefijo ssi ----------------
   String get ssiUpdateAvailable =>
       _cadenasLocalizadas['ssi_update_available'] ?? '';
@@ -467,6 +475,7 @@ class AppStringKey {
     'd_paste',
     'd_filters',
     'd_settings',
+    'd_quick_settings',
     'd_show_tutorial',
     // Buttons
     'd_download',
@@ -521,6 +530,7 @@ class AppStringKey {
     'shw_download_sent',
     'shw_download_sent_error',
     'shw_loading_selector',
+    'shw_overlay_denied_downloading',
     // Pantalla Permisos -------------------------------- p_
     'p_title',
     'p_description',
@@ -534,6 +544,7 @@ class AppStringKey {
     'p_notification_desc',
     'p_install',
     'p_install_desc',
+    'p_optional',
     // Buttons
     'p_button_continue',
     'p_button_grant',
@@ -570,6 +581,10 @@ class AppStringKey {
     // Pantalla Overlay -------------------------------- ov_
     'ov_quick_download',
     'ov_download_added_desc',
+    // Modal Quick Settings -------------------------------- qs_
+    'qs_title',
+    'qs_close',
+    'qs_audio',
     // System Status Indicator -------------------------- ssi_
     'ssi_update_available',
     'ssi_searching_updates',

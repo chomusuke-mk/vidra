@@ -293,5 +293,11 @@
   "fe_title": "Önemli Sistem Hatası",
   "fe_message": "İndirme motoru güncelleme sonrasında yüklenemedi. Lütfen uygulamayı yeniden başlatın.",
   "fe_restart_button": "Uygulamayı Yeniden Başlat",
-  "fe_view_logs_button": "Günlükleri Görüntüle"
+  "fe_view_logs_button": "Günlükleri Görüntüle",
+  "d_quick_settings": "Hızlı Ayarlar",
+  "shw_overlay_denied_downloading": "Yer paylaşımı izni reddedildi, doğrudan indiriliyor",
+  "p_optional": "İsteğe bağlı",
+  "qs_title": "Hızlı Ayarlar",
+  "qs_close": "Kapalı",
+  "qs_audio": "Ses"
 }

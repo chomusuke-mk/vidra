@@ -293,5 +293,11 @@
   "fe_title": "Ikosa rya Sisitemu",
   "fe_message": "Moteri yo gukuramo yananiwe kwikorera nyuma yo kuvugurura. Nyamuneka ongera utangire gusaba.",
   "fe_restart_button": "Ongera utangire gusaba",
-  "fe_view_logs_button": "Reba Ibiti"
+  "fe_view_logs_button": "Reba Ibiti",
+  "d_quick_settings": "Igenamiterere ryihuse",
+  "shw_overlay_denied_downloading": "Uruhushya rwo hejuru rwanze, gukuramo mu buryo butaziguye",
+  "p_optional": "Bihitamo",
+  "qs_title": "Igenamiterere ryihuse",
+  "qs_close": "Funga",
+  "qs_audio": "Ijwi"
 }

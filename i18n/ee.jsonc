@@ -293,5 +293,11 @@
   "fe_message": "Download engine la do kpo agba wɔwɔ le asitɔtrɔ aɖe megbe. Taflatse gbugbɔ dze dɔwɔnua gɔme.",
   "fe_restart_button": "Gbugbɔ Dze Dɔdamɔnua Gɔme",
   "fe_view_logs_button": "Kpɔ Nuŋlɔɖiwo",
-  "fe_title": "Nuɖoanyi ƒe Vodada si Wua ame"
+  "fe_title": "Nuɖoanyi ƒe Vodada si Wua ame",
+  "d_quick_settings": "Ðoɖowo Kabakaba",
+  "shw_overlay_denied_downloading": "Wogbe mɔɖeɖe ɖe overlay ŋu, woɖee tẽ",
+  "p_optional": "Le tiatia me",
+  "qs_title": "Ðoɖowo Kabakaba",
+  "qs_close": "Tu",
+  "qs_audio": "Odio"
 }

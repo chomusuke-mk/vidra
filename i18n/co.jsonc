@@ -293,5 +293,11 @@
   "fe_title": "Errore fatale di u sistema",
   "fe_message": "U mutore di scaricamentu hà fiascatu à carica dopu una aghjurnazione. Per piacè riavvia l'applicazione.",
   "fe_restart_button": "Riavvia l'applicazione",
-  "fe_view_logs_button": "Vede i logs"
+  "fe_view_logs_button": "Vede i logs",
+  "d_quick_settings": "Configurazione rapida",
+  "shw_overlay_denied_downloading": "Permissione di sovrapposizione denegata, scaricamentu direttamente",
+  "p_optional": "Opcional",
+  "qs_title": "Configurazione rapida",
+  "qs_close": "Chiudi",
+  "qs_audio": "Audio"
 }

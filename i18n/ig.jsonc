@@ -293,5 +293,11 @@
   "fe_message": "Igwe nbudata ahụ erughi ibu mgbe emelitere. Biko malitegharịa ngwa ahụ.",
   "fe_restart_button": "Malitegharịa ngwa",
   "fe_view_logs_button": "Lelee ndekọ",
-  "fe_title": "Mperi Sistemu na-egbu egbu"
+  "fe_title": "Mperi Sistemu na-egbu egbu",
+  "d_quick_settings": "Ntọala ngwa ngwa",
+  "shw_overlay_denied_downloading": "Ajụrụ ikike machie, nbudata ozugbo",
+  "p_optional": "Nhọrọ",
+  "qs_title": "Ntọala ngwa ngwa",
+  "qs_close": "Mechie",
+  "qs_audio": "Audio"
 }

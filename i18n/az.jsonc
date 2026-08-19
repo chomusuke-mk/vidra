@@ -293,5 +293,11 @@
   "fe_title": "Ölümcül Sistem Xətası",
   "fe_restart_button": "Tətbiqi yenidən başladın",
   "fe_view_logs_button": "Qeydlərə baxın",
-  "fe_message": "Yükləmə mühərriki yeniləmədən sonra yüklənə bilmədi. Zəhmət olmasa tətbiqi yenidən başladın."
+  "fe_message": "Yükləmə mühərriki yeniləmədən sonra yüklənə bilmədi. Zəhmət olmasa tətbiqi yenidən başladın.",
+  "d_quick_settings": "Sürətli Parametrlər",
+  "shw_overlay_denied_downloading": "Overlay icazəsi rədd edildi, birbaşa endirilir",
+  "p_optional": "Könüllü",
+  "qs_title": "Sürətli Parametrlər",
+  "qs_close": "Bağlayın",
+  "qs_audio": "Audio"
 }

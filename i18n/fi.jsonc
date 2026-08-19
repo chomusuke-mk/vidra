@@ -293,5 +293,11 @@
   "fe_title": "Vakava järjestelmävirhe",
   "fe_message": "Latausmoottori ei latautunut päivityksen jälkeen. Käynnistä sovellus uudelleen.",
   "fe_restart_button": "Käynnistä sovellus uudelleen",
-  "fe_view_logs_button": "Näytä lokit"
+  "fe_view_logs_button": "Näytä lokit",
+  "d_quick_settings": "Pika-asetukset",
+  "shw_overlay_denied_downloading": "Peittokuvan käyttöoikeus evätty, lataus suoraan",
+  "p_optional": "Valinnainen",
+  "qs_title": "Pika-asetukset",
+  "qs_close": "Lähellä",
+  "qs_audio": "Audio"
 }

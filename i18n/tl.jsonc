@@ -293,5 +293,11 @@
   "fe_title": "Fatal System Error",
   "fe_message": "Nabigong mag-load ang download engine pagkatapos ng update. Mangyaring i-restart ang application.",
   "fe_restart_button": "I-restart ang Application",
-  "fe_view_logs_button": "Tingnan ang Mga Log"
+  "fe_view_logs_button": "Tingnan ang Mga Log",
+  "d_quick_settings": "Mga Mabilisang Setting",
+  "shw_overlay_denied_downloading": "Tinanggihan ang pahintulot sa overlay, direktang nagda-download",
+  "p_optional": "Opsyonal",
+  "qs_close": "Isara",
+  "qs_audio": "Audio",
+  "qs_title": "Mga Mabilisang Setting"
 }

@@ -293,5 +293,11 @@
   "fe_title": "Fatal Sistɛmu fili",
   "fe_message": "Téléchargement masin ma se ka doni kura kɛlen kɔfɛ. Aw ye porogaramu in daminɛ kokura.",
   "fe_restart_button": "Aplikasi daminɛ kokura",
-  "fe_view_logs_button": "Jateblaw lajɛ"
+  "fe_view_logs_button": "Jateblaw lajɛ",
+  "d_quick_settings": "Settings teliyalenw",
+  "shw_overlay_denied_downloading": "Overlay yamaruya banna, ka telesarse k’a ɲɛsin a ma",
+  "p_optional": "Wajibi tɛ",
+  "qs_title": "Settings teliyalenw",
+  "qs_close": "Ka datugu",
+  "qs_audio": "Odio"
 }

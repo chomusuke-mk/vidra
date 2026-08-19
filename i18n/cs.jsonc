@@ -293,5 +293,11 @@
   "fe_title": "Závažná systémová chyba",
   "fe_message": "Stahovací modul se po aktualizaci nepodařilo načíst. Restartujte aplikaci.",
   "fe_restart_button": "Restartujte aplikaci",
-  "fe_view_logs_button": "Zobrazit protokoly"
+  "fe_view_logs_button": "Zobrazit protokoly",
+  "d_quick_settings": "Rychlé nastavení",
+  "shw_overlay_denied_downloading": "Oprávnění k překryvné vrstvě odepřeno, stahování přímo",
+  "p_optional": "Volitelný",
+  "qs_title": "Rychlé nastavení",
+  "qs_close": "Blízko",
+  "qs_audio": "Zvuk"
 }

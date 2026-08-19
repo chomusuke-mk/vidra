@@ -293,5 +293,11 @@
   "fe_title": "Ralat Sistem Maut",
   "fe_message": "Enjin muat turun gagal dimuatkan selepas kemas kini. Sila mulakan semula aplikasi.",
   "fe_restart_button": "Mulakan semula Aplikasi",
-  "fe_view_logs_button": "Lihat Log"
+  "fe_view_logs_button": "Lihat Log",
+  "d_quick_settings": "Tetapan Pantas",
+  "shw_overlay_denied_downloading": "Kebenaran tindanan ditolak, memuat turun terus",
+  "p_optional": "Pilihan",
+  "qs_title": "Tetapan Pantas",
+  "qs_close": "tutup",
+  "qs_audio": "Audio"
 }

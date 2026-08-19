@@ -293,5 +293,11 @@
   "fe_title": "Phoso e Fatal System",
   "fe_message": "Enjene ea ho jarolla e hlolehile ho bula ka mor'a ntlafatso. Ka kopo qala sesebelisoa hape.",
   "fe_restart_button": "Qala hape Sesebelisoa",
-  "fe_view_logs_button": "View Logs"
+  "fe_view_logs_button": "View Logs",
+  "d_quick_settings": "Litlhophiso tse Potlakileng",
+  "shw_overlay_denied_downloading": "Tumello ea overlay e hanetsoe, ea khoasolla ka kotloloho",
+  "qs_title": "Litlhophiso tse Potlakileng",
+  "qs_close": "Koala",
+  "qs_audio": "Audio",
+  "p_optional": "Taba ea boikhethelo"
 }

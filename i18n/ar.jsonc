@@ -293,5 +293,11 @@
   "fe_title": "خطأ فادح في النظام",
   "fe_message": "فشل محرك التنزيل في التحميل بعد التحديث. الرجاء إعادة تشغيل التطبيق.",
   "fe_restart_button": "إعادة تشغيل التطبيق",
-  "fe_view_logs_button": "عرض السجلات"
+  "fe_view_logs_button": "عرض السجلات",
+  "d_quick_settings": "الإعدادات السريعة",
+  "shw_overlay_denied_downloading": "تم رفض إذن التراكب، ويتم التنزيل مباشرة",
+  "p_optional": "خياري",
+  "qs_title": "الإعدادات السريعة",
+  "qs_close": "يغلق",
+  "qs_audio": "صوتي"
 }

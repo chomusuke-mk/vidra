@@ -293,5 +293,11 @@
   "fe_title": "Fatalny błąd systemu",
   "fe_message": "Po aktualizacji nie udało się załadować silnika pobierania. Proszę ponownie uruchomić aplikację.",
   "fe_restart_button": "Uruchom ponownie aplikację",
-  "fe_view_logs_button": "Wyświetl dzienniki"
+  "fe_view_logs_button": "Wyświetl dzienniki",
+  "d_quick_settings": "Szybkie ustawienia",
+  "shw_overlay_denied_downloading": "Odmowa pozwolenia na nakładkę, pobieranie bezpośrednio",
+  "qs_title": "Szybkie ustawienia",
+  "qs_close": "Zamknąć",
+  "qs_audio": "Audio",
+  "p_optional": "Fakultatywny"
 }

@@ -293,5 +293,11 @@
   "fe_title": "Error fatal del sistema",
   "fe_message": "El motor de descàrrega no s'ha pogut carregar després d'una actualització. Si us plau, reinicieu l'aplicació.",
   "fe_view_logs_button": "Veure registres",
-  "fe_restart_button": "Reinicieu l'aplicació"
+  "fe_restart_button": "Reinicieu l'aplicació",
+  "d_quick_settings": "Configuració ràpida",
+  "shw_overlay_denied_downloading": "S'ha denegat el permís de superposició, baixant directament",
+  "qs_title": "Configuració ràpida",
+  "qs_close": "Tancar",
+  "qs_audio": "Àudio",
+  "p_optional": "Opcional"
 }

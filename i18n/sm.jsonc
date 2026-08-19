@@ -293,5 +293,11 @@
   "fe_title": "Fatal System Error",
   "fe_message": "Ua le mafai ona la'u le afi o le la'uina ina ua uma se faafouga. Faamolemole toe amata le talosaga.",
   "fe_restart_button": "Toe amata le talosaga",
-  "fe_view_logs_button": "Va'ai ogalaau"
+  "fe_view_logs_button": "Va'ai ogalaau",
+  "d_quick_settings": "Fa'atonuga vave",
+  "shw_overlay_denied_downloading": "Fa'ae'e le fa'ataga fa'alava, la'uina sa'o",
+  "p_optional": "Filifili",
+  "qs_close": "Tapuni",
+  "qs_title": "Fa'atonuga vave",
+  "qs_audio": "Leo"
 }

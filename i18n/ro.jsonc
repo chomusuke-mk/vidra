@@ -293,5 +293,11 @@
   "fe_title": "Eroare fatală de sistem",
   "fe_message": "Motorul de descărcare nu s-a încărcat după o actualizare. Vă rugăm să reporniți aplicația.",
   "fe_restart_button": "Reporniți aplicația",
-  "fe_view_logs_button": "Vedeți jurnalele"
+  "fe_view_logs_button": "Vedeți jurnalele",
+  "d_quick_settings": "Setări rapide",
+  "shw_overlay_denied_downloading": "Permisiunea de suprapunere a fost refuzată, se descarcă direct",
+  "p_optional": "Opțional",
+  "qs_title": "Setări rapide",
+  "qs_close": "Aproape",
+  "qs_audio": "Audio"
 }

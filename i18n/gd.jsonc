@@ -293,5 +293,11 @@
   "fe_title": "Mearachd siostam marbhtach",
   "fe_restart_button": "Ath-thòiseachadh Iarrtas",
   "fe_view_logs_button": "Seall Logaichean",
-  "fe_message": "Dh'fhàillig an einnsean luchdaich sìos an dèidh ùrachadh. Feuch an ath-thòisich an tagradh."
+  "fe_message": "Dh'fhàillig an einnsean luchdaich sìos an dèidh ùrachadh. Feuch an ath-thòisich an tagradh.",
+  "d_quick_settings": "Roghainnean sgiobalta",
+  "shw_overlay_denied_downloading": "Cead ath-chòmhdach air a dhiùltadh, luchdachadh sìos gu dìreach",
+  "p_optional": "Roghainneil",
+  "qs_title": "Roghainnean sgiobalta",
+  "qs_close": "Dùin",
+  "qs_audio": "Fuaim"
 }

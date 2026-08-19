@@ -293,5 +293,11 @@
   "fe_title": "Saatuslik süsteemiviga",
   "fe_message": "Allalaadimismootorit ei õnnestunud pärast värskendamist laadida. Palun taaskäivitage rakendus.",
   "fe_restart_button": "Taaskäivitage rakendus",
-  "fe_view_logs_button": "Vaata logisid"
+  "fe_view_logs_button": "Vaata logisid",
+  "d_quick_settings": "Kiirseaded",
+  "shw_overlay_denied_downloading": "Ülekatte luba on keelatud, otse allalaadimine",
+  "p_optional": "Valikuline",
+  "qs_title": "Kiirseaded",
+  "qs_close": "Sule",
+  "qs_audio": "Heli"
 }

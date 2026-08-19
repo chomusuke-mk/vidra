@@ -293,5 +293,11 @@
   "fe_title": "Sistemaren errore larria",
   "fe_message": "Deskarga-motorra ezin izan da kargatu eguneratze baten ondoren. Mesedez, berrabiarazi aplikazioa.",
   "fe_view_logs_button": "Ikusi Erregistroak",
-  "fe_restart_button": "Berrabiarazi aplikazioa"
+  "fe_restart_button": "Berrabiarazi aplikazioa",
+  "d_quick_settings": "Ezarpen azkarrak",
+  "shw_overlay_denied_downloading": "Gainjartzeko baimena ukatu da, zuzenean deskargatzen",
+  "p_optional": "Aukerakoa",
+  "qs_title": "Ezarpen azkarrak",
+  "qs_close": "Itxi",
+  "qs_audio": "Audioa"
 }

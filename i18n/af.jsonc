@@ -293,5 +293,11 @@
   "fe_title": "Noodlottige stelselfout",
   "fe_message": "Die aflaai-enjin kon nie laai na 'n opdatering nie. Herbegin asseblief die toepassing.",
   "fe_restart_button": "Herbegin toepassing",
-  "fe_view_logs_button": "Bekyk logs"
+  "fe_view_logs_button": "Bekyk logs",
+  "d_quick_settings": "Vinnige instellings",
+  "shw_overlay_denied_downloading": "Oorlegtoestemming geweier, laai direk af",
+  "p_optional": "Opsioneel",
+  "qs_title": "Vinnige instellings",
+  "qs_close": "Maak toe",
+  "qs_audio": "Oudio"
 }

@@ -42,7 +42,7 @@ dependencies:
   receive_sharing_intent: ^1.9.0
   openpgp: ^3.10.7
   dio: ^5.11.0
-  archive: ^4.0.9
+  archive: ^4.1.0
   url_launcher: ^6.3.2
   open_filex: ^4.7.0
   flutter_slidable: ^4.0.3

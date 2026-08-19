@@ -293,5 +293,11 @@
   "fe_title": "Inofatal System Error",
   "fe_message": "Injini yekudhawunirodha yatadza kurodha mushure mekuvandudzwa. Ndokumbira utangezve application.",
   "fe_restart_button": "Restart Application",
-  "fe_view_logs_button": "Vadivelu Comedy View Logs"
+  "fe_view_logs_button": "Vadivelu Comedy View Logs",
+  "d_quick_settings": "Quick Settings",
+  "shw_overlay_denied_downloading": "Mvumo yekuvharira yarambwa, kudhaunirodha zvakananga",
+  "qs_title": "Quick Settings",
+  "qs_close": "Close",
+  "p_optional": "Optional",
+  "qs_audio": "Vadivelu Comedy Audio"
 }

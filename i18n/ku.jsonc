@@ -293,5 +293,11 @@
   "fe_title": "Çewtiya Sîstema Kujer",
   "fe_message": "Motora dakêşanê piştî nûvekirinê barkir. Ji kerema xwe sepanê ji nû ve bidin destpêkirin.",
   "fe_restart_button": "Serlêdanê ji nû ve bidin destpêkirin",
-  "fe_view_logs_button": "Têketinên Binêre"
+  "fe_view_logs_button": "Têketinên Binêre",
+  "d_quick_settings": "Mîhengên Zû",
+  "shw_overlay_denied_downloading": "Destûra Overlay hate red kirin, rasterast dakêşin",
+  "p_optional": "Bixwe",
+  "qs_title": "Mîhengên Zû",
+  "qs_close": "Nêzîkî",
+  "qs_audio": "Audio"
 }

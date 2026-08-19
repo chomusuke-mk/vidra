@@ -293,5 +293,11 @@
   "fe_title": "Wañuchiq Sistema Pantasqa",
   "fe_message": "Uraykachina motorqa mana kargayta atirqanchu huk musuqyachiymanta qhipaman. Ama hina kaspa, llamk'anata musuqmanta qallariy.",
   "fe_restart_button": "Aplicacionta wakmanta qallariy",
-  "fe_view_logs_button": "Registrokunata qhaway"
+  "fe_view_logs_button": "Registrokunata qhaway",
+  "d_quick_settings": "Utqaylla Ajustes",
+  "shw_overlay_denied_downloading": "Overlay atiyta hark'asqa, chiqalla uraykachiy",
+  "p_optional": "Akllanapaq",
+  "qs_close": "Wichqay",
+  "qs_title": "Utqaylla Ajustes",
+  "qs_audio": "Audio nisqa"
 }

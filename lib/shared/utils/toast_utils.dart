@@ -78,6 +78,11 @@ class ToastUtils {
   static void showInfo(String message) {
     _show(message, Colors.blue.shade700, Icons.info_outline);
   }
+
+  static void dismissAll() {
+    _timer?.cancel();
+    _killCurrent();
+  }
 }
 
 // =====================================================================

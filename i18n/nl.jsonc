@@ -293,5 +293,11 @@
   "fe_title": "Fatale systeemfout",
   "fe_message": "De download-engine kon niet worden geladen na een update. Start de applicatie opnieuw.",
   "fe_restart_button": "Start de applicatie opnieuw",
-  "fe_view_logs_button": "Bekijk logboeken"
+  "fe_view_logs_button": "Bekijk logboeken",
+  "shw_overlay_denied_downloading": "Toestemming voor overlay geweigerd, direct downloaden",
+  "qs_title": "Snelle instellingen",
+  "d_quick_settings": "Snelle instellingen",
+  "p_optional": "Optioneel",
+  "qs_close": "Dichtbij",
+  "qs_audio": "Audio"
 }

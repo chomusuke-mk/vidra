@@ -293,5 +293,11 @@
   "fe_title": "Error Sistema Fatal rehegua",
   "fe_message": "Pe motor descarga ndokargái peteĩ actualización rire. Emoñepyrũ jey pe aplicación.",
   "fe_restart_button": "Emoñepyrũ jey Aplicación",
-  "fe_view_logs_button": "Ojehechakuaa umi registro"
+  "fe_view_logs_button": "Ojehechakuaa umi registro",
+  "d_quick_settings": "Ñemboheko pya’e",
+  "shw_overlay_denied_downloading": "Oñembotove permiso superposición rehegua, ojegueru directamente",
+  "p_optional": "Poravokuaa",
+  "qs_title": "Ñemboheko pya’e",
+  "qs_close": "Mboty",
+  "qs_audio": "Audio rehegua"
 }

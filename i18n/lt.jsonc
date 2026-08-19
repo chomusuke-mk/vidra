@@ -293,5 +293,11 @@
   "fe_title": "Mirtina sistemos klaida",
   "fe_message": "Atsisiuntimo variklio nepavyko įkelti po atnaujinimo. Iš naujo paleiskite programą.",
   "fe_restart_button": "Iš naujo paleiskite programą",
-  "fe_view_logs_button": "Peržiūrėti žurnalus"
+  "fe_view_logs_button": "Peržiūrėti žurnalus",
+  "d_quick_settings": "Greiti nustatymai",
+  "shw_overlay_denied_downloading": "Perdangos leidimas atmestas, atsisiunčiama tiesiogiai",
+  "qs_close": "Uždaryti",
+  "p_optional": "Neprivaloma",
+  "qs_title": "Greiti nustatymai",
+  "qs_audio": "Garsas"
 }

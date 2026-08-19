@@ -32,6 +32,19 @@ void main() {
       expect(appStrings.feRestartButton, equals('Restart Application'));
       expect(appStrings.feViewLogsButton, equals('View Logs'));
 
+      // Verify Quick Settings getters in English
+      expect(appStrings.dQuickSettings, equals('Quick Settings'));
+      expect(appStrings.qsTitle, equals('Quick Settings'));
+      expect(appStrings.qsClose, equals('Close'));
+      expect(appStrings.qsAudio, equals('Audio'));
+
+      // Verify Overlay & Permission getters in English
+      expect(
+        appStrings.shwOverlayDeniedDownloading,
+        equals('Overlay permission denied, downloading directly'),
+      );
+      expect(appStrings.pOptional, equals('Optional'));
+
       // Verify es.jsonc
       final esFile = File('i18n/es.jsonc');
       expect(esFile.existsSync(), isTrue);
@@ -53,6 +66,19 @@ void main() {
       );
       expect(esStrings.feRestartButton, equals('Reiniciar aplicación'));
       expect(esStrings.feViewLogsButton, equals('Ver registros'));
+
+      // Verify Quick Settings getters in Spanish
+      expect(esStrings.dQuickSettings, equals('Configuración rápida'));
+      expect(esStrings.qsTitle, equals('Configuración Rápida'));
+      expect(esStrings.qsClose, equals('Cerrar'));
+      expect(esStrings.qsAudio, equals('Audio'));
+
+      // Verify Overlay & Permission getters in Spanish
+      expect(
+        esStrings.shwOverlayDeniedDownloading,
+        equals('Permiso de superposición denegado, descargando directamente'),
+      );
+      expect(esStrings.pOptional, equals('Opcional'));
     });
   });
 }

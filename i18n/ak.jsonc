@@ -293,5 +293,11 @@
   "fe_title": "Mfomso a Ɛfa Nhyehyɛe a Ɛyɛ Owu",
   "fe_message": "Download engine no antumi ankɔ so wɔ update akyi. Yɛsrɛ sɛ san hyɛ application no ase bio.",
   "fe_restart_button": "San Hyehyɛ Application no ase",
-  "fe_view_logs_button": "Hwɛ Nsɛm a Wɔakyerɛw"
+  "fe_view_logs_button": "Hwɛ Nsɛm a Wɔakyerɛw",
+  "d_quick_settings": "Nsiesiei a Wɔde Yɛ Ntɛmntɛm",
+  "shw_overlay_denied_downloading": "Wɔapow overlay kwan, wɔatwe tẽẽ",
+  "p_optional": "Ɛnyɛ ɔhyɛ",
+  "qs_title": "Nsiesiei a Wɔde Yɛ Ntɛmntɛm",
+  "qs_close": "To mu",
+  "qs_audio": "Ɔdio a wɔde tie"
 }

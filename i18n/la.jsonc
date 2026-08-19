@@ -293,5 +293,11 @@
   "fe_title": "Exitiale Ratio Error",
   "fe_message": "Machinam download non onerare post renovationem. Quaeso sileo applicationem.",
   "fe_restart_button": "Applicationem sileo",
-  "fe_view_logs_button": "View Acta publica omnia"
+  "fe_view_logs_button": "View Acta publica omnia",
+  "d_quick_settings": "Velox Occasus",
+  "shw_overlay_denied_downloading": "Ipsasque permissionem negavit, protinus downloading",
+  "p_optional": "Libitum",
+  "qs_close": "Close",
+  "qs_audio": "Audio",
+  "qs_title": "Velox Occasus"
 }

@@ -293,5 +293,11 @@
   "fe_title": "ቀታሊ ስርዓት ጌጋ",
   "fe_message": "እቲ ናይ ምውራድ ሞተር ድሕሪ ሓደ ምዕባለ ክጽዕን ኣይከኣለን። በጃኹም ነቲ መተግበሪ ዳግማይ ጀምሮ።",
   "fe_restart_button": "መተግበሪ ዳግማይ ጀምር",
-  "fe_view_logs_button": "ምዝገባታት ርአ"
+  "fe_view_logs_button": "ምዝገባታት ርአ",
+  "shw_overlay_denied_downloading": "ፍቓድ ምድብላቕ ተኸልኪሉ፣ ብቐጥታ ምውራድ",
+  "p_optional": "ዘይናይግድን",
+  "qs_title": "ቅልጡፍ ቅጥዕታት",
+  "qs_close": "ዕፁው",
+  "qs_audio": "ድምጺ",
+  "d_quick_settings": "ቅልጡፍ ቅጥዕታት"
 }

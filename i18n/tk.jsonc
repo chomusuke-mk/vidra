@@ -293,5 +293,11 @@
   "fe_title": "Öldüriji ulgam ýalňyşlygy",
   "fe_message": "Göçürip almak motory täzelenenden soň ýükläp bilmedi. Programmany täzeden açmagyňyzy haýyş edýäris.",
   "fe_restart_button": "Programmany täzeden açyň",
-  "fe_view_logs_button": "Surnallary görüň"
+  "fe_view_logs_button": "Surnallary görüň",
+  "d_quick_settings": "Çalt sazlamalar",
+  "shw_overlay_denied_downloading": "Göni göçürip almak üçin örtük rugsady ret edildi",
+  "p_optional": "Meýletin",
+  "qs_title": "Çalt sazlamalar",
+  "qs_close": ".Akyn",
+  "qs_audio": "Ses"
 }

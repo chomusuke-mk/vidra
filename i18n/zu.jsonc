@@ -293,5 +293,11 @@
   "fe_title": "Iphutha Lesistimu Eyingozi",
   "fe_message": "Injini yokulanda yehlulekile ukulayisha ngemva kokubuyekezwa. Sicela uqale kabusha uhlelo lokusebenza.",
   "fe_restart_button": "Qala kabusha uhlelo lokusebenza",
-  "fe_view_logs_button": "Buka izingodo"
+  "fe_view_logs_button": "Buka izingodo",
+  "d_quick_settings": "Izilungiselelo Ezisheshayo",
+  "shw_overlay_denied_downloading": "Imvume yembondela inqatshiwe, ilanda ngokuqondile",
+  "p_optional": "Ongakukhetha",
+  "qs_title": "Izilungiselelo Ezisheshayo",
+  "qs_close": "Vala",
+  "qs_audio": "Umsindo"
 }

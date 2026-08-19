@@ -293,5 +293,11 @@
   "fe_title": "Fatalna greška sustava",
   "fe_message": "Mehanizam za preuzimanje nije se uspio učitati nakon ažuriranja. Molimo ponovno pokrenite aplikaciju.",
   "fe_restart_button": "Ponovno pokrenite aplikaciju",
-  "fe_view_logs_button": "Pregledaj zapisnike"
+  "fe_view_logs_button": "Pregledaj zapisnike",
+  "d_quick_settings": "Brze postavke",
+  "shw_overlay_denied_downloading": "Dopuštenje za preklapanje odbijeno, izravno preuzimanje",
+  "p_optional": "Neobavezno",
+  "qs_title": "Brze postavke",
+  "qs_close": "Zatvoriti",
+  "qs_audio": "Audio"
 }

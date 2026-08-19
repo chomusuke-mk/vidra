@@ -293,5 +293,11 @@
   "fe_title": "Kasalahan Sistim fatal",
   "fe_message": "Mesin undeuran gagal dimuat saatos apdet. Mangga balikan deui aplikasi.",
   "fe_restart_button": "Balikan deui Aplikasi",
-  "fe_view_logs_button": "Témbongkeun Log"
+  "fe_view_logs_button": "Témbongkeun Log",
+  "shw_overlay_denied_downloading": "Idin overlay ditolak, ngundeur langsung",
+  "p_optional": "Pilihan",
+  "qs_title": "Setélan gancang",
+  "qs_close": "Tutup",
+  "d_quick_settings": "Setélan gancang",
+  "qs_audio": "Audio"
 }

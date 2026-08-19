@@ -293,5 +293,11 @@
   "fe_title": "Erè Fatal Sistèm",
   "fe_message": "Motè telechaje a echwe pou pou chaje apre yon aktyalizasyon. Tanpri rekòmanse aplikasyon an.",
   "fe_view_logs_button": "Gade mòso bwa",
-  "fe_restart_button": "Rekòmanse Aplikasyon an"
+  "fe_restart_button": "Rekòmanse Aplikasyon an",
+  "d_quick_settings": "Anviwònman rapid",
+  "shw_overlay_denied_downloading": "Pèmisyon pou kouvri yo refize, telechaje dirèkteman",
+  "p_optional": "Si ou vle",
+  "qs_title": "Anviwònman rapid",
+  "qs_close": "Fèmen",
+  "qs_audio": "Odyo"
 }

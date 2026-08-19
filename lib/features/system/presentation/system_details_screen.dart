@@ -413,7 +413,7 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
   Widget _buildChannelSelector(BuildContext context, UpdateController ctrl) {
     final prefs = context.watch<SharedPreferences>();
     final locale = context.watch<LocaleController>().localeStrings;
-    final currentChannel = prefs.getString('channel_ytdlp') ?? 'stable';
+    final currentChannel = prefs.getString('channel_ytdlp') ?? 'nightly';
 
     return SizedBox(
       width: double.infinity,

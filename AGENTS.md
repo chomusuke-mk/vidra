@@ -44,7 +44,28 @@ Antes de implementar modificaciones significativas, asegúrate de comprender la 
 ### Frontend: Flutter / Dart (`/lib`)
 
 - **Gestión de Estado:** Se usa el paquete `provider`. Respeta el flujo unidireccional. La UI consume _Providers_ y no almacena estado complejo de negocio internamente.
-- **Internacionalización (i18n):** Cualquier texto visible en la interfaz debe estar localizado (archivos en el directorio `/i18n` y usando `flutter_localizations`). **Cero _strings hardcodeados_** en las vistas.
+- **Internacionalización (i18n):** Cualquier texto visible en la interfaz debe estar localizado usando los archivos `i18n/*.jsonc` y el modelo `AppStringKey` en `lib/features/locales/domain/locale.dart`. **Cero _strings hardcodeados_** en las vistas.
+  - **Convención de prefijos i18n:**
+    - `s_` y `s_*_desc`: Pantalla de configuración y sus descripciones informativas.
+    - `d_`: Pantalla principal de descargas.
+    - `dd_`: Detalles de descarga.
+    - `sw_`: Modal y flujo de selección de elementos (Selection Wrapper).
+    - `shw_`: Envoltura de enlace compartido (Share Wrapper).
+    - `ov_`: Pantalla y modal flotante de Overlay.
+    - `p_`: Pantalla de permisos.
+    - `sd_`: Estado y detalles del sistema.
+    - `tu_`: Textos de tutoriales (`TutorialUtils`).
+    - `dc_`: Tarjeta de descarga (`DownloadCard`).
+    - `fe_`: Diálogo de error fatal.
+  - Al agregar un string nuevo, añádelo en `i18n/en.jsonc`, genera su getter en `AppStringKey` y regístralo en `_allAppStrings`.
+- **Pantalla de Configuración (`SettingsScreen`):**
+  - Todas las opciones se definen dentro de `_getAllSettings` mediante `_SettingDef`.
+  - Emplea exclusivamente los componentes optimizados de `lib/shared/widgets/`: `LazyDropdown`, `LazyTextField`, `LazyList`, `LazyMap` y `SettingRow`.
+  - Modificaciones en las opciones de descarga deben reflejarse en `DownloadOptions` (`toJson`/`fromJson`) y en `_applyDynamicDefaults` de `SettingsController`.
+- **Overlay de Compartir (`QuickShareOverlay`):**
+  - Se ejecuta en un Isolate secundario e independiente (`overlayMain` con `@pragma("vm:entry-point")`).
+  - La comunicación para encolar descargas desde el overlay hacia el motor se realiza mediante IPC con `IsolateNameServer.lookupPortByName('vidra_backend_port')`.
+  - Las preferencias temporales del overlay se almacenan en `SharedPreferences` usando el prefijo `ov_*`.
 - **Diseño Adaptativo:** Vidra se ejecuta en móviles y escritorio. La UI debe adaptarse a múltiples resoluciones usando `LayoutBuilder`, `MediaQuery` o dependencias relacionadas. Sigue los lineamientos de diseño premium (esquemas oscuros, animaciones sutiles, fuentes modernas).
 - **Manejo de Errores Asíncronos:** El backend es un ente separado; asume que las peticiones HTTP pueden fallar. Usa bloques `try/catch` de forma defensiva y maneja los estados visuales (carga, éxito, error).
 

@@ -58,6 +58,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
   }
 
   Future<void> _checkAllPermissions() async {
+    if (!mounted) return;
     setState(() => _isChecking = true);
 
     if (_androidSdkVersion >= 30) {
@@ -66,7 +67,12 @@ class _PermissionsScreenState extends State<PermissionsScreen>
       _storageGranted = await Permission.storage.isGranted;
     }
 
-    _overlayGranted = await FlutterScreenOverlay.isPermissionGranted();
+    try {
+      _overlayGranted = await FlutterScreenOverlay.isPermissionGranted();
+    } catch (e) {
+      debugPrint('Error comprobando overlay: $e');
+      _overlayGranted = false;
+    }
 
     if (_androidSdkVersion >= 33) {
       _notifGranted = await Permission.notification.isGranted;
@@ -77,6 +83,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
     _installGranted = await Permission.requestInstallPackages.isGranted;
     _batteryOptimizationGranted =
         await Permission.ignoreBatteryOptimizations.isGranted;
+    if (!mounted) return;
     setState(() => _isChecking = false);
   }
 
@@ -91,7 +98,11 @@ class _PermissionsScreenState extends State<PermissionsScreen>
   }
 
   Future<void> _requestOverlay() async {
-    await FlutterScreenOverlay.requestPermission();
+    try {
+      await FlutterScreenOverlay.requestPermission();
+    } catch (e) {
+      debugPrint('Error solicitando overlay: $e');
+    }
     // No llamamos a _checkAll() aquí porque FlutterScreenOverlay manda a Settings.
     // El didChangeAppLifecycleState lo atrapará al volver.
   }
@@ -114,7 +125,6 @@ class _PermissionsScreenState extends State<PermissionsScreen>
 
   bool get _allMandatoryGranted =>
       _storageGranted &&
-      _overlayGranted &&
       _notifGranted &&
       _batteryOptimizationGranted;
 
@@ -167,6 +177,8 @@ class _PermissionsScreenState extends State<PermissionsScreen>
                             isGranted: _overlayGranted,
                             onRequest: _requestOverlay,
                             grantedText: locale.pButtonGrant,
+                            isOptional: true,
+                            optionalText: locale.pOptional,
                           ),
                           const SizedBox(height: 12),
                           _buildPermissionTile(
@@ -196,6 +208,8 @@ class _PermissionsScreenState extends State<PermissionsScreen>
                             isGranted: _installGranted,
                             onRequest: _requestInstallPackages,
                             grantedText: locale.pButtonGrant,
+                            isOptional: true,
+                            optionalText: locale.pOptional,
                           ),
                         ],
                       ),
@@ -233,6 +247,8 @@ class _PermissionsScreenState extends State<PermissionsScreen>
     required bool isGranted,
     required VoidCallback onRequest,
     required String grantedText,
+    bool isOptional = false,
+    String? optionalText,
   }) {
     return Container(
       decoration: BoxDecoration(
@@ -252,13 +268,51 @@ class _PermissionsScreenState extends State<PermissionsScreen>
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           ListTile(
-            contentPadding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 4),
+            contentPadding: const EdgeInsets.only(
+              left: 16,
+              right: 16,
+              top: 8,
+              bottom: 4,
+            ),
             leading: Icon(
               icon,
               color: isGranted ? Colors.green : Colors.blue,
               size: 32,
             ),
-            title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+            title: Row(
+              children: [
+                Flexible(
+                  child: Text(
+                    title,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                if (isOptional &&
+                    optionalText != null &&
+                    optionalText.isNotEmpty) ...[
+                  const SizedBox(width: 8),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 6,
+                      vertical: 2,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.secondaryContainer,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Text(
+                      optionalText,
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w600,
+                        color:
+                            Theme.of(context).colorScheme.onSecondaryContainer,
+                      ),
+                    ),
+                  ),
+                ],
+              ],
+            ),
             subtitle: Padding(
               padding: const EdgeInsets.only(top: 4.0),
               child: Text(subtitle, style: const TextStyle(fontSize: 12)),

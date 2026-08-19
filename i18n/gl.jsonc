@@ -293,5 +293,11 @@
   "fe_title": "Erro fatal do sistema",
   "fe_restart_button": "Reinicie a aplicación",
   "fe_view_logs_button": "Ver rexistros",
-  "fe_message": "O motor de descarga non se puido cargar despois dunha actualización. Reinicie a aplicación."
+  "fe_message": "O motor de descarga non se puido cargar despois dunha actualización. Reinicie a aplicación.",
+  "d_quick_settings": "Configuración rápida",
+  "shw_overlay_denied_downloading": "Permiso de superposición denegado, descargando directamente",
+  "p_optional": "Opcional",
+  "qs_title": "Configuración rápida",
+  "qs_close": "Pechar",
+  "qs_audio": "Audio"
 }

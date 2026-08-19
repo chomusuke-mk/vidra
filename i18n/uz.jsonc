@@ -293,5 +293,11 @@
   "fe_title": "Fatal tizim xatosi",
   "fe_restart_button": "Ilovani qayta ishga tushiring",
   "fe_view_logs_button": "Jurnallarni ko'rish",
-  "fe_message": "Yangilanishdan keyin yuklab olish mexanizmi yuklanmadi. Iltimos, ilovani qayta ishga tushiring."
+  "fe_message": "Yangilanishdan keyin yuklab olish mexanizmi yuklanmadi. Iltimos, ilovani qayta ishga tushiring.",
+  "d_quick_settings": "Tezkor sozlamalar",
+  "shw_overlay_denied_downloading": "Toʻgʻridan-toʻgʻri yuklab olish uchun ustki qatlam ruxsati rad etildi",
+  "p_optional": "Ixtiyoriy",
+  "qs_title": "Tezkor sozlamalar",
+  "qs_close": "Yopish",
+  "qs_audio": "Audio"
 }

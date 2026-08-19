@@ -293,5 +293,11 @@
   "fe_title": "Allvarligt systemfel",
   "fe_message": "Nedladdningsmotorn kunde inte laddas efter en uppdatering. Starta om programmet.",
   "fe_restart_button": "Starta om programmet",
-  "fe_view_logs_button": "Visa loggar"
+  "fe_view_logs_button": "Visa loggar",
+  "d_quick_settings": "Snabbinställningar",
+  "shw_overlay_denied_downloading": "Överlagringsbehörighet nekades, laddas ned direkt",
+  "p_optional": "Frivillig",
+  "qs_close": "Nära",
+  "qs_audio": "Audio",
+  "qs_title": "Snabbinställningar"
 }

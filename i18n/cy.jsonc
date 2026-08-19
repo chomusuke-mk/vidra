@@ -293,5 +293,11 @@
   "fe_title": "Gwall System Angheuol",
   "fe_message": "Methodd yr injan lawrlwytho â llwytho ar ôl diweddariad. Ailgychwynnwch y cais.",
   "fe_restart_button": "Ailgychwyn Cais",
-  "fe_view_logs_button": "Gweld Logiau"
+  "fe_view_logs_button": "Gweld Logiau",
+  "d_quick_settings": "Gosodiadau Cyflym",
+  "shw_overlay_denied_downloading": "Caniatâd troshaen wedi'i wrthod, llwytho i lawr yn uniongyrchol",
+  "p_optional": "Dewisol",
+  "qs_title": "Gosodiadau Cyflym",
+  "qs_close": "Cau",
+  "qs_audio": "Sain"
 }

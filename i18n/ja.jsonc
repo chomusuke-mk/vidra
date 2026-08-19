@@ -293,5 +293,11 @@
   "fe_title": "致命的なシステムエラー",
   "fe_message": "アップデート後にダウンロード エンジンのロードに失敗しました。アプリケーションを再起動してください。",
   "fe_restart_button": "アプリケーションを再起動する",
-  "fe_view_logs_button": "ログの表示"
+  "fe_view_logs_button": "ログの表示",
+  "d_quick_settings": "クイック設定",
+  "shw_overlay_denied_downloading": "オーバーレイの許可が拒否されました。直接ダウンロードします",
+  "p_optional": "オプション",
+  "qs_title": "クイック設定",
+  "qs_close": "近い",
+  "qs_audio": "オーディオ"
 }

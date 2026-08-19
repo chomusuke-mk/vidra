@@ -4,6 +4,14 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [3.1.0] - New Features
+
+- **Quick Settings:** Added a new feature that allows users to quickly access and modify their download settings directly from the main interface, improving usability and efficiency.
+- **Fix Details Buttons:** Now show action buttons in details view.
+- **Android | Overlay permission Optional:** The overlay permission is now optional on Android, allowing users to choose whether to enable it based on their preferences and needs.
+- **Bug Fix:** Pause/Cancel now are instantly applied to all entries in the queue, ensuring a more responsive and user-friendly experience when managing downloads.
+- **yt-dlp:** Now app uses nightly version of yt-dlp by default, ensuring users have access to the latest features and improvements. The stable version can still be used if preferred.
+
 ## [3.0.0] - Major Release
 
 - **New OTA Engine:** Introduced a new Over-The-Air (OTA) technique that allows for hot-reloading of the backend without requiring shutting down backend processes. This enables seamless updates and reduces downtime during maintenance.

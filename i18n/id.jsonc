@@ -293,5 +293,11 @@
   "fe_title": "Kesalahan Sistem Fatal",
   "fe_message": "Mesin pengunduhan gagal dimuat setelah pembaruan. Silakan restart aplikasinya.",
   "fe_restart_button": "Mulai ulang Aplikasi",
-  "fe_view_logs_button": "Lihat Log"
+  "fe_view_logs_button": "Lihat Log",
+  "d_quick_settings": "Pengaturan Cepat",
+  "shw_overlay_denied_downloading": "Izin overlay ditolak, unduh langsung",
+  "p_optional": "Opsional",
+  "qs_title": "Pengaturan Cepat",
+  "qs_close": "Menutup",
+  "qs_audio": "Audio"
 }

@@ -293,5 +293,11 @@
   "fe_title": "치명적인 시스템 오류",
   "fe_message": "업데이트 후 다운로드 엔진을 로드하지 못했습니다. 응용 프로그램을 다시 시작하십시오.",
   "fe_restart_button": "애플리케이션 다시 시작",
-  "fe_view_logs_button": "로그 보기"
+  "fe_view_logs_button": "로그 보기",
+  "d_quick_settings": "빠른 설정",
+  "p_optional": "선택 과목",
+  "qs_title": "빠른 설정",
+  "qs_close": "닫다",
+  "shw_overlay_denied_downloading": "오버레이 권한이 거부되었습니다. 직접 다운로드합니다.",
+  "qs_audio": "오디오"
 }

@@ -1,6 +1,6 @@
 enum SystemState {
   initializing,        // App arrancando, evaluando el entorno
-  missingPermissions,  // Bloqueado: Faltan permisos críticos (Overlay, Notificaciones)
+  missingPermissions,  // Bloqueado: Faltan permisos críticos (Almacenamiento, Notificaciones, Batería)
   missingResources,    // Bloqueado: No se encontró yt-dlp o yt-dlp-ejs en el disco
   startingBackend,     // Todo en orden: Buscando puerto y levantando Python
   ready,               // Operativo: Python respondió al Ping HTTP 200 OK

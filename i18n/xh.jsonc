@@ -293,5 +293,11 @@
   "fe_message": "Injini yokukhuphela ayiphumelelanga ukulayisha emva kohlaziyo. Nceda uqale phantsi usetyenziso.",
   "fe_restart_button": "Qala kwakhona usetyenziso",
   "fe_title": "Impazamo yeNkqubo eFatal",
-  "fe_view_logs_button": "Jonga iiLogi"
+  "fe_view_logs_button": "Jonga iiLogi",
+  "d_quick_settings": "Izicwangciso eziKhawulezayo",
+  "shw_overlay_denied_downloading": "Imvume yokwaleka yaliwe, ikhuphela ngokuthe ngqo",
+  "p_optional": "Ukhetho",
+  "qs_title": "Izicwangciso eziKhawulezayo",
+  "qs_close": "Vala",
+  "qs_audio": "Umsindo"
 }

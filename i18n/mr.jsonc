@@ -293,5 +293,11 @@
   "fe_title": "घातक प्रणाली त्रुटी",
   "fe_message": "अपडेटनंतर डाउनलोड इंजिन लोड होण्यात अयशस्वी झाले. कृपया अनुप्रयोग रीस्टार्ट करा.",
   "fe_restart_button": "अनुप्रयोग रीस्टार्ट करा",
-  "fe_view_logs_button": "लॉग पहा"
+  "fe_view_logs_button": "लॉग पहा",
+  "d_quick_settings": "द्रुत सेटिंग्ज",
+  "shw_overlay_denied_downloading": "आच्छादन परवानगी नाकारली, थेट डाउनलोड करत आहे",
+  "p_optional": "ऐच्छिक",
+  "qs_title": "द्रुत सेटिंग्ज",
+  "qs_close": "बंद करा",
+  "qs_audio": "ऑडिओ"
 }

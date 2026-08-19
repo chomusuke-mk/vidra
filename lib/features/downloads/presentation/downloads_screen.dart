@@ -15,6 +15,7 @@ import 'download_detail_screen.dart';
 import 'package:vidra/features/system/presentation/system_status_indicator.dart';
 import 'package:vidra/shared/utils/changelog_utils.dart';
 import 'package:vidra/shared/utils/tutorial_utils.dart';
+import 'package:vidra/features/downloads/presentation/widgets/quick_settings_bottom_sheet.dart';
 
 class DownloadsScreen extends StatefulWidget {
   const DownloadsScreen({super.key});
@@ -184,13 +185,26 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
             const SizedBox(width: 4),
           ],
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: _addDownload,
-          icon: const Icon(Icons.download),
-          label: Text(
-            locale.dDownload,
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
+        floatingActionButton: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            FloatingActionButton(
+              heroTag: 'quick_settings_fab',
+              tooltip: locale.dQuickSettings,
+              onPressed: () => QuickSettingsBottomSheet.show(context),
+              child: const Icon(Icons.construction_outlined),
+            ),
+            const SizedBox(width: 12),
+            FloatingActionButton.extended(
+              heroTag: 'download_fab',
+              onPressed: _addDownload,
+              icon: const Icon(Icons.download),
+              label: Text(
+                locale.dDownload,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
         ),
         // --- CUERPO: Barra de Filtros + Lista de descargas ---
         body: Column(

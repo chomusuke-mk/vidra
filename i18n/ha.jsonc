@@ -293,5 +293,11 @@
   "fe_title": "Kuskuren Tsarin Kisa",
   "fe_message": "Injin zazzagewar ya kasa ɗauka bayan sabuntawa. Da fatan za a sake kunna aikace-aikacen.",
   "fe_restart_button": "Sake kunna aikace-aikacen",
-  "fe_view_logs_button": "Duba Logs"
+  "fe_view_logs_button": "Duba Logs",
+  "d_quick_settings": "Saituna masu sauri",
+  "shw_overlay_denied_downloading": "An ƙi izinin mai rufi, ana saukewa kai tsaye",
+  "p_optional": "Na zaɓi",
+  "qs_title": "Saituna masu sauri",
+  "qs_close": "Kusa",
+  "qs_audio": "Audio"
 }

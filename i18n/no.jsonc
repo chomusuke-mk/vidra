@@ -293,5 +293,11 @@
   "fe_title": "Fatal systemfeil",
   "fe_message": "Nedlastingsmotoren kunne ikke lastes etter en oppdatering. Start applikasjonen på nytt.",
   "fe_restart_button": "Start applikasjonen på nytt",
-  "fe_view_logs_button": "Vis logger"
+  "fe_view_logs_button": "Vis logger",
+  "shw_overlay_denied_downloading": "Overleggstillatelse nektet, laster ned direkte",
+  "p_optional": "Valgfri",
+  "qs_title": "Hurtiginnstillinger",
+  "qs_close": "Lukke",
+  "qs_audio": "Lyd",
+  "d_quick_settings": "Hurtiginnstillinger"
 }

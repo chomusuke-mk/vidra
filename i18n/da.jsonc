@@ -293,5 +293,11 @@
   "fe_title": "Fatal systemfejl",
   "fe_message": "Downloadmotoren kunne ikke indlæses efter en opdatering. Genstart venligst applikationen.",
   "fe_restart_button": "Genstart applikation",
-  "fe_view_logs_button": "Se logfiler"
+  "fe_view_logs_button": "Se logfiler",
+  "d_quick_settings": "Hurtige indstillinger",
+  "shw_overlay_denied_downloading": "Overlejringstilladelse nægtet, downloader direkte",
+  "p_optional": "Valgfri",
+  "qs_title": "Hurtige indstillinger",
+  "qs_close": "Tæt",
+  "qs_audio": "Lyd"
 }

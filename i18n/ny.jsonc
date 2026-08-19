@@ -293,5 +293,11 @@
   "fe_title": "Zolakwika Zowopsa",
   "fe_message": "Injini yotsitsa yalephera kutsitsa pambuyo posinthidwa. Chonde yambitsaninso pulogalamuyi.",
   "fe_restart_button": "Yambitsaninso Ntchito",
-  "fe_view_logs_button": "Onani Malemba"
+  "fe_view_logs_button": "Onani Malemba",
+  "qs_title": "Zikhazikiko Mwamsanga",
+  "qs_close": "Tsekani",
+  "qs_audio": "Zomvera",
+  "d_quick_settings": "Zikhazikiko Mwamsanga",
+  "shw_overlay_denied_downloading": "Chilolezo chokulirapo chaletsedwa, kutsitsa mwachindunji",
+  "p_optional": "Zosankha"
 }

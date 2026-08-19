@@ -18,6 +18,7 @@ class DownloadCard extends StatelessWidget {
   final model.Info? info;
   final model.DownloadState? state;
   final bool isDetailScreen;
+  final bool isSubItem;
   final VoidCallback? onTap;
   final VoidCallback? onActionTap;
 
@@ -27,6 +28,7 @@ class DownloadCard extends StatelessWidget {
     required this.info,
     required this.state,
     this.isDetailScreen = false,
+    this.isSubItem = false,
     this.onTap,
     this.onActionTap,
   });
@@ -52,27 +54,28 @@ class DownloadCard extends StatelessWidget {
     final isList = info?.type == model.DownloadType.list;
     final hasFile = info?.file != null && info!.file!.isNotEmpty;
 
-    // 1. Mostrar Play
-    final showPlay = isCompleted && !isList && hasFile;
-    // 2. Mostrar Carpeta
-    final showFolder = isCompleted && !isList && hasFile && !Platform.isAndroid;
-    // 3. Mostrar Info
-    final showInfo = isError && !isDetailScreen;
+    // 1. Mostrar Play (solo archivos individuales descargados)
+    final showPlay = !isSubItem && isCompleted && !isList && hasFile;
+    // 2. Mostrar Carpeta (solo archivos individuales completados fuera de Android)
+    final showFolder =
+        !isSubItem && isCompleted && !isList && hasFile && !Platform.isAndroid;
+    // 3. Mostrar Info (NUNCA en pantalla de detalles porque ya se está en la info screen)
+    final showInfo = !isSubItem && isError && !isDetailScreen;
     // 4. Borrar
     final showDelete =
-        (isError || isCancelled || isCompleted || isCompletedWithErrors) &&
-        !isDetailScreen;
+        !isSubItem &&
+        (isError || isCancelled || isCompleted || isCompletedWithErrors);
     // 5. Pausar
     final showPause =
-        state?.value == model.DownloadStateEnum.inProgress && !isDetailScreen;
+        !isSubItem && state?.value == model.DownloadStateEnum.inProgress;
     // 6. Cancelar (Estados pendientes y progreso)
     final showCancel =
-        (isPending || inProgress || isPaused || isAwaiting) && !isDetailScreen;
+        !isSubItem && (isPending || inProgress || isPaused || isAwaiting);
     // 7. Reanudar (Si está en pausa)
-    final showResume = isPaused && !isDetailScreen;
+    final showResume = !isSubItem && isPaused;
     // 8. Reintentar (Si canceló manualmente o falló)
     final showRetry =
-        (isError || isCancelled || isCompletedWithErrors) && !isDetailScreen;
+        !isSubItem && (isError || isCancelled || isCompletedWithErrors);
 
     int actionCount = 0;
     if (showPlay) actionCount += 1;
@@ -90,7 +93,7 @@ class DownloadCard extends StatelessWidget {
         _buildImage(context, isError),
         const SizedBox(width: 12),
         Expanded(child: _buildDetails(context)),
-        if (actionCount > 0)
+        if (!isSubItem && actionCount > 0)
           const Icon(
             Icons.chevron_left,
             color: Colors.grey,
@@ -128,7 +131,7 @@ class DownloadCard extends StatelessWidget {
       ),
     );
 
-    if (downloadId == null || actionCount == 0) return cardWidget;
+    if (isSubItem || downloadId == null || actionCount == 0) return cardWidget;
 
     // =========================================================================
     // LÓGICA DE GESTOS (SLIDABLE)
@@ -146,8 +149,8 @@ class DownloadCard extends StatelessWidget {
           endActionPane: ActionPane(
             motion: const DrawerMotion(),
             extentRatio: ratio, // <--- AQUÍ APLICAMOS EL CINTURÓN DE SEGURIDAD
-            // Borrado gestual a tope SOLO permitido si está completado o en error
-            dismissible: showDelete
+            // Borrado gestual a tope SOLO permitido si está completado o en error y NO en pantalla de detalles
+            dismissible: showDelete && !isDetailScreen
                 ? DismissiblePane(
                     onDismissed: () async {
                       final result = await context
@@ -264,6 +267,9 @@ class DownloadCard extends StatelessWidget {
                         .sendAction(downloadId!, 'delete');
                     if (result) {
                       ToastUtils.showInfo(locale.dcDownloadRemoving);
+                      if (isDetailScreen && context.mounted) {
+                        Navigator.maybePop(context);
+                      }
                     } else {
                       ToastUtils.showError(locale.dcDownloadRemovingError);
                     }

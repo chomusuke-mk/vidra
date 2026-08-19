@@ -293,5 +293,11 @@
   "fe_title": "خراب نظام جي خرابي",
   "fe_message": "ڊائون لوڊ انجڻ هڪ تازه ڪاري کان پوء لوڊ ڪرڻ ۾ ناڪام ٿيو. مهرباني ڪري اپليڪيشن ٻيهر شروع ڪريو.",
   "fe_restart_button": "ايپليڪيشن ٻيهر شروع ڪريو",
-  "fe_view_logs_button": "لاگ ڏسو"
+  "fe_view_logs_button": "لاگ ڏسو",
+  "d_quick_settings": "تڪڙو سيٽنگون",
+  "shw_overlay_denied_downloading": "اوورلي جي اجازت رد ڪئي وئي، سڌو ڊائون لوڊ",
+  "qs_title": "تڪڙو سيٽنگون",
+  "qs_close": "بند",
+  "qs_audio": "آڊيو",
+  "p_optional": "اختياري"
 }

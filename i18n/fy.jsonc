@@ -293,5 +293,11 @@
   "fe_title": "Fatale systeemflater",
   "fe_message": "De ynlaadmotor koe net laden nei in fernijing. Start de applikaasje opnij.",
   "fe_restart_button": "Applikaasje opnij starte",
-  "fe_view_logs_button": "View Logs"
+  "fe_view_logs_button": "View Logs",
+  "d_quick_settings": "Fluch ynstellings",
+  "p_optional": "Fakultatyf",
+  "qs_title": "Fluch ynstellings",
+  "qs_close": "Slute",
+  "qs_audio": "Audio",
+  "shw_overlay_denied_downloading": "Tastimming foar oerlay wegere, direkt ynladen"
 }
