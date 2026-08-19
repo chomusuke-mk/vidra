@@ -299,5 +299,7 @@
   "qs_audio": "Zomvera",
   "d_quick_settings": "Zikhazikiko Mwamsanga",
   "shw_overlay_denied_downloading": "Chilolezo chokulirapo chaletsedwa, kutsitsa mwachindunji",
-  "p_optional": "Zosankha"
+  "p_optional": "Zosankha",
+  "tu_quick_settings": "Zikhazikiko Mwamsanga",
+  "tu_quick_settings_desc": "Tsegulani menyu iyi kuti musinthe mwachangu zosankha zotsitsa pa ntchentche popanda kusiya chophimba chachikulu."
 }

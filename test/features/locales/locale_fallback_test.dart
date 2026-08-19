@@ -58,6 +58,13 @@ void main() {
       expect(strings.dQuickSettings, equals('Quick Settings'));
       expect(strings.qsClose, equals('Close'));
       expect(strings.qsAudio, equals('Audio'));
+      expect(strings.tuPPQuickSettings, equals('Quick Settings'));
+      expect(
+        strings.tuPPQuickSettingsDesc,
+        equals(
+          'Open this menu to quickly adjust download options on the fly without leaving the main screen.',
+        ),
+      );
 
       // Keys present in French should yield French values
       expect(strings.dDownload, equals(frMap['d_download']));
@@ -71,6 +78,7 @@ void main() {
 
       expect(controller.localeStrings.qsTitle, equals('Quick Settings'));
       expect(controller.localeStrings.dQuickSettings, equals('Quick Settings'));
+      expect(controller.localeStrings.tuPPQuickSettings, equals('Quick Settings'));
 
       // Switch to Spanish (which has all keys localized)
       controller.setLocale('es');
@@ -81,16 +89,30 @@ void main() {
       expect(controller.localeStrings.dQuickSettings, equals('Configuración rápida'));
       expect(controller.localeStrings.qsClose, equals('Cerrar'));
       expect(controller.localeStrings.qsAudio, equals('Audio'));
+      expect(controller.localeStrings.tuPPQuickSettings, equals('Configuración rápida'));
+      expect(
+        controller.localeStrings.tuPPQuickSettingsDesc,
+        equals(
+          'Abra este menú para ajustar rápidamente las opciones de descarga al instante sin salir de la pantalla principal.',
+        ),
+      );
 
       // Switch to German (which lacks qs_* keys)
       controller.setLocale('de');
       await Future<void>.delayed(const Duration(milliseconds: 50));
 
-      // qs_* falls back to English
+      // qs_* and tu_* falls back to English
       expect(controller.localeStrings.qsTitle, equals('Quick Settings'));
       expect(controller.localeStrings.dQuickSettings, equals('Quick Settings'));
       expect(controller.localeStrings.qsClose, equals('Close'));
       expect(controller.localeStrings.qsAudio, equals('Audio'));
+      expect(controller.localeStrings.tuPPQuickSettings, equals('Quick Settings'));
+      expect(
+        controller.localeStrings.tuPPQuickSettingsDesc,
+        equals(
+          'Open this menu to quickly adjust download options on the fly without leaving the main screen.',
+        ),
+      );
 
       // de keys are used where available
       final deMap = await mockRepo.getLocaleStrings('de');

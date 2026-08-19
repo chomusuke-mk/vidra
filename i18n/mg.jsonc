@@ -299,5 +299,7 @@
   "qs_audio": "teny",
   "shw_overlay_denied_downloading": "Nolavina ny fahazoan-dàlana overlay, misintona mivantana",
   "qs_title": "Fikirana haingana",
-  "qs_close": "AKAIKY"
+  "qs_close": "AKAIKY",
+  "tu_quick_settings": "Fikirana haingana",
+  "tu_quick_settings_desc": "Sokafy ity menio ity hanitsiana haingana ny safidy fampidinana amin'ny lalitra tsy miala amin'ny efijery lehibe."
 }

@@ -149,6 +149,8 @@
   "tu_filters_desc": "Expand this menu to search for downloads by name or filter between individual videos and playlists.",
   "tu_settings": "Settings",
   "tu_settings_desc": "Enter here to configure default resolutions, inject metadata, use proxies, or add automatic subtitles.",
+  "tu_quick_settings": "Quick Settings",
+  "tu_quick_settings_desc": "Open this menu to quickly adjust download options on the fly without leaving the main screen.",
   // Pantalla Settings
   "tu_settings_categories": "Settings Categories",
   "tu_settings_categories_desc": "The settings are divided into General, Network (Proxies, Cookies), Video (Formats, Subtitles) and Download (Paths, Names).",

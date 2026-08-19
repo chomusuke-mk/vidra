@@ -299,5 +299,7 @@
   "p_optional": "Opsional",
   "qs_title": "Pengaturan Cepat",
   "qs_close": "Menutup",
-  "qs_audio": "Audio"
+  "qs_audio": "Audio",
+  "tu_quick_settings": "Pengaturan Cepat",
+  "tu_quick_settings_desc": "Buka menu ini untuk menyesuaikan opsi pengunduhan dengan cepat tanpa meninggalkan layar utama."
 }

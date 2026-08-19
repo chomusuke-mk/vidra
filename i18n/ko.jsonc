@@ -299,5 +299,7 @@
   "qs_title": "빠른 설정",
   "qs_close": "닫다",
   "shw_overlay_denied_downloading": "오버레이 권한이 거부되었습니다. 직접 다운로드합니다.",
-  "qs_audio": "오디오"
+  "qs_audio": "오디오",
+  "tu_quick_settings": "빠른 설정",
+  "tu_quick_settings_desc": "이 메뉴를 열어 메인 화면을 떠나지 않고도 즉시 다운로드 옵션을 빠르게 조정할 수 있습니다."
 }

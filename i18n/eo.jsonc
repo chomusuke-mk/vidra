@@ -299,5 +299,7 @@
   "p_optional": "Laŭvola",
   "qs_title": "Rapidaj Agordoj",
   "qs_close": "Fermu",
-  "qs_audio": "Aŭdio"
+  "qs_audio": "Aŭdio",
+  "tu_quick_settings_desc": "Malfermu ĉi tiun menuon por rapide ĝustigi elŝutajn opciojn sur la flugo sen forlasi la ĉefan ekranon.",
+  "tu_quick_settings": "Rapidaj Agordoj"
 }

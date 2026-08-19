@@ -299,5 +299,7 @@
   "qs_title": "Szybkie ustawienia",
   "qs_close": "Zamknąć",
   "qs_audio": "Audio",
-  "p_optional": "Fakultatywny"
+  "p_optional": "Fakultatywny",
+  "tu_quick_settings": "Szybkie ustawienia",
+  "tu_quick_settings_desc": "Otwórz to menu, aby szybko dostosować opcje pobierania w locie, bez opuszczania ekranu głównego."
 }

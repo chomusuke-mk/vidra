@@ -299,5 +299,7 @@
   "p_optional": "Pilihan",
   "qs_title": "Tetapan Pantas",
   "qs_close": "tutup",
-  "qs_audio": "Audio"
+  "qs_audio": "Audio",
+  "tu_quick_settings": "Tetapan Pantas",
+  "tu_quick_settings_desc": "Buka menu ini untuk melaraskan pilihan muat turun dengan pantas tanpa meninggalkan skrin utama."
 }

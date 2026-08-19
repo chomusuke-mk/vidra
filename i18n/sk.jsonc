@@ -299,5 +299,7 @@
   "p_optional": "Voliteľné",
   "qs_title": "Rýchle nastavenia",
   "qs_close": "Zavrieť",
-  "qs_audio": "Zvuk"
+  "qs_audio": "Zvuk",
+  "tu_quick_settings_desc": "Otvorením tejto ponuky môžete rýchlo upraviť možnosti sťahovania za chodu bez opustenia hlavnej obrazovky.",
+  "tu_quick_settings": "Rýchle nastavenia"
 }

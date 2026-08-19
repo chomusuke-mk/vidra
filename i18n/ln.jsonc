@@ -299,5 +299,7 @@
   "p_optional": "Soki olingi",
   "qs_title": "Paramètres ya mbangu",
   "qs_close": "Kokanga",
-  "qs_audio": "Audio"
+  "qs_audio": "Audio",
+  "tu_quick_settings": "Paramètres ya mbangu",
+  "tu_quick_settings_desc": "Fungola menu oyo mpo na kobongisa nokinoki ba options ya téléchargement na vol sans kobima na écran principal."
 }

@@ -299,5 +299,7 @@
   "p_optional": "Meýletin",
   "qs_title": "Çalt sazlamalar",
   "qs_close": ".Akyn",
-  "qs_audio": "Ses"
+  "qs_audio": "Ses",
+  "tu_quick_settings": "Çalt sazlamalar",
+  "tu_quick_settings_desc": "Esasy ekrandan çykman, çybynda göçürip almak opsiýalaryny çalt sazlamak üçin bu menýuny açyň."
 }

@@ -299,5 +299,7 @@
   "qs_title": "Hurtiginnstillinger",
   "qs_close": "Lukke",
   "qs_audio": "Lyd",
-  "d_quick_settings": "Hurtiginnstillinger"
+  "d_quick_settings": "Hurtiginnstillinger",
+  "tu_quick_settings": "Hurtiginnstillinger",
+  "tu_quick_settings_desc": "Åpne denne menyen for å raskt justere nedlastingsalternativer uten å forlate hovedskjermen."
 }

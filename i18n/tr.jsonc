@@ -299,5 +299,7 @@
   "p_optional": "İsteğe bağlı",
   "qs_title": "Hızlı Ayarlar",
   "qs_close": "Kapalı",
-  "qs_audio": "Ses"
+  "qs_audio": "Ses",
+  "tu_quick_settings_desc": "Ana ekrandan ayrılmadan indirme seçeneklerini hızlı bir şekilde ayarlamak için bu menüyü açın.",
+  "tu_quick_settings": "Hızlı Ayarlar"
 }

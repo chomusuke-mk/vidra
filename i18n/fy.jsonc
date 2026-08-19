@@ -299,5 +299,7 @@
   "qs_title": "Fluch ynstellings",
   "qs_close": "Slute",
   "qs_audio": "Audio",
-  "shw_overlay_denied_downloading": "Tastimming foar oerlay wegere, direkt ynladen"
+  "shw_overlay_denied_downloading": "Tastimming foar oerlay wegere, direkt ynladen",
+  "tu_quick_settings": "Fluch ynstellings",
+  "tu_quick_settings_desc": "Iepenje dit menu om downloadopsjes fluch oan te passen sûnder it haadskerm te ferlitten."
 }

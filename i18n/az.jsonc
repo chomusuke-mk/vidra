@@ -299,5 +299,7 @@
   "p_optional": "Könüllü",
   "qs_title": "Sürətli Parametrlər",
   "qs_close": "Bağlayın",
-  "qs_audio": "Audio"
+  "qs_audio": "Audio",
+  "tu_quick_settings_desc": "Əsas ekrandan çıxmadan tez yükləmə seçimlərini tənzimləmək üçün bu menyunu açın.",
+  "tu_quick_settings": "Sürətli Parametrlər"
 }

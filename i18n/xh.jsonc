@@ -299,5 +299,7 @@
   "p_optional": "Ukhetho",
   "qs_title": "Izicwangciso eziKhawulezayo",
   "qs_close": "Vala",
-  "qs_audio": "Umsindo"
+  "qs_audio": "Umsindo",
+  "tu_quick_settings_desc": "Vula le menyu ukulungelelanisa ngokukhawuleza iinketho zokukhuphela kwibhabho ngaphandle kokushiya isikrini esiphambili.",
+  "tu_quick_settings": "Izicwangciso eziKhawulezayo"
 }

@@ -299,5 +299,7 @@
   "qs_title": "Cilësimet e shpejta",
   "qs_close": "Mbylle",
   "qs_audio": "Audio",
-  "shw_overlay_denied_downloading": "Leja e mbivendosjes u refuzua, duke u shkarkuar drejtpërdrejt"
+  "shw_overlay_denied_downloading": "Leja e mbivendosjes u refuzua, duke u shkarkuar drejtpërdrejt",
+  "tu_quick_settings": "Cilësimet e shpejta",
+  "tu_quick_settings_desc": "Hapni këtë meny për të rregulluar shpejt opsionet e shkarkimit pa u larguar nga ekrani kryesor."
 }

@@ -299,5 +299,7 @@
   "p_optional": "Opsioneel",
   "qs_title": "Vinnige instellings",
   "qs_close": "Maak toe",
-  "qs_audio": "Oudio"
+  "qs_audio": "Oudio",
+  "tu_quick_settings": "Vinnige instellings",
+  "tu_quick_settings_desc": "Maak hierdie kieslys oop om aflaaiopsies vinnig aan te pas sonder om die hoofskerm te verlaat."
 }

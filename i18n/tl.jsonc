@@ -299,5 +299,7 @@
   "p_optional": "Opsyonal",
   "qs_close": "Isara",
   "qs_audio": "Audio",
-  "qs_title": "Mga Mabilisang Setting"
+  "qs_title": "Mga Mabilisang Setting",
+  "tu_quick_settings": "Mga Mabilisang Setting",
+  "tu_quick_settings_desc": "Buksan ang menu na ito upang mabilis na isaayos ang mga opsyon sa pag-download nang mabilisan nang hindi umaalis sa pangunahing screen."
 }

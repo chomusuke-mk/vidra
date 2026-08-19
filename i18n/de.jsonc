@@ -294,10 +294,6 @@
   "fe_message": "Die Download-Engine konnte nach einem Update nicht geladen werden. Bitte starten Sie die Anwendung neu.",
   "fe_restart_button": "Anwendung neu starten",
   "fe_view_logs_button": "Protokolle anzeigen",
-  "d_quick_settings": "Schnelleinstellungen",
-  "shw_overlay_denied_downloading": "Overlay-Berechtigung verweigert, direkter Download",
-  "p_optional": "Optional",
-  "qs_close": "Schließen",
-  "qs_audio": "Audio",
-  "qs_title": "Schnelleinstellungen"
+  "tu_quick_settings": "Schnelleinstellungen",
+  "tu_quick_settings_desc": "Öffnen Sie dieses Menü, um die Download-Optionen schnell anzupassen, ohne den Hauptbildschirm zu verlassen."
 }

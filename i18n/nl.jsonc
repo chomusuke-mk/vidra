@@ -299,5 +299,7 @@
   "d_quick_settings": "Snelle instellingen",
   "p_optional": "Optioneel",
   "qs_close": "Dichtbij",
-  "qs_audio": "Audio"
+  "qs_audio": "Audio",
+  "tu_quick_settings": "Snelle instellingen",
+  "tu_quick_settings_desc": "Open dit menu om de downloadopties snel aan te passen zonder het hoofdscherm te verlaten."
 }

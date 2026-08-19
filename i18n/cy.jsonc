@@ -299,5 +299,7 @@
   "p_optional": "Dewisol",
   "qs_title": "Gosodiadau Cyflym",
   "qs_close": "Cau",
-  "qs_audio": "Sain"
+  "qs_audio": "Sain",
+  "tu_quick_settings": "Gosodiadau Cyflym",
+  "tu_quick_settings_desc": "Agorwch y ddewislen hon i addasu opsiynau lawrlwytho yn gyflym ar y hedfan heb adael y brif sgrin."
 }

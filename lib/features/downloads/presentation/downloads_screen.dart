@@ -189,6 +189,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             FloatingActionButton(
+              key: AppTutorialKeys.mainQuickSettings,
               heroTag: 'quick_settings_fab',
               tooltip: locale.dQuickSettings,
               onPressed: () => QuickSettingsBottomSheet.show(context),

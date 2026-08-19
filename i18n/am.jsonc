@@ -299,5 +299,7 @@
   "p_optional": "አማራጭ",
   "qs_title": "ፈጣን ቅንብሮች",
   "qs_close": "ገጠመ",
-  "qs_audio": "ኦዲዮ"
+  "qs_audio": "ኦዲዮ",
+  "tu_quick_settings": "ፈጣን ቅንብሮች",
+  "tu_quick_settings_desc": "ከዋናው ማያ ገጽ ሳይወጡ በበረራ ላይ የማውረድ አማራጮችን በፍጥነት ለማስተካከል ይህንን ሜኑ ይክፈቱ።"
 }

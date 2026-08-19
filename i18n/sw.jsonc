@@ -299,5 +299,7 @@
   "qs_close": "Funga",
   "qs_audio": "Sauti",
   "d_quick_settings": "Mipangilio ya Haraka",
-  "p_optional": "Hiari"
+  "p_optional": "Hiari",
+  "tu_quick_settings": "Mipangilio ya Haraka",
+  "tu_quick_settings_desc": "Fungua menyu hii ili urekebishe haraka chaguo za upakuaji kwenye nzi bila kuondoka kwenye skrini kuu."
 }

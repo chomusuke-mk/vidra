@@ -299,5 +299,7 @@
   "p_optional": "Không bắt buộc",
   "qs_title": "Cài đặt nhanh",
   "qs_close": "Đóng",
-  "qs_audio": "Âm thanh"
+  "qs_audio": "Âm thanh",
+  "tu_quick_settings": "Cài đặt nhanh",
+  "tu_quick_settings_desc": "Mở menu này để nhanh chóng điều chỉnh các tùy chọn tải xuống mà không cần rời khỏi màn hình chính."
 }

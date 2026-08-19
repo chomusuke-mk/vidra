@@ -299,5 +299,7 @@
   "p_optional": "Aukerakoa",
   "qs_title": "Ezarpen azkarrak",
   "qs_close": "Itxi",
-  "qs_audio": "Audioa"
+  "qs_audio": "Audioa",
+  "tu_quick_settings": "Ezarpen azkarrak",
+  "tu_quick_settings_desc": "Ireki menu hau deskargatzeko aukerak azkar doitzeko, pantaila nagusitik irten gabe."
 }

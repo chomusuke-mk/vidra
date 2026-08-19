@@ -299,5 +299,7 @@
   "p_optional": "Valfrjálst",
   "qs_title": "Flýtistillingar",
   "qs_close": "Loka",
-  "qs_audio": "Hljóð"
+  "qs_audio": "Hljóð",
+  "tu_quick_settings": "Flýtistillingar",
+  "tu_quick_settings_desc": "Opnaðu þessa valmynd til að stilla niðurhalsvalkosti hratt án þess að fara út af aðalskjánum."
 }

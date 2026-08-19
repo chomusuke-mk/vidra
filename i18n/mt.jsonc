@@ -299,5 +299,7 @@
   "qs_title": "Settings Quick",
   "qs_close": "Agħlaq",
   "qs_audio": "Awdjo",
-  "d_quick_settings": "Settings Quick"
+  "d_quick_settings": "Settings Quick",
+  "tu_quick_settings": "Settings Quick",
+  "tu_quick_settings_desc": "Iftaħ dan il-menu biex taġġusta malajr l-għażliet tat-tniżżil fuq il-fly mingħajr ma tħalli l-iskrin prinċipali."
 }

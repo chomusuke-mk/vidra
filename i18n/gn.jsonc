@@ -299,5 +299,7 @@
   "p_optional": "Poravokuaa",
   "qs_title": "Ñemboheko pya’e",
   "qs_close": "Mboty",
-  "qs_audio": "Audio rehegua"
+  "qs_audio": "Audio rehegua",
+  "tu_quick_settings": "Ñemboheko pya’e",
+  "tu_quick_settings_desc": "Eipe’a ko menú emohenda pya’e hag̃ua umi opción descarga rehegua pe vuelo-pe resẽ’ỹre pantalla principal-gui."
 }

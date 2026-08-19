@@ -45,6 +45,15 @@ void main() {
       );
       expect(appStrings.pOptional, equals('Optional'));
 
+      // Verify Tutorial Quick Settings getters in English
+      expect(appStrings.tuPPQuickSettings, equals('Quick Settings'));
+      expect(
+        appStrings.tuPPQuickSettingsDesc,
+        equals(
+          'Open this menu to quickly adjust download options on the fly without leaving the main screen.',
+        ),
+      );
+
       // Verify es.jsonc
       final esFile = File('i18n/es.jsonc');
       expect(esFile.existsSync(), isTrue);
@@ -79,6 +88,15 @@ void main() {
         equals('Permiso de superposición denegado, descargando directamente'),
       );
       expect(esStrings.pOptional, equals('Opcional'));
+
+      // Verify Tutorial Quick Settings getters in Spanish
+      expect(esStrings.tuPPQuickSettings, equals('Configuración rápida'));
+      expect(
+        esStrings.tuPPQuickSettingsDesc,
+        equals(
+          'Abra este menú para ajustar rápidamente las opciones de descarga al instante sin salir de la pantalla principal.',
+        ),
+      );
     });
   });
 }

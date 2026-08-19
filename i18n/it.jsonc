@@ -299,5 +299,7 @@
   "p_optional": "Opzionale",
   "qs_title": "Impostazioni rapide",
   "qs_close": "Vicino",
-  "qs_audio": "Audio"
+  "qs_audio": "Audio",
+  "tu_quick_settings": "Impostazioni rapide",
+  "tu_quick_settings_desc": "Apri questo menu per regolare rapidamente le opzioni di download al volo senza uscire dalla schermata principale."
 }

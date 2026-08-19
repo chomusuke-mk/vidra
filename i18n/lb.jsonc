@@ -299,5 +299,7 @@
   "p_optional": "Fakultativ",
   "qs_title": "Quick Astellunge",
   "qs_close": "Zoumaachen",
-  "qs_audio": "Audio"
+  "qs_audio": "Audio",
+  "tu_quick_settings": "Quick Astellunge",
+  "tu_quick_settings_desc": "Öffnen dëse Menü fir séier Downloadoptiounen op der Flucht unzepassen ouni den Haaptbildschierm ze verloossen."
 }

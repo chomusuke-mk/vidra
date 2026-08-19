@@ -299,5 +299,7 @@
   "qs_title": "Enteekateeka ez’amangu",
   "qs_close": "Okuggalawo",
   "qs_audio": "Amaloboozi",
-  "p_optional": "Kya kusalawo"
+  "p_optional": "Kya kusalawo",
+  "tu_quick_settings": "Enteekateeka ez’amangu",
+  "tu_quick_settings_desc": "Ggulawo menu eno okutereeza amangu enkola z’okuwanula ku nnyonyi nga tovudde ku screen enkulu."
 }

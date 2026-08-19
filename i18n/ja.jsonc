@@ -299,5 +299,7 @@
   "p_optional": "オプション",
   "qs_title": "クイック設定",
   "qs_close": "近い",
-  "qs_audio": "オーディオ"
+  "qs_audio": "オーディオ",
+  "tu_quick_settings": "クイック設定",
+  "tu_quick_settings_desc": "このメニューを開くと、メイン画面を離れることなく、その場でダウンロード オプションをすばやく調整できます。"
 }

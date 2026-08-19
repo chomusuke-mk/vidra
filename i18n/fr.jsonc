@@ -294,10 +294,6 @@
   "fe_message": "Le moteur de téléchargement n'a pas pu se charger après une mise à jour. Veuillez redémarrer l'application.",
   "fe_restart_button": "Redémarrer l'application",
   "fe_view_logs_button": "Afficher les journaux",
-  "d_quick_settings": "Paramètres rapides",
-  "shw_overlay_denied_downloading": "Autorisation de superposition refusée, téléchargement direct",
-  "p_optional": "Facultatif",
-  "qs_title": "Paramètres rapides",
-  "qs_close": "Fermer",
-  "qs_audio": "Audio"
+  "tu_quick_settings": "Paramètres rapides",
+  "tu_quick_settings_desc": "Ouvrez ce menu pour ajuster rapidement les options de téléchargement à la volée sans quitter l'écran principal."
 }

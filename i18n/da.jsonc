@@ -299,5 +299,7 @@
   "p_optional": "Valgfri",
   "qs_title": "Hurtige indstillinger",
   "qs_close": "Tæt",
-  "qs_audio": "Lyd"
+  "qs_audio": "Lyd",
+  "tu_quick_settings_desc": "Åbn denne menu for hurtigt at justere downloadmulighederne uden at forlade hovedskærmen.",
+  "tu_quick_settings": "Hurtige indstillinger"
 }

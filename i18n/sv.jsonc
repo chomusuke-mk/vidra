@@ -299,5 +299,7 @@
   "p_optional": "Frivillig",
   "qs_close": "Nära",
   "qs_audio": "Audio",
-  "qs_title": "Snabbinställningar"
+  "qs_title": "Snabbinställningar",
+  "tu_quick_settings": "Snabbinställningar",
+  "tu_quick_settings_desc": "Öppna den här menyn för att snabbt justera nedladdningsalternativ utan att lämna huvudskärmen."
 }

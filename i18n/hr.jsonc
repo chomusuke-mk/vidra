@@ -299,5 +299,7 @@
   "p_optional": "Neobavezno",
   "qs_title": "Brze postavke",
   "qs_close": "Zatvoriti",
-  "qs_audio": "Audio"
+  "qs_audio": "Audio",
+  "tu_quick_settings": "Brze postavke",
+  "tu_quick_settings_desc": "Otvorite ovaj izbornik za brzo podešavanje opcija preuzimanja u hodu bez napuštanja glavnog zaslona."
 }

@@ -299,5 +299,7 @@
   "qs_close": "Aizvērt",
   "qs_audio": "Audio",
   "d_quick_settings": "Ātrie iestatījumi",
-  "shw_overlay_denied_downloading": "Pārklājuma atļauja liegta, lejupielāde notiek tieši"
+  "shw_overlay_denied_downloading": "Pārklājuma atļauja liegta, lejupielāde notiek tieši",
+  "tu_quick_settings": "Ātrie iestatījumi",
+  "tu_quick_settings_desc": "Atveriet šo izvēlni, lai ātri pielāgotu lejupielādes opcijas, neizejot no galvenā ekrāna."
 }

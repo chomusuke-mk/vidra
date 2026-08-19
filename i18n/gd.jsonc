@@ -299,5 +299,7 @@
   "p_optional": "Roghainneil",
   "qs_title": "Roghainnean sgiobalta",
   "qs_close": "Dùin",
-  "qs_audio": "Fuaim"
+  "qs_audio": "Fuaim",
+  "tu_quick_settings": "Roghainnean sgiobalta",
+  "tu_quick_settings_desc": "Fosgail a’ chlàr seo gus roghainnean luchdachadh sìos air an itealan atharrachadh gu sgiobalta gun a bhith a’ fàgail a’ phrìomh sgrion."
 }

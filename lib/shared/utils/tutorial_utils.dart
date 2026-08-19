@@ -14,6 +14,7 @@ class AppTutorialKeys {
   static final mainUrlBar = GlobalKey();
   static final mainFilter = GlobalKey();
   static final mainSettings = GlobalKey();
+  static final mainQuickSettings = GlobalKey();
 
   // Llaves de la pantalla de Configuración
   static final settingsTabs = GlobalKey();
@@ -99,6 +100,23 @@ class TutorialUtils {
             builder: (context, controller) => _TutorialText(
               title: locale.tuPPSettings,
               description: locale.tuPPSettingsDesc,
+              controller: controller,
+              nextKey: AppTutorialKeys.mainQuickSettings,
+            ),
+          ),
+        ],
+      ),
+      TargetFocus(
+        identify: "main_quick_settings",
+        keyTarget: AppTutorialKeys.mainQuickSettings,
+        alignSkip: Alignment.topLeft,
+        shape: ShapeLightFocus.Circle,
+        contents: [
+          TargetContent(
+            align: ContentAlign.top,
+            builder: (context, controller) => _TutorialText(
+              title: locale.tuPPQuickSettings,
+              description: locale.tuPPQuickSettingsDesc,
               controller: controller,
               isLast: true,
             ),

@@ -299,5 +299,7 @@
   "qs_audio": "Ororongo",
   "d_quick_settings": "Tautuhinga Tere",
   "shw_overlay_denied_downloading": "Kua whakakorehia te whakaaetanga whakakikorua, e tika ana te tango",
-  "qs_title": "Tautuhinga Tere"
+  "qs_title": "Tautuhinga Tere",
+  "tu_quick_settings": "Tautuhinga Tere",
+  "tu_quick_settings_desc": "Whakatuwherahia tenei tahua kia tere te whakatika i nga whiringa tango i runga i te rere me te kore e waiho i te mata matua."
 }

@@ -299,5 +299,7 @@
   "p_optional": "Ongakukhetha",
   "qs_title": "Izilungiselelo Ezisheshayo",
   "qs_close": "Vala",
-  "qs_audio": "Umsindo"
+  "qs_audio": "Umsindo",
+  "tu_quick_settings_desc": "Vula le menyu ukuze ulungise ngokushesha izinketho zokulanda kundiza ngaphandle kokushiya isikrini esikhulu.",
+  "tu_quick_settings": "Izilungiselelo Ezisheshayo"
 }

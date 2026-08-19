@@ -19,6 +19,7 @@ import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/features/system/domain/system_state.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
 import 'package:vidra/features/updates/presentation/update_controller.dart';
+import 'package:vidra/shared/utils/tutorial_utils.dart';
 
 class MockLocaleRepository extends LocaleRepository {
   final Map<String, Map<String, String>> _storage = {};
@@ -277,9 +278,11 @@ void main() {
 
         final FloatingActionButton qsFab =
             tester.widget(quickSettingsFabFinder);
+        expect(qsFab.key, equals(AppTutorialKeys.mainQuickSettings));
         expect(qsFab.heroTag, equals('quick_settings_fab'));
         expect(qsFab.tooltip, equals('Quick Settings'));
         expect(find.byIcon(Icons.construction_outlined), findsOneWidget);
+        expect(find.byKey(AppTutorialKeys.mainQuickSettings), findsOneWidget);
 
         // 4. Verify Download FAB properties
         final downloadFabFinder = find.byWidgetPredicate(

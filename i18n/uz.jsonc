@@ -299,5 +299,7 @@
   "p_optional": "Ixtiyoriy",
   "qs_title": "Tezkor sozlamalar",
   "qs_close": "Yopish",
-  "qs_audio": "Audio"
+  "qs_audio": "Audio",
+  "tu_quick_settings": "Tezkor sozlamalar",
+  "tu_quick_settings_desc": "Asosiy ekrandan chiqmasdan tezda yuklab olish opsiyalarini sozlash uchun ushbu menyuni oching."
 }

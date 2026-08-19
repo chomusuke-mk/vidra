@@ -299,5 +299,7 @@
   "p_optional": "Választható",
   "qs_title": "Gyorsbeállítások",
   "qs_close": "Közeli",
-  "qs_audio": "Hang"
+  "qs_audio": "Hang",
+  "tu_quick_settings": "Gyorsbeállítások",
+  "tu_quick_settings_desc": "Nyissa meg ezt a menüt a letöltési beállítások gyors beállításához menet közben, anélkül, hogy elhagyná a főképernyőt."
 }

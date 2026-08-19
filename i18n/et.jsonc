@@ -299,5 +299,7 @@
   "p_optional": "Valikuline",
   "qs_title": "Kiirseaded",
   "qs_close": "Sule",
-  "qs_audio": "Heli"
+  "qs_audio": "Heli",
+  "tu_quick_settings": "Kiirseaded",
+  "tu_quick_settings_desc": "Avage see menüü, et kiiresti kohandada allalaadimisvalikuid ilma põhiekraanilt lahkumata."
 }

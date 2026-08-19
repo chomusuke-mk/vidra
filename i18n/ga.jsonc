@@ -299,5 +299,7 @@
   "p_optional": "Roghnach",
   "qs_title": "Socruithe Tapa",
   "qs_close": "Dún",
-  "qs_audio": "Fuaime"
+  "qs_audio": "Fuaime",
+  "tu_quick_settings": "Socruithe Tapa",
+  "tu_quick_settings_desc": "Oscail an roghchlár seo chun roghanna íoslódála a choigeartú go tapa ar an eitilt gan an príomhscáileán a fhágáil."
 }

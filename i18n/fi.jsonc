@@ -299,5 +299,7 @@
   "p_optional": "Valinnainen",
   "qs_title": "Pika-asetukset",
   "qs_close": "Lähellä",
-  "qs_audio": "Audio"
+  "qs_audio": "Audio",
+  "tu_quick_settings": "Pika-asetukset",
+  "tu_quick_settings_desc": "Avaa tämä valikko säätääksesi latausasetuksia nopeasti poistumatta päänäytöstä."
 }

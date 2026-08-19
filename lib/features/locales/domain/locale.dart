@@ -183,6 +183,10 @@ class AppStringKey {
   String get tuPPFiltersDesc => _cadenasLocalizadas['tu_filters_desc'] ?? '';
   String get tuPPSettings => _cadenasLocalizadas['tu_settings'] ?? '';
   String get tuPPSettingsDesc => _cadenasLocalizadas['tu_settings_desc'] ?? '';
+  String get tuPPQuickSettings =>
+      _cadenasLocalizadas['tu_quick_settings'] ?? '';
+  String get tuPPQuickSettingsDesc =>
+      _cadenasLocalizadas['tu_quick_settings_desc'] ?? '';
   // Pantalla Settings
   String get tuPSCategories =>
       _cadenasLocalizadas['tu_settings_categories'] ?? '';
@@ -609,6 +613,8 @@ class AppStringKey {
     'tu_filters_desc',
     'tu_settings',
     'tu_settings_desc',
+    'tu_quick_settings',
+    'tu_quick_settings_desc',
     // Pantalla Settings
     'tu_settings_categories',
     'tu_settings_categories_desc',

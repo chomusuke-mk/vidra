@@ -299,5 +299,7 @@
   "qs_close": "Uždaryti",
   "p_optional": "Neprivaloma",
   "qs_title": "Greiti nustatymai",
-  "qs_audio": "Garsas"
+  "qs_audio": "Garsas",
+  "tu_quick_settings": "Greiti nustatymai",
+  "tu_quick_settings_desc": "Atidarykite šį meniu, jei norite greitai koreguoti atsisiuntimo parinktis neišeidami iš pagrindinio ekrano."
 }

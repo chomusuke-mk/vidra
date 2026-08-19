@@ -299,5 +299,7 @@
   "p_optional": "Neobvezno",
   "qs_title": "Hitre nastavitve",
   "qs_close": "Zapri",
-  "qs_audio": "Avdio"
+  "qs_audio": "Avdio",
+  "tu_quick_settings": "Hitre nastavitve",
+  "tu_quick_settings_desc": "Odprite ta meni za hitro prilagoditev možnosti prenosa na letenje, ne da bi zapustili glavni zaslon."
 }

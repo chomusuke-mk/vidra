@@ -299,5 +299,7 @@
   "p_optional": "Opciono",
   "qs_title": "Brza podešavanja",
   "qs_close": "Zatvori",
-  "qs_audio": "Audio"
+  "qs_audio": "Audio",
+  "tu_quick_settings": "Brza podešavanja",
+  "tu_quick_settings_desc": "Otvorite ovaj meni da brzo prilagodite opcije preuzimanja u hodu bez napuštanja glavnog ekrana."
 }

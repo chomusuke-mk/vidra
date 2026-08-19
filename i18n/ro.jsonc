@@ -299,5 +299,7 @@
   "p_optional": "Opțional",
   "qs_title": "Setări rapide",
   "qs_close": "Aproape",
-  "qs_audio": "Audio"
+  "qs_audio": "Audio",
+  "tu_quick_settings": "Setări rapide",
+  "tu_quick_settings_desc": "Deschideți acest meniu pentru a ajusta rapid opțiunile de descărcare din mers, fără a părăsi ecranul principal."
 }

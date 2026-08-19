@@ -299,5 +299,7 @@
   "qs_title": "Configuració ràpida",
   "qs_close": "Tancar",
   "qs_audio": "Àudio",
-  "p_optional": "Opcional"
+  "p_optional": "Opcional",
+  "tu_quick_settings_desc": "Obriu aquest menú per ajustar ràpidament les opcions de baixada sobre la marxa sense sortir de la pantalla principal.",
+  "tu_quick_settings": "Configuració ràpida"
 }

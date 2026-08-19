@@ -41,6 +41,8 @@ void main() {
         'qs_audio',
         'shw_overlay_denied_downloading',
         'p_optional',
+        'tu_quick_settings',
+        'tu_quick_settings_desc',
       ];
 
       for (final key in requiredNewKeys) {
@@ -87,6 +89,13 @@ void main() {
         equals('Overlay permission denied, downloading directly'),
       );
       expect(enMap['p_optional'], equals('Optional'));
+      expect(enMap['tu_quick_settings'], equals('Quick Settings'));
+      expect(
+        enMap['tu_quick_settings_desc'],
+        equals(
+          'Open this menu to quickly adjust download options on the fly without leaving the main screen.',
+        ),
+      );
 
       expect(esMap['d_quick_settings'], equals('Configuración rápida'));
       expect(esMap['qs_title'], equals('Configuración Rápida'));
@@ -97,6 +106,13 @@ void main() {
         equals('Permiso de superposición denegado, descargando directamente'),
       );
       expect(esMap['p_optional'], equals('Opcional'));
+      expect(esMap['tu_quick_settings'], equals('Configuración rápida'));
+      expect(
+        esMap['tu_quick_settings_desc'],
+        equals(
+          'Abra este menú para ajustar rápidamente las opciones de descarga al instante sin salir de la pantalla principal.',
+        ),
+      );
     });
 
     test('2. AppStringKey Getters resolve new keys accurately in English and Spanish', () async {
@@ -113,6 +129,13 @@ void main() {
         equals('Overlay permission denied, downloading directly'),
       );
       expect(enStrings.pOptional, equals('Optional'));
+      expect(enStrings.tuPPQuickSettings, equals('Quick Settings'));
+      expect(
+        enStrings.tuPPQuickSettingsDesc,
+        equals(
+          'Open this menu to quickly adjust download options on the fly without leaving the main screen.',
+        ),
+      );
 
       // Spanish resolution (overlaying on top of base or direct)
       final esStrings = AppStringKey();
@@ -128,6 +151,13 @@ void main() {
         equals('Permiso de superposición denegado, descargando directamente'),
       );
       expect(esStrings.pOptional, equals('Opcional'));
+      expect(esStrings.tuPPQuickSettings, equals('Configuración rápida'));
+      expect(
+        esStrings.tuPPQuickSettingsDesc,
+        equals(
+          'Abra este menú para ajustar rápidamente las opciones de descarga al instante sin salir de la pantalla principal.',
+        ),
+      );
     });
 
     test('3. updateFromJson with assertAllKeysPresent: true passes cleanly on en.jsonc', () async {
@@ -146,6 +176,8 @@ void main() {
         'qs_audio',
         'd_title',
         'fe_title',
+        'tu_quick_settings',
+        'tu_quick_settings_desc',
       ];
 
       for (final missingKey in keysToTest) {
@@ -175,6 +207,8 @@ void main() {
       expect(freshStrings.qsTitle, equals(''));
       expect(freshStrings.qsClose, equals(''));
       expect(freshStrings.qsAudio, equals(''));
+      expect(freshStrings.tuPPQuickSettings, equals(''));
+      expect(freshStrings.tuPPQuickSettingsDesc, equals(''));
     });
 
     test('6. Full Key Parity Verification across all keys and registry integrity', () {
