@@ -558,7 +558,7 @@ void main() {
     ) async {
       ShareIntentWrapperState.debugOverrideIsAndroid = true;
 
-      // Mock x-slayer/overlay_channel to throw PlatformException
+      // Mock x-slayer/overlay_channel to throw PlatformException on checkPermission
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(
         const MethodChannel('x-slayer/overlay_channel'),
@@ -576,6 +576,7 @@ void main() {
       final state = tester.state<ShareIntentWrapperState>(
         find.byType(ShareIntentWrapper),
       );
+      state.resumeTimeout = const Duration(milliseconds: 50);
 
       await tester.runAsync(
         () => state.processIntentForTesting('https://www.youtube.com/watch?v=channel_exception'),

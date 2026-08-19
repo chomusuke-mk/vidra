@@ -396,4 +396,46 @@ void main() {
       expect(fakeSystemCtrl.resumeInitializationCalled, isTrue);
     });
   });
+
+  group('PermissionsScreen - Responsive Layout (Width < 600 vs Width >= 600)', () {
+    testWidgets('Renders vertical mobile layout when width < 600', (tester) async {
+      tester.view.physicalSize = const Size(480, 800);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(() => tester.view.resetPhysicalSize());
+
+      await tester.pumpWidget(createTestWidget());
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 50));
+
+      // In mobile layout, no VerticalDivider is present
+      expect(find.byType(VerticalDivider), findsNothing);
+
+      // Title, icon, and permissions list are rendered
+      expect(find.text('Permissions'), findsOneWidget);
+      expect(find.byIcon(Icons.security), findsOneWidget);
+      expect(find.byType(ListView), findsOneWidget);
+      expect(find.byType(FilledButton), findsOneWidget);
+    });
+
+    testWidgets('Renders two-column split layout when width >= 600 with header on left and scroll on right', (tester) async {
+      tester.view.physicalSize = const Size(1024, 768);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(() => tester.view.resetPhysicalSize());
+
+      await tester.pumpWidget(createTestWidget());
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 50));
+
+      // In wide layout, VerticalDivider separates left and right panels
+      expect(find.byType(VerticalDivider), findsOneWidget);
+
+      // Header is present on the left
+      expect(find.text('Permissions'), findsOneWidget);
+      expect(find.byIcon(Icons.security), findsOneWidget);
+
+      // Permissions list is present on the right
+      expect(find.byType(ListView), findsOneWidget);
+      expect(find.byType(FilledButton), findsOneWidget);
+    });
+  });
 }

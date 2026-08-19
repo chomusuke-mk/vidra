@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_screen_overlay/flutter_screen_overlay.dart';
+import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
 
@@ -135,107 +136,170 @@ class _PermissionsScreenState extends State<PermissionsScreen>
       body: SafeArea(
         child: _isChecking
             ? const Center(child: CircularProgressIndicator())
-            : Padding(
-                padding: const EdgeInsets.all(24.0),
+            : LayoutBuilder(
+                builder: (context, constraints) {
+                  final isShort = constraints.maxWidth < 600;
+                  if (isShort) {
+                    return _buildMobileLayout(locale);
+                  } else {
+                    return _buildWideLayout(locale);
+                  }
+                },
+              ),
+      ),
+    );
+  }
+
+  Widget _buildMobileLayout(AppStringKey locale) {
+    return Padding(
+      padding: const EdgeInsets.all(24.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Icon(Icons.security, size: 64, color: Colors.blue),
+          const SizedBox(height: 16),
+          Text(
+            locale.pTitle,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            locale.pDescription,
+            textAlign: TextAlign.center,
+            style: const TextStyle(color: Colors.grey),
+          ),
+          const SizedBox(height: 32),
+          Expanded(child: _buildPermissionsList(locale)),
+          const SizedBox(height: 16),
+          _buildContinueButton(locale),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildWideLayout(AppStringKey locale) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 24.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          // IZQUIERDA: Imagen + Descripción + Botón Continuar
+          Expanded(
+            flex: 4,
+            child: Center(
+              child: SingleChildScrollView(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Icon(Icons.security, size: 64, color: Colors.blue),
-                    const SizedBox(height: 16),
+                    const Icon(Icons.security, size: 40, color: Colors.blue),
+                    const SizedBox(width: 20),
                     Text(
                       locale.pTitle,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 24,
+                      style: const TextStyle(
+                        fontSize: 28,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 12),
                     Text(
                       locale.pDescription,
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.grey),
+                      style: const TextStyle(color: Colors.grey, fontSize: 14),
                     ),
                     const SizedBox(height: 32),
-
-                    Expanded(
-                      child: ListView(
-                        children: [
-                          _buildPermissionTile(
-                            title: locale.pStorage,
-                            subtitle: locale.pStorageDesc,
-                            icon: Icons.folder_special,
-                            isGranted: _storageGranted,
-                            onRequest: _requestStorage,
-                            grantedText: locale.pButtonGrant,
-                          ),
-                          const SizedBox(height: 12),
-                          _buildPermissionTile(
-                            title: locale.pOverlay,
-                            subtitle: locale.pOverlayDesc,
-                            icon: Icons.layers,
-                            isGranted: _overlayGranted,
-                            onRequest: _requestOverlay,
-                            grantedText: locale.pButtonGrant,
-                            isOptional: true,
-                            optionalText: locale.pOptional,
-                          ),
-                          const SizedBox(height: 12),
-                          _buildPermissionTile(
-                            title: locale.pBattery,
-                            subtitle: locale.pBatteryDesc,
-                            icon: Icons.battery_saver,
-                            isGranted: _batteryOptimizationGranted,
-                            onRequest: _requestBatteryOptimization,
-                            grantedText: locale.pButtonGrant,
-                          ),
-                          const SizedBox(height: 12),
-                          if (_androidSdkVersion >= 33) ...[
-                            _buildPermissionTile(
-                              title: locale.pNotification,
-                              subtitle: locale.pNotificationDesc,
-                              icon: Icons.notifications_active,
-                              isGranted: _notifGranted,
-                              onRequest: _requestNotifications,
-                              grantedText: locale.pButtonGrant,
-                            ),
-                            const SizedBox(height: 12),
-                          ],
-                          _buildPermissionTile(
-                            title: locale.pInstall,
-                            subtitle: locale.pInstallDesc,
-                            icon: Icons.system_update,
-                            isGranted: _installGranted,
-                            onRequest: _requestInstallPackages,
-                            grantedText: locale.pButtonGrant,
-                            isOptional: true,
-                            optionalText: locale.pOptional,
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    // BOTÓN CONTINUAR
-                    FilledButton(
-                      onPressed: _allMandatoryGranted
-                          ? () {
-                              // ¡Todos los permisos listos! Le decimos al cerebro que continúe arrancando
-                              context
-                                  .read<SystemController>()
-                                  .resumeInitialization();
-                            }
-                          : null, // Deshabilitado si falta algún permiso obligatorio
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 16.0),
-                        child: Text(
-                          locale.pButtonContinue,
-                          style: TextStyle(fontSize: 16),
-                        ),
-                      ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: _buildContinueButton(locale),
                     ),
                   ],
                 ),
               ),
+            ),
+          ),
+          const SizedBox(width: 32),
+          const VerticalDivider(width: 1, thickness: 1),
+          const SizedBox(width: 32),
+          // DERECHA: Scroll con los permisos
+          Expanded(flex: 5, child: _buildPermissionsList(locale)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPermissionsList(AppStringKey locale) {
+    return ListView(
+      children: [
+        _buildPermissionTile(
+          title: locale.pStorage,
+          subtitle: locale.pStorageDesc,
+          icon: Icons.folder_special,
+          isGranted: _storageGranted,
+          onRequest: _requestStorage,
+          grantedText: locale.pButtonGrant,
+        ),
+        const SizedBox(height: 12),
+        _buildPermissionTile(
+          title: locale.pOverlay,
+          subtitle: locale.pOverlayDesc,
+          icon: Icons.layers,
+          isGranted: _overlayGranted,
+          onRequest: _requestOverlay,
+          grantedText: locale.pButtonGrant,
+          isOptional: true,
+          optionalText: locale.pOptional,
+        ),
+        const SizedBox(height: 12),
+        _buildPermissionTile(
+          title: locale.pBattery,
+          subtitle: locale.pBatteryDesc,
+          icon: Icons.battery_saver,
+          isGranted: _batteryOptimizationGranted,
+          onRequest: _requestBatteryOptimization,
+          grantedText: locale.pButtonGrant,
+        ),
+        const SizedBox(height: 12),
+        if (_androidSdkVersion >= 33) ...[
+          _buildPermissionTile(
+            title: locale.pNotification,
+            subtitle: locale.pNotificationDesc,
+            icon: Icons.notifications_active,
+            isGranted: _notifGranted,
+            onRequest: _requestNotifications,
+            grantedText: locale.pButtonGrant,
+          ),
+          const SizedBox(height: 12),
+        ],
+        _buildPermissionTile(
+          title: locale.pInstall,
+          subtitle: locale.pInstallDesc,
+          icon: Icons.system_update,
+          isGranted: _installGranted,
+          onRequest: _requestInstallPackages,
+          grantedText: locale.pButtonGrant,
+          isOptional: true,
+          optionalText: locale.pOptional,
+        ),
+      ],
+    );
+  }
+
+  Widget _buildContinueButton(AppStringKey locale) {
+    return FilledButton(
+      onPressed: _allMandatoryGranted
+          ? () {
+              // ¡Todos los permisos listos! Le decimos al cerebro que continúe arrancando
+              context.read<SystemController>().resumeInitialization();
+            }
+          : null, // Deshabilitado si falta algún permiso obligatorio
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16.0),
+        child: Text(
+          locale.pButtonContinue,
+          style: const TextStyle(fontSize: 16),
+        ),
       ),
     );
   }

@@ -11,6 +11,7 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 - **Android | Overlay permission Optional:** The overlay permission is now optional on Android, allowing users to choose whether to enable it based on their preferences and needs.
 - **Bug Fix:** Pause/Cancel now are instantly applied to all entries in the queue, ensuring a more responsive and user-friendly experience when managing downloads.
 - **yt-dlp:** Now app uses nightly version of yt-dlp by default, ensuring users have access to the latest features and improvements. The stable version can still be used if preferred.
+- **Permissions:** Additional horizontal layout for permissions dialog on Android, improving the user experience when managing app permissions.
 
 ## [3.0.0] - Major Release
 
