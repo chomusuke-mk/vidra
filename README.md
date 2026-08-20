@@ -32,7 +32,7 @@
 </p>
 
 > **The uncompromised power of yt-dlp, accessible to everyone.**  
-> While other mobile and desktop projects rely on limited wrapper packages or imitations that restrict functionality, Vidra embeds the **original** `yt-dlp` engine. This brings its complete, raw feature set and advanced configuration capabilities directly to Android, Windows, and Linux—all wrapped in a beautifully designed, user-friendly interface.
+> While other mobile and desktop projects rely on limited wrapper packages or imitations that restrict functionality, Vidra embeds the **original** [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) engine. This brings its complete, raw feature set and advanced configuration capabilities directly to Android, Windows, and Linux—all wrapped in a beautifully designed, user-friendly interface.
 
 ## 📖 Table of Contents
 
@@ -52,7 +52,7 @@
 
 ## ✨ Key Features & Insights
 
-- 🔄 **Always Up-to-Date (OTA):** Built-in Over-The-Air updates ensure your core engines (`yt-dlp` and `yt-dlp-ejs`, including beta channels) are always running the latest versions, fetched directly from their official repositories.
+- 🔄 **Always Up-to-Date (OTA):** Built-in Over-The-Air updates ensure your core engines ([`yt-dlp`](https://github.com/yt-dlp/yt-dlp) and [`yt-dlp-ejs`](https://github.com/yt-dlp/ejs), including beta channels) are always running the latest versions, fetched directly from their official repositories.
 - 🛡️ **Zero Telemetry:** Vidra is completely offline-first and private. It collects absolutely no personal data, telemetry, or usage metrics.
 - 🔐 **Cryptographically Verified:** All binaries and OTA updates are downloaded from official sources and strictly verified using cryptographic signatures for maximum security.
 - 🎨 **Modern and Scalable Client:** Built in Flutter under Clean Architecture principles, with full support for themes (light/dark) and internationalization.
