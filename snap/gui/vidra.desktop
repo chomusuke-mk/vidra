@@ -6,5 +6,6 @@ Icon=${SNAP}/meta/gui/vidra.png
 Type=Application
 Terminal=false
 StartupNotify=true
+StartupWMClass=dev.chomusuke.vidra
 Categories=Network;Utility;
 Keywords=Vidra;yt-dlp;Download;

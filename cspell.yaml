@@ -231,6 +231,7 @@ words:
   - pinentry
   - pkcs
   - podspec
+  - postuninstall
   - precargando
   - precompiladas
   - precompilados

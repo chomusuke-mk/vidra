@@ -14,6 +14,12 @@ icon: assets/icon/icon.png
 postinstall_scripts:
   - mkdir -p /etc/apt/keyrings
   - if wget --quiet --timeout=5 --tries=2 -O /etc/apt/keyrings/chomusuke.asc https://apt.chomusuke.dev/public.key; then echo "deb [signed-by=/etc/apt/keyrings/chomusuke.asc] https://apt.chomusuke.dev/ stable main" > /etc/apt/sources.list.d/chomusuke.list; else rm -f /etc/apt/keyrings/chomusuke.asc; fi || true
+  - gtk-update-icon-cache -q -t -f /usr/share/icons/hicolor || true
+  - update-desktop-database -q /usr/share/applications || true
+
+postuninstall_scripts:
+  - gtk-update-icon-cache -q -t -f /usr/share/icons/hicolor || true
+  - update-desktop-database -q /usr/share/applications || true
 
 description: |
   Vidra is an advanced video and task manager for the Linux desktop.
@@ -37,4 +43,5 @@ categories:
   - AudioVideo
 
 startup_notify: true
+startup_wm_class: dev.chomusuke.vidra
 metainfo: linux/packaging/dev.chomusuke.vidra.appdata.xml
