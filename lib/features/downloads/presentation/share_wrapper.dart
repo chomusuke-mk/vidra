@@ -109,7 +109,9 @@ class ShareIntentWrapperState extends State<ShareIntentWrapper>
         try {
           isGranted = await FlutterScreenOverlay.isPermissionGranted();
           if (!isGranted) {
-            unawaited(FlutterScreenOverlay.requestPermission());
+            unawaited(
+              FlutterScreenOverlay.requestPermission().catchError((_) => false),
+            );
             debugPrint(
               '⏳ Esperando que el usuario regrese a la app para continuar...',
             );

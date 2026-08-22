@@ -3,17 +3,56 @@ import 'package:provider/provider.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/system/domain/system_state.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
+import 'package:vidra/features/system/presentation/widgets/system_status_update_bubble.dart';
 import 'package:vidra/features/updates/presentation/update_controller.dart';
+import 'package:vidra/shared/utils/tutorial_utils.dart';
 import 'system_details_screen.dart';
 
-class SystemStatusIndicator extends StatelessWidget {
+class SystemStatusIndicator extends StatefulWidget {
   const SystemStatusIndicator({super.key});
+
+  @override
+  State<SystemStatusIndicator> createState() => _SystemStatusIndicatorState();
+}
+
+class _SystemStatusIndicatorState extends State<SystemStatusIndicator> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _checkAndShowUpdateBubble();
+    });
+  }
+
+  void _checkAndShowUpdateBubble() {
+    if (!mounted) return;
+    final updateCtrl = context.read<UpdateController>();
+    if (updateCtrl.hasAvailableUpdates &&
+        !updateCtrl.hasShownSessionUpdateBubble) {
+      updateCtrl.markSessionUpdateBubbleShown();
+      Future.delayed(const Duration(milliseconds: 500), () {
+        if (mounted) {
+          SystemStatusUpdateBubble.show(
+            context,
+            AppTutorialKeys.mainSystemStatus,
+          );
+        }
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final state = context.watch<SystemController>().state;
     final updateCtrl = context.watch<UpdateController>();
     final locale = context.watch<LocaleController>().localeStrings;
+
+    if (updateCtrl.hasAvailableUpdates &&
+        !updateCtrl.hasShownSessionUpdateBubble) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _checkAndShowUpdateBubble();
+      });
+    }
 
     Color color;
     IconData icon;
@@ -72,6 +111,7 @@ class SystemStatusIndicator extends StatelessWidget {
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
       onPressed: () {
+        SystemStatusUpdateBubble.hide();
         showModalBottomSheet(
           context: context,
           isScrollControlled: true,
@@ -82,3 +122,4 @@ class SystemStatusIndicator extends StatelessWidget {
     );
   }
 }
+

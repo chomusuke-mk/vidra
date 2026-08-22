@@ -301,5 +301,21 @@
   "fe_title": "Error fatal del sistema",
   "fe_message": "El motor de descargas no pudo cargarse tras la actualización. Por favor, reinicia la aplicación.",
   "fe_restart_button": "Reiniciar aplicación",
-  "fe_view_logs_button": "Ver registros"
+  "fe_view_logs_button": "Ver registros",
+  "d_engine_downloading": "Descargando motor de descargas...",
+  "d_engine_downloading_desc": "Descargando módulos principales requeridos (yt-dlp y yt-dlp-ejs). Por favor, espere...",
+  "d_downloading_engine_progress": "Descargando módulos principales ({received}/{total})...",
+  "d_downloading_engine_error": "Error al descargar módulos del motor. Revisa tu conexión a internet.",
+  "sd_linux_deb_title": "Actualizar Vidra (Paquete DEB)",
+  "sd_linux_deb_msg": "El repositorio de Vidra está configurado. Ejecuta el siguiente comando en la terminal para actualizar:",
+  "sd_linux_appimage_title": "Actualizar Vidra (AppImage)",
+  "sd_linux_appimage_msg": "Usa appimageupdatetool o descarga la versión más reciente de AppImage desde GitHub:",
+  "sd_linux_snap_title": "Actualizar Vidra (Snap)",
+  "sd_linux_snap_msg": "Abriendo Snap Store para actualizar Vidra...",
+  "sd_copy_command": "Copiar comando",
+  "sd_command_copied": "Comando copiado al portapapeles",
+  "ssi_bubble_title": "Actualización disponible",
+  "ssi_bubble_message": "Hay actualizaciones disponibles para los componentes de Vidra. Toca Ver para revisarlas e instalarlas.",
+  "ssi_bubble_button_show": "Ver",
+  "ssi_bubble_button_dismiss": "Descartar"
 }

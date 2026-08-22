@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 enum ComponentType { app, ytDlp, ytDlpEjs }
 
 enum UpdateChannel { stable, nightly }
@@ -21,4 +23,33 @@ class UpdateInfo {
 
   /// Determina si este componente requiere (y soporta) validación estricta PGP
   bool get requiresPgpValidation => sumsUrl != null && sigUrl != null;
+
+  Map<String, dynamic> toJson() => {
+        'version': version,
+        'downloadUrl': downloadUrl,
+        'sumsUrl': sumsUrl,
+        'sigUrl': sigUrl,
+        'changelog': changelog,
+        'type': type.name,
+      };
+
+  factory UpdateInfo.fromJson(Map<String, dynamic> json) {
+    return UpdateInfo(
+      version: json['version'] as String? ?? '',
+      downloadUrl: json['downloadUrl'] as String? ?? '',
+      sumsUrl: json['sumsUrl'] as String?,
+      sigUrl: json['sigUrl'] as String?,
+      changelog: json['changelog'] as String? ?? '',
+      type: ComponentType.values.firstWhere(
+        (e) => e.name == json['type'],
+        orElse: () => ComponentType.app,
+      ),
+    );
+  }
+
+  String toJsonString() => jsonEncode(toJson());
+
+  factory UpdateInfo.fromJsonString(String raw) =>
+      UpdateInfo.fromJson(jsonDecode(raw) as Map<String, dynamic>);
 }
+

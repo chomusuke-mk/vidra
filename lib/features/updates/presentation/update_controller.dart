@@ -6,6 +6,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:open_filex/open_filex.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:vidra/features/updates/domain/update_info.dart';
 import 'package:vidra/core/network/github_client.dart';
@@ -13,6 +14,8 @@ import 'package:vidra/core/security/pgp_verifier.dart';
 import 'package:vidra/core/security/public_keys.dart';
 import 'package:vidra/core/utils/archive_extractor.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
+import 'package:vidra/features/updates/presentation/widgets/linux_deb_update_dialog.dart';
+import 'package:vidra/features/updates/presentation/widgets/linux_appimage_update_dialog.dart';
 
 enum ComponentStatus {
   upToDate,
@@ -23,6 +26,8 @@ enum ComponentStatus {
   installing,
   error,
 }
+
+enum LinuxPackageType { deb, appImage, snap, unknown }
 
 class UpdateState {
   final ComponentStatus status;
@@ -43,6 +48,22 @@ class UpdateController extends ChangeNotifier {
   final SystemController _system;
   final SharedPreferences _prefs;
 
+  static const int checkIntervalMs = 6 * 60 * 60 * 1000; // 6 hours
+
+  bool _isAutoDownloadingMissing = false;
+  bool get isAutoDownloadingMissing => _isAutoDownloadingMissing;
+
+  double _missingModulesProgress = 0.0;
+  double get missingModulesProgress => _missingModulesProgress;
+
+  bool _hasShownSessionUpdateBubble = false;
+  bool get hasShownSessionUpdateBubble => _hasShownSessionUpdateBubble;
+
+  void markSessionUpdateBubbleShown() {
+    _hasShownSessionUpdateBubble = true;
+    notifyListeners();
+  }
+
   final Map<ComponentType, UpdateState> _states = {
     ComponentType.app: UpdateState(
       status: ComponentStatus.upToDate,
@@ -60,18 +81,59 @@ class UpdateController extends ChangeNotifier {
 
   UpdateState getState(ComponentType type) => _states[type]!;
 
+  static String _lastCheckKey(ComponentType type) {
+    switch (type) {
+      case ComponentType.app:
+        return 'last_update_check_app';
+      case ComponentType.ytDlp:
+        return 'last_update_check_yt_dlp';
+      case ComponentType.ytDlpEjs:
+        return 'last_update_check_yt_dlp_ejs';
+    }
+  }
+
+  static String _discoveredVersionKey(ComponentType type) {
+    switch (type) {
+      case ComponentType.app:
+        return 'discovered_version_app';
+      case ComponentType.ytDlp:
+        return 'discovered_version_yt_dlp';
+      case ComponentType.ytDlpEjs:
+        return 'discovered_version_yt_dlp_ejs';
+    }
+  }
+
+  static String _discoveredInfoKey(ComponentType type) {
+    switch (type) {
+      case ComponentType.app:
+        return 'discovered_info_app';
+      case ComponentType.ytDlp:
+        return 'discovered_info_yt_dlp';
+      case ComponentType.ytDlpEjs:
+        return 'discovered_info_yt_dlp_ejs';
+    }
+  }
+
+  static String _versionKey(ComponentType type) {
+    switch (type) {
+      case ComponentType.app:
+        return 'version_app';
+      case ComponentType.ytDlp:
+        return 'version_yt_dlp';
+      case ComponentType.ytDlpEjs:
+        return 'version_yt_dlp_ejs';
+    }
+  }
+
   bool get hasPendingChecks {
     final now = DateTime.now().millisecondsSinceEpoch;
-    final appLast = _prefs.getInt('last_update_check_app') ?? 0;
-    final ytdlpLast = _prefs.getInt('last_update_check_yt_dlp') ?? 0;
-    final ejsLast = _prefs.getInt('last_update_check_yt_dlp_ejs') ?? 0;
+    final appLast = _prefs.getInt(_lastCheckKey(ComponentType.app)) ?? 0;
+    final ytdlpLast = _prefs.getInt(_lastCheckKey(ComponentType.ytDlp)) ?? 0;
+    final ejsLast = _prefs.getInt(_lastCheckKey(ComponentType.ytDlpEjs)) ?? 0;
 
-    final sixHours = const Duration(hours: 6).inMilliseconds;
-    final twelveHours = const Duration(hours: 12).inMilliseconds;
-
-    return (now - appLast > sixHours) ||
-        (now - ytdlpLast > sixHours) ||
-        (now - ejsLast > twelveHours);
+    return (now - appLast > checkIntervalMs) ||
+        (now - ytdlpLast > checkIntervalMs) ||
+        (now - ejsLast > checkIntervalMs);
   }
 
   bool get hasAvailableUpdates =>
@@ -87,36 +149,128 @@ class UpdateController extends ChangeNotifier {
   Future<void> _init() async {
     await _loadLocalVersions();
 
+    // Check for missing core modules on first launch / wiped storage
+    final isYtDlpInstalled = await _isComponentInstalled(ComponentType.ytDlp);
+    final isEjsInstalled = await _isComponentInstalled(ComponentType.ytDlpEjs);
+
+    if (!isYtDlpInstalled || !isEjsInstalled) {
+      await _autoDownloadMissingModules(
+        missingYtDlp: !isYtDlpInstalled,
+        missingEjs: !isEjsInstalled,
+      );
+    }
+
+    // Now process normal update interval checks / cache rehydration
     final now = DateTime.now().millisecondsSinceEpoch;
-    final appLast = _prefs.getInt('last_update_check_app') ?? 0;
-    final ytdlpLast = _prefs.getInt('last_update_check_yt_dlp') ?? 0;
-    final ejsLast = _prefs.getInt('last_update_check_yt_dlp_ejs') ?? 0;
+    for (final type in ComponentType.values) {
+      final lastCheck = _prefs.getInt(_lastCheckKey(type)) ?? 0;
+      final elapsed = now - lastCheck;
 
-    final sixHours = const Duration(hours: 6).inMilliseconds;
-    final twelveHours = const Duration(hours: 12).inMilliseconds;
+      if (elapsed < checkIntervalMs) {
+        // Cache rehydration without network calls
+        _rehydrateCachedDiscovery(type);
+      } else {
+        // Check for updates without auto-downloading regular updates
+        await checkForUpdates(manualCall: false, specificType: type);
+      }
+    }
+  }
 
-    bool checkApp = now - appLast > sixHours;
-    bool checkYtdlp =
-        (now - ytdlpLast > sixHours) ||
-        !(await _isComponentInstalled(ComponentType.ytDlp));
-    bool checkEjs =
-        (now - ejsLast > twelveHours) ||
-        !(await _isComponentInstalled(ComponentType.ytDlpEjs));
+  void _rehydrateCachedDiscovery(ComponentType type) {
+    final cachedInfoRaw = _prefs.getString(_discoveredInfoKey(type));
+    if (cachedInfoRaw != null && cachedInfoRaw.isNotEmpty) {
+      try {
+        final cachedInfo = UpdateInfo.fromJsonString(cachedInfoRaw);
+        final currentVersion = _states[type]?.version ?? '';
+        if (cachedInfo.version.isNotEmpty && cachedInfo.version != currentVersion) {
+          _setState(
+            type,
+            ComponentStatus.updateAvailable,
+            pendingUpdate: cachedInfo,
+          );
+          return;
+        } else {
+          // Cached discovery matches current version; clean up stale cache
+          _prefs.remove(_discoveredVersionKey(type));
+          _prefs.remove(_discoveredInfoKey(type));
+        }
+      } catch (e) {
+        debugPrint('Error rehydrating cached update for ${type.name}: $e');
+      }
+    }
+    _setState(type, ComponentStatus.upToDate);
+  }
 
-    if (checkYtdlp) {
-      await checkForUpdates(
-        manualCall: false,
-        specificType: ComponentType.ytDlp,
+  Future<void> retryMissingModulesDownload() async {
+    final isYtDlpInstalled = await _isComponentInstalled(ComponentType.ytDlp);
+    final isEjsInstalled = await _isComponentInstalled(ComponentType.ytDlpEjs);
+
+    if (!isYtDlpInstalled || !isEjsInstalled) {
+      await _autoDownloadMissingModules(
+        missingYtDlp: !isYtDlpInstalled,
+        missingEjs: !isEjsInstalled,
       );
     }
-    if (checkEjs) {
-      await checkForUpdates(
-        manualCall: false,
-        specificType: ComponentType.ytDlpEjs,
-      );
-    }
-    if (checkApp) {
-      await checkForUpdates(manualCall: false, specificType: ComponentType.app);
+  }
+
+  Future<void> _autoDownloadMissingModules({
+    required bool missingYtDlp,
+    required bool missingEjs,
+  }) async {
+    _isAutoDownloadingMissing = true;
+    _missingModulesProgress = 0.0;
+    notifyListeners();
+
+    final missingList = <ComponentType>[];
+    if (missingYtDlp) missingList.add(ComponentType.ytDlp);
+    if (missingEjs) missingList.add(ComponentType.ytDlpEjs);
+
+    int completed = 0;
+    final total = missingList.length;
+
+    try {
+      for (final type in missingList) {
+        final channel = type == ComponentType.ytDlp
+            ? (_prefs.getString('channel_ytdlp') == 'stable'
+                ? UpdateChannel.stable
+                : UpdateChannel.nightly)
+            : UpdateChannel.stable;
+        final assetName =
+            type == ComponentType.ytDlp ? 'yt-dlp.tar.gz' : 'yt_dlp_ejs';
+        final isPrefix = type == ComponentType.ytDlpEjs;
+
+        final info = await _github.getLatestReleaseInfo(
+          type: type,
+          channel: channel,
+          targetAssetName: assetName,
+          isPrefixMatch: isPrefix,
+        );
+
+        if (info != null) {
+          _setState(type, ComponentStatus.downloading, pendingUpdate: info);
+          final success = await downloadAndInstallInternal(
+            type,
+            info,
+            onDownloadProgress: (progress) {
+              _missingModulesProgress = (completed + progress) / total;
+              notifyListeners();
+            },
+          );
+
+          if (success) {
+            completed++;
+            _missingModulesProgress = completed / total;
+            notifyListeners();
+          }
+        }
+      }
+    } catch (e) {
+      debugPrint('Error during auto-downloading missing modules: $e');
+    } finally {
+      _isAutoDownloadingMissing = false;
+      _missingModulesProgress = 1.0;
+      notifyListeners();
+      await _system.resumeInitialization();
     }
   }
 
@@ -152,18 +306,23 @@ class UpdateController extends ChangeNotifier {
   }
 
   Future<void> _loadLocalVersions() async {
-    PackageInfo.fromPlatform().then((info) {
+    try {
+      final info = await PackageInfo.fromPlatform();
       _setState(
         ComponentType.app,
         ComponentStatus.upToDate,
         version: info.version,
       );
-    });
+    } catch (_) {
+      _setState(
+        ComponentType.app,
+        ComponentStatus.upToDate,
+        version: '1.0.0',
+      );
+    }
 
     for (final type in [ComponentType.ytDlp, ComponentType.ytDlpEjs]) {
-      final prefKey = type == ComponentType.ytDlp
-          ? 'version_yt_dlp'
-          : 'version_yt_dlp_ejs';
+      final prefKey = _versionKey(type);
       final savedVersion = _prefs.getString(prefKey) ?? 'Unknown';
       final isInstalled = await _isComponentInstalled(type);
       _setState(
@@ -175,7 +334,7 @@ class UpdateController extends ChangeNotifier {
   }
 
   // ==========================================================================
-  // FLUJO 1: REVISIÓN A DEMANDA O PERIÓDICA (Ahora devuelve un booleano)
+  // FLUJO 1: REVISIÓN A DEMANDA O PERIÓDICA
   // ==========================================================================
   Future<bool> checkForUpdates({
     bool manualCall = true,
@@ -184,13 +343,13 @@ class UpdateController extends ChangeNotifier {
     final now = DateTime.now().millisecondsSinceEpoch;
 
     if (specificType == null || specificType == ComponentType.app) {
-      await _prefs.setInt('last_update_check_app', now);
+      await _prefs.setInt(_lastCheckKey(ComponentType.app), now);
     }
     if (specificType == null || specificType == ComponentType.ytDlp) {
-      await _prefs.setInt('last_update_check_yt_dlp', now);
+      await _prefs.setInt(_lastCheckKey(ComponentType.ytDlp), now);
     }
     if (specificType == null || specificType == ComponentType.ytDlpEjs) {
-      await _prefs.setInt('last_update_check_yt_dlp_ejs', now);
+      await _prefs.setInt(_lastCheckKey(ComponentType.ytDlpEjs), now);
     }
 
     notifyListeners();
@@ -249,29 +408,77 @@ class UpdateController extends ChangeNotifier {
     final isMissing = !(await _isComponentInstalled(type));
 
     if (info != null && (info.version != _states[type]!.version || isMissing)) {
+      await _prefs.setString(_discoveredVersionKey(type), info.version);
+      await _prefs.setString(_discoveredInfoKey(type), info.toJsonString());
       _setState(
         type,
         ComponentStatus.updateAvailable,
         pendingUpdate: info,
         version: isMissing ? 'Missing module' : null,
       );
-      return true; // ¡Se encontró algo nuevo!
+      return true;
     } else if (info != null) {
-      _setState(type, ComponentStatus.upToDate);
-      return false; // Está al día
+      await _prefs.remove(_discoveredVersionKey(type));
+      await _prefs.remove(_discoveredInfoKey(type));
+      _setState(type, ComponentStatus.upToDate, pendingUpdate: null);
+      return false;
     } else {
       _setState(type, ComponentStatus.error);
-      return false; // Error de red
+      return false;
     }
   }
 
+  LinuxPackageType getLinuxPackageType() {
+    if (!Platform.isLinux) return LinuxPackageType.unknown;
+    final snapName = Platform.environment['SNAP_NAME'] ?? '';
+    final snapPath = Platform.environment['SNAP'] ?? '';
+    if (snapName == 'vidra' || snapPath.contains('vidra')) {
+      return LinuxPackageType.snap;
+    }
+    if (Platform.environment.containsKey('APPIMAGE')) {
+      return LinuxPackageType.appImage;
+    }
+    return LinuxPackageType.deb;
+  }
+
   // ==========================================================================
-  // FLUJO 2: DESCARGAR E INSTALAR OTA (Permanece casi igual)
+  // FLUJO 2: DESCARGAR E INSTALAR OTA
   // ==========================================================================
   Future<void> downloadAndInstall(ComponentType type) async {
     final info = _states[type]?.pendingUpdate;
     if (info == null) return;
 
+    if (type == ComponentType.app && Platform.isLinux) {
+      final linuxType = getLinuxPackageType();
+      if (linuxType == LinuxPackageType.snap) {
+        final uri = Uri.parse('snap://vidra');
+        if (await canLaunchUrl(uri)) {
+          await launchUrl(uri);
+        } else {
+          await launchUrl(
+            Uri.parse('https://snapcraft.io/vidra'),
+            mode: LaunchMode.externalApplication,
+          );
+        }
+        return;
+      } else if (linuxType == LinuxPackageType.deb) {
+        await LinuxDebUpdateDialog.show();
+        return;
+      } else if (linuxType == LinuxPackageType.appImage) {
+        await LinuxAppImageUpdateDialog.show();
+        return;
+      }
+    }
+
+    await downloadAndInstallInternal(type, info);
+  }
+
+  @visibleForTesting
+  Future<bool> downloadAndInstallInternal(
+    ComponentType type,
+    UpdateInfo info, {
+    Function(double progress)? onDownloadProgress,
+  }) async {
     _setState(type, ComponentStatus.downloading, progress: 0.0);
 
     final supportDir = await getApplicationSupportDirectory();
@@ -288,12 +495,16 @@ class UpdateController extends ChangeNotifier {
       final ok = await _github.downloadFile(
         url: info.downloadUrl,
         savePath: binaryFile.path,
-        onProgress: (rec, total) =>
-            _setState(type, ComponentStatus.downloading, progress: rec / total),
+        onProgress: (rec, total) {
+          final pRatio = total > 0 ? rec / total : 0.0;
+          _setState(type, ComponentStatus.downloading, progress: pRatio);
+          onDownloadProgress?.call(pRatio);
+        },
       );
 
       if (!ok || !binaryFile.existsSync() || binaryFile.lengthSync() == 0) {
-        return _setState(type, ComponentStatus.error);
+        _setState(type, ComponentStatus.error);
+        return false;
       }
 
       if (info.requiresPgpValidation) {
@@ -303,7 +514,8 @@ class UpdateController extends ChangeNotifier {
           savePath: sumsFile.path,
         );
         if (!sumsOk || !sumsFile.existsSync() || sumsFile.lengthSync() == 0) {
-          return _setState(type, ComponentStatus.error);
+          _setState(type, ComponentStatus.error);
+          return false;
         }
 
         final sigOk = await _github.downloadFile(
@@ -311,7 +523,8 @@ class UpdateController extends ChangeNotifier {
           savePath: sigFile.path,
         );
         if (!sigOk || !sigFile.existsSync() || sigFile.lengthSync() == 0) {
-          return _setState(type, ComponentStatus.error);
+          _setState(type, ComponentStatus.error);
+          return false;
         }
 
         final isSafe = await PgpVerifier.verifyBinary(
@@ -323,7 +536,8 @@ class UpdateController extends ChangeNotifier {
         );
 
         if (!isSafe) {
-          return _setState(type, ComponentStatus.error);
+          _setState(type, ComponentStatus.error);
+          return false;
         }
       }
 
@@ -332,22 +546,24 @@ class UpdateController extends ChangeNotifier {
       if (type == ComponentType.app) {
         final result = await OpenFilex.open(binaryFile.path);
         if (result.type == ResultType.done) {
-          // Al lanzar el intent de instalación con éxito, el sistema operativo tomará el control.
-          // Nosotros regresamos la tarjeta a su estado normal.
+          // Strictly read installed version from Platform PackageInfo
+          final currentPkg = await PackageInfo.fromPlatform();
           _setState(
             type,
             ComponentStatus.upToDate,
-            version: info.version,
+            version: currentPkg.version,
             pendingUpdate: null,
           );
+          return true;
         } else {
-          // Si el usuario no dio permisos o el archivo es inválido
-          debugPrint('Error al abrir el APK: ${result.message}');
+          debugPrint('Error al abrir instalador: ${result.message}');
           _setState(type, ComponentStatus.error);
+          return false;
         }
       } else {
         if (!binaryFile.existsSync() || binaryFile.lengthSync() == 0) {
-          return _setState(type, ComponentStatus.error);
+          _setState(type, ComponentStatus.error);
+          return false;
         }
 
         await _system.stopBackendForUpdate();
@@ -365,20 +581,19 @@ class UpdateController extends ChangeNotifier {
           );
 
           if (extracted) {
-            await _prefs.setString(
-              type == ComponentType.ytDlp
-                  ? 'version_yt_dlp'
-                  : 'version_yt_dlp_ejs',
-              info.version,
-            );
+            await _prefs.setString(_versionKey(type), info.version);
+            await _prefs.remove(_discoveredVersionKey(type));
+            await _prefs.remove(_discoveredInfoKey(type));
             _setState(
               type,
               ComponentStatus.upToDate,
               version: info.version,
               pendingUpdate: null,
             );
+            return true;
           } else {
             _setState(type, ComponentStatus.error);
+            return false;
           }
         } finally {
           await _system.resumeInitialization();
@@ -387,6 +602,7 @@ class UpdateController extends ChangeNotifier {
     } catch (e) {
       debugPrint('Error during downloadAndInstall: $e');
       _setState(type, ComponentStatus.error);
+      return false;
     } finally {
       if (type != ComponentType.app && tempDir.existsSync()) {
         try {
@@ -402,13 +618,27 @@ class UpdateController extends ChangeNotifier {
     if (Platform.isAndroid) {
       final deviceInfo = DeviceInfoPlugin();
       final androidInfo = await deviceInfo.androidInfo;
-      final abi = androidInfo.supportedAbis.firstOrNull ?? '';
+      final abis = androidInfo.supportedAbis;
 
-      if (abi.contains('arm64')) return 'vidra-android-arm64-v8a.apk';
-      if (abi.contains('x86_64')) return 'vidra-android-x86_64.apk';
+      if (abis.any((a) => a.contains('arm64-v8a') || a.contains('arm64'))) {
+        return 'vidra-android-arm64-v8a.apk';
+      }
+      if (abis.any((a) => a.contains('x86_64'))) {
+        return 'vidra-android-x86_64.apk';
+      }
+      if (abis.any((a) => a.contains('armeabi-v7a') || a.contains('armv7'))) {
+        return 'vidra-android-armeabi-v7a.apk';
+      }
       return 'vidra-android.apk';
     } else if (Platform.isLinux) {
-      return 'vidra-x86_64.AppImage';
+      final linuxType = getLinuxPackageType();
+      if (linuxType == LinuxPackageType.snap) {
+        return 'snap';
+      }
+      if (linuxType == LinuxPackageType.appImage) {
+        return 'vidra-x86_64.AppImage';
+      }
+      return 'vidra-linux-amd64.deb';
     } else if (Platform.isWindows) {
       return 'vidra-windows.exe';
     } else if (Platform.isMacOS) {

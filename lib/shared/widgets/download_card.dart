@@ -51,29 +51,35 @@ class DownloadCard extends StatelessWidget {
         state?.value == model.DownloadStateEnum.awaitingSelection;
 
     // --- LÓGICA DE VISIBILIDAD DE BOTONES ---
+    final isDesktop = !Platform.isAndroid && !Platform.isIOS;
     final isList = info?.type == model.DownloadType.list;
     final hasFile = info?.file != null && info!.file!.isNotEmpty;
 
-    // 1. Mostrar Play (solo archivos individuales descargados)
-    final showPlay = !isSubItem && isCompleted && !isList && hasFile;
-    // 2. Mostrar Carpeta (solo archivos individuales completados fuera de Android)
-    final showFolder =
-        !isSubItem && isCompleted && !isList && hasFile && !Platform.isAndroid;
-    // 3. Mostrar Info (NUNCA en pantalla de detalles porque ya se está en la info screen)
+    // 1. Mostrar Play:
+    // Sub-items: si está completado y tiene archivo
+    // Items normales: si está completado, no es lista y tiene archivo
+    final showPlay = isSubItem
+        ? (isCompleted && hasFile)
+        : (isCompleted && !isList && hasFile);
+
+    // 2. Mostrar Carpeta:
+    // Sub-items: si está completado, tiene archivo y es desktop
+    // Items normales: si está completado (o con errores), es desktop y tiene archivo o es lista
+    final showFolder = isSubItem
+        ? (isCompleted && hasFile && isDesktop)
+        : ((isCompleted || isCompletedWithErrors) &&
+            isDesktop &&
+            (hasFile || isList));
+
+    // 3. Acciones prohibidas para sub-items (solo permitidas para items principales):
     final showInfo = !isSubItem && isError && !isDetailScreen;
-    // 4. Borrar
-    final showDelete =
-        !isSubItem &&
+    final showDelete = !isSubItem &&
         (isError || isCancelled || isCompleted || isCompletedWithErrors);
-    // 5. Pausar
     final showPause =
         !isSubItem && state?.value == model.DownloadStateEnum.inProgress;
-    // 6. Cancelar (Estados pendientes y progreso)
     final showCancel =
         !isSubItem && (isPending || inProgress || isPaused || isAwaiting);
-    // 7. Reanudar (Si está en pausa)
     final showResume = !isSubItem && isPaused;
-    // 8. Reintentar (Si canceló manualmente o falló)
     final showRetry =
         !isSubItem && (isError || isCancelled || isCompletedWithErrors);
 
@@ -93,7 +99,7 @@ class DownloadCard extends StatelessWidget {
         _buildImage(context, isError),
         const SizedBox(width: 12),
         Expanded(child: _buildDetails(context)),
-        if (!isSubItem && actionCount > 0)
+        if (actionCount > 0)
           const Icon(
             Icons.chevron_left,
             color: Colors.grey,
@@ -131,7 +137,7 @@ class DownloadCard extends StatelessWidget {
       ),
     );
 
-    if (isSubItem || downloadId == null || actionCount == 0) return cardWidget;
+    if (downloadId == null || actionCount == 0) return cardWidget;
 
     // =========================================================================
     // LÓGICA DE GESTOS (SLIDABLE)
@@ -180,12 +186,27 @@ class DownloadCard extends StatelessWidget {
               if (showFolder) ...[
                 SlidableAction(
                   onPressed: (_) async {
-                    final dir = p.dirname(info!.file!);
-                    final Uri directoryUri = Uri.file(dir);
-                    await launchUrl(
-                      directoryUri,
-                      mode: LaunchMode.externalApplication,
-                    );
+                    String? dir;
+                    if (info?.file != null && info!.file!.isNotEmpty) {
+                      final filePath = info!.file!;
+                      try {
+                        if (Directory(filePath).existsSync() &&
+                            FileSystemEntity.isDirectorySync(filePath)) {
+                          dir = filePath;
+                        } else {
+                          dir = p.dirname(filePath);
+                        }
+                      } catch (_) {
+                        dir = p.dirname(filePath);
+                      }
+                    }
+                    if (dir != null) {
+                      final Uri directoryUri = Uri.file(dir);
+                      await launchUrl(
+                        directoryUri,
+                        mode: LaunchMode.externalApplication,
+                      );
+                    }
                   },
                   backgroundColor: Colors.orange,
                   foregroundColor: Colors.white,

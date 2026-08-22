@@ -347,7 +347,7 @@ void main() {
       expect(find.byIcon(Icons.info), findsNothing);
     });
 
-    testWidgets('Sub-Item in Playlist (isSubItem: true): Completed state is NOT Slidable', (tester) async {
+    testWidgets('Sub-Item in Playlist (isSubItem: true): Completed state exposes Play and Folder (desktop), but NO delete, pause, cancel, retry, info', (tester) async {
       final subInfo = model.Info(
         title: 'Sub Item Completed',
         type: model.DownloadType.video,
@@ -371,10 +371,21 @@ void main() {
       );
       await tester.pump();
 
-      expect(find.byType(Slidable), findsNothing);
-      expect(find.byIcon(Icons.chevron_left), findsNothing);
+      // Slidable is present because showPlay/showFolder are enabled for completed sub-item
+      expect(find.byType(Slidable), findsOneWidget);
+      expect(find.byIcon(Icons.chevron_left), findsOneWidget);
+
+      await tester.drag(find.byType(Slidable), const Offset(-300, 0));
+      await tester.pumpAndSettle();
+
+      // Play is present
+      expect(find.byIcon(Icons.play_arrow), findsOneWidget);
+      // Strictly NO Delete, Pause, Cancel, Retry, or Info
       expect(find.byIcon(Icons.delete), findsNothing);
-      expect(find.byIcon(Icons.play_arrow), findsNothing);
+      expect(find.byIcon(Icons.pause), findsNothing);
+      expect(find.byIcon(Icons.cancel), findsNothing);
+      expect(find.byIcon(Icons.refresh), findsNothing);
+      expect(find.byIcon(Icons.info), findsNothing);
     });
   });
 
@@ -444,18 +455,21 @@ void main() {
       );
       await tester.pump();
 
-      // Exactly ONE Slidable widget across the entire tree: the Master Card!
-      expect(find.byType(Slidable), findsOneWidget);
+      // Master Card and completed subItem2 have Slidable, while in-progress subItem1 does NOT
+      expect(find.byType(Slidable), findsNWidgets(2));
+      expect(find.byKey(const ValueKey<String?>('playlist_parent_1')), findsOneWidget);
+      expect(find.byKey(const ValueKey<String?>('sub_item_2')), findsOneWidget);
+      expect(find.byKey(const ValueKey<String?>('sub_item_1')), findsNothing);
 
       // Verify that dragging the Master Card reveals actions (Pause, Cancel) and NO Info button
-      await tester.drag(find.byType(Slidable), const Offset(-300, 0));
+      await tester.drag(find.byKey(const ValueKey<String?>('playlist_parent_1')), const Offset(-300, 0));
       await tester.pumpAndSettle();
 
       expect(find.byIcon(Icons.pause), findsOneWidget);
       expect(find.byIcon(Icons.cancel), findsOneWidget);
       expect(find.byIcon(Icons.info), findsNothing);
 
-      // Verify sub items are rendered without Slidable wrappers
+      // Verify sub items are rendered
       expect(find.text('Sub Chapter 1'), findsOneWidget);
       expect(find.text('Sub Chapter 2'), findsOneWidget);
     });

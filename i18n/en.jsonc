@@ -337,5 +337,21 @@
   "fe_title": "Fatal System Error",
   "fe_message": "The download engine failed to load after an update. Please restart the application.",
   "fe_restart_button": "Restart Application",
-  "fe_view_logs_button": "View Logs"
+  "fe_view_logs_button": "View Logs",
+  "d_engine_downloading": "Downloading download engine...",
+  "d_engine_downloading_desc": "Downloading required core modules (yt-dlp & yt-dlp-ejs). Please wait...",
+  "d_downloading_engine_progress": "Downloading core modules ({received}/{total})...",
+  "d_downloading_engine_error": "Error downloading engine modules. Please check your internet connection.",
+  "sd_linux_deb_title": "Update Vidra (DEB Package)",
+  "sd_linux_deb_msg": "The Vidra repository is configured. Run the following command in terminal to update:",
+  "sd_linux_appimage_title": "Update Vidra (AppImage)",
+  "sd_linux_appimage_msg": "Use appimageupdatetool or download the latest AppImage from GitHub:",
+  "sd_linux_snap_title": "Update Vidra (Snap)",
+  "sd_linux_snap_msg": "Opening Snap Store to update Vidra...",
+  "sd_copy_command": "Copy Command",
+  "sd_command_copied": "Command copied to clipboard",
+  "ssi_bubble_title": "Update Available",
+  "ssi_bubble_message": "Updates are available for Vidra components. Tap Show to review and install.",
+  "ssi_bubble_button_show": "Show",
+  "ssi_bubble_button_dismiss": "Dismiss"
 }

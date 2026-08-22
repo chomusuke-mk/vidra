@@ -20,6 +20,7 @@ import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/features/settings/presentation/settings_screen.dart';
 import 'package:vidra/features/system/domain/system_state.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
+import 'package:vidra/features/updates/domain/update_info.dart';
 import 'package:vidra/features/updates/presentation/update_controller.dart';
 import 'package:vidra/shared/utils/tutorial_utils.dart';
 
@@ -97,6 +98,25 @@ class AdversarialFakeUpdateController extends ChangeNotifier
 
   @override
   bool get hasPendingChecks => false;
+
+  @override
+  bool get isAutoDownloadingMissing => false;
+
+  @override
+  double get missingModulesProgress => 0.0;
+
+  @override
+  bool get hasShownSessionUpdateBubble => true;
+
+  @override
+  void markSessionUpdateBubbleShown() {}
+
+  @override
+  UpdateState getState(ComponentType type) =>
+      UpdateState(status: ComponentStatus.upToDate, version: '1.0.0');
+
+  @override
+  Future<void> retryMissingModulesDownload() async {}
 
   @override
   dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);

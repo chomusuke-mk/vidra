@@ -136,6 +136,11 @@ void main() {
     });
     prefs = await SharedPreferences.getInstance();
 
+    Directory(p.join(testRoot.path, 'core_modules', 'yt_dlp')).createSync(recursive: true);
+    File(p.join(testRoot.path, 'core_modules', 'yt_dlp', 'main.py')).writeAsStringSync('# PRE-EXISTING');
+    Directory(p.join(testRoot.path, 'core_modules', 'yt_dlp_ejs')).createSync(recursive: true);
+    File(p.join(testRoot.path, 'core_modules', 'yt_dlp_ejs', '__init__.py')).writeAsStringSync('# PRE-EXISTING');
+
     fakeSystem = FakeSystemController();
     fakeGithub = FakeGithubClient();
   });
@@ -556,6 +561,8 @@ void main() {
     test('Extraction failure during downloadAndInstall GUARANTEES isolate resume via try/finally', () async {
       final destDir = Directory(p.join(testRoot.path, 'core_modules', 'yt_dlp_ejs'))..createSync(recursive: true);
       final existingFile = File(p.join(destDir.path, '__init__.py'))..writeAsStringSync('# ACTIVE PRODUCTION MODULE');
+      Directory(p.join(testRoot.path, 'core_modules', 'yt_dlp')).createSync(recursive: true);
+      File(p.join(testRoot.path, 'core_modules', 'yt_dlp', 'main.py')).writeAsStringSync('# ACTIVE PRODUCTION YTDLP');
 
       final ejsUrl = 'https://github.com/yt-dlp/ejs/releases/download/0.8.0/yt_dlp_ejs.whl';
 
@@ -598,6 +605,11 @@ void main() {
     });
 
     test('Catastrophic filesystem exception during extraction still guarantees isolate resume and error status', () async {
+      Directory(p.join(testRoot.path, 'core_modules', 'yt_dlp_ejs')).createSync(recursive: true);
+      Directory(p.join(testRoot.path, 'core_modules', 'yt_dlp')).createSync(recursive: true);
+      File(p.join(testRoot.path, 'core_modules', 'yt_dlp_ejs', 'init.py')).writeAsStringSync('init');
+      File(p.join(testRoot.path, 'core_modules', 'yt_dlp', 'init.py')).writeAsStringSync('init');
+
       final ejsUrl = 'https://github.com/yt-dlp/ejs/releases/download/0.8.0/yt_dlp_ejs.whl';
 
       fakeGithub.releaseInfoMap[ComponentType.ytDlpEjs] = UpdateInfo(
@@ -625,6 +637,8 @@ void main() {
       await controller.checkForUpdates();
 
       // Create a conflicting regular file where core_modules directory is expected to cause extraction failure
+      final coreModulesDir = Directory(p.join(testRoot.path, 'core_modules'));
+      if (coreModulesDir.existsSync()) coreModulesDir.deleteSync(recursive: true);
       final coreModulesAsFile = File(p.join(testRoot.path, 'core_modules'));
       coreModulesAsFile.writeAsStringSync('BLOCKING_FILE');
 

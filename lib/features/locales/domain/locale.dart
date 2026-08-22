@@ -461,6 +461,42 @@ class AppStringKey {
   String get feRestartButton => _cadenasLocalizadas['fe_restart_button'] ?? '';
   String get feViewLogsButton =>
       _cadenasLocalizadas['fe_view_logs_button'] ?? '';
+  // Startup Engine Acquisition (R1) --------------------------
+  String get dEngineDownloading =>
+      _cadenasLocalizadas['d_engine_downloading'] ?? '';
+  String get dEngineDownloadingDesc =>
+      _cadenasLocalizadas['d_engine_downloading_desc'] ?? '';
+  String get dDownloadingEngineProgress =>
+      _cadenasLocalizadas['d_downloading_engine_progress'] ?? '';
+  String get dDownloadingEngineError =>
+      _cadenasLocalizadas['d_downloading_engine_error'] ?? '';
+  // Linux Updates (R3) ---------------------------------------
+  String get sdLinuxDebTitle =>
+      _cadenasLocalizadas['sd_linux_deb_title'] ?? '';
+  String get sdLinuxDebMsg =>
+      _cadenasLocalizadas['sd_linux_deb_msg'] ?? '';
+  String get sdLinuxAppImageTitle =>
+      _cadenasLocalizadas['sd_linux_appimage_title'] ?? '';
+  String get sdLinuxAppImageMsg =>
+      _cadenasLocalizadas['sd_linux_appimage_msg'] ?? '';
+  String get sdLinuxSnapTitle =>
+      _cadenasLocalizadas['sd_linux_snap_title'] ?? '';
+  String get sdLinuxSnapMsg =>
+      _cadenasLocalizadas['sd_linux_snap_msg'] ?? '';
+  String get sdCopyCommand =>
+      _cadenasLocalizadas['sd_copy_command'] ?? '';
+  String get sdCommandCopied =>
+      _cadenasLocalizadas['sd_command_copied'] ?? '';
+  // System Status Indicator Speech Bubble (R5) ---------------
+  String get ssiBubbleTitle =>
+      _cadenasLocalizadas['ssi_bubble_title'] ?? '';
+  String get ssiBubbleMessage =>
+      _cadenasLocalizadas['ssi_bubble_message'] ?? '';
+  String get ssiBubbleButtonShow =>
+      _cadenasLocalizadas['ssi_bubble_button_show'] ?? '';
+  String get ssiBubbleButtonDismiss =>
+      _cadenasLocalizadas['ssi_bubble_button_dismiss'] ?? '';
+
 
   final List<String> _allAppStrings = [
     // Pantalla Downloads -------------------------------- d_
@@ -798,11 +834,29 @@ class AppStringKey {
     's_extractor_retries_desc',
     's_limit_rate',
     's_limit_rate_desc',
-    // Diálogo de error fatal ----------------------------- fe_
     'fe_title',
     'fe_message',
     'fe_restart_button',
     'fe_view_logs_button',
+    // Startup Engine Acquisition (R1) --------------------
+    'd_engine_downloading',
+    'd_engine_downloading_desc',
+    'd_downloading_engine_progress',
+    'd_downloading_engine_error',
+    // Linux Updates (R3) ---------------------------------
+    'sd_linux_deb_title',
+    'sd_linux_deb_msg',
+    'sd_linux_appimage_title',
+    'sd_linux_appimage_msg',
+    'sd_linux_snap_title',
+    'sd_linux_snap_msg',
+    'sd_copy_command',
+    'sd_command_copied',
+    // System Status Indicator Speech Bubble (R5) ---------
+    'ssi_bubble_title',
+    'ssi_bubble_message',
+    'ssi_bubble_button_show',
+    'ssi_bubble_button_dismiss',
   ];
 
   Map<String, String> toJson() => Map.from(_cadenasLocalizadas);

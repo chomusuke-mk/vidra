@@ -54,6 +54,25 @@ void main() {
         ),
       );
 
+      // Verify Startup missing module & Bubble & Linux Update getters in English
+      expect(appStrings.dEngineDownloading,
+          equals('Downloading download engine...'));
+      expect(appStrings.dEngineDownloadingDesc,
+          equals('Downloading required core modules (yt-dlp & yt-dlp-ejs). Please wait...'));
+      expect(appStrings.dDownloadingEngineError,
+          equals('Error downloading engine modules. Please check your internet connection.'));
+      expect(appStrings.ssiBubbleTitle, equals('Update Available'));
+      expect(appStrings.ssiBubbleMessage,
+          equals('Updates are available for Vidra components. Tap Show to review and install.'));
+      expect(appStrings.ssiBubbleButtonShow, equals('Show'));
+      expect(appStrings.ssiBubbleButtonDismiss, equals('Dismiss'));
+      expect(appStrings.sdLinuxDebTitle, equals('Update Vidra (DEB Package)'));
+      expect(appStrings.sdCopyCommand, equals('Copy Command'));
+      expect(appStrings.sdCommandCopied,
+          equals('Command copied to clipboard'));
+      expect(
+          appStrings.sdLinuxAppImageTitle, equals('Update Vidra (AppImage)'));
+
       // Verify es.jsonc
       final esFile = File('i18n/es.jsonc');
       expect(esFile.existsSync(), isTrue);
@@ -97,6 +116,25 @@ void main() {
           'Abra este menú para ajustar rápidamente las opciones de descarga sobre la marcha sin salir de la pantalla principal.',
         ),
       );
+
+      // Verify Startup missing module & Bubble & Linux Update getters in Spanish
+      expect(esStrings.dEngineDownloading,
+          equals('Descargando motor de descargas...'));
+      expect(esStrings.dEngineDownloadingDesc,
+          equals('Descargando módulos principales requeridos (yt-dlp y yt-dlp-ejs). Por favor, espere...'));
+      expect(esStrings.dDownloadingEngineError,
+          equals('Error al descargar módulos del motor. Revisa tu conexión a internet.'));
+      expect(esStrings.ssiBubbleTitle, equals('Actualización disponible'));
+      expect(esStrings.ssiBubbleMessage,
+          equals('Hay actualizaciones disponibles para los componentes de Vidra. Toca Ver para revisarlas e instalarlas.'));
+      expect(esStrings.ssiBubbleButtonShow, equals('Ver'));
+      expect(esStrings.ssiBubbleButtonDismiss, equals('Descartar'));
+      expect(esStrings.sdLinuxDebTitle, equals('Actualizar Vidra (Paquete DEB)'));
+      expect(esStrings.sdCopyCommand, equals('Copiar comando'));
+      expect(esStrings.sdCommandCopied,
+          equals('Comando copiado al portapapeles'));
+      expect(
+          esStrings.sdLinuxAppImageTitle, equals('Actualizar Vidra (AppImage)'));
     });
   });
 }

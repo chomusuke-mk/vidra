@@ -12,7 +12,11 @@ import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
 import 'package:vidra/shared/widgets/download_card.dart';
 import 'download_detail_screen.dart';
+import 'package:vidra/features/system/domain/system_state.dart';
+import 'package:vidra/features/system/presentation/system_controller.dart';
 import 'package:vidra/features/system/presentation/system_status_indicator.dart';
+import 'package:vidra/features/updates/domain/update_info.dart';
+import 'package:vidra/features/updates/presentation/update_controller.dart';
 import 'package:vidra/shared/utils/changelog_utils.dart';
 import 'package:vidra/shared/utils/tutorial_utils.dart';
 import 'package:vidra/features/downloads/presentation/widgets/quick_settings_bottom_sheet.dart';
@@ -219,19 +223,139 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
                   : const SizedBox.shrink(),
             ),
 
-            // ÁREA DE PESTAÑAS (Layout Vertical o Horizontal)
+            // ÁREA DE PESTAÑAS (Layout Vertical o Horizontal) O PROGRESO DE INICIALIZACIÓN
             Expanded(
-              child: downloadsCtrl.isLoading
-                  ? const Center(child: CircularProgressIndicator())
-                  : LayoutBuilder(
-                      builder: (context, constraints) {
-                        final isShort = constraints.maxWidth < 600;
-                        if (isShort) return _buildVerticalLayout(lists, locale);
-                        return _buildHorizontalLayout(lists, locale);
-                      },
-                    ),
+              child: _buildMainContent(context, downloadsCtrl, lists, locale),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMainContent(
+    BuildContext context,
+    DownloadsController downloadsCtrl,
+    List<List<download_model.Download>> lists,
+    AppStringKey locale,
+  ) {
+    final sysCtrl = context.watch<SystemController>();
+    final updateCtrl = context.watch<UpdateController>();
+
+    final isMissingResources =
+        sysCtrl.state == SystemState.missingResources ||
+        updateCtrl.isAutoDownloadingMissing;
+
+    if (isMissingResources) {
+      return _buildStartupProgressView(context, updateCtrl, locale);
+    }
+
+    if (downloadsCtrl.isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isShort = constraints.maxWidth < 600;
+        if (isShort) return _buildVerticalLayout(lists, locale);
+        return _buildHorizontalLayout(lists, locale);
+      },
+    );
+  }
+
+  Widget _buildStartupProgressView(
+    BuildContext context,
+    UpdateController updateCtrl,
+    AppStringKey locale,
+  ) {
+    final theme = Theme.of(context);
+    final progress = updateCtrl.missingModulesProgress;
+    final hasError =
+        updateCtrl.getState(ComponentType.ytDlp).status ==
+            ComponentStatus.error ||
+        updateCtrl.getState(ComponentType.ytDlpEjs).status ==
+            ComponentStatus.error;
+
+    return Center(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(24.0),
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 420),
+          padding: const EdgeInsets.all(24.0),
+          decoration: BoxDecoration(
+            color: theme.colorScheme.surfaceContainerHigh,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: theme.dividerColor.withValues(alpha: 0.15),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: hasError
+                      ? Colors.red.withValues(alpha: 0.1)
+                      : theme.colorScheme.primary.withValues(alpha: 0.1),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  hasError ? Icons.error_outline : Icons.downloading,
+                  size: 48,
+                  color: hasError ? Colors.red : theme.colorScheme.primary,
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                hasError
+                    ? locale.dDownloadingEngineError
+                    : locale.dEngineDownloading,
+                style: theme.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                hasError
+                    ? locale.sdGithubConnectionError
+                    : (progress > 0.0
+                        ? '${(progress * 100).toStringAsFixed(0)}%'
+                        : locale.dEngineDownloadingDesc),
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 20),
+              if (!hasError)
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: LinearProgressIndicator(
+                    value: progress > 0.0 ? progress : null,
+                    minHeight: 6,
+                    backgroundColor: theme.colorScheme.surfaceContainerHighest,
+                  ),
+                ),
+              if (hasError)
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: FilledButton.icon(
+                    onPressed: () => updateCtrl.retryMissingModulesDownload(),
+                    icon: const Icon(Icons.refresh),
+                    label: Text(locale.sdButtonRetry),
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );
