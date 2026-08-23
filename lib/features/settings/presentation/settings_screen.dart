@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vidra/core/constants/languages.dart';
-import 'package:vidra/core/constants/resolutions.dart';
 import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/shared/widgets/lazy_dropdown.dart';
 import 'package:vidra/shared/widgets/lazy_list.dart';
 import 'package:vidra/shared/widgets/lazy_map.dart';
 import 'package:vidra/shared/widgets/lazy_text_field.dart';
+import 'package:vidra/features/settings/domain/download_option_formatters.dart';
 import 'package:vidra/features/settings/domain/download_options.dart';
 import 'package:vidra/shared/widgets/settings_row.dart';
 import 'package:vidra/shared/utils/tutorial_utils.dart';
-import 'settings_controller.dart';
+import 'package:vidra/features/settings/presentation/settings_controller.dart';
 
 enum SettingCategory { general, network, video, download }
 
@@ -76,38 +76,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
       'defaultOption',
       ...languagesCodes,
     ];
-    // audio_options------------------
-    final List<String> audioOptionsFlat = [
-      'defaultOption',
-      'bestaudio',
-      ...languagesCodes,
-    ];
-    String currentAudioVal = 'defaultOption';
-    if (opts.audioLanguage == AudioOption.bestaudio) {
-      currentAudioVal = 'bestaudio';
-    } else if (opts.audioLanguage == AudioOption.language &&
-        opts.audioLanguageCode != null) {
-      currentAudioVal = opts.audioLanguageCode!;
-    }
-    if (!audioOptionsFlat.contains(currentAudioVal)) {
-      currentAudioVal = 'defaultOption';
-    }
-    // video_resolution-----------------
-    final List<String> videoResolutionFlat = [
-      'defaultOption',
-      'bestvideo',
-      ...videoResolutions,
-    ];
-    String currentVideoVal = 'defaultOption';
-    if (opts.videoResolution == VideoOption.bestvideo) {
-      currentVideoVal = 'bestvideo';
-    } else if (opts.videoResolution == VideoOption.resolution &&
-        opts.videoResolutionValue != null) {
-      currentVideoVal = opts.videoResolutionValue!;
-    }
-    if (!videoResolutionFlat.contains(currentVideoVal)) {
-      currentVideoVal = 'defaultOption';
-    }
+    // audio_options & video_resolution using DownloadOptionFormatters
+    final currentAudioVal = DownloadOptionFormatters.resolveCurrentAudioVal(opts);
+    final currentVideoVal = DownloadOptionFormatters.resolveCurrentVideoVal(opts);
 
     return [
       // --- GENERAL ---
@@ -146,12 +117,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
         type: ControllerType.dropdown,
         controlBuilder: (c, s) => LazyDropdown<String>(
           value: currentVideoVal,
-          items: videoResolutionFlat,
-          labelBuilder: (val) {
-            if (val == 'defaultOption') return locale.sDefault;
-            if (val == 'bestvideo') return locale.sBest;
-            return resolutionLabels[val] ?? val;
-          },
+          items: DownloadOptionFormatters.videoResolutionOptions,
+          labelBuilder: (val) =>
+              DownloadOptionFormatters.formatResolution(val, locale),
           onChanged: (val) {
             if (val == 'defaultOption') {
               s.updateDownloadOptions(
@@ -179,17 +147,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         type: ControllerType.dropdown,
         controlBuilder: (c, s) => LazyDropdown<String>(
           value: currentAudioVal,
-          items: audioOptionsFlat,
+          items: DownloadOptionFormatters.audioLanguageOptions,
           enableSearch: true,
-          labelBuilder: (val) {
-            // Mapeamos los Strings planos a los textos bonitos para el usuario
-            if (val == 'defaultOption') return locale.sDefault;
-            if (val == 'bestaudio') return locale.sBest;
-
-            // Si es un código, armamos "es - Español"
-            final langName = languagesEndonyms[val] ?? val;
-            return '$val - $langName';
-          },
+          labelBuilder: (val) =>
+              DownloadOptionFormatters.formatLanguage(val, locale),
           onChanged: (val) {
             if (val == 'defaultOption') {
               s.updateDownloadOptions(

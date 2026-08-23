@@ -12,32 +12,16 @@ class GithubClient {
 
   /// Obtiene la metadata mapeada dependiendo del repositorio y el canal
   Future<UpdateInfo?> getLatestReleaseInfo({
-    required ComponentType type,
-    required UpdateChannel channel,
-    required String
-    targetAssetName, // El archivo exacto que queremos (ej. "yt-dlp", "vidra.apk")
-    bool isPrefixMatch = false,
+    required String repo,
+    required List<RegExp> assetRegex,
   }) async {
-    // 1. Enrutamiento inteligente de repositorios
-    String repo;
-    if (type == ComponentType.ytDlp) {
-      repo = channel == UpdateChannel.nightly
-          ? 'yt-dlp/yt-dlp-nightly-builds'
-          : 'yt-dlp/yt-dlp';
-    } else if (type == ComponentType.ytDlpEjs) {
-      repo = 'yt-dlp/ejs'; // EJS solo tiene estable
-    } else {
-      repo = 'chomusuke-mk/vidra';
-    }
-
     try {
-      // Como bien apuntaste, todos soportan /releases/latest.
       final response = await _dio.get(
         'https://api.github.com/repos/$repo/releases/latest',
       );
       final data = response.data;
 
-      final String version = data['tag_name'];
+      final String version = data['tag_name'] ?? '';
       final String changelog = data['body'] ?? 'No changelog available.';
       final List assets = data['assets'] ?? [];
 
@@ -45,52 +29,43 @@ class GithubClient {
       String? sumsUrl;
       String? sigUrl;
 
-      // Variables para cazar múltiples formatos si usamos búsqueda por prefijo
-      String? foundWhl;
-      String? foundTarGz;
-
       // 2. Extracción de Assets específicos
       for (var asset in assets) {
         final name = asset['name'] as String;
         final url = asset['browser_download_url'] as String;
 
-        if (isPrefixMatch && name.startsWith(targetAssetName)) {
-          // Si es por prefijo (EJS), atrapamos los dos posibles formatos
-          if (name.endsWith('.whl')) {
-            foundWhl = url;
-          } else if (name.endsWith('.tar.gz')) {
-            foundTarGz = url;
-          }
-        } else if (!isPrefixMatch && name == targetAssetName) {
-          // Si es búsqueda exacta (App o yt-dlp)
-          downloadUrl = url;
-        } else if (name == 'SHA2-512SUMS' || name == 'SHA512SUMS') {
+        if (name == 'SHA2-512SUMS' || name == 'SHA512SUMS') {
           sumsUrl = url;
         } else if (name == 'SHA2-512SUMS.sig' || name == 'SHA512SUMS.sig') {
           sigUrl = url;
         }
+
+        if (downloadUrl != null) {
+          continue; // Ya encontramos un binario, no necesitamos seguir buscando
+        }
+
+        for (var pattern in assetRegex) {
+          if (pattern.hasMatch(name)) {
+            downloadUrl = url;
+            break;
+          }
+        }
       }
 
-      // 3. Resolución de Prioridad (Wheel > Tarball)
-      if (isPrefixMatch) {
-        downloadUrl = foundWhl ?? foundTarGz;
-      }
-
-      if (downloadUrl == null) {
-        debugPrint('No se encontró el binario para $targetAssetName en $repo');
-        return null; // Fallo crítico si no hay binario
+      if (downloadUrl == null && assetRegex.isNotEmpty) {
+        debugPrint('No se encontró ningún asset válido $assetRegex en $repo');
+        return null;
       }
 
       return UpdateInfo(
         version: version,
-        downloadUrl: downloadUrl,
+        downloadUrl: downloadUrl ?? '',
         sumsUrl: sumsUrl,
         sigUrl: sigUrl,
         changelog: changelog,
-        type: type,
       );
     } catch (e) {
-      // Manejo silencioso de pérdida de red
+      debugPrint('Error al obtener la información de la última versión en $repo: $e');
       return null;
     }
   }
@@ -122,6 +97,7 @@ class GithubClient {
       }
       return true;
     } catch (e) {
+      debugPrint('Error al descargar el archivo desde $url: $e');
       return false;
     }
   }

@@ -27,9 +27,9 @@ class PgpVerifier {
         return false;
       }
 
-      // 1. Validar la firma PGP del archivo SHA512SUMS (Detached Signature)
+      // 1. Validar la firma PGP del archivo SHA512SUMS
       final sumsContent = await sumsFile.readAsString();
-      // 2. Leer la firma PGP (.sig) como BYTES puros para que Dart no crashee
+      // 2. Leer la firma PGP (.sig)
       final sigBytes = await sigFile.readAsBytes();
       String sigContent;
 
@@ -63,7 +63,6 @@ class PgpVerifier {
       final actualHash = digest.toString().toLowerCase();
 
       // 3. Buscar el hash esperado dentro del texto ya verificado
-      // Formato típico de sums: "hash_largo_1234 *yt-dlp" o "hash  yt-dlp_macos"
       final lines = sumsContent.split('\n');
       String? expectedHash;
 
@@ -74,7 +73,10 @@ class PgpVerifier {
         final tokens = trimmed.split(RegExp(r'\s+'));
         if (tokens.length >= 2) {
           final hashToken = tokens[0].toLowerCase();
-          final filenameToken = tokens.sublist(1).join(' ').replaceFirst(RegExp(r'^\*'), '');
+          final filenameToken = tokens
+              .sublist(1)
+              .join(' ')
+              .replaceFirst(RegExp(r'^\*'), '');
 
           if (filenameToken.toLowerCase() == expectedBinaryName.toLowerCase()) {
             expectedHash = hashToken;
@@ -90,7 +92,7 @@ class PgpVerifier {
         return false;
       }
 
-      // 4. Choque de Hashes (El momento de la verdad)
+      // 4. Choque de Hashes
       if (actualHash != expectedHash) {
         debugPrint(
           '⚠️ ALERTA DE CORRUPCIÓN: Hash alterado. ($actualHash != $expectedHash)',

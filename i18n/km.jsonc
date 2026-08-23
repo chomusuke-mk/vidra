@@ -301,5 +301,20 @@
   "qs_close": "បិទ",
   "qs_audio": "អូឌីយ៉ូ",
   "tu_quick_settings": "ការកំណត់រហ័ស",
-  "tu_quick_settings_desc": "បើកម៉ឺនុយនេះដើម្បីកែសម្រួលជម្រើសទាញយកភ្លាមៗដោយមិនចាកចេញពីអេក្រង់មេ។"
+  "tu_quick_settings_desc": "បើកម៉ឺនុយនេះដើម្បីកែសម្រួលជម្រើសទាញយកភ្លាមៗដោយមិនចាកចេញពីអេក្រង់មេ។",
+  "d_engine_downloading": "កំពុងទាញយកម៉ាស៊ីនទាញយក...",
+  "d_engine_downloading_desc": "កំពុងទាញយកម៉ូឌុលស្នូលដែលត្រូវការ (yt-dlp & yt-dlp-ejs) ។ សូមរង់ចាំ...",
+  "d_downloading_engine_progress": "កំពុងទាញយកម៉ូឌុលស្នូល ({received}/{total})...",
+  "d_downloading_engine_error": "កំហុសក្នុងការទាញយកម៉ូឌុលម៉ាស៊ីន។ សូមពិនិត្យមើលការតភ្ជាប់អ៊ីនធឺណិតរបស់អ្នក។",
+  "sd_linux_appimage_msg": "ប្រើ appimageupdatetool ឬទាញយក AppImage ចុងក្រោយបំផុតពី GitHub៖",
+  "sd_linux_snap_title": "អាប់ដេត Vidra (ខ្ទាស់)",
+  "sd_linux_snap_msg": "បើកហាង Snap ដើម្បីអាប់ដេត Vidra...",
+  "sd_channel_stable": "ស្ថិរភាព",
+  "sd_about_created_by": "បង្កើតឡើងដោយ Chomusuke",
+  "sd_donate": "បរិច្ចាគ",
+  "sd_changelog": "កំណត់ហេតុផ្លាស់ប្តូរ",
+  "ssi_bubble_title": "ការអាប់ដេតមាន",
+  "ssi_bubble_message": "ការអាប់ដេតមានសម្រាប់សមាសធាតុ Vidra ។ ប៉ះ បង្ហាញ ដើម្បីពិនិត្យមើល និងដំឡើង។",
+  "ssi_bubble_button_show": "បង្ហាញ",
+  "ssi_bubble_button_dismiss": "ច្រានចោល"
 }

@@ -84,14 +84,18 @@ gXIoRHXkDqe23PZ/jURYCv0sjVtjPoVC+bg=
 =bJkn
 -----END PGP PUBLIC KEY BLOCK-----''';
 
-  /// Retorna la llave pública correspondiente según el componente
-  static String getKeyForComponent(ComponentType type) {
+  /// Retorna la llave pública correspondiente según el componente, o null si no posee
+  static String? getKeyForComponent(ComponentType type) {
     switch (type) {
       case ComponentType.ytDlp:
-      case ComponentType.ytDlpEjs:
         return ytDlpPublicKey;
+      case ComponentType.ytDlpEjs:
+        return null;
       case ComponentType.app:
         return vidraMasterKey;
     }
   }
+
+  static bool hasKeyForComponent(ComponentType type) =>
+      getKeyForComponent(type) != null;
 }

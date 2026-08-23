@@ -36,7 +36,7 @@ class MockSystemController extends ChangeNotifier
 
 class MockGithubClient implements GithubClient {
   int fetchCallCount = 0;
-  final List<ComponentType> requestedTypes = [];
+  final List<String> requestedRepos = [];
   final List<String> requestedAssetNames = [];
   UpdateInfo? appUpdate;
   UpdateInfo? ytDlpUpdate;
@@ -44,17 +44,17 @@ class MockGithubClient implements GithubClient {
 
   @override
   Future<UpdateInfo?> getLatestReleaseInfo({
-    required ComponentType type,
-    required UpdateChannel channel,
-    required String targetAssetName,
-    bool isPrefixMatch = false,
+    required String repo,
+    required List<RegExp> assetRegex,
   }) async {
     fetchCallCount++;
-    requestedTypes.add(type);
-    requestedAssetNames.add(targetAssetName);
-    if (type == ComponentType.app) return appUpdate;
-    if (type == ComponentType.ytDlp) return ytDlpUpdate;
-    if (type == ComponentType.ytDlpEjs) return ytDlpEjsUpdate;
+    requestedRepos.add(repo);
+    if (assetRegex.isNotEmpty) {
+      requestedAssetNames.add(assetRegex.first.pattern);
+    }
+    if (repo.contains('vidra')) return appUpdate;
+    if (repo.contains('ejs')) return ytDlpEjsUpdate;
+    if (repo.contains('yt-dlp')) return ytDlpUpdate;
     return null;
   }
 
@@ -100,6 +100,12 @@ void main() {
       return tempDir.path;
     });
 
+    const MethodChannel openFileChannel = MethodChannel('open_filex');
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(openFileChannel, (MethodCall methodCall) async {
+      return {'type': 0, 'message': 'done'};
+    });
+
     mockSystem = MockSystemController();
     mockGithub = MockGithubClient();
   });
@@ -138,14 +144,12 @@ void main() {
         version: '1.5.0',
         downloadUrl: 'https://example.com/app.apk',
         changelog: 'Discovered earlier',
-        type: ComponentType.app,
       );
 
       final cachedYtDlp = UpdateInfo(
         version: '2026.09.01',
         downloadUrl: 'https://example.com/ytdlp.tar.gz',
         changelog: 'yt-dlp update',
-        type: ComponentType.ytDlp,
       );
 
       SharedPreferences.setMockInitialValues({
@@ -205,7 +209,6 @@ void main() {
         version: '1.6.0',
         downloadUrl: 'https://example.com/app.apk',
         changelog: '6h update',
-        type: ComponentType.app,
       );
 
       final controller = UpdateController(mockGithub, mockSystem, prefs);
@@ -239,7 +242,6 @@ void main() {
         version: '2026.10.01',
         downloadUrl: 'https://example.com/yt-dlp.tar.gz',
         changelog: 'Nightly fix',
-        type: ComponentType.ytDlp,
       );
 
       final controller = UpdateController(mockGithub, mockSystem, prefs);
@@ -290,7 +292,6 @@ void main() {
         version: '1.0.0',
         downloadUrl: 'https://example.com/app-1.0.0.apk',
         changelog: 'Already installed',
-        type: ComponentType.app,
       );
 
       SharedPreferences.setMockInitialValues({
@@ -401,7 +402,7 @@ void main() {
       final prefs = await SharedPreferences.getInstance();
 
       final controller = UpdateController(mockGithub, mockSystem, prefs);
-      mockGithub.requestedTypes.clear();
+      mockGithub.requestedRepos.clear();
 
       // Trigger manual check ONLY for ytDlp
       await controller.checkForUpdates(
@@ -416,7 +417,7 @@ void main() {
       expect(finalApp, equals(tApp), reason: 'App timestamp must be untouched');
       expect(finalEjs, equals(tEjs), reason: 'ytDlpEjs timestamp must be untouched');
       expect(finalYtDlp, greaterThanOrEqualTo(now), reason: 'ytDlp timestamp must be updated');
-      expect(mockGithub.requestedTypes, equals([ComponentType.ytDlp]));
+      expect(mockGithub.requestedRepos.any((r) => r.contains('yt-dlp') && !r.contains('ejs')), isTrue);
     });
 
     test('3.2 Manual check on ytDlpEjs strictly updates ONLY ytDlpEjs timestamp', () async {
@@ -436,7 +437,7 @@ void main() {
       final prefs = await SharedPreferences.getInstance();
 
       final controller = UpdateController(mockGithub, mockSystem, prefs);
-      mockGithub.requestedTypes.clear();
+      mockGithub.requestedRepos.clear();
 
       // Trigger manual check ONLY for ytDlpEjs
       await controller.checkForUpdates(
@@ -451,7 +452,7 @@ void main() {
       expect(finalApp, equals(tApp), reason: 'App timestamp must be untouched');
       expect(finalYtDlp, equals(tYtDlp), reason: 'ytDlp timestamp must be untouched');
       expect(finalEjs, greaterThanOrEqualTo(now), reason: 'ytDlpEjs timestamp must be updated');
-      expect(mockGithub.requestedTypes, equals([ComponentType.ytDlpEjs]));
+      expect(mockGithub.requestedRepos.any((r) => r.contains('ejs')), isTrue);
     });
 
     test('3.3 Manual check on app strictly updates ONLY app timestamp', () async {
@@ -471,7 +472,7 @@ void main() {
       final prefs = await SharedPreferences.getInstance();
 
       final controller = UpdateController(mockGithub, mockSystem, prefs);
-      mockGithub.requestedTypes.clear();
+      mockGithub.requestedRepos.clear();
 
       // Trigger manual check ONLY for app
       await controller.checkForUpdates(
@@ -486,7 +487,7 @@ void main() {
       expect(finalApp, greaterThanOrEqualTo(now), reason: 'App timestamp must be updated');
       expect(finalYtDlp, equals(tYtDlp), reason: 'ytDlp timestamp must be untouched');
       expect(finalEjs, equals(tEjs), reason: 'ytDlpEjs timestamp must be untouched');
-      expect(mockGithub.requestedTypes, equals([ComponentType.app]));
+      expect(mockGithub.requestedRepos, equals(['chomusuke-mk/vidra']));
     });
 
     test('3.4 General check (specificType == null) updates ALL timestamps', () async {
@@ -504,16 +505,16 @@ void main() {
       final prefs = await SharedPreferences.getInstance();
 
       final controller = UpdateController(mockGithub, mockSystem, prefs);
-      mockGithub.requestedTypes.clear();
+      mockGithub.requestedRepos.clear();
 
       await controller.checkForUpdates(manualCall: true, specificType: null);
 
       expect(prefs.getInt('last_update_check_app'), greaterThanOrEqualTo(now));
       expect(prefs.getInt('last_update_check_yt_dlp'), greaterThanOrEqualTo(now));
       expect(prefs.getInt('last_update_check_yt_dlp_ejs'), greaterThanOrEqualTo(now));
-      expect(mockGithub.requestedTypes.contains(ComponentType.app), isTrue);
-      expect(mockGithub.requestedTypes.contains(ComponentType.ytDlp), isTrue);
-      expect(mockGithub.requestedTypes.contains(ComponentType.ytDlpEjs), isTrue);
+      expect(mockGithub.requestedRepos.any((r) => r.contains('vidra')), isTrue);
+      expect(mockGithub.requestedRepos.any((r) => r.contains('yt-dlp')), isTrue);
+      expect(mockGithub.requestedRepos.any((r) => r.contains('ejs')), isTrue);
     });
   });
 
@@ -532,25 +533,27 @@ void main() {
       expect(detected, equals(LinuxPackageType.deb));
     });
 
-    test('4.2 App Asset naming resolution aligns with getLinuxPackageType()', () async {
+    test('4.2 Linux app update checks version without requiring asset download', () async {
       createFakeModules();
       final prefs = await SharedPreferences.getInstance();
+      mockGithub.appUpdate = UpdateInfo(
+        version: '4.0.0',
+        downloadUrl: '',
+        changelog: 'New version for Linux',
+      );
       final controller = UpdateController(mockGithub, mockSystem, prefs);
 
       mockGithub.requestedAssetNames.clear();
-      await controller.checkForUpdates(manualCall: true, specificType: ComponentType.app);
+      final hasUpdate = await controller.checkForUpdates(
+        manualCall: true,
+        specificType: ComponentType.app,
+      );
 
-      final packageType = controller.getLinuxPackageType();
-      final requestedAsset = mockGithub.requestedAssetNames.first;
-
-      if (packageType == LinuxPackageType.snap) {
-        expect(requestedAsset, equals('snap'));
-      } else if (packageType == LinuxPackageType.appImage) {
-        expect(requestedAsset, equals('vidra-x86_64.AppImage'));
-      } else {
-        expect(packageType, equals(LinuxPackageType.deb));
-        expect(requestedAsset, equals('vidra-linux-amd64.deb'));
-      }
+      expect(hasUpdate, isTrue);
+      expect(controller.getState(ComponentType.app).status,
+          equals(ComponentStatus.updateAvailable));
+      expect(mockGithub.requestedAssetNames, isEmpty,
+          reason: 'Linux app updates validate version without searching for specific binary assets');
     });
   });
 
@@ -568,7 +571,6 @@ void main() {
         version: '3.0.0',
         downloadUrl: 'https://example.com/vidra-3.0.0.apk',
         changelog: 'Version 3.0.0',
-        type: ComponentType.app,
       );
 
       await controller.downloadAndInstallInternal(
@@ -593,7 +595,6 @@ void main() {
         version: '4.0.0',
         downloadUrl: 'https://example.com/broken-download.apk',
         changelog: 'Download failure',
-        type: ComponentType.app,
       );
 
       final result = await failingController.downloadAndInstallInternal(

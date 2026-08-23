@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 // Constantes y Dominios
 import 'package:vidra/core/constants/languages.dart';
-import 'package:vidra/core/constants/resolutions.dart';
+import 'package:vidra/features/settings/domain/download_option_formatters.dart';
 import 'package:vidra/features/settings/domain/download_options.dart';
 import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
@@ -449,29 +449,12 @@ class _QuickShareBottomSheetContentState
 
   // --- MÉTODOS DE LAZY DROPDOWNS ---
   Widget _buildVideoResDropdown() {
-    final List<String> flatRes = [
-      'defaultOption',
-      'bestvideo',
-      ...videoResolutions,
-    ];
-    String currentVal = 'defaultOption';
-    if (_opts.videoResolution == VideoOption.bestvideo) {
-      currentVal = 'bestvideo';
-    }
-    if (_opts.videoResolution == VideoOption.resolution &&
-        _opts.videoResolutionValue != null) {
-      currentVal = _opts.videoResolutionValue!;
-    }
-    if (!flatRes.contains(currentVal)) currentVal = 'defaultOption';
+    final currentVal = DownloadOptionFormatters.resolveCurrentVideoVal(_opts);
 
     return LazyDropdown<String>(
       value: currentVal,
-      items: flatRes,
-      labelBuilder: (val) {
-        if (val == 'defaultOption') return widget.locale.sDefault;
-        if (val == 'bestvideo') return widget.locale.sBest;
-        return resolutionLabels[val] ?? val;
-      },
+      items: DownloadOptionFormatters.videoResolutionOptions,
+      labelBuilder: (val) => DownloadOptionFormatters.formatResolution(val, widget.locale),
       onChanged: (val) async {
         final prefs = await SharedPreferences.getInstance();
         if (val == 'defaultOption') {
@@ -502,28 +485,13 @@ class _QuickShareBottomSheetContentState
   }
 
   Widget _buildAudioLangDropdown() {
-    final List<String> flatAud = [
-      'defaultOption',
-      'bestaudio',
-      ...languagesCodes,
-    ];
-    String currentVal = 'defaultOption';
-    if (_opts.audioLanguage == AudioOption.bestaudio) currentVal = 'bestaudio';
-    if (_opts.audioLanguage == AudioOption.language &&
-        _opts.audioLanguageCode != null) {
-      currentVal = _opts.audioLanguageCode!;
-    }
-    if (!flatAud.contains(currentVal)) currentVal = 'defaultOption';
+    final currentVal = DownloadOptionFormatters.resolveCurrentAudioVal(_opts);
 
     return LazyDropdown<String>(
       value: currentVal,
-      items: flatAud,
+      items: DownloadOptionFormatters.audioLanguageOptions,
       enableSearch: true,
-      labelBuilder: (val) {
-        if (val == 'defaultOption') return widget.locale.sDefault;
-        if (val == 'bestaudio') return widget.locale.sBest;
-        return '$val - ${languagesEndonyms[val] ?? val}';
-      },
+      labelBuilder: (val) => DownloadOptionFormatters.formatLanguage(val, widget.locale),
       onChanged: (val) async {
         final prefs = await SharedPreferences.getInstance();
         if (val == 'defaultOption') {

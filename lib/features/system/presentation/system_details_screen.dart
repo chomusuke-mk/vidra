@@ -141,8 +141,10 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
                   ? 'Puerto: ${sysCtrl.backendPort}'
                   : locale.sdWaitingAvailable,
             ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
+            Wrap(
+              runSpacing: 4,
+              spacing: 8,
+              //mainAxisSize: MainAxisSize.min,
               children: [
                 // Botón 1: Logs HTTP de la App (Solo si está Ready)
                 TextButton.icon(
@@ -180,15 +182,14 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
                             if (context.mounted) {
                               Navigator.pop(context);
                             }
-                            ToastUtils.showError('Error: $e');
+                            ToastUtils.showError(
+                              '${locale.sdLogFileReadError}: $e',
+                            );
                           }
                         },
-                  label: const Text('App', style: TextStyle(fontSize: 12)),
+                  label: Text("App Logs", style: const TextStyle(fontSize: 12)),
                   icon: const Icon(Icons.receipt_long_rounded),
                 ),
-
-                const SizedBox(width: 4),
-
                 // Botón 2: Logs Nativos de Consola (SIEMPRE DISPONIBLE para debug)
                 TextButton.icon(
                   style: TextButton.styleFrom(
@@ -228,7 +229,10 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
                             );
                           }
                         },
-                  label: const Text('Server', style: TextStyle(fontSize: 12)),
+                  label: Text(
+                    "Server Logs",
+                    style: const TextStyle(fontSize: 12),
+                  ),
                   icon: const Icon(Icons.terminal),
                 ),
               ],
@@ -424,14 +428,14 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
         children: [
           Text('${locale.sdChannel}:', style: TextStyle(fontSize: 12)),
           SegmentedButton<String>(
-            segments: const [
+            segments: [
               ButtonSegment(
                 value: 'stable',
-                label: Text('Stable', style: TextStyle(fontSize: 11)),
+                label: Text("Stable", style: const TextStyle(fontSize: 11)),
               ),
               ButtonSegment(
                 value: 'nightly',
-                label: Text('Nightly', style: TextStyle(fontSize: 11)),
+                label: Text("Nightly", style: const TextStyle(fontSize: 11)),
               ),
             ],
             selected: {currentChannel},
@@ -469,9 +473,9 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
           'Vidra App',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
-        const Text(
-          'Created by Chomusuke',
-          style: TextStyle(fontSize: 14, color: Colors.grey),
+        Text(
+          locale.sdAboutCreatedBy,
+          style: const TextStyle(fontSize: 14, color: Colors.grey),
         ),
         const SizedBox(height: 16),
 
@@ -491,7 +495,7 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
             ),
             TextButton.icon(
               icon: const Icon(Icons.coffee, color: Colors.orange, size: 16),
-              label: const Text('Donate'),
+              label: Text(locale.sdDonate),
               onPressed: () => launchUrl(
                 Uri.parse('https://www.buymeacoffee.com/chomusuke'),
                 mode: LaunchMode.externalApplication,
@@ -507,7 +511,7 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
             ),
             TextButton.icon(
               icon: const Icon(Icons.history, size: 16),
-              label: const Text('Changelog'),
+              label: Text(locale.sdChangelog),
               onPressed: () => ChangelogUtils.showChangelogDialog(context),
             ),
             TextButton.icon(

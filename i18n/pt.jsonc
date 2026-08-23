@@ -221,8 +221,8 @@
   "sd_modules_updates": "Módulos e atualizações",
   "sd_python_server": "Servidor Python",
   "sd_waiting_available": "Aguardando disponibilidade...",
-  "sd_app_logs": "Registros de aplicativos",
-  "sd_python_server_logs": "Registros do servidor Python",
+  "sd_app_logs": "Registro do aplicativo",
+  "sd_python_server_logs": "Registro do servidor",
   "sd_log_gile_not_found": "Arquivo de log não encontrado.",
   "sd_log_file_read_error": "Erro ao ler o arquivo de log.",
   "sd_button_retry": "Tentar novamente",
@@ -301,5 +301,13 @@
   "qs_close": "Fechar",
   "qs_audio": "Áudio",
   "tu_quick_settings": "Configurações rápidas",
-  "tu_quick_settings_desc": "Abra este menu para ajustar rapidamente as opções de download sem sair da tela principal."
+  "tu_quick_settings_desc": "Abra este menu para ajustar rapidamente as opções de download sem sair da tela principal.",
+  "d_engine_downloading": "Baixando mecanismo de download...",
+  "sd_linux_appimage_title": "Atualizar Vidra (AppImage)",
+  "sd_linux_snap_title": "Atualizar Vidra (Snap)",
+  "sd_channel_nightly": "Todas as noites",
+  "sd_about_created_by": "Criado por Chomusuke",
+  "sd_donate": "Doar",
+  "ssi_bubble_title": "Atualização disponível",
+  "ssi_bubble_button_dismiss": "Liberar"
 }

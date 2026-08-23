@@ -221,8 +221,8 @@
   "sd_modules_updates": "Moduły i aktualizacje",
   "sd_python_server": "Serwer Pythona",
   "sd_waiting_available": "Oczekiwanie na dostępność...",
-  "sd_app_logs": "Dzienniki aplikacji",
-  "sd_python_server_logs": "Dzienniki serwera Pythona",
+  "sd_app_logs": "Dziennik aplikacji",
+  "sd_python_server_logs": "Dziennik serwera",
   "sd_log_gile_not_found": "Nie znaleziono pliku dziennika.",
   "sd_log_file_read_error": "Błąd odczytu pliku dziennika.",
   "sd_button_retry": "Spróbować ponownie",
@@ -301,5 +301,16 @@
   "qs_audio": "Audio",
   "p_optional": "Fakultatywny",
   "tu_quick_settings": "Szybkie ustawienia",
-  "tu_quick_settings_desc": "Otwórz to menu, aby szybko dostosować opcje pobierania w locie, bez opuszczania ekranu głównego."
+  "tu_quick_settings_desc": "Otwórz to menu, aby szybko dostosować opcje pobierania w locie, bez opuszczania ekranu głównego.",
+  "d_downloading_engine_progress": "Pobieram podstawowe moduły ({otrzymane}/{total})...",
+  "d_downloading_engine_error": "Błąd podczas pobierania modułów silnika. Sprawdź swoje połączenie internetowe.",
+  "sd_linux_appimage_title": "Zaktualizuj Vidrę (AppImage)",
+  "sd_linux_appimage_msg": "Skorzystaj z narzędzia appimageupdatetool lub pobierz najnowszą wersję AppImage z GitHub:",
+  "sd_linux_snap_title": "Zaktualizuj Vidrę (przyciąganie)",
+  "sd_command_copied": "Polecenie skopiowane do schowka",
+  "sd_channel_stable": "Stabilny",
+  "sd_about_created_by": "Stworzony przez Chomusuke",
+  "sd_donate": "Podarować",
+  "ssi_bubble_button_show": "Pokazywać",
+  "ssi_bubble_button_dismiss": "Odrzucać"
 }

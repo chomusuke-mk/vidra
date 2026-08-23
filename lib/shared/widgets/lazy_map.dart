@@ -6,12 +6,16 @@ class LazyMap extends StatefulWidget {
 
   // Si se proveen, la clave se convierte en un DropdownMenu filtrable (Autocomplete)
   final List<String> keySuggestions;
+  final String keyLabel;
+  final String valueLabel;
 
   const LazyMap({
     super.key,
     required this.value,
     required this.onChanged,
     this.keySuggestions = const [],
+    this.keyLabel = 'Key',
+    this.valueLabel = 'Value',
   });
 
   @override
@@ -81,16 +85,16 @@ class _LazyMapState extends State<LazyMap> {
               child: widget.keySuggestions.isEmpty
                   ? TextField(
                       controller: _keyCtrl,
-                      decoration: const InputDecoration(
-                        labelText: 'Key',
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        labelText: widget.keyLabel,
+                        border: const OutlineInputBorder(),
                         isDense: true,
                       ),
                       onSubmitted: (_) => _valFocus.requestFocus(),
                     )
                   : DropdownMenu<String>(
                       controller: _keyCtrl,
-                      label: const Text('Key'),
+                      label: Text(widget.keyLabel),
                       enableFilter: true,
                       enableSearch: true,
                       requestFocusOnTap: true,
@@ -107,9 +111,9 @@ class _LazyMapState extends State<LazyMap> {
               child: TextField(
                 controller: _valCtrl,
                 focusNode: _valFocus,
-                decoration: const InputDecoration(
-                  labelText: 'Value',
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  labelText: widget.valueLabel,
+                  border: const OutlineInputBorder(),
                   isDense: true,
                 ),
                 onSubmitted: (_) => _addEntry(),

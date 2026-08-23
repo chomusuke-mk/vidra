@@ -25,19 +25,29 @@ class _SelectionFabWrapperState extends State<SelectionFabWrapper> {
   String? _activeModalId;
   BuildContext? _dialogContext;
 
+  DownloadsController? _downloadsCtrl;
+
   @override
-  void initState() {
-    super.initState();
-    // Escuchamos los cambios del controlador de forma global
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<DownloadsController>().addListener(_onDownloadsUpdated);
-    });
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final ctrl = Provider.of<DownloadsController>(context, listen: false);
+    if (_downloadsCtrl != ctrl) {
+      _downloadsCtrl?.removeListener(_onDownloadsUpdated);
+      _downloadsCtrl = ctrl;
+      _downloadsCtrl?.addListener(_onDownloadsUpdated);
+    }
+  }
+
+  @override
+  void dispose() {
+    _downloadsCtrl?.removeListener(_onDownloadsUpdated);
+    super.dispose();
   }
 
   void _onDownloadsUpdated() {
     if (!mounted) return;
 
-    final ctrl = context.read<DownloadsController>();
+    final ctrl = _downloadsCtrl ?? context.read<DownloadsController>();
     final locale = context.read<LocaleController>().localeStrings;
     final awaitingDownloads = ctrl.downloads
         .where((d) => d.state?.value == DownloadStateEnum.awaitingSelection)

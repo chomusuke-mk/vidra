@@ -36,23 +36,21 @@ class FakeSystemController extends ChangeNotifier
 
 class FakeGithubClient implements GithubClient {
   int fetchCallCount = 0;
-  final List<ComponentType> requestedTypes = [];
+  final List<String> requestedRepos = [];
   UpdateInfo? appUpdate;
   UpdateInfo? ytDlpUpdate;
   UpdateInfo? ytDlpEjsUpdate;
 
   @override
   Future<UpdateInfo?> getLatestReleaseInfo({
-    required ComponentType type,
-    required UpdateChannel channel,
-    required String targetAssetName,
-    bool isPrefixMatch = false,
+    required String repo,
+    required List<RegExp> assetRegex,
   }) async {
     fetchCallCount++;
-    requestedTypes.add(type);
-    if (type == ComponentType.app) return appUpdate;
-    if (type == ComponentType.ytDlp) return ytDlpUpdate;
-    if (type == ComponentType.ytDlpEjs) return ytDlpEjsUpdate;
+    requestedRepos.add(repo);
+    if (repo.contains('vidra')) return appUpdate;
+    if (repo.contains('ejs')) return ytDlpEjsUpdate;
+    if (repo.contains('yt-dlp')) return ytDlpUpdate;
     return null;
   }
 
@@ -147,7 +145,6 @@ void main() {
         version: '1.2.0',
         downloadUrl: 'https://example.com/app.apk',
         changelog: 'New features',
-        type: ComponentType.app,
       );
 
       SharedPreferences.setMockInitialValues({
@@ -208,7 +205,6 @@ void main() {
         version: '1.5.0',
         downloadUrl: 'https://example.com/app.apk',
         changelog: 'Major update',
-        type: ComponentType.app,
       );
 
       final controller = UpdateController(fakeGithub, fakeSystem, prefs);
@@ -285,7 +281,6 @@ void main() {
         sumsUrl: 'https://example.com/sums',
         sigUrl: 'https://example.com/sums.sig',
         changelog: 'Changelog details',
-        type: ComponentType.ytDlp,
       );
 
       final jsonMap = original.toJson();
@@ -296,13 +291,12 @@ void main() {
       expect(restored.sumsUrl, equals(original.sumsUrl));
       expect(restored.sigUrl, equals(original.sigUrl));
       expect(restored.changelog, equals(original.changelog));
-      expect(restored.type, equals(original.type));
       expect(restored.requiresPgpValidation, isTrue);
 
       final jsonString = original.toJsonString();
       final fromStr = UpdateInfo.fromJsonString(jsonString);
       expect(fromStr.version, equals(original.version));
-      expect(fromStr.type, equals(ComponentType.ytDlp));
+      expect(fromStr.changelog, equals(original.changelog));
     });
   });
 }

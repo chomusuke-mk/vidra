@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vidra/core/constants/languages.dart';
-import 'package:vidra/core/constants/resolutions.dart';
 import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
+import 'package:vidra/features/settings/domain/download_option_formatters.dart';
 import 'package:vidra/features/settings/domain/download_options.dart';
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/shared/widgets/lazy_dropdown.dart';
@@ -215,9 +215,9 @@ class QuickSettingsBottomSheet extends StatelessWidget {
           items: AudioFormat.values,
           label: locale.sAudioFormat,
           labelBuilder: (AudioFormat format) => format.name.toUpperCase(),
-          onChanged: (AudioFormat newFormat) {
+          onChanged: (AudioFormat val) {
             settingsCtrl.updateDownloadOptions(
-              opts.copyWith(audioFormat: newFormat),
+              opts.copyWith(audioFormat: val),
             );
           },
         ),
@@ -231,41 +231,11 @@ class QuickSettingsBottomSheet extends StatelessWidget {
     DownloadOptions opts,
     AppStringKey locale,
   ) {
-    // 1. Video Resolution
-    final List<String> videoResolutionFlat = [
-      'defaultOption',
-      'bestvideo',
-      ...videoResolutions,
-    ];
-    String currentVideoVal = 'defaultOption';
-    if (opts.videoResolution == VideoOption.bestvideo) {
-      currentVideoVal = 'bestvideo';
-    } else if (opts.videoResolution == VideoOption.resolution &&
-        opts.videoResolutionValue != null) {
-      currentVideoVal = opts.videoResolutionValue!;
-    }
-    if (!videoResolutionFlat.contains(currentVideoVal)) {
-      currentVideoVal = 'defaultOption';
-    }
+    final currentVideoVal =
+        DownloadOptionFormatters.resolveCurrentVideoVal(opts);
+    final currentAudioVal =
+        DownloadOptionFormatters.resolveCurrentAudioVal(opts);
 
-    // 2. Audio Language
-    final List<String> audioOptionsFlat = [
-      'defaultOption',
-      'bestaudio',
-      ...languagesCodes,
-    ];
-    String currentAudioVal = 'defaultOption';
-    if (opts.audioLanguage == AudioOption.bestaudio) {
-      currentAudioVal = 'bestaudio';
-    } else if (opts.audioLanguage == AudioOption.language &&
-        opts.audioLanguageCode != null) {
-      currentAudioVal = opts.audioLanguageCode!;
-    }
-    if (!audioOptionsFlat.contains(currentAudioVal)) {
-      currentAudioVal = 'defaultOption';
-    }
-
-    // 3. Subtitles suggestions and visual items
     final List<String> friendlySuggestions = languagesCodes.map((code) {
       final name = languagesEndonyms[code] ?? code;
       return '$code - $name';
@@ -279,7 +249,6 @@ class QuickSettingsBottomSheet extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        // Video Resolution
         Text(
           locale.sVideoResolution,
           style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
@@ -287,13 +256,10 @@ class QuickSettingsBottomSheet extends StatelessWidget {
         const SizedBox(height: 6),
         LazyDropdown<String>(
           value: currentVideoVal,
-          items: videoResolutionFlat,
+          items: DownloadOptionFormatters.videoResolutionOptions,
           label: locale.sVideoResolution,
-          labelBuilder: (String val) {
-            if (val == 'defaultOption') return locale.sDefault;
-            if (val == 'bestvideo') return locale.sBest;
-            return resolutionLabels[val] ?? val;
-          },
+          labelBuilder: (String val) =>
+              DownloadOptionFormatters.formatResolution(val, locale),
           onChanged: (String val) {
             if (val == 'defaultOption') {
               settingsCtrl.updateDownloadOptions(
@@ -314,8 +280,6 @@ class QuickSettingsBottomSheet extends StatelessWidget {
           },
         ),
         const SizedBox(height: 14),
-
-        // Video Output Format (mergeOutputFormat)
         Text(
           locale.sMergeOutputFormat,
           style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
@@ -333,8 +297,6 @@ class QuickSettingsBottomSheet extends StatelessWidget {
           },
         ),
         const SizedBox(height: 14),
-
-        // Audio Language
         Text(
           locale.sAudioLanguage,
           style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
@@ -342,15 +304,11 @@ class QuickSettingsBottomSheet extends StatelessWidget {
         const SizedBox(height: 6),
         LazyDropdown<String>(
           value: currentAudioVal,
-          items: audioOptionsFlat,
+          items: DownloadOptionFormatters.audioLanguageOptions,
           label: locale.sAudioLanguage,
           enableSearch: true,
-          labelBuilder: (String val) {
-            if (val == 'defaultOption') return locale.sDefault;
-            if (val == 'bestaudio') return locale.sBest;
-            final langName = languagesEndonyms[val] ?? val;
-            return '$val - $langName';
-          },
+          labelBuilder: (String val) =>
+              DownloadOptionFormatters.formatLanguage(val, locale),
           onChanged: (String val) {
             if (val == 'defaultOption') {
               settingsCtrl.updateDownloadOptions(

@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:vidra/features/downloads/presentation/selection_wrapper.dart';
 import 'package:vidra/features/downloads/presentation/downloads_controller.dart';
+import 'package:vidra/features/downloads/presentation/selection_wrapper.dart';
 import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
-import 'download_detail_controller.dart';
+import 'package:vidra/features/downloads/presentation/download_detail_controller.dart';
 import 'package:vidra/features/downloads/data/download_repository.dart';
 import 'package:vidra/features/downloads/domain/download.dart' as model;
 import 'package:vidra/shared/widgets/download_card.dart';

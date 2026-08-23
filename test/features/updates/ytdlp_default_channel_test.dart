@@ -46,22 +46,16 @@ class ChannelRecordingGithubClient implements GithubClient {
 
   @override
   Future<UpdateInfo?> getLatestReleaseInfo({
-    required ComponentType type,
-    required UpdateChannel channel,
-    required String targetAssetName,
-    bool isPrefixMatch = false,
+    required String repo,
+    required List<RegExp> assetRegex,
   }) async {
     recordedReleaseCalls.add({
-      'type': type,
-      'channel': channel,
-      'targetAssetName': targetAssetName,
-      'isPrefixMatch': isPrefixMatch,
+      'repo': repo,
     });
     return UpdateInfo(
       version: '2026.08.19',
       changelog: 'Mock changelog',
       downloadUrl: 'https://example.com/asset.tar.gz',
-      type: type,
     );
   }
 
@@ -135,11 +129,11 @@ void main() {
       );
 
       final ytDlpCalls = fakeGithub.recordedReleaseCalls
-          .where((call) => call['type'] == ComponentType.ytDlp)
+          .where((call) => (call['repo'] as String).contains('yt-dlp') && !(call['repo'] as String).contains('ejs'))
           .toList();
 
       expect(ytDlpCalls, isNotEmpty);
-      expect(ytDlpCalls.first['channel'], equals(UpdateChannel.nightly));
+      expect(ytDlpCalls.first['repo'], equals('yt-dlp/yt-dlp-nightly-builds'));
     });
 
     test('Channel is nightly when channel_ytdlp is explicitly set to nightly', () async {
@@ -156,11 +150,11 @@ void main() {
       );
 
       final ytDlpCalls = fakeGithub.recordedReleaseCalls
-          .where((call) => call['type'] == ComponentType.ytDlp)
+          .where((call) => (call['repo'] as String).contains('yt-dlp') && !(call['repo'] as String).contains('ejs'))
           .toList();
 
       expect(ytDlpCalls, isNotEmpty);
-      expect(ytDlpCalls.first['channel'], equals(UpdateChannel.nightly));
+      expect(ytDlpCalls.first['repo'], equals('yt-dlp/yt-dlp-nightly-builds'));
     });
 
     test('Channel is stable only when channel_ytdlp is explicitly set to stable', () async {
@@ -177,11 +171,11 @@ void main() {
       );
 
       final ytDlpCalls = fakeGithub.recordedReleaseCalls
-          .where((call) => call['type'] == ComponentType.ytDlp)
+          .where((call) => (call['repo'] as String).contains('yt-dlp') && !(call['repo'] as String).contains('ejs'))
           .toList();
 
       expect(ytDlpCalls, isNotEmpty);
-      expect(ytDlpCalls.first['channel'], equals(UpdateChannel.stable));
+      expect(ytDlpCalls.first['repo'], equals('yt-dlp/yt-dlp'));
     });
 
     test('Switching channel dynamically from unset to stable updates subsequent checks', () async {
@@ -196,9 +190,9 @@ void main() {
         specificType: ComponentType.ytDlp,
       );
       var ytDlpCalls = fakeGithub.recordedReleaseCalls
-          .where((c) => c['type'] == ComponentType.ytDlp)
+          .where((c) => (c['repo'] as String).contains('yt-dlp') && !(c['repo'] as String).contains('ejs'))
           .toList();
-      expect(ytDlpCalls.last['channel'], equals(UpdateChannel.nightly));
+      expect(ytDlpCalls.last['repo'], equals('yt-dlp/yt-dlp-nightly-builds'));
 
       // Switch to stable
       await prefs.setString('channel_ytdlp', 'stable');
@@ -209,9 +203,9 @@ void main() {
         specificType: ComponentType.ytDlp,
       );
       ytDlpCalls = fakeGithub.recordedReleaseCalls
-          .where((c) => c['type'] == ComponentType.ytDlp)
+          .where((c) => (c['repo'] as String).contains('yt-dlp') && !(c['repo'] as String).contains('ejs'))
           .toList();
-      expect(ytDlpCalls.last['channel'], equals(UpdateChannel.stable));
+      expect(ytDlpCalls.last['repo'], equals('yt-dlp/yt-dlp'));
 
       // Switch back to nightly
       await prefs.setString('channel_ytdlp', 'nightly');
@@ -222,9 +216,9 @@ void main() {
         specificType: ComponentType.ytDlp,
       );
       ytDlpCalls = fakeGithub.recordedReleaseCalls
-          .where((c) => c['type'] == ComponentType.ytDlp)
+          .where((c) => (c['repo'] as String).contains('yt-dlp') && !(c['repo'] as String).contains('ejs'))
           .toList();
-      expect(ytDlpCalls.last['channel'], equals(UpdateChannel.nightly));
+      expect(ytDlpCalls.last['repo'], equals('yt-dlp/yt-dlp-nightly-builds'));
     });
 
     test('Default fallback expression evaluates to nightly when key is absent', () async {

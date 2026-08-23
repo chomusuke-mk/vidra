@@ -64,16 +64,21 @@ class FakeSystemController extends ChangeNotifier with WidgetsBindingObserver im
 /// Fake GithubClient supporting custom simulated download responses per URL
 class FakeGithubClient implements GithubClient {
   final Map<String, Future<bool> Function(String savePath, Function(int, int)? onProgress)> downloadHandlers = {};
-  final Map<ComponentType, UpdateInfo> releaseInfoMap = {};
+  final Map<String, UpdateInfo> releaseInfoMap = {};
 
   @override
   Future<UpdateInfo?> getLatestReleaseInfo({
-    required ComponentType type,
-    required UpdateChannel channel,
-    required String targetAssetName,
-    bool isPrefixMatch = false,
+    required String repo,
+    required List<RegExp> assetRegex,
   }) async {
-    return releaseInfoMap[type];
+    if (releaseInfoMap.containsKey(repo)) return releaseInfoMap[repo];
+    if (repo.contains('ejs')) return releaseInfoMap['yt-dlp/ejs'];
+    if (repo.contains('yt-dlp')) {
+      return releaseInfoMap['yt-dlp/yt-dlp-nightly-builds'] ??
+          releaseInfoMap['yt-dlp/yt-dlp'];
+    }
+    if (repo.contains('vidra')) return releaseInfoMap['chomusuke-mk/vidra'];
+    return releaseInfoMap[repo];
   }
 
   @override
@@ -118,6 +123,14 @@ void main() {
       },
     );
 
+    const MethodChannel openFileChannel = MethodChannel('open_filex');
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(
+      openFileChannel,
+      (MethodCall methodCall) async {
+        return {'type': 0, 'message': 'done'};
+      },
+    );
+
     // Mock package_info
     PackageInfo.setMockInitialValues(
       appName: 'Vidra',
@@ -149,6 +162,12 @@ void main() {
     const MethodChannel pathChannel = MethodChannel('plugins.flutter.io/path_provider');
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(
       pathChannel,
+      null,
+    );
+
+    const MethodChannel openFileChannel = MethodChannel('open_filex');
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(
+      openFileChannel,
       null,
     );
 
@@ -208,22 +227,20 @@ void main() {
       final ejsUrl = 'https://github.com/yt-dlp/ejs/releases/download/0.8.0/yt_dlp_ejs-0.8.0-py3-none-any.whl';
 
       // Set up pending updates for both
-      fakeGithub.releaseInfoMap[ComponentType.ytDlp] = UpdateInfo(
+      fakeGithub.releaseInfoMap['yt-dlp/yt-dlp'] = UpdateInfo(
         version: '2026.08.15',
         downloadUrl: ytdlpUrl,
         sumsUrl: ytdlpSumsUrl,
         sigUrl: ytdlpSigUrl,
         changelog: 'yt-dlp update',
-        type: ComponentType.ytDlp,
       );
 
-      fakeGithub.releaseInfoMap[ComponentType.ytDlpEjs] = UpdateInfo(
+      fakeGithub.releaseInfoMap['yt-dlp/ejs'] = UpdateInfo(
         version: '0.8.0',
         downloadUrl: ejsUrl,
         sumsUrl: null, // EJS does not require PGP validation
         sigUrl: null,
         changelog: 'ejs update',
-        type: ComponentType.ytDlpEjs,
       );
 
       // Handlers simulating concurrent async network download latency
@@ -347,11 +364,10 @@ void main() {
     test('0-byte binary file causes immediate error state and never invokes backend pause', () async {
       final ejsUrl = 'https://github.com/yt-dlp/ejs/releases/download/0.8.0/yt_dlp_ejs.whl';
 
-      fakeGithub.releaseInfoMap[ComponentType.ytDlpEjs] = UpdateInfo(
+      fakeGithub.releaseInfoMap['yt-dlp/ejs'] = UpdateInfo(
         version: '0.8.0',
         downloadUrl: ejsUrl,
         changelog: 'empty binary test',
-        type: ComponentType.ytDlpEjs,
       );
 
       // Handler produces 0-byte file
@@ -375,11 +391,10 @@ void main() {
     test('Failed binary download (network error) results in error state without throwing', () async {
       final ejsUrl = 'https://github.com/yt-dlp/ejs/releases/download/0.8.0/yt_dlp_ejs.whl';
 
-      fakeGithub.releaseInfoMap[ComponentType.ytDlpEjs] = UpdateInfo(
+      fakeGithub.releaseInfoMap['yt-dlp/ejs'] = UpdateInfo(
         version: '0.8.0',
         downloadUrl: ejsUrl,
         changelog: 'network error test',
-        type: ComponentType.ytDlpEjs,
       );
 
       fakeGithub.downloadHandlers[ejsUrl] = (savePath, onProgress) async {
@@ -400,13 +415,12 @@ void main() {
       final sumsUrl = 'https://github.com/yt-dlp/yt-dlp/releases/download/2026.08.15/SHA2-512SUMS';
       final sigUrl = 'https://github.com/yt-dlp/yt-dlp/releases/download/2026.08.15/SHA2-512SUMS.sig';
 
-      fakeGithub.releaseInfoMap[ComponentType.ytDlp] = UpdateInfo(
+      fakeGithub.releaseInfoMap['yt-dlp/yt-dlp'] = UpdateInfo(
         version: '2026.08.15',
         downloadUrl: ytdlpUrl,
         sumsUrl: sumsUrl,
         sigUrl: sigUrl,
         changelog: 'sums fail test',
-        type: ComponentType.ytDlp,
       );
 
       fakeGithub.downloadHandlers[ytdlpUrl] = (savePath, onProgress) async {
@@ -438,13 +452,12 @@ void main() {
       final sumsUrl = 'https://github.com/yt-dlp/yt-dlp/releases/download/2026.08.15/SHA2-512SUMS';
       final sigUrl = 'https://github.com/yt-dlp/yt-dlp/releases/download/2026.08.15/SHA2-512SUMS.sig';
 
-      fakeGithub.releaseInfoMap[ComponentType.ytDlp] = UpdateInfo(
+      fakeGithub.releaseInfoMap['yt-dlp/yt-dlp'] = UpdateInfo(
         version: '2026.08.15',
         downloadUrl: ytdlpUrl,
         sumsUrl: sumsUrl,
         sigUrl: sigUrl,
         changelog: 'sig fail test',
-        type: ComponentType.ytDlp,
       );
 
       fakeGithub.downloadHandlers[ytdlpUrl] = (savePath, onProgress) async {
@@ -566,11 +579,10 @@ void main() {
 
       final ejsUrl = 'https://github.com/yt-dlp/ejs/releases/download/0.8.0/yt_dlp_ejs.whl';
 
-      fakeGithub.releaseInfoMap[ComponentType.ytDlpEjs] = UpdateInfo(
+      fakeGithub.releaseInfoMap['yt-dlp/ejs'] = UpdateInfo(
         version: '0.8.0',
         downloadUrl: ejsUrl,
         changelog: 'corrupt payload test',
-        type: ComponentType.ytDlpEjs,
       );
 
       // Download succeeds with corrupted non-zip content
@@ -612,11 +624,10 @@ void main() {
 
       final ejsUrl = 'https://github.com/yt-dlp/ejs/releases/download/0.8.0/yt_dlp_ejs.whl';
 
-      fakeGithub.releaseInfoMap[ComponentType.ytDlpEjs] = UpdateInfo(
+      fakeGithub.releaseInfoMap['yt-dlp/ejs'] = UpdateInfo(
         version: '0.8.0',
         downloadUrl: ejsUrl,
         changelog: 'filesystem error test',
-        type: ComponentType.ytDlpEjs,
       );
 
       final validArchiveBytes = createValidArchiveBytes(

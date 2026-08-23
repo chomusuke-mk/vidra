@@ -81,59 +81,19 @@ class UpdateController extends ChangeNotifier {
 
   UpdateState getState(ComponentType type) => _states[type]!;
 
-  static String _lastCheckKey(ComponentType type) {
-    switch (type) {
-      case ComponentType.app:
-        return 'last_update_check_app';
-      case ComponentType.ytDlp:
-        return 'last_update_check_yt_dlp';
-      case ComponentType.ytDlpEjs:
-        return 'last_update_check_yt_dlp_ejs';
-    }
-  }
-
-  static String _discoveredVersionKey(ComponentType type) {
-    switch (type) {
-      case ComponentType.app:
-        return 'discovered_version_app';
-      case ComponentType.ytDlp:
-        return 'discovered_version_yt_dlp';
-      case ComponentType.ytDlpEjs:
-        return 'discovered_version_yt_dlp_ejs';
-    }
-  }
-
-  static String _discoveredInfoKey(ComponentType type) {
-    switch (type) {
-      case ComponentType.app:
-        return 'discovered_info_app';
-      case ComponentType.ytDlp:
-        return 'discovered_info_yt_dlp';
-      case ComponentType.ytDlpEjs:
-        return 'discovered_info_yt_dlp_ejs';
-    }
-  }
-
-  static String _versionKey(ComponentType type) {
-    switch (type) {
-      case ComponentType.app:
-        return 'version_app';
-      case ComponentType.ytDlp:
-        return 'version_yt_dlp';
-      case ComponentType.ytDlpEjs:
-        return 'version_yt_dlp_ejs';
-    }
-  }
+  static String _lastCheckKey(ComponentType type) => type.lastCheckKey;
+  static String _discoveredVersionKey(ComponentType type) =>
+      type.discoveredVersionKey;
+  static String _discoveredInfoKey(ComponentType type) =>
+      type.discoveredInfoKey;
+  static String _versionKey(ComponentType type) => type.versionKey;
 
   bool get hasPendingChecks {
     final now = DateTime.now().millisecondsSinceEpoch;
-    final appLast = _prefs.getInt(_lastCheckKey(ComponentType.app)) ?? 0;
-    final ytdlpLast = _prefs.getInt(_lastCheckKey(ComponentType.ytDlp)) ?? 0;
-    final ejsLast = _prefs.getInt(_lastCheckKey(ComponentType.ytDlpEjs)) ?? 0;
-
-    return (now - appLast > checkIntervalMs) ||
-        (now - ytdlpLast > checkIntervalMs) ||
-        (now - ejsLast > checkIntervalMs);
+    return ComponentType.values.any((t) {
+      final last = _prefs.getInt(t.lastCheckKey) ?? 0;
+      return now - last > checkIntervalMs;
+    });
   }
 
   bool get hasAvailableUpdates =>
@@ -230,20 +190,25 @@ class UpdateController extends ChangeNotifier {
 
     try {
       for (final type in missingList) {
-        final channel = type == ComponentType.ytDlp
-            ? (_prefs.getString('channel_ytdlp') == 'stable'
-                ? UpdateChannel.stable
-                : UpdateChannel.nightly)
-            : UpdateChannel.stable;
-        final assetName =
-            type == ComponentType.ytDlp ? 'yt-dlp.tar.gz' : 'yt_dlp_ejs';
-        final isPrefix = type == ComponentType.ytDlpEjs;
+        String repo;
+        List<RegExp> assetRegex;
+
+        if (type == ComponentType.ytDlp) {
+          final channel = _prefs.getString('channel_ytdlp') == 'stable'
+              ? UpdateChannel.stable
+              : UpdateChannel.nightly;
+          repo = channel == UpdateChannel.nightly
+              ? 'yt-dlp/yt-dlp-nightly-builds'
+              : 'yt-dlp/yt-dlp';
+          assetRegex = [RegExp(r'^yt-dlp\.tar\.gz$')];
+        } else {
+          repo = 'yt-dlp/ejs';
+          assetRegex = [RegExp(r'\.whl$'), RegExp(r'\.tar\.gz$')];
+        }
 
         final info = await _github.getLatestReleaseInfo(
-          type: type,
-          channel: channel,
-          targetAssetName: assetName,
-          isPrefixMatch: isPrefix,
+          repo: repo,
+          assetRegex: assetRegex,
         );
 
         if (info != null) {
@@ -255,6 +220,7 @@ class UpdateController extends ChangeNotifier {
               _missingModulesProgress = (completed + progress) / total;
               notifyListeners();
             },
+            manageBackendLifecycle: false,
           );
 
           if (success) {
@@ -361,10 +327,13 @@ class UpdateController extends ChangeNotifier {
 
     if (specificType == null || specificType == ComponentType.ytDlp) {
       _setState(ComponentType.ytDlp, ComponentStatus.checking);
+      final ytDlpRepo = ytDlpChannel == UpdateChannel.nightly
+          ? 'yt-dlp/yt-dlp-nightly-builds'
+          : 'yt-dlp/yt-dlp';
       final found = await _fetchAndCompare(
         ComponentType.ytDlp,
-        ytDlpChannel,
-        'yt-dlp.tar.gz',
+        ytDlpRepo,
+        [RegExp(r'^yt-dlp\.tar\.gz$')],
       );
       updateFound = updateFound || found;
     }
@@ -372,20 +341,30 @@ class UpdateController extends ChangeNotifier {
       _setState(ComponentType.ytDlpEjs, ComponentStatus.checking);
       final found = await _fetchAndCompare(
         ComponentType.ytDlpEjs,
-        UpdateChannel.stable,
-        'yt_dlp_ejs',
-        isPrefix: true,
+        'yt-dlp/ejs',
+        [RegExp(r'\.whl$'), RegExp(r'\.tar\.gz$')],
       );
       updateFound = updateFound || found;
     }
     if (specificType == null || specificType == ComponentType.app) {
       _setState(ComponentType.app, ComponentStatus.checking);
-      final appAsset = await _getExpectedAppAssetName();
-      final found = await _fetchAndCompare(
-        ComponentType.app,
-        UpdateChannel.stable,
-        appAsset,
-      );
+      final bool found;
+      if (Platform.isLinux) {
+        // En Linux (deb, appimage, snap) no se descarga ningún archivo de la app,
+        // solo se valida si en GitHub existe una nueva versión.
+        found = await _fetchAndCompare(
+          ComponentType.app,
+          'chomusuke-mk/vidra',
+          const [],
+        );
+      } else {
+        final appAsset = await _getExpectedAppAssetName();
+        found = await _fetchAndCompare(
+          ComponentType.app,
+          'chomusuke-mk/vidra',
+          [RegExp('^${RegExp.escape(appAsset)}\$')],
+        );
+      }
       updateFound = updateFound || found;
     }
 
@@ -394,20 +373,21 @@ class UpdateController extends ChangeNotifier {
 
   Future<bool> _fetchAndCompare(
     ComponentType type,
-    UpdateChannel channel,
-    String assetName, {
-    bool isPrefix = false,
-  }) async {
+    String repo,
+    List<RegExp> assetRegex,
+  ) async {
     final info = await _github.getLatestReleaseInfo(
-      type: type,
-      channel: channel,
-      targetAssetName: assetName,
-      isPrefixMatch: isPrefix,
+      repo: repo,
+      assetRegex: assetRegex,
     );
 
     final isMissing = !(await _isComponentInstalled(type));
 
-    if (info != null && (info.version != _states[type]!.version || isMissing)) {
+    String normalize(String v) => v.trim().replaceFirst(RegExp(r'^v'), '');
+
+    if (info != null &&
+        (normalize(info.version) != normalize(_states[type]!.version) ||
+            isMissing)) {
       await _prefs.setString(_discoveredVersionKey(type), info.version);
       await _prefs.setString(_discoveredInfoKey(type), info.toJsonString());
       _setState(
@@ -478,6 +458,7 @@ class UpdateController extends ChangeNotifier {
     ComponentType type,
     UpdateInfo info, {
     Function(double progress)? onDownloadProgress,
+    bool manageBackendLifecycle = true,
   }) async {
     _setState(type, ComponentStatus.downloading, progress: 0.0);
 
@@ -507,7 +488,8 @@ class UpdateController extends ChangeNotifier {
         return false;
       }
 
-      if (info.requiresPgpValidation) {
+      final publicKey = PublicKeys.getKeyForComponent(type);
+      if (info.requiresPgpValidation && publicKey != null) {
         _setState(type, ComponentStatus.verifying);
         final sumsOk = await _github.downloadFile(
           url: info.sumsUrl!,
@@ -531,7 +513,7 @@ class UpdateController extends ChangeNotifier {
           binaryFile: binaryFile,
           sumsFile: sumsFile,
           sigFile: sigFile,
-          publicKey: PublicKeys.getKeyForComponent(type),
+          publicKey: publicKey,
           expectedBinaryName: p.basename(info.downloadUrl),
         );
 
@@ -566,7 +548,9 @@ class UpdateController extends ChangeNotifier {
           return false;
         }
 
-        await _system.stopBackendForUpdate();
+        if (manageBackendLifecycle) {
+          await _system.stopBackendForUpdate();
+        }
         try {
           final modulesDir = Directory(p.join(supportDir.path, 'core_modules'));
           final pythonPackageName = type == ComponentType.ytDlp
@@ -596,7 +580,9 @@ class UpdateController extends ChangeNotifier {
             return false;
           }
         } finally {
-          await _system.resumeInitialization();
+          if (manageBackendLifecycle) {
+            await _system.resumeInitialization();
+          }
         }
       }
     } catch (e) {
@@ -631,14 +617,9 @@ class UpdateController extends ChangeNotifier {
       }
       return 'vidra-android.apk';
     } else if (Platform.isLinux) {
-      final linuxType = getLinuxPackageType();
-      if (linuxType == LinuxPackageType.snap) {
-        return 'snap';
-      }
-      if (linuxType == LinuxPackageType.appImage) {
-        return 'vidra-x86_64.AppImage';
-      }
-      return 'vidra-linux-amd64.deb';
+      throw UnsupportedError(
+        'Linux does not download binary app assets; updates are validated via version and handled via package managers or update scripts.',
+      );
     } else if (Platform.isWindows) {
       return 'vidra-windows.exe';
     } else if (Platform.isMacOS) {
@@ -648,4 +629,16 @@ class UpdateController extends ChangeNotifier {
     }
     return 'vidra-unknown';
   }
+}
+
+extension ComponentTypeExt on ComponentType {
+  String get prefSuffix => switch (this) {
+    ComponentType.app => 'app',
+    ComponentType.ytDlp => 'yt_dlp',
+    ComponentType.ytDlpEjs => 'yt_dlp_ejs',
+  };
+  String get lastCheckKey => 'last_update_check_$prefSuffix';
+  String get discoveredVersionKey => 'discovered_version_$prefSuffix';
+  String get discoveredInfoKey => 'discovered_info_$prefSuffix';
+  String get versionKey => 'version_$prefSuffix';
 }

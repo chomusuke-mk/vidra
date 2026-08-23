@@ -36,16 +36,13 @@ class FakeSystemController extends ChangeNotifier
 class MockAppDownloadGithubClient implements GithubClient {
   @override
   Future<UpdateInfo?> getLatestReleaseInfo({
-    required ComponentType type,
-    required UpdateChannel channel,
-    required String targetAssetName,
-    bool isPrefixMatch = false,
+    required String repo,
+    required List<RegExp> assetRegex,
   }) async {
     return UpdateInfo(
       version: '2.0.0',
       downloadUrl: 'https://example.com/vidra-2.0.0.apk',
       changelog: 'Changelog 2.0.0',
-      type: ComponentType.app,
     );
   }
 

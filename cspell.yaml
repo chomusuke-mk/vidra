@@ -5,6 +5,7 @@ ignorePaths:
   - cspell.config.yaml
   - lib/core/constants/languages.dart
 words:
+  - abis
   - Abis
   - acodec
   - alac
@@ -319,6 +320,7 @@ words:
   - unhide
   - uninst
   - uninstallexe
+  - unregistration
   - userappdata
   - userdesktop
   - userosscache

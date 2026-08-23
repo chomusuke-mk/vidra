@@ -301,5 +301,22 @@
   "qs_title": "Быстрые настройки",
   "qs_close": "Закрывать",
   "tu_quick_settings": "Быстрые настройки",
-  "tu_quick_settings_desc": "Откройте это меню, чтобы быстро настроить параметры загрузки на лету, не покидая главный экран."
+  "tu_quick_settings_desc": "Откройте это меню, чтобы быстро настроить параметры загрузки на лету, не покидая главный экран.",
+  "d_engine_downloading_desc": "Загрузка необходимых основных модулей (yt-dlp и yt-dlp-ejs). Пожалуйста, подождите...",
+  "d_downloading_engine_progress": "Загрузка основных модулей ({получено}/{всего})...",
+  "sd_linux_deb_title": "Обновление Vidra (пакет DEB)",
+  "sd_linux_deb_msg": "Репозиторий Vidra настроен. Для обновления выполните следующую команду в терминале:",
+  "sd_linux_appimage_title": "Обновить Видру (AppImage)",
+  "sd_linux_appimage_msg": "Используйте appimageupdatetool или загрузите последнюю версию AppImage с GitHub:",
+  "sd_linux_snap_msg": "Открытие Snap Store для обновления Vidra...",
+  "sd_copy_command": "Копировать команду",
+  "sd_command_copied": "Команда скопирована в буфер обмена",
+  "sd_channel_stable": "Стабильный",
+  "sd_about_created_by": "Создано Чомусуке",
+  "sd_donate": "Пожертвовать",
+  "sd_changelog": "Журнал изменений",
+  "ssi_bubble_title": "Доступно обновление",
+  "ssi_bubble_message": "Доступны обновления для компонентов Vidra. Нажмите «Показать», чтобы просмотреть и установить.",
+  "ssi_bubble_button_show": "Показывать",
+  "ssi_bubble_button_dismiss": "Увольнять"
 }

@@ -221,7 +221,7 @@
   "sd_modules_updates": "Module na Kuvugurura",
   "sd_python_server": "Seriveri",
   "sd_waiting_available": "Gutegereza kuboneka ...",
-  "sd_app_logs": "Kwinjira",
+  "sd_app_logs": "Log Log",
   "sd_python_server_logs": "Python Seriveri Yinjira",
   "sd_log_gile_not_found": "Idosiye yinjira ntabwo yabonetse.",
   "sd_log_file_read_error": "Ikosa ryo gusoma dosiye.",
@@ -301,5 +301,18 @@
   "qs_close": "Funga",
   "qs_audio": "Ijwi",
   "tu_quick_settings_desc": "Fungura iyi menu kugirango uhindure byihuse uburyo bwo gukuramo kuguruka utaretse ecran nkuru.",
-  "tu_quick_settings": "Igenamiterere ryihuse"
+  "tu_quick_settings": "Igenamiterere ryihuse",
+  "d_engine_downloading": "Gukuramo moteri yo gukuramo ...",
+  "d_engine_downloading_desc": "Gukuramo ibice byingenzi bisabwa (yt-dlp & yt-dlp-ejs). Nyamuneka tegereza ...",
+  "d_downloading_engine_progress": "Gukuramo ibice byingenzi ({byakiriwe} / {byose}) ...",
+  "sd_linux_snap_title": "Kuvugurura Vidra (Snap)",
+  "sd_linux_snap_msg": "Gufungura Ububiko bwa Snap kugirango uvugurure Vidra ...",
+  "sd_copy_command": "Gukoporora itegeko",
+  "sd_command_copied": "Itegeko ryimuwe kuri clip clip",
+  "sd_channel_stable": "Ihamye",
+  "sd_channel_nightly": "Nijoro",
+  "sd_about_created_by": "Byakozwe na Chomusuke",
+  "sd_donate": "Tanga impano",
+  "sd_changelog": "Changelog",
+  "ssi_bubble_button_show": "Erekana"
 }

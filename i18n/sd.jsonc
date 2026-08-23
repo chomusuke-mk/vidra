@@ -301,5 +301,21 @@
   "qs_audio": "آڊيو",
   "p_optional": "اختياري",
   "tu_quick_settings": "تڪڙو سيٽنگون",
-  "tu_quick_settings_desc": "هن مينيو کي کوليو تيزيءَ سان ترتيب ڏيڻ لاءِ ڊائون لوڊ آپشنز کي اڏامڻ کان سواءِ مين اسڪرين کي ڇڏي."
+  "tu_quick_settings_desc": "هن مينيو کي کوليو تيزيءَ سان ترتيب ڏيڻ لاءِ ڊائون لوڊ آپشنز کي اڏامڻ کان سواءِ مين اسڪرين کي ڇڏي.",
+  "d_engine_downloading": "ڊائون لوڊ انجڻ ڊائون لوڊ ڪري رهيو آهي...",
+  "d_downloading_engine_progress": "ڊائون لوڊ ڪري رهيو آهي بنيادي ماڊلز ({وصول ٿيل}/{مجموعي})...",
+  "d_downloading_engine_error": "انجڻ جي ماڊلز کي ڊائون لوڊ ڪرڻ ۾ غلطي. مھرباني ڪري پنھنجو انٽرنيٽ ڪنيڪشن چيڪ ڪريو.",
+  "sd_linux_deb_title": "تازه ڪاري Vidra (DEB پيڪيج)",
+  "sd_linux_appimage_title": "تازه ڪاري Vidra (AppImage)",
+  "sd_linux_appimage_msg": "appimageupdatetool استعمال ڪريو يا GitHub مان جديد AppImage ڊائون لوڊ ڪريو:",
+  "sd_linux_snap_title": "تازه ڪاري Vidra (سنيپ)",
+  "sd_copy_command": "ڪاپي حڪم",
+  "sd_command_copied": "ڪلپ بورڊ تي حڪم نقل ڪيو ويو",
+  "sd_channel_stable": "مستحڪم",
+  "sd_channel_nightly": "رات جو",
+  "sd_about_created_by": "Chomusuke پاران ٺاهي وئي",
+  "sd_donate": "عطيو",
+  "ssi_bubble_title": "تازه ڪاري دستياب",
+  "ssi_bubble_button_show": "ڏيکاريو",
+  "ssi_bubble_button_dismiss": "برطرف"
 }

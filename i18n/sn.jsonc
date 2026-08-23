@@ -222,7 +222,7 @@
   "sd_python_server": "Python Server",
   "sd_waiting_available": "Takamirira kuwanikwa...",
   "sd_app_logs": "App Logs",
-  "sd_python_server_logs": "Python Server Logs",
+  "sd_python_server_logs": "Server Log",
   "sd_log_gile_not_found": "Log file harina kuwanikwa.",
   "sd_log_file_read_error": "Yakanganisa kuverenga faira relogi.",
   "sd_button_retry": "Edza zvakare",
@@ -301,5 +301,14 @@
   "p_optional": "Optional",
   "qs_audio": "Vadivelu Comedy Audio",
   "tu_quick_settings_desc": "Vhura iyi menyu kuti ikurumidze kugadzirisa sarudzo dzekurodha panhunzi pasina kusiya main screen.",
-  "tu_quick_settings": "Quick Settings"
+  "tu_quick_settings": "Quick Settings",
+  "d_engine_downloading": "Kudhaunirodha injini...",
+  "sd_linux_deb_title": "Gadziridza Vidra (DEB Package)",
+  "sd_copy_command": "Copy Command",
+  "sd_command_copied": "Raira wakopwa kuclipboard",
+  "sd_channel_stable": "Yakagadzikana",
+  "sd_channel_nightly": "Husiku",
+  "sd_about_created_by": "Yakagadzirwa naChomusuke",
+  "ssi_bubble_title": "Update Inowanikwa",
+  "ssi_bubble_button_dismiss": "Dzinga"
 }

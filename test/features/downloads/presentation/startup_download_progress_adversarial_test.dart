@@ -165,7 +165,7 @@ class MockUpdateController extends ChangeNotifier implements UpdateController {
   @override
   Future<void> downloadAndInstall(ComponentType type) async {}
   @override
-  Future<bool> downloadAndInstallInternal(ComponentType type, UpdateInfo info, {Function(double progress)? onDownloadProgress}) async => true;
+  Future<bool> downloadAndInstallInternal(ComponentType type, UpdateInfo info, {Function(double progress)? onDownloadProgress, bool manageBackendLifecycle = true}) async => true;
   @override
   LinuxPackageType getLinuxPackageType() => LinuxPackageType.deb;
 }

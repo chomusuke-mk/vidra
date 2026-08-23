@@ -222,7 +222,7 @@
   "sd_python_server": "파이썬 서버",
   "sd_waiting_available": "이용 가능 여부를 기다리는 중...",
   "sd_app_logs": "앱 로그",
-  "sd_python_server_logs": "Python 서버 로그",
+  "sd_python_server_logs": "서버 로그",
   "sd_log_gile_not_found": "로그 파일을 찾을 수 없습니다.",
   "sd_log_file_read_error": "로그 파일을 읽는 동안 오류가 발생했습니다.",
   "sd_button_retry": "다시 해 보다",
@@ -301,5 +301,17 @@
   "shw_overlay_denied_downloading": "오버레이 권한이 거부되었습니다. 직접 다운로드합니다.",
   "qs_audio": "오디오",
   "tu_quick_settings": "빠른 설정",
-  "tu_quick_settings_desc": "이 메뉴를 열어 메인 화면을 떠나지 않고도 즉시 다운로드 옵션을 빠르게 조정할 수 있습니다."
+  "tu_quick_settings_desc": "이 메뉴를 열어 메인 화면을 떠나지 않고도 즉시 다운로드 옵션을 빠르게 조정할 수 있습니다.",
+  "d_engine_downloading_desc": "필수 핵심 모듈(yt-dlp 및 yt-dlp-ejs)을 다운로드합니다. 기다리세요...",
+  "d_downloading_engine_error": "엔진 모듈을 다운로드하는 중 오류가 발생했습니다. 인터넷 연결을 확인하세요.",
+  "sd_linux_deb_title": "Vidra 업데이트(DEB 패키지)",
+  "sd_linux_appimage_msg": "appimageupdatetool을 사용하거나 GitHub에서 최신 AppImage를 다운로드하세요.",
+  "sd_linux_snap_title": "Vidra 업데이트(Snap)",
+  "sd_linux_snap_msg": "Vidra 업데이트를 위해 Snap Store를 여는 중...",
+  "sd_copy_command": "복사 명령",
+  "sd_channel_stable": "안정적인",
+  "sd_channel_nightly": "야간",
+  "ssi_bubble_message": "Vidra 구성요소에 대한 업데이트가 제공됩니다. 표시를 탭하여 검토하고 설치하세요.",
+  "ssi_bubble_button_show": "보여주다",
+  "ssi_bubble_button_dismiss": "해고하다"
 }

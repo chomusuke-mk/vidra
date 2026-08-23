@@ -10,7 +10,6 @@ class UpdateInfo {
   final String? sumsUrl; // Archivo de hashes (SHA2-512SUMS)
   final String? sigUrl; // Firma criptográfica (SHA2-512SUMS.sig)
   final String changelog;
-  final ComponentType type;
 
   UpdateInfo({
     required this.version,
@@ -18,20 +17,18 @@ class UpdateInfo {
     this.sumsUrl,
     this.sigUrl,
     required this.changelog,
-    required this.type,
   });
 
   /// Determina si este componente requiere (y soporta) validación estricta PGP
   bool get requiresPgpValidation => sumsUrl != null && sigUrl != null;
 
   Map<String, dynamic> toJson() => {
-        'version': version,
-        'downloadUrl': downloadUrl,
-        'sumsUrl': sumsUrl,
-        'sigUrl': sigUrl,
-        'changelog': changelog,
-        'type': type.name,
-      };
+    'version': version,
+    'downloadUrl': downloadUrl,
+    'sumsUrl': sumsUrl,
+    'sigUrl': sigUrl,
+    'changelog': changelog,
+  };
 
   factory UpdateInfo.fromJson(Map<String, dynamic> json) {
     return UpdateInfo(
@@ -40,10 +37,6 @@ class UpdateInfo {
       sumsUrl: json['sumsUrl'] as String?,
       sigUrl: json['sigUrl'] as String?,
       changelog: json['changelog'] as String? ?? '',
-      type: ComponentType.values.firstWhere(
-        (e) => e.name == json['type'],
-        orElse: () => ComponentType.app,
-      ),
     );
   }
 
@@ -52,4 +45,3 @@ class UpdateInfo {
   factory UpdateInfo.fromJsonString(String raw) =>
       UpdateInfo.fromJson(jsonDecode(raw) as Map<String, dynamic>);
 }
-

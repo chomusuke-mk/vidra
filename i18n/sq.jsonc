@@ -221,7 +221,7 @@
   "sd_modules_updates": "Modulet dhe përditësimet",
   "sd_python_server": "Serveri Python",
   "sd_waiting_available": "Në pritje të disponueshmërisë...",
-  "sd_app_logs": "Regjistrat e aplikacioneve",
+  "sd_app_logs": "Regjistri i aplikacionit",
   "sd_python_server_logs": "Regjistrat e serverit Python",
   "sd_log_gile_not_found": "Skedari i regjistrit nuk u gjet.",
   "sd_log_file_read_error": "Gabim gjatë leximit të skedarit të regjistrit.",
@@ -301,5 +301,18 @@
   "qs_audio": "Audio",
   "shw_overlay_denied_downloading": "Leja e mbivendosjes u refuzua, duke u shkarkuar drejtpërdrejt",
   "tu_quick_settings": "Cilësimet e shpejta",
-  "tu_quick_settings_desc": "Hapni këtë meny për të rregulluar shpejt opsionet e shkarkimit pa u larguar nga ekrani kryesor."
+  "tu_quick_settings_desc": "Hapni këtë meny për të rregulluar shpejt opsionet e shkarkimit pa u larguar nga ekrani kryesor.",
+  "d_engine_downloading": "Po shkarkohet motori i shkarkimit...",
+  "d_downloading_engine_error": "Gabim gjatë shkarkimit të moduleve të motorit. Ju lutemi kontrolloni lidhjen tuaj të internetit.",
+  "sd_linux_deb_title": "Përditëso Vidra (Paketa DEB)",
+  "sd_linux_deb_msg": "Depoja e Vidra është konfiguruar. Ekzekutoni komandën e mëposhtme në terminal për të përditësuar:",
+  "sd_linux_appimage_title": "Përditëso Vidra (AppImage)",
+  "sd_command_copied": "Komanda u kopjua në kujtesën e fragmenteve",
+  "sd_channel_stable": "E qëndrueshme",
+  "sd_about_created_by": "Krijuar nga Chomusuke",
+  "sd_donate": "Dhuroni",
+  "sd_changelog": "Ndryshim",
+  "ssi_bubble_title": "Përditësimi i disponueshëm",
+  "ssi_bubble_message": "Përditësimet janë të disponueshme për komponentët Vidra. Prekni Shfaq për të rishikuar dhe instaluar.",
+  "ssi_bubble_button_show": "Shfaq"
 }

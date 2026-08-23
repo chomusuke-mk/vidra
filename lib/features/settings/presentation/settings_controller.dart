@@ -2,22 +2,20 @@ import 'dart:io';
 import 'package:external_path/external_path.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:flutter/services.dart';
-import 'package:path/path.dart' as p;
+import 'package:vidra/core/utils/platform_utils.dart';
 import 'package:vidra/features/settings/data/settings_repository.dart';
 import 'package:vidra/features/settings/domain/download_options.dart';
 
 class SettingsController extends ChangeNotifier {
   final SettingsRepository _repository;
 
-  // Variables privadas (sin valores por defecto, se cargan del repo)
-  late String _appLanguage;
-  late ThemeMode _appTheme;
-  late DownloadOptions _downloadOptions;
+  // Variables privadas inicializadas con valores por defecto seguros
+  String _appLanguage = 'defaultOption';
+  ThemeMode _appTheme = ThemeMode.system;
+  DownloadOptions _downloadOptions = DownloadOptions();
 
   bool _isInitialized = false;
   bool get isInitialized => _isInitialized;
-  static const _platform = MethodChannel('vidra_channel');
 
   // Getters públicos para acceder a las configuraciones
   String get appLanguage => _appLanguage;
@@ -67,8 +65,8 @@ class SettingsController extends ChangeNotifier {
     }
 
     // --- REGLA 2: Sobrescribir siempre los ejecutables (FFmpeg y QuickJS) ---
-    final resolvedFfmpeg = await _resolveExecutable('ffmpeg');
-    final resolvedQuickjs = await _resolveExecutable('quickjs');
+    final resolvedFfmpeg = await PlatformUtils.resolveExecutable('ffmpeg');
+    final resolvedQuickjs = await PlatformUtils.resolveExecutable('quickjs');
 
     newRuntimes[JsRuntime.quickjs] = resolvedQuickjs;
 
@@ -77,26 +75,6 @@ class SettingsController extends ChangeNotifier {
       jsRuntimes: newRuntimes,
       ffmpegLocation: resolvedFfmpeg,
     );
-  }
-
-  Future<String> _resolveExecutable(String baseName) async {
-    if (Platform.isAndroid) {
-      try {
-        // Pedimos al OS el directorio real de librerías nativas extraídas
-        final nativeLibDir = await _platform.invokeMethod<String>(
-          'getNativeLibDir',
-        );
-        return p.join(nativeLibDir ?? '', 'lib$baseName.so');
-      } catch (e) {
-        debugPrint('Fallo al obtener NativeLibDir para $baseName: $e');
-        return 'lib$baseName.so'; // Fallback a puro nombre por si el PATH del sistema lo atrapa
-      }
-    } else {
-      // Magia de Escritorio (Windows, Linux, macOS)
-      final exeDir = File(Platform.resolvedExecutable).parent.path;
-      final ext = Platform.isWindows ? '.exe' : '';
-      return p.join(exeDir, '$baseName$ext');
-    }
   }
 
   // --- Setters para la App ---

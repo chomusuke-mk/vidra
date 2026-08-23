@@ -40,10 +40,8 @@ class FakeSystemController extends ChangeNotifier
 class FakeGithubClient implements GithubClient {
   @override
   Future<UpdateInfo?> getLatestReleaseInfo({
-    required ComponentType type,
-    required UpdateChannel channel,
-    required String targetAssetName,
-    bool isPrefixMatch = false,
+    required String repo,
+    required List<RegExp> assetRegex,
   }) async => null;
 
   @override

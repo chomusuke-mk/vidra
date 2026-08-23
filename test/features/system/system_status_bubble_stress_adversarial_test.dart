@@ -109,10 +109,8 @@ class MockSystemController extends ChangeNotifier
 class MockGithubClient implements GithubClient {
   @override
   Future<UpdateInfo?> getLatestReleaseInfo({
-    required ComponentType type,
-    required UpdateChannel channel,
-    required String targetAssetName,
-    bool isPrefixMatch = false,
+    required String repo,
+    required List<RegExp> assetRegex,
   }) async => null;
 
   @override
@@ -175,7 +173,7 @@ class FakeUpdateController extends ChangeNotifier implements UpdateController {
   Future<void> downloadAndInstall(ComponentType type) async {}
 
   @override
-  Future<bool> downloadAndInstallInternal(ComponentType type, UpdateInfo info, {Function(double progress)? onDownloadProgress}) async => true;
+  Future<bool> downloadAndInstallInternal(ComponentType type, UpdateInfo info, {Function(double progress)? onDownloadProgress, bool manageBackendLifecycle = true}) async => true;
 
   @override
   LinuxPackageType getLinuxPackageType() => LinuxPackageType.deb;

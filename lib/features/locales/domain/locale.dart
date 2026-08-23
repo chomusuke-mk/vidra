@@ -487,6 +487,16 @@ class AppStringKey {
       _cadenasLocalizadas['sd_copy_command'] ?? '';
   String get sdCommandCopied =>
       _cadenasLocalizadas['sd_command_copied'] ?? '';
+  String get sdChannelStable =>
+      _cadenasLocalizadas['sd_channel_stable'] ?? '';
+  String get sdChannelNightly =>
+      _cadenasLocalizadas['sd_channel_nightly'] ?? '';
+  String get sdAboutCreatedBy =>
+      _cadenasLocalizadas['sd_about_created_by'] ?? '';
+  String get sdDonate =>
+      _cadenasLocalizadas['sd_donate'] ?? '';
+  String get sdChangelog =>
+      _cadenasLocalizadas['sd_changelog'] ?? '';
   // System Status Indicator Speech Bubble (R5) ---------------
   String get ssiBubbleTitle =>
       _cadenasLocalizadas['ssi_bubble_title'] ?? '';
@@ -852,6 +862,11 @@ class AppStringKey {
     'sd_linux_snap_msg',
     'sd_copy_command',
     'sd_command_copied',
+    'sd_channel_stable',
+    'sd_channel_nightly',
+    'sd_about_created_by',
+    'sd_donate',
+    'sd_changelog',
     // System Status Indicator Speech Bubble (R5) ---------
     'ssi_bubble_title',
     'ssi_bubble_message',

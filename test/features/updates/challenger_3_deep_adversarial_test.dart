@@ -100,7 +100,7 @@ class _MockSystemController extends ChangeNotifier
 
 class _MockGithubClient implements GithubClient {
   int fetchCallCount = 0;
-  final List<ComponentType> requestedTypes = [];
+  final List<String> requestedRepos = [];
   final List<String> requestedAssetNames = [];
   UpdateInfo? appUpdate;
   UpdateInfo? ytDlpUpdate;
@@ -109,17 +109,17 @@ class _MockGithubClient implements GithubClient {
 
   @override
   Future<UpdateInfo?> getLatestReleaseInfo({
-    required ComponentType type,
-    required UpdateChannel channel,
-    required String targetAssetName,
-    bool isPrefixMatch = false,
+    required String repo,
+    required List<RegExp> assetRegex,
   }) async {
     fetchCallCount++;
-    requestedTypes.add(type);
-    requestedAssetNames.add(targetAssetName);
-    if (type == ComponentType.app) return appUpdate;
-    if (type == ComponentType.ytDlp) return ytDlpUpdate;
-    if (type == ComponentType.ytDlpEjs) return ytDlpEjsUpdate;
+    requestedRepos.add(repo);
+    if (assetRegex.isNotEmpty) {
+      requestedAssetNames.add(assetRegex.first.pattern);
+    }
+    if (repo.contains('vidra')) return appUpdate;
+    if (repo.contains('ejs')) return ytDlpEjsUpdate;
+    if (repo.contains('yt-dlp')) return ytDlpUpdate;
     return null;
   }
 
@@ -165,6 +165,13 @@ void main() {
       return tempDir.path;
     });
 
+    const MethodChannel openFileChannel = MethodChannel('open_filex');
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(openFileChannel,
+            (MethodCall methodCall) async {
+      return {'type': 0, 'message': 'done'};
+    });
+
     SharedPreferences.setMockInitialValues({
       'has_seen_system_tutorial': true,
       'has_seen_main_tutorial': true,
@@ -182,6 +189,9 @@ void main() {
         MethodChannel('plugins.flutter.io/path_provider');
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(pathChannel, null);
+    const MethodChannel openFileChannel = MethodChannel('open_filex');
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(openFileChannel, null);
     if (tempDir.existsSync()) {
       tempDir.deleteSync(recursive: true);
     }
@@ -212,27 +222,32 @@ void main() {
   }
 
   group('Adversarial Re-verification 1: Linux Package Resolver & Asset Resolution Alignment', () {
-    test('1.1 Resolver alignment: Host running in non-Vidra Snap container (e.g. IDE / runner)', () async {
+    test('1.1 Resolver alignment: Linux validates version without requesting binary assets', () async {
       createFakeModules();
-      SharedPreferences.setMockInitialValues({});
+      SharedPreferences.setMockInitialValues({
+        'version_yt_dlp': '2026.01.01',
+        'version_yt_dlp_ejs': '1.0.0',
+      });
       final prefs = await SharedPreferences.getInstance();
+      mockGithub.appUpdate = UpdateInfo(
+        version: '5.0.0',
+        downloadUrl: '',
+        changelog: 'Linux release',
+      );
       final controller = UpdateController(mockGithub, mockSystem, prefs);
+      await Future<void>.delayed(const Duration(milliseconds: 50));
 
       mockGithub.requestedAssetNames.clear();
-      await controller.checkForUpdates(manualCall: true, specificType: ComponentType.app);
+      final hasUpdate = await controller.checkForUpdates(
+        manualCall: true,
+        specificType: ComponentType.app,
+      );
 
       final pkgType = controller.getLinuxPackageType();
-      final requestedAsset = mockGithub.requestedAssetNames.first;
-
-      // In Linux test runner where SNAP may belong to test harness or host DEB:
-      if (pkgType == LinuxPackageType.snap) {
-        expect(requestedAsset, equals('snap'));
-      } else if (pkgType == LinuxPackageType.appImage) {
-        expect(requestedAsset, equals('vidra-x86_64.AppImage'));
-      } else {
-        expect(pkgType, equals(LinuxPackageType.deb));
-        expect(requestedAsset, equals('vidra-linux-amd64.deb'));
-      }
+      expect(pkgType, isA<LinuxPackageType>());
+      expect(hasUpdate, isTrue);
+      expect(mockGithub.requestedAssetNames, isEmpty,
+          reason: 'Linux app updates validate version without searching for specific binary assets');
     });
 
     test('1.2 Resolver consistency: getLinuxPackageType returns strictly non-null enum', () async {
@@ -423,7 +438,6 @@ void main() {
         version: '99.0.0',
         downloadUrl: 'https://invalid-url-that-does-not-exist.org/file.apk',
         changelog: 'Test',
-        type: ComponentType.app,
       );
 
       final success = await controller.downloadAndInstallInternal(ComponentType.app, brokenInfo);

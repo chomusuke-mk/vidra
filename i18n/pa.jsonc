@@ -222,7 +222,7 @@
   "sd_python_server": "ਪਾਈਥਨ ਸਰਵਰ",
   "sd_waiting_available": "ਉਪਲਬਧਤਾ ਦੀ ਉਡੀਕ ਕਰ ਰਿਹਾ ਹੈ...",
   "sd_app_logs": "ਐਪ ਲੌਗਸ",
-  "sd_python_server_logs": "ਪਾਈਥਨ ਸਰਵਰ ਲੌਗਸ",
+  "sd_python_server_logs": "ਸਰਵਰ ਲੌਗ",
   "sd_log_gile_not_found": "ਲੌਗ ਫਾਈਲ ਨਹੀਂ ਮਿਲੀ।",
   "sd_log_file_read_error": "ਲੌਗ ਫਾਈਲ ਨੂੰ ਪੜ੍ਹਨ ਵਿੱਚ ਤਰੁੱਟੀ।",
   "sd_button_retry": "ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ",
@@ -301,5 +301,18 @@
   "qs_close": "ਬੰਦ ਕਰੋ",
   "qs_audio": "ਆਡੀਓ",
   "tu_quick_settings": "ਤਤਕਾਲ ਸੈਟਿੰਗਾਂ",
-  "tu_quick_settings_desc": "ਮੁੱਖ ਸਕ੍ਰੀਨ ਨੂੰ ਛੱਡੇ ਬਿਨਾਂ ਫਲਾਈ 'ਤੇ ਡਾਊਨਲੋਡ ਵਿਕਲਪਾਂ ਨੂੰ ਤੇਜ਼ੀ ਨਾਲ ਵਿਵਸਥਿਤ ਕਰਨ ਲਈ ਇਸ ਮੀਨੂ ਨੂੰ ਖੋਲ੍ਹੋ।"
+  "tu_quick_settings_desc": "ਮੁੱਖ ਸਕ੍ਰੀਨ ਨੂੰ ਛੱਡੇ ਬਿਨਾਂ ਫਲਾਈ 'ਤੇ ਡਾਊਨਲੋਡ ਵਿਕਲਪਾਂ ਨੂੰ ਤੇਜ਼ੀ ਨਾਲ ਵਿਵਸਥਿਤ ਕਰਨ ਲਈ ਇਸ ਮੀਨੂ ਨੂੰ ਖੋਲ੍ਹੋ।",
+  "d_engine_downloading": "ਡਾਊਨਲੋਡ ਇੰਜਣ ਨੂੰ ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...",
+  "d_engine_downloading_desc": "ਲੋੜੀਂਦੇ ਕੋਰ ਮੋਡੀਊਲ (yt-dlp ਅਤੇ yt-dlp-ejs) ਨੂੰ ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ। ਕ੍ਰਿਪਾ ਕਰਕੇ ਉਡੀਕ ਕਰੋ...",
+  "d_downloading_engine_progress": "ਕੋਰ ਮੋਡੀਊਲ ਡਾਊਨਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ ({ਪ੍ਰਾਪਤ}/{ਕੁੱਲ})...",
+  "d_downloading_engine_error": "ਇੰਜਣ ਮੋਡੀਊਲ ਡਾਊਨਲੋਡ ਕਰਨ ਵਿੱਚ ਤਰੁੱਟੀ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਇੰਟਰਨੈਟ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ।",
+  "sd_linux_deb_title": "Vidra (DEB ਪੈਕੇਜ) ਨੂੰ ਅੱਪਡੇਟ ਕਰੋ",
+  "sd_linux_snap_title": "ਅੱਪਡੇਟ Vidra (ਸਨੈਪ)",
+  "sd_copy_command": "ਕਮਾਂਡ ਕਾਪੀ ਕਰੋ",
+  "sd_command_copied": "ਕਮਾਂਡ ਕਲਿੱਪਬੋਰਡ 'ਤੇ ਕਾਪੀ ਕੀਤੀ ਗਈ",
+  "sd_about_created_by": "ਚੋਮੁਸੁਕੇ ਦੁਆਰਾ ਬਣਾਇਆ ਗਿਆ",
+  "sd_changelog": "ਚੇਂਜਲਾਗ",
+  "ssi_bubble_title": "ਅੱਪਡੇਟ ਉਪਲਬਧ ਹੈ",
+  "ssi_bubble_message": "Vidra ਕੰਪੋਨੈਂਟਸ ਲਈ ਅੱਪਡੇਟ ਉਪਲਬਧ ਹਨ। ਸਮੀਖਿਆ ਕਰਨ ਅਤੇ ਸਥਾਪਤ ਕਰਨ ਲਈ ਦਿਖਾਓ 'ਤੇ ਟੈਪ ਕਰੋ।",
+  "ssi_bubble_button_show": "ਦਿਖਾਓ"
 }

@@ -221,7 +221,7 @@
   "sd_modules_updates": "ماډلونه او تازه معلومات",
   "sd_python_server": "د Python سرور",
   "sd_waiting_available": "د شتون په تمه...",
-  "sd_app_logs": "د اپلیکیشن لوګو",
+  "sd_app_logs": "د اپلیکیشن لاګ",
   "sd_python_server_logs": "د Python سرور لاګز",
   "sd_log_gile_not_found": "د ننوتلو فایل ونه موندل شو.",
   "sd_log_file_read_error": "د لاګ فایل په لوستلو کې تېروتنه.",
@@ -301,5 +301,17 @@
   "d_quick_settings": "چټک ترتیبات",
   "qs_close": "تړل",
   "tu_quick_settings": "چټک ترتیبات",
-  "tu_quick_settings_desc": "دا مینو خلاص کړئ ترڅو د اصلي سکرین پریښودو پرته په الوتنه کې د ډاونلوډ اختیارونه ګړندي تنظیم کړئ."
+  "tu_quick_settings_desc": "دا مینو خلاص کړئ ترڅو د اصلي سکرین پریښودو پرته په الوتنه کې د ډاونلوډ اختیارونه ګړندي تنظیم کړئ.",
+  "d_engine_downloading": "د ډاونلوډ انجن ډاونلوډ کول ...",
+  "d_engine_downloading_desc": "د اړین اصلي ماډلونو ډاونلوډ کول (yt-dlp او yt-dlp-ejs). مهرباني وکړئ انتظار وکړئ ...",
+  "d_downloading_engine_error": "د انجن ماډلونو ډاونلوډ کولو کې تېروتنه. مهرباني وکړئ خپل انټرنیټ پیوستون وګورئ.",
+  "sd_linux_deb_title": "ویدرا تازه کړئ (DEB بسته)",
+  "sd_linux_snap_msg": "د ویډرا تازه کولو لپاره د سنیپ پلورنځی پرانیستل ...",
+  "sd_command_copied": "کمانډ کلپ بورډ ته کاپي شوی",
+  "sd_about_created_by": "د Chomusuke لخوا جوړ شوی",
+  "sd_changelog": "بدلون",
+  "ssi_bubble_title": "تازه معلومات شتون لري",
+  "ssi_bubble_message": "د Vidra اجزاوو لپاره تازه معلومات شتون لري. د بیاکتنې او نصبولو لپاره ښودلو باندې کلیک وکړئ.",
+  "ssi_bubble_button_show": "ښودل",
+  "ssi_bubble_button_dismiss": "ګوښه کول"
 }

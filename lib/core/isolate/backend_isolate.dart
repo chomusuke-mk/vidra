@@ -13,11 +13,12 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:serious_python/serious_python.dart';
 
 import 'package:vidra/core/network/vidra_http_client.dart';
+import 'package:vidra/core/utils/platform_utils.dart';
 import 'package:vidra/features/downloads/domain/download.dart';
 import 'package:vidra/shared/utils/notification_service.dart';
 
 // ============================================================================
-// PUNTO DE ENTRADA DEL ISOLATE DEL BACKEND (EL "CEREBRO" EN SEGUNDO PLANO)
+// PROCESO EN SEGUNDO PLANO PARA EJECUTAR BACKEND DE DESCARGAS EN PYTHON Y GESTIONAR NOTIFICACIONES
 // ============================================================================
 @pragma('vm:entry-point')
 void backendIsolateMain(Map<String, dynamic> config) async {
@@ -31,7 +32,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
   final String serverLogsFilePath = config['serverLogsFilePath'];
   final Uint8List iconBytes = config['iconBytes'];
 
-  // --- Obtener Ícono para Notificaciones ---
+  // --- Ícono de notificaciones ---
   Future<String> getIconPath() async {
     final iconFile = File(p.join(tempDirPath, 'notification_icon.png'));
     if (!iconFile.existsSync()) {
@@ -145,26 +146,8 @@ void backendIsolateMain(Map<String, dynamic> config) async {
   }
 
   // --- Resolutor de Rutas de FFmpeg y QuickJS (Sin bloquear la UI) ---
-  Future<String> resolveExecutable(String baseName) async {
-    if (Platform.isAndroid) {
-      try {
-        const platform = MethodChannel('vidra_channel');
-        final nativeLibDir = await platform.invokeMethod<String>(
-          'getNativeLibDir',
-        );
-        return p.join(nativeLibDir ?? '', 'lib$baseName.so');
-      } catch (e) {
-        debugPrint(
-          '🧠 [Isolate] Fallo al obtener NativeLibDir para $baseName: $e',
-        );
-        return 'lib$baseName.so';
-      }
-    } else {
-      final exeDir = File(Platform.resolvedExecutable).parent.path;
-      final ext = Platform.isWindows ? '.exe' : '';
-      return p.join(exeDir, '$baseName$ext');
-    }
-  }
+  Future<String> resolveExecutable(String baseName) =>
+      PlatformUtils.resolveExecutable(baseName);
 
   // --- Reactividad SSE, Caché de Imágenes y Merging de Deltas ---
   void triggerImageCache(String id, String url) async {
@@ -431,7 +414,7 @@ void backendIsolateMain(Map<String, dynamic> config) async {
 
   // --- Secuencia Maestra de Arranque ---
   Future<void> initSequence() async {
-    // AÑADIDO: Evitamos que dos flujos inicialicen al mismo tiempo
+    // Evitar doble inicialización si ya estamos en proceso de arranque o actualización
     if (isUpdating || isInitializing) return;
     isInitializing = true;
     try {
@@ -515,24 +498,44 @@ void backendIsolateMain(Map<String, dynamic> config) async {
       debugPrint('🧠 [Isolate] Comando recibido desde UI: $cmd');
 
       switch (cmd) {
-        // NUEVO COMANDO
         case 'python_prepared':
           pythonAppPath = message['path'];
           debugPrint('🧠 [Isolate] Ruta de Python recibida desde la UI.');
-          await initSequence(); // Retomamos la secuencia de arranque
+          await initSequence();
           break;
 
         case 'revalidate':
+          isUpdating = false;
           if (isBackendRunning) {
-            final ok = await httpClient.otaAction('load');
-            isUpdating = false;
+            debugPrint('🧠 [Isolate] Revalidating running backend (polling /ota load)...');
+            bool ok = false;
+            // Retry polling for up to 15 attempts (7.5 seconds) to accommodate startup/reload latency
+            for (int attempt = 1; attempt <= 15; attempt++) {
+              ok = await httpClient.otaAction('load');
+              if (ok) {
+                debugPrint('🧠 [Isolate] OTA load successful on attempt $attempt');
+                break;
+              }
+              await Future.delayed(const Duration(milliseconds: 500));
+            }
+
             if (ok) {
               startHealthCheck();
             } else {
-              notifyUiState('fatalError');
+              debugPrint('🧠 [Isolate] OTA load failed after retries. Attempting backend resurrection...');
+              // Fallback: Terminate and restart Python cleanly before assuming fatal error
+              SeriousPython.terminate();
+              isBackendRunning = false;
+              failedPings = 0;
+              notifyUiState('startingBackend');
+              if (!await startPythonBackend()) {
+                notifyUiState('fatalError');
+              } else {
+                isBackendRunning = true;
+                startHealthCheck();
+              }
             }
           } else {
-            isUpdating = false;
             await initSequence();
           }
           break;

@@ -83,10 +83,13 @@ enum SponsorblockCategory {
 
 // Helpers para parseo seguro de Enums
 T? _enumFromString<T extends Enum>(List<T> values, String? name) {
-  if (name == null) return null;
-  final sanitizedName = name.replaceAll('_', '').toLowerCase();
-  for (var value in values) {
-    if (value.name.toLowerCase() == sanitizedName) return value;
+  if (name == null || name.isEmpty) return null;
+  final cleanName = name.replaceAll('_', '').toLowerCase();
+  for (final val in values) {
+    if (val.name.toLowerCase() == name.toLowerCase() ||
+        val.name.replaceAll('_', '').toLowerCase() == cleanName) {
+      return val;
+    }
   }
   return null;
 }

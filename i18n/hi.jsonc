@@ -301,5 +301,21 @@
   "qs_close": "बंद करना",
   "qs_audio": "ऑडियो",
   "tu_quick_settings": "त्वरित सेटिंग",
-  "tu_quick_settings_desc": "मुख्य स्क्रीन को छोड़े बिना तुरंत डाउनलोड विकल्पों को समायोजित करने के लिए इस मेनू को खोलें।"
+  "tu_quick_settings_desc": "मुख्य स्क्रीन को छोड़े बिना तुरंत डाउनलोड विकल्पों को समायोजित करने के लिए इस मेनू को खोलें।",
+  "d_engine_downloading": "डाउनलोड इंजन डाउनलोड हो रहा है...",
+  "d_engine_downloading_desc": "आवश्यक कोर मॉड्यूल (yt-dlp और yt-dlp-ejs) डाउनलोड करना। कृपया प्रतीक्षा करें...",
+  "d_downloading_engine_progress": "कोर मॉड्यूल डाउनलोड हो रहा है ({प्राप्त}/{कुल})...",
+  "sd_linux_deb_msg": "विड्रा भंडार कॉन्फ़िगर किया गया है। अद्यतन करने के लिए टर्मिनल में निम्नलिखित कमांड चलाएँ:",
+  "sd_linux_appimage_title": "विड्रा अपडेट करें (AppImage)",
+  "sd_linux_appimage_msg": "Appimageupdatetool का उपयोग करें या GitHub से नवीनतम AppImage डाउनलोड करें:",
+  "sd_linux_snap_title": "विड्रा अपडेट करें (स्नैप)",
+  "sd_copy_command": "कमांड कॉपी करें",
+  "sd_command_copied": "कमांड को क्लिपबोर्ड पर कॉपी किया गया",
+  "sd_channel_stable": "स्थिर",
+  "sd_channel_nightly": "हर रात को",
+  "sd_about_created_by": "चोमुसुके द्वारा बनाया गया",
+  "sd_donate": "दान करें",
+  "ssi_bubble_title": "उपलब्ध अद्यतन",
+  "ssi_bubble_message": "विड्रा घटकों के लिए अपडेट उपलब्ध हैं। समीक्षा और इंस्टॉल करने के लिए दिखाएँ पर टैप करें।",
+  "ssi_bubble_button_dismiss": "नकार देना"
 }
