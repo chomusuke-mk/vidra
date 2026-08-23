@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
 import 'package:vidra/app.dart';
+import 'package:vidra/core/theme/app_theme.dart';
 import 'package:vidra/core/network/github_client.dart';
 import 'package:vidra/features/locales/data/locale_repository.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
@@ -134,8 +135,8 @@ void overlayMain() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       navigatorKey: ToastUtils.navigatorKey,
       home: const QuickShareOverlay(),
     ),

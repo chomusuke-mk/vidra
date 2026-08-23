@@ -4,7 +4,7 @@ description: "Manager for download videos"
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 3.1.1+52
+version: 4.0.0+53
 
 environment:
   sdk: ^3.12.2
@@ -42,7 +42,7 @@ dependencies:
   receive_sharing_intent: ^1.9.0
   openpgp: ^3.10.7
   dio: ^5.11.0
-  archive: ^4.1.0
+  archive: ^4.2.0
   url_launcher: ^6.3.2
   open_filex: ^4.7.0
   flutter_slidable: ^4.0.3
@@ -66,6 +66,8 @@ flutter:
     - third_party_licenses/
     - assets/icon/icon.ico
     - assets/icon/icon.png
+    - assets/icon/yt-dlp.png
+    - assets/icon/javascript.png
     - i18n/
 
   # fonts:

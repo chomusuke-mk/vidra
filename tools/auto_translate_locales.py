@@ -4,7 +4,7 @@ import os
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-from typing import List, TypedDict
+from typing import TypedDict
 
 import jsonc  # type: ignore[import-untyped]
 from deep_translator import GoogleTranslator  # type: ignore[import]

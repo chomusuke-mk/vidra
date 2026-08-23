@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vidra/features/downloads/data/download_repository.dart';
 import 'package:vidra/features/downloads/domain/download.dart';
-import 'package:vidra/shared/utils/toast_utils.dart';
 
 class SelectionModalController extends ChangeNotifier {
   final DownloadRepository repository;
@@ -12,6 +11,10 @@ class SelectionModalController extends ChangeNotifier {
 
   bool isLoading = false;
   bool isSubmitting = false;
+  bool _isDisposed = false;
+  int _fetchRequestId = 0;
+
+  bool get isDisposed => _isDisposed;
 
   List<SubDownload> allEntries = [];
   Set<String> selectedIds = {};
@@ -25,6 +28,18 @@ class SelectionModalController extends ChangeNotifier {
     _fetchEntries();
   }
 
+  @override
+  void dispose() {
+    _isDisposed = true;
+    super.dispose();
+  }
+
+  @override
+  void notifyListeners() {
+    if (_isDisposed) return;
+    super.notifyListeners();
+  }
+
   void switchDownload(Download newDownload) {
     if (currentDownload.id == newDownload.id) return;
     currentDownload = newDownload;
@@ -32,21 +47,40 @@ class SelectionModalController extends ChangeNotifier {
   }
 
   Future<void> _fetchEntries() async {
+    final int requestId = ++_fetchRequestId;
+    if (_isDisposed) return;
+
     isLoading = true;
     notifyListeners();
 
     try {
-      allEntries = await repository.getEntries(currentDownload.id!);
-      // Por defecto, todo seleccionado
-      selectedIds = allEntries.map((e) => e.subId!).toSet();
+      final downloadId = currentDownload.id;
+      if (downloadId == null || downloadId.isEmpty) {
+        if (_isDisposed || requestId != _fetchRequestId) return;
+        allEntries = [];
+        selectedIds.clear();
+        return;
+      }
+
+      final entries = await repository.getEntries(downloadId);
+      if (_isDisposed || requestId != _fetchRequestId) return;
+
+      allEntries = entries;
+      // Por defecto, todo seleccionado (defensivo contra subId nulo)
+      selectedIds = allEntries
+          .where((e) => e.subId != null && e.subId!.isNotEmpty)
+          .map((e) => e.subId!)
+          .toSet();
     } catch (e) {
       debugPrint('Error cargando elementos: $e');
-      ToastUtils.showError('Error loading elements: $e');
+      if (_isDisposed || requestId != _fetchRequestId) return;
       allEntries = [];
       selectedIds.clear();
     } finally {
-      isLoading = false;
-      notifyListeners();
+      if (!_isDisposed && requestId == _fetchRequestId) {
+        isLoading = false;
+        notifyListeners();
+      }
     }
   }
 
@@ -56,7 +90,8 @@ class SelectionModalController extends ChangeNotifier {
       final matchesSearch =
           e.info?.title?.toLowerCase().contains(searchQuery.toLowerCase()) ??
           false;
-      final matchesFilter = !showOnlySelected || selectedIds.contains(e.subId);
+      final matchesFilter =
+          !showOnlySelected || (e.subId != null && selectedIds.contains(e.subId));
       return matchesSearch && matchesFilter;
     }).toList();
   }
@@ -82,7 +117,10 @@ class SelectionModalController extends ChangeNotifier {
   }
 
   void selectAll() {
-    selectedIds = allEntries.map((e) => e.subId!).toSet();
+    selectedIds = allEntries
+        .where((e) => e.subId != null && e.subId!.isNotEmpty)
+        .map((e) => e.subId!)
+        .toSet();
     notifyListeners();
   }
 
@@ -92,13 +130,21 @@ class SelectionModalController extends ChangeNotifier {
   }
 
   void invertSelection() {
-    final allIds = allEntries.map((e) => e.subId!).toSet();
+    final allIds = allEntries
+        .where((e) => e.subId != null && e.subId!.isNotEmpty)
+        .map((e) => e.subId!)
+        .toSet();
     selectedIds = allIds.difference(selectedIds);
     notifyListeners();
   }
 
   Future<bool> submit() async {
-    if (selectedIds.isEmpty) {
+    if (selectedIds.isEmpty || _isDisposed) {
+      return false;
+    }
+
+    final downloadId = currentDownload.id;
+    if (downloadId == null || downloadId.isEmpty) {
       return false;
     }
 
@@ -107,7 +153,7 @@ class SelectionModalController extends ChangeNotifier {
 
     try {
       await repository.submitSelectedEntries(
-        currentDownload.id!,
+        downloadId,
         selectedIds.toList(),
       );
       return true;
@@ -115,8 +161,10 @@ class SelectionModalController extends ChangeNotifier {
       debugPrint('Error enviando selección: $e');
       return false;
     } finally {
-      isSubmitting = false;
-      notifyListeners();
+      if (!_isDisposed) {
+        isSubmitting = false;
+        notifyListeners();
+      }
     }
   }
 }

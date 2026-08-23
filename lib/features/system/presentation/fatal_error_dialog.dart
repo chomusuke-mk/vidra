@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:vidra/core/theme/colors.dart';
 import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
@@ -60,15 +61,24 @@ class FatalErrorDialog extends StatelessWidget {
     final restartBtn = (locale != null && locale.feRestartButton.isNotEmpty)
         ? locale.feRestartButton
         : 'Restart Application';
+    final semanticColors = Theme.of(context).extension<VidraSemanticColors>();
 
     return PopScope(
       canPop: false,
       child: AlertDialog(
-        icon: const Icon(Icons.error_outline, color: Colors.red, size: 48),
+        icon: Icon(
+          Icons.error_outline,
+          color: semanticColors?.error ?? Colors.red,
+          size: 48,
+        ),
         title: Text(title),
         content: Text(message),
         actions: [
           FilledButton.icon(
+            style: FilledButton.styleFrom(
+              backgroundColor: semanticColors?.error ?? Theme.of(context).colorScheme.error,
+              foregroundColor: semanticColors?.onError ?? Theme.of(context).colorScheme.onError,
+            ),
             onPressed: () {
               if (onRestart != null) {
                 onRestart!();

@@ -43,6 +43,22 @@ void main() {
         'p_optional',
         'tu_quick_settings',
         'tu_quick_settings_desc',
+        'sd_app_engine',
+        'sd_app_engine_connected',
+        'sd_all_working_normally',
+        'sd_app_engine_starting',
+        'sd_app_engine_initializing',
+        'sd_app_engine_reconnecting',
+        'sd_app_engine_missing_permissions',
+        'sd_app_engine_missing_resources',
+        'sd_app_engine_error',
+        'sd_state_ready',
+        'sd_state_initializing',
+        'sd_state_starting_backend',
+        'sd_state_retrying',
+        'sd_state_missing_permissions',
+        'sd_state_missing_resources',
+        'sd_state_fatal_error',
       ];
 
       for (final key in requiredNewKeys) {
@@ -96,6 +112,9 @@ void main() {
           'Open this menu to quickly adjust download options on the fly without leaving the main screen.',
         ),
       );
+      expect(enMap['sd_app_engine'], equals('App Engine'));
+      expect(enMap['sd_app_engine_connected'], equals('App Engine: Connected'));
+      expect(enMap['sd_all_working_normally'], equals('Everything is running normally'));
 
       expect(esMap['d_quick_settings'], equals('Configuración rápida'));
       expect(esMap['qs_title'], equals('Configuración Rápida'));
@@ -113,6 +132,9 @@ void main() {
           'Abra este menú para ajustar rápidamente las opciones de descarga sobre la marcha sin salir de la pantalla principal.',
         ),
       );
+      expect(esMap['sd_app_engine'], equals('Motor de la App'));
+      expect(esMap['sd_app_engine_connected'], equals('Motor de la App: Conectado'));
+      expect(esMap['sd_all_working_normally'], equals('Todo funciona con normalidad'));
     });
 
     test('2. AppStringKey Getters resolve new keys accurately in English and Spanish', () async {
@@ -136,6 +158,9 @@ void main() {
           'Open this menu to quickly adjust download options on the fly without leaving the main screen.',
         ),
       );
+      expect(enStrings.sdAppEngine, equals('App Engine'));
+      expect(enStrings.sdAppEngineConnected, equals('App Engine: Connected'));
+      expect(enStrings.sdAllWorkingNormally, equals('Everything is running normally'));
 
       // Spanish resolution (overlaying on top of base or direct)
       final esStrings = AppStringKey();
@@ -158,6 +183,9 @@ void main() {
           'Abra este menú para ajustar rápidamente las opciones de descarga sobre la marcha sin salir de la pantalla principal.',
         ),
       );
+      expect(esStrings.sdAppEngine, equals('Motor de la App'));
+      expect(esStrings.sdAppEngineConnected, equals('Motor de la App: Conectado'));
+      expect(esStrings.sdAllWorkingNormally, equals('Todo funciona con normalidad'));
     });
 
     test('3. updateFromJson with assertAllKeysPresent: true passes cleanly on en.jsonc', () async {

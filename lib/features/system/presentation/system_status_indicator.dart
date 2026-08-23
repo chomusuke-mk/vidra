@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:vidra/core/theme/colors.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/system/domain/system_state.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
@@ -54,6 +55,10 @@ class _SystemStatusIndicatorState extends State<SystemStatusIndicator> {
       });
     }
 
+    final theme = Theme.of(context);
+    final semanticColors = theme.extension<VidraSemanticColors>();
+    final primaryColor = theme.colorScheme.primary;
+
     Color color;
     IconData icon;
     String label;
@@ -62,19 +67,19 @@ class _SystemStatusIndicatorState extends State<SystemStatusIndicator> {
       case SystemState.ready:
         // Si hay actualizaciones listas para descargar/instalar
         if (updateCtrl.hasAvailableUpdates) {
-          color = Colors.blue;
+          color = primaryColor;
           icon = Icons.system_update;
           label = locale.ssiUpdateAvailable;
         }
         // Si han pasado las horas límite o está buscando en segundo plano
         else if (updateCtrl.isCheckingUpdates || updateCtrl.hasPendingChecks) {
-          color = Colors.blueGrey;
+          color = theme.colorScheme.onSurfaceVariant;
           icon = Icons.sync;
           label = locale.ssiSearchingUpdates;
         }
         // Completamente al día
         else {
-          color = Colors.green;
+          color = semanticColors?.success ?? Colors.green;
           icon = Icons.check_circle;
           label = locale.ssiReady;
         }
@@ -82,18 +87,18 @@ class _SystemStatusIndicatorState extends State<SystemStatusIndicator> {
       case SystemState.missingPermissions:
       case SystemState.missingResources:
       case SystemState.fatalError:
-        color = Colors.red;
+        color = semanticColors?.error ?? theme.colorScheme.error;
         icon = Icons.warning_rounded;
         label = locale.ssiAttention;
         break;
       case SystemState.initializing:
       case SystemState.startingBackend:
-        color = Colors.blue;
+        color = primaryColor;
         icon = Icons.hourglass_top;
         label = locale.ssiInitializing;
         break;
       case SystemState.retrying:
-        color = Colors.orange;
+        color = semanticColors?.warning ?? Colors.orange;
         icon = Icons.sync_problem;
         label = locale.ssiReconnecting;
         break;
@@ -112,12 +117,7 @@ class _SystemStatusIndicatorState extends State<SystemStatusIndicator> {
       ),
       onPressed: () {
         SystemStatusUpdateBubble.hide();
-        showModalBottomSheet(
-          context: context,
-          isScrollControlled: true,
-          useSafeArea: true,
-          builder: (_) => const SystemDetailsScreen(),
-        );
+        SystemDetailsScreen.show(context);
       },
     );
   }

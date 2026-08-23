@@ -4,6 +4,14 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [4.0.0] - New Interface
+
+- **New Interface:** The user interface has been redesigned to provide a more modern and intuitive experience. The new design focuses on usability, accessibility, and visual appeal, making it easier for users to navigate and interact with the application.
+- **Enhanced User Experience:** The updated interface includes improved layouts, clearer navigation, and more responsive design elements, ensuring a seamless experience across different devices and screen sizes.
+- **Automatic Download Missing Resources:** The application now automatically detects and downloads any missing resources required for the new interface, ensuring that users have access to all necessary components without manual intervention.
+- **More buttons**: Add play, open folder for playlist and playlist entry. Add open folder for completed entry.
+- **Bug Fixes:** Addressed various bugs and issues reported by users, enhancing the overall stability and reliability of the application.
+
 ## [3.1.0] - New Features
 
 - **Quick Settings:** Added a new feature that allows users to quickly access and modify their download settings directly from the main interface, improving usability and efficiency.

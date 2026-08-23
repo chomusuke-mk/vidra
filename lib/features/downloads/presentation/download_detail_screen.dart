@@ -9,6 +9,8 @@ import 'package:vidra/features/system/presentation/system_controller.dart';
 import 'package:vidra/features/downloads/presentation/download_detail_controller.dart';
 import 'package:vidra/features/downloads/data/download_repository.dart';
 import 'package:vidra/features/downloads/domain/download.dart' as model;
+import 'package:vidra/core/theme/colors.dart';
+import 'package:vidra/core/theme/typography.dart';
 import 'package:vidra/shared/widgets/download_card.dart';
 
 class DownloadDetailScreen extends StatelessWidget {
@@ -79,10 +81,13 @@ class _DetailViewState extends State<_DetailView> {
 
     // Pestaña Opcional: Sub-Descargas
     if (showSubsTab) {
-      tabs.add(Tab(text: locale.ddSubDownloads));
+      tabs.add(Tab(
+        icon: const Icon(Icons.format_list_numbered),
+        text: locale.ddSubDownloads,
+      ));
       destinations.add(
         NavigationRailDestination(
-          icon: Icon(Icons.format_list_numbered),
+          icon: const Icon(Icons.format_list_numbered),
           label: Text(locale.ddSubDownloads),
         ),
       );
@@ -90,20 +95,26 @@ class _DetailViewState extends State<_DetailView> {
     }
 
     // Pestaña Fija: Logs
-    tabs.add(Tab(text: locale.ddLogs));
+    tabs.add(Tab(
+      icon: const Icon(Icons.receipt_long_rounded),
+      text: locale.ddLogs,
+    ));
     destinations.add(
       NavigationRailDestination(
-        icon: Icon(Icons.receipt_long),
+        icon: const Icon(Icons.receipt_long_rounded),
         label: Text(locale.ddLogs),
       ),
     );
     views.add(_buildLogsTab(controller, locale));
 
     // Pestaña Fija: Configuración
-    tabs.add(Tab(text: locale.ddSettings));
+    tabs.add(Tab(
+      icon: const Icon(Icons.tune_rounded),
+      text: locale.ddSettings,
+    ));
     destinations.add(
       NavigationRailDestination(
-        icon: Icon(Icons.settings_applications),
+        icon: const Icon(Icons.tune_rounded),
         label: Text(locale.ddSettings),
       ),
     );
@@ -185,9 +196,12 @@ class _DetailViewState extends State<_DetailView> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                '${list.length} ${locale.ddElements}',
-                style: const TextStyle(fontWeight: FontWeight.bold),
+              Expanded(
+                child: Text(
+                  '${list.length} ${locale.ddElements}',
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
               Row(
                 mainAxisSize: MainAxisSize.min,
@@ -200,7 +214,7 @@ class _DetailViewState extends State<_DetailView> {
                           controller.sortOption !=
                                   SubDownloadSortOption.byDefault ||
                               controller.sortReversed
-                          ? Colors.blue
+                          ? Theme.of(context).colorScheme.primary
                           : null,
                     ),
                     tooltip: locale.ddSort,
@@ -216,7 +230,7 @@ class _DetailViewState extends State<_DetailView> {
                               color:
                                   controller.sortOption ==
                                       SubDownloadSortOption.byDefault
-                                  ? Colors.blue
+                                  ? Theme.of(context).colorScheme.primary
                                   : null,
                             ),
                             const SizedBox(width: 8),
@@ -226,7 +240,7 @@ class _DetailViewState extends State<_DetailView> {
                                 color:
                                     controller.sortOption ==
                                         SubDownloadSortOption.byDefault
-                                    ? Colors.blue
+                                    ? Theme.of(context).colorScheme.primary
                                     : null,
                                 fontWeight:
                                     controller.sortOption ==
@@ -248,7 +262,7 @@ class _DetailViewState extends State<_DetailView> {
                               color:
                                   controller.sortOption ==
                                       SubDownloadSortOption.alphabetical
-                                  ? Colors.blue
+                                  ? Theme.of(context).colorScheme.primary
                                   : null,
                             ),
                             const SizedBox(width: 8),
@@ -258,7 +272,7 @@ class _DetailViewState extends State<_DetailView> {
                                 color:
                                     controller.sortOption ==
                                         SubDownloadSortOption.alphabetical
-                                    ? Colors.blue
+                                    ? Theme.of(context).colorScheme.primary
                                     : null,
                                 fontWeight:
                                     controller.sortOption ==
@@ -278,7 +292,9 @@ class _DetailViewState extends State<_DetailView> {
                       controller.sortReversed
                           ? Icons.arrow_upward
                           : Icons.arrow_downward,
-                      color: controller.sortReversed ? Colors.blue : null,
+                      color: controller.sortReversed
+                          ? Theme.of(context).colorScheme.primary
+                          : null,
                     ),
                     tooltip: locale.ddSortReverse,
                     onPressed: controller.toggleSortReverse,
@@ -289,7 +305,9 @@ class _DetailViewState extends State<_DetailView> {
                       hasActiveFilters
                           ? Icons.filter_alt
                           : Icons.filter_alt_outlined,
-                      color: hasActiveFilters ? Colors.blue : null,
+                      color: hasActiveFilters
+                          ? Theme.of(context).colorScheme.primary
+                          : null,
                     ),
                     tooltip: locale.ddSearchFilter,
                     onPressed: controller.toggleSearchVisibility,
@@ -344,35 +362,39 @@ class _DetailViewState extends State<_DetailView> {
                           scrollDirection: Axis.horizontal,
                           children: [
                             _buildFilterChip(
+                              context,
                               controller,
                               model.DownloadStateEnum.failed,
                               locale.ddErrors,
                               Icons.error,
-                              Colors.red,
+                              Theme.of(context).extension<VidraSemanticColors>()?.error ?? Theme.of(context).colorScheme.error,
                             ),
                             const SizedBox(width: 8),
                             _buildFilterChip(
+                              context,
                               controller,
                               model.DownloadStateEnum.inProgress,
                               locale.ddDownloading,
                               Icons.downloading,
-                              Colors.blue,
+                              Theme.of(context).colorScheme.primary,
                             ),
                             const SizedBox(width: 8),
                             _buildFilterChip(
+                              context,
                               controller,
                               model.DownloadStateEnum.completed,
                               locale.ddCompleted,
                               Icons.check_circle,
-                              Colors.green,
+                              Theme.of(context).extension<VidraSemanticColors>()?.success ?? Colors.green,
                             ),
                             const SizedBox(width: 8),
                             _buildFilterChip(
+                              context,
                               controller,
                               model.DownloadStateEnum.pending,
                               locale.ddPending,
                               Icons.schedule,
-                              Colors.grey,
+                              Theme.of(context).colorScheme.onSurfaceVariant,
                             ),
                           ],
                         ),
@@ -406,6 +428,7 @@ class _DetailViewState extends State<_DetailView> {
   }
 
   Widget _buildFilterChip(
+    BuildContext context,
     DownloadDetailController ctrl,
     model.DownloadStateEnum state,
     String label,
@@ -413,20 +436,23 @@ class _DetailViewState extends State<_DetailView> {
     Color color,
   ) {
     final isSelected = ctrl.activeFilters.contains(state);
+    final theme = Theme.of(context);
+    final semanticColors = theme.extension<VidraSemanticColors>();
+    final inactiveColor = theme.colorScheme.onSurfaceVariant;
     return FilterChip(
       showCheckmark: false,
       selected: isSelected,
       label: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 16, color: isSelected ? color : Colors.grey),
+          Icon(icon, size: 16, color: isSelected ? color : inactiveColor),
           const SizedBox(width: 4),
           Text(
             label,
             style: TextStyle(
               fontSize: 12,
-              color: isSelected ? color : null,
-              fontWeight: isSelected ? FontWeight.bold : null,
+              color: isSelected ? color : inactiveColor,
+              fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
             ),
           ),
         ],
@@ -437,7 +463,9 @@ class _DetailViewState extends State<_DetailView> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
         side: BorderSide(
-          color: isSelected ? color : Colors.grey.withValues(alpha: 0.3),
+          color: isSelected
+              ? color
+              : (semanticColors?.borderSubtle ?? theme.dividerColor.withValues(alpha: 0.3)),
         ),
       ),
     );
@@ -473,13 +501,11 @@ class _DetailViewState extends State<_DetailView> {
                   margin: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.surfaceContainerHighest
-                        .withValues(alpha: 0.5),
+                    color: Theme.of(context).colorScheme.surfaceContainerHigh,
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(
-                      color: Theme.of(
-                        context,
-                      ).dividerColor.withValues(alpha: 0.1),
+                      color: Theme.of(context).extension<VidraSemanticColors>()?.borderSubtle ??
+                          Theme.of(context).colorScheme.outlineVariant,
                     ),
                   ),
                   child: _AutoScrollLogsView(
@@ -504,12 +530,11 @@ class _DetailViewState extends State<_DetailView> {
       margin: const EdgeInsets.all(16),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Theme.of(
-          context,
-        ).colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
+        color: Theme.of(context).colorScheme.surfaceContainerHigh,
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: Theme.of(context).dividerColor.withValues(alpha: 0.1),
+          color: Theme.of(context).extension<VidraSemanticColors>()?.borderSubtle ??
+              Theme.of(context).colorScheme.outlineVariant,
         ),
       ),
       child: SingleChildScrollView(
@@ -517,7 +542,7 @@ class _DetailViewState extends State<_DetailView> {
           width: double.infinity,
           child: SelectableText(
             jsonString,
-            style: const TextStyle(fontFamily: 'monospace', fontSize: 13),
+            style: context.consoleLog.copyWith(fontSize: 13),
           ),
         ),
       ),
@@ -579,7 +604,7 @@ class _AutoScrollLogsViewState extends State<_AutoScrollLogsView> {
         controller: _scrollController,
         child: SelectableText(
           widget.logs.isEmpty ? widget.emptyMessage : widget.logs,
-          style: const TextStyle(fontFamily: 'monospace', fontSize: 12),
+          style: context.consoleLog.copyWith(fontSize: 12),
         ),
       ),
     );

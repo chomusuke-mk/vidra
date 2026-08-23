@@ -70,8 +70,23 @@ void main() {
       expect(appStrings.sdCopyCommand, equals('Copy Command'));
       expect(appStrings.sdCommandCopied,
           equals('Command copied to clipboard'));
-      expect(
-          appStrings.sdLinuxAppImageTitle, equals('Update Vidra (AppImage)'));
+      // Verify Engine status getters in English
+      expect(appStrings.sdAppEngine, equals('App Engine'));
+      expect(appStrings.sdAppEngineConnected, equals('App Engine: Connected'));
+      expect(appStrings.sdAllWorkingNormally, equals('Everything is running normally'));
+      expect(appStrings.sdAppEngineStarting, equals('App Engine: Starting...'));
+      expect(appStrings.sdAppEngineInitializing, equals('App Engine: Initializing...'));
+      expect(appStrings.sdAppEngineReconnecting, equals('App Engine: Reconnecting...'));
+      expect(appStrings.sdAppEngineMissingPermissions, equals('App Engine: Permissions Required'));
+      expect(appStrings.sdAppEngineMissingResources, equals('App Engine: Missing Components'));
+      expect(appStrings.sdAppEngineError, equals('App Engine: Error'));
+      expect(appStrings.sdStateReady, equals('Connected'));
+      expect(appStrings.sdStateInitializing, equals('Initializing...'));
+      expect(appStrings.sdStateStartingBackend, equals('Starting Engine...'));
+      expect(appStrings.sdStateRetrying, equals('Reconnecting...'));
+      expect(appStrings.sdStateMissingPermissions, equals('Missing Permissions'));
+      expect(appStrings.sdStateMissingResources, equals('Missing Components'));
+      expect(appStrings.sdStateFatalError, equals('Fatal Error'));
 
       // Verify es.jsonc
       final esFile = File('i18n/es.jsonc');
@@ -135,6 +150,24 @@ void main() {
           equals('Comando copiado al portapapeles'));
       expect(
           esStrings.sdLinuxAppImageTitle, equals('Actualizar Vidra (AppImage)'));
+
+      // Verify Engine status getters in Spanish
+      expect(esStrings.sdAppEngine, equals('Motor de la App'));
+      expect(esStrings.sdAppEngineConnected, equals('Motor de la App: Conectado'));
+      expect(esStrings.sdAllWorkingNormally, equals('Todo funciona con normalidad'));
+      expect(esStrings.sdAppEngineStarting, equals('Motor de la App: Iniciando...'));
+      expect(esStrings.sdAppEngineInitializing, equals('Motor de la App: Inicializando...'));
+      expect(esStrings.sdAppEngineReconnecting, equals('Motor de la App: Reconectando...'));
+      expect(esStrings.sdAppEngineMissingPermissions, equals('Motor de la App: Permisos requeridos'));
+      expect(esStrings.sdAppEngineMissingResources, equals('Motor de la App: Componentes faltantes'));
+      expect(esStrings.sdAppEngineError, equals('Motor de la App: Error'));
+      expect(esStrings.sdStateReady, equals('Conectado'));
+      expect(esStrings.sdStateInitializing, equals('Inicializando...'));
+      expect(esStrings.sdStateStartingBackend, equals('Iniciando motor...'));
+      expect(esStrings.sdStateRetrying, equals('Reconectando...'));
+      expect(esStrings.sdStateMissingPermissions, equals('Faltan permisos'));
+      expect(esStrings.sdStateMissingResources, equals('Faltan módulos'));
+      expect(esStrings.sdStateFatalError, equals('Error fatal'));
     });
   });
 }

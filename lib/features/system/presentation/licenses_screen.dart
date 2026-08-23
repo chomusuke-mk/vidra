@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
+import 'package:vidra/core/theme/typography.dart';
 
 class LicenseItem {
   final String title;
@@ -207,7 +208,7 @@ class _LicenseTextViewerState extends State<_LicenseTextViewer> {
             padding: const EdgeInsets.all(24.0),
             child: SelectableText(
               snapshot.data ?? locale.lEmptyFile,
-              style: const TextStyle(fontFamily: 'monospace', fontSize: 13),
+              style: context.consoleLog.copyWith(fontSize: 13),
             ),
           ),
         );

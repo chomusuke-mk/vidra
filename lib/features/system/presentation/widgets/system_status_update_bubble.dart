@@ -91,19 +91,9 @@ class _SystemStatusUpdateBubbleState extends State<SystemStatusUpdateBubble>
     final navigator = Navigator.maybeOf(targetContext);
     SystemStatusUpdateBubble.hide();
     if (targetContext.mounted) {
-      showModalBottomSheet(
-        context: targetContext,
-        isScrollControlled: true,
-        useSafeArea: true,
-        builder: (_) => const SystemDetailsScreen(),
-      );
+      SystemDetailsScreen.show(targetContext);
     } else if (navigator != null && navigator.context.mounted) {
-      showModalBottomSheet(
-        context: navigator.context,
-        isScrollControlled: true,
-        useSafeArea: true,
-        builder: (_) => const SystemDetailsScreen(),
-      );
+      SystemDetailsScreen.show(navigator.context);
     }
   }
 

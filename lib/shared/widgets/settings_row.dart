@@ -70,9 +70,20 @@ class SettingRow extends StatelessWidget {
         // Ajustamos el tamaño del controlador para que no crezca al infinito a la derecha
         Widget controllerWidget = child;
         if (type == ControllerType.dropdown) {
-          controllerWidget = SizedBox(width: 180, child: child);
+          controllerWidget = SizedBox(
+            width: stackVertically ? double.infinity : 180,
+            child: child,
+          );
         } else if (type == ControllerType.text) {
-          controllerWidget = SizedBox(width: 250, child: child);
+          controllerWidget = SizedBox(
+            width: stackVertically ? double.infinity : 250,
+            child: child,
+          );
+        } else if (type == ControllerType.complex) {
+          controllerWidget = SizedBox(
+            width: double.infinity,
+            child: child,
+          );
         }
 
         // Regla 3: Si va debajo alineado a la izquierda. Si está a la derecha, pegado a la derecha.
@@ -80,7 +91,10 @@ class SettingRow extends StatelessWidget {
           alignment: stackVertically
               ? Alignment.centerLeft
               : Alignment.centerRight,
-          child: controllerWidget,
+          child: ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: constraints.maxWidth),
+            child: controllerWidget,
+          ),
         );
 
         if (stackVertically) {

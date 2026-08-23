@@ -7,6 +7,10 @@ import 'package:open_filex/open_filex.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:path/path.dart' as p;
 import 'package:provider/provider.dart';
+import 'package:vidra/core/theme/colors.dart';
+import 'package:vidra/core/theme/typography.dart';
+import 'package:vidra/core/theme/animations.dart';
+import 'package:vidra/core/theme/layout.dart';
 import 'package:vidra/features/downloads/domain/download.dart' as model;
 import 'package:vidra/features/downloads/presentation/downloads_controller.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
@@ -68,17 +72,21 @@ class DownloadCard extends StatelessWidget {
     final showFolder = isSubItem
         ? (isCompleted && hasFile && isDesktop)
         : ((isCompleted || isCompletedWithErrors) &&
-            isDesktop &&
-            (hasFile || isList));
+              isDesktop &&
+              (hasFile || isList));
 
     // 3. Acciones prohibidas para sub-items (solo permitidas para items principales):
     final showInfo = !isSubItem && isError && !isDetailScreen;
-    final showDelete = !isSubItem &&
-        (isError || isCancelled || isCompleted || isCompletedWithErrors);
+    final showDelete =
+        !isSubItem &&
+        (isError ||
+            isCancelled ||
+            isCompleted ||
+            isCompletedWithErrors ||
+            isAwaiting);
     final showPause =
         !isSubItem && state?.value == model.DownloadStateEnum.inProgress;
-    final showCancel =
-        !isSubItem && (isPending || inProgress || isPaused || isAwaiting);
+    final showCancel = !isSubItem && (isPending || inProgress || isPaused);
     final showResume = !isSubItem && isPaused;
     final showRetry =
         !isSubItem && (isError || isCancelled || isCompletedWithErrors);
@@ -97,22 +105,36 @@ class DownloadCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         _buildImage(context, isError),
-        const SizedBox(width: 12),
+        const SizedBox(width: AppSpacing.space12),
         Expanded(child: _buildDetails(context)),
         if (actionCount > 0)
-          const Icon(
+          Icon(
             Icons.chevron_left,
-            color: Colors.grey,
+            color: Theme.of(
+              context,
+            ).colorScheme.onSurfaceVariant.withValues(alpha: 0.4),
             size: 16,
           ), // Pista visual de gesto
       ],
     );
 
+    final semanticColors = Theme.of(context).extension<VidraSemanticColors>();
     final cardWidget = Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+      margin: const EdgeInsets.symmetric(
+        horizontal: AppSpacing.space16,
+        vertical: 6,
+      ),
       elevation: 0,
       color: Theme.of(context).colorScheme.surfaceContainerHigh,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: BorderSide(
+          color: isError
+              ? (semanticColors?.error ?? Theme.of(context).colorScheme.error)
+              : (semanticColors?.borderSubtle ?? Colors.transparent),
+          width: isError ? 1.5 : 1.0,
+        ),
+      ),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: () {
@@ -127,12 +149,9 @@ class DownloadCard extends StatelessWidget {
             onTap!();
           }
         },
-        child: Opacity(
-          opacity: isError ? 0.6 : 1.0,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: cardContent,
-          ),
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpacing.space12),
+          child: cardContent,
         ),
       ),
     );
@@ -144,10 +163,10 @@ class DownloadCard extends StatelessWidget {
     // =========================================================================
     return LayoutBuilder(
       builder: (context, constraints) {
-        // MATEMÁTICA PURA: Cada botón mide ~70px. Dividimos ese ancho total
+        // MATEMÁTICA PURA: Cada botón mide ~54px. Dividimos ese ancho total
         // entre el ancho disponible de la pantalla para obtener el ratio exacto.
         // Lo limitamos (clamp) para que nunca se rompa en pantallas enanas o gigantes.
-        final double ratio = ((70.0 * actionCount) / constraints.maxWidth)
+        final double ratio = ((54.0 * actionCount) / constraints.maxWidth)
             .clamp(0.1, 0.8);
 
         return Slidable(
@@ -173,18 +192,19 @@ class DownloadCard extends StatelessWidget {
 
             children: [
               if (showPlay) ...[
-                SlidableAction(
+                _buildSlidableAction(
                   onPressed: (_) async {
                     final mimeType = lookupMimeType(info!.file!) ?? 'video/*';
                     await OpenFilex.open(info!.file!, type: mimeType);
                   },
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                  foregroundColor: Theme.of(context).colorScheme.onPrimary,
                   icon: Icons.play_arrow,
+                  tooltip: locale.dcActionPlay,
                 ),
               ],
               if (showFolder) ...[
-                SlidableAction(
+                _buildSlidableAction(
                   onPressed: (_) async {
                     String? dir;
                     if (info?.file != null && info!.file!.isNotEmpty) {
@@ -208,21 +228,23 @@ class DownloadCard extends StatelessWidget {
                       );
                     }
                   },
-                  backgroundColor: Colors.orange,
+                  backgroundColor: const Color(0xFFD97706),
                   foregroundColor: Colors.white,
                   icon: Icons.folder,
+                  tooltip: locale.dcActionOpenFolder,
                 ),
               ],
               if (showInfo) ...[
-                SlidableAction(
+                _buildSlidableAction(
                   onPressed: (_) => onTap?.call(), // Va a detalles
-                  backgroundColor: Colors.indigo,
-                  foregroundColor: Colors.white,
+                  backgroundColor: Theme.of(context).colorScheme.tertiary,
+                  foregroundColor: Theme.of(context).colorScheme.onTertiary,
                   icon: Icons.info,
+                  tooltip: locale.dcActionDetails,
                 ),
               ],
               if (showResume) ...[
-                SlidableAction(
+                _buildSlidableAction(
                   onPressed: (_) async {
                     final result = await context
                         .read<DownloadsController>()
@@ -233,13 +255,14 @@ class DownloadCard extends StatelessWidget {
                       ToastUtils.showError(locale.dcDownloadResumingError);
                     }
                   },
-                  backgroundColor: Colors.green,
+                  backgroundColor: const Color(0xFF10B981),
                   foregroundColor: Colors.white,
                   icon: Icons.play_arrow,
+                  tooltip: locale.dcActionResume,
                 ),
               ],
               if (showRetry) ...[
-                SlidableAction(
+                _buildSlidableAction(
                   onPressed: (_) async {
                     final result = await context
                         .read<DownloadsController>()
@@ -250,13 +273,14 @@ class DownloadCard extends StatelessWidget {
                       ToastUtils.showError(locale.dcDownloadRetryingError);
                     }
                   },
-                  backgroundColor: Colors.blueAccent,
+                  backgroundColor: const Color(0xFF0284C7),
                   foregroundColor: Colors.white,
                   icon: Icons.refresh,
+                  tooltip: locale.dcActionRetry,
                 ),
               ],
               if (showPause) ...[
-                SlidableAction(
+                _buildSlidableAction(
                   onPressed: (_) async {
                     final result = await context
                         .read<DownloadsController>()
@@ -267,21 +291,23 @@ class DownloadCard extends StatelessWidget {
                       ToastUtils.showError(locale.dcDownloadPausingError);
                     }
                   },
-                  backgroundColor: Colors.amber,
+                  backgroundColor: const Color(0xFFD97706),
                   foregroundColor: Colors.white,
                   icon: Icons.pause,
+                  tooltip: locale.dcActionPause,
                 ),
               ],
               if (showCancel) ...[
-                SlidableAction(
+                _buildSlidableAction(
                   onPressed: (_) => _showCancelDialog(context, downloadId!),
-                  backgroundColor: Colors.red,
+                  backgroundColor: const Color(0xFFEA580C),
                   foregroundColor: Colors.white,
                   icon: Icons.cancel,
+                  tooltip: locale.dcActionCancel,
                 ),
               ],
               if (showDelete) ...[
-                SlidableAction(
+                _buildSlidableAction(
                   onPressed: (_) async {
                     final result = await context
                         .read<DownloadsController>()
@@ -295,9 +321,10 @@ class DownloadCard extends StatelessWidget {
                       ToastUtils.showError(locale.dcDownloadRemovingError);
                     }
                   },
-                  backgroundColor: Colors.red.shade900,
+                  backgroundColor: const Color(0xFFDC2626),
                   foregroundColor: Colors.white,
                   icon: Icons.delete,
+                  tooltip: locale.dcActionDelete,
                 ),
               ],
             ],
@@ -305,6 +332,27 @@ class DownloadCard extends StatelessWidget {
           child: cardWidget,
         );
       },
+    );
+  }
+
+  Widget _buildSlidableAction({
+    required SlidableActionCallback onPressed,
+    required Color backgroundColor,
+    required Color foregroundColor,
+    required IconData icon,
+    required String tooltip,
+  }) {
+    return CustomSlidableAction(
+      onPressed: onPressed,
+      backgroundColor: backgroundColor,
+      foregroundColor: foregroundColor,
+      child: Tooltip(
+        message: tooltip,
+        preferBelow: false,
+        child: SizedBox.expand(
+          child: Center(child: Icon(icon, color: foregroundColor)),
+        ),
+      ),
     );
   }
 
@@ -325,7 +373,14 @@ class DownloadCard extends StatelessWidget {
             child: Text(locale.dcDownloadNoCancel),
           ),
           FilledButton(
-            style: FilledButton.styleFrom(backgroundColor: Colors.red),
+            style: FilledButton.styleFrom(
+              backgroundColor:
+                  Theme.of(ctx).extension<VidraSemanticColors>()?.error ??
+                  Colors.red,
+              foregroundColor:
+                  Theme.of(ctx).extension<VidraSemanticColors>()?.onError ??
+                  Colors.white,
+            ),
             onPressed: () async {
               final result = await controller.sendAction(id, 'cancel');
               if (result) {
@@ -344,22 +399,25 @@ class DownloadCard extends StatelessWidget {
     );
   }
 
-  // --- IMAGEN (50x50px con Indicadores Animados) ---
+  // --- IMAGEN (96x54 16:9 con Indicadores Animados) ---
   Widget _buildImage(BuildContext context, bool isError) {
     final imageUrl = info?.image ?? '';
+    final duration = info?.duration;
 
     return SizedBox(
-      width: 50,
-      height: 50,
+      width: 96,
+      height: 54,
       child: Stack(
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(4),
+            borderRadius: BorderRadius.circular(6),
             child: imageUrl.isNotEmpty
                 ? CachedNetworkImage(
                     imageUrl: imageUrl,
-                    width: 50,
-                    height: 50,
+                    width: 96,
+                    height: 54,
+                    memCacheWidth: 192,
+                    memCacheHeight: 108,
                     fit: BoxFit.cover,
                     placeholder: (_, _) => Container(
                       color: Theme.of(
@@ -383,13 +441,37 @@ class DownloadCard extends StatelessWidget {
                   ),
           ),
           if (isError)
-            Container(
-              color: Colors.black45,
-              child: Center(
-                child: Icon(
-                  Icons.priority_high,
-                  color: Theme.of(context).colorScheme.error,
-                  size: 28,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(6),
+              child: Container(
+                color: Colors.black45,
+                child: Center(
+                  child: Icon(
+                    Icons.priority_high,
+                    color: Theme.of(context).colorScheme.error,
+                    size: 28,
+                  ),
+                ),
+              ),
+            ),
+
+          // Duration pill (bottom-right corner of thumbnail)
+          if (duration != null && duration.isNotEmpty)
+            Positioned(
+              bottom: AppSpacing.space4,
+              right: AppSpacing.space4,
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppSpacing.space4,
+                  vertical: AppSpacing.space2,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.black.withValues(alpha: 0.75),
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Text(
+                  duration,
+                  style: AppTypography.telemetryMicro(color: Colors.white),
                 ),
               ),
             ),
@@ -397,14 +479,14 @@ class DownloadCard extends StatelessWidget {
           // Indicador de Estado Animado (Arriba derecha)
           Positioned(top: 1, right: 1, child: _buildAnimatedStateIcon()),
 
-          // Indicador de Tipo (Abajo derecha)
+          // Indicador de Tipo (Abajo izquierda)
           Positioned(
             bottom: 0,
-            right: 0,
+            left: 0,
             child: _buildShadowedIcon(
               _mapTypeIcon(info?.type),
               17,
-              _mapTypeIconColor(info?.type),
+              _mapTypeIconColor(context, info?.type),
             ),
           ),
         ],
@@ -416,20 +498,22 @@ class DownloadCard extends StatelessWidget {
     final iconData = _mapStateIcon(state?.value);
     final semanticColor = state?.subStateColor?.color ?? Colors.white;
 
-    // Animación sutil de rebote para descargas en progreso
+    // Animación sutil de oscilación/rebote para descargas en progreso
     if (state?.value == model.DownloadStateEnum.inProgress) {
       return TweenAnimationBuilder<double>(
         tween: Tween(begin: 0, end: 1),
-        duration: const Duration(seconds: 1),
+        duration: const Duration(milliseconds: 600),
+        curve: Curves.easeInOut,
         builder: (context, value, child) {
           return Transform.translate(
-            offset: Offset(0, (value * 2).abs() - 1), // Efecto rebote suave
+            offset: Offset(
+              0,
+              (value * 2).abs() - 1,
+            ), // Efecto oscilatorio suave
             child: child,
           );
         },
         child: _buildShadowedIcon(iconData, 15, semanticColor),
-        onEnd:
-            () {}, // Idealmente aquí haríamos un bucle, pero para mantenerlo ligero lo dejamos así
       );
     }
     return _buildShadowedIcon(iconData, 15, semanticColor);
@@ -451,89 +535,117 @@ class DownloadCard extends StatelessWidget {
   // --- DETALLES CENTRALES ---
   Widget _buildDetails(BuildContext context) {
     final autor = info?.autor ?? '';
-    final duration = info?.duration ?? '';
     final platform = info?.platform ?? '';
-    final infoList = [
-      autor,
-      duration,
-      platform,
-    ].where((e) => e.isNotEmpty).toList();
+    final infoList = [autor, platform].where((e) => e.isNotEmpty).toList();
     String infoText = infoList.join(' • ');
     final locale = context.read<LocaleController>().localeStrings;
+    final textTheme = Theme.of(context).textTheme;
+    final semanticColors = Theme.of(context).extension<VidraSemanticColors>();
+    final isError = state?.value == model.DownloadStateEnum.failed;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        // Título
-        Text(
-          info?.title ?? locale.dcGettingDownloadInfo,
-          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
-        //const SizedBox(height: 2),
-        // Info Autor / Duration
-        Text(
-          infoText,
-          style: TextStyle(
-            fontSize: 14,
-            color: Theme.of(context).colorScheme.onSurfaceVariant,
-          ),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final double maxLabelWidth = (constraints.maxWidth * 0.45).clamp(
+          40.0,
+          300.0,
+        );
+        final double maxSpeedWidth = (constraints.maxWidth * 0.35).clamp(
+          40.0,
+          200.0,
+        );
 
-        // Progreso y Estados Secundarios
-        //const SizedBox(height: 6),
-        Row(
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(1),
-                child: _AnimatedProgressBar(
-                  value:
-                      state?.progressValue ??
-                      (state?.value == model.DownloadStateEnum.inProgress
-                          ? null
-                          : 1.0),
-                  color: state?.progressColor?.color ?? Colors.blue,
-                  backgroundColor: Theme.of(
-                    context,
-                  ).colorScheme.surfaceContainerHighest,
-                ),
-              ),
+            // Título
+            Text(
+              info?.title ?? locale.dcGettingDownloadInfo,
+              style: textTheme.titleMedium,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
-            if (state?.progressLabel != null) ...[
-              const SizedBox(width: 8),
-              Text(state!.progressLabel!, style: const TextStyle(fontSize: 10)),
-            ],
-            if (state?.speed != null) ...[
-              const SizedBox(width: 8),
-              Text(state!.speed!, style: const TextStyle(fontSize: 10)),
+            // Info Autor / Platform
+            Text(
+              infoText,
+              style: textTheme.bodySmall,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+
+            // Progreso y Estados Secundarios
+            Row(
+              children: [
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(2),
+                    child: _AnimatedProgressBar(
+                      value:
+                          state?.progressValue ??
+                          (state?.value == model.DownloadStateEnum.inProgress
+                              ? null
+                              : 1.0),
+                      color:
+                          state?.progressColor?.color ??
+                          Theme.of(context).colorScheme.primary,
+                      backgroundColor: Theme.of(
+                        context,
+                      ).colorScheme.surfaceContainerHighest,
+                    ),
+                  ),
+                ),
+                if (state?.progressLabel != null) ...[
+                  const SizedBox(width: AppSpacing.space8),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: maxLabelWidth),
+                    child: Text(
+                      state!.progressLabel!,
+                      style: context.telemetrySmall,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
+                  ),
+                ],
+                if (state?.speed != null) ...[
+                  const SizedBox(width: AppSpacing.space8),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: maxSpeedWidth),
+                    child: Text(
+                      state!.speed!,
+                      style: context.speedTelemetry,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+            if (state?.subState != null ||
+                state?.value == model.DownloadStateEnum.failed ||
+                state?.value ==
+                    model.DownloadStateEnum.completedWithErrors) ...[
+              Text(
+                ((state?.value == model.DownloadStateEnum.failed ||
+                            state?.value ==
+                                model.DownloadStateEnum.completedWithErrors)
+                        ? state?.errorMessage ?? locale.dcUnknownError
+                        : state?.subState) ??
+                    '',
+                style: textTheme.labelSmall?.copyWith(
+                  color:
+                      state?.subStateColor?.color ??
+                      (isError
+                          ? (semanticColors?.error ??
+                                Theme.of(context).colorScheme.error)
+                          : Theme.of(context).colorScheme.primary),
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
             ],
           ],
-        ),
-        if (state?.subState != null ||
-            state?.value == model.DownloadStateEnum.failed ||
-            state?.value == model.DownloadStateEnum.completedWithErrors) ...[
-          //const SizedBox(height: 2),
-          Text(
-            ((state?.value == model.DownloadStateEnum.failed ||
-                        state?.value ==
-                            model.DownloadStateEnum.completedWithErrors)
-                    ? state?.errorMessage ?? locale.dcUnknownError
-                    : state?.subState) ??
-                '',
-            style: TextStyle(
-              fontSize: 10,
-              color: state?.subStateColor?.color ?? Colors.blue,
-            ),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ],
-      ],
+        );
+      },
     );
   }
 
@@ -553,15 +665,15 @@ class DownloadCard extends StatelessWidget {
     }
   }
 
-  Color _mapTypeIconColor(model.DownloadType? type) {
+  Color _mapTypeIconColor(BuildContext context, model.DownloadType? type) {
     switch (type) {
       case model.DownloadType.video:
-        return Colors.blue;
+        return Theme.of(context).colorScheme.primary;
       case model.DownloadType.list:
-        return Colors.deepPurpleAccent;
+        return Theme.of(context).colorScheme.tertiary;
       case model.DownloadType.unknown:
       default:
-        return Colors.grey;
+        return Theme.of(context).colorScheme.onSurfaceVariant;
     }
   }
 
@@ -619,14 +731,17 @@ class _AnimatedProgressBarState extends State<_AnimatedProgressBar>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 400),
+      duration: AppAnimations.normal,
     );
     _lastValue = widget.value;
     // Nace exactamente en el valor actual, sin animar desde 0
-    _animation = Tween<double>(
-      begin: _lastValue ?? 0.0,
-      end: _lastValue ?? 0.0,
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
+    _animation = Tween<double>(begin: _lastValue ?? 0.0, end: _lastValue ?? 0.0)
+        .animate(
+          CurvedAnimation(
+            parent: _controller,
+            curve: AppAnimations.standardCurve,
+          ),
+        );
   }
 
   @override
@@ -639,7 +754,10 @@ class _AnimatedProgressBarState extends State<_AnimatedProgressBar>
             begin: _animation.value, // Comienza desde donde se quedó
             end: widget.value!,
           ).animate(
-            CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic),
+            CurvedAnimation(
+              parent: _controller,
+              curve: AppAnimations.standardCurve,
+            ),
           );
       _controller.forward(from: 0.0);
       _lastValue = widget.value;
@@ -659,7 +777,7 @@ class _AnimatedProgressBarState extends State<_AnimatedProgressBar>
     if (_lastValue == null) {
       return LinearProgressIndicator(
         value: null,
-        minHeight: 4,
+        minHeight: 3,
         color: widget.color,
         backgroundColor: widget.backgroundColor,
       );
@@ -668,7 +786,7 @@ class _AnimatedProgressBarState extends State<_AnimatedProgressBar>
       animation: _animation,
       builder: (context, child) => LinearProgressIndicator(
         value: _animation.value,
-        minHeight: 4,
+        minHeight: 3,
         color: widget.color,
         backgroundColor: widget.backgroundColor,
       ),

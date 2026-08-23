@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
 
 import 'package:vidra/features/system/domain/system_state.dart';
@@ -11,12 +12,26 @@ import 'package:vidra/features/updates/domain/update_info.dart';
 import 'package:vidra/features/updates/presentation/update_controller.dart';
 import 'package:vidra/features/system/presentation/licenses_screen.dart';
 import 'package:vidra/core/network/vidra_http_client.dart';
+import 'package:vidra/core/theme/colors.dart';
+import 'package:vidra/core/theme/typography.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
 import 'package:vidra/shared/utils/changelog_utils.dart';
 import 'package:vidra/shared/utils/tutorial_utils.dart';
 
 class SystemDetailsScreen extends StatefulWidget {
   const SystemDetailsScreen({super.key});
+
+  /// Displays [SystemDetailsScreen] as a fit-content modal bottom sheet.
+  static Future<void> show(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      backgroundColor: Colors.transparent,
+      constraints: const BoxConstraints(maxWidth: 640),
+      builder: (_) => const SystemDetailsScreen(),
+    );
+  }
 
   @override
   State<SystemDetailsScreen> createState() => _SystemDetailsScreenState();
@@ -33,80 +48,139 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
     });
   }
 
+  Widget _buildDragHandle(BuildContext context) {
+    return Container(
+      width: 40,
+      height: 4,
+      margin: const EdgeInsets.only(top: 12, bottom: 8),
+      decoration: BoxDecoration(
+        color: Theme.of(
+          context,
+        ).colorScheme.onSurfaceVariant.withValues(alpha: 0.4),
+        borderRadius: BorderRadius.circular(2),
+      ),
+    );
+  }
+
+  Widget _buildHeader(BuildContext context, AppStringKey locale) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      child: Row(
+        children: [
+          Icon(
+            Icons.info_outline_rounded,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              locale.sdTitle,
+              style:
+                  Theme.of(context).textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ) ??
+                  const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.close),
+            tooltip: locale.sdClose,
+            onPressed: () => Navigator.pop(context),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final locale = context.watch<LocaleController>().localeStrings;
-    return Container(
-      padding: const EdgeInsets.only(top: 16),
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
-      ),
-      child: Column(
-        children: [
-          Container(
-            width: 40,
-            height: 4,
-            decoration: BoxDecoration(
-              color: Colors.grey.withValues(alpha: 0.5),
-              borderRadius: BorderRadius.circular(2),
-            ),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            locale.sdTitle,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const Divider(height: 32),
-
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+    return ClipRRect(
+      borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+      child: Material(
+        color: Theme.of(context).colorScheme.surfaceContainer,
+        child: SafeArea(
+          top: false,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 640),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                Container(
-                  key: AppTutorialKeys.systemBackend,
-                  child: _buildBackendStatus(context),
-                ),
-                const SizedBox(height: 24),
-
-                Text(
-                  locale.sdModulesUpdates,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                ),
-                const SizedBox(height: 8),
-
-                Container(
-                  key: AppTutorialKeys.systemUpdates,
-                  child: Column(
-                    children: [
-                      _buildUpdateCard(
-                        context,
-                        ComponentType.app,
-                        'Vidra App',
-                        Icons.android,
-                      ),
-                      _buildUpdateCard(
-                        context,
-                        ComponentType.ytDlp,
-                        'Engine yt-dlp',
-                        Icons.terminal,
-                      ),
-                      _buildUpdateCard(
-                        context,
-                        ComponentType.ytDlpEjs,
-                        'Patch EJS',
-                        Icons.javascript,
-                      ),
-                    ],
+                _buildDragHandle(context),
+                _buildHeader(context, locale),
+                const Divider(height: 1),
+                Flexible(
+                  child: SingleChildScrollView(
+                    padding: EdgeInsets.only(
+                      left: 16,
+                      right: 16,
+                      top: 16,
+                      bottom: MediaQuery.of(context).viewInsets.bottom + 24,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          key: AppTutorialKeys.systemBackend,
+                          child: _buildBackendStatus(context),
+                        ),
+                        const SizedBox(height: 24),
+                        Text(
+                          locale.sdModulesUpdates,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Container(
+                          key: AppTutorialKeys.systemUpdates,
+                          child: Column(
+                            children: [
+                              _buildUpdateCard(
+                                context,
+                                ComponentType.app,
+                                'Vidra App',
+                                Image.asset(
+                                  'assets/icon/icon.png',
+                                  width: 24,
+                                  height: 24,
+                                ),
+                              ),
+                              _buildUpdateCard(
+                                context,
+                                ComponentType.ytDlp,
+                                'Engine yt-dlp',
+                                Image.asset(
+                                  'assets/icon/yt-dlp.png',
+                                  width: 24,
+                                  height: 24,
+                                ),
+                              ),
+                              _buildUpdateCard(
+                                context,
+                                ComponentType.ytDlpEjs,
+                                'Patch EJS',
+                                Image.asset(
+                                  'assets/icon/javascript.png',
+                                  width: 24,
+                                  height: 24,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 32),
+                        _buildAboutSection(context),
+                      ],
+                    ),
                   ),
                 ),
-
-                const SizedBox(height: 32),
-                _buildAboutSection(context),
               ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
@@ -114,6 +188,41 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
   // ==========================================================================
   // ZONA 1: ESTADO DEL BACKEND Y LOGS
   // ==========================================================================
+  String _getLocalizedEngineTitle(SystemState state, AppStringKey locale) {
+    switch (state) {
+      case SystemState.ready:
+        return locale.sdAppEngineConnected;
+      case SystemState.startingBackend:
+        return locale.sdAppEngineStarting;
+      case SystemState.initializing:
+        return locale.sdAppEngineInitializing;
+      case SystemState.retrying:
+        return locale.sdAppEngineReconnecting;
+      case SystemState.missingPermissions:
+        return locale.sdAppEngineMissingPermissions;
+      case SystemState.missingResources:
+        return locale.sdAppEngineMissingResources;
+      case SystemState.fatalError:
+        return locale.sdAppEngineError;
+    }
+  }
+
+  String _getLocalizedEngineSubtitle(SystemState state, AppStringKey locale) {
+    switch (state) {
+      case SystemState.ready:
+        return locale.sdAllWorkingNormally;
+      case SystemState.startingBackend:
+      case SystemState.initializing:
+        return locale.sdWaitingAvailable;
+      case SystemState.retrying:
+        return locale.ssiReconnecting;
+      case SystemState.missingPermissions:
+      case SystemState.missingResources:
+      case SystemState.fatalError:
+        return locale.ssiAttention;
+    }
+  }
+
   Widget _buildBackendStatus(BuildContext context) {
     final sysCtrl = context.watch<SystemController>();
     final isReady = sysCtrl.state == SystemState.ready;
@@ -121,30 +230,34 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
     final hasError =
         sysCtrl.state == SystemState.missingResources ||
         sysCtrl.state == SystemState.fatalError;
+    final semanticColors = Theme.of(context).extension<VidraSemanticColors>();
 
     return Card(
-      color: hasError ? Colors.red.withValues(alpha: 0.1) : null,
+      color: hasError
+          ? (semanticColors?.error ?? Colors.red).withValues(alpha: 0.1)
+          : null,
       child: ListTile(
         leading: Icon(
           isReady ? Icons.dns : Icons.dns_outlined,
           color: isReady
-              ? Colors.green
-              : (hasError ? Colors.red : Colors.orange),
+              ? (semanticColors?.success ?? Colors.green)
+              : (hasError
+                    ? (semanticColors?.error ?? Colors.red)
+                    : (semanticColors?.warning ?? Colors.orange)),
         ),
-        title: Text('${locale.sdPythonServer}: ${sysCtrl.state.name}'),
+        title: Text(
+          _getLocalizedEngineTitle(sysCtrl.state, locale),
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
         subtitle: Wrap(
           alignment: WrapAlignment.spaceBetween,
+          crossAxisAlignment: WrapCrossAlignment.center,
           runSpacing: 4,
           children: [
-            Text(
-              isReady
-                  ? 'Puerto: ${sysCtrl.backendPort}'
-                  : locale.sdWaitingAvailable,
-            ),
+            Text(_getLocalizedEngineSubtitle(sysCtrl.state, locale)),
             Wrap(
               runSpacing: 4,
               spacing: 8,
-              //mainAxisSize: MainAxisSize.min,
               children: [
                 // Botón 1: Logs HTTP de la App (Solo si está Ready)
                 TextButton.icon(
@@ -152,7 +265,10 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
-                      side: const BorderSide(color: Colors.grey, width: 1),
+                      side: BorderSide(
+                        color: semanticColors?.borderSubtle ?? Colors.grey,
+                        width: 1,
+                      ),
                     ),
                   ),
                   onPressed: !isReady
@@ -187,7 +303,10 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
                             );
                           }
                         },
-                  label: Text("App Logs", style: const TextStyle(fontSize: 12)),
+                  label: Text(
+                    locale.sdAppLogs,
+                    style: const TextStyle(fontSize: 12),
+                  ),
                   icon: const Icon(Icons.receipt_long_rounded),
                 ),
                 // Botón 2: Logs Nativos de Consola (SIEMPRE DISPONIBLE para debug)
@@ -196,7 +315,10 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
-                      side: const BorderSide(color: Colors.grey, width: 1),
+                      side: BorderSide(
+                        color: semanticColors?.borderSubtle ?? Colors.grey,
+                        width: 1,
+                      ),
                     ),
                   ),
                   onPressed: sysCtrl.serverLogsFilePath == null
@@ -230,7 +352,7 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
                           }
                         },
                   label: Text(
-                    "Server Logs",
+                    locale.sdPythonServerLogs,
                     style: const TextStyle(fontSize: 12),
                   ),
                   icon: const Icon(Icons.terminal),
@@ -250,7 +372,7 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
     BuildContext context,
     ComponentType type,
     String title,
-    IconData icon,
+    Widget leadingWidget,
   ) {
     final updateCtrl = context.watch<UpdateController>();
     final state = updateCtrl.getState(type);
@@ -264,7 +386,11 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
           children: [
             Row(
               children: [
-                Icon(icon, size: 28),
+                SizedBox(
+                  width: 28,
+                  height: 28,
+                  child: Center(child: leadingWidget),
+                ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Column(
@@ -276,9 +402,9 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
                       ),
                       Text(
                         'Versión: ${state.version}',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 12,
-                          color: Colors.grey,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
                         ),
                       ),
                     ],
@@ -311,6 +437,7 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
     String title,
   ) {
     final locale = context.watch<LocaleController>().localeStrings;
+    final semanticColors = Theme.of(context).extension<VidraSemanticColors>();
     switch (state.status) {
       // NUEVO ESTADO: Oculta el botón y muestra un indicador circular para evitar doble-taps.
       case ComponentStatus.checking:
@@ -326,7 +453,10 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
       case ComponentStatus.error:
         if (state.pendingUpdate != null) {
           return FilledButton.icon(
-            style: FilledButton.styleFrom(backgroundColor: Colors.orange),
+            style: FilledButton.styleFrom(
+              backgroundColor: semanticColors?.warning ?? Colors.orange,
+              foregroundColor: semanticColors?.onWarning ?? Colors.white,
+            ),
             icon: const Icon(Icons.refresh, size: 16),
             label: Text(locale.sdButtonRetry),
             onPressed: () => ctrl.downloadAndInstall(type),
@@ -341,13 +471,10 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
         return Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text(
-              '✅',
-              style: TextStyle(
-                color: Colors.green,
-                fontWeight: FontWeight.bold,
-                fontSize: 12,
-              ),
+            Icon(
+              Icons.check_circle_rounded,
+              color: semanticColors?.success ?? Colors.green,
+              size: 20,
             ),
             const SizedBox(width: 8),
             IconButton(
@@ -366,7 +493,10 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
 
         return FilledButton.icon(
           style: isMissing
-              ? FilledButton.styleFrom(backgroundColor: Colors.red)
+              ? FilledButton.styleFrom(
+                  backgroundColor: semanticColors?.error ?? Colors.red,
+                  foregroundColor: semanticColors?.onError ?? Colors.white,
+                )
               : null,
           icon: const Icon(Icons.download, size: 16),
           label: Text(isMissing ? locale.sdButtonInstall : locale.sdUpdate),
@@ -374,16 +504,23 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
         );
 
       case ComponentStatus.downloading:
-        return Text(locale.sdDownloading, style: TextStyle(color: Colors.blue));
+        return Text(
+          locale.sdDownloading,
+          style: TextStyle(color: Theme.of(context).colorScheme.primary),
+        );
       case ComponentStatus.verifying:
         return Text(
           locale.sdCheckingPGP,
-          style: TextStyle(color: Colors.purple),
+          style: TextStyle(
+            color:
+                semanticColors?.muxing ??
+                Theme.of(context).colorScheme.tertiary,
+          ),
         );
       case ComponentStatus.installing:
         return Text(
           locale.sdInstalling,
-          style: TextStyle(color: Colors.orange),
+          style: TextStyle(color: semanticColors?.warning ?? Colors.orange),
         );
     }
   }
@@ -426,16 +563,18 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
         crossAxisAlignment: WrapCrossAlignment.center,
         runSpacing: 4,
         children: [
-          Text('${locale.sdChannel}:', style: TextStyle(fontSize: 12)),
+          Text('${locale.sdChannel}:', style: const TextStyle(fontSize: 12)),
           SegmentedButton<String>(
-            segments: [
+            segments: const [
               ButtonSegment(
                 value: 'stable',
-                label: Text("Stable", style: const TextStyle(fontSize: 11)),
+                icon: Icon(Icons.verified_outlined, size: 14),
+                label: Text("Stable"),
               ),
               ButtonSegment(
                 value: 'nightly',
-                label: Text("Nightly", style: const TextStyle(fontSize: 11)),
+                icon: Icon(Icons.nightlight_round, size: 14),
+                label: Text("Nightly"),
               ),
             ],
             selected: {currentChannel},
@@ -462,6 +601,8 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
   // ==========================================================================
   Widget _buildAboutSection(BuildContext context) {
     final locale = context.watch<LocaleController>().localeStrings;
+    final semanticColors = Theme.of(context).extension<VidraSemanticColors>();
+
     return Column(
       children: [
         const CircleAvatar(
@@ -475,7 +616,10 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
         ),
         Text(
           locale.sdAboutCreatedBy,
-          style: const TextStyle(fontSize: 14, color: Colors.grey),
+          style: TextStyle(
+            fontSize: 14,
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
+          ),
         ),
         const SizedBox(height: 16),
 
@@ -486,7 +630,11 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
           runSpacing: 4, // Espacio vertical si hace salto de línea
           children: [
             TextButton.icon(
-              icon: const Icon(Icons.favorite, color: Colors.red, size: 16),
+              icon: Icon(
+                Icons.favorite,
+                color: semanticColors?.error ?? Colors.red,
+                size: 16,
+              ),
               label: const Text('Patreon'),
               onPressed: () => launchUrl(
                 Uri.parse('https://www.patreon.com/chomusuke_dev'),
@@ -494,7 +642,11 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
               ),
             ),
             TextButton.icon(
-              icon: const Icon(Icons.coffee, color: Colors.orange, size: 16),
+              icon: Icon(
+                Icons.coffee,
+                color: semanticColors?.warning ?? Colors.orange,
+                size: 16,
+              ),
               label: Text(locale.sdDonate),
               onPressed: () => launchUrl(
                 Uri.parse('https://www.buymeacoffee.com/chomusuke'),
@@ -515,10 +667,10 @@ class _SystemDetailsScreenState extends State<SystemDetailsScreen> {
               onPressed: () => ChangelogUtils.showChangelogDialog(context),
             ),
             TextButton.icon(
-              icon: const Icon(
+              icon: Icon(
                 Icons.lightbulb_outline,
                 size: 16,
-                color: Colors.yellow,
+                color: Theme.of(context).colorScheme.primary,
               ),
               label: Text(locale.sdShowTutorial),
               onPressed: () =>
@@ -588,7 +740,7 @@ class _LogsDialogState extends State<_LogsDialog> {
             controller: _scrollController, // ...con el contenido!
             child: SelectableText(
               widget.logs.isEmpty ? locale.sdNoLogs : widget.logs,
-              style: const TextStyle(fontFamily: 'monospace', fontSize: 12),
+              style: context.consoleLog.copyWith(fontSize: 12),
             ),
           ),
         ),

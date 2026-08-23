@@ -24,6 +24,7 @@ class _SelectionFabWrapperState extends State<SelectionFabWrapper> {
 
   String? _activeModalId;
   BuildContext? _dialogContext;
+  bool _isClosingModal = false;
 
   DownloadsController? _downloadsCtrl;
 
@@ -41,6 +42,11 @@ class _SelectionFabWrapperState extends State<SelectionFabWrapper> {
   @override
   void dispose() {
     _downloadsCtrl?.removeListener(_onDownloadsUpdated);
+    _dialogContext = null;
+    _activeModalId = null;
+    _isClosingModal = false;
+    _queue.clear();
+    _dismissedIds.clear();
     super.dispose();
   }
 
@@ -52,7 +58,10 @@ class _SelectionFabWrapperState extends State<SelectionFabWrapper> {
     final awaitingDownloads = ctrl.downloads
         .where((d) => d.state?.value == DownloadStateEnum.awaitingSelection)
         .toList();
-    final awaitingIds = awaitingDownloads.map((d) => d.id!).toSet();
+    final awaitingIds = awaitingDownloads
+        .map((d) => d.id)
+        .whereType<String>()
+        .toSet();
 
     // 1. Manejar peticiones manuales desde DownloadCard (Prioridad Alta)
     final manualReq = ctrl.manualModalRequestId;
@@ -79,7 +88,7 @@ class _SelectionFabWrapperState extends State<SelectionFabWrapper> {
     _dismissedIds.removeWhere((id) => !awaitingIds.contains(id));
 
     // 4. Agregar a la cola nuevos deltas automáticamente
-    for (var id in awaitingIds) {
+    for (final id in awaitingIds) {
       if (id != _activeModalId &&
           !_queue.contains(id) &&
           !_dismissedIds.contains(id)) {
@@ -92,8 +101,8 @@ class _SelectionFabWrapperState extends State<SelectionFabWrapper> {
   }
 
   void _processQueue(List<Download> awaitingDownloads) {
-    // Solo abrimos uno si no hay nada activo y la cola tiene elementos
-    if (_activeModalId == null && _queue.isNotEmpty) {
+    // Solo abrimos uno si no hay nada activo ni cerrándose y la cola tiene elementos
+    if (_activeModalId == null && !_isClosingModal && _queue.isNotEmpty) {
       final nextId = _queue.removeAt(0);
       final download = awaitingDownloads
           .where((d) => d.id == nextId)
@@ -111,6 +120,7 @@ class _SelectionFabWrapperState extends State<SelectionFabWrapper> {
 
   void _openModal(Download download) {
     _activeModalId = download.id;
+    _isClosingModal = false;
 
     showDialog(
       context: context,
@@ -131,13 +141,16 @@ class _SelectionFabWrapperState extends State<SelectionFabWrapper> {
     ).then((_) {
       if (!mounted) return;
 
-      // Si el modal se cierra (por el usuario o automáticamente), lo marcamos como descartado
-      // para que el stream no lo vuelva a abrir inmediatamente.
-      if (_activeModalId != null) {
-        _dismissedIds.add(_activeModalId!);
-      }
+      final closedId = _activeModalId;
       _activeModalId = null;
       _dialogContext = null;
+      _isClosingModal = false;
+
+      // Si el modal se cierra (por el usuario o automáticamente), lo marcamos como descartado
+      // para que el stream no lo vuelva a abrir inmediatamente.
+      if (closedId != null) {
+        _dismissedIds.add(closedId);
+      }
 
       // Llamamos a la validación para abrir el siguiente en la cola
       _onDownloadsUpdated();
@@ -145,9 +158,12 @@ class _SelectionFabWrapperState extends State<SelectionFabWrapper> {
   }
 
   void _closeCurrentModal() {
-    if (_dialogContext != null && _dialogContext!.mounted) {
-      Navigator.pop(_dialogContext!);
-      // Nota: El .then() del showDialog ejecutará el resto del ciclo de limpieza
+    if (_isClosingModal) return;
+
+    final ctx = _dialogContext;
+    if (ctx != null && ctx.mounted) {
+      _isClosingModal = true;
+      Navigator.of(ctx).pop();
     }
   }
 
@@ -180,6 +196,7 @@ class _SelectionFabWrapperState extends State<SelectionFabWrapper> {
               onPressed: () {
                 bool enqueued = false;
                 for (var p in pending) {
+                  if (p.id == null) continue;
                   _dismissedIds.remove(p.id);
                   if (p.id != _activeModalId && !_queue.contains(p.id)) {
                     _queue.add(p.id!);
@@ -187,7 +204,7 @@ class _SelectionFabWrapperState extends State<SelectionFabWrapper> {
                   }
                 }
 
-                if (_activeModalId == null) {
+                if (_activeModalId == null && !_isClosingModal) {
                   _processQueue(pending);
                 } else if (enqueued) {
                   ToastUtils.showInfo(locale.swListForwarded);
@@ -325,7 +342,9 @@ class _SelectionDialog extends StatelessWidget {
 
                         return CheckboxListTile(
                           value: isSelected,
-                          onChanged: (_) => ctrl.toggleSelection(item.subId!),
+                          onChanged: item.subId != null
+                              ? (_) => ctrl.toggleSelection(item.subId!)
+                              : null,
                           contentPadding: EdgeInsets.zero,
                           secondary: _buildThumbnail(item.info?.image, context),
                           title: Text(

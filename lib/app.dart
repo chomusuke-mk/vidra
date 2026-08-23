@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:vidra/core/theme/app_theme.dart';
 import 'package:vidra/features/downloads/presentation/downloads_screen.dart';
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/features/downloads/presentation/share_wrapper.dart';
@@ -27,8 +28,8 @@ class App extends StatelessWidget {
       locale: Locale(settingsCtrl.appLanguage),
       navigatorKey: ToastUtils.navigatorKey,
       themeMode: settingsCtrl.appTheme,
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       initialRoute: '/',
       home: const MainRouter(),
     );

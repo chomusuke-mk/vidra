@@ -121,6 +121,36 @@ class AppStringKey {
   String get sdModulesUpdates =>
       _cadenasLocalizadas['sd_modules_updates'] ?? '';
   String get sdPythonServer => _cadenasLocalizadas['sd_python_server'] ?? '';
+  String get sdAppEngine => _cadenasLocalizadas['sd_app_engine'] ?? '';
+  String get sdAppEngineConnected =>
+      _cadenasLocalizadas['sd_app_engine_connected'] ?? '';
+  String get sdAllWorkingNormally =>
+      _cadenasLocalizadas['sd_all_working_normally'] ?? '';
+  String get sdAppEngineStarting =>
+      _cadenasLocalizadas['sd_app_engine_starting'] ?? '';
+  String get sdAppEngineInitializing =>
+      _cadenasLocalizadas['sd_app_engine_initializing'] ?? '';
+  String get sdAppEngineReconnecting =>
+      _cadenasLocalizadas['sd_app_engine_reconnecting'] ?? '';
+  String get sdAppEngineMissingPermissions =>
+      _cadenasLocalizadas['sd_app_engine_missing_permissions'] ?? '';
+  String get sdAppEngineMissingResources =>
+      _cadenasLocalizadas['sd_app_engine_missing_resources'] ?? '';
+  String get sdAppEngineError =>
+      _cadenasLocalizadas['sd_app_engine_error'] ?? '';
+  String get sdStateReady => _cadenasLocalizadas['sd_state_ready'] ?? '';
+  String get sdStateInitializing =>
+      _cadenasLocalizadas['sd_state_initializing'] ?? '';
+  String get sdStateStartingBackend =>
+      _cadenasLocalizadas['sd_state_starting_backend'] ?? '';
+  String get sdStateRetrying =>
+      _cadenasLocalizadas['sd_state_retrying'] ?? '';
+  String get sdStateMissingPermissions =>
+      _cadenasLocalizadas['sd_state_missing_permissions'] ?? '';
+  String get sdStateMissingResources =>
+      _cadenasLocalizadas['sd_state_missing_resources'] ?? '';
+  String get sdStateFatalError =>
+      _cadenasLocalizadas['sd_state_fatal_error'] ?? '';
   String get sdWaitingAvailable =>
       _cadenasLocalizadas['sd_waiting_available'] ?? '';
   String get sdAppLogs => _cadenasLocalizadas['sd_app_logs'] ?? '';
@@ -236,6 +266,14 @@ class AppStringKey {
       _cadenasLocalizadas['dc_download_cancelling_error'] ?? '';
   String get dcGettingDownloadInfo =>
       _cadenasLocalizadas['dc_getting_download_info'] ?? '';
+  String get dcActionPlay => _cadenasLocalizadas['dc_action_play'] ?? '';
+  String get dcActionOpenFolder => _cadenasLocalizadas['dc_action_open_folder'] ?? '';
+  String get dcActionDetails => _cadenasLocalizadas['dc_action_details'] ?? '';
+  String get dcActionResume => _cadenasLocalizadas['dc_action_resume'] ?? '';
+  String get dcActionRetry => _cadenasLocalizadas['dc_action_retry'] ?? '';
+  String get dcActionPause => _cadenasLocalizadas['dc_action_pause'] ?? '';
+  String get dcActionCancel => _cadenasLocalizadas['dc_action_cancel'] ?? '';
+  String get dcActionDelete => _cadenasLocalizadas['dc_action_delete'] ?? '';
   // Strings de la pantalla de settings, prefijo s  ----------------
   String get sTitle => _cadenasLocalizadas['s_title'] ?? '';
   String get sGeneral => _cadenasLocalizadas['s_general'] ?? '';
@@ -607,6 +645,22 @@ class AppStringKey {
     'sd_title',
     'sd_modules_updates',
     'sd_python_server',
+    'sd_app_engine',
+    'sd_app_engine_connected',
+    'sd_all_working_normally',
+    'sd_app_engine_starting',
+    'sd_app_engine_initializing',
+    'sd_app_engine_reconnecting',
+    'sd_app_engine_missing_permissions',
+    'sd_app_engine_missing_resources',
+    'sd_app_engine_error',
+    'sd_state_ready',
+    'sd_state_initializing',
+    'sd_state_starting_backend',
+    'sd_state_retrying',
+    'sd_state_missing_permissions',
+    'sd_state_missing_resources',
+    'sd_state_fatal_error',
     'sd_waiting_available',
     'sd_app_logs',
     'sd_python_server_logs',
@@ -688,6 +742,14 @@ class AppStringKey {
     'dc_download_cancelling',
     'dc_download_cancelling_error',
     'dc_getting_download_info',
+    'dc_action_play',
+    'dc_action_open_folder',
+    'dc_action_details',
+    'dc_action_resume',
+    'dc_action_retry',
+    'dc_action_pause',
+    'dc_action_cancel',
+    'dc_action_delete',
     // Pantalla Settings -------------------------------- s_
     's_title',
     's_general',

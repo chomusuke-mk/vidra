@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_screen_overlay/flutter_screen_overlay.dart';
+import 'package:vidra/core/theme/colors.dart';
 import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
@@ -156,7 +157,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Icon(Icons.security, size: 64, color: Colors.blue),
+          Icon(Icons.security, size: 64, color: Theme.of(context).colorScheme.primary),
           const SizedBox(height: 16),
           Text(
             locale.pTitle,
@@ -167,7 +168,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
           Text(
             locale.pDescription,
             textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.grey),
+            style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
           ),
           const SizedBox(height: 32),
           Expanded(child: _buildPermissionsList(locale)),
@@ -193,7 +194,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Icon(Icons.security, size: 40, color: Colors.blue),
+                    Icon(Icons.security, size: 40, color: Theme.of(context).colorScheme.primary),
                     const SizedBox(width: 20),
                     Text(
                       locale.pTitle,
@@ -207,7 +208,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
                     Text(
                       locale.pDescription,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(color: Colors.grey, fontSize: 14),
+                      style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, fontSize: 14),
                     ),
                     const SizedBox(height: 32),
                     SizedBox(
@@ -314,17 +315,21 @@ class _PermissionsScreenState extends State<PermissionsScreen>
     bool isOptional = false,
     String? optionalText,
   }) {
+    final semanticColors = Theme.of(context).extension<VidraSemanticColors>();
+    final successColor = semanticColors?.success ?? Colors.green;
+
     return Container(
       decoration: BoxDecoration(
         color: isGranted
-            ? Colors.green.withValues(alpha: 0.1)
+            ? successColor.withValues(alpha: 0.1)
             : Theme.of(
                 context,
               ).colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
         border: Border.all(
           color: isGranted
-              ? Colors.green
-              : Theme.of(context).dividerColor.withValues(alpha: 0.2),
+              ? successColor
+              : (semanticColors?.borderSubtle ??
+                  Theme.of(context).dividerColor.withValues(alpha: 0.2)),
         ),
         borderRadius: BorderRadius.circular(12),
       ),
@@ -340,7 +345,9 @@ class _PermissionsScreenState extends State<PermissionsScreen>
             ),
             leading: Icon(
               icon,
-              color: isGranted ? Colors.green : Colors.blue,
+              color: isGranted
+                  ? successColor
+                  : Theme.of(context).colorScheme.primary,
               size: 32,
             ),
             title: Row(
@@ -382,7 +389,7 @@ class _PermissionsScreenState extends State<PermissionsScreen>
               child: Text(subtitle, style: const TextStyle(fontSize: 12)),
             ),
             trailing: isGranted
-                ? const Icon(Icons.check_circle, color: Colors.green, size: 28)
+                ? Icon(Icons.check_circle, color: successColor, size: 28)
                 : null,
           ),
           if (!isGranted)

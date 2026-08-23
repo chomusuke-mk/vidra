@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:vidra/core/theme/colors.dart';
+import 'package:vidra/core/theme/typography.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
 
@@ -32,7 +34,7 @@ class LinuxDebUpdateDialog extends StatelessWidget {
     return AlertDialog(
       title: Row(
         children: [
-          const Icon(Icons.system_update, color: Colors.blue),
+          Icon(Icons.system_update, color: Theme.of(context).colorScheme.primary),
           const SizedBox(width: 8),
           Expanded(child: Text(locale.sdLinuxDebTitle)),
         ],
@@ -50,13 +52,13 @@ class LinuxDebUpdateDialog extends StatelessWidget {
               color: Theme.of(context).colorScheme.surfaceContainerHighest,
               borderRadius: BorderRadius.circular(6),
               border: Border.all(
-                color: Theme.of(context).dividerColor.withValues(alpha: 0.2),
+                color: Theme.of(context).extension<VidraSemanticColors>()?.borderSubtle ??
+                    Theme.of(context).colorScheme.outlineVariant,
               ),
             ),
             child: SelectableText(
               aptCommand,
-              style: const TextStyle(
-                fontFamily: 'monospace',
+              style: context.consoleLog.copyWith(
                 fontSize: 13,
                 fontWeight: FontWeight.w600,
               ),

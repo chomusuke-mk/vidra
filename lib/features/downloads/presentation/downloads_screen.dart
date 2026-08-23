@@ -20,6 +20,8 @@ import 'package:vidra/features/updates/presentation/update_controller.dart';
 import 'package:vidra/shared/utils/changelog_utils.dart';
 import 'package:vidra/shared/utils/tutorial_utils.dart';
 import 'package:vidra/features/downloads/presentation/widgets/quick_settings_bottom_sheet.dart';
+import 'package:vidra/core/theme/colors.dart';
+import 'package:vidra/core/theme/layout.dart';
 
 class DownloadsScreen extends StatefulWidget {
   const DownloadsScreen({super.key});
@@ -133,33 +135,65 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
             child: SystemStatusIndicator(key: AppTutorialKeys.mainSystemStatus),
           ),
           // 2. Barra de texto para URL (Centro)
-          title: TextField(
-            key: AppTutorialKeys.mainUrlBar,
-            controller: _urlController,
-            decoration: InputDecoration(
-              hintText: locale.dVideoUrl,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide.none,
-              ),
-              filled: true,
-              fillColor: Theme.of(
-                context,
-              ).colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-              // Icono Pegar dentro de la barra
-              suffixIcon: IconButton(
-                icon: const Icon(Icons.paste),
-                tooltip: locale.dPaste,
-                onPressed: () async {
-                  final data = await Clipboard.getData(Clipboard.kTextPlain);
-                  if (data?.text != null) {
-                    _urlController.text = data!.text!;
-                  }
-                },
-              ),
+          title: ConstrainedBox(
+            constraints: const BoxConstraints(
+              maxWidth: AppSpacing.maxFormWidth,
             ),
-            onSubmitted: (_) => _addDownload(),
+            child: TextField(
+              key: AppTutorialKeys.mainUrlBar,
+              controller: _urlController,
+              decoration: InputDecoration(
+                hintText: locale.dVideoUrl,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide(
+                    color:
+                        Theme.of(
+                          context,
+                        ).extension<VidraSemanticColors>()?.borderSubtle ??
+                        Theme.of(context).dividerColor.withValues(alpha: 0.15),
+                    width: 1,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide(
+                    color:
+                        Theme.of(
+                          context,
+                        ).extension<VidraSemanticColors>()?.borderSubtle ??
+                        Theme.of(context).dividerColor.withValues(alpha: 0.15),
+                    width: 1,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide(
+                    color: Theme.of(context).colorScheme.primary,
+                    width: 1.5,
+                  ),
+                ),
+                filled: true,
+                fillColor: Theme.of(
+                  context,
+                ).colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: AppSpacing.space16,
+                ),
+                // Icono Pegar dentro de la barra
+                suffixIcon: IconButton(
+                  icon: const Icon(Icons.paste),
+                  tooltip: locale.dPaste,
+                  onPressed: () async {
+                    final data = await Clipboard.getData(Clipboard.kTextPlain);
+                    if (data?.text != null) {
+                      _urlController.text = data!.text!;
+                    }
+                  },
+                ),
+              ),
+              onSubmitted: (_) => _addDownload(),
+            ),
           ),
           actions: [
             IconButton(
@@ -172,7 +206,9 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
               key: AppTutorialKeys.mainFilter,
               icon: Icon(
                 hasActiveFilter ? Icons.filter_alt : Icons.filter_alt_outlined,
-                color: hasActiveFilter ? Colors.blue : null,
+                color: hasActiveFilter
+                    ? Theme.of(context).colorScheme.primary
+                    : null,
               ),
               tooltip: locale.dFilters,
               onPressed: () => setState(() => _showFilters = !_showFilters),
@@ -189,27 +225,33 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
             const SizedBox(width: 4),
           ],
         ),
-        floatingActionButton: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            FloatingActionButton(
-              key: AppTutorialKeys.mainQuickSettings,
-              heroTag: 'quick_settings_fab',
-              tooltip: locale.dQuickSettings,
-              onPressed: () => QuickSettingsBottomSheet.show(context),
-              child: const Icon(Icons.construction_outlined),
+        floatingActionButton: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: MediaQuery.withClampedTextScaling(
+            maxScaleFactor: 1.3,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                FloatingActionButton(
+                  key: AppTutorialKeys.mainQuickSettings,
+                  heroTag: 'quick_settings_fab',
+                  tooltip: locale.dQuickSettings,
+                  onPressed: () => QuickSettingsBottomSheet.show(context),
+                  child: const Icon(Icons.construction_outlined),
+                ),
+                const SizedBox(width: AppSpacing.space12),
+                FloatingActionButton.extended(
+                  heroTag: 'download_fab',
+                  onPressed: _addDownload,
+                  icon: const Icon(Icons.download),
+                  label: Text(
+                    locale.dDownload,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(width: 12),
-            FloatingActionButton.extended(
-              heroTag: 'download_fab',
-              onPressed: _addDownload,
-              icon: const Icon(Icons.download),
-              label: Text(
-                locale.dDownload,
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
+          ),
         ),
         // --- CUERPO: Barra de Filtros + Lista de descargas ---
         body: Column(
@@ -256,7 +298,9 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        final isShort = constraints.maxWidth < 600;
+        final isShort =
+            AppBreakpoints.fromWidth(constraints.maxWidth) ==
+            VidraBreakpoint.compact;
         if (isShort) return _buildVerticalLayout(lists, locale);
         return _buildHorizontalLayout(lists, locale);
       },
@@ -269,6 +313,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
     AppStringKey locale,
   ) {
     final theme = Theme.of(context);
+    final semanticColors = theme.extension<VidraSemanticColors>();
     final progress = updateCtrl.missingModulesProgress;
     final hasError =
         updateCtrl.getState(ComponentType.ytDlp).status ==
@@ -278,15 +323,17 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
 
     return Center(
       child: SingleChildScrollView(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.all(AppSpacing.space24),
         child: Container(
           constraints: const BoxConstraints(maxWidth: 420),
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(AppSpacing.space24),
           decoration: BoxDecoration(
             color: theme.colorScheme.surfaceContainerHigh,
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: theme.dividerColor.withValues(alpha: 0.15),
+              color:
+                  semanticColors?.borderSubtle ??
+                  theme.dividerColor.withValues(alpha: 0.15),
             ),
             boxShadow: [
               BoxShadow(
@@ -300,20 +347,24 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(AppSpacing.space16),
                 decoration: BoxDecoration(
                   color: hasError
-                      ? Colors.red.withValues(alpha: 0.1)
+                      ? (semanticColors?.error ?? Colors.red).withValues(
+                          alpha: 0.1,
+                        )
                       : theme.colorScheme.primary.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
                   hasError ? Icons.error_outline : Icons.downloading,
                   size: 48,
-                  color: hasError ? Colors.red : theme.colorScheme.primary,
+                  color: hasError
+                      ? (semanticColors?.error ?? Colors.red)
+                      : theme.colorScheme.primary,
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: AppSpacing.space16),
               Text(
                 hasError
                     ? locale.dDownloadingEngineError
@@ -323,13 +374,13 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: AppSpacing.space8),
               Text(
                 hasError
                     ? locale.sdGithubConnectionError
                     : (progress > 0.0
-                        ? '${(progress * 100).toStringAsFixed(0)}%'
-                        : locale.dEngineDownloadingDesc),
+                          ? '${(progress * 100).toStringAsFixed(0)}%'
+                          : locale.dEngineDownloadingDesc),
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: theme.colorScheme.onSurfaceVariant,
                 ),
@@ -347,7 +398,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
                 ),
               if (hasError)
                 Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
+                  padding: const EdgeInsets.only(top: AppSpacing.space8),
                   child: FilledButton.icon(
                     onPressed: () => updateCtrl.retryMissingModulesDownload(),
                     icon: const Icon(Icons.refresh),
@@ -363,13 +414,19 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
 
   // --- WIDGET EXCLUSIVO DEL FILTRO MAIN ---
   Widget _buildMainFiltersBar(AppStringKey locale) {
+    final semanticColors = Theme.of(context).extension<VidraSemanticColors>();
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppSpacing.space16,
+        vertical: AppSpacing.space12,
+      ),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surfaceContainerLow,
         border: Border(
           bottom: BorderSide(
-            color: Theme.of(context).dividerColor.withValues(alpha: 0.1),
+            color:
+                semanticColors?.borderSubtle ??
+                Theme.of(context).dividerColor.withValues(alpha: 0.1),
           ),
         ),
       ),
@@ -382,26 +439,58 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
               isDense: true,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide(
+                  color:
+                      semanticColors?.borderSubtle ??
+                      Theme.of(context).dividerColor.withValues(alpha: 0.15),
+                  width: 1,
+                ),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide(
+                  color:
+                      semanticColors?.borderSubtle ??
+                      Theme.of(context).dividerColor.withValues(alpha: 0.15),
+                  width: 1,
+                ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.primary,
+                  width: 1.5,
+                ),
               ),
             ),
             onChanged: (v) => setState(() => _searchQuery = v),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: AppSpacing.space12),
           SizedBox(
             width: double.infinity,
             child: SegmentedButton<String>(
+              showSelectedIcon: false,
               segments: [
                 ButtonSegment(
                   value: 'all',
-                  label: Text(locale.dFilterEverything),
+                  label: Text(
+                    locale.dFilterEverything,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
                 ButtonSegment(
                   value: 'video',
-                  label: Text(locale.dFilterVideoAudio),
+                  label: Text(
+                    locale.dFilterVideoAudio,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
                 ButtonSegment(
                   value: 'list',
-                  label: Text(locale.dFilterPlaylist),
+                  label: Text(
+                    locale.dFilterPlaylist,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ],
               selected: {_typeFilter},
@@ -424,11 +513,31 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
       child: Column(
         children: [
           TabBar(
+            isScrollable: true,
+            tabAlignment: TabAlignment.start,
             tabs: [
-              Tab(text: locale.dEverything),
-              Tab(text: locale.dInProgress),
-              Tab(text: locale.dCompleted),
-              Tab(text: locale.dError),
+              Tab(
+                icon: const Icon(Icons.list_alt_outlined),
+                text: locale.dEverything,
+              ),
+              Tab(
+                icon: const Icon(
+                  Icons.downloading_outlined,
+                  color: Color(0xFF2196F3),
+                ),
+                text: locale.dInProgress,
+              ),
+              Tab(
+                icon: const Icon(
+                  Icons.check_circle_outline,
+                  color: Color(0xFF4CAF50),
+                ),
+                text: locale.dCompleted,
+              ),
+              Tab(
+                icon: const Icon(Icons.error_outline, color: Color(0xFFF44336)),
+                text: locale.dError,
+              ),
             ],
           ),
           Expanded(
@@ -457,19 +566,35 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
           labelType: NavigationRailLabelType.all,
           destinations: [
             NavigationRailDestination(
-              icon: Icon(Icons.list),
+              icon: const Icon(Icons.list_alt_outlined),
+              selectedIcon: const Icon(Icons.list_alt),
               label: Text(locale.dEverything),
             ),
             NavigationRailDestination(
-              icon: Icon(Icons.downloading),
+              icon: const Icon(
+                Icons.downloading_outlined,
+                color: Color(0xFF2196F3),
+              ),
+              selectedIcon: const Icon(
+                Icons.downloading,
+                color: Color(0xFF2196F3),
+              ),
               label: Text(locale.dInProgress),
             ),
             NavigationRailDestination(
-              icon: Icon(Icons.done_all),
+              icon: const Icon(
+                Icons.check_circle_outline,
+                color: Color(0xFF4CAF50),
+              ),
+              selectedIcon: const Icon(
+                Icons.check_circle,
+                color: Color(0xFF4CAF50),
+              ),
               label: Text(locale.dCompleted),
             ),
             NavigationRailDestination(
-              icon: Icon(Icons.error_outline),
+              icon: const Icon(Icons.error_outline, color: Color(0xFFF44336)),
+              selectedIcon: const Icon(Icons.error, color: Color(0xFFF44336)),
               label: Text(locale.dError),
             ),
           ],
@@ -501,9 +626,9 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
               size: 64,
               color: Theme.of(
                 context,
-              ).colorScheme.onSurface.withValues(alpha: 0.2),
+              ).colorScheme.onSurface.withValues(alpha: 0.15),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: AppSpacing.space16),
             Text(
               locale.dNoDownloads,
               style: TextStyle(
