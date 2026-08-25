@@ -431,6 +431,8 @@ class AppStringKey {
   String get sXattrsDesc => _cadenasLocalizadas['s_xattrs_desc'] ?? '';
   String get sFixup => _cadenasLocalizadas['s_fixup'] ?? '';
   String get sFixupDesc => _cadenasLocalizadas['s_fixup_desc'] ?? '';
+  String get sForceKeyframesAtCuts => _cadenasLocalizadas['s_force_keyframes_at_cuts'] ?? '';
+  String get sForceKeyframesAtCutsDesc => _cadenasLocalizadas['s_force_keyframes_at_cuts_desc'] ?? '';
   String get sFFmpegLocation => _cadenasLocalizadas['s_ffmpeg_location'] ?? '';
   String get sFFmpegLocationDesc =>
       _cadenasLocalizadas['s_ffmpeg_location_desc'] ?? '';
@@ -886,6 +888,8 @@ class AppStringKey {
     's_xattrs_desc',
     's_fixup',
     's_fixup_desc',
+    's_force_keyframes_at_cuts',
+    's_force_keyframes_at_cuts_desc',
     's_ffmpeg_location',
     's_ffmpeg_location_desc',
     's_convert_thumbnails',

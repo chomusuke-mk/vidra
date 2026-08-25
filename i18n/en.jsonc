@@ -322,6 +322,8 @@
   "s_xattrs_desc": "Writes metadata to the filesystem xattrs.",
   "s_fixup": "Fixup",
   "s_fixup_desc": "Automatically corrects known faults in the video file.",
+  "s_force_keyframes_at_cuts": "Force Keyframes at Cuts",
+  "s_force_keyframes_at_cuts_desc": "Force keyframes at cuts when downloading/splitting/removing sections.\nThis is slow due to needing a re-encode, but the resulting video may have fewer artifacts around the cuts",
   "s_ffmpeg_location": "FFmpeg Location",
   "s_ffmpeg_location_desc": "Path to the FFmpeg binary.",
   "s_convert_thumbnails": "Convert Thumbnails",

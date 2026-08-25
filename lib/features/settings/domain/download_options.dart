@@ -155,6 +155,7 @@ class DownloadOptions {
   final String format;
   final bool xattrs;
   final FixupOption fixup;
+  final bool forceKeyframesAtCuts;
   final String ffmpegLocation;
   final ThumbnailFormat convertThumbnails;
   final bool writeSubs;
@@ -246,6 +247,7 @@ class DownloadOptions {
     this.format = '',
     this.xattrs = false,
     this.fixup = FixupOption.force,
+    this.forceKeyframesAtCuts = true,
     this.ffmpegLocation = '',
     this.convertThumbnails = ThumbnailFormat.webp,
     this.writeSubs = false,
@@ -335,6 +337,7 @@ class DownloadOptions {
     String? format,
     bool? xattrs,
     FixupOption? fixup,
+    bool? forceKeyframesAtCuts,
     String? ffmpegLocation,
     ThumbnailFormat? convertThumbnails,
     bool? writeSubs,
@@ -420,6 +423,7 @@ class DownloadOptions {
       format: format ?? this.format,
       xattrs: xattrs ?? this.xattrs,
       fixup: fixup ?? this.fixup,
+      forceKeyframesAtCuts: forceKeyframesAtCuts ?? this.forceKeyframesAtCuts,
       ffmpegLocation: ffmpegLocation ?? this.ffmpegLocation,
       convertThumbnails: convertThumbnails ?? this.convertThumbnails,
       writeSubs: writeSubs ?? this.writeSubs,
@@ -562,6 +566,7 @@ class DownloadOptions {
     if (format.isNotEmpty) map['format'] = format;
     map['xattrs'] = xattrs;
     map['fixup'] = fixup.name;
+    map['force_keyframes_at_cuts'] = forceKeyframesAtCuts;
     if (ffmpegLocation.isNotEmpty) map['ffmpeg_location'] = ffmpegLocation;
     map['convert_thumbnails'] = convertThumbnails.name;
     map['write_subs'] = writeSubs;
@@ -825,6 +830,7 @@ class DownloadOptions {
       fixup:
           _enumFromString(FixupOption.values, json['fixup']) ??
           FixupOption.force,
+      forceKeyframesAtCuts: json['force_keyframes_at_cuts'] ?? true,
       ffmpegLocation: json['ffmpeg_location']?.toString() ?? '',
       convertThumbnails:
           _enumFromString(ThumbnailFormat.values, json['convert_thumbnails']) ??
@@ -935,6 +941,7 @@ class DownloadOptions {
         other.format == format &&
         other.xattrs == xattrs &&
         other.fixup == fixup &&
+        other.forceKeyframesAtCuts == forceKeyframesAtCuts &&
         other.ffmpegLocation == ffmpegLocation &&
         other.convertThumbnails == convertThumbnails &&
         other.writeSubs == writeSubs &&

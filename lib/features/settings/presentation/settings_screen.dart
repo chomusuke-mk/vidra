@@ -7,7 +7,6 @@ import 'package:vidra/shared/widgets/lazy_dropdown.dart';
 import 'package:vidra/shared/widgets/lazy_list.dart';
 import 'package:vidra/shared/widgets/lazy_map.dart';
 import 'package:vidra/shared/widgets/lazy_text_field.dart';
-import 'package:vidra/shared/widgets/inline_time_picker.dart';
 import 'package:vidra/features/settings/domain/download_option_formatters.dart';
 import 'package:vidra/features/settings/domain/download_options.dart';
 import 'package:vidra/shared/widgets/settings_row.dart';
@@ -78,8 +77,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ...languagesCodes,
     ];
     // audio_options & video_resolution using DownloadOptionFormatters
-    final currentAudioVal = DownloadOptionFormatters.resolveCurrentAudioVal(opts);
-    final currentVideoVal = DownloadOptionFormatters.resolveCurrentVideoVal(opts);
+    final currentAudioVal = DownloadOptionFormatters.resolveCurrentAudioVal(
+      opts,
+    );
+    final currentVideoVal = DownloadOptionFormatters.resolveCurrentVideoVal(
+      opts,
+    );
 
     return [
       // --- GENERAL ---
@@ -788,6 +791,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
       ),
       _SettingDef(
+        title: locale.sForceKeyframesAtCuts,
+        description: locale.sForceKeyframesAtCutsDesc,
+        category: SettingCategory.video,
+        type: ControllerType.switchCtrl,
+        controlBuilder: (c, s) => Switch(
+          value: opts.forceKeyframesAtCuts,
+          onChanged: (val) =>
+              s.updateDownloadOptions(opts.copyWith(forceKeyframesAtCuts: val)),
+        ),
+      ),
+      _SettingDef(
         title: locale.sFFmpegLocation,
         description: locale.sFFmpegLocationDesc,
         category: SettingCategory.video,
@@ -835,55 +849,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
       ),
       // --- DOWNLOAD ---
-      _SettingDef(
-        title: locale.sCutVideo,
-        description: locale.sCutVideoDesc,
-        category: SettingCategory.download,
-        type: ControllerType.complex,
-        controlBuilder: (c, s) => Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SwitchListTile(
-              contentPadding: EdgeInsets.zero,
-              title: Text(locale.sCutVideo),
-              subtitle: Text(locale.sCutVideoDesc),
-              value: opts.cutVideo,
-              onChanged: (val) =>
-                  s.updateDownloadOptions(opts.copyWith(cutVideo: val)),
-            ),
-            if (opts.cutVideo) ...[
-              const SizedBox(height: 12),
-              InlineTimePicker(
-                label: locale.sCutVideoStart,
-                initialSeconds: opts.cutVideoStart,
-                onChanged: (newSec) => s.updateDownloadOptions(
-                  opts.copyWith(cutVideoStart: newSec),
-                ),
-              ),
-              const SizedBox(height: 12),
-              SwitchListTile(
-                contentPadding: EdgeInsets.zero,
-                title: Text(locale.sCutVideoUntilEnd),
-                value: opts.cutVideoUntilEnd,
-                onChanged: (val) => s.updateDownloadOptions(
-                  opts.copyWith(cutVideoUntilEnd: val),
-                ),
-              ),
-              if (!opts.cutVideoUntilEnd) ...[
-                const SizedBox(height: 8),
-                InlineTimePicker(
-                  label: locale.sCutVideoEnd,
-                  initialSeconds: opts.cutVideoEnd,
-                  onChanged: (newSec) => s.updateDownloadOptions(
-                    opts.copyWith(cutVideoEnd: newSec),
-                  ),
-                ),
-              ],
-            ],
-          ],
-        ),
-      ),
       _SettingDef(
         title: locale.sOutput,
         description: locale.sOutputDesc,
