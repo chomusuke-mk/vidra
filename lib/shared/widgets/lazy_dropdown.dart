@@ -32,12 +32,21 @@ class _LazyDropdownState<T> extends State<LazyDropdown<T>> {
   late final TextEditingController _controller;
   late final FocusNode _focusNode;
 
+  // Memoized cache structures
+  List<DropdownMenuEntry<T>>? _cachedEntries;
+  Set<String>? _cachedKnownLabels;
+  Map<T, String>? _cachedLabelMap;
+  int? _lastItemsLength;
+
+  T? _probedItem;
+  String? _probedLabel;
+
   @override
   void initState() {
     super.initState();
-    // Pre-llenamos el controlador con la etiqueta actual para evitar desincronizaciones
+    _rebuildCache();
     _controller = TextEditingController(
-      text: widget.value != null ? widget.labelBuilder(widget.value as T) : '',
+      text: _getLabelForValue(widget.value),
     );
     _focusNode = FocusNode();
 
@@ -46,15 +55,90 @@ class _LazyDropdownState<T> extends State<LazyDropdown<T>> {
     }
   }
 
+  String _getLabelForValue(T? val) {
+    if (val == null) return '';
+    return _cachedLabelMap?[val] ?? widget.labelBuilder(val);
+  }
+
+  void _rebuildCache({T? probedItem, String? probedLabel}) {
+    final entries = <DropdownMenuEntry<T>>[];
+    final knownLabels = <String>{};
+    final labelMap = <T, String>{};
+
+    for (final item in widget.items) {
+      final String label;
+      if (probedItem != null && item == probedItem && probedLabel != null) {
+        label = probedLabel;
+      } else {
+        label = widget.labelBuilder(item);
+      }
+      entries.add(DropdownMenuEntry<T>(value: item, label: label));
+      knownLabels.add(label);
+      labelMap[item] = label;
+    }
+
+    _cachedEntries = List<DropdownMenuEntry<T>>.unmodifiable(entries);
+    _cachedKnownLabels = Set<String>.unmodifiable(knownLabels);
+    _cachedLabelMap = labelMap;
+    _lastItemsLength = widget.items.length;
+  }
+
+  bool _shouldInvalidateCache(LazyDropdown<T> oldWidget) {
+    _probedItem = null;
+    _probedLabel = null;
+
+    if (_cachedEntries == null ||
+        _cachedKnownLabels == null ||
+        _cachedLabelMap == null) {
+      return true;
+    }
+
+    // 1. Check if items list structure changed
+    if (!identical(oldWidget.items, widget.items)) {
+      if (oldWidget.items.length != widget.items.length) return true;
+      for (var i = 0; i < widget.items.length; i++) {
+        if (oldWidget.items[i] != widget.items[i]) return true;
+      }
+    } else {
+      if (widget.items.length != _lastItemsLength) return true;
+    }
+
+    // 2. Check if labelBuilder produces different output (e.g. locale/translation change)
+    if (oldWidget.labelBuilder != widget.labelBuilder ||
+        oldWidget.label != widget.label) {
+      if (widget.value != null &&
+          (_cachedLabelMap?.containsKey(widget.value) ?? false)) {
+        final sample = widget.labelBuilder(widget.value as T);
+        if (sample != _cachedLabelMap![widget.value]) {
+          _probedItem = widget.value as T;
+          _probedLabel = sample;
+          return true;
+        }
+      } else if (widget.items.isNotEmpty) {
+        final firstItem = widget.items.first;
+        final sample = widget.labelBuilder(firstItem);
+        if (sample != _cachedLabelMap?[firstItem]) {
+          _probedItem = firstItem;
+          _probedLabel = sample;
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
   @override
   void didUpdateWidget(LazyDropdown<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
 
+    if (_shouldInvalidateCache(oldWidget)) {
+      _rebuildCache(probedItem: _probedItem, probedLabel: _probedLabel);
+    }
+
     // Cuando el widget se reconstruye (carga diferida de locales o cambio de idioma),
-    // calculamos cuál debería ser el texto correcto en este momento.
-    final expectedLabel = widget.value != null
-        ? widget.labelBuilder(widget.value as T)
-        : '';
+    // calculamos cuál debería ser el texto correcto en este momento desde la caché.
+    final expectedLabel = _getLabelForValue(widget.value);
 
     // Si el texto que muestra el controlador es diferente al nuevo texto traducido...
     if (_controller.text != expectedLabel) {
@@ -79,10 +163,11 @@ class _LazyDropdownState<T> extends State<LazyDropdown<T>> {
     // Cuando el campo pierde el foco, evaluamos si hay un texto nuevo
     if (!_focusNode.hasFocus && widget.onCustomSubmit != null) {
       final text = _controller.text.trim();
-      final knownLabels = widget.items.map(widget.labelBuilder);
+      final isKnown = _cachedKnownLabels?.contains(text) ??
+          widget.items.map(widget.labelBuilder).contains(text);
 
       // Solo emitimos si hay texto y no es idéntico a una opción existente
-      if (text.isNotEmpty && !knownLabels.contains(text)) {
+      if (text.isNotEmpty && !isKnown) {
         widget.onCustomSubmit!(text);
       }
     }
@@ -100,6 +185,10 @@ class _LazyDropdownState<T> extends State<LazyDropdown<T>> {
 
   @override
   Widget build(BuildContext context) {
+    if (_cachedEntries == null) {
+      _rebuildCache();
+    }
+
     return DropdownMenu<T>(
       initialSelection: widget.value,
       controller: _controller,
@@ -110,16 +199,11 @@ class _LazyDropdownState<T> extends State<LazyDropdown<T>> {
       enableFilter: widget.allowCustom || widget.enableSearch,
       enableSearch: widget.allowCustom || widget.enableSearch,
       requestFocusOnTap: widget.allowCustom || widget.enableSearch,
-      dropdownMenuEntries: widget.items
-          .map(
-            (e) =>
-                DropdownMenuEntry<T>(value: e, label: widget.labelBuilder(e)),
-          )
-          .toList(growable: false),
+      dropdownMenuEntries: _cachedEntries!,
       onSelected: (T? selection) {
         if (selection != null) {
           widget.onChanged(selection);
-          _controller.text = widget.labelBuilder(selection);
+          _controller.text = _getLabelForValue(selection);
         }
       },
     );
