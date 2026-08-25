@@ -4,6 +4,7 @@ import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/settings/domain/download_options.dart';
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
+import 'package:vidra/shared/widgets/inline_time_picker.dart';
 import 'package:vidra/shared/widgets/lazy_list.dart';
 
 /// Modal bottom sheet for configuring SponsorBlock segment removal.
@@ -94,6 +95,72 @@ class CutVideoBottomSheet extends StatelessWidget {
                             );
                           },
                         ),
+                        const SizedBox(height: 16),
+                        const Divider(height: 1),
+                        const SizedBox(height: 12),
+                        SwitchListTile(
+                          contentPadding: EdgeInsets.zero,
+                          title: Text(
+                            locale.sCutVideo,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          subtitle: Text(
+                            locale.sCutVideoDesc,
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                          value: opts.cutVideo,
+                          onChanged: (val) {
+                            settingsCtrl.updateDownloadOptions(
+                              opts.copyWith(cutVideo: val),
+                            );
+                          },
+                        ),
+                        if (opts.cutVideo) ...[
+                          const SizedBox(height: 12),
+                          InlineTimePicker(
+                            label: locale.sCutVideoStart,
+                            initialSeconds: opts.cutVideoStart,
+                            onChanged: (newSec) {
+                              settingsCtrl.updateDownloadOptions(
+                                opts.copyWith(cutVideoStart: newSec),
+                              );
+                            },
+                          ),
+                          const SizedBox(height: 12),
+                          SwitchListTile(
+                            contentPadding: EdgeInsets.zero,
+                            title: Text(
+                              locale.sCutVideoUntilEnd,
+                              style: const TextStyle(fontSize: 14),
+                            ),
+                            value: opts.cutVideoUntilEnd,
+                            onChanged: (val) {
+                              settingsCtrl.updateDownloadOptions(
+                                opts.copyWith(cutVideoUntilEnd: val),
+                              );
+                            },
+                          ),
+                          if (!opts.cutVideoUntilEnd) ...[
+                            const SizedBox(height: 8),
+                            InlineTimePicker(
+                              label: locale.sCutVideoEnd,
+                              initialSeconds: opts.cutVideoEnd,
+                              onChanged: (newSec) {
+                                settingsCtrl.updateDownloadOptions(
+                                  opts.copyWith(cutVideoEnd: newSec),
+                                );
+                              },
+                            ),
+                          ],
+                        ],
                       ],
                     ),
                   ),

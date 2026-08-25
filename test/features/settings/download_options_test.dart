@@ -219,5 +219,125 @@ void main() {
       expect(original.concurrentFragments, equals(2));
       expect(original.extractAudio, isFalse);
     });
+
+    test('cut_video default values are correctly initialized', () {
+      final options = DownloadOptions();
+      expect(options.cutVideo, isFalse);
+      expect(options.cutVideoStart, equals(0));
+      expect(options.cutVideoUntilEnd, isTrue);
+      expect(options.cutVideoEnd, equals(0));
+    });
+
+    test('cut_video serialization: disabled serializes to false', () {
+      final options = DownloadOptions(cutVideo: false);
+      final json = options.toJson();
+      expect(json['cut_video'], equals(false));
+
+      final restored = DownloadOptions.fromJson(json);
+      expect(restored.cutVideo, isFalse);
+      expect(restored.cutVideoStart, equals(0));
+      expect(restored.cutVideoUntilEnd, isTrue);
+      expect(restored.cutVideoEnd, equals(0));
+    });
+
+    test('cut_video serialization: enabled until end serializes to [start, "inf"]', () {
+      final options = DownloadOptions(
+        cutVideo: true,
+        cutVideoStart: 45,
+        cutVideoUntilEnd: true,
+        cutVideoEnd: 0,
+      );
+      final json = options.toJson();
+      expect(json['cut_video'], equals([45, 'inf']));
+
+      final restored = DownloadOptions.fromJson(json);
+      expect(restored.cutVideo, isTrue);
+      expect(restored.cutVideoStart, equals(45));
+      expect(restored.cutVideoUntilEnd, isTrue);
+      expect(restored.cutVideoEnd, equals(0));
+    });
+
+    test('cut_video serialization: enabled with custom end serializes to [start, end]', () {
+      final options = DownloadOptions(
+        cutVideo: true,
+        cutVideoStart: 10,
+        cutVideoUntilEnd: false,
+        cutVideoEnd: 120,
+      );
+      final json = options.toJson();
+      expect(json['cut_video'], equals([10, 120]));
+
+      final restored = DownloadOptions.fromJson(json);
+      expect(restored.cutVideo, isTrue);
+      expect(restored.cutVideoStart, equals(10));
+      expect(restored.cutVideoUntilEnd, isFalse);
+      expect(restored.cutVideoEnd, equals(120));
+    });
+
+    test('cut_video deserialization handles varied payloads ("infinite", strings, null)', () {
+      final jsonInf = {'cut_video': [15, 'infinite']};
+      final restoredInf = DownloadOptions.fromJson(jsonInf);
+      expect(restoredInf.cutVideo, isTrue);
+      expect(restoredInf.cutVideoStart, equals(15));
+      expect(restoredInf.cutVideoUntilEnd, isTrue);
+      expect(restoredInf.cutVideoEnd, equals(0));
+
+      final jsonStr = {'cut_video': ['20', '300']};
+      final restoredStr = DownloadOptions.fromJson(jsonStr);
+      expect(restoredStr.cutVideo, isTrue);
+      expect(restoredStr.cutVideoStart, equals(20));
+      expect(restoredStr.cutVideoUntilEnd, isFalse);
+      expect(restoredStr.cutVideoEnd, equals(300));
+
+      final jsonNull = <String, dynamic>{};
+      final restoredNull = DownloadOptions.fromJson(jsonNull);
+      expect(restoredNull.cutVideo, isFalse);
+      expect(restoredNull.cutVideoStart, equals(0));
+      expect(restoredNull.cutVideoUntilEnd, isTrue);
+    });
+
+    test('copyWith updates cutVideo fields correctly', () {
+      final original = DownloadOptions();
+      final updated = original.copyWith(
+        cutVideo: true,
+        cutVideoStart: 30,
+        cutVideoUntilEnd: false,
+        cutVideoEnd: 90,
+      );
+
+      expect(updated.cutVideo, isTrue);
+      expect(updated.cutVideoStart, equals(30));
+      expect(updated.cutVideoUntilEnd, isFalse);
+      expect(updated.cutVideoEnd, equals(90));
+
+      final reset = updated.copyWith(cutVideo: false);
+      expect(reset.cutVideo, isFalse);
+      expect(reset.cutVideoStart, equals(30));
+    });
+
+    test('operator == and hashCode function correctly with cutVideo fields', () {
+      final opt1 = DownloadOptions(
+        cutVideo: true,
+        cutVideoStart: 30,
+        cutVideoUntilEnd: false,
+        cutVideoEnd: 90,
+      );
+      final opt2 = DownloadOptions(
+        cutVideo: true,
+        cutVideoStart: 30,
+        cutVideoUntilEnd: false,
+        cutVideoEnd: 90,
+      );
+      final opt3 = DownloadOptions(
+        cutVideo: false,
+        cutVideoStart: 30,
+        cutVideoUntilEnd: false,
+        cutVideoEnd: 90,
+      );
+
+      expect(opt1, equals(opt2));
+      expect(opt1.hashCode, equals(opt2.hashCode));
+      expect(opt1, isNot(equals(opt3)));
+    });
   });
 }

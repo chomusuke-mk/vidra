@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 // ============================================================================
 // ENUMS DE TIPADO
 // ============================================================================
@@ -109,6 +111,10 @@ class DownloadOptions {
   final bool playlist;
   final List<SponsorblockCategory> sponsorblockMark;
   final List<SponsorblockCategory> sponsorblockRemove;
+  final bool cutVideo;
+  final int cutVideoStart;
+  final bool cutVideoUntilEnd;
+  final int cutVideoEnd;
 
   // --- Network Options ---
   final String proxy;
@@ -196,6 +202,10 @@ class DownloadOptions {
     this.playlist = false,
     this.sponsorblockMark = const [],
     this.sponsorblockRemove = const [],
+    this.cutVideo = false,
+    this.cutVideoStart = 0,
+    this.cutVideoUntilEnd = true,
+    this.cutVideoEnd = 0,
 
     // Network
     this.proxy = '',
@@ -285,6 +295,10 @@ class DownloadOptions {
     bool? playlist,
     List<SponsorblockCategory>? sponsorblockMark,
     List<SponsorblockCategory>? sponsorblockRemove,
+    bool? cutVideo,
+    int? cutVideoStart,
+    bool? cutVideoUntilEnd,
+    int? cutVideoEnd,
     String? proxy,
     int? socketTimeout,
     bool? infiniteSocketTimeout,
@@ -364,6 +378,10 @@ class DownloadOptions {
       playlist: playlist ?? this.playlist,
       sponsorblockMark: sponsorblockMark ?? this.sponsorblockMark,
       sponsorblockRemove: sponsorblockRemove ?? this.sponsorblockRemove,
+      cutVideo: cutVideo ?? this.cutVideo,
+      cutVideoStart: cutVideoStart ?? this.cutVideoStart,
+      cutVideoUntilEnd: cutVideoUntilEnd ?? this.cutVideoUntilEnd,
+      cutVideoEnd: cutVideoEnd ?? this.cutVideoEnd,
       proxy: proxy ?? this.proxy,
       socketTimeout: socketTimeout ?? this.socketTimeout,
       infiniteSocketTimeout:
@@ -477,6 +495,16 @@ class DownloadOptions {
       map['sponsorblock_remove'] = sponsorblockRemove
           .map((e) => e.name)
           .toList();
+
+    if (cutVideo) {
+      if (cutVideoUntilEnd) {
+        map['cut_video'] = [cutVideoStart, 'inf'];
+      } else {
+        map['cut_video'] = [cutVideoStart, cutVideoEnd];
+      }
+    } else {
+      map['cut_video'] = false;
+    }
 
     // --- Network Options ---
     if (proxy.isNotEmpty) map['proxy'] = proxy;
@@ -667,6 +695,39 @@ class DownloadOptions {
       }
     }
 
+    bool pCutVideo = false;
+    int pCutVideoStart = 0;
+    bool pCutVideoUntilEnd = true;
+    int pCutVideoEnd = 0;
+
+    final rawCutVideo = json['cut_video'];
+    if (rawCutVideo is List && rawCutVideo.length >= 2) {
+      pCutVideo = true;
+      final startVal = rawCutVideo[0];
+      if (startVal is int) {
+        pCutVideoStart = startVal;
+      } else if (startVal != null) {
+        pCutVideoStart = int.tryParse(startVal.toString()) ?? 0;
+      }
+      final endVal = rawCutVideo[1];
+      if (endVal == 'inf' || endVal == 'infinite') {
+        pCutVideoUntilEnd = true;
+        pCutVideoEnd = 0;
+      } else if (endVal is int) {
+        pCutVideoUntilEnd = false;
+        pCutVideoEnd = endVal;
+      } else if (endVal != null) {
+        final parsedEnd = int.tryParse(endVal.toString());
+        if (parsedEnd != null) {
+          pCutVideoUntilEnd = false;
+          pCutVideoEnd = parsedEnd;
+        } else {
+          pCutVideoUntilEnd = true;
+          pCutVideoEnd = 0;
+        }
+      }
+    }
+
     Map<JsRuntime, String> pJsRuntimes = {};
     if (json['js_runtimes'] != null) {
       (json['js_runtimes'] as Map<String, dynamic>).forEach((k, v) {
@@ -697,6 +758,10 @@ class DownloadOptions {
       playlist: json['playlist'] == true,
       sponsorblockMark: pSponsorMark,
       sponsorblockRemove: pSponsorRemove,
+      cutVideo: pCutVideo,
+      cutVideoStart: pCutVideoStart,
+      cutVideoUntilEnd: pCutVideoUntilEnd,
+      cutVideoEnd: pCutVideoEnd,
 
       // Network
       proxy: json['proxy']?.toString() ?? '',
@@ -816,4 +881,116 @@ class DownloadOptions {
       disableLimitRate: json['limit_rate'] == false,
     );
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is DownloadOptions &&
+        other.videoResolution == videoResolution &&
+        other.videoResolutionValue == videoResolutionValue &&
+        other.audioLanguage == audioLanguage &&
+        other.audioLanguageCode == audioLanguageCode &&
+        listEquals(other.subLangs, subLangs) &&
+        other.extractAudio == extractAudio &&
+        other.playlist == playlist &&
+        listEquals(other.sponsorblockMark, sponsorblockMark) &&
+        listEquals(other.sponsorblockRemove, sponsorblockRemove) &&
+        other.cutVideo == cutVideo &&
+        other.cutVideoStart == cutVideoStart &&
+        other.cutVideoUntilEnd == cutVideoUntilEnd &&
+        other.cutVideoEnd == cutVideoEnd &&
+        other.proxy == proxy &&
+        other.socketTimeout == socketTimeout &&
+        other.infiniteSocketTimeout == infiniteSocketTimeout &&
+        other.sourceAddress == sourceAddress &&
+        other.impersonate == impersonate &&
+        other.forceIpv4 == forceIpv4 &&
+        other.forceIpv6 == forceIpv6 &&
+        other.enableFileUrls == enableFileUrls &&
+        other.geoVerificationProxy == geoVerificationProxy &&
+        other.xff == xff &&
+        other.preferInsecure == preferInsecure &&
+        mapEquals(other.addHeaders, addHeaders) &&
+        other.cookies == cookies &&
+        other.disableCookies == disableCookies &&
+        other.cookiesFromBrowser == cookiesFromBrowser &&
+        other.disableCookiesFromBrowser == disableCookiesFromBrowser &&
+        other.username == username &&
+        other.password == password &&
+        other.twofactor == twofactor &&
+        other.videoPassword == videoPassword &&
+        other.mergeOutputFormat == mergeOutputFormat &&
+        other.audioFormat == audioFormat &&
+        other.subFormat == subFormat &&
+        other.videoMultistreams == videoMultistreams &&
+        other.audioMultistreams == audioMultistreams &&
+        other.audioQuality == audioQuality &&
+        other.remuxVideo == remuxVideo &&
+        other.disableRemuxVideo == disableRemuxVideo &&
+        other.embedSubs == embedSubs &&
+        other.embedThumbnail == embedThumbnail &&
+        other.embedMetadata == embedMetadata &&
+        other.embedChapters == embedChapters &&
+        other.embedInfoJson == embedInfoJson &&
+        other.format == format &&
+        other.xattrs == xattrs &&
+        other.fixup == fixup &&
+        other.ffmpegLocation == ffmpegLocation &&
+        other.convertThumbnails == convertThumbnails &&
+        other.writeSubs == writeSubs &&
+        other.writeAutoSubs == writeAutoSubs &&
+        listEquals(other.output, output) &&
+        mapEquals(other.paths, paths) &&
+        other.downloadArchive == downloadArchive &&
+        other.disableDownloadArchive == disableDownloadArchive &&
+        other.concurrentFragments == concurrentFragments &&
+        other.breakOnExisting == breakOnExisting &&
+        other.windowsFilenames == windowsFilenames &&
+        other.abortOnUnavailableFragments == abortOnUnavailableFragments &&
+        other.keepFragments == keepFragments &&
+        other.forceOverwrites == forceOverwrites &&
+        other.writeThumbnail == writeThumbnail &&
+        other.liveFromStart == liveFromStart &&
+        other.waitForVideo == waitForVideo &&
+        other.disableWaitForVideo == disableWaitForVideo &&
+        other.markWatched == markWatched &&
+        mapEquals(other.jsRuntimes, jsRuntimes) &&
+        other.skipPlaylistAfterErrors == skipPlaylistAfterErrors &&
+        other.infiniteSkipPlaylistAfterErrors ==
+            infiniteSkipPlaylistAfterErrors &&
+        other.retries == retries &&
+        other.infiniteRetries == infiniteRetries &&
+        other.fileAccessRetries == fileAccessRetries &&
+        other.infiniteFileAccessRetries == infiniteFileAccessRetries &&
+        other.fragmentRetries == fragmentRetries &&
+        other.infiniteFragmentRetries == infiniteFragmentRetries &&
+        other.extractorRetries == extractorRetries &&
+        other.infiniteExtractorRetries == infiniteExtractorRetries &&
+        other.limitRate == limitRate &&
+        other.disableLimitRate == disableLimitRate;
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+        videoResolution,
+        videoResolutionValue,
+        audioLanguage,
+        audioLanguageCode,
+        Object.hashAll(subLangs),
+        extractAudio,
+        playlist,
+        Object.hashAll(sponsorblockMark),
+        Object.hashAll(sponsorblockRemove),
+        cutVideo,
+        cutVideoStart,
+        cutVideoUntilEnd,
+        cutVideoEnd,
+        proxy,
+        socketTimeout,
+        infiniteSocketTimeout,
+        sourceAddress,
+        impersonate,
+        forceIpv4,
+        forceIpv6,
+      ]);
 }

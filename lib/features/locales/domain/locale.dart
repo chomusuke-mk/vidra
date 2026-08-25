@@ -332,6 +332,17 @@ class AppStringKey {
       _cadenasLocalizadas['s_sponsorblock_remove'] ?? '';
   String get sSponsorblockRemoveDesc =>
       _cadenasLocalizadas['s_sponsorblock_remove_desc'] ?? '';
+  String get sCutVideo => _cadenasLocalizadas['s_cut_video'] ?? '';
+  String get sCutVideoDesc => _cadenasLocalizadas['s_cut_video_desc'] ?? '';
+  String get sCutVideoStart => _cadenasLocalizadas['s_cut_video_start'] ?? '';
+  String get sCutVideoEnd => _cadenasLocalizadas['s_cut_video_end'] ?? '';
+  String get sCutVideoUntilEnd =>
+      _cadenasLocalizadas['s_cut_video_until_end'] ?? '';
+  String get sCutVideoHours => _cadenasLocalizadas['s_cut_video_hours'] ?? '';
+  String get sCutVideoMinutes =>
+      _cadenasLocalizadas['s_cut_video_minutes'] ?? '';
+  String get sCutVideoSeconds =>
+      _cadenasLocalizadas['s_cut_video_seconds'] ?? '';
   // Network
   String get sProxy => _cadenasLocalizadas['s_proxy'] ?? '';
   String get sProxyDesc => _cadenasLocalizadas['s_proxy_desc'] ?? '';
@@ -801,6 +812,14 @@ class AppStringKey {
     's_sponsorblock_mark_desc',
     's_sponsorblock_remove',
     's_sponsorblock_remove_desc',
+    's_cut_video',
+    's_cut_video_desc',
+    's_cut_video_start',
+    's_cut_video_end',
+    's_cut_video_until_end',
+    's_cut_video_hours',
+    's_cut_video_minutes',
+    's_cut_video_seconds',
     // Network
     's_proxy',
     's_proxy_desc',

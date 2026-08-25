@@ -10,6 +10,7 @@ import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/settings/data/settings_repository.dart';
 import 'package:vidra/features/settings/domain/download_options.dart';
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
+import 'package:vidra/shared/widgets/inline_time_picker.dart';
 import 'package:vidra/shared/widgets/lazy_list.dart';
 
 class MockLocaleRepository extends LocaleRepository {
@@ -87,7 +88,7 @@ void main() {
         // 1. Root structure and ClipRRect
         expect(find.byType(CutVideoBottomSheet), findsOneWidget);
         expect(find.byType(ClipRRect), findsWidgets);
-        expect(find.byType(Divider), findsOneWidget);
+        expect(find.byType(Divider), findsWidgets);
 
         // 2. Drag handle (Container 40x4)
         final dragHandleFinder = find.byWidgetPredicate(
@@ -99,7 +100,7 @@ void main() {
 
         // 3. Scissors icon and localized bold title
         expect(find.byIcon(Icons.cut_outlined), findsOneWidget);
-        expect(find.text(localeController.localeStrings.cvTitle), findsOneWidget);
+        expect(find.text(localeController.localeStrings.cvTitle), findsWidgets);
 
         // 4. Close button
         final closeBtnFinder = find.byTooltip(localeController.localeStrings.cvClose);
@@ -182,7 +183,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(CutVideoBottomSheet), findsOneWidget);
-      expect(find.text(localeController.localeStrings.cvTitle), findsOneWidget);
+      expect(find.text(localeController.localeStrings.cvTitle), findsWidgets);
 
       // Tap close button
       await tester.tap(find.byIcon(Icons.close));
@@ -476,7 +477,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Title
-      expect(find.text(esLocaleController.localeStrings.cvTitle), findsOneWidget);
+      expect(find.text(esLocaleController.localeStrings.cvTitle), findsWidgets);
       expect(esLocaleController.localeStrings.cvTitle, equals('Cortar vídeo'));
 
       // Close button tooltip
@@ -548,6 +549,134 @@ void main() {
       expect(settingsController.downloadOptions.sponsorblockRemove, isEmpty);
       expect(find.byType(InputChip), findsNothing);
       expect(tester.takeException(), isNull);
+    });
+  });
+
+  group('Video Cutter Section & Controls (Tier 2 & Tier 3)', () {
+    testWidgets('Master switch is initially OFF and time pickers are hidden', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(
+        createTestApp(
+          settingsController: settingsController,
+          localeController: localeController,
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text(localeController.localeStrings.sCutVideoDesc), findsOneWidget);
+      expect(find.byType(InlineTimePicker), findsNothing);
+      expect(find.text(localeController.localeStrings.sCutVideoUntilEnd), findsNothing);
+    });
+
+    testWidgets('Toggling master switch ON displays start InlineTimePicker and UntilEnd switch', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(
+        createTestApp(
+          settingsController: settingsController,
+          localeController: localeController,
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Find the master switch by its title
+      final masterSwitchFinder = find.widgetWithText(
+        SwitchListTile,
+        localeController.localeStrings.sCutVideo,
+      );
+      expect(masterSwitchFinder, findsOneWidget);
+
+      await tester.tap(masterSwitchFinder);
+      await tester.pumpAndSettle();
+
+      expect(settingsController.downloadOptions.cutVideo, isTrue);
+      expect(find.byType(InlineTimePicker), findsOneWidget);
+      expect(find.text(localeController.localeStrings.sCutVideoStart), findsOneWidget);
+      expect(find.text(localeController.localeStrings.sCutVideoUntilEnd), findsOneWidget);
+      expect(find.text(localeController.localeStrings.sCutVideoEnd), findsNothing);
+    });
+
+    testWidgets('Toggling UntilEnd switch OFF expands end InlineTimePicker', (
+      WidgetTester tester,
+    ) async {
+      settingsController.updateDownloadOptions(
+        settingsController.downloadOptions.copyWith(
+          cutVideo: true,
+          cutVideoUntilEnd: true,
+        ),
+      );
+
+      await tester.pumpWidget(
+        createTestApp(
+          settingsController: settingsController,
+          localeController: localeController,
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byType(InlineTimePicker), findsOneWidget);
+
+      // Toggle UntilEnd switch
+      final untilEndSwitch = find.widgetWithText(
+        SwitchListTile,
+        localeController.localeStrings.sCutVideoUntilEnd,
+      );
+      expect(untilEndSwitch, findsOneWidget);
+
+      await tester.tap(untilEndSwitch);
+      await tester.pumpAndSettle();
+
+      expect(settingsController.downloadOptions.cutVideoUntilEnd, isFalse);
+      expect(find.byType(InlineTimePicker), findsNWidgets(2));
+      expect(find.text(localeController.localeStrings.sCutVideoStart), findsOneWidget);
+      expect(find.text(localeController.localeStrings.sCutVideoEnd), findsOneWidget);
+    });
+
+    testWidgets('Editing Start and End InlineTimePicker updates SettingsController', (
+      WidgetTester tester,
+    ) async {
+      settingsController.updateDownloadOptions(
+        settingsController.downloadOptions.copyWith(
+          cutVideo: true,
+          cutVideoUntilEnd: false,
+          cutVideoStart: 0,
+          cutVideoEnd: 0,
+        ),
+      );
+
+      await tester.pumpWidget(
+        createTestApp(
+          settingsController: settingsController,
+          localeController: localeController,
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final pickers = find.byType(InlineTimePicker);
+      expect(pickers, findsNWidgets(2));
+
+      // Enter 10 minutes into start picker
+      final startMinutesField = find.descendant(
+        of: pickers.at(0),
+        matching: find.byType(TextField),
+      ).at(1);
+
+      await tester.enterText(startMinutesField, '10');
+      await tester.pumpAndSettle();
+
+      expect(settingsController.downloadOptions.cutVideoStart, equals(600));
+
+      // Enter 45 minutes into end picker
+      final endMinutesField = find.descendant(
+        of: pickers.at(1),
+        matching: find.byType(TextField),
+      ).at(1);
+
+      await tester.enterText(endMinutesField, '45');
+      await tester.pumpAndSettle();
+
+      expect(settingsController.downloadOptions.cutVideoEnd, equals(2700));
     });
   });
 }

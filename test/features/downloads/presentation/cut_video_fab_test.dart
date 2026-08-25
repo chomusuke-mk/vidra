@@ -542,6 +542,158 @@ void main() {
       badge = tester.widget(badgeFinder);
       expect(badge.isLabelVisible, isFalse);
     });
+
+    testWidgets('Badge displays red 1 indicator when only cutVideo is enabled', (
+      WidgetTester tester,
+    ) async {
+      settingsController.updateDownloadOptions(
+        settingsController.downloadOptions.copyWith(
+          sponsorblockRemove: [],
+          cutVideo: true,
+        ),
+      );
+
+      await pumpScreen(
+        tester,
+        createTestApp(
+          downloadsController: downloadsController,
+          settingsController: settingsController,
+          localeController: localeController,
+          systemController: systemController,
+          updateController: updateController,
+          downloadRepository: downloadRepo,
+          sharedPreferences: prefs,
+        ),
+      );
+
+      final badgeFinder = find.ancestor(
+        of: find.byWidgetPredicate(
+          (w) => w is FloatingActionButton && w.heroTag == 'cut_video_fab',
+        ),
+        matching: find.byType(Badge),
+      );
+      expect(badgeFinder, findsOneWidget);
+
+      final Badge badge = tester.widget(badgeFinder);
+      expect(badge.isLabelVisible, isTrue);
+      expect(badge.backgroundColor, equals(Colors.red));
+      expect(find.descendant(of: badgeFinder, matching: find.text('1')), findsOneWidget);
+    });
+
+    testWidgets('Badge displays red 2 indicator when both sponsorblockRemove and cutVideo are active', (
+      WidgetTester tester,
+    ) async {
+      settingsController.updateDownloadOptions(
+        settingsController.downloadOptions.copyWith(
+          sponsorblockRemove: [SponsorblockCategory.sponsor],
+          cutVideo: true,
+        ),
+      );
+
+      await pumpScreen(
+        tester,
+        createTestApp(
+          downloadsController: downloadsController,
+          settingsController: settingsController,
+          localeController: localeController,
+          systemController: systemController,
+          updateController: updateController,
+          downloadRepository: downloadRepo,
+          sharedPreferences: prefs,
+        ),
+      );
+
+      final badgeFinder = find.ancestor(
+        of: find.byWidgetPredicate(
+          (w) => w is FloatingActionButton && w.heroTag == 'cut_video_fab',
+        ),
+        matching: find.byType(Badge),
+      );
+      expect(badgeFinder, findsOneWidget);
+
+      final Badge badge = tester.widget(badgeFinder);
+      expect(badge.isLabelVisible, isTrue);
+      expect(badge.backgroundColor, equals(Colors.red));
+      expect(find.descendant(of: badgeFinder, matching: find.text('2')), findsOneWidget);
+    });
+
+    testWidgets('Badge count updates reactively: 0 -> 1 (SB) -> 2 (SB+Cut) -> 1 (Cut only) -> 0', (
+      WidgetTester tester,
+    ) async {
+      settingsController.updateDownloadOptions(
+        settingsController.downloadOptions.copyWith(
+          sponsorblockRemove: [],
+          cutVideo: false,
+        ),
+      );
+
+      await pumpScreen(
+        tester,
+        createTestApp(
+          downloadsController: downloadsController,
+          settingsController: settingsController,
+          localeController: localeController,
+          systemController: systemController,
+          updateController: updateController,
+          downloadRepository: downloadRepo,
+          sharedPreferences: prefs,
+        ),
+      );
+
+      final badgeFinder = find.ancestor(
+        of: find.byWidgetPredicate(
+          (w) => w is FloatingActionButton && w.heroTag == 'cut_video_fab',
+        ),
+        matching: find.byType(Badge),
+      );
+
+      // 0: hidden
+      Badge badge = tester.widget(badgeFinder);
+      expect(badge.isLabelVisible, isFalse);
+
+      // 1: Add Sponsorblock -> '1'
+      settingsController.updateDownloadOptions(
+        settingsController.downloadOptions.copyWith(
+          sponsorblockRemove: [SponsorblockCategory.intro],
+        ),
+      );
+      await tester.pumpAndSettle();
+      badge = tester.widget(badgeFinder);
+      expect(badge.isLabelVisible, isTrue);
+      expect(find.descendant(of: badgeFinder, matching: find.text('1')), findsOneWidget);
+
+      // 2: Enable cutVideo -> '2'
+      settingsController.updateDownloadOptions(
+        settingsController.downloadOptions.copyWith(
+          cutVideo: true,
+        ),
+      );
+      await tester.pumpAndSettle();
+      badge = tester.widget(badgeFinder);
+      expect(badge.isLabelVisible, isTrue);
+      expect(find.descendant(of: badgeFinder, matching: find.text('2')), findsOneWidget);
+
+      // 1: Clear Sponsorblock (cutVideo still true) -> '1'
+      settingsController.updateDownloadOptions(
+        settingsController.downloadOptions.copyWith(
+          sponsorblockRemove: [],
+        ),
+      );
+      await tester.pumpAndSettle();
+      badge = tester.widget(badgeFinder);
+      expect(badge.isLabelVisible, isTrue);
+      expect(find.descendant(of: badgeFinder, matching: find.text('1')), findsOneWidget);
+
+      // 0: Disable cutVideo -> hidden
+      settingsController.updateDownloadOptions(
+        settingsController.downloadOptions.copyWith(
+          cutVideo: false,
+        ),
+      );
+      await tester.pumpAndSettle();
+      badge = tester.widget(badgeFinder);
+      expect(badge.isLabelVisible, isFalse);
+    });
   });
 
   group('Cut Video Bottom Sheet Invocation from FAB (Tier 1 & Tier 3)', () {
@@ -570,7 +722,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(CutVideoBottomSheet), findsOneWidget);
-      expect(find.text(localeController.localeStrings.cvTitle), findsOneWidget);
+      expect(find.text(localeController.localeStrings.cvTitle), findsWidgets);
 
       // Close modal
       await tester.tap(find.byIcon(Icons.close));
