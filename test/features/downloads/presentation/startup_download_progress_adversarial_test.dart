@@ -12,6 +12,7 @@ import 'package:vidra/features/downloads/presentation/downloads_controller.dart'
 import 'package:vidra/features/downloads/presentation/downloads_screen.dart';
 import 'package:vidra/features/locales/data/locale_repository.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
+import 'package:vidra/features/settings/domain/download_options.dart';
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/features/system/domain/system_state.dart';
 import 'package:vidra/features/system/presentation/system_controller.dart';
@@ -202,6 +203,9 @@ class MockDownloadRepository implements DownloadRepository {
 }
 
 class FakeSettingsController extends ChangeNotifier implements SettingsController {
+  @override
+  DownloadOptions get downloadOptions => DownloadOptions();
+
   @override
   Map<String, dynamic> getDownloadOptionsPayload() => {};
 

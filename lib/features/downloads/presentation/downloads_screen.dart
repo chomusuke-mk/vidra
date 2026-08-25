@@ -20,6 +20,7 @@ import 'package:vidra/features/updates/presentation/update_controller.dart';
 import 'package:vidra/shared/utils/changelog_utils.dart';
 import 'package:vidra/shared/utils/tutorial_utils.dart';
 import 'package:vidra/features/downloads/presentation/widgets/quick_settings_bottom_sheet.dart';
+import 'package:vidra/features/downloads/presentation/widgets/cut_video_bottom_sheet.dart';
 import 'package:vidra/core/theme/colors.dart';
 import 'package:vidra/core/theme/layout.dart';
 
@@ -77,6 +78,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
   @override
   Widget build(BuildContext context) {
     final downloadsCtrl = context.watch<DownloadsController>();
+    final settingsCtrl = context.watch<SettingsController>();
     final locale = context.watch<LocaleController>().localeStrings;
     // 1. APLICAMOS EL FILTRADO MAESTRO AQUÍ
     final filteredAll = downloadsCtrl.downloads.where((d) {
@@ -232,6 +234,22 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
+                Badge(
+                  isLabelVisible:
+                      settingsCtrl
+                          .downloadOptions
+                          .sponsorblockRemove
+                          .isNotEmpty,
+                  backgroundColor: Colors.red,
+                  label: const Text('1'),
+                  child: FloatingActionButton(
+                    heroTag: 'cut_video_fab',
+                    tooltip: locale.dCutVideo,
+                    onPressed: () => CutVideoBottomSheet.show(context),
+                    child: const Icon(Icons.cut_outlined),
+                  ),
+                ),
+                const SizedBox(width: AppSpacing.space12),
                 FloatingActionButton(
                   key: AppTutorialKeys.mainQuickSettings,
                   heroTag: 'quick_settings_fab',

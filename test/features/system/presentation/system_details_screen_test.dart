@@ -258,7 +258,7 @@ void main() {
   });
 
   group('R3: User-Friendly Engine Status Texts with i18n', () {
-    testWidgets('SystemState.ready displays localized "Motor de la App: Conectado" and "Todo funciona con normalidad" in Spanish', (tester) async {
+    testWidgets('SystemState.ready displays localized "Motor de aplicaciones: conectado" and "Todo esta funcionando normalmente" in Spanish', (tester) async {
       testSystemCtrl.setState(SystemState.ready);
       localeCtrl.setLocale('es');
 
@@ -270,8 +270,8 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 350));
 
-      expect(find.text('Motor de la App: Conectado'), findsOneWidget);
-      expect(find.text('Todo funciona con normalidad'), findsOneWidget);
+      expect(find.text('Motor de aplicaciones: conectado'), findsOneWidget);
+      expect(find.text('Todo esta funcionando normalmente'), findsOneWidget);
       expect(find.textContaining('Puerto:'), findsNothing);
     });
 
@@ -300,42 +300,42 @@ void main() {
       await tester.pumpWidget(buildThemedApp(child: const SystemDetailsScreen()));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 350));
-      expect(find.text('Motor de la App: Iniciando...'), findsOneWidget);
+      expect(find.text('App Engine: Iniciando...'), findsOneWidget);
 
       // 2. initializing
       testSystemCtrl.setState(SystemState.initializing);
       await tester.pumpWidget(buildThemedApp(child: const SystemDetailsScreen()));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 350));
-      expect(find.text('Motor de la App: Inicializando...'), findsOneWidget);
+      expect(find.text('App Engine: inicializando...'), findsOneWidget);
 
       // 3. retrying
       testSystemCtrl.setState(SystemState.retrying);
       await tester.pumpWidget(buildThemedApp(child: const SystemDetailsScreen()));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 350));
-      expect(find.text('Motor de la App: Reconectando...'), findsOneWidget);
+      expect(find.text('App Engine: Reconectando...'), findsOneWidget);
 
       // 4. missingPermissions
       testSystemCtrl.setState(SystemState.missingPermissions);
       await tester.pumpWidget(buildThemedApp(child: const SystemDetailsScreen()));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 350));
-      expect(find.text('Motor de la App: Permisos requeridos'), findsOneWidget);
+      expect(find.text('App Engine: permisos necesarios'), findsOneWidget);
 
       // 5. missingResources
       testSystemCtrl.setState(SystemState.missingResources);
       await tester.pumpWidget(buildThemedApp(child: const SystemDetailsScreen()));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 350));
-      expect(find.text('Motor de la App: Componentes faltantes'), findsOneWidget);
+      expect(find.text('App Engine: componentes faltantes'), findsOneWidget);
 
       // 6. fatalError
       testSystemCtrl.setState(SystemState.fatalError);
       await tester.pumpWidget(buildThemedApp(child: const SystemDetailsScreen()));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 350));
-      expect(find.text('Motor de la App: Error'), findsOneWidget);
+      expect(find.text('Motor de aplicaciones: error'), findsOneWidget);
     });
 
     testWidgets('Logs action buttons use localized strings instead of hardcoded raw text', (tester) async {

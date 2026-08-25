@@ -32,11 +32,18 @@ void main() {
       expect(appStrings.feRestartButton, equals('Restart Application'));
       expect(appStrings.feViewLogsButton, equals('View Logs'));
 
-      // Verify Quick Settings getters in English
+      // Verify Quick Settings & Cut Video getters in English
       expect(appStrings.dQuickSettings, equals('Quick Settings'));
       expect(appStrings.qsTitle, equals('Quick Settings'));
       expect(appStrings.qsClose, equals('Close'));
       expect(appStrings.qsAudio, equals('Audio'));
+      expect(appStrings.dCutVideo, equals('Cut Video'));
+      expect(appStrings.cvTitle, equals('Cut Video'));
+      expect(appStrings.cvClose, equals('Close'));
+      expect(
+        appStrings.cvDescription,
+        equals('Removes segments from SponsorBlock categories.'),
+      );
 
       // Verify Overlay & Permission getters in English
       expect(
@@ -64,7 +71,7 @@ void main() {
       expect(appStrings.ssiBubbleTitle, equals('Update Available'));
       expect(appStrings.ssiBubbleMessage,
           equals('Updates are available for Vidra components. Tap Show to review and install.'));
-      expect(appStrings.ssiBubbleButtonShow, equals('Show'));
+      expect(appStrings.ssiBubbleButtonShow, equals('Display'));
       expect(appStrings.ssiBubbleButtonDismiss, equals('Dismiss'));
       expect(appStrings.sdLinuxDebTitle, equals('Update Vidra (DEB Package)'));
       expect(appStrings.sdCopyCommand, equals('Copy Command'));
@@ -110,11 +117,18 @@ void main() {
       expect(esStrings.feRestartButton, equals('Reiniciar aplicación'));
       expect(esStrings.feViewLogsButton, equals('Ver registros'));
 
-      // Verify Quick Settings getters in Spanish
+      // Verify Quick Settings & Cut Video getters in Spanish
       expect(esStrings.dQuickSettings, equals('Configuración rápida'));
       expect(esStrings.qsTitle, equals('Configuración Rápida'));
       expect(esStrings.qsClose, equals('Cerrar'));
       expect(esStrings.qsAudio, equals('Audio'));
+      expect(esStrings.dCutVideo, equals('Cortar vídeo'));
+      expect(esStrings.cvTitle, equals('Cortar vídeo'));
+      expect(esStrings.cvClose, equals('Cerrar'));
+      expect(
+        esStrings.cvDescription,
+        equals('Elimina segmentos de las categorías de SponsorBlock.'),
+      );
 
       // Verify Overlay & Permission getters in Spanish
       expect(
@@ -138,11 +152,11 @@ void main() {
       expect(esStrings.dEngineDownloadingDesc,
           equals('Descargando módulos principales requeridos (yt-dlp y yt-dlp-ejs). Por favor, espere...'));
       expect(esStrings.dDownloadingEngineError,
-          equals('Error al descargar módulos del motor. Revisa tu conexión a internet.'));
+          equals('Error al descargar los módulos del motor. Por favor verifique su conexión a Internet.'));
       expect(esStrings.ssiBubbleTitle, equals('Actualización disponible'));
       expect(esStrings.ssiBubbleMessage,
           equals('Hay actualizaciones disponibles para los componentes de Vidra. Toca Ver para revisarlas e instalarlas.'));
-      expect(esStrings.ssiBubbleButtonShow, equals('Ver'));
+      expect(esStrings.ssiBubbleButtonShow, equals('Mostrar'));
       expect(esStrings.ssiBubbleButtonDismiss, equals('Descartar'));
       expect(esStrings.sdLinuxDebTitle, equals('Actualizar Vidra (Paquete DEB)'));
       expect(esStrings.sdCopyCommand, equals('Copiar comando'));
@@ -152,21 +166,21 @@ void main() {
           esStrings.sdLinuxAppImageTitle, equals('Actualizar Vidra (AppImage)'));
 
       // Verify Engine status getters in Spanish
-      expect(esStrings.sdAppEngine, equals('Motor de la App'));
-      expect(esStrings.sdAppEngineConnected, equals('Motor de la App: Conectado'));
-      expect(esStrings.sdAllWorkingNormally, equals('Todo funciona con normalidad'));
-      expect(esStrings.sdAppEngineStarting, equals('Motor de la App: Iniciando...'));
-      expect(esStrings.sdAppEngineInitializing, equals('Motor de la App: Inicializando...'));
-      expect(esStrings.sdAppEngineReconnecting, equals('Motor de la App: Reconectando...'));
-      expect(esStrings.sdAppEngineMissingPermissions, equals('Motor de la App: Permisos requeridos'));
-      expect(esStrings.sdAppEngineMissingResources, equals('Motor de la App: Componentes faltantes'));
-      expect(esStrings.sdAppEngineError, equals('Motor de la App: Error'));
+      expect(esStrings.sdAppEngine, equals('Motor de aplicaciones'));
+      expect(esStrings.sdAppEngineConnected, equals('Motor de aplicaciones: conectado'));
+      expect(esStrings.sdAllWorkingNormally, equals('Todo esta funcionando normalmente'));
+      expect(esStrings.sdAppEngineStarting, equals('App Engine: Iniciando...'));
+      expect(esStrings.sdAppEngineInitializing, equals('App Engine: inicializando...'));
+      expect(esStrings.sdAppEngineReconnecting, equals('App Engine: Reconectando...'));
+      expect(esStrings.sdAppEngineMissingPermissions, equals('App Engine: permisos necesarios'));
+      expect(esStrings.sdAppEngineMissingResources, equals('App Engine: componentes faltantes'));
+      expect(esStrings.sdAppEngineError, equals('Motor de aplicaciones: error'));
       expect(esStrings.sdStateReady, equals('Conectado'));
       expect(esStrings.sdStateInitializing, equals('Inicializando...'));
-      expect(esStrings.sdStateStartingBackend, equals('Iniciando motor...'));
+      expect(esStrings.sdStateStartingBackend, equals('Arrancando el motor...'));
       expect(esStrings.sdStateRetrying, equals('Reconectando...'));
-      expect(esStrings.sdStateMissingPermissions, equals('Faltan permisos'));
-      expect(esStrings.sdStateMissingResources, equals('Faltan módulos'));
+      expect(esStrings.sdStateMissingPermissions, equals('Permisos faltantes'));
+      expect(esStrings.sdStateMissingResources, equals('Componentes faltantes'));
       expect(esStrings.sdStateFatalError, equals('Error fatal'));
     });
   });

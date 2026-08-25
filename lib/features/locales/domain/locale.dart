@@ -22,6 +22,7 @@ class AppStringKey {
   String get dFilters => _cadenasLocalizadas['d_filters'] ?? '';
   String get dSettings => _cadenasLocalizadas['d_settings'] ?? '';
   String get dQuickSettings => _cadenasLocalizadas['d_quick_settings'] ?? '';
+  String get dCutVideo => _cadenasLocalizadas['d_cut_video'] ?? '';
   String get dShowTutorial => _cadenasLocalizadas['d_show_tutorial'] ?? '';
   // Buttons
   String get dDownload => _cadenasLocalizadas['d_download'] ?? '';
@@ -185,6 +186,10 @@ class AppStringKey {
   String get qsTitle => _cadenasLocalizadas['qs_title'] ?? '';
   String get qsClose => _cadenasLocalizadas['qs_close'] ?? '';
   String get qsAudio => _cadenasLocalizadas['qs_audio'] ?? '';
+  // Strings de la modal Cut Video, prefijo cv ----------------
+  String get cvTitle => _cadenasLocalizadas['cv_title'] ?? '';
+  String get cvClose => _cadenasLocalizadas['cv_close'] ?? '';
+  String get cvDescription => _cadenasLocalizadas['cv_description'] ?? '';
   // Strings del system status indicator, prefijo ssi ----------------
   String get ssiUpdateAvailable =>
       _cadenasLocalizadas['ssi_update_available'] ?? '';
@@ -564,6 +569,7 @@ class AppStringKey {
     'd_filters',
     'd_settings',
     'd_quick_settings',
+    'd_cut_video',
     'd_show_tutorial',
     // Buttons
     'd_download',
@@ -689,6 +695,10 @@ class AppStringKey {
     'qs_title',
     'qs_close',
     'qs_audio',
+    // Modal Cut Video -------------------------------- cv_
+    'cv_title',
+    'cv_close',
+    'cv_description',
     // System Status Indicator -------------------------- ssi_
     'ssi_update_available',
     'ssi_searching_updates',

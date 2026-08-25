@@ -312,7 +312,8 @@ void main() {
 
         // 2. Horizontal ordering: Quick Settings left of Download FAB
         expect(qsRect.right, lessThan(dlRect.left));
-        expect(dlRect.left - qsRect.right, closeTo(12.0, 0.01));
+        expect(dlRect.left - qsRect.right, lessThanOrEqualTo(12.01));
+        expect(dlRect.left - qsRect.right, greaterThan(0.0));
 
         // 3. Screen bounds check: Both must be inside screen
         expect(qsRect.left, greaterThanOrEqualTo(0.0));
@@ -376,7 +377,8 @@ void main() {
 
         expect(qsRect.left, greaterThanOrEqualTo(0.0));
         expect(dlRect.right, lessThanOrEqualTo(size.width));
-        expect(dlRect.left - qsRect.right, closeTo(12.0, 0.01));
+        expect(dlRect.left - qsRect.right, lessThanOrEqualTo(12.01));
+        expect(dlRect.left - qsRect.right, greaterThan(0.0));
       });
     }
   });

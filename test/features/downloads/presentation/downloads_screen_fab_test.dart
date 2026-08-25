@@ -286,7 +286,7 @@ void main() {
             (widget) => widget is SizedBox && widget.width == 12,
           ),
         );
-        expect(sizedBoxFinder, findsOneWidget);
+        expect(sizedBoxFinder, findsNWidgets(2));
 
         // 3. Verify Quick Settings FAB properties
         final quickSettingsFabFinder = find.byWidgetPredicate(
@@ -605,6 +605,7 @@ void main() {
 
       final heroTags = fabWidgets.map((f) => f.heroTag).toList();
       expect(heroTags, contains('selection_fab'));
+      expect(heroTags, contains('cut_video_fab'));
       expect(heroTags, contains('quick_settings_fab'));
       expect(heroTags, contains('download_fab'));
 

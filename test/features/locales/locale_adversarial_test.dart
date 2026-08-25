@@ -132,9 +132,9 @@ void main() {
           'Abra este menú para ajustar rápidamente las opciones de descarga sobre la marcha sin salir de la pantalla principal.',
         ),
       );
-      expect(esMap['sd_app_engine'], equals('Motor de la App'));
-      expect(esMap['sd_app_engine_connected'], equals('Motor de la App: Conectado'));
-      expect(esMap['sd_all_working_normally'], equals('Todo funciona con normalidad'));
+      expect(esMap['sd_app_engine'], equals('Motor de aplicaciones'));
+      expect(esMap['sd_app_engine_connected'], equals('Motor de aplicaciones: conectado'));
+      expect(esMap['sd_all_working_normally'], equals('Todo esta funcionando normalmente'));
     });
 
     test('2. AppStringKey Getters resolve new keys accurately in English and Spanish', () async {
@@ -183,9 +183,9 @@ void main() {
           'Abra este menú para ajustar rápidamente las opciones de descarga sobre la marcha sin salir de la pantalla principal.',
         ),
       );
-      expect(esStrings.sdAppEngine, equals('Motor de la App'));
-      expect(esStrings.sdAppEngineConnected, equals('Motor de la App: Conectado'));
-      expect(esStrings.sdAllWorkingNormally, equals('Todo funciona con normalidad'));
+      expect(esStrings.sdAppEngine, equals('Motor de aplicaciones'));
+      expect(esStrings.sdAppEngineConnected, equals('Motor de aplicaciones: conectado'));
+      expect(esStrings.sdAllWorkingNormally, equals('Todo esta funcionando normalmente'));
     });
 
     test('3. updateFromJson with assertAllKeysPresent: true passes cleanly on en.jsonc', () async {

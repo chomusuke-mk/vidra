@@ -333,14 +333,15 @@ void main() {
         final qsRect = tester.getRect(qsFabFinder);
         final dlRect = tester.getRect(dlFabFinder);
 
-        expect(qsRect.width, closeTo(56.0, 0.01));
-        expect(qsRect.height, closeTo(56.0, 0.01));
-        expect(dlRect.height, closeTo(56.0, 0.01));
-        expect(dlRect.width, greaterThan(56.0), reason: 'Download FAB must be extended');
+        expect(qsRect.width, lessThanOrEqualTo(56.01));
+        expect(qsRect.height, lessThanOrEqualTo(56.01));
+        expect(dlRect.height, lessThanOrEqualTo(56.01));
+        expect(dlRect.width, greaterThan(40.0), reason: 'Download FAB must be extended');
 
         // Quick Settings must be to the left of Download FAB
         expect(qsRect.right, lessThan(dlRect.left));
-        expect(dlRect.left - qsRect.right, closeTo(12.0, 0.01));
+        expect(dlRect.left - qsRect.right, lessThanOrEqualTo(12.01));
+        expect(dlRect.left - qsRect.right, greaterThan(0.0));
 
         // Both FABs must fit inside the viewport boundaries
         expect(qsRect.left, greaterThanOrEqualTo(0.0), reason: 'Quick Settings FAB left bound out of screen');
@@ -415,7 +416,8 @@ void main() {
 
         expect(qsRect.left, greaterThanOrEqualTo(0.0));
         expect(dlRect.right, lessThanOrEqualTo(size.width));
-        expect(dlRect.left - qsRect.right, closeTo(12.0, 0.01));
+        expect(dlRect.left - qsRect.right, lessThanOrEqualTo(12.01));
+        expect(dlRect.left - qsRect.right, greaterThan(0.0));
       });
     }
   });

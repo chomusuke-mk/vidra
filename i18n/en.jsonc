@@ -16,6 +16,7 @@
   "d_filters": "Filters",
   "d_settings": "Settings",
   "d_quick_settings": "Quick Settings",
+  "d_cut_video": "Cut Video",
   "d_show_tutorial": "Show Tutorial",
   // Buttons
   "d_download": "Download",
@@ -141,6 +142,10 @@
   "qs_title": "Quick Settings",
   "qs_close": "Close",
   "qs_audio": "Audio",
+  // Modal Cut Video -------------------------------- cv_
+  "cv_title": "Cut Video",
+  "cv_close": "Close",
+  "cv_description": "Removes segments from SponsorBlock categories.",
   // Strings del system status indicator, prefijo ssi ----------------
   "ssi_update_available": "Update Available",
   "ssi_searching_updates": "Searching for Updates...",

@@ -1461,7 +1461,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ? LazyTextField(
                         value: opts.limitRate ?? '',
                         hint: '1MB',
-                        pickFile: true,
                         onChanged: (val) => s.updateDownloadOptions(
                           opts.copyWith(limitRate: val.trim()),
                         ),

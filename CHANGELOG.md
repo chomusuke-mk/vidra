@@ -4,6 +4,11 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [4.1.0] - New Features
+
+- **New Features:** Added cut video feature, allowing users to trim videos directly within the application. This feature provides a convenient way to edit videos without the need for external software, enhancing the overall functionality of the application.
+- **Bug Fixes:** Fix rate limit show file selector button.
+
 ## [4.0.0] - New Interface
 
 - **New Interface:** The user interface has been redesigned to provide a more modern and intuitive experience. The new design focuses on usability, accessibility, and visual appeal, making it easier for users to navigate and interact with the application.

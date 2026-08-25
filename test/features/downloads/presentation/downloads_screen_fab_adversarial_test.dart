@@ -491,15 +491,15 @@ void main() {
             .widgetList<FloatingActionButton>(find.byType(FloatingActionButton))
             .toList();
 
-        expect(allFabs.length, equals(3));
+        expect(allFabs.length, equals(4));
         final heroTags = allFabs.map((f) => f.heroTag).toList();
 
         // Check exact tags
-        expect(heroTags, containsAll(['selection_fab', 'quick_settings_fab', 'download_fab']));
+        expect(heroTags, containsAll(['selection_fab', 'cut_video_fab', 'quick_settings_fab', 'download_fab']));
 
         // Check for duplicates
         final uniqueTags = heroTags.toSet();
-        expect(uniqueTags.length, equals(3));
+        expect(uniqueTags.length, equals(4));
       },
     );
 
