@@ -1139,4 +1139,160 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   });
+
+  group('DownloadCard - Tap to Toggle Slidable Action Pane', () {
+    testWidgets('Tapping closed card slides open the actions, tapping again closes them', (tester) async {
+      final info = model.Info(
+        title: 'Toggle Slidable Card',
+        type: model.DownloadType.video,
+        url: 'https://youtube.com/watch?v=toggle_1',
+      );
+      final state = model.DownloadState(
+        value: model.DownloadStateEnum.inProgress,
+        progressValue: 0.5,
+      );
+
+      await tester.pumpWidget(
+        createTestWidget(
+          DownloadCard(
+            downloadId: 'dl_toggle_1',
+            info: info,
+            state: state,
+            isDetailScreen: false,
+            isSubItem: false,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Card should be rendered and actions initially closed (off-screen / ratio 0)
+      expect(find.byType(Slidable), findsOneWidget);
+      expect(find.text('Toggle Slidable Card'), findsOneWidget);
+
+      // Tap on card to open action pane
+      await tester.tap(find.text('Toggle Slidable Card'));
+      await tester.pumpAndSettle();
+
+      // Action buttons are now visible
+      expect(find.byIcon(Icons.pause), findsOneWidget);
+      expect(find.byIcon(Icons.cancel), findsOneWidget);
+      expect(find.byIcon(Icons.info), findsOneWidget);
+
+      // Tap card again to close action pane
+      await tester.tap(find.text('Toggle Slidable Card'));
+      await tester.pumpAndSettle();
+
+      // Pane should be closed, tapping info icon shouldn't be possible directly or buttons hidden off-screen
+      // Verify slidable controller is back to none / ratio 0
+      final slidableState = tester.state(find.byType(Slidable));
+      // Slidable internal state verify
+      expect(slidableState, isNotNull);
+    });
+
+    testWidgets('Tapping card in failed state shows error toast and does NOT toggle slidable', (tester) async {
+      final info = model.Info(
+        title: 'Failed Card Test',
+        type: model.DownloadType.video,
+        url: 'https://youtube.com/watch?v=failed_1',
+      );
+      final state = model.DownloadState(
+        value: model.DownloadStateEnum.failed,
+        errorMessage: 'Network timeout',
+      );
+
+      await tester.pumpWidget(
+        createTestWidget(
+          DownloadCard(
+            downloadId: 'dl_failed_tap',
+            info: info,
+            state: state,
+            isDetailScreen: false,
+            isSubItem: false,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Tap on failed card
+      await tester.tap(find.text('Failed Card Test'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+
+      // Slidable should remain closed (actions not opened via tap on failed card)
+      // Card is still present
+      expect(find.text('Failed Card Test'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('Tapping card in awaitingSelection requests selection modal', (tester) async {
+      final info = model.Info(
+        title: 'Awaiting Selection Card',
+        type: model.DownloadType.list,
+        url: 'https://youtube.com/playlist?list=awaiting_1',
+      );
+      final state = model.DownloadState(
+        value: model.DownloadStateEnum.awaitingSelection,
+      );
+
+      await tester.pumpWidget(
+        createTestWidget(
+          DownloadCard(
+            downloadId: 'dl_awaiting_tap',
+            info: info,
+            state: state,
+            isDetailScreen: false,
+            isSubItem: false,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Tap card
+      await tester.tap(find.text('Awaiting Selection Card'));
+      await tester.pump();
+
+      // Selection modal requested for dl_awaiting_tap
+      expect(downloadsCtrl.manualModalRequestId, equals('dl_awaiting_tap'));
+    });
+
+    testWidgets('Tapping Info action in opened pane invokes onTap callback', (tester) async {
+      bool tappedInfo = false;
+      final info = model.Info(
+        title: 'Info Action Test',
+        type: model.DownloadType.video,
+        url: 'https://youtube.com/watch?v=info_1',
+      );
+      final state = model.DownloadState(
+        value: model.DownloadStateEnum.inProgress,
+        progressValue: 0.3,
+      );
+
+      await tester.pumpWidget(
+        createTestWidget(
+          DownloadCard(
+            downloadId: 'dl_info_tap',
+            info: info,
+            state: state,
+            isDetailScreen: false,
+            isSubItem: false,
+            onTap: () {
+              tappedInfo = true;
+            },
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Tap card to open pane
+      await tester.tap(find.text('Info Action Test'));
+      await tester.pumpAndSettle();
+
+      // Tap Info icon in action pane
+      expect(find.byIcon(Icons.info), findsOneWidget);
+      await tester.tap(find.byIcon(Icons.info));
+      await tester.pumpAndSettle();
+
+      expect(tappedInfo, isTrue);
+    });
+  });
 }

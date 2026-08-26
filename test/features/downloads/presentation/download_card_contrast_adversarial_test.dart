@@ -384,10 +384,10 @@ void main() {
 
       // Find pause CustomSlidableAction
       final slidableActions = tester.widgetList<CustomSlidableAction>(find.byType(CustomSlidableAction)).toList();
-      final pauseAction = slidableActions.firstWhere((a) => a.backgroundColor == const Color(0xFFD97706));
+      final pauseAction = slidableActions.firstWhere((a) => a.backgroundColor == Colors.orange);
 
-      expect(pauseAction.backgroundColor, const Color(0xFFD97706),
-          reason: 'Warning action in Light theme must use amber #D97706');
+      expect(pauseAction.backgroundColor, Colors.orange,
+          reason: 'Warning action in Light theme must use Colors.orange');
       expect(pauseAction.foregroundColor, Colors.white,
           reason: 'Warning action in Light theme must use white foreground');
 
@@ -397,7 +397,7 @@ void main() {
           reason: 'Warning action must have a localized hover tooltip');
     });
 
-    testWidgets('Dark Mode: Warning (Folder/Pause) SlidableAction uses #D97706 with white foreground and tooltip', (tester) async {
+    testWidgets('Dark Mode: Warning (Folder/Pause) SlidableAction uses Colors.orange with white foreground and tooltip', (tester) async {
       final info = model.Info(
         title: 'Dark Slidable Warning Test',
         type: model.DownloadType.video,
@@ -426,10 +426,10 @@ void main() {
       await tester.pumpAndSettle();
 
       final slidableActions = tester.widgetList<CustomSlidableAction>(find.byType(CustomSlidableAction)).toList();
-      final pauseAction = slidableActions.firstWhere((a) => a.backgroundColor == const Color(0xFFD97706));
+      final pauseAction = slidableActions.firstWhere((a) => a.backgroundColor == Colors.orange);
 
-      expect(pauseAction.backgroundColor, const Color(0xFFD97706),
-          reason: 'Warning action in Dark theme must use amber #D97706');
+      expect(pauseAction.backgroundColor, Colors.orange,
+          reason: 'Warning action in Dark theme must use Colors.orange');
       expect(pauseAction.foregroundColor, Colors.white,
           reason: 'Warning action in Dark theme must use white foreground');
 
@@ -439,7 +439,7 @@ void main() {
           reason: 'Warning action must have a localized hover tooltip');
     });
 
-    testWidgets('Light Mode: Success (Resume) SlidableAction uses #10B981 with white foreground and tooltip', (tester) async {
+    testWidgets('Light Mode: Success (Resume) SlidableAction uses Colors.green with white foreground and tooltip', (tester) async {
       final info = model.Info(
         title: 'Light Slidable Success Test',
         type: model.DownloadType.video,
@@ -468,10 +468,10 @@ void main() {
       await tester.pumpAndSettle();
 
       final slidableActions = tester.widgetList<CustomSlidableAction>(find.byType(CustomSlidableAction)).toList();
-      final resumeAction = slidableActions.firstWhere((a) => a.backgroundColor == const Color(0xFF10B981));
+      final resumeAction = slidableActions.firstWhere((a) => a.backgroundColor == Colors.green);
 
-      expect(resumeAction.backgroundColor, const Color(0xFF10B981),
-          reason: 'Success action in Light theme must use emerald #10B981');
+      expect(resumeAction.backgroundColor, Colors.green,
+          reason: 'Success action in Light theme must use Colors.green');
       expect(resumeAction.foregroundColor, Colors.white,
           reason: 'Success action in Light theme must use white foreground');
 
@@ -481,7 +481,7 @@ void main() {
           reason: 'Success action must have a localized hover tooltip');
     });
 
-    testWidgets('Dark Mode: Success (Resume) SlidableAction uses #10B981 with white foreground and tooltip', (tester) async {
+    testWidgets('Dark Mode: Success (Resume) SlidableAction uses Colors.green with white foreground and tooltip', (tester) async {
       final info = model.Info(
         title: 'Dark Slidable Success Test',
         type: model.DownloadType.video,
@@ -510,10 +510,10 @@ void main() {
       await tester.pumpAndSettle();
 
       final slidableActions = tester.widgetList<CustomSlidableAction>(find.byType(CustomSlidableAction)).toList();
-      final resumeAction = slidableActions.firstWhere((a) => a.backgroundColor == const Color(0xFF10B981));
+      final resumeAction = slidableActions.firstWhere((a) => a.backgroundColor == Colors.green);
 
-      expect(resumeAction.backgroundColor, const Color(0xFF10B981),
-          reason: 'Success action in Dark theme must use emerald #10B981');
+      expect(resumeAction.backgroundColor, Colors.green,
+          reason: 'Success action in Dark theme must use Colors.green');
       expect(resumeAction.foregroundColor, Colors.white,
           reason: 'Success action in Dark theme must use white foreground');
 

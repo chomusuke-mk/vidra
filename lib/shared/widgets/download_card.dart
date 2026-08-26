@@ -119,44 +119,64 @@ class DownloadCard extends StatelessWidget {
     );
 
     final semanticColors = Theme.of(context).extension<VidraSemanticColors>();
-    final cardWidget = Card(
-      margin: const EdgeInsets.symmetric(
-        horizontal: AppSpacing.space16,
-        vertical: 6,
-      ),
-      elevation: 0,
-      color: Theme.of(context).colorScheme.surfaceContainerHigh,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: BorderSide(
-          color: isError
-              ? (semanticColors?.error ?? Theme.of(context).colorScheme.error)
-              : (semanticColors?.borderSubtle ?? Colors.transparent),
-          width: isError ? 1.5 : 1.0,
-        ),
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: () {
-          if (isError) {
-            ToastUtils.showError(state?.errorMessage ?? locale.dcUnknownError);
-          } else if (state?.value ==
-              model.DownloadStateEnum.awaitingSelection) {
-            context.read<DownloadsController>().requestSelectionModal(
-              downloadId!,
-            );
-          } else if (!isDetailScreen && onTap != null) {
-            onTap!();
-          }
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(AppSpacing.space12),
-          child: cardContent,
-        ),
-      ),
-    );
 
-    if (downloadId == null || actionCount == 0) return cardWidget;
+    Widget buildCardWidget(BuildContext cardContext) {
+      return Card(
+        margin: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.space16,
+          vertical: 6,
+        ),
+        elevation: 0,
+        color: Theme.of(context).colorScheme.surfaceContainerHigh,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+          side: BorderSide(
+            color: isError
+                ? (semanticColors?.error ?? Theme.of(context).colorScheme.error)
+                : (semanticColors?.borderSubtle ?? Colors.transparent),
+            width: isError ? 1.5 : 1.0,
+          ),
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: () {
+            if (isError) {
+              ToastUtils.showError(
+                state?.errorMessage ?? locale.dcUnknownError,
+              );
+            } else if (state?.value ==
+                model.DownloadStateEnum.awaitingSelection) {
+              context.read<DownloadsController>().requestSelectionModal(
+                downloadId!,
+              );
+            } else {
+              final slidable = Slidable.of(cardContext);
+              if (slidable != null && actionCount > 0) {
+                final isClosed =
+                    slidable.actionPaneType.value == ActionPaneType.none &&
+                    slidable.animation.value == 0;
+                if (isClosed) {
+                  slidable.openEndActionPane();
+                } else {
+                  slidable.close();
+                }
+              } else if (!isDetailScreen && onTap != null) {
+                onTap!();
+              }
+            }
+          },
+          onLongPress: onTap,
+          child: Padding(
+            padding: const EdgeInsets.all(AppSpacing.space12),
+            child: cardContent,
+          ),
+        ),
+      );
+    }
+
+    if (downloadId == null || actionCount == 0) {
+      return buildCardWidget(context);
+    }
 
     // =========================================================================
     // LÓGICA DE GESTOS (SLIDABLE)
@@ -329,7 +349,9 @@ class DownloadCard extends StatelessWidget {
               ],
             ],
           ),
-          child: cardWidget,
+          child: Builder(
+            builder: (cardContext) => buildCardWidget(cardContext),
+          ),
         );
       },
     );

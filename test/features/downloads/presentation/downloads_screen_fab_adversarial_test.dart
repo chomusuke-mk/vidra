@@ -533,10 +533,12 @@ void main() {
           ),
         );
 
-        // Tap download card to navigate to detail screen
+        // Tap download card to open actions, then tap Info icon to navigate to detail screen
         final cardFinder = find.text('Sample Nav Download');
         expect(cardFinder, findsOneWidget);
         await tester.tap(cardFinder);
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(Icons.info));
 
         // Pump during transition
         await tester.pump();

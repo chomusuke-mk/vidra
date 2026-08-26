@@ -834,8 +834,10 @@ void main() {
         ),
       );
 
-      // Tap card
+      // Tap card to open actions and tap Info to navigate to DetailScreen
       await tester.tap(find.text('Hero Stress Item'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byIcon(Icons.info));
       for (int i = 0; i < 5; i++) {
         await tester.pump(const Duration(milliseconds: 60));
         expect(tester.takeException(), isNull);
