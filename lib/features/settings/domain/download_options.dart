@@ -254,7 +254,7 @@ class DownloadOptions {
     this.writeAutoSubs = false,
 
     // Download
-    this.output = const ["title", "-", "id", ".", "ext"],
+    this.output = const ["title", ".", "ext"],
     this.paths = const {},
     this.downloadArchive,
     this.disableDownloadArchive = true, // Python: false
@@ -841,7 +841,7 @@ class DownloadOptions {
       // Download
       output: json['output'] != null
           ? List<String>.from(json['output'])
-          : ["title", "-", "id", ".", "ext"],
+          : ["title", ".", "ext"],
       paths: pPaths,
       downloadArchive: json['download_archive'] is String
           ? json['download_archive']

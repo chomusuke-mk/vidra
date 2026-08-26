@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -234,24 +236,28 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Badge(
-                  isLabelVisible:
-                      ((settingsCtrl.downloadOptions.sponsorblockRemove.isNotEmpty
-                                  ? 1
-                                  : 0) +
-                              (settingsCtrl.downloadOptions.cutVideo ? 1 : 0)) >
-                          0,
-                  backgroundColor: Colors.red,
-                  label: Text(
-                    '${(settingsCtrl.downloadOptions.sponsorblockRemove.isNotEmpty ? 1 : 0) + (settingsCtrl.downloadOptions.cutVideo ? 1 : 0)}',
+                if (!Platform.isAndroid)
+                  Badge(
+                    isLabelVisible:
+                        ((settingsCtrl
+                                    .downloadOptions
+                                    .sponsorblockRemove
+                                    .isNotEmpty
+                                ? 1
+                                : 0) +
+                            (settingsCtrl.downloadOptions.cutVideo ? 1 : 0)) >
+                        0,
+                    backgroundColor: Colors.red,
+                    label: Text(
+                      '${(settingsCtrl.downloadOptions.sponsorblockRemove.isNotEmpty ? 1 : 0) + (settingsCtrl.downloadOptions.cutVideo ? 1 : 0)}',
+                    ),
+                    child: FloatingActionButton(
+                      heroTag: 'cut_video_fab',
+                      tooltip: locale.dCutVideo,
+                      onPressed: () => CutVideoBottomSheet.show(context),
+                      child: const Icon(Icons.cut_outlined),
+                    ),
                   ),
-                  child: FloatingActionButton(
-                    heroTag: 'cut_video_fab',
-                    tooltip: locale.dCutVideo,
-                    onPressed: () => CutVideoBottomSheet.show(context),
-                    child: const Icon(Icons.cut_outlined),
-                  ),
-                ),
                 const SizedBox(width: AppSpacing.space12),
                 FloatingActionButton(
                   key: AppTutorialKeys.mainQuickSettings,
