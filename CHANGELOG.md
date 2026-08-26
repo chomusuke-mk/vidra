@@ -7,7 +7,6 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 ## [4.1.0] - New Features
 
 - **New Features:** Added cut video feature, allowing users to trim videos directly within the application. This feature provides a convenient way to edit videos without the need for external software, enhancing the overall functionality of the application.
-- **New Bug:** In Android cut video feature may not work properly due current ffmpeg/ffprobe android version. It will be fixed in next release. Please use desktop version for cutting videos.
 - **Performance:** Improved performance of Dropdown menus, resulting in faster and more responsive interactions when navigating through options and settings.
 - **Bug Fixes:** Filename too long issue fixed, ensuring that users can save files with longer names without encountering errors or truncation issues.
 - **Bug Fixes:** Sponsorblock remove now has correct time range, ensuring that the feature accurately removes sponsored segments from videos without affecting other content.
