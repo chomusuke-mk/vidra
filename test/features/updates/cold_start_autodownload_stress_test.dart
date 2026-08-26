@@ -215,7 +215,7 @@ void main() {
 
       final controller = UpdateController(mockGithub, mockSystem, prefs);
       // Wait for auto-download init sequence
-      await Future.delayed(const Duration(milliseconds: 100));
+      await Future.delayed(const Duration(milliseconds: 300));
 
       // 1. Check directories were created and extracted properly
       final ytdlpDir = Directory(p.join(tempDir.path, 'core_modules', 'yt_dlp'));

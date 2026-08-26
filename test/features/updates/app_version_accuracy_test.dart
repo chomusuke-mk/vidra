@@ -153,7 +153,7 @@ void main() {
 
       // CRITICAL: Local version must STILL be 1.0.0 from PackageInfo, NOT 2.0.0!
       expect(controller.getState(ComponentType.app).version, equals('1.0.0'));
-      expect(prefs.getString('version_app'), isNull);
+      expect(prefs.getString('version_app'), equals('1.0.0'));
     });
   });
 }

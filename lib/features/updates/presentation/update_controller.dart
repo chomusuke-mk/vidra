@@ -109,6 +109,22 @@ class UpdateController extends ChangeNotifier {
   Future<void> _init() async {
     await _loadLocalVersions();
 
+    final currentAppVersion = _states[ComponentType.app]?.version ?? '';
+    final storedAppVersion = _prefs.getString(_versionKey(ComponentType.app));
+    final bool isAppVersionChanged = storedAppVersion != null &&
+        storedAppVersion.isNotEmpty &&
+        storedAppVersion != currentAppVersion;
+
+    if (isAppVersionChanged) {
+      await _prefs.remove(_discoveredVersionKey(ComponentType.app));
+      await _prefs.remove(_discoveredInfoKey(ComponentType.app));
+    }
+    if (currentAppVersion.isNotEmpty &&
+        currentAppVersion != 'Unknown' &&
+        currentAppVersion != 'Loading...') {
+      await _prefs.setString(_versionKey(ComponentType.app), currentAppVersion);
+    }
+
     // Check for missing core modules on first launch / wiped storage
     final isYtDlpInstalled = await _isComponentInstalled(ComponentType.ytDlp);
     final isEjsInstalled = await _isComponentInstalled(ComponentType.ytDlpEjs);
@@ -126,7 +142,10 @@ class UpdateController extends ChangeNotifier {
       final lastCheck = _prefs.getInt(_lastCheckKey(type)) ?? 0;
       final elapsed = now - lastCheck;
 
-      if (elapsed < checkIntervalMs) {
+      if (type == ComponentType.app && isAppVersionChanged) {
+        // Force immediate check bypassing 6-hour interval on app version change
+        await checkForUpdates(manualCall: false, specificType: ComponentType.app);
+      } else if (elapsed < checkIntervalMs) {
         // Cache rehydration without network calls
         _rehydrateCachedDiscovery(type);
       } else {

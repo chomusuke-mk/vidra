@@ -76,7 +76,7 @@ class DownloadCard extends StatelessWidget {
               (hasFile || isList));
 
     // 3. Acciones prohibidas para sub-items (solo permitidas para items principales):
-    final showInfo = !isSubItem && isError && !isDetailScreen;
+    final showInfo = !isSubItem && !isDetailScreen;
     final showDelete =
         !isSubItem &&
         (isError ||
@@ -166,7 +166,7 @@ class DownloadCard extends StatelessWidget {
         // MATEMÁTICA PURA: Cada botón mide ~54px. Dividimos ese ancho total
         // entre el ancho disponible de la pantalla para obtener el ratio exacto.
         // Lo limitamos (clamp) para que nunca se rompa en pantallas enanas o gigantes.
-        final double ratio = ((54.0 * actionCount) / constraints.maxWidth)
+        final double ratio = ((70.0 * actionCount) / constraints.maxWidth)
             .clamp(0.1, 0.8);
 
         return Slidable(
@@ -197,8 +197,8 @@ class DownloadCard extends StatelessWidget {
                     final mimeType = lookupMimeType(info!.file!) ?? 'video/*';
                     await OpenFilex.open(info!.file!, type: mimeType);
                   },
-                  backgroundColor: Theme.of(context).colorScheme.primary,
-                  foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                  backgroundColor: Colors.deepPurple,
+                  foregroundColor: Colors.white,
                   icon: Icons.play_arrow,
                   tooltip: locale.dcActionPlay,
                 ),
@@ -228,7 +228,7 @@ class DownloadCard extends StatelessWidget {
                       );
                     }
                   },
-                  backgroundColor: const Color(0xFFD97706),
+                  backgroundColor: Colors.orange,
                   foregroundColor: Colors.white,
                   icon: Icons.folder,
                   tooltip: locale.dcActionOpenFolder,
@@ -237,8 +237,8 @@ class DownloadCard extends StatelessWidget {
               if (showInfo) ...[
                 _buildSlidableAction(
                   onPressed: (_) => onTap?.call(), // Va a detalles
-                  backgroundColor: Theme.of(context).colorScheme.tertiary,
-                  foregroundColor: Theme.of(context).colorScheme.onTertiary,
+                  backgroundColor: Colors.indigo,
+                  foregroundColor: Colors.white,
                   icon: Icons.info,
                   tooltip: locale.dcActionDetails,
                 ),
@@ -255,7 +255,7 @@ class DownloadCard extends StatelessWidget {
                       ToastUtils.showError(locale.dcDownloadResumingError);
                     }
                   },
-                  backgroundColor: const Color(0xFF10B981),
+                  backgroundColor: Colors.green,
                   foregroundColor: Colors.white,
                   icon: Icons.play_arrow,
                   tooltip: locale.dcActionResume,
@@ -291,7 +291,7 @@ class DownloadCard extends StatelessWidget {
                       ToastUtils.showError(locale.dcDownloadPausingError);
                     }
                   },
-                  backgroundColor: const Color(0xFFD97706),
+                  backgroundColor: Colors.orange,
                   foregroundColor: Colors.white,
                   icon: Icons.pause,
                   tooltip: locale.dcActionPause,
@@ -300,7 +300,7 @@ class DownloadCard extends StatelessWidget {
               if (showCancel) ...[
                 _buildSlidableAction(
                   onPressed: (_) => _showCancelDialog(context, downloadId!),
-                  backgroundColor: const Color(0xFFEA580C),
+                  backgroundColor: Colors.red,
                   foregroundColor: Colors.white,
                   icon: Icons.cancel,
                   tooltip: locale.dcActionCancel,
@@ -350,7 +350,7 @@ class DownloadCard extends StatelessWidget {
         message: tooltip,
         preferBelow: false,
         child: SizedBox.expand(
-          child: Center(child: Icon(icon, color: foregroundColor)),
+          child: Center(child: Icon(icon, color: foregroundColor, size: 20)),
         ),
       ),
     );
@@ -417,8 +417,7 @@ class DownloadCard extends StatelessWidget {
                     width: 96,
                     height: 54,
                     memCacheWidth: 192,
-                    memCacheHeight: 108,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.contain,
                     placeholder: (_, _) => Container(
                       color: Theme.of(
                         context,

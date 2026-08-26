@@ -580,7 +580,7 @@ void main() {
 
       // Regardless of OpenFilex execution, local state version MUST STILL be '1.0.0', NEVER '3.0.0'
       expect(controller.getState(ComponentType.app).version, equals('1.0.0'));
-      expect(prefs.getString('version_app'), isNull);
+      expect(prefs.getString('version_app'), equals('1.0.0'));
     });
 
     test('5.2 Download failure sets ComponentStatus.error and maintains version 1.0.0', () async {

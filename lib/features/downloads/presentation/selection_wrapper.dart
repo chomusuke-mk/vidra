@@ -424,7 +424,7 @@ class _SelectionDialog extends StatelessWidget {
         imageUrl: url,
         width: 60,
         height: 40,
-        fit: BoxFit.cover,
+        fit: BoxFit.contain,
         placeholder: (_, _) => Container(
           color: Theme.of(context).colorScheme.surfaceContainerHighest,
         ),

@@ -80,6 +80,14 @@ void main() {
   });
 
   setUp(() {
+    PackageInfo.setMockInitialValues(
+      appName: 'Vidra',
+      packageName: 'com.vidra.app',
+      version: '1.0.0',
+      buildNumber: '1',
+      buildSignature: '',
+    );
+
     tempDir = Directory.systemTemp.createTempSync('update_interval_test_');
     const MethodChannel pathChannel =
         MethodChannel('plugins.flutter.io/path_provider');
@@ -110,6 +118,7 @@ void main() {
       final fiveHoursAgo = now - const Duration(hours: 5).inMilliseconds;
 
       SharedPreferences.setMockInitialValues({
+        'version_app': '1.0.0',
         'last_update_check_app': fiveHoursAgo,
         'last_update_check_yt_dlp': fiveHoursAgo,
         'last_update_check_yt_dlp_ejs': fiveHoursAgo,
@@ -148,6 +157,7 @@ void main() {
       );
 
       SharedPreferences.setMockInitialValues({
+        'version_app': '1.0.0',
         'last_update_check_app': twoHoursAgo,
         'last_update_check_yt_dlp': twoHoursAgo,
         'last_update_check_yt_dlp_ejs': twoHoursAgo,
@@ -184,6 +194,7 @@ void main() {
       final sevenHoursAgo = now - const Duration(hours: 7).inMilliseconds;
 
       SharedPreferences.setMockInitialValues({
+        'version_app': '1.0.0',
         'last_update_check_app': sevenHoursAgo,
         'last_update_check_yt_dlp': sevenHoursAgo,
         'last_update_check_yt_dlp_ejs': sevenHoursAgo,
@@ -222,6 +233,7 @@ void main() {
       final initialTime = now - const Duration(hours: 3).inMilliseconds;
 
       SharedPreferences.setMockInitialValues({
+        'version_app': '1.0.0',
         'last_update_check_app': initialTime,
         'last_update_check_yt_dlp': initialTime,
         'last_update_check_yt_dlp_ejs': initialTime,
@@ -262,6 +274,7 @@ void main() {
       final twoHoursAgo = now - const Duration(hours: 2).inMilliseconds;
 
       SharedPreferences.setMockInitialValues({
+        'version_app': '1.0.0',
         'last_update_check_app': twoHoursAgo,
         'discovered_version_app': '1.2.0',
         'discovered_info_app': '{ corrupt json ...',
@@ -297,6 +310,178 @@ void main() {
       final fromStr = UpdateInfo.fromJsonString(jsonString);
       expect(fromStr.version, equals(original.version));
       expect(fromStr.changelog, equals(original.changelog));
+    });
+
+    test(
+        '7. App version upgrade (< 6 hours elapsed): Invalidates stale cache and forces immediate check for app only',
+        () async {
+      // Simulate platform version upgraded to 2.0.0
+      PackageInfo.setMockInitialValues(
+        appName: 'Vidra',
+        packageName: 'com.vidra.app',
+        version: '2.0.0',
+        buildNumber: '2',
+        buildSignature: '',
+      );
+
+      final now = DateTime.now().millisecondsSinceEpoch;
+      final oneHourAgo = now - const Duration(hours: 1).inMilliseconds;
+
+      final staleAppUpdate = UpdateInfo(
+        version: '2.0.0',
+        downloadUrl: 'https://example.com/old_vidra.apk',
+        changelog: 'Old release notes',
+      );
+
+      SharedPreferences.setMockInitialValues({
+        'version_app': '1.0.0', // Previous installed version
+        'last_update_check_app': oneHourAgo, // Checked recently (< 6h)
+        'discovered_version_app': '2.0.0',
+        'discovered_info_app': jsonEncode(staleAppUpdate.toJson()),
+        'last_update_check_yt_dlp': oneHourAgo,
+        'last_update_check_yt_dlp_ejs': oneHourAgo,
+        'version_yt_dlp': '2026.01.01',
+        'version_yt_dlp_ejs': '1.0.0',
+      });
+      final prefs = await SharedPreferences.getInstance();
+
+      Directory('${tempDir.path}/core_modules/yt_dlp')
+          .createSync(recursive: true);
+      File('${tempDir.path}/core_modules/yt_dlp/main.py')
+          .writeAsStringSync('code');
+      Directory('${tempDir.path}/core_modules/yt_dlp_ejs')
+          .createSync(recursive: true);
+      File('${tempDir.path}/core_modules/yt_dlp_ejs/main.py')
+          .writeAsStringSync('code');
+
+      // Remote release is 2.1.0
+      fakeGithub.appUpdate = UpdateInfo(
+        version: '2.1.0',
+        downloadUrl: 'https://example.com/vidra-2.1.0.apk',
+        changelog: 'New release notes after upgrade',
+      );
+
+      final controller = UpdateController(fakeGithub, fakeSystem, prefs);
+      await Future<void>.delayed(const Duration(milliseconds: 50));
+
+      // Immediate check performed only for App
+      expect(fakeGithub.fetchCallCount, equals(1));
+      expect(fakeGithub.requestedRepos.length, equals(1));
+      expect(fakeGithub.requestedRepos.first, contains('vidra'));
+
+      // Version in prefs is updated to current platform version 2.0.0
+      expect(prefs.getString('version_app'), equals('2.0.0'));
+
+      // App state is updateAvailable with new pendingUpdate 2.1.0
+      expect(controller.getState(ComponentType.app).status,
+          equals(ComponentStatus.updateAvailable));
+      expect(controller.getState(ComponentType.app).pendingUpdate?.version,
+          equals('2.1.0'));
+      expect(controller.getState(ComponentType.app).version, equals('2.0.0'));
+
+      // yt-dlp and yt-dlp-ejs remained untouched (no network call since < 6h)
+      expect(controller.getState(ComponentType.ytDlp).status,
+          equals(ComponentStatus.upToDate));
+      expect(controller.getState(ComponentType.ytDlpEjs).status,
+          equals(ComponentStatus.upToDate));
+    });
+
+    test(
+        '8. App version upgrade with stale cached update (downgrade prevention): Evicts stale cache and marks upToDate if remote is same version',
+        () async {
+      // Simulate platform version upgraded from 1.0.0 to 2.0.0
+      PackageInfo.setMockInitialValues(
+        appName: 'Vidra',
+        packageName: 'com.vidra.app',
+        version: '2.0.0',
+        buildNumber: '2',
+        buildSignature: '',
+      );
+
+      final now = DateTime.now().millisecondsSinceEpoch;
+      final twoHoursAgo = now - const Duration(hours: 2).inMilliseconds;
+
+      // Stale cache from intermediate release 1.5.0
+      final staleInfo = UpdateInfo(
+        version: '1.5.0',
+        downloadUrl: 'https://example.com/old.apk',
+        changelog: 'Old',
+      );
+
+      SharedPreferences.setMockInitialValues({
+        'version_app': '1.0.0',
+        'last_update_check_app': twoHoursAgo,
+        'discovered_version_app': '1.5.0',
+        'discovered_info_app': jsonEncode(staleInfo.toJson()),
+        'last_update_check_yt_dlp': twoHoursAgo,
+        'last_update_check_yt_dlp_ejs': twoHoursAgo,
+        'version_yt_dlp': '2026.01.01',
+        'version_yt_dlp_ejs': '1.0.0',
+      });
+      final prefs = await SharedPreferences.getInstance();
+
+      Directory('${tempDir.path}/core_modules/yt_dlp')
+          .createSync(recursive: true);
+      File('${tempDir.path}/core_modules/yt_dlp/main.py')
+          .writeAsStringSync('code');
+      Directory('${tempDir.path}/core_modules/yt_dlp_ejs')
+          .createSync(recursive: true);
+      File('${tempDir.path}/core_modules/yt_dlp_ejs/main.py')
+          .writeAsStringSync('code');
+
+      // Remote release is 2.0.0 (same as newly installed version)
+      fakeGithub.appUpdate = UpdateInfo(
+        version: '2.0.0',
+        downloadUrl: 'https://example.com/vidra-2.0.0.apk',
+        changelog: 'Current release',
+      );
+
+      final controller = UpdateController(fakeGithub, fakeSystem, prefs);
+      await Future<void>.delayed(const Duration(milliseconds: 50));
+
+      // Network check performed for app
+      expect(fakeGithub.fetchCallCount, equals(1));
+      // Stale cache was evicted and status is upToDate (no bogus update to 1.5.0)
+      expect(controller.getState(ComponentType.app).status,
+          equals(ComponentStatus.upToDate));
+      expect(controller.getState(ComponentType.app).pendingUpdate, isNull);
+      expect(prefs.getString('discovered_version_app'), isNull);
+      expect(prefs.getString('discovered_info_app'), isNull);
+      expect(prefs.getString('version_app'), equals('2.0.0'));
+    });
+
+    test(
+        '9. Fresh install behavior: Records baseline version_app and runs initial checks when no timestamps exist',
+        () async {
+      // Clean prefs without version_app or last_update_check_*
+      SharedPreferences.setMockInitialValues({});
+      final prefs = await SharedPreferences.getInstance();
+
+      Directory('${tempDir.path}/core_modules/yt_dlp')
+          .createSync(recursive: true);
+      File('${tempDir.path}/core_modules/yt_dlp/main.py')
+          .writeAsStringSync('code');
+      Directory('${tempDir.path}/core_modules/yt_dlp_ejs')
+          .createSync(recursive: true);
+      File('${tempDir.path}/core_modules/yt_dlp_ejs/main.py')
+          .writeAsStringSync('code');
+
+      fakeGithub.appUpdate = UpdateInfo(
+        version: '1.0.0',
+        downloadUrl: 'https://example.com/app.apk',
+        changelog: 'Initial',
+      );
+
+      final controller = UpdateController(fakeGithub, fakeSystem, prefs);
+      await Future<void>.delayed(const Duration(milliseconds: 50));
+
+      // Baseline version_app stored in prefs
+      expect(prefs.getString('version_app'), equals('1.0.0'));
+
+      // Checks performed for components because lastCheck was 0 (elapsed >= 6h)
+      expect(fakeGithub.fetchCallCount, greaterThan(0));
+      expect(controller.getState(ComponentType.app).status,
+          equals(ComponentStatus.upToDate));
     });
   });
 }
