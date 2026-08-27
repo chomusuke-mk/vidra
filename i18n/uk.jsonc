@@ -346,5 +346,19 @@
   "sd_linux_deb_title": "Оновити Vidra (пакет DEB)",
   "sd_linux_appimage_msg": "Скористайтеся appimageupdatetool або завантажте останню версію AppImage з GitHub:",
   "ssi_bubble_message": "Доступні оновлення для компонентів Vidra. Натисніть «Показати», щоб переглянути та встановити.",
-  "ssi_bubble_button_show": "Дисплей"
+  "ssi_bubble_button_show": "Дисплей",
+  "s_force_keyframes_at_cuts_desc": "Під час завантаження/розбивання/видалення розділів примусово встановлюйте ключові кадри в розрізах.\nЦе повільно через потребу повторного кодування, але отримане відео може мати менше артефактів навколо скорочень",
+  "d_cut_video": "Вирізати відео",
+  "cv_close": "Закрити",
+  "cv_title": "Вирізати відео",
+  "cv_description": "Видаляє сегменти з категорій SponsorBlock.",
+  "s_cut_video": "Вирізати відео",
+  "s_cut_video_desc": "Розрізає відео між вказаними межами часу початку та закінчення.",
+  "s_cut_video_start": "Почніть",
+  "s_cut_video_end": "Кінець",
+  "s_cut_video_until_end": "Завантажити до кінця",
+  "s_cut_video_hours": "години",
+  "s_cut_video_minutes": "хвилин",
+  "s_cut_video_seconds": "секунд",
+  "s_force_keyframes_at_cuts": "Примусове використання ключових кадрів у фрагментах"
 }

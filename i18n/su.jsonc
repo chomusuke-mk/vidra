@@ -346,5 +346,19 @@
   "sd_command_copied": "Paréntah disalin kana clipboard",
   "sd_channel_stable": "Stabil",
   "sd_channel_nightly": "Sapeuting",
-  "ssi_bubble_button_show": "tampilan"
+  "ssi_bubble_button_show": "tampilan",
+  "cv_title": "Potong Video",
+  "s_cut_video_desc": "Motong video antara wates waktu mimiti jeung tungtung nu ditangtukeun.",
+  "s_cut_video_start": "Mimitian",
+  "d_cut_video": "Potong Video",
+  "cv_close": "Tutup",
+  "cv_description": "Ngahapus bagéan tina kategori SponsorBlock.",
+  "s_cut_video": "Potong Video",
+  "s_cut_video_end": "Tungtung",
+  "s_cut_video_until_end": "Ngundeur nepi ka ahir",
+  "s_cut_video_hours": "Jam-jaman",
+  "s_cut_video_minutes": "Menit",
+  "s_cut_video_seconds": "Detik-detik",
+  "s_force_keyframes_at_cuts": "Angkatan Keyframes di motong",
+  "s_force_keyframes_at_cuts_desc": "Maksakeun keyframes dina motong nalika ngundeur / ngabagi / nyoplokkeun bagian.\nIeu lambat kusabab peryogi encode ulang, tapi video anu dihasilkeun tiasa gaduh artifak langkung sakedik di sekitar potongan."
 }

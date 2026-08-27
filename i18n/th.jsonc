@@ -346,5 +346,19 @@
   "sd_linux_snap_title": "อัปเดต Vidra (Snap)",
   "sd_linux_snap_msg": "กำลังเปิด Snap Store เพื่ออัปเดต Vidra...",
   "sd_copy_command": "คำสั่งคัดลอก",
-  "sd_channel_stable": "มั่นคง"
+  "sd_channel_stable": "มั่นคง",
+  "d_cut_video": "ตัดวิดีโอ",
+  "cv_title": "ตัดวิดีโอ",
+  "cv_close": "ปิด",
+  "cv_description": "ลบเซ็กเมนต์ออกจากหมวดหมู่ SponsorBlock",
+  "s_cut_video": "ตัดวิดีโอ",
+  "s_cut_video_desc": "ตัดวิดีโอระหว่างขอบเขตเวลาเริ่มต้นและสิ้นสุดที่ระบุ",
+  "s_cut_video_start": "เริ่ม",
+  "s_cut_video_end": "จบ",
+  "s_cut_video_until_end": "ดาวน์โหลดจนจบ",
+  "s_cut_video_hours": "ชั่วโมง",
+  "s_cut_video_minutes": "นาที",
+  "s_cut_video_seconds": "วินาที",
+  "s_force_keyframes_at_cuts": "บังคับคีย์เฟรมที่ Cuts",
+  "s_force_keyframes_at_cuts_desc": "บังคับให้คีย์เฟรมตัดเมื่อดาวน์โหลด/แยก/ลบส่วนต่างๆ\nการดำเนินการนี้ช้าเนื่องจากต้องมีการเข้ารหัสใหม่ แต่วิดีโอที่ได้อาจมีส่วนที่ผิดปกติน้อยลงในการตัด"
 }

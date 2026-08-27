@@ -346,5 +346,19 @@
   "dc_action_retry": "Zama kwakhona",
   "dc_action_delete": "Cima",
   "d_engine_downloading": "Kuthotywa umthwalo wenjini...",
-  "sd_linux_deb_msg": "Uvimba weVidra uqwalaselwe. Sebenzisa lo myalelo ulandelayo kwi-terminal ukuze uhlaziye:"
+  "sd_linux_deb_msg": "Uvimba weVidra uqwalaselwe. Sebenzisa lo myalelo ulandelayo kwi-terminal ukuze uhlaziye:",
+  "s_cut_video_hours": "Iiyure",
+  "s_cut_video_minutes": "Imizuzu",
+  "cv_description": "Isusa amacandelo kwiindidi zeSponsorBlock.",
+  "d_cut_video": "Sika ividiyo",
+  "cv_title": "Sika ividiyo",
+  "cv_close": "Vala",
+  "s_cut_video_desc": "Sika ividiyo phakathi kwemida yexesha lokuqala nelokuphela.",
+  "s_cut_video_start": "Qala",
+  "s_cut_video_end": "Isiphelo",
+  "s_cut_video_until_end": "Khuphela kude kube sekupheleni",
+  "s_force_keyframes_at_cuts": "Nyanzela ii-keyframes kwi-Cuts",
+  "s_cut_video_seconds": "Imizuzwana",
+  "s_cut_video": "Sika ividiyo",
+  "s_force_keyframes_at_cuts_desc": "Nyanzela izakhelo ezingundoqo xa uthoba umthwalo/ukwahlula/ususa amacandelo.\nOku kuyacotha ngenxa yokufuna ukuphinda kufakwe ikhowudi, kodwa ividiyo enesiphumo inokuba nezinto zakudala ezimbalwa ezijikeleze ukusikwa."
 }

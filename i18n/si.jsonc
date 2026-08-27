@@ -346,5 +346,19 @@
   "sd_channel_nightly": "රාත්රී",
   "ssi_bubble_title": "යාවත්කාලීන ලබා ගත හැක",
   "ssi_bubble_message": "Vidra සංරචක සඳහා යාවත්කාලීන ලබා ගත හැකිය. සමාලෝචනය කිරීමට සහ ස්ථාපනය කිරීමට පෙන්වන්න තට්ටු කරන්න.",
-  "ssi_bubble_button_dismiss": "අස් කරන්න"
+  "ssi_bubble_button_dismiss": "අස් කරන්න",
+  "d_cut_video": "වීඩියෝ කපා",
+  "cv_title": "වීඩියෝ කපා",
+  "cv_close": "වසන්න",
+  "cv_description": "SponsorBlock ප්‍රවර්ග වලින් කොටස් ඉවත් කරයි.",
+  "s_cut_video": "වීඩියෝ කපා",
+  "s_cut_video_desc": "නිශ්චිත ආරම්භක සහ අවසන් කාල සීමාවන් අතර වීඩියෝව කපයි.",
+  "s_cut_video_start": "ආරම්භ කරන්න",
+  "s_cut_video_end": "අවසානය",
+  "s_cut_video_until_end": "අවසානය දක්වා බාගත කරන්න",
+  "s_cut_video_hours": "පැය",
+  "s_cut_video_minutes": "මිනිත්තු",
+  "s_cut_video_seconds": "තත්පර",
+  "s_force_keyframes_at_cuts": "කැපීමේදී යතුරු රාමු බල කරන්න",
+  "s_force_keyframes_at_cuts_desc": "කොටස් බාගැනීමේදී/බෙදීමේදී/ඉවත් කිරීමේදී කැපීමේදී යතුරු රාමු බල කරන්න.\nමෙය ප්‍රති-කේතනයක් අවශ්‍ය නිසා මන්දගාමී වේ, නමුත් ප්‍රතිඵලයක් ලෙස ලැබෙන වීඩියෝවේ කැපුම් වටා කෞතුක වස්තු අඩු විය හැක"
 }

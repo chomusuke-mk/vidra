@@ -346,5 +346,19 @@
   "sd_linux_snap_title": "Actualizați Vidra (Snap)",
   "sd_channel_stable": "Stabil",
   "sd_changelog": "Jurnalul modificărilor",
-  "ssi_bubble_button_show": "Afişa"
+  "ssi_bubble_button_show": "Afişa",
+  "d_cut_video": "Tăiați videoclipul",
+  "cv_title": "Tăiați videoclipul",
+  "cv_close": "Aproape",
+  "cv_description": "Elimină segmente din categoriile SponsorBlock.",
+  "s_cut_video": "Tăiați videoclipul",
+  "s_cut_video_desc": "Reduce videoclipul între limitele specificate de timp de început și de sfârșit.",
+  "s_cut_video_start": "Început",
+  "s_cut_video_end": "Sfârşit",
+  "s_cut_video_until_end": "Descărcați până la sfârșit",
+  "s_cut_video_hours": "Ore",
+  "s_cut_video_minutes": "Minute",
+  "s_cut_video_seconds": "secunde",
+  "s_force_keyframes_at_cuts": "Forțați cadrele cheie la tăieturi",
+  "s_force_keyframes_at_cuts_desc": "Forțați cadrele cheie la tăieturi atunci când descărcați/divizați/eliminați secțiuni.\nAcest lucru este lent din cauza necesității unei re-codări, dar videoclipul rezultat poate avea mai puține artefacte în jurul tăierilor"
 }

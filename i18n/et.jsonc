@@ -346,5 +346,19 @@
   "sd_linux_snap_msg": "Snap Store'i avamine Vidra värskendamiseks...",
   "sd_copy_command": "Kopeeri käsk",
   "sd_donate": "Anneta",
-  "sd_changelog": "Muudatuste logi"
+  "sd_changelog": "Muudatuste logi",
+  "d_cut_video": "Lõika video",
+  "cv_title": "Lõika video",
+  "cv_close": "Sule",
+  "cv_description": "Eemaldab segmendid SponsorBlocki kategooriatest.",
+  "s_cut_video": "Lõika video",
+  "s_cut_video_desc": "Lõikab video määratud algus- ja lõpuaja piiride vahel.",
+  "s_cut_video_start": "Alusta",
+  "s_cut_video_end": "Lõpp",
+  "s_cut_video_until_end": "Laadige alla kuni lõpuni",
+  "s_cut_video_hours": "Tundi",
+  "s_cut_video_minutes": "Minutid",
+  "s_cut_video_seconds": "Sekundid",
+  "s_force_keyframes_at_cuts": "Sundige võtmekaadreid lõikes",
+  "s_force_keyframes_at_cuts_desc": "Sundige võtmekaadreid lõikude allalaadimisel/tükeldamisel/eemaldamisel kärpimisel.\nSee on aeglane, kuna on vaja uuesti kodeerida, kuid saadud videol võib lõigete ümber olla vähem artefakte"
 }

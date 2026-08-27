@@ -346,5 +346,19 @@
   "dc_action_delete": "Ka jɔsi",
   "sd_linux_appimage_msg": "Baara kɛ ni appimageupdatetool ye walima ka AppImage laban telesarse ka bɔ GitHub kɔnɔ:",
   "sd_command_copied": "Cikan kopi kɛra ka kɛ clipboard ye",
-  "ssi_bubble_message": "Kuma kura bɛ sɔrɔ Vidra yɔrɔw kan. I bolo digi Show kan walisa ka segin a kan ani k’a sigi."
+  "ssi_bubble_message": "Kuma kura bɛ sɔrɔ Vidra yɔrɔw kan. I bolo digi Show kan walisa ka segin a kan ani k’a sigi.",
+  "d_cut_video": "Videyo tigɛlen",
+  "cv_title": "Videyo tigɛlen",
+  "cv_close": "Ka datugu",
+  "cv_description": "A bɛ segin-ka-bɔnyew bɔ SponsorBlock kuluw kɔnɔ.",
+  "s_cut_video": "Videyo tigɛlen",
+  "s_cut_video_desc": "A bɛ wideyo tigɛ daminɛ ni laban waati dancɛ kofɔlenw cɛ.",
+  "s_cut_video_end": "Laban",
+  "s_cut_video_start": "Ka daminɛ",
+  "s_cut_video_until_end": "Télécharger fo ka se a laban ma",
+  "s_cut_video_hours": "Lɛrɛw",
+  "s_cut_video_minutes": "Ɲɔgɔnyesɛbɛn",
+  "s_cut_video_seconds": "Seginnkanni",
+  "s_force_keyframes_at_cuts": "Force Keyframes ka Cuts",
+  "s_force_keyframes_at_cuts_desc": "Aw bɛ keyframes (keyframes) wajibiya tigɛyɔrɔw la ni aw bɛ yɔrɔw telesarse/tila/bɔ.\nO bɛ kɛ dɔɔnin dɔɔnin k’a sababu kɛ a mago bɛ segin-ka-bɔnye la, nka wideyo min bɛ sɔrɔ o la, o bɛ se ka kɛ ko fɛn dɔw bɛ sɔrɔ tigɛw lamini na"
 }

@@ -346,5 +346,19 @@
   "sd_linux_deb_msg": "De Vidra Repository ass konfiguréiert. Fëllt de folgende Kommando am Terminal fir ze aktualiséieren:",
   "sd_linux_appimage_title": "Update Vidra (AppImage)",
   "sd_linux_snap_title": "Update Vidra (Snap)",
-  "sd_copy_command": "Kopie Kommando"
+  "sd_copy_command": "Kopie Kommando",
+  "d_cut_video": "Video schneiden",
+  "cv_title": "Video schneiden",
+  "cv_close": "Zoumaachen",
+  "cv_description": "Ewechzehuelen Segmenter aus SponsorBlock Kategorien.",
+  "s_cut_video": "Video schneiden",
+  "s_cut_video_desc": "Schnëtt Video tëscht spezifizéierte Start- an Ennzäitgrenzen.",
+  "s_cut_video_start": "Start",
+  "s_cut_video_end": "Enn",
+  "s_cut_video_until_end": "Download bis zum Schluss",
+  "s_cut_video_hours": "Stonnen",
+  "s_cut_video_minutes": "Minutt",
+  "s_cut_video_seconds": "Sekonnen",
+  "s_force_keyframes_at_cuts": "Force Keyframes bei Cuts",
+  "s_force_keyframes_at_cuts_desc": "Force Keyframes bei Schnëtt beim Download / Spaltung / Ewechhuele vun Sektiounen.\nDëst ass lues wéinst der Noutwendegkeet vun engem Neikodéierung, awer de resultéierende Video kann manner Artefakte ronderëm d'Schnëtt hunn"
 }

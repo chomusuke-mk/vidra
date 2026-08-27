@@ -346,5 +346,19 @@
   "sd_linux_appimage_title": "Vidra を更新する (AppImage)",
   "ssi_bubble_button_dismiss": "却下する",
   "sd_state_starting_backend": "エンジンを始動中...",
-  "dc_action_details": "詳細"
+  "dc_action_details": "詳細",
+  "d_cut_video": "ビデオをカットする",
+  "cv_title": "ビデオをカットする",
+  "cv_close": "近い",
+  "cv_description": "SponsorBlock カテゴリからセグメントを削除します。",
+  "s_cut_video": "ビデオをカットする",
+  "s_cut_video_desc": "指定された開始時間と終了時間の境界の間でビデオをカットします。",
+  "s_cut_video_start": "始める",
+  "s_cut_video_end": "終わり",
+  "s_cut_video_until_end": "最後までダウンロードしてください",
+  "s_cut_video_hours": "営業時間",
+  "s_cut_video_minutes": "分",
+  "s_cut_video_seconds": "秒",
+  "s_force_keyframes_at_cuts": "カット時にキーフレームを強制する",
+  "s_force_keyframes_at_cuts_desc": "セクションをダウンロード/分割/削除するときにカットでキーフレームを強制します。\n再エンコードが必要なため速度は遅くなりますが、結果として得られるビデオにはカット付近のアーティファクトが少なくなる可能性があります。"
 }

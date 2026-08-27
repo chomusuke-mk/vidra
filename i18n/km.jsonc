@@ -346,5 +346,19 @@
   "sd_linux_appimage_title": "អាប់ដេត Vidra (AppImage)",
   "sd_copy_command": "ចម្លងពាក្យបញ្ជា",
   "sd_command_copied": "ពាក្យបញ្ជាត្រូវបានចម្លងទៅក្ដារតម្បៀតខ្ទាស់",
-  "sd_channel_nightly": "យប់"
+  "sd_channel_nightly": "យប់",
+  "d_cut_video": "កាត់វីដេអូ",
+  "cv_title": "កាត់វីដេអូ",
+  "cv_close": "បិទ",
+  "cv_description": "យកផ្នែកចេញពីប្រភេទ SponsorBlock ។",
+  "s_cut_video": "កាត់វីដេអូ",
+  "s_cut_video_desc": "កាត់​វីដេអូ​រវាង​ព្រំដែន​ពេល​ចាប់​ផ្តើម និង​ពេល​បញ្ចប់​ដែល​បាន​បញ្ជាក់។",
+  "s_cut_video_start": "ចាប់ផ្តើម",
+  "s_cut_video_end": "ចប់",
+  "s_cut_video_until_end": "ទាញយករហូតដល់ចប់",
+  "s_cut_video_hours": "ម៉ោង",
+  "s_cut_video_minutes": "នាទី",
+  "s_cut_video_seconds": "វិនាទី",
+  "s_force_keyframes_at_cuts": "បង្ខំ Keyframes នៅ Cuts",
+  "s_force_keyframes_at_cuts_desc": "បង្ខំស៊ុមគន្លឹះនៅពេលកាត់នៅពេលទាញយក/បំបែក/ដកផ្នែក។\nនេះយឺត ដោយសារត្រូវការការអ៊ិនកូដឡើងវិញ ប៉ុន្តែវីដេអូលទ្ធផលអាចមានវត្ថុបុរាណតិចជាងមុនជុំវិញការកាត់"
 }

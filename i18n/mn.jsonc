@@ -346,5 +346,19 @@
   "ssi_bubble_button_show": "Дэлгэц",
   "sd_app_engine": "App Engine",
   "sd_app_engine_connected": "App Engine: Холбогдсон",
-  "sd_all_working_normally": "Бүх зүйл хэвийн ажиллаж байна"
+  "sd_all_working_normally": "Бүх зүйл хэвийн ажиллаж байна",
+  "d_cut_video": "Видео хайч",
+  "cv_title": "Видео хайч",
+  "cv_close": "Хаах",
+  "s_cut_video": "Видео хайч",
+  "s_cut_video_until_end": "Дуустал нь татаж аваарай",
+  "s_cut_video_hours": "Цаг",
+  "s_cut_video_minutes": "Минут",
+  "s_cut_video_seconds": "Секунд",
+  "s_force_keyframes_at_cuts": "Түлхүүр фрэймүүдийг огтлох үед хүчлэх",
+  "s_force_keyframes_at_cuts_desc": "Хэсгүүдийг татаж авах/хуваах/хасах үед түлхүүр фрэймүүдийг хүчлэх.\nДахин кодчилол хийх шаардлагатай байгаа тул энэ нь удаашралтай байгаа хэдий ч үүсэж буй видео нь зүслэгийн эргэн тойронд цөөн тооны олдвортой байж болзошгүй.",
+  "cv_description": "SponsorBlock ангилалаас сегментүүдийг устгана.",
+  "s_cut_video_desc": "Заасан эхлэх ба дуусах цагийн хооронд видеог таслана.",
+  "s_cut_video_start": "Эхлэх",
+  "s_cut_video_end": "Төгсгөл"
 }

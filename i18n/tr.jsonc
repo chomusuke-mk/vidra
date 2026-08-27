@@ -346,5 +346,19 @@
   "sd_linux_snap_title": "Vidra'yı Güncelle (Anlık)",
   "sd_command_copied": "Komut panoya kopyalandı",
   "sd_channel_nightly": "her gece",
-  "sd_donate": "Bağış yapmak"
+  "sd_donate": "Bağış yapmak",
+  "s_cut_video": "Videoyu Kes",
+  "d_cut_video": "Videoyu Kes",
+  "cv_title": "Videoyu Kes",
+  "cv_close": "Kapalı",
+  "cv_description": "Segmentleri SponsorBlock kategorilerinden kaldırır.",
+  "s_cut_video_desc": "Videoyu belirtilen başlangıç ​​ve bitiş zamanı sınırları arasında keser.",
+  "s_cut_video_start": "Başlangıç",
+  "s_cut_video_end": "Son",
+  "s_cut_video_until_end": "Sonuna kadar indirin",
+  "s_cut_video_minutes": "dakika",
+  "s_force_keyframes_at_cuts": "Kesimlerde Anahtar Kareleri Zorla",
+  "s_cut_video_hours": "Saat",
+  "s_cut_video_seconds": "Saniye",
+  "s_force_keyframes_at_cuts_desc": "Bölümleri indirirken/bölerken/kaldırırken kesmelerde anahtar kareleri zorlayın.\nYeniden kodlamaya ihtiyaç duyulduğundan bu işlem yavaştır ancak elde edilen videoda kesmelerin etrafında daha az bozulma olabilir"
 }

@@ -346,5 +346,19 @@
   "sd_state_missing_resources": "פעלנדיק קאַמפּאָונאַנץ",
   "sd_state_fatal_error": "פאַטאַל טעות",
   "dc_action_play": "שפּיל",
-  "dc_action_open_folder": "עפֿן טעקע"
+  "dc_action_open_folder": "עפֿן טעקע",
+  "cv_description": "רימוווז סעגמאַנץ פון SponsorBlock קאַטעגאָריעס.",
+  "s_cut_video": "שנייַדן ווידעא",
+  "s_cut_video_desc": "קאַטס ווידעא צווישן ספּעסיפיעד אָנהייב און סוף צייט באַונדריז.",
+  "s_cut_video_start": "אָנהייב",
+  "cv_title": "שנייַדן ווידעא",
+  "d_cut_video": "שנייַדן ווידעא",
+  "cv_close": "נאָענט",
+  "s_cut_video_end": "סוף",
+  "s_cut_video_until_end": "אראפקאפיע ביז דעם סוף",
+  "s_cut_video_hours": "שעהן",
+  "s_cut_video_seconds": "סעקונדעס",
+  "s_force_keyframes_at_cuts": "קראַפט קייפראַמעס אין קאַץ",
+  "s_force_keyframes_at_cuts_desc": "קראַפט קיפראַמעס ביי קאַץ ווען דאַונלאָודינג / ספּליטינג / רימוווינג סעקשאַנז.\nדאָס איז פּאַמעלעך ווייַל איר דאַרפֿן אַ שייַעך-ענקאָוד, אָבער די ריזאַלטינג ווידעא קען האָבן ווייניקערע אַרטאַפאַקץ אַרום די קאַץ",
+  "s_cut_video_minutes": "מינוטן"
 }

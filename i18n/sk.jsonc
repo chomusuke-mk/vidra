@@ -346,5 +346,19 @@
   "dc_action_delete": "Odstrániť",
   "sd_linux_deb_msg": "Úložisko Vidra je nakonfigurované. Ak chcete aktualizovať, spustite v termináli nasledujúci príkaz:",
   "sd_linux_snap_title": "Aktualizovať Vidra (Snap)",
-  "sd_command_copied": "Príkaz bol skopírovaný do schránky"
+  "sd_command_copied": "Príkaz bol skopírovaný do schránky",
+  "d_cut_video": "Vystrihnúť video",
+  "cv_title": "Vystrihnúť video",
+  "cv_close": "Zavrieť",
+  "cv_description": "Odstráni segmenty z kategórií SponsorBlock.",
+  "s_cut_video": "Vystrihnúť video",
+  "s_cut_video_desc": "Prestrihne video medzi určenými časovými hranicami začiatku a konca.",
+  "s_cut_video_start": "Štart",
+  "s_cut_video_end": "Koniec",
+  "s_cut_video_until_end": "Stiahnite si až do konca",
+  "s_cut_video_hours": "hodiny",
+  "s_cut_video_minutes": "Minúty",
+  "s_cut_video_seconds": "sekúnd",
+  "s_force_keyframes_at_cuts": "Vynútiť kľúčové snímky pri rezoch",
+  "s_force_keyframes_at_cuts_desc": "Vynútiť kľúčové snímky pri strihoch pri sťahovaní/rozdeľovaní/odstraňovaní sekcií.\nJe to pomalé kvôli potrebe opätovného kódovania, ale výsledné video môže mať okolo strihov menej artefaktov"
 }

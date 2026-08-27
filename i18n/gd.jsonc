@@ -346,5 +346,19 @@
   "dc_action_cancel": "Sguir dheth",
   "dc_action_delete": "Sguab às",
   "sd_linux_deb_msg": "Tha stòr Vidra air a rèiteachadh. Ruith an àithne a leanas ann an terminal gus ùrachadh:",
-  "sd_linux_appimage_msg": "Cleachd appimageupdatetool no luchdaich sìos an AppImage as ùire bho GitHub:"
+  "sd_linux_appimage_msg": "Cleachd appimageupdatetool no luchdaich sìos an AppImage as ùire bho GitHub:",
+  "d_cut_video": "Gearr bhidio",
+  "cv_title": "Gearr bhidio",
+  "cv_close": "Dùin",
+  "cv_description": "Thoir air falbh earrannan bho roinnean SponsorBlock.",
+  "s_cut_video": "Gearr bhidio",
+  "s_cut_video_desc": "A’ gearradh bhidio eadar crìochan ùine tòiseachaidh is crìochnachaidh ainmichte.",
+  "s_cut_video_start": "Tòisich",
+  "s_cut_video_end": "Crìochnaich",
+  "s_cut_video_until_end": "Luchdaich a-nuas gus an deireadh",
+  "s_cut_video_hours": "Uairean",
+  "s_cut_video_minutes": "Mionaidean",
+  "s_cut_video_seconds": "Diogan",
+  "s_force_keyframes_at_cuts": "Feachd Keyframes aig Cuts",
+  "s_force_keyframes_at_cuts_desc": "Feachd keyframes aig gearraidhean nuair a bhios tu a’ luchdachadh sìos / a’ sgoltadh / a’ toirt air falbh earrannan.\nTha seo slaodach air sgàth gu bheil feum air ath-chòdachadh, ach is dòcha gu bheil nas lugha de stuthan timcheall air na gearraidhean anns a’ bhidio a thig às."
 }

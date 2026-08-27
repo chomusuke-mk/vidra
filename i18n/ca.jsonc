@@ -346,5 +346,19 @@
   "ssi_bubble_button_show": "Mostra",
   "ssi_bubble_button_dismiss": "Descartar",
   "sd_app_engine_connected": "App Engine: connectat",
-  "dc_action_open_folder": "Obre la carpeta"
+  "dc_action_open_folder": "Obre la carpeta",
+  "cv_description": "Elimina segments de les categories de SponsorBlock.",
+  "s_cut_video_desc": "Retalla el vídeo entre els límits d'hora d'inici i de finalització especificats.",
+  "s_cut_video_until_end": "Descarrega fins al final",
+  "s_cut_video_hours": "Hores",
+  "s_cut_video_minutes": "Minuts",
+  "s_cut_video_seconds": "Segons",
+  "s_force_keyframes_at_cuts": "Força fotogrames clau a talls",
+  "s_force_keyframes_at_cuts_desc": "Força els fotogrames clau als talls en baixar/dividir/eliminar seccions.\nAixò és lent perquè necessita una nova codificació, però el vídeo resultant pot tenir menys artefactes al voltant dels talls.",
+  "s_cut_video": "Retalla el vídeo",
+  "s_cut_video_start": "Comença",
+  "d_cut_video": "Retalla el vídeo",
+  "cv_title": "Retalla el vídeo",
+  "cv_close": "Tancar",
+  "s_cut_video_end": "Final"
 }

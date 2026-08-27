@@ -346,5 +346,19 @@
   "dc_action_pause": "विराम द्या",
   "dc_action_cancel": "रद्द करा",
   "dc_action_delete": "हटवा",
-  "sd_copy_command": "कमांड कॉपी करा"
+  "sd_copy_command": "कमांड कॉपी करा",
+  "d_cut_video": "व्हिडिओ कट करा",
+  "cv_description": "SponsorBlock श्रेणींमधून विभाग काढून टाकते.",
+  "s_cut_video_desc": "निर्दिष्ट प्रारंभ आणि समाप्ती वेळ सीमा दरम्यान व्हिडिओ कट.",
+  "s_cut_video_start": "सुरू करा",
+  "s_cut_video_until_end": "शेवटपर्यंत डाउनलोड करा",
+  "s_cut_video_hours": "तास",
+  "s_cut_video_minutes": "मिनिटे",
+  "s_cut_video_seconds": "सेकंद",
+  "s_force_keyframes_at_cuts": "कट्सवर कीफ्रेम सक्ती करा",
+  "s_force_keyframes_at_cuts_desc": "विभाग डाउनलोड करताना/विभाजित करताना/काढत असताना कीफ्रेमवर सक्ती करा.\nरी-एनकोड आवश्यक असल्यामुळे हे धीमे आहे, परंतु परिणामी व्हिडिओमध्ये कटच्या आसपास कमी कलाकृती असू शकतात",
+  "cv_title": "व्हिडिओ कट करा",
+  "cv_close": "बंद करा",
+  "s_cut_video": "व्हिडिओ कट करा",
+  "s_cut_video_end": "शेवट"
 }

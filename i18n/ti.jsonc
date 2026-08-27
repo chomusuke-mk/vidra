@@ -346,5 +346,19 @@
   "sd_linux_appimage_msg": "appimageupdatetool ተጠቐም ወይ ድማ ካብ GitHub ዝሓሸ AppImage ኣውርድ፤",
   "sd_channel_stable": "ዝተረጋገአ",
   "sd_about_created_by": "ብ ቾሙሱከ ዝተፈጥረ",
-  "ssi_bubble_message": "ንኣካላት ቪድራ ዝምልከት ሓድሽ ሓበሬታ ኣሎ። ንምርኣይን ንምትካልን Show ጠውቕ።"
+  "ssi_bubble_message": "ንኣካላት ቪድራ ዝምልከት ሓድሽ ሓበሬታ ኣሎ። ንምርኣይን ንምትካልን Show ጠውቕ።",
+  "s_cut_video_seconds": "ካልኢታት",
+  "d_cut_video": "ቆሪጽካ ቪድዮ",
+  "cv_title": "ቆሪጽካ ቪድዮ",
+  "cv_close": "ዕፁው",
+  "cv_description": "ካብ ምድባት ስፖንሰርብሎክ ክፍልታት የወግድ።",
+  "s_cut_video": "ቆሪጽካ ቪድዮ",
+  "s_cut_video_desc": "ኣብ መንጎ ዝተወሰነ ናይ ምጅማርን መወዳእታን ግዜ ዶባት ቪድዮ ይቖርጽ።",
+  "s_cut_video_start": "ጀምር",
+  "s_cut_video_end": "መወዳእታ",
+  "s_cut_video_until_end": "ክሳብ መወዳእታ ኣውርድዎ።",
+  "s_cut_video_hours": "ሰዓታት",
+  "s_cut_video_minutes": "ደቒቓታት",
+  "s_force_keyframes_at_cuts": "ፎርስ ኪፍሬምስ ኣብ ምቑራጽ",
+  "s_force_keyframes_at_cuts_desc": "ክፍልታት ክትወርድ/ክትመቓቐል/ክትእለ ከለኻ ኣብ ምቑራጽ ቁልፊ ፍሬማት ኣገድድ።\nእዚ ብሰንኪ ዳግመ-ኢንኮድ ዘድልዮ ስሉጥ ኮይኑ፡ እቲ ውጽኢት ዝኾነ ቪድዮ ግን ኣብ ዙርያ እቲ ምቑራጽ ውሑድ ቅርስታት ክህልዎ ይኽእል እዩ።"
 }

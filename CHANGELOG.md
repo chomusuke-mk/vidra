@@ -4,6 +4,11 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [4.1.1] - Bug Fixes
+
+- **Missing Localization:** Fixed an issue where the localization for the cut video feature was missing, ensuring that users can view the feature in their preferred language.
+- **Force KeyFrames Option:** Now this option is in fast cut modal, allowing users to enable or disable the force keyframes setting when trimming videos, providing more control over the cutting process.
+
 ## [4.1.0] - New Features
 
 - **New Features:** Added cut video feature, allowing users to trim videos directly within the application. This feature provides a convenient way to edit videos without the need for external software, enhancing the overall functionality of the application.

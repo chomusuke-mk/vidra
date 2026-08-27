@@ -346,5 +346,19 @@
   "sd_donate": "Donearje",
   "ssi_bubble_title": "Update beskikber",
   "ssi_bubble_message": "Updates binne beskikber foar Vidra-komponinten. Tik op Lit sjen om te besjen en te ynstallearjen.",
-  "ssi_bubble_button_dismiss": "Dismiss"
+  "ssi_bubble_button_dismiss": "Dismiss",
+  "d_cut_video": "Fideo knippe",
+  "cv_title": "Fideo knippe",
+  "cv_close": "Slute",
+  "cv_description": "Ferwideret segminten út SponsorBlock-kategoryen.",
+  "s_cut_video": "Fideo knippe",
+  "s_cut_video_desc": "Knipt fideo tusken oantsjutte begjin- en eintiidgrinzen.",
+  "s_cut_video_start": "Start",
+  "s_cut_video_end": "Ein",
+  "s_cut_video_until_end": "Download oant it ein",
+  "s_cut_video_hours": "Oeren",
+  "s_cut_video_minutes": "Minuten",
+  "s_cut_video_seconds": "Sekonden",
+  "s_force_keyframes_at_cuts": "Force Keyframes by Cuts",
+  "s_force_keyframes_at_cuts_desc": "Tsjinje keyframes by besunigings by it ynladen / splitsen / fuortsmite fan seksjes.\nDit is traach fanwege it ferlet fan in opnij kodearring, mar de resultearjende fideo kin minder artefakten hawwe om de besunigings"
 }

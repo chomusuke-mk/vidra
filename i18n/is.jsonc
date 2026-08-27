@@ -346,5 +346,19 @@
   "sd_channel_nightly": "Á kvöldin",
   "sd_donate": "Gefðu",
   "ssi_bubble_button_show": "Skjár",
-  "ssi_bubble_button_dismiss": "Segja frá"
+  "ssi_bubble_button_dismiss": "Segja frá",
+  "d_cut_video": "Klippt myndband",
+  "cv_title": "Klippt myndband",
+  "cv_close": "Loka",
+  "cv_description": "Fjarlægir hluta úr SponsorBlock flokkum.",
+  "s_cut_video": "Klippt myndband",
+  "s_cut_video_desc": "Klippir myndband á milli tilgreindra upphafs- og lokatímamarka.",
+  "s_cut_video_start": "Byrjaðu",
+  "s_cut_video_end": "Enda",
+  "s_cut_video_until_end": "Sækja til enda",
+  "s_cut_video_hours": "Klukkutímar",
+  "s_cut_video_minutes": "Fundargerðir",
+  "s_cut_video_seconds": "Sekúndur",
+  "s_force_keyframes_at_cuts": "Force Keyframes á Cuts",
+  "s_force_keyframes_at_cuts_desc": "Þvingaðu lykilramma við klippingar þegar þú hleður niður/skiptir/fjarlægir hluta.\nÞetta er hægt vegna þess að þörf er á endurkóðun, en myndbandið sem myndast gæti verið með færri gripum í kringum skurðina"
 }

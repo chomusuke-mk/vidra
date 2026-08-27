@@ -346,5 +346,19 @@
   "dc_action_cancel": "Prekliči",
   "dc_action_delete": "Izbriši",
   "d_engine_downloading_desc": "Prenos zahtevanih osnovnih modulov (yt-dlp & yt-dlp-ejs). prosim počakajte ...",
-  "sd_linux_snap_title": "Posodobite Vidra (Snap)"
+  "sd_linux_snap_title": "Posodobite Vidra (Snap)",
+  "d_cut_video": "Izreži video",
+  "cv_title": "Izreži video",
+  "cv_close": "Zapri",
+  "cv_description": "Odstrani segmente iz kategorij SponsorBlock.",
+  "s_cut_video": "Izreži video",
+  "s_cut_video_desc": "Reže video med določenimi začetnimi in končnimi časovnimi mejami.",
+  "s_cut_video_start": "Začetek",
+  "s_cut_video_end": "Konec",
+  "s_cut_video_until_end": "Prenesite do konca",
+  "s_cut_video_hours": "ure",
+  "s_cut_video_minutes": "minute",
+  "s_cut_video_seconds": "sekund",
+  "s_force_keyframes_at_cuts": "Vsili ključne sličice pri rezih",
+  "s_force_keyframes_at_cuts_desc": "Pri prenosu/razdelitvi/odstranjevanju odsekov vsili ključne sličice na rezih.\nTo je počasno zaradi potrebe po ponovnem kodiranju, vendar bo nastali video morda imel manj artefaktov okoli rezov"
 }

@@ -346,5 +346,19 @@
   "sd_copy_command": "Salin Perintah",
   "sd_channel_stable": "Stabil",
   "sd_about_created_by": "Dicipta oleh Chomusuke",
-  "ssi_bubble_button_dismiss": "Tolak"
+  "ssi_bubble_button_dismiss": "Tolak",
+  "d_cut_video": "Potong Video",
+  "cv_description": "Mengalih keluar segmen daripada kategori SponsorBlock.",
+  "s_cut_video": "Potong Video",
+  "s_cut_video_desc": "Memotong video antara sempadan masa mula dan tamat yang ditentukan.",
+  "s_cut_video_start": "Mulakan",
+  "s_cut_video_end": "tamat",
+  "s_cut_video_until_end": "Muat turun sehingga tamat",
+  "s_cut_video_hours": "jam",
+  "s_cut_video_minutes": "minit",
+  "s_cut_video_seconds": "Detik",
+  "s_force_keyframes_at_cuts": "Paksa Kerangka Kunci di Potong",
+  "s_force_keyframes_at_cuts_desc": "Paksa bingkai utama pada pemotongan apabila memuat turun/memisahkan/mengalih keluar bahagian.\nIni lambat kerana memerlukan pengekodan semula, tetapi video yang dihasilkan mungkin mempunyai lebih sedikit artifak di sekeliling potongan",
+  "cv_title": "Potong Video",
+  "cv_close": "tutup"
 }

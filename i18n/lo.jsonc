@@ -346,5 +346,19 @@
   "sd_linux_snap_title": "ອັບເດດ Vidra (Snap)",
   "sd_linux_snap_msg": "ເປີດຮ້ານ Snap ເພື່ອອັບເດດ Vidra...",
   "sd_channel_nightly": "ກາງຄືນ",
-  "ssi_bubble_button_dismiss": "ປິດ"
+  "ssi_bubble_button_dismiss": "ປິດ",
+  "d_cut_video": "ຕັດວິດີໂອ",
+  "cv_title": "ຕັດວິດີໂອ",
+  "cv_close": "ປິດ",
+  "cv_description": "ລຶບພາກສ່ວນອອກຈາກໝວດໝູ່ SponsorBlock.",
+  "s_cut_video": "ຕັດວິດີໂອ",
+  "s_cut_video_desc": "ຕັດວິດີໂອລະຫວ່າງຂອບເຂດເວລາເລີ່ມຕົ້ນ ແລະເວລາສິ້ນສຸດທີ່ລະບຸໄວ້.",
+  "s_cut_video_start": "ເລີ່ມ",
+  "s_cut_video_end": "ຈົບ",
+  "s_cut_video_until_end": "ດາວ​ນ​໌​ໂຫລດ​ຈົນ​ກ​່​ວາ​ທີ່​ສຸດ​",
+  "s_cut_video_hours": "ຊົ່ວໂມງ",
+  "s_cut_video_minutes": "ນາທີ",
+  "s_cut_video_seconds": "ວິນາທີ",
+  "s_force_keyframes_at_cuts": "ບັງຄັບຄີເຟຣມທີ່ຕັດ",
+  "s_force_keyframes_at_cuts_desc": "ບັງຄັບຄີເຟຣມຕັດເມື່ອດາວໂຫລດ/ແຍກ/ເອົາພາກສ່ວນອອກ.\nອັນນີ້ຊ້າເນື່ອງຈາກຕ້ອງການການເຂົ້າລະຫັດໃໝ່, ແຕ່ຜົນອອກມາຈາກວິດີໂອອາດມີສິ່ງປອມໜ້ອຍລົງ."
 }

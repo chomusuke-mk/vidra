@@ -346,5 +346,19 @@
   "dc_action_cancel": "રદ કરો",
   "dc_action_delete": "કાઢી નાખો",
   "sd_linux_appimage_msg": "appimageupdatetool નો ઉપયોગ કરો અથવા GitHub માંથી નવીનતમ AppImage ડાઉનલોડ કરો:",
-  "sd_linux_snap_title": "વિદ્રા (સ્નેપ) અપડેટ કરો"
+  "sd_linux_snap_title": "વિદ્રા (સ્નેપ) અપડેટ કરો",
+  "d_cut_video": "વિડિઓ કાપો",
+  "cv_title": "વિડિઓ કાપો",
+  "cv_close": "બંધ કરો",
+  "cv_description": "સ્પોન્સરબ્લોક કેટેગરીઝમાંથી સેગમેન્ટ્સ દૂર કરે છે.",
+  "s_cut_video": "વિડિઓ કાપો",
+  "s_cut_video_desc": "ઉલ્લેખિત પ્રારંભ અને સમાપ્તિ સમય સીમાઓ વચ્ચે વિડિઓ કાપે છે.",
+  "s_cut_video_start": "શરૂ કરો",
+  "s_cut_video_end": "અંત",
+  "s_cut_video_until_end": "અંત સુધી ડાઉનલોડ કરો",
+  "s_cut_video_hours": "કલાક",
+  "s_cut_video_minutes": "મિનિટ",
+  "s_cut_video_seconds": "સેકન્ડ",
+  "s_force_keyframes_at_cuts": "કટ્સ પર કીફ્રેમને દબાણ કરો",
+  "s_force_keyframes_at_cuts_desc": "વિભાગોને ડાઉનલોડ/વિભાજન/દૂર કરતી વખતે કીફ્રેમને કટ પર દબાણ કરો.\nફરીથી એન્કોડની જરૂર હોવાને કારણે આ ધીમું છે, પરંતુ પરિણામી વિડિઓમાં કટની આસપાસ ઓછી આર્ટિફેક્ટ હોઈ શકે છે"
 }

@@ -346,5 +346,19 @@
   "sd_linux_appimage_title": "Eguneratu Vidra (AppImage)",
   "sd_linux_appimage_msg": "Erabili appimageupdatetool edo deskargatu azken AppImage GitHub-etik:",
   "sd_changelog": "Aldaketen erregistroa",
-  "ssi_bubble_button_dismiss": "Baztertu"
+  "ssi_bubble_button_dismiss": "Baztertu",
+  "d_cut_video": "Moztu bideoa",
+  "cv_title": "Moztu bideoa",
+  "cv_close": "Itxi",
+  "cv_description": "SponsorBlock kategorietatik segmentuak kentzen ditu.",
+  "s_cut_video": "Moztu bideoa",
+  "s_cut_video_desc": "Bideoa mozten du zehaztutako hasierako eta amaierako ordu-mugetan.",
+  "s_cut_video_start": "Hasi",
+  "s_cut_video_end": "Amaiera",
+  "s_cut_video_until_end": "Deskargatu amaierara arte",
+  "s_cut_video_hours": "Orduak",
+  "s_cut_video_minutes": "Minutuak",
+  "s_cut_video_seconds": "Segundoak",
+  "s_force_keyframes_at_cuts": "Behartu gako-fotograma mozketetan",
+  "s_force_keyframes_at_cuts_desc": "Behartu gako-fotograma mozketetan atalak deskargatzean/zatitzean/kentzean.\nHau motela da berriro kodetu behar delako, baina ondoriozko bideoak ebakien inguruan artefaktu gutxiago izan ditzake."
 }

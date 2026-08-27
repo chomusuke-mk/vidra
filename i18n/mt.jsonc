@@ -346,5 +346,19 @@
   "d_engine_downloading": "Niżżel il-magna tat-tniżżil...",
   "sd_linux_appimage_title": "Aġġorna Vidra (AppImage)",
   "sd_command_copied": "Kmand ikkupjat fil-clipboard",
-  "sd_changelog": "Changelog"
+  "sd_changelog": "Changelog",
+  "cv_title": "Aqta' Vidjo",
+  "cv_close": "Agħlaq",
+  "cv_description": "Tneħħi segmenti mill-kategoriji SponsorBlock.",
+  "s_cut_video": "Aqta' Vidjo",
+  "s_cut_video_desc": "Tnaqqas il-vidjo bejn il-konfini tal-ħin tal-bidu u tat-tmiem speċifikati.",
+  "s_cut_video_start": "Ibda",
+  "s_cut_video_end": "Tmiem",
+  "s_cut_video_until_end": "Niżżel sa l-aħħar",
+  "s_cut_video_hours": "Sigħat",
+  "s_cut_video_minutes": "Minuti",
+  "s_cut_video_seconds": "Sekondi",
+  "s_force_keyframes_at_cuts": "Forza Keyframes fi Qatgħat",
+  "s_force_keyframes_at_cuts_desc": "Forza keyframes fil-qatgħat meta tniżżel/taqsam/tneħħi sezzjonijiet.\nDan huwa bil-mod minħabba li jeħtieġ kodifikazzjoni mill-ġdid, iżda l-vidjo li jirriżulta jista 'jkollu inqas artifatti madwar il-qatgħat",
+  "d_cut_video": "Aqta' Vidjo"
 }

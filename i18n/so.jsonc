@@ -346,5 +346,19 @@
   "d_downloading_engine_progress": "Soo dejinaya cutubyada xudunta u ah ({helay}/{wadarta})...",
   "sd_linux_deb_title": "Cusbooneysii Vidra ( Xidhmada DEB)",
   "sd_linux_deb_msg": "Kaydka Vidra waa la habeeyey. Ku socodsii amarka soo socda ee terminalka si aad u cusboonaysiiso:",
-  "sd_changelog": "Changelog"
+  "sd_changelog": "Changelog",
+  "d_cut_video": "Jaray Video",
+  "cv_title": "Jaray Video",
+  "cv_close": "Xir",
+  "cv_description": "Ka saara qaybaha qaybaha SponsorBlock",
+  "s_cut_video": "Jaray Video",
+  "s_cut_video_desc": "Wuxuu gooyaa fiidyaha inta u dhaxaysa bilowga iyo dhammaadka wakhtiga xaddidan.",
+  "s_cut_video_start": "Bilow",
+  "s_cut_video_until_end": "Soo deji ilaa dhamaadka",
+  "s_cut_video_seconds": "Ilbiriqsi",
+  "s_force_keyframes_at_cuts": "Ku qasbi furayaasha furaha marka la gooyo",
+  "s_cut_video_end": "Dhammaad",
+  "s_cut_video_hours": "Saacadaha",
+  "s_cut_video_minutes": "Daqiiqado",
+  "s_force_keyframes_at_cuts_desc": "Ku qasbi furayaasha furayaasha marka la soo dejinayo/la qaybinayo/saarayo qaybaha.\nTani waa mid gaabis ah sababtoo ah u baahan dib-u-codeynta, laakiin fiidyowga ka soo baxa waxa laga yaabaa inay leeyihiin waxyaabo yaryar oo ku wareegsan goynta"
 }

@@ -346,5 +346,19 @@
   "sd_about_created_by": "작성자: Chomusuke",
   "sd_donate": "기부",
   "sd_changelog": "변경 내역",
-  "ssi_bubble_title": "업데이트 가능"
+  "ssi_bubble_title": "업데이트 가능",
+  "d_cut_video": "비디오 자르기",
+  "cv_title": "비디오 자르기",
+  "cv_close": "닫다",
+  "cv_description": "SponsorBlock 카테고리에서 세그먼트를 제거합니다.",
+  "s_cut_video": "비디오 자르기",
+  "s_cut_video_desc": "지정된 시작 시간과 종료 시간 경계 사이에서 비디오를 자릅니다.",
+  "s_cut_video_start": "시작",
+  "s_cut_video_end": "끝",
+  "s_cut_video_until_end": "끝까지 다운로드하세요",
+  "s_cut_video_hours": "시간",
+  "s_cut_video_minutes": "분",
+  "s_cut_video_seconds": "초",
+  "s_force_keyframes_at_cuts": "컷에서 강제 키프레임",
+  "s_force_keyframes_at_cuts_desc": "섹션을 다운로드/분할/제거할 때 컷에 키프레임을 강제 적용합니다.\n다시 인코딩해야 하기 때문에 속도가 느리지만 결과 비디오의 컷 주변에 아티팩트가 더 적게 나타날 수 있습니다."
 }

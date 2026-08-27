@@ -346,5 +346,19 @@
   "sd_state_retrying": "Notiek savienojuma atjaunošana...",
   "sd_state_missing_permissions": "Trūkst atļauju",
   "sd_state_missing_resources": "Trūkst komponentu",
-  "sd_state_fatal_error": "Liktenīga kļūda"
+  "sd_state_fatal_error": "Liktenīga kļūda",
+  "d_cut_video": "Izgriezt video",
+  "cv_title": "Izgriezt video",
+  "cv_close": "Aizvērt",
+  "cv_description": "Noņem segmentus no SponsorBlock kategorijām.",
+  "s_cut_video": "Izgriezt video",
+  "s_cut_video_desc": "Izgriež video starp norādītajām sākuma un beigu laika robežām.",
+  "s_cut_video_start": "Sākt",
+  "s_cut_video_end": "Beigas",
+  "s_cut_video_minutes": "Minūtes",
+  "s_force_keyframes_at_cuts": "Piespiediet atslēgkadrus pie izgriezumiem",
+  "s_force_keyframes_at_cuts_desc": "Lejupielādējot/sadalot/noņemot sadaļas, piespiediet atslēgkadrus pie izgriezumiem.\nTas notiek lēni, jo ir nepieciešams atkārtoti kodēt, taču iegūtajā videoklipā ap izgriezumiem var būt mazāk artefaktu",
+  "s_cut_video_seconds": "Sekundes",
+  "s_cut_video_hours": "Stundas",
+  "s_cut_video_until_end": "Lejupielādējiet līdz beigām"
 }

@@ -346,5 +346,19 @@
   "sd_copy_command": "କମାଣ୍ଡ୍ କପି କରନ୍ତୁ |",
   "sd_channel_stable": "ସ୍ଥିର |",
   "sd_donate": "ଦାନ କରନ୍ତୁ |",
-  "ssi_bubble_title": "ଅଦ୍ୟତନ ଉପଲବ୍ଧ |"
+  "ssi_bubble_title": "ଅଦ୍ୟତନ ଉପଲବ୍ଧ |",
+  "d_cut_video": "ଭିଡିଓ କାଟନ୍ତୁ |",
+  "cv_title": "ଭିଡିଓ କାଟନ୍ତୁ |",
+  "cv_close": "ବନ୍ଦ",
+  "cv_description": "SponsorBlock ବର୍ଗରୁ ବିଭାଗଗୁଡିକ ଅପସାରଣ କରେ |",
+  "s_cut_video": "ଭିଡିଓ କାଟନ୍ତୁ |",
+  "s_cut_video_desc": "ନିର୍ଦ୍ଦିଷ୍ଟ ଆରମ୍ଭ ଏବଂ ଶେଷ ସମୟ ସୀମା ମଧ୍ୟରେ ଭିଡିଓ କାଟିଦିଏ |",
+  "s_cut_video_start": "ଆରମ୍ଭ କରନ୍ତୁ |",
+  "s_cut_video_end": "ଶେଷ",
+  "s_cut_video_until_end": "ଶେଷ ପର୍ଯ୍ୟନ୍ତ ଡାଉନଲୋଡ୍ କରନ୍ତୁ |",
+  "s_cut_video_hours": "ଘଣ୍ଟା",
+  "s_cut_video_minutes": "ମିନିଟ୍ |",
+  "s_cut_video_seconds": "ସେକେଣ୍ଡ୍ |",
+  "s_force_keyframes_at_cuts": "କଟ୍ ରେ କିଫ୍ରାମ୍ ଫୋର୍ସ କରନ୍ତୁ |",
+  "s_force_keyframes_at_cuts_desc": "ବିଭାଗଗୁଡିକ ଡାଉନଲୋଡ୍ / ବିଭାଜନ / ଅପସାରଣ କରିବା ସମୟରେ କଟ୍ ଫ୍ରେମ୍ଗୁଡ଼ିକୁ ବାଧ୍ୟ କରନ୍ତୁ |\nପୁନ re- ଏନକୋଡ୍ ଆବଶ୍ୟକ ହେତୁ ଏହା ମନ୍ଥର, କିନ୍ତୁ ଫଳାଫଳ ହୋଇଥିବା ଭିଡିଓରେ କଟ୍ ଚାରିପାଖରେ କମ୍ କଳାକୃତି ରହିପାରେ |"
 }

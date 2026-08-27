@@ -346,5 +346,19 @@
   "sd_linux_appimage_msg": "Naudokite appimageupdatetool arba atsisiųskite naujausią AppImage iš GitHub:",
   "sd_channel_nightly": "Naktinis",
   "sd_changelog": "Pakeitimų žurnalas",
-  "ssi_bubble_button_dismiss": "Atsisakyti"
+  "ssi_bubble_button_dismiss": "Atsisakyti",
+  "d_cut_video": "Iškirpti vaizdo įrašą",
+  "cv_title": "Iškirpti vaizdo įrašą",
+  "cv_close": "Uždaryti",
+  "cv_description": "Pašalina segmentus iš SponsorBlock kategorijų.",
+  "s_cut_video": "Iškirpti vaizdo įrašą",
+  "s_cut_video_desc": "Supjausto vaizdo įrašą tarp nurodytų pradžios ir pabaigos laiko ribų.",
+  "s_cut_video_start": "Pradėti",
+  "s_cut_video_end": "Pabaiga",
+  "s_cut_video_until_end": "Atsisiųsti iki galo",
+  "s_cut_video_hours": "Valandos",
+  "s_cut_video_minutes": "Minutės",
+  "s_cut_video_seconds": "Sekundės",
+  "s_force_keyframes_at_cuts_desc": "Priverskite pagrindinius kadrus iškirpti, kai atsisiunčiate / skaidote / pašalinate dalis.\nTai vyksta lėtai, nes reikia iš naujo koduoti, bet gautame vaizdo įraše aplink išpjovas gali būti mažiau artefaktų",
+  "s_force_keyframes_at_cuts": "Force Keyframes at Cuts"
 }

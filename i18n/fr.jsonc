@@ -340,5 +340,19 @@
   "sd_linux_deb_msg": "Le référentiel Vidra est configuré. Exécutez la commande suivante dans le terminal pour mettre à jour :",
   "sd_channel_nightly": "Chaque nuit",
   "ssi_bubble_message": "Des mises à jour sont disponibles pour les composants Vidra. Appuyez sur Afficher pour vérifier et installer.",
-  "ssi_bubble_button_dismiss": "Rejeter"
+  "ssi_bubble_button_dismiss": "Rejeter",
+  "d_cut_video": "Couper la vidéo",
+  "cv_title": "Couper la vidéo",
+  "cv_close": "Fermer",
+  "cv_description": "Supprime les segments des catégories SponsorBlock.",
+  "s_cut_video": "Couper la vidéo",
+  "s_cut_video_desc": "Coupe la vidéo entre les limites d’heure de début et de fin spécifiées.",
+  "s_cut_video_start": "Commencer",
+  "s_cut_video_end": "Fin",
+  "s_cut_video_until_end": "Téléchargez jusqu'à la fin",
+  "s_cut_video_hours": "Heures",
+  "s_cut_video_minutes": "Minutes",
+  "s_cut_video_seconds": "Secondes",
+  "s_force_keyframes_at_cuts": "Forcer les images clés lors des coupes",
+  "s_force_keyframes_at_cuts_desc": "Forcer les images clés lors des coupures lors du téléchargement/fractionnement/suppression de sections.\nCeci est lent en raison de la nécessité d'un réencodage, mais la vidéo résultante peut présenter moins d'artefacts autour des coupes."
 }

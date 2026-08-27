@@ -346,5 +346,19 @@
   "d_engine_downloading_desc": "Kerakli asosiy modullar yuklab olinmoqda (yt-dlp & yt-dlp-ejs). Iltimos kuting...",
   "d_downloading_engine_progress": "Asosiy modullar yuklab olinmoqda ({received}/{jami})...",
   "sd_linux_appimage_title": "Vidra yangilash (AppImage)",
-  "sd_linux_snap_msg": "Vidra yangilash uchun Snap Store ochilmoqda..."
+  "sd_linux_snap_msg": "Vidra yangilash uchun Snap Store ochilmoqda...",
+  "s_cut_video_until_end": "Oxirigacha yuklab oling",
+  "s_cut_video_seconds": "soniyalar",
+  "s_force_keyframes_at_cuts_desc": "Bo'limlarni yuklab olish/bo'lish/o'chirishda asosiy kadrlarni kesishda majburlash.\nQayta kodlash zarurligi sababli bu sekin, lekin natijada olingan videoda kesmalar atrofida kamroq artefaktlar boʻlishi mumkin.",
+  "s_cut_video_hours": "Soat",
+  "cv_title": "Videoni kesish",
+  "d_cut_video": "Videoni kesish",
+  "cv_close": "Yopish",
+  "cv_description": "SponsorBlock toifalaridan segmentlarni olib tashlaydi.",
+  "s_cut_video": "Videoni kesish",
+  "s_cut_video_desc": "Belgilangan boshlanish va tugash vaqti chegaralari orasidagi videoni qisqartiradi.",
+  "s_cut_video_start": "Boshlash",
+  "s_cut_video_end": "Oxiri",
+  "s_cut_video_minutes": "Daqiqalar",
+  "s_force_keyframes_at_cuts": "Asosiy kadrlarni kesishda majburlash"
 }

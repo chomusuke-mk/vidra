@@ -346,5 +346,19 @@
   "sd_linux_deb_title": "Update Vidra (DEB Package)",
   "sd_linux_deb_msg": "Repositorium Vidra configuratur. Hoc mandatum terminatio ad update:",
   "sd_about_created_by": "Creatum a Chomusuke",
-  "ssi_bubble_button_show": "Ostendere"
+  "ssi_bubble_button_show": "Ostendere",
+  "d_cut_video": "Cut Video",
+  "cv_title": "Cut Video",
+  "cv_close": "Close",
+  "cv_description": "Segmenta a SponsorBlock genera removet.",
+  "s_cut_video": "Cut Video",
+  "s_cut_video_desc": "Inter praefinitum initium et finem temporis fines video secat.",
+  "s_cut_video_start": "Satus",
+  "s_cut_video_end": "End",
+  "s_cut_video_until_end": "Download usque ad finem",
+  "s_cut_video_hours": "Horae",
+  "s_cut_video_minutes": "Minuta",
+  "s_cut_video_seconds": "Secundis",
+  "s_force_keyframes_at_cuts": "Force Keyframes at Cuts",
+  "s_force_keyframes_at_cuts_desc": "Vis keyframes in secet cum sectiones downloading/scindendo/removendo.\nHoc lentum est propter re-encode egentem, sed video consequens fortasse habere artificia pauciora circa incisiones"
 }

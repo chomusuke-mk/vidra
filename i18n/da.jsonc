@@ -346,5 +346,19 @@
   "sd_about_created_by": "Skabt af Chomusuke",
   "sd_changelog": "Ændringslog",
   "ssi_bubble_title": "Opdatering tilgængelig",
-  "sd_app_engine_reconnecting": "App Engine: Genopretter forbindelse..."
+  "sd_app_engine_reconnecting": "App Engine: Genopretter forbindelse...",
+  "cv_title": "Klip video",
+  "cv_close": "Tæt",
+  "cv_description": "Fjerner segmenter fra SponsorBlock-kategorier.",
+  "s_cut_video": "Klip video",
+  "s_cut_video_desc": "Klipper video mellem specificerede start- og sluttidsgrænser.",
+  "s_cut_video_start": "Starte",
+  "s_cut_video_end": "Ende",
+  "s_cut_video_until_end": "Download indtil slutningen",
+  "s_cut_video_hours": "Timer",
+  "s_cut_video_minutes": "Referat",
+  "s_cut_video_seconds": "Sekunder",
+  "s_force_keyframes_at_cuts": "Force Keyframes ved Cuts",
+  "s_force_keyframes_at_cuts_desc": "Tving keyframes ved klip, når du downloader/opdeler/fjerner sektioner.\nDette er langsomt på grund af behovet for en omkodning, men den resulterende video kan have færre artefakter omkring snittene",
+  "d_cut_video": "Klip video"
 }

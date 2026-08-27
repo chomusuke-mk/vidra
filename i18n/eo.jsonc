@@ -346,5 +346,19 @@
   "sd_donate": "Donacu",
   "ssi_bubble_message": "Ĝisdatigoj disponeblas por Vidra-komponentoj. Frapu Montri por revizii kaj instali.",
   "sd_app_engine_connected": "App Engine: Konektita",
-  "sd_all_working_normally": "Ĉio funkcias normale"
+  "sd_all_working_normally": "Ĉio funkcias normale",
+  "d_cut_video": "Tranĉi Videon",
+  "cv_title": "Tranĉi Videon",
+  "cv_close": "Fermu",
+  "cv_description": "Forigas segmentojn de SponsorBlock-kategorioj.",
+  "s_cut_video": "Tranĉi Videon",
+  "s_cut_video_desc": "Tranĉas videon inter specifitaj komencaj kaj finaj tempolimoj.",
+  "s_cut_video_start": "Komencu",
+  "s_cut_video_end": "Fino",
+  "s_cut_video_until_end": "Elŝutu ĝis la fino",
+  "s_cut_video_hours": "Horoj",
+  "s_cut_video_minutes": "Minutoj",
+  "s_cut_video_seconds": "Sekundoj",
+  "s_force_keyframes_at_cuts": "Devigu Ŝlosilkadrojn ĉe Tranĉoj",
+  "s_force_keyframes_at_cuts_desc": "Devigu ŝlosilkadrojn ĉe tranĉoj dum elŝuto/dividado/forigado de sekcioj.\nĈi tio estas malrapida pro bezono de rekodigo, sed la rezulta video eble havas malpli da artefaktoj ĉirkaŭ la tranĉoj."
 }

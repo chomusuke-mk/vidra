@@ -346,5 +346,19 @@
   "sd_linux_deb_msg": "Kuusaan Vidra qindaa'eera. Fooyyessuuf ajaja armaan gadii tarminaalii keessatti hojjedhu:",
   "sd_linux_appimage_title": "Vidra (AppImage) haaromsuu .",
   "ssi_bubble_button_show": "Agarsiisa",
-  "ssi_bubble_button_dismiss": "Balleessuu"
+  "ssi_bubble_button_dismiss": "Balleessuu",
+  "d_cut_video": "Viidiyoo Muraa",
+  "cv_title": "Viidiyoo Muraa",
+  "cv_close": "Cufuu",
+  "cv_description": "Kutaalee gosoota SponsorBlock irraa ni haqa.",
+  "s_cut_video": "Viidiyoo Muraa",
+  "s_cut_video_desc": "Daangaa yeroo jalqabaa fi xumuraa ifteessame gidduutti viidiyoo mura.",
+  "s_cut_video_start": "Eegaluu",
+  "s_cut_video_end": "Xumura",
+  "s_cut_video_until_end": "Hanga dhumaatti buufadhaa",
+  "s_cut_video_hours": "Sa'aatiiwwan",
+  "s_cut_video_minutes": "Daqiiqaawwan",
+  "s_cut_video_seconds": "Sekondii",
+  "s_force_keyframes_at_cuts": "Humna Keyframes Cuts irratti",
+  "s_force_keyframes_at_cuts_desc": "Yeroo kutaalee buufachuu/qoqqooduu/baasu furtuuwwan furtuuwwan kutaa irratti dirqisiisi.\nKun sababa irra deebiin koodii barbaachisu irraa kan ka'e suuta jedha, garuu viidiyoon bu'aa kanaa naannoo ciccitaa sanaatti artiifaaktii xiqqaa qabaachuu danda'a"
 }

@@ -346,5 +346,19 @@
   "sd_linux_snap_msg": "Vidra আপডেট করতে স্ন্যাপ স্টোর খোলা হচ্ছে...",
   "sd_copy_command": "কমান্ড অনুলিপি করুন",
   "ssi_bubble_button_show": "প্রদর্শন",
-  "dc_action_play": "খেলা"
+  "dc_action_play": "খেলা",
+  "d_cut_video": "ভিডিও কাটুন",
+  "cv_title": "ভিডিও কাটুন",
+  "cv_close": "বন্ধ",
+  "s_force_keyframes_at_cuts_desc": "অংশগুলি ডাউনলোড/বিভক্ত করা/মুছে ফেলার সময় কীফ্রেমগুলি কাটতে বাধ্য করুন।\nএকটি পুনরায় এনকোডের প্রয়োজনের কারণে এটি ধীর, কিন্তু ফলাফল ভিডিওতে কাটের আশেপাশে কম আর্টিফ্যাক্ট থাকতে পারে",
+  "s_cut_video": "ভিডিও কাটুন",
+  "cv_description": "SponsorBlock বিভাগ থেকে বিভাগগুলি সরিয়ে দেয়।",
+  "s_cut_video_desc": "নির্দিষ্ট শুরু এবং শেষ সময়সীমার মধ্যে ভিডিও কাটে।",
+  "s_cut_video_start": "শুরু করুন",
+  "s_cut_video_end": "শেষ",
+  "s_cut_video_until_end": "শেষ পর্যন্ত ডাউনলোড করুন",
+  "s_cut_video_hours": "ঘন্টা",
+  "s_cut_video_minutes": "মিনিট",
+  "s_cut_video_seconds": "সেকেন্ড",
+  "s_force_keyframes_at_cuts": "কাটে কীফ্রেমগুলি জোর করে"
 }

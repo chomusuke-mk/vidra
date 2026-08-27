@@ -346,5 +346,19 @@
   "sd_state_fatal_error": "Fatal Error",
   "dc_action_play": "Play",
   "dc_action_open_folder": "Sokafy ny lahatahiry",
-  "dc_action_details": "tsipiriany"
+  "dc_action_details": "tsipiriany",
+  "d_cut_video": "Tapaho ny Video",
+  "cv_title": "Tapaho ny Video",
+  "cv_close": "AKAIKY",
+  "cv_description": "Esory ny ampahany amin'ny sokajy SponsorBlock.",
+  "s_cut_video": "Tapaho ny Video",
+  "s_cut_video_desc": "Manapaka horonan-tsary eo anelanelan'ny fe-potoana fanombohana sy fiafarana voafaritra.",
+  "s_cut_video_start": "fanombohana",
+  "s_cut_video_until_end": "Download hatramin'ny farany",
+  "s_cut_video_seconds": "segondra",
+  "s_force_keyframes_at_cuts_desc": "Manery keyframes amin'ny fanapahana rehefa misintona/manasaraka/manala fizarana.\nMiadana izany noho ny filàna fanovàna indray, saingy mety ho vitsy kokoa ny artifacts manodidina ny fanapahana ilay horonan-tsary vokarina.",
+  "s_force_keyframes_at_cuts": "Force Keyframes amin'ny Cuts",
+  "s_cut_video_end": "Tapitra",
+  "s_cut_video_hours": "ORA",
+  "s_cut_video_minutes": "minitra"
 }

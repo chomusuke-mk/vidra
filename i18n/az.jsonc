@@ -346,5 +346,19 @@
   "sd_app_engine_initializing": "Tətbiq Mühərriki: Başlanılır...",
   "sd_app_engine_missing_permissions": "Tətbiq Mühərriki: İcazələr Tələb olunur",
   "sd_linux_deb_title": "Vidra'yı yeniləyin (DEB Paketi)",
-  "sd_linux_appimage_msg": "appimageupdatetool istifadə edin və ya GitHub-dan ən son AppImage-i endirin:"
+  "sd_linux_appimage_msg": "appimageupdatetool istifadə edin və ya GitHub-dan ən son AppImage-i endirin:",
+  "d_cut_video": "Videonu kəsin",
+  "cv_title": "Videonu kəsin",
+  "cv_close": "Bağlayın",
+  "cv_description": "SponsorBlock kateqoriyalarından seqmentləri silir.",
+  "s_cut_video": "Videonu kəsin",
+  "s_cut_video_desc": "Müəyyən edilmiş başlanğıc və bitmə vaxtı sərhədləri arasında videonu kəsir.",
+  "s_cut_video_hours": "Saat",
+  "s_cut_video_minutes": "Dəqiqələr",
+  "s_cut_video_seconds": "Saniyələr",
+  "s_force_keyframes_at_cuts": "Kəsiklərdə əsas kadrları məcbur edin",
+  "s_cut_video_start": "Başlayın",
+  "s_cut_video_end": "Son",
+  "s_cut_video_until_end": "Sona qədər yükləyin",
+  "s_force_keyframes_at_cuts_desc": "Bölmələri endirərkən/parçalayanda/çıxararkən əsas kadrları kəsiklərə məcbur edin.\nYenidən kodlaşdırmaya ehtiyac olduğu üçün bu yavaşdır, lakin nəticədə videoda kəsiklər ətrafında daha az artefakt ola bilər"
 }

@@ -346,5 +346,19 @@
   "sd_donate": "Donate",
   "sd_changelog": "Changelog",
   "ssi_bubble_message": "Zvigadziriso zviripo zveVidra zvikamu. Tinya Ratidza kuti uongorore uye uise.",
-  "ssi_bubble_button_show": "Display"
+  "ssi_bubble_button_show": "Display",
+  "d_cut_video": "Cheka Vhidhiyo",
+  "cv_title": "Cheka Vhidhiyo",
+  "cv_close": "Close",
+  "cv_description": "Inobvisa zvikamu kubva kuSponsorBlock zvikamu.",
+  "s_cut_video": "Cheka Vhidhiyo",
+  "s_cut_video_desc": "Inocheka vhidhiyo pakati pemiganhu yakatarwa yekutanga neyekupedzisira.",
+  "s_cut_video_start": "Tanga",
+  "s_cut_video_end": "End",
+  "s_cut_video_until_end": "Dhawunirodha kusvika kumagumo",
+  "s_cut_video_minutes": "Maminitsi",
+  "s_cut_video_hours": "Maawa",
+  "s_cut_video_seconds": "Sekondi",
+  "s_force_keyframes_at_cuts": "Kumanikidza Keyframes paCheka",
+  "s_force_keyframes_at_cuts_desc": "Manikidza makiyi makiyi pakucheka kana uchidhaunirodha/kupatsanura/kubvisa zvikamu.\nIzvi zvinononoka nekuda kwekuda re-encode, asi vhidhiyo inozobuda inogona kunge iine mashoma artifacts akatenderedza kucheka."
 }

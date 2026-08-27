@@ -346,5 +346,19 @@
   "d_downloading_engine_error": "Ensobi mu kuwanula modulo za yingini. Nsaba okebere omukutu gwo ogwa yintaneeti.",
   "sd_about_created_by": "Yatondebwawo Chomusuke",
   "sd_changelog": "Enkyukakyuka mu biwandiiko",
-  "ssi_bubble_button_show": "Okulaga"
+  "ssi_bubble_button_show": "Okulaga",
+  "d_cut_video": "Sala Vidiyo",
+  "cv_title": "Sala Vidiyo",
+  "cv_close": "Okuggalawo",
+  "cv_description": "Eggyawo ebitundu okuva mu biti bya SponsorBlock.",
+  "s_cut_video": "Sala Vidiyo",
+  "s_cut_video_desc": "Esala vidiyo wakati w'ensalosalo z'obudde bw'okutandika n'okumaliriza eziragiddwa.",
+  "s_cut_video_start": "Okutandika",
+  "s_cut_video_end": "Enkomerero",
+  "s_cut_video_until_end": "Download okutuusa ku nkomerero",
+  "s_cut_video_hours": "Saawa",
+  "s_cut_video_minutes": "Dakikka",
+  "s_cut_video_seconds": "Sikonda ntono",
+  "s_force_keyframes_at_cuts": "Force Keyframes ku Cuts",
+  "s_force_keyframes_at_cuts_desc": "Force keyframes ku cuts nga owanula/ogabanya/okuggyawo ebitundu.\nKino kigenda mpola olw’okwetaaga okuddamu okukooda, naye vidiyo evuddemu eyinza okuba n’ebintu ebitono eby’edda okwetoloola ebisaliddwa"
 }

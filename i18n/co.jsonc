@@ -346,5 +346,19 @@
   "sd_linux_snap_title": "Aghjurnate Vidra (Snap)",
   "sd_about_created_by": "Creatu da Chomusuke",
   "ssi_bubble_button_show": "Mostra",
-  "ssi_bubble_button_dismiss": "Licenziate"
+  "ssi_bubble_button_dismiss": "Licenziate",
+  "s_cut_video_desc": "Taglia u video trà i limiti di u tempu di iniziu è di fine specificati.",
+  "s_cut_video_start": "Principià",
+  "s_cut_video_end": "Fine",
+  "s_cut_video_until_end": "Scaricate finu à a fine",
+  "s_cut_video_hours": "Ore",
+  "s_cut_video_minutes": "Minuti",
+  "s_cut_video_seconds": "Sicondi",
+  "s_force_keyframes_at_cuts": "Force Keyframes à Cuts",
+  "s_force_keyframes_at_cuts_desc": "Forza i fotogrammi chjave à i taglii durante u scaricamentu / splitting / rimozione di sezioni.\nQuestu hè lento per avè bisognu di una ricudificazione, ma u video risultatu pò avè menu artefatti intornu à i tagli.",
+  "s_cut_video": "Cut Video",
+  "d_cut_video": "Cut Video",
+  "cv_title": "Cut Video",
+  "cv_close": "Chiudi",
+  "cv_description": "Elimina i segmenti da e categurie SponsorBlock."
 }

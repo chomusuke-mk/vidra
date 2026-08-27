@@ -346,5 +346,19 @@
   "sd_copy_command": "کاپي کمانډ",
   "sd_channel_stable": "باثباته",
   "sd_channel_nightly": "د شپې",
-  "sd_donate": "مرسته وکړئ"
+  "sd_donate": "مرسته وکړئ",
+  "d_cut_video": "ویډیو پرې کړئ",
+  "cv_title": "ویډیو پرې کړئ",
+  "cv_close": "تړل",
+  "cv_description": "د سپانسر بلاک کټګوریو څخه برخې لرې کوي.",
+  "s_cut_video": "ویډیو پرې کړئ",
+  "s_cut_video_desc": "ویډیو د ټاکل شوي پیل او پای وخت حدونو ترمینځ قطع کوي.",
+  "s_cut_video_start": "پیل",
+  "s_cut_video_end": "پای",
+  "s_cut_video_until_end": "تر پایه ډاونلوډ کړئ",
+  "s_cut_video_hours": "ساعتونه",
+  "s_cut_video_minutes": "دقیقې",
+  "s_cut_video_seconds": "ثانیې",
+  "s_force_keyframes_at_cuts": "په کټ کې کلیدي چوکاټونه ځواک کړئ",
+  "s_force_keyframes_at_cuts_desc": "د برخو ډاونلوډ / ویشلو / لرې کولو پر مهال کلی فریمونه په کټ کې مجبور کړئ.\nدا د بیا کوډ کولو اړتیا له امله ورو دی، مګر پایله شوې ویډیو ممکن د کټ شاوخوا لږ آثار ولري"
 }

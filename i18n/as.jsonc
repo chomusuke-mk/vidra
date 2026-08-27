@@ -346,5 +346,19 @@
   "sd_app_engine_initializing": "অ্যাপ্লিকেশন ইঞ্জিন: Initializing...",
   "sd_app_engine_reconnecting": "এপ ইঞ্জিন: পুনৰ সংযোগ...",
   "dc_action_retry": "পুনৰ চেষ্টা কৰক",
-  "sd_linux_snap_msg": "Vidra আপডেট কৰিবলৈ Snap Store খোলা..."
+  "sd_linux_snap_msg": "Vidra আপডেট কৰিবলৈ Snap Store খোলা...",
+  "d_cut_video": "কাট ভিডিঅ'",
+  "cv_title": "কাট ভিডিঅ'",
+  "cv_close": "বন্ধ",
+  "cv_description": "SponsorBlock শ্ৰেণীসমূহৰ পৰা খণ্ডসমূহ আঁতৰায়।",
+  "s_cut_video": "কাট ভিডিঅ'",
+  "s_cut_video_desc": "ধাৰ্য্য কৰা আৰম্ভণি আৰু শেষ সময় সীমাৰ মাজত ভিডিঅ' কাটি দিয়ে।",
+  "s_cut_video_start": "আৰম্ভ কৰক",
+  "s_cut_video_end": "সমাপ্ত",
+  "s_cut_video_until_end": "শেষলৈকে ডাউনলোড কৰক",
+  "s_cut_video_hours": "ঘণ্টা",
+  "s_cut_video_minutes": "মিনিটবোৰ",
+  "s_cut_video_seconds": "চেকেণ্ড",
+  "s_force_keyframes_at_cuts": "কাটত কীফ্ৰেমসমূহ বলবৎ কৰক",
+  "s_force_keyframes_at_cuts_desc": "অংশসমূহ ডাউনলোড/বিভাজন/আঁতৰোৱাৰ সময়ত কাটসমূহত কিফ্ৰেমসমূহক বলবৎ কৰক।\nপুনৰ এনকোডৰ প্ৰয়োজন হোৱাৰ বাবে ই লেহেমীয়া, কিন্তু ফলস্বৰূপে হোৱা ভিডিঅ'টোত কাটি লোৱাৰ চাৰিওফালে কম আৰ্টিফেক্ট থাকিব পাৰে"
 }

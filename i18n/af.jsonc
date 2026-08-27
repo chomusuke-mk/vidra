@@ -346,5 +346,19 @@
   "ssi_bubble_button_dismiss": "Verwerp",
   "dc_action_details": "Besonderhede",
   "d_engine_downloading": "Laai tans aflaai-enjin af...",
-  "sd_channel_stable": "Stabiel"
+  "sd_channel_stable": "Stabiel",
+  "d_cut_video": "Sny video",
+  "cv_title": "Sny video",
+  "cv_close": "Maak toe",
+  "cv_description": "Verwyder segmente uit SponsorBlock-kategorieë.",
+  "s_cut_video": "Sny video",
+  "s_cut_video_desc": "Sny video tussen gespesifiseerde begin- en eindtydgrense.",
+  "s_cut_video_start": "Begin",
+  "s_cut_video_end": "Einde",
+  "s_cut_video_until_end": "Laai af tot die einde",
+  "s_cut_video_hours": "Ure",
+  "s_cut_video_minutes": "Minute",
+  "s_cut_video_seconds": "Sekondes",
+  "s_force_keyframes_at_cuts": "Dwing sleutelrame by Cuts",
+  "s_force_keyframes_at_cuts_desc": "Dwing sleutelrame by snitte wanneer afdelings afgelaai/verdeel/verwyder word.\nDit is stadig as gevolg van 'n her-enkodeer, maar die gevolglike video kan minder artefakte rondom die snitte hê"
 }

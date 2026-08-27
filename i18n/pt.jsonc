@@ -346,5 +346,19 @@
   "sd_channel_stable": "Estável",
   "sd_changelog": "Registro de alterações",
   "ssi_bubble_message": "Atualizações estão disponíveis para componentes Vidra. Toque em Mostrar para revisar e instalar.",
-  "ssi_bubble_button_show": "Mostrar"
+  "ssi_bubble_button_show": "Mostrar",
+  "d_cut_video": "Cortar vídeo",
+  "cv_title": "Cortar vídeo",
+  "cv_close": "Fechar",
+  "cv_description": "Remove segmentos das categorias SponsorBlock.",
+  "s_cut_video": "Cortar vídeo",
+  "s_cut_video_desc": "Corta o vídeo entre os limites de horário de início e término especificados.",
+  "s_cut_video_start": "Começar",
+  "s_cut_video_end": "Fim",
+  "s_cut_video_until_end": "Baixe até o final",
+  "s_cut_video_hours": "Horas",
+  "s_cut_video_minutes": "Minutos",
+  "s_cut_video_seconds": "Segundos",
+  "s_force_keyframes_at_cuts": "Forçar quadros-chave em cortes",
+  "s_force_keyframes_at_cuts_desc": "Força quadros-chave em cortes ao baixar/dividir/remover seções.\nIsso é lento devido à necessidade de recodificação, mas o vídeo resultante pode ter menos artefatos em torno dos cortes"
 }

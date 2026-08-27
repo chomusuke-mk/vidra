@@ -346,5 +346,19 @@
   "sd_state_missing_permissions": "Izimvume ezingekho",
   "sd_state_missing_resources": "Izingxenye Ezingekho",
   "dc_action_open_folder": "Vula Ifolda",
-  "dc_action_pause": "Misa isikhashana"
+  "dc_action_pause": "Misa isikhashana",
+  "d_cut_video": "Sika Ividiyo",
+  "cv_title": "Sika Ividiyo",
+  "cv_close": "Vala",
+  "s_cut_video_minutes": "Amaminithi",
+  "s_force_keyframes_at_cuts_desc": "Phoqa ozimele abangukhiye ekusikeni lapho ulanda/uhlukanisa/ukhipha izigaba.\nLokhu kuhamba kancane ngenxa yokudinga ukubethelwa kabusha, kodwa ividiyo ewumphumela ingase ibe nama-artifact ambalwa eduze nokusikwa",
+  "s_cut_video_seconds": "Imizuzwana",
+  "s_cut_video_start": "Qala",
+  "cv_description": "Isusa amasegimenti ezigabeni ze-SponsorBlock.",
+  "s_cut_video_hours": "Amahora",
+  "s_force_keyframes_at_cuts": "Phoqa Ozimele abangukhiye kokuthi Cuts",
+  "s_cut_video_until_end": "Landa kuze kube sekupheleni",
+  "s_cut_video": "Sika Ividiyo",
+  "s_cut_video_desc": "Isika ividiyo phakathi kwemingcele yesikhathi eshiwo yokuqala neyokuphela.",
+  "s_cut_video_end": "Qeda"
 }

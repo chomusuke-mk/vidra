@@ -346,5 +346,19 @@
   "dc_action_pause": "Pa'ũ",
   "dc_action_cancel": "Heja",
   "dc_action_delete": "Mboje'oha",
-  "d_engine_downloading": "Ojegueru motor descarga rehegua..."
+  "d_engine_downloading": "Ojegueru motor descarga rehegua...",
+  "d_cut_video": "Oikytĩ Video",
+  "cv_title": "Oikytĩ Video",
+  "cv_close": "Mboty",
+  "cv_description": "Oipe’a umi segmento umi categoría SponsorBlock-gui.",
+  "s_cut_video": "Oikytĩ Video",
+  "s_cut_video_desc": "Oikytĩ video umi límite aravo oñepyrũ ha opa oje’éva apytépe.",
+  "s_cut_video_start": "Ñepyrũ",
+  "s_cut_video_end": "Paha",
+  "s_cut_video_until_end": "Emboguejy ipahaite peve",
+  "s_cut_video_hours": "Aravokuéra",
+  "s_cut_video_minutes": "Aravo'i",
+  "s_cut_video_seconds": "Segundo-kuéra",
+  "s_force_keyframes_at_cuts": "Fuerza umi cuadro clave umi Corte-pe",
+  "s_force_keyframes_at_cuts_desc": "Emombarete umi fotograma clave umi corte-pe ojegueru/ombojaꞌo/oipeꞌa jave umi sección.\nKóva mbeguekatu oikotevẽgui peteĩ codificación jey, ha katu pe video osëva ikatu oguereko saꞌivéva artefacto umi corte jerére"
 }

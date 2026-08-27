@@ -346,5 +346,19 @@
   "dc_action_delete": "Boma",
   "sd_linux_snap_title": "Mikolo oyo Vidra (Snap) .",
   "sd_command_copied": "Commande esalemi kopi na tableau de bord",
-  "sd_channel_nightly": "Butu na butu"
+  "sd_channel_nightly": "Butu na butu",
+  "d_cut_video": "Kata Video",
+  "cv_title": "Kata Video",
+  "cv_close": "Kokanga",
+  "cv_description": "Elongolaka biteni na ba catégories ya SponsorBlock.",
+  "s_cut_video": "Kata Video",
+  "s_cut_video_desc": "Ekataka video kati na ndelo ya ngonga ya ebandeli mpe ya nsuka oyo elakisami.",
+  "s_cut_video_start": "Kobanda",
+  "s_cut_video_end": "Nsuka",
+  "s_cut_video_until_end": "Télécharger tii na suka",
+  "s_cut_video_hours": "Bangonga",
+  "s_cut_video_minutes": "Miniti",
+  "s_cut_video_seconds": "Ba secondes ya ba secondes",
+  "s_force_keyframes_at_cuts": "Force Ba Cadres Clés na Cuts",
+  "s_force_keyframes_at_cuts_desc": "Force ba cadres clés na ba coupes tango ozali ko télécharger/kokabola/kolongola ba sections.\nYango ezali malembe mpo na mposa ya kozongisa code, kasi video oyo euti na yango ekoki kozala na ba artifacts moke zingazinga ya bisika oyo bakati"
 }

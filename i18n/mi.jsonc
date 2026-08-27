@@ -346,5 +346,19 @@
   "sd_state_ready": "Kua hono",
   "sd_state_initializing": "E arataki ana...",
   "sd_state_starting_backend": "Miihini Timata...",
-  "sd_state_retrying": "Kei te hono ano..."
+  "sd_state_retrying": "Kei te hono ano...",
+  "d_cut_video": "Tapahia Ataata",
+  "cv_title": "Tapahia Ataata",
+  "cv_close": "Katia",
+  "cv_description": "Ka tango i nga waahanga mai i nga waahanga SponsorBlock.",
+  "s_cut_video": "Tapahia Ataata",
+  "s_cut_video_desc": "Tapahia te ataata i waenga i nga rohenga wa tiimata me te mutunga.",
+  "s_cut_video_end": "Whakamutunga",
+  "s_cut_video_until_end": "Tikiake tae noa ki te mutunga",
+  "s_cut_video_start": "Tīmata",
+  "s_cut_video_minutes": "Nga meneti",
+  "s_force_keyframes_at_cuts_desc": "Whakahauhia nga anga matua ki te tapahi i te wa e tango ana/wehe/tango ana i nga waahanga.\nHe puhoi tenei na te hiahia ki te whakawaehere ano, engari he iti ake pea nga mahi toi huri noa i nga tapahi ka puta mai.",
+  "s_cut_video_hours": "Nga haora",
+  "s_cut_video_seconds": "Hekona",
+  "s_force_keyframes_at_cuts": "Whakahauhia nga Papamatua ki nga Tapahi"
 }

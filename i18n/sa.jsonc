@@ -346,5 +346,19 @@
   "dc_action_cancel": "निरसयतु",
   "dc_action_delete": "लुप्",
   "sd_linux_snap_msg": "विद्रा अपडेट् कर्तुं Snap Store उद्घाटयति...",
-  "sd_channel_stable": "स्थावर"
+  "sd_channel_stable": "स्थावर",
+  "d_cut_video": "कट विडियो",
+  "cv_title": "कट विडियो",
+  "cv_close": "पिधानं करोतु",
+  "cv_description": "SponsorBlock श्रेणीभ्यः खण्डान् निष्कासयति ।",
+  "s_cut_video": "कट विडियो",
+  "s_cut_video_desc": "निर्दिष्टप्रारम्भसमयसीमानां मध्ये विडियो कटयति ।",
+  "s_cut_video_start": "प्रारंभः",
+  "s_cut_video_end": "अंत",
+  "s_cut_video_until_end": "अन्त्यपर्यन्तं डाउनलोड् कुर्वन्तु",
+  "s_cut_video_hours": "घण्टानः",
+  "s_cut_video_minutes": "पन्चनिमेषः",
+  "s_cut_video_seconds": "सेकण्ड्",
+  "s_force_keyframes_at_cuts": "कट्स् इत्यत्र कीफ्रेम्स् बलं कुर्वन्तु",
+  "s_force_keyframes_at_cuts_desc": "खण्डान् डाउनलोड्/विभाजनं/निष्कासनं कुर्वन् कटेषु कीफ्रेम्स् बलं कुर्वन्तु ।\nपुनः एन्कोड्-करणस्य आवश्यकतायाः कारणात् एतत् मन्दं भवति, परन्तु परिणामी विडियो-मध्ये कटानाम् परितः न्यूनानि आर्टिफैक्ट्-वस्तूनि भवितुम् अर्हन्ति"
 }

@@ -340,5 +340,19 @@
   "d_downloading_engine_error": "Fehler beim Herunterladen der Engine-Module. Bitte überprüfen Sie Ihre Internetverbindung.",
   "sd_linux_snap_title": "Vidra aktualisieren (Snap)",
   "sd_channel_stable": "Stabil",
-  "ssi_bubble_button_show": "Anzeige"
+  "ssi_bubble_button_show": "Anzeige",
+  "d_cut_video": "Video schneiden",
+  "cv_title": "Video schneiden",
+  "cv_close": "Schließen",
+  "cv_description": "Entfernt Segmente aus SponsorBlock-Kategorien.",
+  "s_cut_video": "Video schneiden",
+  "s_cut_video_desc": "Schneidet das Video zwischen den angegebenen Start- und Endzeitgrenzen.",
+  "s_cut_video_start": "Start",
+  "s_cut_video_end": "Ende",
+  "s_cut_video_until_end": "Bis zum Ende herunterladen",
+  "s_cut_video_hours": "Std",
+  "s_cut_video_minutes": "Minuten",
+  "s_cut_video_seconds": "Sekunden",
+  "s_force_keyframes_at_cuts": "Keyframes bei Schnitten erzwingen",
+  "s_force_keyframes_at_cuts_desc": "Erzwingen Sie Keyframes an Schnitten beim Herunterladen/Teilen/Entfernen von Abschnitten.\nDies ist langsam, da eine Neukodierung erforderlich ist, aber das resultierende Video weist möglicherweise weniger Artefakte um die Schnitte herum auf"
 }

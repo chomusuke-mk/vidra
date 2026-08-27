@@ -346,5 +346,19 @@
   "dc_action_cancel": "Kagbuo",
   "dc_action_delete": "Hichapụ",
   "sd_donate": "Nye onyinye",
-  "ssi_bubble_button_show": "Ngosipụta"
+  "ssi_bubble_button_show": "Ngosipụta",
+  "d_cut_video": "Bee vidiyo",
+  "cv_title": "Bee vidiyo",
+  "cv_close": "Mechie",
+  "cv_description": "Na-ewepụ akụkụ na ngalaba SponsorBlock.",
+  "s_cut_video": "Bee vidiyo",
+  "s_cut_video_desc": "Na-ebipụ vidiyo n'etiti oge mmalite na njedebe akọwapụtara.",
+  "s_cut_video_start": "Malite",
+  "s_cut_video_end": "Ọgwụgwụ",
+  "s_cut_video_until_end": "Budata ruo ọgwụgwụ",
+  "s_cut_video_hours": "Oge awa",
+  "s_cut_video_minutes": "Nkeji",
+  "s_cut_video_seconds": "Sekọnd",
+  "s_force_keyframes_at_cuts": "Manye igodo igodo na mbelata",
+  "s_force_keyframes_at_cuts_desc": "Na-amanye igodo igodo na mbelata mgbe ị na-ebudata / na-ekewa / na-ewepụ ngalaba.\nNke a na-adị ngwa n'ihi na ịchọrọ itinyegharị koodu, mana vidiyo na-apụta nwere ike ịnwe obere arịa dị n'akụkụ mbelata ahụ."
 }

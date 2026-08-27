@@ -346,5 +346,19 @@
   "dc_action_pause": "Pausa",
   "dc_action_cancel": "Cancelar",
   "sd_channel_stable": "Estable",
-  "dc_action_delete": "Eliminar"
+  "dc_action_delete": "Eliminar",
+  "d_cut_video": "Vídeo cortado",
+  "cv_title": "Vídeo cortado",
+  "cv_close": "Pechar",
+  "cv_description": "Elimina segmentos das categorías SponsorBlock.",
+  "s_cut_video": "Vídeo cortado",
+  "s_cut_video_desc": "Corta o vídeo entre os límites horarios de inicio e finalización especificados.",
+  "s_cut_video_start": "Comeza",
+  "s_cut_video_end": "Fin",
+  "s_cut_video_until_end": "Descarga ata o final",
+  "s_cut_video_hours": "Horario",
+  "s_cut_video_minutes": "Minutos",
+  "s_cut_video_seconds": "Segundos",
+  "s_force_keyframes_at_cuts": "Forzar fotogramas clave en cortes",
+  "s_force_keyframes_at_cuts_desc": "Forzar fotogramas clave nos cortes ao descargar/dividir/eliminar seccións.\nIsto é lento porque precisa unha codificación de novo, pero o vídeo resultante pode ter menos artefactos ao redor dos cortes"
 }

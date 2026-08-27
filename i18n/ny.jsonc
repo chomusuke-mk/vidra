@@ -346,5 +346,19 @@
   "sd_linux_appimage_msg": "Gwiritsani ntchito appimageupdatetool kapena tsitsani AppImage yaposachedwa kuchokera ku GitHub:",
   "sd_about_created_by": "Adapangidwa ndi Chomusuke",
   "sd_changelog": "Changelog",
-  "ssi_bubble_title": "Kusintha Kulipo"
+  "ssi_bubble_title": "Kusintha Kulipo",
+  "d_cut_video": "Dulani Kanema",
+  "cv_title": "Dulani Kanema",
+  "cv_close": "Tsekani",
+  "cv_description": "Imachotsa magawo m'magulu a SponsorBlock.",
+  "s_cut_video": "Dulani Kanema",
+  "s_cut_video_desc": "Imadula vidiyo pakati pa malire a nthawi yoyambira ndi yomaliza.",
+  "s_cut_video_start": "Yambani",
+  "s_cut_video_end": "TSIRIZA",
+  "s_cut_video_until_end": "Koperani mpaka kumapeto",
+  "s_cut_video_hours": "Maola",
+  "s_cut_video_minutes": "Mphindi",
+  "s_cut_video_seconds": "Masekondi",
+  "s_force_keyframes_at_cuts": "Limbikitsani ma Keyframes pa Cuts",
+  "s_force_keyframes_at_cuts_desc": "Limbikitsani makiyi achinsinsi podula mukamatsitsa/kugawa/kuchotsa magawo.\nIzi zimachedwa chifukwa chofuna kuyimitsidwanso, koma kanema wotsatira akhoza kukhala ndi zinthu zakale zocheperako."
 }

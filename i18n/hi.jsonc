@@ -346,5 +346,19 @@
   "sd_linux_deb_title": "विड्रा अपडेट करें (डीईबी पैकेज)",
   "sd_linux_snap_msg": "Vidra को अपडेट करने के लिए स्नैप स्टोर खोला जा रहा है...",
   "sd_changelog": "बदलाव का",
-  "ssi_bubble_button_show": "प्रदर्शन"
+  "ssi_bubble_button_show": "प्रदर्शन",
+  "d_cut_video": "वीडियो काटें",
+  "cv_title": "वीडियो काटें",
+  "cv_close": "बंद करना",
+  "cv_description": "SponsorBlock श्रेणियों से खंड हटाता है।",
+  "s_cut_video": "वीडियो काटें",
+  "s_cut_video_desc": "निर्दिष्ट प्रारंभ और समाप्ति समय सीमाओं के बीच वीडियो को काटता है।",
+  "s_cut_video_start": "शुरू",
+  "s_cut_video_end": "अंत",
+  "s_cut_video_until_end": "अंत तक डाउनलोड करें",
+  "s_cut_video_hours": "घंटे",
+  "s_cut_video_minutes": "मिनट",
+  "s_cut_video_seconds": "सेकंड",
+  "s_force_keyframes_at_cuts": "कट्स पर कीफ़्रेम को बाध्य करें",
+  "s_force_keyframes_at_cuts_desc": "अनुभागों को डाउनलोड/विभाजित/हटाते समय मुख्य-फ़्रेमों को कट पर बाध्य करें।\nपुन:एनकोड की आवश्यकता के कारण यह धीमा है, लेकिन परिणामी वीडियो में कट के आसपास कम कलाकृतियाँ हो सकती हैं"
 }

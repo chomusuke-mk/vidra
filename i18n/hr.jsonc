@@ -346,5 +346,19 @@
   "ssi_bubble_button_show": "Prikaz",
   "ssi_bubble_button_dismiss": "Odbaciti",
   "sd_app_engine_starting": "App Engine: Pokretanje...",
-  "sd_state_missing_resources": "Komponente koje nedostaju"
+  "sd_state_missing_resources": "Komponente koje nedostaju",
+  "d_cut_video": "Izreži video",
+  "cv_title": "Izreži video",
+  "cv_close": "Zatvoriti",
+  "cv_description": "Uklanja segmente iz kategorija SponsorBlock.",
+  "s_cut_video": "Izreži video",
+  "s_cut_video_desc": "Reže video između navedenih granica vremena početka i završetka.",
+  "s_cut_video_start": "Start",
+  "s_cut_video_end": "Kraj",
+  "s_cut_video_until_end": "Preuzmite do kraja",
+  "s_cut_video_hours": "sati",
+  "s_cut_video_minutes": "minuta",
+  "s_cut_video_seconds": "sekundi",
+  "s_force_keyframes_at_cuts": "Forsirajte ključne kadrove u rezovima",
+  "s_force_keyframes_at_cuts_desc": "Forsirajte ključne kadrove na rezove prilikom preuzimanja/dijeljenja/uklanjanja odjeljaka.\nOvo je sporo jer je potrebno ponovno kodiranje, ali rezultirajući videozapis može imati manje artefakata oko rezova"
 }

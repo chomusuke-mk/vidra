@@ -346,5 +346,19 @@
   "dc_action_cancel": "Khansela",
   "dc_action_delete": "Sula",
   "d_downloading_engine_error": "Xihoxo xa ku dawuniloda mimojula ya njhini. Hi kombela u languta vuhlanganisi bya wena bya inthanete.",
-  "sd_changelog": "Ndzavisiso wa ku cinca"
+  "sd_changelog": "Ndzavisiso wa ku cinca",
+  "s_cut_video_start": "Sungula",
+  "cv_title": "Tsema Vhidiyo",
+  "s_cut_video_desc": "Ku tsema vhidiyo exikarhi ka mindzilakano ya nkarhi wo sungula na wo hetelela lowu boxiweke.",
+  "d_cut_video": "Tsema Vhidiyo",
+  "cv_description": "Ku susa swiyenge eka swiyenge swa SponsorBlock.",
+  "s_cut_video_end": "Makumu",
+  "s_cut_video_until_end": "Download ku fikela emakumu",
+  "s_cut_video_hours": "Tiawara",
+  "s_cut_video_minutes": "Timinete",
+  "cv_close": "Pfala",
+  "s_cut_video": "Tsema Vhidiyo",
+  "s_cut_video_seconds": "Tisekoni",
+  "s_force_keyframes_at_cuts": "Force Keyframes eka Cuts",
+  "s_force_keyframes_at_cuts_desc": "Sindzisa ti keyframes eka ku tsemiwa loko u dawuniloda/ku avanyisa/ku susa swiyenge.\nLeswi swi nonoka hikokwalaho ka ku lava ku tlhela ku khodiwa, kambe vhidiyo leyi humelelaka yi nga ha va na swilo switsongo swa khale ku rhendzela swiphemu leswi tsemiweke"
 }

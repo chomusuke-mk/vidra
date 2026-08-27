@@ -346,5 +346,19 @@
   "dc_action_pause": "Paus",
   "dc_action_cancel": "Avboka",
   "dc_action_delete": "Radera",
-  "sd_about_created_by": "Skapad av Chomusuke"
+  "sd_about_created_by": "Skapad av Chomusuke",
+  "cv_close": "Nära",
+  "s_cut_video_start": "Start",
+  "s_cut_video_seconds": "Sekunder",
+  "s_force_keyframes_at_cuts": "Force Keyframes vid Cuts",
+  "d_cut_video": "Klipp video",
+  "cv_title": "Klipp video",
+  "cv_description": "Tar bort segment från SponsorBlock-kategorier.",
+  "s_cut_video": "Klipp video",
+  "s_cut_video_desc": "Klipper video mellan specificerade start- och sluttidsgränser.",
+  "s_cut_video_end": "Avsluta",
+  "s_cut_video_until_end": "Ladda ner till slutet",
+  "s_cut_video_hours": "Timmar",
+  "s_cut_video_minutes": "Minuter",
+  "s_force_keyframes_at_cuts_desc": "Tvinga fram nyckelbildrutor vid klipp när du laddar ner/delar/tar bort avsnitt.\nDetta är långsamt på grund av att det behövs en omkodning, men den resulterande videon kan ha färre artefakter runt snitten"
 }

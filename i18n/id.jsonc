@@ -346,5 +346,19 @@
   "sd_linux_snap_msg": "Membuka Snap Store untuk memperbarui Vidra...",
   "sd_copy_command": "Salin Perintah",
   "ssi_bubble_message": "Pembaruan tersedia untuk komponen Vidra. Ketuk Tampilkan untuk meninjau dan menginstal.",
-  "ssi_bubble_button_show": "Menampilkan"
+  "ssi_bubble_button_show": "Menampilkan",
+  "d_cut_video": "Potong Video",
+  "cv_title": "Potong Video",
+  "cv_close": "Menutup",
+  "cv_description": "Menghapus segmen dari kategori SponsorBlock.",
+  "s_cut_video": "Potong Video",
+  "s_cut_video_desc": "Memotong video antara batas waktu mulai dan akhir yang ditentukan.",
+  "s_cut_video_start": "Awal",
+  "s_cut_video_end": "Akhir",
+  "s_cut_video_until_end": "Unduh sampai akhir",
+  "s_cut_video_hours": "Jam",
+  "s_cut_video_minutes": "Menit",
+  "s_cut_video_seconds": "Detik",
+  "s_force_keyframes_at_cuts": "Paksa Bingkai Utama di Pemotongan",
+  "s_force_keyframes_at_cuts_desc": "Paksa bingkai utama saat dipotong saat mengunduh/memisahkan/menghapus bagian.\nProses ini lambat karena memerlukan pengkodean ulang, namun video yang dihasilkan mungkin memiliki lebih sedikit artefak di sekitar pemotongan"
 }

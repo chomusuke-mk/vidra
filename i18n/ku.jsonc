@@ -346,5 +346,19 @@
   "sd_linux_deb_msg": "Depoya Vidra hatiye mîheng kirin. Fermana jêrîn di termînalê de bimeşînin da ku nûve bikin:",
   "sd_copy_command": "Fermana kopîkirinê",
   "sd_channel_nightly": "Nightly",
-  "sd_about_created_by": "Ji hêla Chomusuke ve hatî afirandin"
+  "sd_about_created_by": "Ji hêla Chomusuke ve hatî afirandin",
+  "d_cut_video": "Cut Video",
+  "cv_title": "Cut Video",
+  "cv_close": "Nêzîkî",
+  "cv_description": "Parçeyan ji kategoriyên SponsorBlock radike.",
+  "s_cut_video": "Cut Video",
+  "s_cut_video_desc": "Vîdyoyê di navbera sînorên dema destpêk û dawiya diyarkirî de qut dike.",
+  "s_cut_video_start": "Destpêkirin",
+  "s_cut_video_end": "Dawî",
+  "s_cut_video_until_end": "Heta dawiyê dakêşin",
+  "s_cut_video_hours": "Hours",
+  "s_cut_video_minutes": "Minutes",
+  "s_cut_video_seconds": "Seconds",
+  "s_force_keyframes_at_cuts": "Hêzên Keyframes li Cuts",
+  "s_force_keyframes_at_cuts_desc": "Dema ku beşan dakêşin/perçekirin/ rakirina beşan bi darê zorê birrîn.\nEv hêdî ye ji ber ku hewcedariya ji nû ve-kodkirinê heye, lê dibe ku vîdyoya encam li dora qutiyan kêmtir berhemên hunerî hebin."
 }

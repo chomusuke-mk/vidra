@@ -346,5 +346,19 @@
   "sd_linux_snap_msg": "Vidra ਨੂੰ ਅੱਪਡੇਟ ਕਰਨ ਲਈ Snap Store ਖੋਲ੍ਹਿਆ ਜਾ ਰਿਹਾ ਹੈ...",
   "sd_channel_stable": "ਸਥਿਰ",
   "sd_channel_nightly": "ਰਾਤ ਨੂੰ",
-  "ssi_bubble_button_dismiss": "ਖਾਰਜ ਕਰੋ"
+  "ssi_bubble_button_dismiss": "ਖਾਰਜ ਕਰੋ",
+  "d_cut_video": "ਵੀਡੀਓ ਕੱਟੋ",
+  "cv_title": "ਵੀਡੀਓ ਕੱਟੋ",
+  "cv_close": "ਬੰਦ ਕਰੋ",
+  "cv_description": "ਸਪਾਂਸਰਬਲਾਕ ਸ਼੍ਰੇਣੀਆਂ ਤੋਂ ਹਿੱਸਿਆਂ ਨੂੰ ਹਟਾਉਂਦਾ ਹੈ।",
+  "s_cut_video": "ਵੀਡੀਓ ਕੱਟੋ",
+  "s_cut_video_desc": "ਨਿਸ਼ਚਿਤ ਅਰੰਭ ਅਤੇ ਸਮਾਪਤੀ ਸਮੇਂ ਦੀਆਂ ਸੀਮਾਵਾਂ ਵਿਚਕਾਰ ਵੀਡੀਓ ਕੱਟਦਾ ਹੈ।",
+  "s_cut_video_start": "ਸ਼ੁਰੂ ਕਰੋ",
+  "s_cut_video_end": "ਅੰਤ",
+  "s_cut_video_until_end": "ਅੰਤ ਤੱਕ ਡਾਊਨਲੋਡ ਕਰੋ",
+  "s_cut_video_hours": "ਘੰਟੇ",
+  "s_cut_video_minutes": "ਮਿੰਟ",
+  "s_cut_video_seconds": "ਸਕਿੰਟ",
+  "s_force_keyframes_at_cuts": "ਕੱਟਾਂ 'ਤੇ ਕੀਫ੍ਰੇਮਾਂ ਨੂੰ ਜ਼ੋਰ ਦਿਓ",
+  "s_force_keyframes_at_cuts_desc": "ਭਾਗਾਂ ਨੂੰ ਡਾਊਨਲੋਡ/ਵਿਭਾਜਿਤ/ਹਟਾਉਣ ਵੇਲੇ ਕੱਟਾਂ 'ਤੇ ਕੀਫ੍ਰੇਮ ਨੂੰ ਜ਼ਬਰਦਸਤੀ ਦਿਓ।\nਮੁੜ-ਏਨਕੋਡ ਦੀ ਲੋੜ ਦੇ ਕਾਰਨ ਇਹ ਹੌਲੀ ਹੈ, ਪਰ ਨਤੀਜੇ ਵਜੋਂ ਵਿਡੀਓ ਵਿੱਚ ਕੱਟਾਂ ਦੇ ਆਲੇ-ਦੁਆਲੇ ਘੱਟ ਕਲਾਤਮਕ ਚੀਜ਼ਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ"
 }

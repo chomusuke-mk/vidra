@@ -346,5 +346,19 @@
   "sd_copy_command": "Kopiuj polecenie",
   "sd_changelog": "Dziennik zmian",
   "ssi_bubble_title": "Dostępna aktualizacja",
-  "ssi_bubble_message": "Dostępne są aktualizacje komponentów Vidra. Kliknij Pokaż, aby sprawdzić i zainstalować."
+  "ssi_bubble_message": "Dostępne są aktualizacje komponentów Vidra. Kliknij Pokaż, aby sprawdzić i zainstalować.",
+  "d_cut_video": "Wytnij wideo",
+  "cv_title": "Wytnij wideo",
+  "cv_close": "Zamknąć",
+  "cv_description": "Usuwa segmenty z kategorii SponsorBlock.",
+  "s_cut_video": "Wytnij wideo",
+  "s_cut_video_desc": "Przycina wideo pomiędzy określonymi granicami czasu rozpoczęcia i zakończenia.",
+  "s_cut_video_start": "Start",
+  "s_cut_video_end": "Koniec",
+  "s_cut_video_until_end": "Pobierz do końca",
+  "s_cut_video_hours": "Godziny",
+  "s_cut_video_minutes": "Protokół",
+  "s_cut_video_seconds": "Towary drugiej jakości",
+  "s_force_keyframes_at_cuts": "Wymuś klatki kluczowe przy cięciach",
+  "s_force_keyframes_at_cuts_desc": "Wymuszaj klatki kluczowe w miejscach cięć podczas pobierania/dzielenia/usuwania sekcji.\nJest to powolne ze względu na konieczność ponownego kodowania, ale powstały film może zawierać mniej artefaktów wokół cięć"
 }

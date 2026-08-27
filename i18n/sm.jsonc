@@ -346,5 +346,19 @@
   "ssi_bubble_button_dismiss": "Fa'ate'a",
   "sd_linux_deb_msg": "O le fale teu oloa Vidra ua faʻatulagaina. Faʻataʻitaʻi le faʻatonuga o loʻo i lalo i le laina e faʻafou ai:",
   "sd_linux_appimage_msg": "Faʻaaoga le appimageupdatetool pe download le AppImage lata mai mai GitHub:",
-  "sd_changelog": "Changelog"
+  "sd_changelog": "Changelog",
+  "d_cut_video": "Tipi Vitio",
+  "cv_title": "Tipi Vitio",
+  "cv_close": "Tapuni",
+  "cv_description": "Aveese vaega mai vaega SponsorBlock.",
+  "s_cut_video": "Tipi Vitio",
+  "s_cut_video_desc": "Otioti le vitio i le va o tuaoi taimi amata ma le faaiuga.",
+  "s_cut_video_start": "Amata",
+  "s_cut_video_end": "Fa'ai'u",
+  "s_cut_video_until_end": "La'u i lalo seia oo i le iuga",
+  "s_cut_video_hours": "Itula",
+  "s_cut_video_minutes": "minute",
+  "s_cut_video_seconds": "Sekona",
+  "s_force_keyframes_at_cuts": "Fa'amalosi Fua Fa'atatau ile tipi",
+  "s_force_keyframes_at_cuts_desc": "Fa'amalosi fa'aupu autu ile tipi pe a la'u mai/vaevae/ave'ese vaega.\nE telegese ona o le mana'omia o se toe fa'ailoga, ae o le vitiō fa'atupuina e ono itiiti ni mea fa'atagata fa'ata'amilo i le tipi."
 }

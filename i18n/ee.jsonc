@@ -346,5 +346,19 @@
   "sd_app_engine_reconnecting": "App Engine: Gbugbɔ kadodo...",
   "sd_app_engine_missing_permissions": "App Engine: Mɔɖeɖewo hiã",
   "sd_app_engine_missing_resources": "App Engine: Nusiwo Bu",
-  "sd_state_fatal_error": "Vodada si Wua Ame"
+  "sd_state_fatal_error": "Vodada si Wua Ame",
+  "d_cut_video": "Video si Wotso",
+  "cv_title": "Video si Wotso",
+  "cv_close": "Tu",
+  "cv_description": "Eɖea akpawo ɖa le SponsorBlock ƒe hatsotsowo me.",
+  "s_cut_video": "Video si Wotso",
+  "s_cut_video_desc": "Etsoa video le gɔmedzedze kple nuwuwu ɣeyiɣi ƒe liƒo siwo woɖo dome.",
+  "s_cut_video_start": "Dze egᴐme",
+  "s_cut_video_end": "Nuwuwu",
+  "s_cut_video_until_end": "Wɔ eƒe kɔpi vaseɖe eƒe nuwuwu",
+  "s_cut_video_hours": "Gaƒoƒowo",
+  "s_cut_video_minutes": "Aɖabaƒoƒo",
+  "s_cut_video_seconds": "Sɛkɛndwo",
+  "s_force_keyframes_at_cuts": "Zi Keyframes dzi le Cuts",
+  "s_force_keyframes_at_cuts_desc": "Zi keyframes dzi le cuts ne èle akpawo ƒe kɔpi/mam/ɖem ɖa.\nEsia le blewu le esi wòhiã be woagbugbɔ awɔ encode ta, gake video si do tso eme la ate ŋu anye be asinudɔwɔwɔ ʋɛ aɖewo koe ƒo xlã lãɖeɖeawo"
 }

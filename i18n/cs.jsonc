@@ -346,5 +346,19 @@
   "sd_command_copied": "Příkaz zkopírován do schránky",
   "ssi_bubble_button_dismiss": "Propustit",
   "sd_app_engine": "App Engine",
-  "sd_app_engine_missing_permissions": "App Engine: Vyžadována oprávnění"
+  "sd_app_engine_missing_permissions": "App Engine: Vyžadována oprávnění",
+  "cv_close": "Blízko",
+  "cv_description": "Odebere segmenty z kategorií SponsorBlock.",
+  "s_cut_video": "Střih videa",
+  "s_cut_video_desc": "Přestřihne video mezi určenými časovými hranicemi začátku a konce.",
+  "s_cut_video_start": "Start",
+  "s_cut_video_end": "Konec",
+  "s_cut_video_until_end": "Stáhnout až do konce",
+  "s_cut_video_hours": "hodiny",
+  "s_cut_video_minutes": "Zápis",
+  "s_cut_video_seconds": "Sekundy",
+  "s_force_keyframes_at_cuts": "Vynutit klíčové snímky při řezech",
+  "s_force_keyframes_at_cuts_desc": "Vynutit klíčové snímky při řezech při stahování/rozdělování/odstraňování sekcí.\nJe to pomalé kvůli nutnosti překódování, ale výsledné video může mít kolem střihů méně artefaktů",
+  "d_cut_video": "Střih videa",
+  "cv_title": "Střih videa"
 }

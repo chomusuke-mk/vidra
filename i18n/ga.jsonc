@@ -346,5 +346,19 @@
   "sd_linux_appimage_msg": "Úsáid appimageupdatetool nó íoslódáil an AppImage is déanaí ó GitHub:",
   "sd_linux_snap_msg": "Snap Store á oscailt chun Vidra a nuashonrú...",
   "sd_command_copied": "Cóipeáladh an t-ordú chuig an ngearrthaisce",
-  "sd_donate": "Síntiúis"
+  "sd_donate": "Síntiúis",
+  "d_cut_video": "Gearr físeán",
+  "cv_title": "Gearr físeán",
+  "cv_close": "Dún",
+  "cv_description": "Baintear teascáin ó chatagóirí SponsorBlock.",
+  "s_cut_video": "Gearr físeán",
+  "s_cut_video_desc": "Gearrann sé físeáin idir teorainneacha ama tosaithe agus deiridh sonraithe.",
+  "s_cut_video_start": "Tosaigh",
+  "s_cut_video_end": "Deireadh",
+  "s_cut_video_until_end": "Íosluchtaigh lúide go dtí an deireadh",
+  "s_cut_video_hours": "Uaireanta",
+  "s_cut_video_minutes": "Nóiméad",
+  "s_cut_video_seconds": "Soicind",
+  "s_force_keyframes_at_cuts": "Fórsaí Keyframes ag Cuts",
+  "s_force_keyframes_at_cuts_desc": "Cuir frámaí eochrach i bhfeidhm ag ciorruithe nuair a bhíonn codanna á n-íoslódáil/á scoilteadh/á bhaint.\nTá sé seo mall toisc go bhfuil gá le hath-ionchódú, ach d'fhéadfadh go mbeadh níos lú déantúsáin thart ar na gearrthacha ag an bhfíseán a bheidh mar thoradh air"
 }

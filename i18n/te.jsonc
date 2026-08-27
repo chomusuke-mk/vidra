@@ -346,5 +346,19 @@
   "dc_action_cancel": "రద్దు చేయి",
   "dc_action_delete": "తొలగించు",
   "sd_changelog": "చేంజ్లాగ్",
-  "ssi_bubble_button_dismiss": "తొలగించు"
+  "ssi_bubble_button_dismiss": "తొలగించు",
+  "s_cut_video_desc": "పేర్కొన్న ప్రారంభ మరియు ముగింపు సమయ సరిహద్దుల మధ్య వీడియోను కట్ చేస్తుంది.",
+  "s_cut_video_start": "ప్రారంభించండి",
+  "d_cut_video": "కట్ వీడియో",
+  "cv_title": "కట్ వీడియో",
+  "cv_close": "మూసివేయి",
+  "cv_description": "SponsorBlock వర్గాల నుండి విభాగాలను తొలగిస్తుంది.",
+  "s_cut_video": "కట్ వీడియో",
+  "s_cut_video_end": "ముగింపు",
+  "s_cut_video_until_end": "చివరి వరకు డౌన్‌లోడ్ చేసుకోండి",
+  "s_cut_video_hours": "గంటలు",
+  "s_cut_video_minutes": "నిమిషాలు",
+  "s_cut_video_seconds": "సెకన్లు",
+  "s_force_keyframes_at_cuts": "కట్స్ వద్ద ఫోర్స్ కీఫ్రేమ్‌లు",
+  "s_force_keyframes_at_cuts_desc": "విభాగాలను డౌన్‌లోడ్ చేసేటప్పుడు/విభజిస్తున్నప్పుడు/తీసివేసేటప్పుడు కట్‌ల వద్ద ఫోర్స్ కీఫ్రేమ్‌లు.\nరీ-ఎన్‌కోడ్ అవసరం కారణంగా ఇది నెమ్మదిగా ఉంది, కానీ ఫలితంగా వచ్చే వీడియోలో కట్‌ల చుట్టూ తక్కువ కళాఖండాలు ఉండవచ్చు"
 }

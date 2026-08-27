@@ -346,5 +346,19 @@
   "sd_changelog": "ለውጥ መዝገብ",
   "sd_app_engine_initializing": "መተግበሪያ ሞተር፡ በማስጀመር ላይ...",
   "dc_action_open_folder": "አቃፊ ክፈት",
-  "d_engine_downloading_desc": "የሚያስፈልጉ ዋና ሞጁሎችን (yt-dlp እና yt-dlp-ejs) በማውረድ ላይ። እባክህ ጠብቅ..."
+  "d_engine_downloading_desc": "የሚያስፈልጉ ዋና ሞጁሎችን (yt-dlp እና yt-dlp-ejs) በማውረድ ላይ። እባክህ ጠብቅ...",
+  "d_cut_video": "ቪዲዮን ይቁረጡ",
+  "cv_title": "ቪዲዮን ይቁረጡ",
+  "cv_close": "ገጠመ",
+  "cv_description": "ከSponsorBlock ምድቦች ክፍሎችን ያስወግዳል።",
+  "s_cut_video": "ቪዲዮን ይቁረጡ",
+  "s_cut_video_desc": "በተገለጹ የመጀመሪያ እና የመጨረሻ ጊዜ ወሰኖች መካከል ቪዲዮን ይቆርጣል።",
+  "s_cut_video_start": "ጀምር",
+  "s_cut_video_end": "መጨረሻ",
+  "s_cut_video_until_end": "እስከ መጨረሻው ያውርዱ",
+  "s_cut_video_hours": "ሰዓታት",
+  "s_cut_video_minutes": "ደቂቃዎች",
+  "s_cut_video_seconds": "ሰከንዶች",
+  "s_force_keyframes_at_cuts": "የቁልፍ ክፈፎችን በቁረጥ ያስገድዱ",
+  "s_force_keyframes_at_cuts_desc": "ክፍሎችን ሲያወርዱ/ሲከፋፍሉ/በማስወገድ ጊዜ የቁልፍ ክፈፎችን ያስገድዱ።\nይህ እንደገና ኮድ ስለሚያስፈልገው ቀርፋፋ ነው፣ ነገር ግን የተገኘው ቪዲዮ በተቆራረጡ አካባቢዎች ያነሱ ቅርሶች ሊኖሩት ይችላል።"
 }

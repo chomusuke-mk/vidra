@@ -346,5 +346,19 @@
   "d_engine_downloading": "364122c1348aba21ef2925e3ada941f2b8258d8155f2658c6801cfd8c8c7c9be",
   "sd_linux_snap_title": "3d7d42b8b37a876da6b6379e3f69c30c3452f617167358ea14e8a7658ebfea9c",
   "sd_copy_command": "3bdd0fd90f741a1fe131b0685ec8beadeae83de17e45a25e764d325addf4b141",
-  "sd_channel_stable": "90ee305714d7103317705bfffd734c654b78807e5a0f51fcc61bc1d81105ebd1"
+  "sd_channel_stable": "90ee305714d7103317705bfffd734c654b78807e5a0f51fcc61bc1d81105ebd1",
+  "d_cut_video": "5b18e7f066a1ee5149a794185c8fa5f91f18a3201f95aec925c898fa115462c5",
+  "cv_title": "5b18e7f066a1ee5149a794185c8fa5f91f18a3201f95aec925c898fa115462c5",
+  "cv_close": "7d9eb7acb13e24625c404401d8e88b2350e32162455885f18276cf802f7701ed",
+  "cv_description": "29194ba15bf5f7d6b977651cc1e6c63ee4dd3dbaba0cda2b2e0db91bd850c903",
+  "s_cut_video": "5b18e7f066a1ee5149a794185c8fa5f91f18a3201f95aec925c898fa115462c5",
+  "s_cut_video_desc": "f686cf45e99e14409f6ed63654ce7bedac26073a20e083f97acb6d1dd91bdc73",
+  "s_cut_video_start": "e4bb9f1ece9af9264a3b9e3913bbdb2cf497457167b14ced5f85688bfde74644",
+  "s_cut_video_end": "f4db1e48476f60753980b10d66219042b3a3d9c65c9cc77a53d81b88fd869c64",
+  "s_cut_video_until_end": "7cf924ea6dd620231322e2a0f09c499cfc9410d6b84a3435c9b6d3838f5fda50",
+  "s_cut_video_hours": "21e8492938abc179410c21f3598f141c4c59a8bf2d3b4e475b7d83e10adfc00f",
+  "s_cut_video_minutes": "4f846a84e7fc9ef6e68468c270c9153c20204641bd7b839ad4b8e5233e1c86d0",
+  "s_cut_video_seconds": "381a8e9699052f3a958001510611a9634e7cef8aa6a1421cb7e7f6e119f91edc",
+  "s_force_keyframes_at_cuts": "634be585a836bed56d324e274d4109b46364e0cc962411c958d4f722304a18f7",
+  "s_force_keyframes_at_cuts_desc": "cf7c380f65f28ae2da8c99b9da97dfce887491c51a413f0daa842d2a6e628142"
 }

@@ -346,5 +346,19 @@
   "dc_action_delete": "Dileu",
   "sd_linux_appimage_msg": "Defnyddiwch appimageupdatetool neu lawrlwythwch yr AppImage diweddaraf o GitHub:",
   "sd_command_copied": "Gorchymyn wedi'i gopïo i'r clipfwrdd",
-  "ssi_bubble_message": "Mae diweddariadau ar gael ar gyfer cydrannau Vidra. Tap Show i adolygu a gosod."
+  "ssi_bubble_message": "Mae diweddariadau ar gael ar gyfer cydrannau Vidra. Tap Show i adolygu a gosod.",
+  "cv_description": "Yn dileu segmentau o gategorïau SponsorBlock.",
+  "s_cut_video_desc": "Yn torri fideo rhwng ffiniau amser cychwyn a gorffen penodedig.",
+  "s_cut_video_start": "Cychwyn",
+  "s_cut_video_end": "Diwedd",
+  "s_cut_video_until_end": "Lawrlwythwch tan y diwedd",
+  "s_cut_video_hours": "Oriau",
+  "s_cut_video_minutes": "Munudau",
+  "s_cut_video_seconds": "Eiliadau",
+  "s_force_keyframes_at_cuts": "Gorfod Fframiau Allwedd yn Cuts",
+  "s_force_keyframes_at_cuts_desc": "Gorfodwch fframiau bysell wrth doriadau wrth lawrlwytho/hollti/tynnu adrannau.\nMae hyn yn araf oherwydd bod angen ail-amgodio, ond efallai y bydd gan y fideo canlyniadol lai o arteffactau o amgylch y toriadau",
+  "d_cut_video": "Torri Fideo",
+  "cv_title": "Torri Fideo",
+  "cv_close": "Cau",
+  "s_cut_video": "Torri Fideo"
 }

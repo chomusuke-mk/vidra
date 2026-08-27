@@ -346,5 +346,19 @@
   "sd_app_engine_initializing": "App Engine: Αρχικοποίηση...",
   "sd_app_engine_reconnecting": "App Engine: Επανασύνδεση...",
   "dc_action_resume": "Περίληψη",
-  "dc_action_pause": "Παύση"
+  "dc_action_pause": "Παύση",
+  "d_cut_video": "Αποκοπή βίντεο",
+  "cv_title": "Αποκοπή βίντεο",
+  "cv_close": "Κοντά",
+  "cv_description": "Καταργεί τμήματα από τις κατηγορίες SponsorBlock.",
+  "s_cut_video": "Αποκοπή βίντεο",
+  "s_cut_video_desc": "Κόβει το βίντεο μεταξύ των καθορισμένων χρονικών ορίων έναρξης και λήξης.",
+  "s_cut_video_start": "Αρχή",
+  "s_cut_video_end": "Τέλος",
+  "s_cut_video_until_end": "Κατεβάστε μέχρι το τέλος",
+  "s_cut_video_hours": "Ώρες",
+  "s_cut_video_minutes": "Πρακτικά",
+  "s_cut_video_seconds": "Δευτερόλεπτα",
+  "s_force_keyframes_at_cuts": "Επιβολή βασικών καρέ σε περικοπές",
+  "s_force_keyframes_at_cuts_desc": "Επιβολή βασικών καρέ σε περικοπές κατά τη λήψη/διαίρεση/αφαίρεση ενοτήτων.\nΑυτό είναι αργό λόγω της ανάγκης εκ νέου κωδικοποίησης, αλλά το βίντεο που προκύπτει ενδέχεται να έχει λιγότερα τεχνουργήματα γύρω από τις περικοπές"
 }

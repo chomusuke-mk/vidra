@@ -346,5 +346,19 @@
   "d_engine_downloading_desc": "تنزيل الوحدات الأساسية المطلوبة (yt-dlp وyt-dlp-ejs). انتظر من فضلك...",
   "sd_command_copied": "تم نسخ الأمر إلى الحافظة",
   "ssi_bubble_button_show": "عرض",
-  "dc_action_cancel": "يلغي"
+  "dc_action_cancel": "يلغي",
+  "d_cut_video": "قطع الفيديو",
+  "cv_title": "قطع الفيديو",
+  "cv_close": "يغلق",
+  "cv_description": "إزالة الشرائح من فئات SponsorBlock.",
+  "s_cut_video": "قطع الفيديو",
+  "s_cut_video_desc": "يقطع الفيديو بين حدود وقت البداية والانتهاء المحددة.",
+  "s_cut_video_start": "يبدأ",
+  "s_cut_video_end": "نهاية",
+  "s_cut_video_until_end": "تحميل حتى النهاية",
+  "s_cut_video_hours": "ساعات",
+  "s_cut_video_minutes": "دقائق",
+  "s_cut_video_seconds": "ثواني",
+  "s_force_keyframes_at_cuts": "فرض الإطارات الرئيسية في التخفيضات",
+  "s_force_keyframes_at_cuts_desc": "فرض الإطارات الرئيسية عند القطع عند تنزيل/تقسيم/إزالة الأقسام.\nيعد هذا بطيئًا بسبب الحاجة إلى إعادة التشفير، ولكن قد يحتوي الفيديو الناتج على عدد أقل من العناصر حول القطع"
 }

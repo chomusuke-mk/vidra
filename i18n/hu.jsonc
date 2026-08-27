@@ -346,5 +346,19 @@
   "sd_copy_command": "Parancs másolása",
   "sd_channel_nightly": "Éjszakai",
   "ssi_bubble_title": "Frissítés elérhető",
-  "ssi_bubble_button_show": "Kijelző"
+  "ssi_bubble_button_show": "Kijelző",
+  "d_cut_video": "Vágja le a videót",
+  "cv_title": "Vágja le a videót",
+  "cv_close": "Közeli",
+  "cv_description": "Eltávolítja a szegmenseket a SponsorBlock kategóriákból.",
+  "s_cut_video": "Vágja le a videót",
+  "s_cut_video_desc": "Levágja a videót a megadott kezdési és befejezési időhatárok között.",
+  "s_cut_video_start": "Indul",
+  "s_cut_video_end": "Vége",
+  "s_cut_video_until_end": "Töltse le a végéig",
+  "s_cut_video_hours": "Órák",
+  "s_cut_video_minutes": "Jegyzőkönyv",
+  "s_cut_video_seconds": "Másodpercek",
+  "s_force_keyframes_at_cuts": "Kulcskockák kényszerítése a Cutsnál",
+  "s_force_keyframes_at_cuts_desc": "A szakaszok letöltése/felosztása/eltávolítása során kényszerítse ki a kulcskockákat a kivágásoknál.\nEz lassú, mert újra kell kódolni, de az eredményül kapott videón kevesebb műtermék lehet a kivágások körül"
 }

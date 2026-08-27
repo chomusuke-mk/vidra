@@ -346,5 +346,19 @@
   "sd_command_copied": "Lệnh đã được sao chép vào bảng nhớ tạm",
   "sd_channel_nightly": "Hàng đêm",
   "sd_changelog": "Nhật ký thay đổi",
-  "ssi_bubble_title": "Cập nhật có sẵn"
+  "ssi_bubble_title": "Cập nhật có sẵn",
+  "s_force_keyframes_at_cuts": "Buộc khung hình chính khi cắt",
+  "s_force_keyframes_at_cuts_desc": "Buộc các khung hình chính bị cắt khi tải xuống/tách/xóa các phần.\nQuá trình này diễn ra chậm do cần mã hóa lại nhưng video thu được có thể có ít thành phần giả hơn xung quanh các đoạn cắt",
+  "s_cut_video": "Cắt video",
+  "cv_title": "Cắt video",
+  "s_cut_video_hours": "Giờ",
+  "s_cut_video_minutes": "Phút",
+  "d_cut_video": "Cắt video",
+  "cv_close": "Đóng",
+  "cv_description": "Xóa các phân đoạn khỏi danh mục Nhà tài trợ.",
+  "s_cut_video_desc": "Cắt video giữa ranh giới thời gian bắt đầu và kết thúc được chỉ định.",
+  "s_cut_video_start": "Bắt đầu",
+  "s_cut_video_until_end": "Tải về cho đến khi kết thúc",
+  "s_cut_video_seconds": "Giây",
+  "s_cut_video_end": "Kết thúc"
 }

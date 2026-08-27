@@ -346,5 +346,19 @@
   "dc_action_cancel": "Баш тарту",
   "d_engine_downloading": "Йөкләү двигателе ...",
   "sd_linux_snap_title": "Видраны яңарту",
-  "sd_linux_snap_msg": "Видраны яңарту өчен Snap Store ачу ..."
+  "sd_linux_snap_msg": "Видраны яңарту өчен Snap Store ачу ...",
+  "d_cut_video": "Видеоны кисегез",
+  "cv_close": "Ябу",
+  "s_cut_video_hours": "Сәгать",
+  "cv_title": "Видеоны кисегез",
+  "cv_description": "SponsorBlock категорияләреннән сегментларны бетерә.",
+  "s_cut_video": "Видеоны кисегез",
+  "s_cut_video_start": "Башлау",
+  "s_cut_video_minutes": "Минутлар",
+  "s_force_keyframes_at_cuts": "Кыскартуларда ачкыч ачкычлары",
+  "s_cut_video_desc": "Билгеләнгән старт һәм ахыр чикләре арасында видео кисә.",
+  "s_cut_video_end": "Ахыр",
+  "s_cut_video_until_end": "Ахырына кадәр йөкләү",
+  "s_cut_video_seconds": "Секундлар",
+  "s_force_keyframes_at_cuts_desc": "Бүлекләрне йөкләгәндә / бүлгәндә / бетергәндә клавиатураларны кыскартырга мәҗбүр итегез.\nКабат кодлау кирәк булганга бу әкрен, ләкин килеп чыккан видео кыскартулар тирәсендә азрак экспонатлар булырга мөмкин"
 }

@@ -30,10 +30,8 @@ class CutVideoBottomSheet extends StatelessWidget {
     final settingsCtrl = context.watch<SettingsController>();
     final opts = settingsCtrl.downloadOptions;
 
-    final suggestions =
-        SponsorblockCategory.values.map((e) => e.name).toList();
-    final visualList =
-        opts.sponsorblockRemove.map((e) => e.name).toList();
+    final suggestions = SponsorblockCategory.values.map((e) => e.name).toList();
+    final visualList = opts.sponsorblockRemove.map((e) => e.name).toList();
 
     return ClipRRect(
       borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
@@ -61,6 +59,34 @@ class CutVideoBottomSheet extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       mainAxisSize: MainAxisSize.min,
                       children: [
+                        SwitchListTile(
+                          contentPadding: EdgeInsets.zero,
+                          title: Text(
+                            locale.sForceKeyframesAtCuts,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          subtitle: Text(
+                            locale.sForceKeyframesAtCutsDesc,
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                          value: opts.forceKeyframesAtCuts,
+                          onChanged: (val) {
+                            settingsCtrl.updateDownloadOptions(
+                              opts.copyWith(forceKeyframesAtCuts: val),
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 16),
+                        const Divider(height: 1),
+                        const SizedBox(height: 12),
                         Text(
                           locale.sSponsorblockRemove,
                           style: const TextStyle(

@@ -346,5 +346,19 @@
   "dc_action_open_folder": "Ṣii folda",
   "dc_action_details": "Awọn alaye",
   "dc_action_resume": "Tun bẹrẹ",
-  "dc_action_retry": "Tun gbiyanju"
+  "dc_action_retry": "Tun gbiyanju",
+  "cv_close": "Sunmọ",
+  "cv_description": "Yọ awọn abala kuro lati awọn ẹka SponsorBlock.",
+  "s_cut_video_end": "Ipari",
+  "d_cut_video": "Ge Fidio",
+  "cv_title": "Ge Fidio",
+  "s_cut_video": "Ge Fidio",
+  "s_cut_video_desc": "Gige fidio laarin ibẹrẹ kan pato ati awọn opin akoko ipari.",
+  "s_cut_video_start": "Bẹrẹ",
+  "s_cut_video_until_end": "Ṣe igbasilẹ titi di ipari",
+  "s_cut_video_hours": "Awọn wakati",
+  "s_force_keyframes_at_cuts_desc": "Fi agbara mu awọn fireemu bọtini ni awọn gige nigba gbigba lati ayelujara / pipin / yiyọ awọn apakan kuro.\nEyi lọra nitori iwulo tun-koodu, ṣugbọn fidio ti o yọrisi le ni awọn ohun-ọṣọ diẹ ni ayika awọn gige.",
+  "s_force_keyframes_at_cuts": "Fi agbara mu Keyframes ni Ge",
+  "s_cut_video_minutes": "Iṣẹju",
+  "s_cut_video_seconds": "Aaya"
 }

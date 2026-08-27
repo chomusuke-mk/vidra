@@ -346,5 +346,19 @@
   "sd_donate": "Bagyşlaň",
   "ssi_bubble_title": "Täzelenme bar",
   "ssi_bubble_button_show": "Ekran",
-  "ssi_bubble_button_dismiss": "Işden aýyrmak"
+  "ssi_bubble_button_dismiss": "Işden aýyrmak",
+  "cv_close": ".Akyn",
+  "s_cut_video_until_end": "Soňuna çenli göçürip alyň",
+  "s_force_keyframes_at_cuts_desc": "Bölümleri göçürip alanyňyzda / bölüp / aýyranyňyzda açar düwmelerini kesiň.\nGaýtadan kodlamagyň zerurlygy sebäpli bu haýal, ýöne netijede düşürilen wideoda kesişleriň töwereginde az artefakt bolup biler",
+  "d_cut_video": "Wideo kesiň",
+  "cv_title": "Wideo kesiň",
+  "cv_description": "SponsorBlock kategoriýalaryndan segmentleri aýyrýar.",
+  "s_cut_video": "Wideo kesiň",
+  "s_cut_video_desc": "Görkezilen başlangyç we ahyrky wagt araçäkleriniň arasynda wideo kesýär.",
+  "s_cut_video_hours": "Sagatlar",
+  "s_cut_video_minutes": "Minutlar",
+  "s_cut_video_seconds": "Sekunt",
+  "s_force_keyframes_at_cuts": "Kesgitlerde açar düwmelerini güýçlendiriň",
+  "s_cut_video_start": "Başla",
+  "s_cut_video_end": "Ahyrzaman"
 }

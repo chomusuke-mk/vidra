@@ -346,5 +346,19 @@
   "sd_linux_deb_title": "Абнаўленне Vidra (пакет DEB)",
   "sd_linux_deb_msg": "Рэпазітар Vidra настроены. Выканайце наступную каманду ў тэрмінале для абнаўлення:",
   "sd_about_created_by": "Створана Chomusuke",
-  "ssi_bubble_button_dismiss": "Звольніць"
+  "ssi_bubble_button_dismiss": "Звольніць",
+  "d_cut_video": "Выразаць відэа",
+  "cv_title": "Выразаць відэа",
+  "cv_close": "Блізка",
+  "cv_description": "Выдаляе сегменты з катэгорый SponsorBlock.",
+  "s_cut_video_desc": "Скарачае відэа паміж вызначанымі межамі часу пачатку і заканчэння.",
+  "s_cut_video_start": "Пачаць",
+  "s_cut_video": "Выразаць відэа",
+  "s_cut_video_seconds": "Секунды",
+  "s_cut_video_end": "Канец",
+  "s_cut_video_until_end": "Спампаваць да канца",
+  "s_cut_video_hours": "Гадзіны",
+  "s_cut_video_minutes": "хвіліны",
+  "s_force_keyframes_at_cuts": "Прымусіць ключавыя кадры ў разрэзах",
+  "s_force_keyframes_at_cuts_desc": "Пры загрузцы/раздзяленні/выдаленні раздзелаў фарсіруйце ключавыя кадры ў разрэзах.\nГэта адбываецца павольна з-за неабходнасці паўторнага кадзіравання, але ў атрыманым відэа можа быць менш артэфактаў вакол абрэзкаў"
 }

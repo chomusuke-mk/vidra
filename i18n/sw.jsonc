@@ -346,5 +346,19 @@
   "dc_action_delete": "Futa",
   "d_engine_downloading": "Inapakua injini ya upakuaji...",
   "sd_about_created_by": "Imeundwa na Chomusuke",
-  "ssi_bubble_title": "Sasisho Linapatikana"
+  "ssi_bubble_title": "Sasisho Linapatikana",
+  "cv_title": "Kata Video",
+  "s_cut_video": "Kata Video",
+  "s_cut_video_end": "Mwisho",
+  "s_force_keyframes_at_cuts": "Lazimisha Fremu Muhimu kwenye Kata",
+  "d_cut_video": "Kata Video",
+  "cv_close": "Funga",
+  "cv_description": "Huondoa sehemu kutoka kategoria za SponsorBlock.",
+  "s_cut_video_desc": "Hupunguza video kati ya mipaka maalum ya wakati wa kuanza na wa mwisho.",
+  "s_cut_video_start": "Anza",
+  "s_cut_video_until_end": "Pakua hadi mwisho",
+  "s_cut_video_hours": "Saa",
+  "s_cut_video_minutes": "Dakika",
+  "s_cut_video_seconds": "Sekunde",
+  "s_force_keyframes_at_cuts_desc": "Lazimisha fremu muhimu wakati wa kupunguzwa wakati wa kupakua/kugawanya/kuondoa sehemu.\nHii ni polepole kwa sababu ya kuhitaji usimbaji upya, lakini video inayotokana inaweza kuwa na vizalia vya programu vichache karibu na kupunguzwa."
 }

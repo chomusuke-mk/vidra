@@ -346,5 +346,19 @@
   "sd_copy_command": "دستور کپی",
   "sd_channel_stable": "پایدار",
   "sd_donate": "اهدا کنید",
-  "sd_state_ready": "متصل شد"
+  "sd_state_ready": "متصل شد",
+  "d_cut_video": "برش ویدیو",
+  "cv_title": "برش ویدیو",
+  "cv_close": "بستن",
+  "cv_description": "بخش‌ها را از دسته‌های SponsorBlock حذف می‌کند.",
+  "s_cut_video": "برش ویدیو",
+  "s_cut_video_desc": "ویدیو را بین مرزهای زمانی شروع و پایان مشخص شده برش می دهد.",
+  "s_cut_video_start": "شروع کنید",
+  "s_cut_video_end": "پایان",
+  "s_cut_video_until_end": "تا آخر دانلود کنید",
+  "s_cut_video_hours": "ساعت",
+  "s_cut_video_minutes": "دقیقه",
+  "s_cut_video_seconds": "ثانیه ها",
+  "s_force_keyframes_at_cuts": "اجباری فریم های کلیدی در برش ها",
+  "s_force_keyframes_at_cuts_desc": "هنگام دانلود/تقسیم/حذف بخش‌ها، فریم‌های کلیدی را مجبور به برش کنید.\nاین به دلیل نیاز به رمزگذاری مجدد کند است، اما ویدیوی حاصل ممکن است آثار کمتری در اطراف برش‌ها داشته باشد."
 }

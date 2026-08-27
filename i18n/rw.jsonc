@@ -346,5 +346,19 @@
   "sd_linux_appimage_msg": "Koresha appimageupdatetool cyangwa ukuremo AppImage iheruka kuva muri GitHub:",
   "ssi_bubble_title": "Kuvugurura birashoboka",
   "ssi_bubble_message": "Ibishya birahari kubice bya Vidra. Kanda Show kugirango usubiremo kandi ushyire.",
-  "ssi_bubble_button_dismiss": "Kwirukana"
+  "ssi_bubble_button_dismiss": "Kwirukana",
+  "d_cut_video": "Kata Video",
+  "cv_title": "Kata Video",
+  "cv_close": "Funga",
+  "cv_description": "Kuraho ibice mubyiciro bya SponsorBlock.",
+  "s_cut_video": "Kata Video",
+  "s_cut_video_desc": "Gabanya videwo hagati yintangiriro nigihe cyanyuma.",
+  "s_cut_video_start": "Tangira",
+  "s_cut_video_end": "Iherezo",
+  "s_cut_video_until_end": "Kuramo kugeza imperuka",
+  "s_cut_video_hours": "Amasaha",
+  "s_cut_video_minutes": "Iminota",
+  "s_cut_video_seconds": "Amasegonda",
+  "s_force_keyframes_at_cuts": "Koresha imbaraga za Keyframes mugukata",
+  "s_force_keyframes_at_cuts_desc": "Shira urufunguzo rwibanze mugukuramo / gutandukanya / gukuraho ibice.\nIbi biratinda kubera gukenera re-kode, ariko videwo yavuyemo irashobora kuba ifite ibihangano bike hafi yo gukata"
 }

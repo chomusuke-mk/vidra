@@ -346,5 +346,19 @@
   "sd_about_created_by": "Nilikha ni Chomusuke",
   "sd_changelog": "Changelog",
   "ssi_bubble_message": "Available ang mga update para sa mga bahagi ng Vidra. I-tap ang Ipakita para suriin at i-install.",
-  "ssi_bubble_button_dismiss": "I-dismiss"
+  "ssi_bubble_button_dismiss": "I-dismiss",
+  "d_cut_video": "Gupitin ang Video",
+  "cv_close": "Isara",
+  "s_cut_video_start": "Magsimula",
+  "cv_title": "Gupitin ang Video",
+  "cv_description": "Inaalis ang mga segment mula sa mga kategorya ng SponsorBlock.",
+  "s_cut_video": "Gupitin ang Video",
+  "s_cut_video_desc": "Pinuputol ang video sa pagitan ng tinukoy na mga hangganan ng oras ng pagsisimula at pagtatapos.",
+  "s_cut_video_end": "Tapusin",
+  "s_cut_video_until_end": "I-download hanggang sa dulo",
+  "s_cut_video_hours": "Oras",
+  "s_cut_video_minutes": "Mga minuto",
+  "s_cut_video_seconds": "Mga segundo",
+  "s_force_keyframes_at_cuts": "Pilitin ang Keyframes sa Cuts",
+  "s_force_keyframes_at_cuts_desc": "Pilitin ang mga keyframe sa mga pagbawas kapag nagda-download/naghahati/nag-aalis ng mga seksyon.\nIto ay mabagal dahil sa pangangailangan ng muling pag-encode, ngunit ang resultang video ay maaaring magkaroon ng mas kaunting mga artifact sa paligid ng mga hiwa"
 }

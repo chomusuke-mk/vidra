@@ -346,5 +346,19 @@
   "sd_linux_snap_msg": "Louvri Snap Store pou mete ajou Vidra...",
   "sd_copy_command": "Kopi Kòmandman",
   "sd_changelog": "Chanjman",
-  "ssi_bubble_title": "Mizajou disponib"
+  "ssi_bubble_title": "Mizajou disponib",
+  "d_cut_video": "Koupe videyo",
+  "cv_title": "Koupe videyo",
+  "cv_close": "Fèmen",
+  "cv_description": "Retire segman nan kategori SponsorBlock.",
+  "s_cut_video": "Koupe videyo",
+  "s_cut_video_desc": "Koupe videyo ant limit tan pou kòmanse ak fini.",
+  "s_cut_video_start": "Kòmanse",
+  "s_cut_video_end": "Fen",
+  "s_cut_video_until_end": "Telechaje jiska la fen",
+  "s_cut_video_hours": "Orè",
+  "s_cut_video_minutes": "Minit",
+  "s_cut_video_seconds": "Segond",
+  "s_force_keyframes_at_cuts": "Force Keyframes nan koupe",
+  "s_force_keyframes_at_cuts_desc": "Fòse keyframes nan koupe lè w ap telechaje/divize/retire seksyon yo.\nSa a se ralanti akòz bezwen yon re-kode, men videyo a ki kapab lakòz ka gen mwens zafè alantou koupe yo."
 }

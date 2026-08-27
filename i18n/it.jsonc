@@ -346,5 +346,19 @@
   "ssi_bubble_message": "Sono disponibili aggiornamenti per i componenti Vidra. Tocca Mostra per rivedere e installare.",
   "ssi_bubble_button_show": "Display",
   "ssi_bubble_button_dismiss": "Congedare",
-  "sd_app_engine_initializing": "App Engine: inizializzazione in corso..."
+  "sd_app_engine_initializing": "App Engine: inizializzazione in corso...",
+  "d_cut_video": "Taglia video",
+  "cv_title": "Taglia video",
+  "cv_close": "Vicino",
+  "cv_description": "Rimuove i segmenti dalle categorie SponsorBlock.",
+  "s_cut_video": "Taglia video",
+  "s_cut_video_desc": "Taglia il video tra i limiti di tempo di inizio e di fine specificati.",
+  "s_cut_video_start": "Inizio",
+  "s_cut_video_end": "FINE",
+  "s_cut_video_until_end": "Scarica fino alla fine",
+  "s_cut_video_hours": "Ore",
+  "s_cut_video_minutes": "Minuti",
+  "s_cut_video_seconds": "Secondi",
+  "s_force_keyframes_at_cuts": "Forza i fotogrammi chiave ai tagli",
+  "s_force_keyframes_at_cuts_desc": "Forza i fotogrammi chiave ai tagli durante il download/divisione/rimozione di sezioni.\nL'operazione è lenta perché è necessaria una ricodifica, ma il video risultante potrebbe presentare meno artefatti attorno ai tagli"
 }

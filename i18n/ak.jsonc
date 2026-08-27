@@ -346,5 +346,19 @@
   "sd_changelog": "Nsakrae ho kyerɛwtohɔ",
   "ssi_bubble_button_dismiss": "Po",
   "dc_action_delete": "Pepa",
-  "d_engine_downloading": "Downloading download engine..."
+  "d_engine_downloading": "Downloading download engine...",
+  "d_cut_video": "Twitwa Video no",
+  "cv_title": "Twitwa Video no",
+  "cv_close": "To mu",
+  "cv_description": "Yi afã horow fi SponsorBlock akuw ahorow mu.",
+  "s_cut_video": "Twitwa Video no",
+  "s_cut_video_desc": "Twitwa video wɔ mfiase ne awiei bere hye a wɔakyerɛ no ntam.",
+  "s_cut_video_start": "Hyɛ aseɛ",
+  "s_cut_video_end": "Awieeɛ",
+  "s_cut_video_until_end": "Twe kɔsi awiei",
+  "s_cut_video_hours": "Nnɔnhwere",
+  "s_cut_video_minutes": "Sima",
+  "s_cut_video_seconds": "Sekan kakraa bi",
+  "s_force_keyframes_at_cuts": "Hyɛ Keyframes wɔ Cuts",
+  "s_force_keyframes_at_cuts_desc": "Hyɛ keyframes wɔ cuts bere a woretwe/repaapae/yi afã horow no.\nEyi yɛ brɛoo esiane sɛ ehia sɛ wɔsan de encode yɛ nti, nanso video a efi mu ba no betumi anya nneɛma kakraa bi a atwa nneɛma a wɔatwa no ho ahyia"
 }

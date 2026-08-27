@@ -346,5 +346,19 @@
   "d_engine_downloading": "Механизмът за изтегляне се изтегля...",
   "sd_linux_appimage_msg": "Използвайте appimageupdatetool или изтеглете най-новото AppImage от GitHub:",
   "sd_linux_snap_title": "Актуализиране на Vidra (мигновено)",
-  "dc_action_delete": "Изтриване"
+  "dc_action_delete": "Изтриване",
+  "d_cut_video": "Изрежете видео",
+  "cv_title": "Изрежете видео",
+  "cv_close": "затвори",
+  "s_cut_video": "Изрежете видео",
+  "s_cut_video_desc": "Нарязва видеото между зададените начални и крайни времеви граници.",
+  "cv_description": "Премахва сегменти от категории SponsorBlock.",
+  "s_cut_video_start": "Започнете",
+  "s_cut_video_end": "Край",
+  "s_cut_video_until_end": "Изтеглете до края",
+  "s_cut_video_hours": "часове",
+  "s_cut_video_minutes": "минути",
+  "s_cut_video_seconds": "Секунди",
+  "s_force_keyframes_at_cuts": "Принудителни ключови кадри при съкращения",
+  "s_force_keyframes_at_cuts_desc": "Принудително насочване на ключови кадри при изрязване при изтегляне/разделяне/премахване на секции.\nТова е бавно поради необходимост от повторно кодиране, но полученият видеоклип може да има по-малко артефакти около разрезите"
 }

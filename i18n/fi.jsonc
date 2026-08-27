@@ -346,5 +346,19 @@
   "sd_linux_deb_msg": "Vidra-arkisto on määritetty. Päivitä suorittamalla seuraava komento terminaalissa:",
   "sd_linux_snap_title": "Päivitä Vidra (Snap)",
   "sd_channel_stable": "Vakaa",
-  "sd_about_created_by": "Luonut Chomusuke"
+  "sd_about_created_by": "Luonut Chomusuke",
+  "d_cut_video": "Leikkaa video",
+  "cv_title": "Leikkaa video",
+  "cv_close": "Lähellä",
+  "cv_description": "Poistaa segmentit SponsorBlock-luokista.",
+  "s_cut_video": "Leikkaa video",
+  "s_cut_video_desc": "Leikkaa videon määritettyjen alkamis- ja lopetusaikarajojen välillä.",
+  "s_cut_video_start": "Aloita",
+  "s_cut_video_end": "Loppu",
+  "s_cut_video_until_end": "Lataa loppuun asti",
+  "s_cut_video_hours": "Tuntia",
+  "s_cut_video_minutes": "Minuutit",
+  "s_cut_video_seconds": "Sekuntia",
+  "s_force_keyframes_at_cuts": "Pakota avainkehykset Cutsissa",
+  "s_force_keyframes_at_cuts_desc": "Pakota avainkehykset leikkauksissa, kun lataat/jaat/poistat osia.\nTämä on hidasta, koska se vaatii uudelleenkoodauksen, mutta tuloksena olevassa videossa voi olla vähemmän artefakteja leikkausten ympärillä"
 }

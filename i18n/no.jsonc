@@ -346,5 +346,19 @@
   "sd_linux_deb_title": "Oppdater Vidra (DEB-pakke)",
   "sd_changelog": "Endringslogg",
   "ssi_bubble_button_show": "Utstilling",
-  "ssi_bubble_button_dismiss": "Avskjedige"
+  "ssi_bubble_button_dismiss": "Avskjedige",
+  "d_cut_video": "Klipp video",
+  "cv_title": "Klipp video",
+  "cv_close": "Lukke",
+  "cv_description": "Fjerner segmenter fra SponsorBlock-kategorier.",
+  "s_cut_video": "Klipp video",
+  "s_cut_video_desc": "Kutter video mellom spesifiserte start- og slutttidsgrenser.",
+  "s_cut_video_start": "Start",
+  "s_cut_video_end": "Slutt",
+  "s_cut_video_until_end": "Last ned til slutten",
+  "s_cut_video_hours": "Timer",
+  "s_cut_video_minutes": "Minutter",
+  "s_cut_video_seconds": "Sekunder",
+  "s_force_keyframes_at_cuts": "Force Keyframes ved Cuts",
+  "s_force_keyframes_at_cuts_desc": "Tving nøkkelbilder ved kutt når du laster ned/oppdeler/fjerner deler.\nDette er tregt på grunn av behov for omkoding, men den resulterende videoen kan ha færre artefakter rundt kuttene"
 }

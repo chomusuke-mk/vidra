@@ -346,5 +346,19 @@
   "dc_action_cancel": "Soke",
   "dc_action_delete": "Share",
   "sd_channel_nightly": "Dare",
-  "ssi_bubble_button_dismiss": "Korar"
+  "ssi_bubble_button_dismiss": "Korar",
+  "d_cut_video": "Yanke Bidiyo",
+  "cv_title": "Yanke Bidiyo",
+  "cv_close": "Kusa",
+  "cv_description": "Yana cire sassa daga nau'ikan SponsorBlock.",
+  "s_cut_video": "Yanke Bidiyo",
+  "s_cut_video_desc": "Yanke bidiyo tsakanin ƙayyadaddun iyakokin farawa da ƙarshen lokacin.",
+  "s_cut_video_start": "Fara",
+  "s_cut_video_end": "Ƙarshe",
+  "s_cut_video_until_end": "Zazzage har zuwa ƙarshe",
+  "s_cut_video_hours": "Awanni",
+  "s_cut_video_minutes": "Mintuna",
+  "s_cut_video_seconds": "Dakika",
+  "s_force_keyframes_at_cuts": "Tilasta Firam ɗin Maɓalli a Yanke",
+  "s_force_keyframes_at_cuts_desc": "Ƙaddamar da firam ɗin maɓalli a yanke lokacin saukewa/ragawa/cire sassan.\nWannan yana jinkirin saboda buƙatar sake yin rikodin, amma sakamakon bidiyon na iya samun ƙarancin kayan tarihi a kusa da yanke."
 }

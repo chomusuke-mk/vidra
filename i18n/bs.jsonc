@@ -346,5 +346,19 @@
   "sd_linux_snap_msg": "Otvaram Snap Store za ažuriranje Vidra...",
   "sd_channel_stable": "Stabilno",
   "sd_about_created_by": "Kreirao Chomusuke",
-  "sd_state_retrying": "Ponovno povezivanje..."
+  "sd_state_retrying": "Ponovno povezivanje...",
+  "s_force_keyframes_at_cuts": "Prisilite ključne kadrove na rezove",
+  "s_force_keyframes_at_cuts_desc": "Prisilite ključne kadrove na rezove prilikom preuzimanja/cijepanja/uklanjanja sekcija.\nOvo je sporo jer je potrebno ponovno kodiranje, ali rezultirajući video može imati manje artefakata oko rezova",
+  "d_cut_video": "Cut Video",
+  "s_cut_video_start": "Počni",
+  "cv_title": "Cut Video",
+  "cv_close": "Zatvori",
+  "cv_description": "Uklanja segmente iz kategorija SponsorBlock.",
+  "s_cut_video": "Cut Video",
+  "s_cut_video_desc": "Reže video između određenih granica vremena početka i završetka.",
+  "s_cut_video_end": "Kraj",
+  "s_cut_video_until_end": "Preuzmite do kraja",
+  "s_cut_video_hours": "Sati",
+  "s_cut_video_minutes": "Minute",
+  "s_cut_video_seconds": "Sekunde"
 }

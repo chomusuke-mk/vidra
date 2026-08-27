@@ -346,5 +346,19 @@
   "dc_action_delete": "Ջնջել",
   "d_engine_downloading_desc": "Պահանջվող հիմնական մոդուլների ներբեռնում (yt-dlp & yt-dlp-ejs): Խնդրում ենք սպասել...",
   "sd_linux_deb_title": "Թարմացրեք Vidra-ն (DEB փաթեթ)",
-  "sd_channel_nightly": "Գիշերային"
+  "sd_channel_nightly": "Գիշերային",
+  "d_cut_video": "Կտրել տեսանյութը",
+  "cv_title": "Կտրել տեսանյութը",
+  "cv_close": "Փակել",
+  "cv_description": "Հեռացնում է հատվածները SponsorBlock կատեգորիաներից:",
+  "s_cut_video": "Կտրել տեսանյութը",
+  "s_cut_video_desc": "Կտրում է տեսանյութը սահմանված սկզբի և ավարտի ժամանակի սահմանների միջև:",
+  "s_cut_video_start": "Սկսել",
+  "s_cut_video_end": "Վերջ",
+  "s_cut_video_until_end": "Ներբեռնեք մինչև վերջ",
+  "s_cut_video_hours": "Ժամեր",
+  "s_cut_video_minutes": "Րոպեներ",
+  "s_cut_video_seconds": "Վայրկյաններ",
+  "s_force_keyframes_at_cuts": "Ստիպել Keyframes-ը Cuts-ում",
+  "s_force_keyframes_at_cuts_desc": "Ստիպել առանցքային կադրերը կրճատումներ կատարել՝ բաժինները ներբեռնելիս/բաժանել/հեռացնելիս:\nՍա դանդաղ է, քանի որ նորից կոդավորում է պահանջվում, բայց արդյունքում ստացված տեսանյութը կարող է ավելի քիչ արտեֆակտներ ունենալ կտրվածքների շուրջ"
 }

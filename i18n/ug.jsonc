@@ -346,5 +346,19 @@
   "d_downloading_engine_progress": "يادرولۇق مودۇللارنى چۈشۈرۈش ({قوبۇل قىلىنغان} / {ئومۇمىي}) ...",
   "sd_copy_command": "كۆچۈرۈش بۇيرۇقى",
   "sd_channel_stable": "مۇقىم",
-  "sd_changelog": "Changelog"
+  "sd_changelog": "Changelog",
+  "s_cut_video_until_end": "ئاخىرىغىچە چۈشۈرۈڭ",
+  "s_cut_video_minutes": "مىنۇت",
+  "d_cut_video": "كېسىش سىن",
+  "cv_title": "كېسىش سىن",
+  "cv_description": "SponsorBlock تۈرىدىكى بۆلەكلەرنى ئۆچۈرۈۋېتىدۇ.",
+  "s_cut_video_desc": "كۆرسىتىلگەن باشلىنىش ۋە ئاخىرلىشىش ۋاقتى ئارىسىدىكى سىننى كېسىدۇ.",
+  "cv_close": "تاقاش",
+  "s_cut_video": "كېسىش سىن",
+  "s_cut_video_end": "ئاخىر",
+  "s_cut_video_hours": "سائەت",
+  "s_cut_video_start": "باشلاش",
+  "s_cut_video_seconds": "سېكۇنت",
+  "s_force_keyframes_at_cuts": "كەسمە كۇنۇپكىلارنى زورلاڭ",
+  "s_force_keyframes_at_cuts_desc": "بۆلەكلەرنى چۈشۈرگەندە / بۆلگەندە / ئۆچۈرگەندە ئاچقۇچ كۇنۇپكىسىنى كېسىڭ.\nقايتا كودلاشقا ئېھتىياجلىق بولغاچقا بۇ ئاستا ، ئەمما ھاسىل بولغان سىننىڭ كېسىش ئەتراپىدا ئاسارە-ئەتىقىلەر ئاز بولۇشى مۇمكىن"
 }

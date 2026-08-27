@@ -346,5 +346,19 @@
   "sd_linux_appimage_msg": "appimageupdatetool प्रयोग गर्नुहोस् वा GitHub बाट नवीनतम AppImage डाउनलोड गर्नुहोस्:",
   "sd_linux_snap_msg": "Vidra अपडेट गर्न स्न्याप स्टोर खोल्दै...",
   "sd_about_created_by": "चोमुसुके द्वारा बनाईएको",
-  "sd_changelog": "Changelog"
+  "sd_changelog": "Changelog",
+  "d_cut_video": "भिडियो काट्नुहोस्",
+  "cv_title": "भिडियो काट्नुहोस्",
+  "cv_close": "बन्द गर्नुहोस्",
+  "cv_description": "SponsorBlock कोटिहरूबाट खण्डहरू हटाउँछ।",
+  "s_cut_video": "भिडियो काट्नुहोस्",
+  "s_cut_video_desc": "निर्दिष्ट सुरु र अन्त्य समय सीमाहरू बीच भिडियो काट्छ।",
+  "s_cut_video_start": "सुरु गर्नुहोस्",
+  "s_cut_video_end": "अन्त्य",
+  "s_cut_video_until_end": "अन्त सम्म डाउनलोड गर्नुहोस्",
+  "s_cut_video_hours": "घण्टा",
+  "s_cut_video_minutes": "मिनेट",
+  "s_cut_video_seconds": "सेकेन्ड",
+  "s_force_keyframes_at_cuts": "कटहरूमा कीफ्रेमहरू बल गर्नुहोस्",
+  "s_force_keyframes_at_cuts_desc": "खण्डहरू डाउनलोड/विभाजन/हटाउँदा कुञ्जीफ्रेमहरूलाई काट्दा बल गर्नुहोस्।\nपुन: इन्कोड आवश्यक भएको कारणले गर्दा यो ढिलो छ, तर परिणामस्वरूप भिडियोमा कटौतीको वरिपरि कम कलाकृतिहरू हुन सक्छ।"
 }

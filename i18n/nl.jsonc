@@ -346,5 +346,19 @@
   "sd_channel_stable": "Stabiel",
   "ssi_bubble_message": "Er zijn updates beschikbaar voor Vidra-componenten. Tik op Tonen om te bekijken en te installeren.",
   "ssi_bubble_button_show": "Weergave",
-  "ssi_bubble_button_dismiss": "Afwijzen"
+  "ssi_bubble_button_dismiss": "Afwijzen",
+  "d_cut_video": "Video knippen",
+  "cv_title": "Video knippen",
+  "cv_close": "Dichtbij",
+  "cv_description": "Verwijdert segmenten uit SponsorBlock-categorieën.",
+  "s_cut_video": "Video knippen",
+  "s_cut_video_desc": "Knipt video tussen gespecificeerde begin- en eindtijdgrenzen.",
+  "s_cut_video_start": "Begin",
+  "s_cut_video_end": "Einde",
+  "s_cut_video_until_end": "Downloaden tot het einde",
+  "s_cut_video_hours": "Uur",
+  "s_cut_video_minutes": "Notulen",
+  "s_cut_video_seconds": "Seconden",
+  "s_force_keyframes_at_cuts": "Forceer keyframes bij cuts",
+  "s_force_keyframes_at_cuts_desc": "Forceer keyframes bij het knippen bij het downloaden/splitsen/verwijderen van secties.\nDit is langzaam omdat opnieuw moet worden gecodeerd, maar de resulterende video bevat mogelijk minder artefacten rond de bezuinigingen"
 }
