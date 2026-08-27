@@ -4,6 +4,10 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [4.1.2] - Urgent Bug Fixes
+
+- **Windows FFmpeg Issue:** Fixed an issue where the FFmpeg module was not functioning correctly on Windows, ensuring that users on this platform can utilize all media processing features without errors.
+
 ## [4.1.1] - Bug Fixes
 
 - **Missing Localization:** Fixed an issue where the localization for the cut video feature was missing, ensuring that users can view the feature in their preferred language.
