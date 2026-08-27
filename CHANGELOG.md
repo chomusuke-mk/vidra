@@ -4,6 +4,11 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [4.1.3] - Bug Fixes
+
+- **Filename Too Long Issue:** Fixed an issue where filenames that were too long caused errors during the download process. This fix ensures that users can download files with longer names without encountering issues, improving the overall user experience and reliability of the application.
+- **File size issue:** Fixed an issue where the file size was not being displayed correctly in the download details. This fix ensures that users can accurately view the size of their downloads, providing better information and transparency during the download process.
+
 ## [4.1.2] - Urgent Bug Fixes
 
 - **Windows FFmpeg Issue:** Fixed an issue where the FFmpeg module was not functioning correctly on Windows, ensuring that users on this platform can utilize all media processing features without errors.
