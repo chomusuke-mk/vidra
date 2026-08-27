@@ -186,7 +186,7 @@ class DownloadCard extends StatelessWidget {
         // MATEMÁTICA PURA: Cada botón mide ~54px. Dividimos ese ancho total
         // entre el ancho disponible de la pantalla para obtener el ratio exacto.
         // Lo limitamos (clamp) para que nunca se rompa en pantallas enanas o gigantes.
-        final double ratio = ((70.0 * actionCount) / constraints.maxWidth)
+        final double ratio = ((54.0 * actionCount) / constraints.maxWidth)
             .clamp(0.1, 0.8);
 
         return Slidable(
