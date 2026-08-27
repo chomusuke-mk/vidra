@@ -9,6 +9,7 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 - **New Features:** Added cut video feature, allowing users to trim videos directly within the application. This feature provides a convenient way to edit videos without the need for external software, enhancing the overall functionality of the application.
 - **Performance:** Improved performance of Dropdown menus, resulting in faster and more responsive interactions when navigating through options and settings.
 - **UX:** Now click download card shows action buttons.
+- **FFmpeg:** New version of FFmpeg, which includes various performance improvements and bug fixes, ensuring better media processing capabilities and support for a wider range of formats.
 - **Bug Fixes:** Filename too long issue fixed, ensuring that users can save files with longer names without encountering errors or truncation issues.
 - **Bug Fixes:** Sponsorblock remove now has correct time range, ensuring that the feature accurately removes sponsored segments from videos without affecting other content.
 - **Bug Fixes:** Fix settings/rate-limit wrong file-selector.
