@@ -4,6 +4,10 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [4.1.6] - CURL-CFFI
+
+- **Add curl-cffi to android arm64-v8a:** Added the `curl-cffi` package to the Android arm64-v8a build, ensuring that users on this platform have access to the necessary dependencies for proper functionality and improved performance.
+
 ## [4.1.5] - Emergency Bug Fixes
 
 - **Android Emergency Bug Fix:** Restored version without the `curl-cffi` package for Android arm64-v8a, addressing an urgent issue that affected users on this platform. This fix ensures that the application functions correctly and maintains stability for all users, particularly those on Android devices.
