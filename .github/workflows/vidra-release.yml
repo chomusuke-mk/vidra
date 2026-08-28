@@ -22,6 +22,12 @@ jobs:
         with:
           channel: "stable"
 
+      - name: Setup Environment Variables
+        run: |
+          mkdir -p .serious_python/site-packages .serious_python/app
+          echo "SERIOUS_PYTHON_SITE_PACKAGES=${GITHUB_WORKSPACE}/.serious_python/site-packages" >> $GITHUB_ENV
+          echo "SERIOUS_PYTHON_APP=${GITHUB_WORKSPACE}/.serious_python/app" >> $GITHUB_ENV
+
       - name: Download & Extract Backend
         run: |
           wget -qO backend.zip https://github.com/chomusuke-mk/vidra-backend/releases/latest/download/app.zip
@@ -50,29 +56,10 @@ jobs:
             cp "quickjs_${ABI}/quickjs" "$OUT_DIR/libquickjs.so"
           done
 
-      - name: Setup Environment Variables & Package Serious Python (Android)
+      - name: Package Serious Python (Android)
         run: |
-          mkdir -p .serious_python/site-packages .serious_python/app
-          echo "SERIOUS_PYTHON_SITE_PACKAGES=${GITHUB_WORKSPACE}/.serious_python/site-packages" >> $GITHUB_ENV
-          echo "SERIOUS_PYTHON_APP=${GITHUB_WORKSPACE}/.serious_python/app" >> $GITHUB_ENV
           flutter pub get
           dart run serious_python:main package app/src -r -r -r app/requirements/base.txt -r -r -r app/requirements/Android.txt -p Android --verbose --compile-packages
-          
-          SERIOUS_PYTHON_TMP=".serious_python_tmp"
-          mkdir -p "$SERIOUS_PYTHON_TMP"
-          SERIOUS_PYTHON_SITE_PACKAGES="${GITHUB_WORKSPACE}/${SERIOUS_PYTHON_TMP}/site-packages" \
-          SERIOUS_PYTHON_APP="${GITHUB_WORKSPACE}/${SERIOUS_PYTHON_TMP}/app" \
-          dart run serious_python:main package app/src \
-            -r -r -r app/requirements/base.txt \
-            -r -r -r app/requirements/Android.txt \
-            -r curl-cffi \
-            -p Android --verbose --compile-packages --arch arm64-v8a
-
-          # 4. Sustituir binarios de arm64-v8a y eliminar temporales
-          rm -rf .serious_python/site-packages/arm64-v8a
-          mv .serious_python_tmp/site-packages/arm64-v8a .serious_python/site-packages/arm64-v8a
-          rm -rf "$SERIOUS_PYTHON_TMP"
-          
 
       - name: Configure Android signing
         env:
