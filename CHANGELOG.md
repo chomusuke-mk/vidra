@@ -4,6 +4,10 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [4.1.5] - Emergency Bug Fixes
+
+- **Android Emergency Bug Fix:** Restored version without the `curl-cffi` package for Android arm64-v8a, addressing an urgent issue that affected users on this platform. This fix ensures that the application functions correctly and maintains stability for all users, particularly those on Android devices.
+
 ## [4.1.4] - Bug Fixes
 
 - **Better descriptions:** Fixed some suggested descriptions for some download settings, providing clearer and more accurate information to users when configuring their downloads.
