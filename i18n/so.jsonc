@@ -145,7 +145,7 @@
   "s_extractor_retries": "Dib-u-dejinta Soo saarista",
   "s_extractor_retries_desc": "Tirada isku dayada khaladaadka soo saarista",
   "s_limit_rate": "Qiyaasta xaddidan",
-  "s_limit_rate_desc": "Waxay xaddidaysaa xawaaraha soo dejinta (tusaale, 50K, 4.2M).",
+  "s_limit_rate_desc": "Waxay xaddidaysaa xawaaraha soo dejinta (tusaale, 50K, 15M).",
   "d_everything": "Wax walba",
   "d_in_progress": "Horumarka",
   "d_completed": "Dhammaystiran",

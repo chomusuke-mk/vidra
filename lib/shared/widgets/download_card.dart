@@ -140,16 +140,43 @@ class DownloadCard extends StatelessWidget {
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: () {
-            if (isError) {
-              ToastUtils.showError(
-                state?.errorMessage ?? locale.dcUnknownError,
-              );
-            } else if (state?.value ==
-                model.DownloadStateEnum.awaitingSelection) {
+            if (state?.value == model.DownloadStateEnum.awaitingSelection) {
               context.read<DownloadsController>().requestSelectionModal(
                 downloadId!,
               );
             } else {
+              if (isError) {
+                ToastUtils.showError(
+                  state?.errorMessage ?? locale.dcUnknownError,
+                );
+              }
+              final slidable = Slidable.of(cardContext);
+              if (slidable != null && actionCount > 0) {
+                final isClosed =
+                    slidable.actionPaneType.value == ActionPaneType.none &&
+                    slidable.animation.value == 0;
+                if (isClosed) {
+                  slidable.openEndActionPane();
+                } else {
+                  slidable.close();
+                }
+              } else if (!isDetailScreen && onTap != null) {
+                onTap!();
+              }
+            }
+          },
+          // clone current InkWell onTab
+          onSecondaryTap: () {
+            if (state?.value == model.DownloadStateEnum.awaitingSelection) {
+              context.read<DownloadsController>().requestSelectionModal(
+                downloadId!,
+              );
+            } else {
+              if (isError) {
+                ToastUtils.showError(
+                  state?.errorMessage ?? locale.dcUnknownError,
+                );
+              }
               final slidable = Slidable.of(cardContext);
               if (slidable != null && actionCount > 0) {
                 final isClosed =

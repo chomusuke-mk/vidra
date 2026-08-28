@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor kaqmanta kallpachakun",
   "s_extractor_retries_desc": "Extractor pantaykunapi yapamanta kallpachakuy yupay.",
   "s_limit_rate": "Tasa Límite nisqa",
-  "s_limit_rate_desc": "Utqaylla uraykachiyta limitan (e.g., 50K, 4.2M).",
+  "s_limit_rate_desc": "Utqaylla uraykachiyta limitan (e.g., 50K, 15M).",
   "d_everything": "Llapan",
   "d_in_progress": "In Progreso nisqa",
   "d_completed": "Tukuchisqa",

@@ -4,6 +4,12 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [4.1.4] - Bug Fixes
+
+- **Better descriptions:** Fixed some suggested descriptions for some download settings, providing clearer and more accurate information to users when configuring their downloads.
+- **Add curl-cffi to android arm64-v8a:** Added the `curl-cffi` package to the Android arm64-v8a build, ensuring that users on this platform have access to the necessary dependencies for proper functionality and improved performance.
+- **More ways to show download action buttons:** Added additional methods for displaying download action buttons, enhancing the user interface and providing users with more convenient options for managing their downloads.
+
 ## [4.1.3] - Bug Fixes
 
 - **Filename Too Long Issue:** Fixed an issue where filenames that were too long caused errors during the download process. This fix ensures that users can download files with longer names without encountering issues, improving the overall user experience and reliability of the application.

@@ -145,7 +145,7 @@
   "s_extractor_retries": "Thử lại trình trích xuất",
   "s_extractor_retries_desc": "Số lần thử lại về lỗi giải nén.",
   "s_limit_rate": "Tỷ lệ giới hạn",
-  "s_limit_rate_desc": "Giới hạn tốc độ tải xuống (ví dụ: 50K, 4,2M).",
+  "s_limit_rate_desc": "Giới hạn tốc độ tải xuống (ví dụ: 50K, 15M).",
   "d_everything": "Mọi thứ",
   "d_in_progress": "Đang tiến hành",
   "d_completed": "Hoàn thành",

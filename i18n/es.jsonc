@@ -153,7 +153,7 @@
   "s_extractor_retries": "Reintentos del extractor",
   "s_extractor_retries_desc": "Número de reintentos ante errores del extractor.",
   "s_limit_rate": "Tasa límite",
-  "s_limit_rate_desc": "Limita la velocidad de descarga (por ejemplo, 50K, 4,2M).",
+  "s_limit_rate_desc": "Limita la velocidad de descarga (por ejemplo, 50K, 15M).",
   "d_everything": "Todo",
   "d_in_progress": "En curso",
   "d_completed": "Terminado",

@@ -145,7 +145,7 @@
   "s_extractor_retries": "Экстрактордун кайра аракети",
   "s_extractor_retries_desc": "Экстрактордук каталар боюнча кайталоолордун саны.",
   "s_limit_rate": "Limit Rate",
-  "s_limit_rate_desc": "Жүктөө ылдамдыгын чектейт (мисалы, 50K, 4.2M).",
+  "s_limit_rate_desc": "Жүктөө ылдамдыгын чектейт (мисалы, 50K, 15M).",
   "d_everything": "Баары",
   "d_in_progress": "Прогрессте",
   "d_completed": "Аякталды",

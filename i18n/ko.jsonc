@@ -145,7 +145,7 @@
   "s_extractor_retries": "추출기 재시도",
   "s_extractor_retries_desc": "추출기 오류에 대한 재시도 횟수입니다.",
   "s_limit_rate": "한도율",
-  "s_limit_rate_desc": "다운로드 속도를 제한합니다(예: 50K, 4.2M).",
+  "s_limit_rate_desc": "다운로드 속도를 제한합니다(예: 50K, 15M).",
   "d_everything": "모든 것",
   "d_in_progress": "진행 중",
   "d_completed": "완전한",

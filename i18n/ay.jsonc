@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor ukax wasitat yant’i",
   "s_extractor_retries_desc": "Jakhuwi mayampi yant’awinaka extractor pantjasiwinakata.",
   "s_limit_rate": "Tasa de Límite ukax mä juk’a pachanakanwa",
-  "s_limit_rate_desc": "Ukax mä juk’a pachanakanwa (e.g., 50K, 4.2M).",
+  "s_limit_rate_desc": "Ukax mä juk’a pachanakanwa (e.g., 50K, 15M).",
   "d_everything": "Taqi",
   "d_in_progress": "Ukax Progreso ukankiwa",
   "d_completed": "Tukuyatäxiwa",

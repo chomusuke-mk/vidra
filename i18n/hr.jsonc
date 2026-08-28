@@ -145,7 +145,7 @@
   "s_extractor_retries": "Ponovni pokušaji ekstraktora",
   "s_extractor_retries_desc": "Broj ponovnih pokušaja kod pogrešaka ekstraktora.",
   "s_limit_rate": "Ograničena stopa",
-  "s_limit_rate_desc": "Ograničava brzinu preuzimanja (npr. 50K, 4,2M).",
+  "s_limit_rate_desc": "Ograničava brzinu preuzimanja (npr. 50K, 15M).",
   "d_everything": "Sve",
   "d_in_progress": "U tijeku",
   "d_completed": "Završeno",

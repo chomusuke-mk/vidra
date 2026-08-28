@@ -144,7 +144,7 @@
   "s_extractor_retries": "Echdynnwr Ail Geisio",
   "s_extractor_retries_desc": "Nifer o ailgeisiadau ar wallau echdynnu.",
   "s_limit_rate": "Cyfradd Terfyn",
-  "s_limit_rate_desc": "Yn cyfyngu ar y cyflymder lawrlwytho (e.e., 50K, 4.2M).",
+  "s_limit_rate_desc": "Yn cyfyngu ar y cyflymder lawrlwytho (e.e., 50K, 15M).",
   "s_embed_subs_desc": "Ymgorffori isdeitlau yn y ffeil derfynol.",
   "d_everything": "Popeth",
   "d_in_progress": "Mewn Cynnydd",

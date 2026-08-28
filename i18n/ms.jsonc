@@ -145,7 +145,7 @@
   "s_extractor_retries": "Ekstraktor Cuba Semula",
   "s_extractor_retries_desc": "Bilangan percubaan semula pada ralat pengekstrak.",
   "s_limit_rate": "Kadar Had",
-  "s_limit_rate_desc": "Hadkan kelajuan muat turun (cth., 50K, 4.2M).",
+  "s_limit_rate_desc": "Hadkan kelajuan muat turun (cth., 50K, 15M).",
   "d_everything": "Semuanya",
   "d_in_progress": "Sedang Berlangsung",
   "d_completed": "Selesai",

@@ -145,7 +145,7 @@
   "s_extractor_retries": "Ekstraktor proovib uuesti",
   "s_extractor_retries_desc": "Ekstraktori vigade korduskatsete arv.",
   "s_limit_rate": "Piirmäär",
-  "s_limit_rate_desc": "Piirab allalaadimiskiirust (nt 50K, 4,2M).",
+  "s_limit_rate_desc": "Piirab allalaadimiskiirust (nt 50K, 15M).",
   "d_everything": "Kõik",
   "d_in_progress": "Käimas",
   "d_completed": "Lõpetatud",

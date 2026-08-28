@@ -145,7 +145,7 @@
   "s_extractor_retries": "Opätovné pokusy extraktora",
   "s_extractor_retries_desc": "Počet opakovaní chýb extraktora.",
   "s_limit_rate": "Limitná sadzba",
-  "s_limit_rate_desc": "Obmedzuje rýchlosť sťahovania (napr. 50K, 4,2M).",
+  "s_limit_rate_desc": "Obmedzuje rýchlosť sťahovania (napr. 50 kB, 15 M).",
   "d_everything": "Všetko",
   "d_in_progress": "Prebieha",
   "d_completed": "Dokončené",

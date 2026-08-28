@@ -145,7 +145,7 @@
   "s_extractor_retries": "Gusubiramo",
   "s_extractor_retries_desc": "Umubare wo gusubiramo amakosa yo gukuramo.",
   "s_limit_rate": "Igipimo ntarengwa",
-  "s_limit_rate_desc": "Kugabanya umuvuduko wo gukuramo (urugero, 50K, 4.2M).",
+  "s_limit_rate_desc": "Kugabanya umuvuduko wo gukuramo (urugero, 50K, 15M).",
   "d_everything": "Byose",
   "d_in_progress": "Iterambere",
   "d_completed": "Byarangiye",

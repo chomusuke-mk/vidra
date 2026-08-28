@@ -145,7 +145,7 @@
   "s_extractor_retries": "Percobaan Ulang Ekstraktor",
   "s_extractor_retries_desc": "Jumlah percobaan ulang pada kesalahan ekstraktor.",
   "s_limit_rate": "Batasi Tingkat",
-  "s_limit_rate_desc": "Membatasi kecepatan pengunduhan (mis., 50K, 4,2M).",
+  "s_limit_rate_desc": "Membatasi kecepatan pengunduhan (mis., 50K, 15M).",
   "d_everything": "Semuanya",
   "d_in_progress": "Sedang Berlangsung",
   "d_completed": "Selesai",

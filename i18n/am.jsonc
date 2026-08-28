@@ -145,7 +145,7 @@
   "s_extractor_retries": "ኤክስትራክተር ድጋሚ ሙከራዎች",
   "s_extractor_retries_desc": "በአውጪው ስህተቶች ላይ የተደረጉ ሙከራዎች ብዛት።",
   "s_limit_rate": "ገደብ መጠን",
-  "s_limit_rate_desc": "የማውረድ ፍጥነትን ይገድባል (ለምሳሌ፡ 50ኬ፣ 4.2ሜ)።",
+  "s_limit_rate_desc": "የማውረድ ፍጥነትን ይገድባል (ለምሳሌ፡ 50ኬ፣ 15ሚ)።",
   "d_everything": "ሁሉም ነገር",
   "d_in_progress": "በሂደት ላይ",
   "d_completed": "ተጠናቀቀ",

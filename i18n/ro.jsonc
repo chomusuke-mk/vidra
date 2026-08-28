@@ -145,7 +145,7 @@
   "s_extractor_retries": "Reîncercări ale extractorului",
   "s_extractor_retries_desc": "Numărul de reîncercări ale erorilor din extractor.",
   "s_limit_rate": "Rata limită",
-  "s_limit_rate_desc": "Limitează viteza de descărcare (de exemplu, 50K, 4.2M).",
+  "s_limit_rate_desc": "Limitează viteza de descărcare (de exemplu, 50K, 15M).",
   "d_everything": "Tot",
   "d_in_progress": "În curs",
   "d_completed": "Terminat",

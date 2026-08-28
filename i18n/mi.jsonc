@@ -145,7 +145,7 @@
   "s_extractor_retries": "Tangohanga Ngana Anō",
   "s_extractor_retries_desc": "Te maha o nga whakamatautau mo nga hapa tangohanga.",
   "s_limit_rate": "Reiti Tepe",
-  "s_limit_rate_desc": "Whakawhāitihia te tere tikiake (hei tauira, 50K, 4.2M).",
+  "s_limit_rate_desc": "Whakawhāitihia te tere tikiake (hei tauira, 50K, 15M).",
   "d_everything": "Nga mea katoa",
   "d_in_progress": "Kei te ahu whakamua",
   "d_completed": "Kua oti",

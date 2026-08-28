@@ -144,7 +144,7 @@
   "s_extractor_retries": "Çıxarıcı Yenidən Sınaqlar",
   "s_extractor_retries_desc": "Çıxarıcı xətaları üzrə təkrar cəhdlərin sayı.",
   "s_limit_rate": "Limit dərəcəsi",
-  "s_limit_rate_desc": "Yükləmə sürətini məhdudlaşdırır (məsələn, 50K, 4,2M).",
+  "s_limit_rate_desc": "Yükləmə sürətini məhdudlaşdırır (məsələn, 50K, 15M).",
   "s_socket_timeout": "Soket Taymout",
   "d_everything": "Hər şey",
   "d_in_progress": "Davam edir",

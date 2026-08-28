@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor (bɔlikɛla) bɛ segin ka a ɲini",
   "s_extractor_retries_desc": "Segin-ka-bɔnye hakɛ min bɛ kɛ extractor filiw kan.",
   "s_limit_rate": "Dantigɛli hakɛ",
-  "s_limit_rate_desc": "A bɛ dan sigi telesarse teliya la (misali la, 50K, 4.2M).",
+  "s_limit_rate_desc": "A bɛ dan sigi telesarse teliya la (misali la, 50K, 15M).",
   "d_everything": "Bɛɛ",
   "d_in_progress": "A bɛ ka taa ɲɛ",
   "d_completed": "A dafara",

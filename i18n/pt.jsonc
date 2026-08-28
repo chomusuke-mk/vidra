@@ -145,7 +145,7 @@
   "s_extractor_retries": "Novas tentativas de extração",
   "s_extractor_retries_desc": "Número de tentativas em erros do extrator.",
   "s_limit_rate": "Taxa Limite",
-  "s_limit_rate_desc": "Limita a velocidade de download (por exemplo, 50K, 4,2M).",
+  "s_limit_rate_desc": "Limita a velocidade de download (por exemplo, 50K, 15M).",
   "d_everything": "Tudo",
   "d_in_progress": "Em andamento",
   "d_completed": "Concluído",

@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor Retries",
   "s_extractor_retries_desc": "Nọmba awọn igbiyanju lori awọn aṣiṣe jade.",
   "s_limit_rate": "Oṣuwọn idiwọn",
-  "s_limit_rate_desc": "Ṣe idinwo iyara igbasilẹ (fun apẹẹrẹ, 50K, 4.2M).",
+  "s_limit_rate_desc": "Ṣe idinwo iyara igbasilẹ (fun apẹẹrẹ, 50K, 15M).",
   "d_everything": "Ohun gbogbo",
   "d_in_progress": "Ni Ilọsiwaju",
   "d_completed": "Ti pari",

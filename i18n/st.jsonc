@@ -145,7 +145,7 @@
   "s_extractor_retries": "E Leka hape",
   "s_extractor_retries_desc": "Nomoro ea ho leka hape ka liphoso tsa extractor.",
   "s_limit_rate": "Moeli Rate",
-  "s_limit_rate_desc": "E fokotsa lebelo la ho jarolla (mohlala, 50K, 4.2M).",
+  "s_limit_rate_desc": "E fokotsa lebelo la ho jarolla (mohlala, 50K, 15M).",
   "d_everything": "Tsohle",
   "d_in_progress": "E mocheng",
   "d_completed": "E phethiloe",

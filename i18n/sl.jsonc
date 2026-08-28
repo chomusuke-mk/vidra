@@ -145,7 +145,7 @@
   "s_extractor_retries": "Ponovni poskusi ekstraktorja",
   "s_extractor_retries_desc": "Število ponovnih poskusov pri napakah ekstraktorja.",
   "s_limit_rate": "Mejna stopnja",
-  "s_limit_rate_desc": "Omejuje hitrost prenosa (npr. 50K, 4,2M).",
+  "s_limit_rate_desc": "Omejitev hitrosti prenosa (npr. 50K, 15M).",
   "d_everything": "Vse",
   "d_in_progress": "V teku",
   "d_completed": "Dokončano",

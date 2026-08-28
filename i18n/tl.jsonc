@@ -145,7 +145,7 @@
   "s_extractor_retries": "Sinusubukang muli ng Extractor",
   "s_extractor_retries_desc": "Bilang ng mga muling pagsubok sa mga error sa extractor.",
   "s_limit_rate": "Limitasyon ng Rate",
-  "s_limit_rate_desc": "Nililimitahan ang bilis ng pag-download (hal., 50K, 4.2M).",
+  "s_limit_rate_desc": "Nililimitahan ang bilis ng pag-download (hal., 50K, 15M).",
   "d_everything": "Lahat",
   "d_in_progress": "Isinasagawa",
   "d_completed": "Nakumpleto",

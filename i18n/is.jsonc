@@ -144,7 +144,7 @@
   "s_extractor_retries": "Útdráttarvél reynir aftur",
   "s_extractor_retries_desc": "Fjöldi endurtekinna tilrauna á útdráttarvillum.",
   "s_limit_rate": "Takmarka hlutfall",
-  "s_limit_rate_desc": "Takmarkar niðurhalshraðann (t.d. 50K, 4,2M).",
+  "s_limit_rate_desc": "Takmarkar niðurhalshraðann (t.d. 50K, 15M).",
   "s_output_desc": "Sniðmát fyrir úttak skráarnafns.",
   "d_everything": "Allt",
   "d_in_progress": "Í vinnslu",

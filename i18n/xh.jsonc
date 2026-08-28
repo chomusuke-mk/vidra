@@ -145,7 +145,7 @@
   "s_extractor_retries": "I-Extractor iyazama kwakhona",
   "s_extractor_retries_desc": "Inani lokuzama kwakhona kwiimpazamo ze-extractor.",
   "s_limit_rate": "Ireyithi yoMda",
-  "s_limit_rate_desc": "Inciphisa isantya sokukhuphela (umzekelo, 50K, 4.2M).",
+  "s_limit_rate_desc": "Inciphisa isantya sokukhuphela (umzekelo, 50K, 15M).",
   "d_everything": "Yonke into",
   "d_in_progress": "Iyaqhubeka",
   "d_completed": "Igqityiwe",

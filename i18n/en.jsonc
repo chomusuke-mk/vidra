@@ -372,7 +372,7 @@
   "s_extractor_retries": "Extractor Retries",
   "s_extractor_retries_desc": "Number of retries on extractor errors.",
   "s_limit_rate": "Limit Rate",
-  "s_limit_rate_desc": "Limits the download speed (e.g., 50K, 4.2M).",
+  "s_limit_rate_desc": "Limits the download speed (e.g., 50K, 15M).",
   "fe_title": "Fatal System Error",
   "fe_message": "The download engine failed to load after an update. Please restart the application.",
   "fe_restart_button": "Restart Application",

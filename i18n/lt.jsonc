@@ -145,7 +145,7 @@
   "s_extractor_retries": "Ištraukiklis pakartotinai",
   "s_extractor_retries_desc": "Bandymų dėl ištraukimo klaidų skaičius.",
   "s_limit_rate": "Ribinė norma",
-  "s_limit_rate_desc": "Apribojamas atsisiuntimo greitis (pvz., 50K, 4,2M).",
+  "s_limit_rate_desc": "Apribojamas atsisiuntimo greitis (pvz., 50K, 15M).",
   "d_everything": "Viskas",
   "d_in_progress": "Vykdoma",
   "d_completed": "Užbaigta",

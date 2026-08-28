@@ -145,7 +145,7 @@
   "s_extractor_retries": "Çıkarıcı Yeniden Denemeleri",
   "s_extractor_retries_desc": "Çıkarıcı hatalarında yeniden deneme sayısı.",
   "s_limit_rate": "Limit Oranı",
-  "s_limit_rate_desc": "İndirme hızını sınırlar (ör. 50K, 4,2M).",
+  "s_limit_rate_desc": "İndirme hızını sınırlar (ör. 50K, 15M).",
   "d_everything": "Her şey",
   "d_in_progress": "Devam etmekte",
   "d_completed": "Tamamlanmış",

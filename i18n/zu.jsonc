@@ -145,7 +145,7 @@
   "s_extractor_retries": "I-Extractor Izama Kabusha",
   "s_extractor_retries_desc": "Inombolo yokuzama futhi kumaphutha okukhipha.",
   "s_limit_rate": "Isilinganiso Somkhawulo",
-  "s_limit_rate_desc": "Ikhawulela isivinini sokulanda (isb., 50K, 4.2M).",
+  "s_limit_rate_desc": "Ikhawulela isivinini sokulanda (isb., 50K, 15M).",
   "d_everything": "Konke",
   "d_in_progress": "Kuyaqhubeka",
   "d_completed": "Kuqediwe",

@@ -145,7 +145,7 @@
   "s_extractor_retries": "Riprova di l'estrattore",
   "s_extractor_retries_desc": "Numeru di tentativi nantu à l'errori di l'estrattore.",
   "s_limit_rate": "Limite di a tarifa",
-  "s_limit_rate_desc": "Limita a velocità di scaricamentu (per esempiu, 50K, 4.2M).",
+  "s_limit_rate_desc": "Limita a velocità di scaricamentu (per esempiu, 50K, 15M).",
   "d_everything": "Tuttu",
   "d_in_progress": "In corsu",
   "d_completed": "Cumplitu",

@@ -145,7 +145,7 @@
   "s_extractor_retries": "Bidh Extractor a’ feuchainn air ais",
   "s_extractor_retries_desc": "An àireamh ath-sgrùdaidhean air mearachdan inneal-tarraing.",
   "s_limit_rate": "Ìre Crìochan",
-  "s_limit_rate_desc": "A ’cuingealachadh an astar luchdachadh sìos (me, 50K, 4.2M).",
+  "s_limit_rate_desc": "A ’cuingealachadh an astar luchdachadh sìos (me, 50K, 15M).",
   "d_everything": "A h-uile càil",
   "d_in_progress": "A’ dèanamh adhartais",
   "d_completed": "Air a chrìochnachadh",

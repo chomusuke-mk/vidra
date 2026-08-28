@@ -145,7 +145,7 @@
   "s_extractor_retries": "නිස්සාරක නැවත උත්සාහ කරයි",
   "s_extractor_retries_desc": "නිස්සාරක දෝෂ මත නැවත උත්සාහ කිරීම් ගණන.",
   "s_limit_rate": "සීමා අනුපාතය",
-  "s_limit_rate_desc": "බාගත කිරීමේ වේගය සීමා කරයි (උදා., 50K, 4.2M).",
+  "s_limit_rate_desc": "බාගත කිරීමේ වේගය සීමා කරයි (උදා., 50K, 15M).",
   "d_everything": "හැම දෙයක්ම",
   "d_in_progress": "ප්රගතියේ",
   "d_completed": "සම්පූර්ණ කළා",

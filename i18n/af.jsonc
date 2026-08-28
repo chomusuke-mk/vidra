@@ -144,7 +144,7 @@
   "s_extractor_retries": "Uittrekker probeer weer",
   "s_extractor_retries_desc": "Aantal herprobasies op onttrekkingsfoute.",
   "s_limit_rate": "Beperk koers",
-  "s_limit_rate_desc": "Beperk die aflaaispoed (bv. 50K, 4.2M).",
+  "s_limit_rate_desc": "Beperk die aflaaispoed (bv. 50K, 15M).",
   "s_file_access_retries": "Lêertoegang herprobeer",
   "d_everything": "Alles",
   "d_in_progress": "Aan die gang",

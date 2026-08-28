@@ -145,7 +145,7 @@
   "s_extractor_retries": "Ekstraktori riprovon",
   "s_extractor_retries_desc": "Numri i riprovave për gabimet e nxjerrësit.",
   "s_limit_rate": "Norma Limit",
-  "s_limit_rate_desc": "Kufizon shpejtësinë e shkarkimit (p.sh., 50K, 4,2M).",
+  "s_limit_rate_desc": "Kufizon shpejtësinë e shkarkimit (p.sh., 50K, 15M).",
   "d_everything": "Gjithçka",
   "d_in_progress": "Në progres",
   "d_completed": "E përfunduar",

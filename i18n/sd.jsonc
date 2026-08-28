@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor ٻيهر ڪوششون",
   "s_extractor_retries_desc": "ڪڍڻ جي غلطين تي ٻيهر ڪوششن جو تعداد.",
   "s_limit_rate": "حد جي شرح",
-  "s_limit_rate_desc": "ڊائون لوڊ جي رفتار کي محدود ڪري ٿو (مثال طور، 50K، 4.2M).",
+  "s_limit_rate_desc": "ڊائون لوڊ جي رفتار کي محدود ڪري ٿو (مثال طور، 50K، 15M).",
   "d_everything": "سڀ ڪجهه",
   "d_in_progress": "جاري آهي",
   "d_completed": "مڪمل ٿيو",

@@ -145,7 +145,7 @@
   "s_extractor_retries": "ኤክስትራክተር ዳግማይ ይፍትን።",
   "s_extractor_retries_desc": "ብዝሒ ዳግማይ ፈተነታት ኣብ ጌጋታት ኤክስትራክተር።",
   "s_limit_rate": "ደረት ደረጃ",
-  "s_limit_rate_desc": "ፍጥነት ምውራድ ይድርቶ (ንኣብነት 50K, 4.2M)።",
+  "s_limit_rate_desc": "ፍጥነት ምውራድ ይድርቶ (ንኣብነት 50K, 15M)።",
   "d_everything": "ኩሉ ነገር",
   "d_in_progress": "ኣብ ምዕባለ ኣሎ።",
   "d_completed": "ተዛዚሙ",

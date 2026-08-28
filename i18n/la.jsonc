@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor Retries",
   "s_extractor_retries_desc": "Numerus retries in extrahentium erroribus.",
   "s_limit_rate": "Finis Rate",
-  "s_limit_rate_desc": "Celeritatem download limitat (exampla, 50K, 4.2M).",
+  "s_limit_rate_desc": "Celeritatem download limitat (exempli gratia, 50K, 15M).",
   "d_everything": "Omnia",
   "d_in_progress": "In Exsecutione",
   "d_completed": "completed",

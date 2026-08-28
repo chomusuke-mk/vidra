@@ -145,7 +145,7 @@
   "s_extractor_retries": "Ekstrè Retry",
   "s_extractor_retries_desc": "Kantite retay sou erè ekstrè.",
   "s_limit_rate": "Limit Pousantaj",
-  "s_limit_rate_desc": "Limite vitès download la (egzanp, 50K, 4.2M).",
+  "s_limit_rate_desc": "Limite vitès download la (egzanp, 50K, 15M).",
   "d_everything": "Tout bagay",
   "d_in_progress": "Nan Pwogrè",
   "d_completed": "Konplete",

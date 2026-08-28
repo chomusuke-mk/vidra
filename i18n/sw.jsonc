@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor Inajaribu tena",
   "s_extractor_retries_desc": "Idadi ya majaribio tena kwenye hitilafu za uchimbaji.",
   "s_limit_rate": "Kiwango cha Kikomo",
-  "s_limit_rate_desc": "Hupunguza kasi ya upakuaji (k.m., 50K, 4.2M).",
+  "s_limit_rate_desc": "Hupunguza kasi ya upakuaji (k.m., 50K, 15M).",
   "d_everything": "Kila kitu",
   "d_in_progress": "Inaendelea",
   "d_completed": "Imekamilika",

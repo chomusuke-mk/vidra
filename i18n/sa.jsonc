@@ -145,7 +145,7 @@
   "s_extractor_retries": "निष्कर्षक पुनः प्रयासं करोति",
   "s_extractor_retries_desc": "निष्कर्षकदोषेषु पुनःप्रयासानां संख्या ।",
   "s_limit_rate": "सीमा दर",
-  "s_limit_rate_desc": "डाउनलोड् गतिं सीमितं करोति (उदा., 50K, 4.2M) ।",
+  "s_limit_rate_desc": "डाउनलोड् गतिं सीमितं करोति (उदा., 50K, 15M) ।",
   "d_everything": "सर्वम्‌",
   "d_in_progress": "प्रगतिशीलः अस्ति",
   "d_completed": "सम्पन्न",

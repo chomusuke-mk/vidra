@@ -145,7 +145,7 @@
   "s_extractor_retries": "এক্সট্র্যাক্টর পুনরায় চেষ্টা করে",
   "s_extractor_retries_desc": "এক্সট্রাক্টর ত্রুটির উপর পুনরায় চেষ্টার সংখ্যা।",
   "s_limit_rate": "সীমা হার",
-  "s_limit_rate_desc": "ডাউনলোডের গতি সীমিত করে (যেমন, 50K, 4.2M)।",
+  "s_limit_rate_desc": "ডাউনলোডের গতি সীমিত করে (যেমন, 50K, 15M)।",
   "d_everything": "সবকিছু",
   "d_in_progress": "চলছে",
   "d_completed": "সম্পন্ন",

@@ -360,7 +360,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         type: ControllerType.text,
         controlBuilder: (c, s) => LazyTextField(
           value: opts.impersonate,
-          hint: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+          hint: 'chrome-110',
           onChanged: (val) =>
               s.updateDownloadOptions(opts.copyWith(impersonate: val.trim())),
         ),
@@ -1475,7 +1475,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 child: hasLimit
                     ? LazyTextField(
                         value: opts.limitRate ?? '',
-                        hint: '1MB',
+                        hint: '20.4M',
                         onChanged: (val) => s.updateDownloadOptions(
                           opts.copyWith(limitRate: val.trim()),
                         ),

@@ -145,7 +145,7 @@
   "s_extractor_retries": "Ponowne próby ekstraktora",
   "s_extractor_retries_desc": "Liczba ponownych prób w przypadku błędów ekstraktora.",
   "s_limit_rate": "Limit stawki",
-  "s_limit_rate_desc": "Ogranicza prędkość pobierania (np. 50K, 4,2M).",
+  "s_limit_rate_desc": "Ogranicza prędkość pobierania (np. 50K, 15M).",
   "d_everything": "Wszystko",
   "d_in_progress": "W toku",
   "d_completed": "Zakończony",

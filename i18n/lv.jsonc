@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor Retries",
   "s_extractor_retries_desc": "Atkārtojumu skaits nosūcēja kļūdām.",
   "s_limit_rate": "Limita likme",
-  "s_limit_rate_desc": "Ierobežo lejupielādes ātrumu (piemēram, 50 K, 4,2 M).",
+  "s_limit_rate_desc": "Ierobežo lejupielādes ātrumu (piemēram, 50 K, 15 M).",
   "d_everything": "Viss",
   "d_in_progress": "Notiek Progress",
   "d_completed": "Pabeigts",

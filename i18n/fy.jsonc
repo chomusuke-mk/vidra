@@ -143,7 +143,7 @@
   "s_extractor_retries": "Extractor besyket op 'e nij",
   "s_extractor_retries_desc": "Oantal opnij besykjen op extractor flaters.",
   "s_limit_rate": "Limit Rate",
-  "s_limit_rate_desc": "Beheint de ynlaadsnelheid (bgl. 50K, 4.2M).",
+  "s_limit_rate_desc": "Beheint de ynlaadsnelheid (bygelyks 50K, 15M).",
   "s_write_auto_subs": "Download automatyske ûndertiteling",
   "s_output_desc": "Utfier triemnamme sjabloan.",
   "d_everything": "Alles",

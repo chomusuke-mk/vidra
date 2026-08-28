@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor Retry",
   "s_extractor_retries_desc": "Isan'ny andrana indray amin'ny lesoka mpitrandraka.",
   "s_limit_rate": "Mametra ny tahan'ny",
-  "s_limit_rate_desc": "Mametra ny hafainganam-pandehan'ny fampidinana (oh : 50K, 4.2M).",
+  "s_limit_rate_desc": "Mametra ny hafainganan'ny fampidinana (oh : 50K, 15M).",
   "d_everything": "ny zava-drehetra",
   "d_in_progress": "Eo an-dàlana",
   "d_completed": "vita",

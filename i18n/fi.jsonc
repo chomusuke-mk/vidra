@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor yrittää uudelleen",
   "s_extractor_retries_desc": "Poimintavirheiden uudelleenyritysten määrä.",
   "s_limit_rate": "Rajakorko",
-  "s_limit_rate_desc": "Rajoittaa latausnopeutta (esim. 50 kt, 4,2 M).",
+  "s_limit_rate_desc": "Rajoittaa latausnopeutta (esim. 50K, 15M).",
   "d_everything": "Kaikki",
   "d_in_progress": "Käynnissä",
   "d_completed": "Valmis",

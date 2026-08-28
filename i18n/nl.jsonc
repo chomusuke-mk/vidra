@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor-pogingen",
   "s_extractor_retries_desc": "Aantal nieuwe pogingen bij extractorfouten.",
   "s_limit_rate": "Limiettarief",
-  "s_limit_rate_desc": "Beperkt de downloadsnelheid (bijvoorbeeld 50K, 4,2M).",
+  "s_limit_rate_desc": "Beperkt de downloadsnelheid (bijvoorbeeld 50K, 15M).",
   "d_everything": "Alles",
   "d_in_progress": "In uitvoering",
   "d_completed": "Voltooid",

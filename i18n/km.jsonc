@@ -145,7 +145,7 @@
   "s_extractor_retries": "ឧបករណ៍ស្រង់ចេញម្តងទៀត",
   "s_extractor_retries_desc": "ចំនួននៃការព្យាយាមម្តងទៀតលើកំហុសឧបករណ៍ស្រង់ចេញ។",
   "s_limit_rate": "អត្រាកំណត់",
-  "s_limit_rate_desc": "កំណត់ល្បឿនទាញយក (ឧ. 50K, 4.2M)។",
+  "s_limit_rate_desc": "កំណត់ល្បឿនទាញយក (ឧ. 50K, 15M)។",
   "d_everything": "អ្វីគ្រប់យ៉ាង",
   "d_in_progress": "កំពុងដំណើរការ",
   "d_completed": "បានបញ្ចប់",

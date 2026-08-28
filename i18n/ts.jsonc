@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor yi ringeta nakambe",
   "s_extractor_retries_desc": "Nhlayo ya ku ringeta nakambe eka swihoxo swa extractor.",
   "s_limit_rate": "Mpimo wa Swipimelo",
-  "s_limit_rate_desc": "Ku ringanyeta rivilo ra ku dawuniloda (e.g., 50K, 4.2M).",
+  "s_limit_rate_desc": "Ku ringanyeta rivilo ra ku dawuniloda (e.g., 50K, 15M).",
   "d_everything": "Hinkwaswo",
   "d_in_progress": "Ku ya emahlweni",
   "d_completed": "Ku hetisiwile",

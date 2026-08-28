@@ -145,7 +145,7 @@
   "s_extractor_retries": "Toe Su'e",
   "s_extractor_retries_desc": "Numera o toe su'esu'e i mea sese a le su'ega.",
   "s_limit_rate": "Fa'atapula'a Fua Faatatau",
-  "s_limit_rate_desc": "Fa'atapula'a le saoasaoa o le la'uina (fa'ata'ita'iga, 50K, 4.2M).",
+  "s_limit_rate_desc": "Fa'atapula'a le saoasaoa o le la'uina (fa'ata'ita'iga, 50K, 15M).",
   "d_everything": "Mea uma",
   "d_in_progress": "Sologa",
   "d_completed": "Maea",

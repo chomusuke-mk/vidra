@@ -144,7 +144,7 @@
   "s_extractor_retries": "エクストラクタの再試行",
   "s_extractor_retries_desc": "抽出エラー時の再試行回数。",
   "s_limit_rate": "リミットレート",
-  "s_limit_rate_desc": "ダウンロード速度を制限します (例: 50K、4.2M)。",
+  "s_limit_rate_desc": "ダウンロード速度を制限します (例: 50K、15M)。",
   "s_app_language_desc": "アプリケーションの言語を選択します。",
   "d_everything": "すべて",
   "d_in_progress": "進行中",

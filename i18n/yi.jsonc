@@ -145,7 +145,7 @@
   "s_extractor_retries": "עקסטראַקטאָר רעטריעס",
   "s_extractor_retries_desc": "נומער פון רעטריעס אויף עקסטראַקטאָר ערראָרס.",
   "s_limit_rate": "לימיט קורס",
-  "s_limit_rate_desc": "לימאַץ די אראפקאפיע גיכקייַט (למשל, 50K, 4.2M).",
+  "s_limit_rate_desc": "לימאַץ די אראפקאפיע גיכקייַט (למשל, 50K, 15M).",
   "d_everything": "אַלץ",
   "d_in_progress": "אין פּראָגרעס",
   "d_completed": "געענדיקט",

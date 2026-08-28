@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor Retries",
   "s_extractor_retries_desc": "Jumlah retries on kasalahan extractor.",
   "s_limit_rate": "Laju wates",
-  "s_limit_rate_desc": "Ngawates laju undeuran (contona, 50K, 4.2M).",
+  "s_limit_rate_desc": "Ngawates laju undeuran (contona, 50K, 15M).",
   "d_everything": "Sagalana",
   "d_in_progress": "Nuju prosés",
   "d_completed": "Réngsé",

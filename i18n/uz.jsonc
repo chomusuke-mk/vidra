@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor qayta urinishlari",
   "s_extractor_retries_desc": "Ekstraktor xatolaridagi takroriy urinishlar soni.",
   "s_limit_rate": "Limit stavkasi",
-  "s_limit_rate_desc": "Yuklab olish tezligini cheklaydi (masalan, 50K, 4,2M).",
+  "s_limit_rate_desc": "Yuklab olish tezligini cheklaydi (masalan, 50K, 15M).",
   "d_everything": "Hamma narsa",
   "d_in_progress": "Jarayonda",
   "d_completed": "Bajarildi",

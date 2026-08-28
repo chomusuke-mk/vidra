@@ -145,7 +145,7 @@
   "s_extractor_retries": "Reintents de l'extractor",
   "s_extractor_retries_desc": "Nombre de reintents d'errors de l'extractor.",
   "s_limit_rate": "Tarifa límit",
-  "s_limit_rate_desc": "Limita la velocitat de descàrrega (p. ex., 50K, 4,2M).",
+  "s_limit_rate_desc": "Limita la velocitat de descàrrega (p. ex., 50K, 15M).",
   "d_everything": "Tot",
   "d_in_progress": "En curs",
   "d_completed": "Completat",

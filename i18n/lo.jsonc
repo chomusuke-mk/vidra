@@ -145,7 +145,7 @@
   "s_extractor_retries": "ເຄື່ອງສະກັດຄືນໃຫມ່",
   "s_extractor_retries_desc": "ຈໍາ​ນວນ​ຂອງ retry ກ່ຽວ​ກັບ​ຄວາມ​ຜິດ​ພາດ​ຂອງ extractor​.",
   "s_limit_rate": "ອັດຕາຈໍາກັດ",
-  "s_limit_rate_desc": "ຈຳກັດຄວາມໄວການດາວໂຫຼດ (ເຊັ່ນ: 50K, 4.2M).",
+  "s_limit_rate_desc": "ຈຳກັດຄວາມໄວການດາວໂຫຼດ (ເຊັ່ນ: 50K, 15M).",
   "d_everything": "ທຸກຢ່າງ",
   "d_in_progress": "ຢູ່ໃນຄວາມຄືບໜ້າ",
   "d_completed": "ສຳເລັດແລ້ວ",

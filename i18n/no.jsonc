@@ -145,7 +145,7 @@
   "s_extractor_retries": "Uttrekkeren prøver på nytt",
   "s_extractor_retries_desc": "Antall forsøk på ekstraksjonsfeil.",
   "s_limit_rate": "Begrens rate",
-  "s_limit_rate_desc": "Begrenser nedlastingshastigheten (f.eks. 50K, 4,2M).",
+  "s_limit_rate_desc": "Begrenser nedlastingshastigheten (f.eks. 50K, 15M).",
   "d_everything": "Alt",
   "d_in_progress": "Pågår",
   "d_completed": "Fullført",

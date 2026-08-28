@@ -145,7 +145,7 @@
   "s_extractor_retries": "Ekstraktor gaýtadan synanyşýar",
   "s_extractor_retries_desc": "Ekstraktor ýalňyşlyklary boýunça gaýtadan synanyşyklaryň sany.",
   "s_limit_rate": "Çäklendirme nyrhy",
-  "s_limit_rate_desc": "Göçürip almak tizligini çäklendirýär (meselem, 50K, 4.2M).",
+  "s_limit_rate_desc": "Göçürip almak tizligini çäklendirýär (meselem, 50K, 15M).",
   "d_everything": "Hemme zat",
   "d_in_progress": "Dowam edilýär",
   "d_completed": "Tamamlandy",

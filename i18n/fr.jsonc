@@ -144,7 +144,7 @@
   "s_extractor_retries": "Nouvelles tentatives d'extraction",
   "s_extractor_retries_desc": "Nombre de tentatives sur erreurs de l'extracteur.",
   "s_limit_rate": "Taux limite",
-  "s_limit_rate_desc": "Limite la vitesse de téléchargement (par exemple, 50K, 4,2M).",
+  "s_limit_rate_desc": "Limite la vitesse de téléchargement (par exemple, 50K, 15M).",
   "s_live_from_start": "En direct depuis le début",
   "d_everything": "Tout",
   "d_in_progress": "En cours",

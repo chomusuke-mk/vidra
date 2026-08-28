@@ -145,7 +145,7 @@
   "s_extractor_retries": "Mgbalị ndị na-ewepụta ihe",
   "s_extractor_retries_desc": "Ọnụọgụ nke nnwagharị na mperi mputa.",
   "s_limit_rate": "Oke Oke",
-  "s_limit_rate_desc": "Na-amachi ọsọ nbudata (dịka, 50K, 4.2M).",
+  "s_limit_rate_desc": "Na-amachi ọsọ nbudata (dịka, 50K, 15M).",
   "d_everything": "Ihe niile",
   "d_in_progress": "Na-aga n'ihu",
   "d_completed": "Emechara",

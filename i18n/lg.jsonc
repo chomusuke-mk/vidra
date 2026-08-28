@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor Azzeemu okugezaako",
   "s_extractor_retries_desc": "Omuwendo gw'okuddamu okugezaako ku nsobi za extractor.",
   "s_limit_rate": "Limit Rate",
-  "s_limit_rate_desc": "Ekoma ku sipiidi y’okuwanula (e.g., 50K, 4.2M).",
+  "s_limit_rate_desc": "Ekoma ku sipiidi y’okuwanula (e.g., 50K, 15M).",
   "d_everything": "Buli kimu",
   "d_in_progress": "Mu Nkulaakulana",
   "d_completed": "Emaliriziddwa",

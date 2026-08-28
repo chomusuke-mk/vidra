@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extraktorn försöker igen",
   "s_extractor_retries_desc": "Antal återförsök på extraktionsfel.",
   "s_limit_rate": "Begränsa hastighet",
-  "s_limit_rate_desc": "Begränsar nedladdningshastigheten (t.ex. 50K, 4,2M).",
+  "s_limit_rate_desc": "Begränsar nedladdningshastigheten (t.ex. 50K, 15M).",
   "d_everything": "Allt",
   "d_in_progress": "Pågår",
   "d_completed": "Avslutad",

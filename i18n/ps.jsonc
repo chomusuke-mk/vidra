@@ -145,7 +145,7 @@
   "s_extractor_retries": "استخراج کونکي بیا هڅه کوي",
   "s_extractor_retries_desc": "د استخراجي غلطیو په اړه د بیاکتنې شمیر.",
   "s_limit_rate": "د حد اندازه",
-  "s_limit_rate_desc": "د ډاونلوډ سرعت محدودوي (د مثال په توګه، 50K، 4.2M).",
+  "s_limit_rate_desc": "د ډاونلوډ سرعت محدودوي (د مثال په توګه، 50K، 15M).",
   "d_everything": "هر څه",
   "d_in_progress": "د پرمختګ په حال کې",
   "d_completed": "بشپړ شو",

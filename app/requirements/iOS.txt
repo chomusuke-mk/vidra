@@ -1,3 +1,0 @@
-pycryptodomex
-xattr
-curl-cffi

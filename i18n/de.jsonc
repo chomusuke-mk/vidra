@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extraktor-Wiederholungsversuche",
   "s_extractor_retries_desc": "Anzahl der Wiederholungsversuche bei Extraktorfehlern.",
   "s_limit_rate": "Grenzrate",
-  "s_limit_rate_desc": "Begrenzt die Download-Geschwindigkeit (z. B. 50 KB, 4,2 MB).",
+  "s_limit_rate_desc": "Begrenzt die Download-Geschwindigkeit (z. B. 50 KB, 15 MB).",
   "d_everything": "Alles",
   "d_in_progress": "Im Gange",
   "d_completed": "Vollendet",

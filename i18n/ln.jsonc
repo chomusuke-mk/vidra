@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extracteur azali komeka lisusu",
   "s_extractor_retries_desc": "Motango ya ba retries na ba erreurs ya extracteur.",
   "s_limit_rate": "Taux ya ndelo",
-  "s_limit_rate_desc": "Ezali kopekisa mbangu ya téléchargement (e.g., 50K, 4.2M).",
+  "s_limit_rate_desc": "Ezali kopekisa mbangu ya kozwa (e.g., 50K, 15M).",
   "d_everything": "Biloko nyonso",
   "d_in_progress": "Na Bokende liboso",
   "d_completed": "Esili",

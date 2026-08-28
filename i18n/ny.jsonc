@@ -145,7 +145,7 @@
   "s_extractor_retries": "Zoyesereranso",
   "s_extractor_retries_desc": "Chiwerengero cha zoyesereranso pa zolakwika zotulutsa.",
   "s_limit_rate": "Malire Rate",
-  "s_limit_rate_desc": "Imaletsa liwiro lotsitsa (monga 50K, 4.2M).",
+  "s_limit_rate_desc": "Imaletsa liwiro lotsitsa (monga 50K, 15M).",
   "d_everything": "Chirichonse",
   "d_in_progress": "Zili mkati",
   "d_completed": "Zamalizidwa",

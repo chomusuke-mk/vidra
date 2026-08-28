@@ -145,7 +145,7 @@
   "s_extractor_retries": "Iarrachtaí Extractor",
   "s_extractor_retries_desc": "Líon na n-iarratas ar earráidí asbhainte.",
   "s_limit_rate": "Ráta Teorainn",
-  "s_limit_rate_desc": "Cuireann sé teorainn leis an luas íoslódála (m.sh., 50K, 4.2M).",
+  "s_limit_rate_desc": "Cuireann sé teorainn leis an luas íoslódála (m.sh., 50K, 15M).",
   "d_everything": "Gach rud",
   "d_in_progress": "Ar Siúl",
   "d_completed": "Críochnaithe",

@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor Ñeha’ã jey",
   "s_extractor_retries_desc": "Mboypa oñeha’ã jey umi jejavy extractor rehegua.",
   "s_limit_rate": "Tasa Límite rehegua",
-  "s_limit_rate_desc": "Omombyte pe descarga pyaꞌe (e.g., 50K, 4.2M).",
+  "s_limit_rate_desc": "Omombyte pe descarga pyaꞌe (e.g., 50K, 15M).",
   "d_everything": "Opaite",
   "d_in_progress": "Oĩva Progreso-pe",
   "d_completed": "Oñemohu’ãma",

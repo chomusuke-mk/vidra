@@ -36,6 +36,17 @@
     },
     {
       "label": "Serious Python: Package App",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "Prepare: Create site-packages directory",
+        "Serious Python: Package App (Internal)",
+        "Serious Python: Package App[ADD CURL-CFFI]"
+      ],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Serious Python: Package App (Internal)",
       "type": "process",
       "command": "dart",
       "args": [
@@ -63,9 +74,30 @@
           "SERIOUS_PYTHON_APP": "${workspaceFolder}/.serious_python/app",
         }
       },
-      "dependsOn": [
-        "Prepare: Create site-packages directory"
-      ],
+      "hide": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Serious Python: Package App[ADD CURL-CFFI]",
+      "type": "shell",
+      "command": "if [ \"${input:targetPlatform}\" = \"Android\" ]; then mkdir -p $SERIOUS_PYTHON_TMP && dart run serious_python:main package app/src -r -r -r $BASE_REQUIREMENTS -r -r -r $ANDROID_REQUIREMENTS -r curl-cffi -p Android --verbose --compile-packages --arch arm64-v8a && rm -rf $ARM64_V8A_TO && mv $ARM64_V8A_FROM $ARM64_V8A_TO && rm -rf $SERIOUS_PYTHON_TMP; fi",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "SERIOUS_PYTHON_SITE_PACKAGES": "${workspaceFolder}/.serious_python_tmp/site-packages",
+          "SERIOUS_PYTHON_APP": "${workspaceFolder}/.serious_python_tmp/app",
+          "SERIOUS_PYTHON_TMP": ".serious_python_tmp",
+          "BASE_REQUIREMENTS": "app/requirements/base.txt",
+          "ANDROID_REQUIREMENTS": "app/requirements/Android.txt",
+          "ARM64_V8A_FROM": ".serious_python_tmp/site-packages/arm64-v8a",
+          "ARM64_V8A_TO": ".serious_python/site-packages/arm64-v8a"
+        }
+      },
+      "hide": true,
       "presentation": {
         "reveal": "always",
         "panel": "shared"
@@ -88,6 +120,7 @@
         "mkdir -p \"${workspaceFolder}/.serious_python/site-packages\""
       ],
       "problemMatcher": [],
+      "hide": true,
       "presentation": {
         "reveal": "never",
         "panel": "shared",

@@ -145,7 +145,7 @@
   "s_extractor_retries": "ଏକ୍ସଟ୍ରାକ୍ଟର ପୁନ ries ଚେଷ୍ଟା କରେ |",
   "s_extractor_retries_desc": "ନିର୍ବାହକାରୀ ତ୍ରୁଟି ଉପରେ ପୁନ ries ଚେଷ୍ଟା ସଂଖ୍ୟା |",
   "s_limit_rate": "ସୀମା ହାର",
-  "s_limit_rate_desc": "ଡାଉନଲୋଡ୍ ବେଗକୁ ସୀମିତ କରେ (ଯଥା, 50K, 4.2M) |",
+  "s_limit_rate_desc": "ଡାଉନଲୋଡ୍ ବେଗକୁ ସୀମିତ କରେ (ଯଥା, 50K, 15M) |",
   "d_everything": "ସବୁକିଛି |",
   "d_in_progress": "ପ୍ରଗତିରେ",
   "d_completed": "ସମାପ୍ତ",

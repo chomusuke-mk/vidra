@@ -145,7 +145,7 @@
   "s_extractor_retries": "Чыгаручы",
   "s_extractor_retries_desc": "Экстрактор хаталары буенча кабатлау саны.",
   "s_limit_rate": "Чикләү",
-  "s_limit_rate_desc": "Йөкләү тизлеген чикли (мәсәлән, 50К, 4.2М).",
+  "s_limit_rate_desc": "Йөкләү тизлеген чикли (мәсәлән, 50К, 15М).",
   "d_everything": "Барысы да",
   "d_in_progress": "Алга таба",
   "d_completed": "Тәмамланды",

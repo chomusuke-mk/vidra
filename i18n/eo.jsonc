@@ -145,7 +145,7 @@
   "s_extractor_retries": "Ekstraktilo Reprovas",
   "s_extractor_retries_desc": "Nombro da reprovoj pri eltiralaj eraroj.",
   "s_limit_rate": "Limiga Indico",
-  "s_limit_rate_desc": "Limigas la elŝutan rapidon (ekz. 50K, 4.2M).",
+  "s_limit_rate_desc": "Limigas la elŝutan rapidon (ekz. 50K, 15M).",
   "d_everything": "Ĉio",
   "d_in_progress": "En Progreso",
   "d_completed": "Kompletigita",

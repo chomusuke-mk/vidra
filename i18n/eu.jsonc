@@ -145,7 +145,7 @@
   "s_extractor_retries": "Erauzgailuaren berrazterketak",
   "s_extractor_retries_desc": "Erauzketa-erroreen berrazterketa kopurua.",
   "s_limit_rate": "Muga-tasa",
-  "s_limit_rate_desc": "Deskarga-abiadura mugatzen du (adibidez, 50K, 4,2M).",
+  "s_limit_rate_desc": "Deskarga-abiadura mugatzen du (adibidez, 50K, 15M).",
   "d_everything": "Dena",
   "d_in_progress": "Eraikitzen",
   "d_completed": "Osatua",

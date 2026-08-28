@@ -145,7 +145,7 @@
   "s_extractor_retries": "Udtrækker forsøger igen",
   "s_extractor_retries_desc": "Antal genforsøg på udtræksfejl.",
   "s_limit_rate": "Begræns sats",
-  "s_limit_rate_desc": "Begrænser downloadhastigheden (f.eks. 50K, 4,2M).",
+  "s_limit_rate_desc": "Begrænser downloadhastigheden (f.eks. 50K, 15M).",
   "d_everything": "Alt",
   "d_in_progress": "Igangværende",
   "d_completed": "Afsluttet",

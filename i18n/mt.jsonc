@@ -145,7 +145,7 @@
   "s_extractor_retries": "Estrattur mill-ġdid",
   "s_extractor_retries_desc": "Numru ta' tentattivi mill-ġdid fuq żbalji tal-estrattur.",
   "s_limit_rate": "Limitu Rata",
-  "s_limit_rate_desc": "Illimita l-veloċità tat-tniżżil (eż., 50K, 4.2M).",
+  "s_limit_rate_desc": "Illimita l-veloċità tat-tniżżil (eż., 50K, 15M).",
   "d_everything": "Kollox",
   "d_in_progress": "Fil-Progress",
   "d_completed": "Imlesta",

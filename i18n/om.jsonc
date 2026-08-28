@@ -145,7 +145,7 @@
   "s_extractor_retries": "Extractor Irra Deebi'ee Yaala",
   "s_extractor_retries_desc": "Lakkoofsa irra deebiin yaaliiwwan dogongora baafataa irratti.",
   "s_limit_rate": "Sadarkaa Daangaa",
-  "s_limit_rate_desc": "Saffisa buufachuu daangeessa (fkn, 50K, 4.2M).",
+  "s_limit_rate_desc": "Saffisa buufachuu daangeessa (fkn, 50K, 15M).",
   "d_everything": "Waa hunda",
   "d_in_progress": "Adeemsa Irra Jira",
   "d_completed": "Xumurameera",

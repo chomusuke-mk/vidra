@@ -145,7 +145,7 @@
   "s_extractor_retries": "ایکسٹریکٹر کی دوبارہ کوششیں",
   "s_extractor_retries_desc": "ایکسٹریکٹر کی غلطیوں پر دوبارہ کوششوں کی تعداد۔",
   "s_limit_rate": "حد کی شرح",
-  "s_limit_rate_desc": "ڈاؤن لوڈ کی رفتار کو محدود کرتا ہے (جیسے، 50K، 4.2M)۔",
+  "s_limit_rate_desc": "ڈاؤن لوڈ کی رفتار کو محدود کرتا ہے (جیسے، 50K، 15M)۔",
   "d_everything": "سب کچھ",
   "d_in_progress": "جاری ہے۔",
   "d_completed": "مکمل",
