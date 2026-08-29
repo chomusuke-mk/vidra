@@ -344,7 +344,7 @@
   "sd_state_retrying": "Mifandray indray...",
   "sd_state_missing_resources": "Zavatra tsy ampy",
   "sd_state_fatal_error": "Fatal Error",
-  "dc_action_play": "Play",
+  "dc_action_play": "Miverena",
   "dc_action_open_folder": "Sokafy ny lahatahiry",
   "dc_action_details": "tsipiriany",
   "d_cut_video": "Tapaho ny Video",
@@ -360,5 +360,7 @@
   "s_force_keyframes_at_cuts": "Force Keyframes amin'ny Cuts",
   "s_cut_video_end": "Tapitra",
   "s_cut_video_hours": "ORA",
-  "s_cut_video_minutes": "minitra"
+  "s_cut_video_minutes": "minitra",
+  "dc_action_open_url": "Sokafy ny URL",
+  "dc_action_open_url_error": "Hadisoana fanokafana URL."
 }

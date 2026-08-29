@@ -279,6 +279,8 @@ class AppStringKey {
   String get dcActionPause => _cadenasLocalizadas['dc_action_pause'] ?? '';
   String get dcActionCancel => _cadenasLocalizadas['dc_action_cancel'] ?? '';
   String get dcActionDelete => _cadenasLocalizadas['dc_action_delete'] ?? '';
+  String get dcActionOpenURL => _cadenasLocalizadas['dc_action_open_url'] ?? '';
+  String get dcActionOpenURLError => _cadenasLocalizadas['dc_action_open_url_error'] ?? '';
   // Strings de la pantalla de settings, prefijo s  ----------------
   String get sTitle => _cadenasLocalizadas['s_title'] ?? '';
   String get sGeneral => _cadenasLocalizadas['s_general'] ?? '';
@@ -773,6 +775,8 @@ class AppStringKey {
     'dc_action_pause',
     'dc_action_cancel',
     'dc_action_delete',
+    'dc_action_open_url',
+    'dc_action_open_url_error',
     // Pantalla Settings -------------------------------- s_
     's_title',
     's_general',

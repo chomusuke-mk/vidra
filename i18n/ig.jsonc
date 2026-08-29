@@ -337,7 +337,7 @@
   "sd_state_missing_permissions": "Ikikere efu",
   "sd_state_missing_resources": "Ngwa ndị na-efu efu",
   "sd_state_fatal_error": "Njehie na-egbu egbu",
-  "dc_action_play": "Gwuo",
+  "dc_action_play": "Gwuo azụ",
   "dc_action_open_folder": "Mepee folda",
   "dc_action_details": "Nkọwa",
   "dc_action_resume": "maliteghachi",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Nkeji",
   "s_cut_video_seconds": "Sekọnd",
   "s_force_keyframes_at_cuts": "Manye igodo igodo na mbelata",
-  "s_force_keyframes_at_cuts_desc": "Na-amanye igodo igodo na mbelata mgbe ị na-ebudata / na-ekewa / na-ewepụ ngalaba.\nNke a na-adị ngwa n'ihi na ịchọrọ itinyegharị koodu, mana vidiyo na-apụta nwere ike ịnwe obere arịa dị n'akụkụ mbelata ahụ."
+  "s_force_keyframes_at_cuts_desc": "Na-amanye igodo igodo na mbelata mgbe ị na-ebudata / na-ekewa / na-ewepụ ngalaba.\nNke a na-adị ngwa n'ihi na ịchọrọ itinyegharị koodu, mana vidiyo na-apụta nwere ike ịnwe obere arịa dị n'akụkụ mbelata ahụ.",
+  "dc_action_open_url": "Mepee URL",
+  "dc_action_open_url_error": "Njehie imepe URL."
 }

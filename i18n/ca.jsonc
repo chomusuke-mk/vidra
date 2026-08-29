@@ -331,7 +331,7 @@
   "sd_state_missing_permissions": "Falten permisos",
   "sd_state_missing_resources": "Components que falten",
   "sd_state_fatal_error": "Error fatal",
-  "dc_action_play": "Jugar",
+  "dc_action_play": "Reprodueix",
   "dc_action_details": "Detalls",
   "dc_action_resume": "Currículum",
   "dc_action_retry": "Torna-ho a provar",
@@ -360,5 +360,7 @@
   "d_cut_video": "Retalla el vídeo",
   "cv_title": "Retalla el vídeo",
   "cv_close": "Tancar",
-  "s_cut_video_end": "Final"
+  "s_cut_video_end": "Final",
+  "dc_action_open_url": "Obre l'URL",
+  "dc_action_open_url_error": "S'ha produït un error en obrir l'URL."
 }

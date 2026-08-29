@@ -333,7 +333,7 @@
   "sd_state_missing_permissions": "Tumi a Ɛyera",
   "sd_state_missing_resources": "Nneɛma a Ɛyera",
   "sd_state_fatal_error": "Mfomso a Ɛyɛ Owu",
-  "dc_action_play": "Bɔ",
+  "dc_action_play": "Bɔ nnwom no bio",
   "dc_action_open_folder": "Bue Folda no",
   "dc_action_details": "Nkyerɛmu",
   "dc_action_resume": "Hyɛ aseɛ",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Sima",
   "s_cut_video_seconds": "Sekan kakraa bi",
   "s_force_keyframes_at_cuts": "Hyɛ Keyframes wɔ Cuts",
-  "s_force_keyframes_at_cuts_desc": "Hyɛ keyframes wɔ cuts bere a woretwe/repaapae/yi afã horow no.\nEyi yɛ brɛoo esiane sɛ ehia sɛ wɔsan de encode yɛ nti, nanso video a efi mu ba no betumi anya nneɛma kakraa bi a atwa nneɛma a wɔatwa no ho ahyia"
+  "s_force_keyframes_at_cuts_desc": "Hyɛ keyframes wɔ cuts bere a woretwe/repaapae/yi afã horow no.\nEyi yɛ brɛoo esiane sɛ ehia sɛ wɔsan de encode yɛ nti, nanso video a efi mu ba no betumi anya nneɛma kakraa bi a atwa nneɛma a wɔatwa no ho ahyia",
+  "dc_action_open_url": "Bue URL no",
+  "dc_action_open_url_error": "Mfomso a ɛbae wɔ URL a wobue mu."
 }

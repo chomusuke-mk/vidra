@@ -338,7 +338,7 @@
   "sd_state_retrying": "Reconectando...",
   "sd_state_missing_resources": "Faltan Compoñentes",
   "sd_state_fatal_error": "Erro Fatal",
-  "dc_action_play": "Xogar",
+  "dc_action_play": "Reproducir",
   "dc_action_open_folder": "Abrir cartafol",
   "dc_action_details": "Detalles",
   "dc_action_resume": "Currículo",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minutos",
   "s_cut_video_seconds": "Segundos",
   "s_force_keyframes_at_cuts": "Forzar fotogramas clave en cortes",
-  "s_force_keyframes_at_cuts_desc": "Forzar fotogramas clave nos cortes ao descargar/dividir/eliminar seccións.\nIsto é lento porque precisa unha codificación de novo, pero o vídeo resultante pode ter menos artefactos ao redor dos cortes"
+  "s_force_keyframes_at_cuts_desc": "Forzar fotogramas clave nos cortes ao descargar/dividir/eliminar seccións.\nIsto é lento porque precisa unha codificación de novo, pero o vídeo resultante pode ter menos artefactos ao redor dos cortes",
+  "dc_action_open_url": "Abrir URL",
+  "dc_action_open_url_error": "Produciuse un erro ao abrir o URL."
 }

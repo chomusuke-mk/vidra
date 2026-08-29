@@ -332,7 +332,7 @@
   "sd_state_missing_permissions": "Ingitirilen rugsatlar",
   "sd_state_missing_resources": "Ingitirilen komponentler",
   "sd_state_fatal_error": "Öldüriji ýalňyşlyk",
-  "dc_action_play": "Oýna",
+  "dc_action_play": "Yzyna oýna",
   "dc_action_open_folder": "Papkany açyň",
   "dc_action_details": "Jikme-jiklikler",
   "dc_action_resume": "Dowam et",
@@ -360,5 +360,7 @@
   "s_cut_video_seconds": "Sekunt",
   "s_force_keyframes_at_cuts": "Kesgitlerde açar düwmelerini güýçlendiriň",
   "s_cut_video_start": "Başla",
-  "s_cut_video_end": "Ahyrzaman"
+  "s_cut_video_end": "Ahyrzaman",
+  "dc_action_open_url": "URL açyň",
+  "dc_action_open_url_error": "URL açmakda säwlik."
 }

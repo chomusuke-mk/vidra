@@ -329,7 +329,7 @@
   "sd_state_missing_permissions": "Fehlende Berechtigungen",
   "sd_state_missing_resources": "Fehlende Komponenten",
   "sd_state_fatal_error": "Fataler Fehler",
-  "dc_action_play": "Spielen",
+  "dc_action_play": "Abspielen",
   "dc_action_open_folder": "Ordner öffnen",
   "dc_action_details": "Details",
   "dc_action_resume": "Wieder aufnehmen",
@@ -354,5 +354,7 @@
   "s_cut_video_minutes": "Minuten",
   "s_cut_video_seconds": "Sekunden",
   "s_force_keyframes_at_cuts": "Keyframes bei Schnitten erzwingen",
-  "s_force_keyframes_at_cuts_desc": "Erzwingen Sie Keyframes an Schnitten beim Herunterladen/Teilen/Entfernen von Abschnitten.\nDies ist langsam, da eine Neukodierung erforderlich ist, aber das resultierende Video weist möglicherweise weniger Artefakte um die Schnitte herum auf"
+  "s_force_keyframes_at_cuts_desc": "Erzwingen Sie Keyframes an Schnitten beim Herunterladen/Teilen/Entfernen von Abschnitten.\nDies ist langsam, da eine Neukodierung erforderlich ist, aber das resultierende Video weist möglicherweise weniger Artefakte um die Schnitte herum auf",
+  "dc_action_open_url": "URL öffnen",
+  "dc_action_open_url_error": "Fehler beim Öffnen der URL."
 }

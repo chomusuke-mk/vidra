@@ -324,7 +324,7 @@
   "sd_state_retrying": "Gbugbɔ kadodo...",
   "sd_state_missing_permissions": "Mɔɖeɖe Siwo Bu",
   "sd_state_missing_resources": "Akpa Siwo Bu",
-  "dc_action_play": "Fe fefe",
+  "dc_action_play": "Ƒoe ake",
   "dc_action_open_folder": "Ʋu Agbalẽdzraɖoƒea",
   "dc_action_details": "Emenuwo",
   "dc_action_resume": "Gadze egᴐme",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Aɖabaƒoƒo",
   "s_cut_video_seconds": "Sɛkɛndwo",
   "s_force_keyframes_at_cuts": "Zi Keyframes dzi le Cuts",
-  "s_force_keyframes_at_cuts_desc": "Zi keyframes dzi le cuts ne èle akpawo ƒe kɔpi/mam/ɖem ɖa.\nEsia le blewu le esi wòhiã be woagbugbɔ awɔ encode ta, gake video si do tso eme la ate ŋu anye be asinudɔwɔwɔ ʋɛ aɖewo koe ƒo xlã lãɖeɖeawo"
+  "s_force_keyframes_at_cuts_desc": "Zi keyframes dzi le cuts ne èle akpawo ƒe kɔpi/mam/ɖem ɖa.\nEsia le blewu le esi wòhiã be woagbugbɔ awɔ encode ta, gake video si do tso eme la ate ŋu anye be asinudɔwɔwɔ ʋɛ aɖewo koe ƒo xlã lãɖeɖeawo",
+  "dc_action_open_url_error": "Vodada le URL ʋuʋu me.",
+  "dc_action_open_url": "Ʋu URL la"
 }

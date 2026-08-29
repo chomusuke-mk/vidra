@@ -335,7 +335,7 @@
   "sd_state_missing_permissions": "Ogolaanshaha maqan",
   "sd_state_missing_resources": "Qaybaha maqan",
   "sd_state_fatal_error": "Khalad dilaa ah",
-  "dc_action_play": "Ciyaar",
+  "dc_action_play": "dib u ciyaar",
   "dc_action_open_folder": "Fur Folder",
   "dc_action_details": "Faahfaahin",
   "dc_action_resume": "Dib u bilaw",
@@ -360,5 +360,7 @@
   "s_cut_video_end": "Dhammaad",
   "s_cut_video_hours": "Saacadaha",
   "s_cut_video_minutes": "Daqiiqado",
-  "s_force_keyframes_at_cuts_desc": "Ku qasbi furayaasha furayaasha marka la soo dejinayo/la qaybinayo/saarayo qaybaha.\nTani waa mid gaabis ah sababtoo ah u baahan dib-u-codeynta, laakiin fiidyowga ka soo baxa waxa laga yaabaa inay leeyihiin waxyaabo yaryar oo ku wareegsan goynta"
+  "s_force_keyframes_at_cuts_desc": "Ku qasbi furayaasha furayaasha marka la soo dejinayo/la qaybinayo/saarayo qaybaha.\nTani waa mid gaabis ah sababtoo ah u baahan dib-u-codeynta, laakiin fiidyowga ka soo baxa waxa laga yaabaa inay leeyihiin waxyaabo yaryar oo ku wareegsan goynta",
+  "dc_action_open_url": "Fur URL",
+  "dc_action_open_url_error": "Cilad furitaanka URL"
 }

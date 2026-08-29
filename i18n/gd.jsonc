@@ -337,7 +337,7 @@
   "sd_state_missing_permissions": "Ceadan a dhìth",
   "sd_state_missing_resources": "Co-phàirtean a tha a dhìth",
   "sd_state_fatal_error": "Mearachd mharbhtach",
-  "dc_action_play": "Seinn",
+  "dc_action_play": "Cluich air ais",
   "dc_action_open_folder": "Fosgladh Folder",
   "dc_action_details": "Mion-fhiosrachadh",
   "dc_action_resume": "Ath-thòisich",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Mionaidean",
   "s_cut_video_seconds": "Diogan",
   "s_force_keyframes_at_cuts": "Feachd Keyframes aig Cuts",
-  "s_force_keyframes_at_cuts_desc": "Feachd keyframes aig gearraidhean nuair a bhios tu a’ luchdachadh sìos / a’ sgoltadh / a’ toirt air falbh earrannan.\nTha seo slaodach air sgàth gu bheil feum air ath-chòdachadh, ach is dòcha gu bheil nas lugha de stuthan timcheall air na gearraidhean anns a’ bhidio a thig às."
+  "s_force_keyframes_at_cuts_desc": "Feachd keyframes aig gearraidhean nuair a bhios tu a’ luchdachadh sìos / a’ sgoltadh / a’ toirt air falbh earrannan.\nTha seo slaodach air sgàth gu bheil feum air ath-chòdachadh, ach is dòcha gu bheil nas lugha de stuthan timcheall air na gearraidhean anns a’ bhidio a thig às.",
+  "dc_action_open_url": "Fosgail URL",
+  "dc_action_open_url_error": "Thachair mearachd le fosgladh URL."
 }

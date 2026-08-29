@@ -330,7 +330,7 @@
   "sd_state_missing_permissions": "Mankas Permesoj",
   "sd_state_missing_resources": "Mankas komponantoj",
   "sd_state_fatal_error": "Fatala Eraro",
-  "dc_action_play": "Ludu",
+  "dc_action_play": "Reludu",
   "dc_action_open_folder": "Malfermu Dosierujon",
   "dc_action_details": "Detaloj",
   "dc_action_resume": "Rekomenci",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minutoj",
   "s_cut_video_seconds": "Sekundoj",
   "s_force_keyframes_at_cuts": "Devigu Ŝlosilkadrojn ĉe Tranĉoj",
-  "s_force_keyframes_at_cuts_desc": "Devigu ŝlosilkadrojn ĉe tranĉoj dum elŝuto/dividado/forigado de sekcioj.\nĈi tio estas malrapida pro bezono de rekodigo, sed la rezulta video eble havas malpli da artefaktoj ĉirkaŭ la tranĉoj."
+  "s_force_keyframes_at_cuts_desc": "Devigu ŝlosilkadrojn ĉe tranĉoj dum elŝuto/dividado/forigado de sekcioj.\nĈi tio estas malrapida pro bezono de rekodigo, sed la rezulta video eble havas malpli da artefaktoj ĉirkaŭ la tranĉoj.",
+  "dc_action_open_url": "Malfermu URL",
+  "dc_action_open_url_error": "Eraro dum malfermo de URL."
 }

@@ -321,7 +321,7 @@
   "sd_state_missing_permissions": "Nga Whakaaetanga Ngaro",
   "sd_state_missing_resources": "Nga Waenga Ngaro",
   "sd_state_fatal_error": "Hapa Whakamate",
-  "dc_action_play": "Te purei",
+  "dc_action_play": "Te purei hoki",
   "dc_action_open_folder": "Whakatuwhera Kōpaki",
   "dc_action_details": "Nga korero",
   "dc_action_resume": "Anō",
@@ -360,5 +360,7 @@
   "s_force_keyframes_at_cuts_desc": "Whakahauhia nga anga matua ki te tapahi i te wa e tango ana/wehe/tango ana i nga waahanga.\nHe puhoi tenei na te hiahia ki te whakawaehere ano, engari he iti ake pea nga mahi toi huri noa i nga tapahi ka puta mai.",
   "s_cut_video_hours": "Nga haora",
   "s_cut_video_seconds": "Hekona",
-  "s_force_keyframes_at_cuts": "Whakahauhia nga Papamatua ki nga Tapahi"
+  "s_force_keyframes_at_cuts": "Whakahauhia nga Papamatua ki nga Tapahi",
+  "dc_action_open_url": "Tuwhera URL",
+  "dc_action_open_url_error": "Hapa te whakatuwhera URL."
 }

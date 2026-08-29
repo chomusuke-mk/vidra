@@ -336,7 +336,7 @@
   "sd_state_missing_permissions": "Misia Fa'atagaga",
   "sd_state_missing_resources": "Vaega ua misi",
   "sd_state_fatal_error": "Fa'alavelave Fa'alavelave",
-  "dc_action_play": "Ta'alo",
+  "dc_action_play": "Ta'alo i tua",
   "dc_action_details": "Fa'amatalaga",
   "dc_action_resume": "Toe amata",
   "dc_action_retry": "Toe taumafai",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "minute",
   "s_cut_video_seconds": "Sekona",
   "s_force_keyframes_at_cuts": "Fa'amalosi Fua Fa'atatau ile tipi",
-  "s_force_keyframes_at_cuts_desc": "Fa'amalosi fa'aupu autu ile tipi pe a la'u mai/vaevae/ave'ese vaega.\nE telegese ona o le mana'omia o se toe fa'ailoga, ae o le vitiō fa'atupuina e ono itiiti ni mea fa'atagata fa'ata'amilo i le tipi."
+  "s_force_keyframes_at_cuts_desc": "Fa'amalosi fa'aupu autu ile tipi pe a la'u mai/vaevae/ave'ese vaega.\nE telegese ona o le mana'omia o se toe fa'ailoga, ae o le vitiō fa'atupuina e ono itiiti ni mea fa'atagata fa'ata'amilo i le tipi.",
+  "dc_action_open_url": "Tatala URL",
+  "dc_action_open_url_error": "Sese le tatalaina o le URL."
 }

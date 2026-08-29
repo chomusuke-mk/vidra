@@ -339,7 +339,7 @@
   "sd_state_initializing": "Iyaqala...",
   "sd_state_retrying": "Iyaqhagamshela kwakhona...",
   "sd_state_fatal_error": "Impazamo encinana",
-  "dc_action_play": "Dlala",
+  "dc_action_play": "Dlala kwakhona",
   "dc_action_open_folder": "Vula isiqulathi seefayili",
   "dc_action_details": "Iinkcukacha",
   "dc_action_resume": "Phinda Uqalele",
@@ -360,5 +360,7 @@
   "s_force_keyframes_at_cuts": "Nyanzela ii-keyframes kwi-Cuts",
   "s_cut_video_seconds": "Imizuzwana",
   "s_cut_video": "Sika ividiyo",
-  "s_force_keyframes_at_cuts_desc": "Nyanzela izakhelo ezingundoqo xa uthoba umthwalo/ukwahlula/ususa amacandelo.\nOku kuyacotha ngenxa yokufuna ukuphinda kufakwe ikhowudi, kodwa ividiyo enesiphumo inokuba nezinto zakudala ezimbalwa ezijikeleze ukusikwa."
+  "s_force_keyframes_at_cuts_desc": "Nyanzela izakhelo ezingundoqo xa uthoba umthwalo/ukwahlula/ususa amacandelo.\nOku kuyacotha ngenxa yokufuna ukuphinda kufakwe ikhowudi, kodwa ividiyo enesiphumo inokuba nezinto zakudala ezimbalwa ezijikeleze ukusikwa.",
+  "dc_action_open_url": "Vula i-URL",
+  "dc_action_open_url_error": "Impazamo yokuvula i-URL."
 }

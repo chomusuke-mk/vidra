@@ -332,7 +332,7 @@
   "sd_state_missing_permissions": "ਗੁੰਮ ਇਜਾਜ਼ਤਾਂ",
   "sd_state_missing_resources": "ਗੁੰਮ ਭਾਗ",
   "sd_state_fatal_error": "ਘਾਤਕ ਗਲਤੀ",
-  "dc_action_play": "ਖੇਡੋ",
+  "dc_action_play": "ਵਾਪਸ ਚਲਾਓ",
   "dc_action_open_folder": "ਫੋਲਡਰ ਖੋਲ੍ਹੋ",
   "dc_action_details": "ਵੇਰਵੇ",
   "dc_action_resume": "ਮੁੜ ਸ਼ੁਰੂ ਕਰੋ",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "ਮਿੰਟ",
   "s_cut_video_seconds": "ਸਕਿੰਟ",
   "s_force_keyframes_at_cuts": "ਕੱਟਾਂ 'ਤੇ ਕੀਫ੍ਰੇਮਾਂ ਨੂੰ ਜ਼ੋਰ ਦਿਓ",
-  "s_force_keyframes_at_cuts_desc": "ਭਾਗਾਂ ਨੂੰ ਡਾਊਨਲੋਡ/ਵਿਭਾਜਿਤ/ਹਟਾਉਣ ਵੇਲੇ ਕੱਟਾਂ 'ਤੇ ਕੀਫ੍ਰੇਮ ਨੂੰ ਜ਼ਬਰਦਸਤੀ ਦਿਓ।\nਮੁੜ-ਏਨਕੋਡ ਦੀ ਲੋੜ ਦੇ ਕਾਰਨ ਇਹ ਹੌਲੀ ਹੈ, ਪਰ ਨਤੀਜੇ ਵਜੋਂ ਵਿਡੀਓ ਵਿੱਚ ਕੱਟਾਂ ਦੇ ਆਲੇ-ਦੁਆਲੇ ਘੱਟ ਕਲਾਤਮਕ ਚੀਜ਼ਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ"
+  "s_force_keyframes_at_cuts_desc": "ਭਾਗਾਂ ਨੂੰ ਡਾਊਨਲੋਡ/ਵਿਭਾਜਿਤ/ਹਟਾਉਣ ਵੇਲੇ ਕੱਟਾਂ 'ਤੇ ਕੀਫ੍ਰੇਮ ਨੂੰ ਜ਼ਬਰਦਸਤੀ ਦਿਓ।\nਮੁੜ-ਏਨਕੋਡ ਦੀ ਲੋੜ ਦੇ ਕਾਰਨ ਇਹ ਹੌਲੀ ਹੈ, ਪਰ ਨਤੀਜੇ ਵਜੋਂ ਵਿਡੀਓ ਵਿੱਚ ਕੱਟਾਂ ਦੇ ਆਲੇ-ਦੁਆਲੇ ਘੱਟ ਕਲਾਤਮਕ ਚੀਜ਼ਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ",
+  "dc_action_open_url": "URL ਖੋਲ੍ਹੋ",
+  "dc_action_open_url_error": "URL ਖੋਲ੍ਹਣ ਵਿੱਚ ਤਰੁੱਟੀ।"
 }

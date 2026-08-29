@@ -339,7 +339,7 @@
   "sd_state_missing_permissions": "Saknade behörigheter",
   "sd_state_missing_resources": "Saknade komponenter",
   "sd_state_fatal_error": "Fatalt fel",
-  "dc_action_play": "Spela",
+  "dc_action_play": "Spela upp",
   "dc_action_open_folder": "Öppna mapp",
   "dc_action_resume": "Resume",
   "dc_action_retry": "Försöka igen",
@@ -360,5 +360,7 @@
   "s_cut_video_until_end": "Ladda ner till slutet",
   "s_cut_video_hours": "Timmar",
   "s_cut_video_minutes": "Minuter",
-  "s_force_keyframes_at_cuts_desc": "Tvinga fram nyckelbildrutor vid klipp när du laddar ner/delar/tar bort avsnitt.\nDetta är långsamt på grund av att det behövs en omkodning, men den resulterande videon kan ha färre artefakter runt snitten"
+  "s_force_keyframes_at_cuts_desc": "Tvinga fram nyckelbildrutor vid klipp när du laddar ner/delar/tar bort avsnitt.\nDetta är långsamt på grund av att det behövs en omkodning, men den resulterande videon kan ha färre artefakter runt snitten",
+  "dc_action_open_url": "Öppna URL",
+  "dc_action_open_url_error": "Det gick inte att öppna URL."
 }

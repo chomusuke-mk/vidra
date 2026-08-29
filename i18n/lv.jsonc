@@ -319,7 +319,7 @@
   "sd_app_engine_connected": "App Engine: izveidots savienojums",
   "sd_donate": "Ziedot",
   "sd_state_initializing": "Notiek inicializācija...",
-  "dc_action_play": "Spēlēt",
+  "dc_action_play": "Atskaņot",
   "dc_action_open_folder": "Atveriet mapi",
   "dc_action_details": "Sīkāka informācija",
   "dc_action_resume": "Atsākt",
@@ -360,5 +360,7 @@
   "s_force_keyframes_at_cuts_desc": "Lejupielādējot/sadalot/noņemot sadaļas, piespiediet atslēgkadrus pie izgriezumiem.\nTas notiek lēni, jo ir nepieciešams atkārtoti kodēt, taču iegūtajā videoklipā ap izgriezumiem var būt mazāk artefaktu",
   "s_cut_video_seconds": "Sekundes",
   "s_cut_video_hours": "Stundas",
-  "s_cut_video_until_end": "Lejupielādējiet līdz beigām"
+  "s_cut_video_until_end": "Lejupielādējiet līdz beigām",
+  "dc_action_open_url": "Atveriet URL",
+  "dc_action_open_url_error": "Atverot URL, radās kļūda."
 }

@@ -335,7 +335,7 @@
   "sd_state_missing_permissions": "የጠፉ ፈቃዶች",
   "sd_state_missing_resources": "የጎደሉ ክፍሎች",
   "sd_state_fatal_error": "ገዳይ ስህተት",
-  "dc_action_play": "ይጫወቱ",
+  "dc_action_play": "መልሰው ይጫወቱ",
   "dc_action_details": "ዝርዝሮች",
   "dc_action_resume": "ከቆመበት ቀጥል",
   "dc_action_retry": "እንደገና ይሞክሩ",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "ደቂቃዎች",
   "s_cut_video_seconds": "ሰከንዶች",
   "s_force_keyframes_at_cuts": "የቁልፍ ክፈፎችን በቁረጥ ያስገድዱ",
-  "s_force_keyframes_at_cuts_desc": "ክፍሎችን ሲያወርዱ/ሲከፋፍሉ/በማስወገድ ጊዜ የቁልፍ ክፈፎችን ያስገድዱ።\nይህ እንደገና ኮድ ስለሚያስፈልገው ቀርፋፋ ነው፣ ነገር ግን የተገኘው ቪዲዮ በተቆራረጡ አካባቢዎች ያነሱ ቅርሶች ሊኖሩት ይችላል።"
+  "s_force_keyframes_at_cuts_desc": "ክፍሎችን ሲያወርዱ/ሲከፋፍሉ/በማስወገድ ጊዜ የቁልፍ ክፈፎችን ያስገድዱ።\nይህ እንደገና ኮድ ስለሚያስፈልገው ቀርፋፋ ነው፣ ነገር ግን የተገኘው ቪዲዮ በተቆራረጡ አካባቢዎች ያነሱ ቅርሶች ሊኖሩት ይችላል።",
+  "dc_action_open_url": "URL ክፈት",
+  "dc_action_open_url_error": "URL መክፈት ላይ ስህተት።"
 }

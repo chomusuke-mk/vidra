@@ -333,7 +333,7 @@
   "sd_state_retrying": "Kumokonekta muli...",
   "sd_state_missing_permissions": "Nawawalang Pahintulot",
   "sd_state_missing_resources": "Nawawalang Mga Bahagi",
-  "dc_action_play": "Maglaro",
+  "dc_action_play": "Play back",
   "dc_action_open_folder": "Buksan ang Folder",
   "dc_action_details": "Mga Detalye",
   "dc_action_resume": "Ipagpatuloy",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Mga minuto",
   "s_cut_video_seconds": "Mga segundo",
   "s_force_keyframes_at_cuts": "Pilitin ang Keyframes sa Cuts",
-  "s_force_keyframes_at_cuts_desc": "Pilitin ang mga keyframe sa mga pagbawas kapag nagda-download/naghahati/nag-aalis ng mga seksyon.\nIto ay mabagal dahil sa pangangailangan ng muling pag-encode, ngunit ang resultang video ay maaaring magkaroon ng mas kaunting mga artifact sa paligid ng mga hiwa"
+  "s_force_keyframes_at_cuts_desc": "Pilitin ang mga keyframe sa mga pagbawas kapag nagda-download/naghahati/nag-aalis ng mga seksyon.\nIto ay mabagal dahil sa pangangailangan ng muling pag-encode, ngunit ang resultang video ay maaaring magkaroon ng mas kaunting mga artifact sa paligid ng mga hiwa",
+  "dc_action_open_url": "Buksan ang URL",
+  "dc_action_open_url_error": "Error sa pagbubukas ng URL."
 }

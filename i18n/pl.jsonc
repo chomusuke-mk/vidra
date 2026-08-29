@@ -330,7 +330,7 @@
   "sd_state_missing_permissions": "Brakujące uprawnienia",
   "sd_state_missing_resources": "Brakujące komponenty",
   "sd_state_fatal_error": "Fatalny błąd",
-  "dc_action_play": "Grać",
+  "dc_action_play": "Odtwarzać nagranie",
   "dc_action_open_folder": "Otwórz folder",
   "dc_action_details": "Bliższe dane",
   "dc_action_resume": "Wznawiać",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Protokół",
   "s_cut_video_seconds": "Towary drugiej jakości",
   "s_force_keyframes_at_cuts": "Wymuś klatki kluczowe przy cięciach",
-  "s_force_keyframes_at_cuts_desc": "Wymuszaj klatki kluczowe w miejscach cięć podczas pobierania/dzielenia/usuwania sekcji.\nJest to powolne ze względu na konieczność ponownego kodowania, ale powstały film może zawierać mniej artefaktów wokół cięć"
+  "s_force_keyframes_at_cuts_desc": "Wymuszaj klatki kluczowe w miejscach cięć podczas pobierania/dzielenia/usuwania sekcji.\nJest to powolne ze względu na konieczność ponownego kodowania, ale powstały film może zawierać mniej artefaktów wokół cięć",
+  "dc_action_open_url": "Otwórz adres URL",
+  "dc_action_open_url_error": "Błąd podczas otwierania adresu URL."
 }

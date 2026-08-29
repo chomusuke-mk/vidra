@@ -327,7 +327,7 @@
   "sd_state_missing_permissions": "Permissões ausentes",
   "sd_state_missing_resources": "Componentes ausentes",
   "sd_state_fatal_error": "Erro fatal",
-  "dc_action_play": "Jogar",
+  "dc_action_play": "Reproduzir",
   "dc_action_details": "Detalhes",
   "dc_action_resume": "Retomar",
   "dc_action_retry": "Tentar novamente",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minutos",
   "s_cut_video_seconds": "Segundos",
   "s_force_keyframes_at_cuts": "Forçar quadros-chave em cortes",
-  "s_force_keyframes_at_cuts_desc": "Força quadros-chave em cortes ao baixar/dividir/remover seções.\nIsso é lento devido à necessidade de recodificação, mas o vídeo resultante pode ter menos artefatos em torno dos cortes"
+  "s_force_keyframes_at_cuts_desc": "Força quadros-chave em cortes ao baixar/dividir/remover seções.\nIsso é lento devido à necessidade de recodificação, mas o vídeo resultante pode ter menos artefatos em torno dos cortes",
+  "dc_action_open_url": "Abrir URL",
+  "dc_action_open_url_error": "Erro ao abrir URL."
 }

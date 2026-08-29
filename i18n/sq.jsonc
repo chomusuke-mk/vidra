@@ -316,7 +316,7 @@
   "ssi_bubble_message": "Përditësimet janë të disponueshme për komponentët Vidra. Prekni Shfaq për të rishikuar dhe instaluar.",
   "ssi_bubble_button_show": "Ekrani",
   "sd_copy_command": "Komanda e kopjimit",
-  "dc_action_play": "Luaj",
+  "dc_action_play": "Luaj përsëri",
   "sd_channel_nightly": "Gjatë natës",
   "sd_app_engine": "Motori i aplikacionit",
   "sd_app_engine_connected": "Motori i aplikacionit: Lidhur",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minutat",
   "s_force_keyframes_at_cuts_desc": "Detyroni kornizat kryesore në prerje kur shkarkoni/ndani/ hiqni seksionet.\nKjo është e ngadaltë për shkak të nevojës për një kodim të ri, por videoja që rezulton mund të ketë më pak artefakte rreth prerjeve",
   "s_cut_video_seconds": "Sekonda",
-  "s_force_keyframes_at_cuts": "Forco kornizat kryesore në shkurtime"
+  "s_force_keyframes_at_cuts": "Forco kornizat kryesore në shkurtime",
+  "dc_action_open_url": "Hap URL",
+  "dc_action_open_url_error": "Gabim në hapjen e URL-së."
 }

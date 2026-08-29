@@ -339,7 +339,7 @@
   "sd_state_missing_permissions": "गहाळ परवानग्या",
   "sd_state_missing_resources": "गहाळ घटक",
   "sd_state_fatal_error": "घातक त्रुटी",
-  "dc_action_play": "खेळा",
+  "dc_action_play": "परत खेळा",
   "dc_action_open_folder": "फोल्डर उघडा",
   "dc_action_details": "तपशील",
   "dc_action_resume": "पुन्हा सुरू करा",
@@ -360,5 +360,7 @@
   "cv_title": "व्हिडिओ कट करा",
   "cv_close": "बंद करा",
   "s_cut_video": "व्हिडिओ कट करा",
-  "s_cut_video_end": "शेवट"
+  "s_cut_video_end": "शेवट",
+  "dc_action_open_url": "URL उघडा",
+  "dc_action_open_url_error": "URL उघडताना त्रुटी."
 }

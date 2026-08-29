@@ -335,7 +335,7 @@
   "sd_state_missing_permissions": "گم ٿيل اجازتون",
   "sd_state_missing_resources": "غائب اجزاء",
   "sd_state_fatal_error": "موتمار غلطي",
-  "dc_action_play": "راند",
+  "dc_action_play": "واپس کيڏڻ",
   "dc_action_open_folder": "فولڊر کوليو",
   "dc_action_details": "تفصيل",
   "dc_action_resume": "ٻيهر شروع ڪريو",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "منٽ",
   "s_cut_video_seconds": "سيڪنڊ",
   "s_force_keyframes_at_cuts": "ڪٽ تي زور ڀريو ڪي فريم",
-  "s_force_keyframes_at_cuts_desc": "سيڪشنز کي ڊائون لوڊ ڪرڻ / ورهائڻ / هٽائڻ دوران ڪي فريم کي ڪٽ تي زور ڏيو.\nاهو سست آهي ڇاڪاڻ ته هڪ ٻيهر انڪوڊ جي ضرورت آهي، پر نتيجي ۾ وڊيو ۾ ڪٽ جي چوڌاري گهٽ نمونا هوندا"
+  "s_force_keyframes_at_cuts_desc": "سيڪشنز کي ڊائون لوڊ ڪرڻ / ورهائڻ / هٽائڻ دوران ڪي فريم کي ڪٽ تي زور ڏيو.\nاهو سست آهي ڇاڪاڻ ته هڪ ٻيهر انڪوڊ جي ضرورت آهي، پر نتيجي ۾ وڊيو ۾ ڪٽ جي چوڌاري گهٽ نمونا هوندا",
+  "dc_action_open_url": "URL کوليو",
+  "dc_action_open_url_error": "URL کولڻ ۾ غلطي."
 }

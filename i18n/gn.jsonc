@@ -338,7 +338,7 @@
   "sd_state_missing_permissions": "Umi Permiso Ofaltáva",
   "sd_state_missing_resources": "Componente-kuéra ofaltáva",
   "sd_state_fatal_error": "Error Fatal rehegua",
-  "dc_action_play": "Ñembosarái",
+  "dc_action_play": "Eñembosarái jey",
   "dc_action_open_folder": "Eipe’a Carpeta",
   "dc_action_details": "Sa'ỹijo peteĩteĩ",
   "dc_action_resume": "Moñepyrũjey",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Aravo'i",
   "s_cut_video_seconds": "Segundo-kuéra",
   "s_force_keyframes_at_cuts": "Fuerza umi cuadro clave umi Corte-pe",
-  "s_force_keyframes_at_cuts_desc": "Emombarete umi fotograma clave umi corte-pe ojegueru/ombojaꞌo/oipeꞌa jave umi sección.\nKóva mbeguekatu oikotevẽgui peteĩ codificación jey, ha katu pe video osëva ikatu oguereko saꞌivéva artefacto umi corte jerére"
+  "s_force_keyframes_at_cuts_desc": "Emombarete umi fotograma clave umi corte-pe ojegueru/ombojaꞌo/oipeꞌa jave umi sección.\nKóva mbeguekatu oikotevẽgui peteĩ codificación jey, ha katu pe video osëva ikatu oguereko saꞌivéva artefacto umi corte jerére",
+  "dc_action_open_url": "Eipe’a URL",
+  "dc_action_open_url_error": "Ojejavy ojepe’ávo URL."
 }

@@ -335,7 +335,7 @@
   "sd_state_missing_permissions": "Trūksta leidimų",
   "sd_state_missing_resources": "Trūksta komponentų",
   "sd_state_fatal_error": "Lemtinga klaida",
-  "dc_action_play": "Žaisti",
+  "dc_action_play": "Atkurti",
   "dc_action_open_folder": "Atidaryti aplanką",
   "dc_action_details": "Detalės",
   "dc_action_resume": "Tęsti",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minutės",
   "s_cut_video_seconds": "Sekundės",
   "s_force_keyframes_at_cuts_desc": "Priverskite pagrindinius kadrus iškirpti, kai atsisiunčiate / skaidote / pašalinate dalis.\nTai vyksta lėtai, nes reikia iš naujo koduoti, bet gautame vaizdo įraše aplink išpjovas gali būti mažiau artefaktų",
-  "s_force_keyframes_at_cuts": "Force Keyframes at Cuts"
+  "s_force_keyframes_at_cuts": "Force Keyframes at Cuts",
+  "dc_action_open_url": "Atidaryti URL",
+  "dc_action_open_url_error": "Klaida atidarant URL."
 }

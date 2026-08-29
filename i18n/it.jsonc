@@ -332,7 +332,7 @@
   "sd_state_missing_permissions": "Autorizzazioni mancanti",
   "sd_state_missing_resources": "Componenti mancanti",
   "sd_state_fatal_error": "Errore fatale",
-  "dc_action_play": "Giocare",
+  "dc_action_play": "Riproduci",
   "dc_action_open_folder": "Apri cartella",
   "dc_action_details": "Dettagli",
   "dc_action_resume": "Riprendere",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minuti",
   "s_cut_video_seconds": "Secondi",
   "s_force_keyframes_at_cuts": "Forza i fotogrammi chiave ai tagli",
-  "s_force_keyframes_at_cuts_desc": "Forza i fotogrammi chiave ai tagli durante il download/divisione/rimozione di sezioni.\nL'operazione è lenta perché è necessaria una ricodifica, ma il video risultante potrebbe presentare meno artefatti attorno ai tagli"
+  "s_force_keyframes_at_cuts_desc": "Forza i fotogrammi chiave ai tagli durante il download/divisione/rimozione di sezioni.\nL'operazione è lenta perché è necessaria una ricodifica, ma il video risultante potrebbe presentare meno artefatti attorno ai tagli",
+  "dc_action_open_url": "Apri URL",
+  "dc_action_open_url_error": "Errore durante l'apertura dell'URL."
 }

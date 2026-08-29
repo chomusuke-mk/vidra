@@ -338,7 +338,7 @@
   "sd_state_starting_backend": "Ku Sungula Injhini...",
   "sd_state_missing_permissions": "Mpfumelelo lowu Lahlekeke",
   "sd_state_fatal_error": "Xihoxo Lexi Dlayaka",
-  "dc_action_play": "Tlanga",
+  "dc_action_play": "Tlanga endzhaku",
   "dc_action_open_folder": "Pfula Folda",
   "dc_action_details": "Vuxokoxoko",
   "dc_action_resume": "Sungula",
@@ -360,5 +360,7 @@
   "s_cut_video": "Tsema Vhidiyo",
   "s_cut_video_seconds": "Tisekoni",
   "s_force_keyframes_at_cuts": "Force Keyframes eka Cuts",
-  "s_force_keyframes_at_cuts_desc": "Sindzisa ti keyframes eka ku tsemiwa loko u dawuniloda/ku avanyisa/ku susa swiyenge.\nLeswi swi nonoka hikokwalaho ka ku lava ku tlhela ku khodiwa, kambe vhidiyo leyi humelelaka yi nga ha va na swilo switsongo swa khale ku rhendzela swiphemu leswi tsemiweke"
+  "s_force_keyframes_at_cuts_desc": "Sindzisa ti keyframes eka ku tsemiwa loko u dawuniloda/ku avanyisa/ku susa swiyenge.\nLeswi swi nonoka hikokwalaho ka ku lava ku tlhela ku khodiwa, kambe vhidiyo leyi humelelaka yi nga ha va na swilo switsongo swa khale ku rhendzela swiphemu leswi tsemiweke",
+  "dc_action_open_url": "Pfula URL",
+  "dc_action_open_url_error": "Xihoxo xa ku pfula URL."
 }

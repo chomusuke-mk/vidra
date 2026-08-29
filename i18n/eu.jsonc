@@ -333,7 +333,7 @@
   "sd_state_missing_permissions": "Baimenak falta dira",
   "sd_state_missing_resources": "Falta diren osagaiak",
   "sd_state_fatal_error": "Akats larria",
-  "dc_action_play": "Jolastu",
+  "dc_action_play": "Erreproduzitu",
   "dc_action_open_folder": "Ireki Karpeta",
   "dc_action_details": "Xehetasunak",
   "dc_action_resume": "Curriculuma",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minutuak",
   "s_cut_video_seconds": "Segundoak",
   "s_force_keyframes_at_cuts": "Behartu gako-fotograma mozketetan",
-  "s_force_keyframes_at_cuts_desc": "Behartu gako-fotograma mozketetan atalak deskargatzean/zatitzean/kentzean.\nHau motela da berriro kodetu behar delako, baina ondoriozko bideoak ebakien inguruan artefaktu gutxiago izan ditzake."
+  "s_force_keyframes_at_cuts_desc": "Behartu gako-fotograma mozketetan atalak deskargatzean/zatitzean/kentzean.\nHau motela da berriro kodetu behar delako, baina ondoriozko bideoak ebakien inguruan artefaktu gutxiago izan ditzake.",
+  "dc_action_open_url": "Ireki URLa",
+  "dc_action_open_url_error": "Errore bat gertatu da URLa irekitzean."
 }

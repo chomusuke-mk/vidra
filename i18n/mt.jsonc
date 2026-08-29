@@ -335,7 +335,7 @@
   "sd_state_retrying": "Qiegħed jerġa' jgħaqqad...",
   "sd_state_missing_resources": "Komponenti Neqsin",
   "sd_state_fatal_error": "Żball Fatali",
-  "dc_action_play": "Play",
+  "dc_action_play": "Ilgħab lura",
   "dc_action_open_folder": "Iftaħ Folder",
   "dc_action_details": "Dettalji",
   "dc_action_resume": "Ibda",
@@ -360,5 +360,7 @@
   "s_cut_video_seconds": "Sekondi",
   "s_force_keyframes_at_cuts": "Forza Keyframes fi Qatgħat",
   "s_force_keyframes_at_cuts_desc": "Forza keyframes fil-qatgħat meta tniżżel/taqsam/tneħħi sezzjonijiet.\nDan huwa bil-mod minħabba li jeħtieġ kodifikazzjoni mill-ġdid, iżda l-vidjo li jirriżulta jista 'jkollu inqas artifatti madwar il-qatgħat",
-  "d_cut_video": "Aqta' Vidjo"
+  "d_cut_video": "Aqta' Vidjo",
+  "dc_action_open_url": "Iftaħ il-URL",
+  "dc_action_open_url_error": "Żball fil-ftuħ tal-URL."
 }

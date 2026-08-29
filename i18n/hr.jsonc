@@ -329,7 +329,7 @@
   "sd_state_retrying": "Ponovno povezivanje...",
   "sd_state_missing_permissions": "Nedostaju dopuštenja",
   "sd_state_fatal_error": "Fatalna pogreška",
-  "dc_action_play": "Igrati",
+  "dc_action_play": "Reproduciraj",
   "dc_action_open_folder": "Otvori mapu",
   "dc_action_details": "pojedinosti",
   "dc_action_resume": "Nastavi",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "minuta",
   "s_cut_video_seconds": "sekundi",
   "s_force_keyframes_at_cuts": "Forsirajte ključne kadrove u rezovima",
-  "s_force_keyframes_at_cuts_desc": "Forsirajte ključne kadrove na rezove prilikom preuzimanja/dijeljenja/uklanjanja odjeljaka.\nOvo je sporo jer je potrebno ponovno kodiranje, ali rezultirajući videozapis može imati manje artefakata oko rezova"
+  "s_force_keyframes_at_cuts_desc": "Forsirajte ključne kadrove na rezove prilikom preuzimanja/dijeljenja/uklanjanja odjeljaka.\nOvo je sporo jer je potrebno ponovno kodiranje, ali rezultirajući videozapis može imati manje artefakata oko rezova",
+  "dc_action_open_url": "Otvori URL",
+  "dc_action_open_url_error": "Pogreška pri otvaranju URL-a."
 }

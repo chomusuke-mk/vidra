@@ -325,7 +325,7 @@
   "sd_all_working_normally": "Nionso ezo tambola normalement",
   "sd_app_engine_starting": "Moteur ya App: Kobanda...",
   "sd_app_engine_initializing": "Moteur ya App: Kobandisa...",
-  "dc_action_play": "Kobeta",
+  "dc_action_play": "Bobɛta lisusu",
   "sd_app_engine_reconnecting": "Moteur ya App: Kozongisa boyokani...",
   "sd_app_engine_missing_permissions": "App Engine: Esengeli kozwa ndingisa",
   "sd_app_engine_missing_resources": "Moteur ya App: Ba composants oyo ezangi",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Miniti",
   "s_cut_video_seconds": "Ba secondes ya ba secondes",
   "s_force_keyframes_at_cuts": "Force Ba Cadres Clés na Cuts",
-  "s_force_keyframes_at_cuts_desc": "Force ba cadres clés na ba coupes tango ozali ko télécharger/kokabola/kolongola ba sections.\nYango ezali malembe mpo na mposa ya kozongisa code, kasi video oyo euti na yango ekoki kozala na ba artifacts moke zingazinga ya bisika oyo bakati"
+  "s_force_keyframes_at_cuts_desc": "Force ba cadres clés na ba coupes tango ozali ko télécharger/kokabola/kolongola ba sections.\nYango ezali malembe mpo na mposa ya kozongisa code, kasi video oyo euti na yango ekoki kozala na ba artifacts moke zingazinga ya bisika oyo bakati",
+  "dc_action_open_url": "Fungola URL",
+  "dc_action_open_url_error": "Libunga na kofungola URL."
 }

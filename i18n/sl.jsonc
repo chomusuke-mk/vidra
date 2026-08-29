@@ -338,7 +338,7 @@
   "sd_state_missing_permissions": "Manjkajoča dovoljenja",
   "sd_state_missing_resources": "Manjkajoče komponente",
   "sd_state_fatal_error": "Usodna napaka",
-  "dc_action_play": "Igraj",
+  "dc_action_play": "Predvajaj",
   "dc_action_details": "Podrobnosti",
   "dc_action_resume": "Nadaljevanje",
   "dc_action_retry": "Poskusite znova",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "minute",
   "s_cut_video_seconds": "sekund",
   "s_force_keyframes_at_cuts": "Vsili ključne sličice pri rezih",
-  "s_force_keyframes_at_cuts_desc": "Pri prenosu/razdelitvi/odstranjevanju odsekov vsili ključne sličice na rezih.\nTo je počasno zaradi potrebe po ponovnem kodiranju, vendar bo nastali video morda imel manj artefaktov okoli rezov"
+  "s_force_keyframes_at_cuts_desc": "Pri prenosu/razdelitvi/odstranjevanju odsekov vsili ključne sličice na rezih.\nTo je počasno zaradi potrebe po ponovnem kodiranju, vendar bo nastali video morda imel manj artefaktov okoli rezov",
+  "dc_action_open_url": "Odpri URL",
+  "dc_action_open_url_error": "Napaka pri odpiranju URL-ja."
 }

@@ -322,7 +322,7 @@
   "ssi_bubble_button_dismiss": "Рад кардан",
   "sd_app_engine": "Муҳаррики барнома",
   "sd_state_missing_permissions": "Иҷозатҳои гумшуда",
-  "dc_action_play": "Бозӣ",
+  "dc_action_play": "Бозӣ кардан",
   "dc_action_open_folder": "Папка кушоед",
   "sd_linux_appimage_title": "Навсозии Vidra (AppImage)",
   "sd_state_fatal_error": "Хатои марговар",
@@ -360,5 +360,7 @@
   "s_force_keyframes_at_cuts": "Маҷбур кардани кадрҳои калидӣ дар буриш",
   "s_force_keyframes_at_cuts_desc": "Ҳангоми боргирӣ/тақсим/нест кардани бахшҳо кадрҳои калидиро дар буриш маҷбур кунед.\nИн аз сабаби зарурати рамзгузории дубора суст аст, аммо видеои натиҷавӣ метавонад дар атрофи буришҳо артефактҳои камтар дошта бошад.",
   "s_cut_video_end": "Поён",
-  "s_cut_video_seconds": "Сонияхо"
+  "s_cut_video_seconds": "Сонияхо",
+  "dc_action_open_url": "URL-ро кушоед",
+  "dc_action_open_url_error": "Хатогии кушодани URL."
 }

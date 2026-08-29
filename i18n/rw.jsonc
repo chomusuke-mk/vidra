@@ -332,7 +332,7 @@
   "sd_state_missing_permissions": "Kubura Uruhushya",
   "sd_state_missing_resources": "Kubura Ibigize",
   "sd_state_fatal_error": "Ikosa Ryica",
-  "dc_action_play": "Kina",
+  "dc_action_play": "Kina inyuma",
   "dc_action_open_folder": "Fungura Ububiko",
   "dc_action_details": "Ibisobanuro",
   "dc_action_resume": "Komeza",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Iminota",
   "s_cut_video_seconds": "Amasegonda",
   "s_force_keyframes_at_cuts": "Koresha imbaraga za Keyframes mugukata",
-  "s_force_keyframes_at_cuts_desc": "Shira urufunguzo rwibanze mugukuramo / gutandukanya / gukuraho ibice.\nIbi biratinda kubera gukenera re-kode, ariko videwo yavuyemo irashobora kuba ifite ibihangano bike hafi yo gukata"
+  "s_force_keyframes_at_cuts_desc": "Shira urufunguzo rwibanze mugukuramo / gutandukanya / gukuraho ibice.\nIbi biratinda kubera gukenera re-kode, ariko videwo yavuyemo irashobora kuba ifite ibihangano bike hafi yo gukata",
+  "dc_action_open_url": "Fungura URL",
+  "dc_action_open_url_error": "Gufungura URL."
 }

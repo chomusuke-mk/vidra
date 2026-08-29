@@ -326,7 +326,7 @@
   "sd_state_missing_permissions": "Autorisations manquantes",
   "sd_state_missing_resources": "Composants manquants",
   "sd_state_fatal_error": "Erreur fatale",
-  "dc_action_play": "Jouer",
+  "dc_action_play": "Lecture",
   "dc_action_open_folder": "Ouvrir le dossier",
   "dc_action_details": "Détails",
   "dc_action_resume": "CV",
@@ -354,5 +354,7 @@
   "s_cut_video_minutes": "Minutes",
   "s_cut_video_seconds": "Secondes",
   "s_force_keyframes_at_cuts": "Forcer les images clés lors des coupes",
-  "s_force_keyframes_at_cuts_desc": "Forcer les images clés lors des coupures lors du téléchargement/fractionnement/suppression de sections.\nCeci est lent en raison de la nécessité d'un réencodage, mais la vidéo résultante peut présenter moins d'artefacts autour des coupes."
+  "s_force_keyframes_at_cuts_desc": "Forcer les images clés lors des coupures lors du téléchargement/fractionnement/suppression de sections.\nCeci est lent en raison de la nécessité d'un réencodage, mais la vidéo résultante peut présenter moins d'artefacts autour des coupes.",
+  "dc_action_open_url": "Ouvrir l'URL",
+  "dc_action_open_url_error": "Erreur lors de l'ouverture de l'URL."
 }

@@ -333,7 +333,7 @@
   "sd_state_missing_permissions": "İcazələr çatışmır",
   "sd_state_missing_resources": "Çatışmayan Komponentlər",
   "sd_state_fatal_error": "Ölümcül Səhv",
-  "dc_action_play": "Oyna",
+  "dc_action_play": "Yenidən çalın",
   "dc_action_open_folder": "Qovluğu açın",
   "dc_action_details": "Təfərrüatlar",
   "dc_action_resume": "CV",
@@ -360,5 +360,7 @@
   "s_cut_video_start": "Başlayın",
   "s_cut_video_end": "Son",
   "s_cut_video_until_end": "Sona qədər yükləyin",
-  "s_force_keyframes_at_cuts_desc": "Bölmələri endirərkən/parçalayanda/çıxararkən əsas kadrları kəsiklərə məcbur edin.\nYenidən kodlaşdırmaya ehtiyac olduğu üçün bu yavaşdır, lakin nəticədə videoda kəsiklər ətrafında daha az artefakt ola bilər"
+  "s_force_keyframes_at_cuts_desc": "Bölmələri endirərkən/parçalayanda/çıxararkən əsas kadrları kəsiklərə məcbur edin.\nYenidən kodlaşdırmaya ehtiyac olduğu üçün bu yavaşdır, lakin nəticədə videoda kəsiklər ətrafında daha az artefakt ola bilər",
+  "dc_action_open_url": "URL açın",
+  "dc_action_open_url_error": "URL-nin açılması xətası."
 }

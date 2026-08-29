@@ -313,7 +313,7 @@
   "ssi_bubble_button_dismiss": "Dzinga",
   "sd_app_engine_missing_resources": "Injini yeApp: Zvisipo Zvikamu",
   "sd_state_ready": "Yakabatanidzwa",
-  "dc_action_play": "Play",
+  "dc_action_play": "Play back",
   "sd_app_engine": "App Engine",
   "sd_app_engine_connected": "App Engine: Yakabatanidzwa",
   "sd_all_working_normally": "Zvose zviri kufamba zvakanaka",
@@ -360,5 +360,7 @@
   "s_cut_video_hours": "Maawa",
   "s_cut_video_seconds": "Sekondi",
   "s_force_keyframes_at_cuts": "Kumanikidza Keyframes paCheka",
-  "s_force_keyframes_at_cuts_desc": "Manikidza makiyi makiyi pakucheka kana uchidhaunirodha/kupatsanura/kubvisa zvikamu.\nIzvi zvinononoka nekuda kwekuda re-encode, asi vhidhiyo inozobuda inogona kunge iine mashoma artifacts akatenderedza kucheka."
+  "s_force_keyframes_at_cuts_desc": "Manikidza makiyi makiyi pakucheka kana uchidhaunirodha/kupatsanura/kubvisa zvikamu.\nIzvi zvinononoka nekuda kwekuda re-encode, asi vhidhiyo inozobuda inogona kunge iine mashoma artifacts akatenderedza kucheka.",
+  "dc_action_open_url": "Vhura URL",
+  "dc_action_open_url_error": "Pane pakaipa pakuvhura URL."
 }

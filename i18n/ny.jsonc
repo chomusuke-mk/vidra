@@ -333,7 +333,7 @@
   "sd_state_missing_permissions": "Zilolezo Zikusowa",
   "sd_state_missing_resources": "Zigawo Zosowa",
   "sd_state_fatal_error": "Cholakwika Choopsa",
-  "dc_action_play": "Sewerani",
+  "dc_action_play": "Seweraninso",
   "dc_action_open_folder": "Tsegulani Foda",
   "dc_action_details": "Tsatanetsatane",
   "dc_action_resume": "Pitilizani",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Mphindi",
   "s_cut_video_seconds": "Masekondi",
   "s_force_keyframes_at_cuts": "Limbikitsani ma Keyframes pa Cuts",
-  "s_force_keyframes_at_cuts_desc": "Limbikitsani makiyi achinsinsi podula mukamatsitsa/kugawa/kuchotsa magawo.\nIzi zimachedwa chifukwa chofuna kuyimitsidwanso, koma kanema wotsatira akhoza kukhala ndi zinthu zakale zocheperako."
+  "s_force_keyframes_at_cuts_desc": "Limbikitsani makiyi achinsinsi podula mukamatsitsa/kugawa/kuchotsa magawo.\nIzi zimachedwa chifukwa chofuna kuyimitsidwanso, koma kanema wotsatira akhoza kukhala ndi zinthu zakale zocheperako.",
+  "dc_action_open_url": "Tsegulani URL",
+  "dc_action_open_url_error": "Vuto pakutsegula URL."
 }

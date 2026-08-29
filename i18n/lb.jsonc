@@ -332,7 +332,7 @@
   "sd_app_engine_error": "App Engine: Feeler",
   "sd_state_initializing": "Initialiséieren ...",
   "sd_state_starting_backend": "Motor starten...",
-  "dc_action_play": "Spillen",
+  "dc_action_play": "Leeschtung zréck",
   "sd_state_missing_permissions": "Vermësst Permissiounen",
   "sd_state_missing_resources": "Vermësst Komponente",
   "sd_state_fatal_error": "Fatale Feeler",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minutt",
   "s_cut_video_seconds": "Sekonnen",
   "s_force_keyframes_at_cuts": "Force Keyframes bei Cuts",
-  "s_force_keyframes_at_cuts_desc": "Force Keyframes bei Schnëtt beim Download / Spaltung / Ewechhuele vun Sektiounen.\nDëst ass lues wéinst der Noutwendegkeet vun engem Neikodéierung, awer de resultéierende Video kann manner Artefakte ronderëm d'Schnëtt hunn"
+  "s_force_keyframes_at_cuts_desc": "Force Keyframes bei Schnëtt beim Download / Spaltung / Ewechhuele vun Sektiounen.\nDëst ass lues wéinst der Noutwendegkeet vun engem Neikodéierung, awer de resultéierende Video kann manner Artefakte ronderëm d'Schnëtt hunn",
+  "dc_action_open_url": "Open URL",
+  "dc_action_open_url_error": "Feeler beim Ouverture vun der URL."
 }

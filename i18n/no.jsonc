@@ -334,7 +334,7 @@
   "sd_state_starting_backend": "Starter motor...",
   "sd_state_missing_resources": "Manglende komponenter",
   "sd_state_fatal_error": "Fatal feil",
-  "dc_action_play": "Spille",
+  "dc_action_play": "Spill av",
   "dc_action_open_folder": "Åpne mappe",
   "dc_action_details": "Detaljer",
   "dc_action_resume": "Gjenoppta",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minutter",
   "s_cut_video_seconds": "Sekunder",
   "s_force_keyframes_at_cuts": "Force Keyframes ved Cuts",
-  "s_force_keyframes_at_cuts_desc": "Tving nøkkelbilder ved kutt når du laster ned/oppdeler/fjerner deler.\nDette er tregt på grunn av behov for omkoding, men den resulterende videoen kan ha færre artefakter rundt kuttene"
+  "s_force_keyframes_at_cuts_desc": "Tving nøkkelbilder ved kutt når du laster ned/oppdeler/fjerner deler.\nDette er tregt på grunn av behov for omkoding, men den resulterende videoen kan ha færre artefakter rundt kuttene",
+  "dc_action_open_url": "Åpne URL",
+  "dc_action_open_url_error": "Feil ved åpning av URL."
 }

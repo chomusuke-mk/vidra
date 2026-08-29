@@ -333,7 +333,7 @@
   "sd_state_missing_permissions": "Puuttuvat käyttöoikeudet",
   "sd_state_missing_resources": "Puuttuvat komponentit",
   "sd_state_fatal_error": "Kohtalokas virhe",
-  "dc_action_play": "Pelata",
+  "dc_action_play": "Toistaa",
   "dc_action_open_folder": "Avaa kansio",
   "dc_action_details": "Yksityiskohdat",
   "dc_action_resume": "Jatkaa",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minuutit",
   "s_cut_video_seconds": "Sekuntia",
   "s_force_keyframes_at_cuts": "Pakota avainkehykset Cutsissa",
-  "s_force_keyframes_at_cuts_desc": "Pakota avainkehykset leikkauksissa, kun lataat/jaat/poistat osia.\nTämä on hidasta, koska se vaatii uudelleenkoodauksen, mutta tuloksena olevassa videossa voi olla vähemmän artefakteja leikkausten ympärillä"
+  "s_force_keyframes_at_cuts_desc": "Pakota avainkehykset leikkauksissa, kun lataat/jaat/poistat osia.\nTämä on hidasta, koska se vaatii uudelleenkoodauksen, mutta tuloksena olevassa videossa voi olla vähemmän artefakteja leikkausten ympärillä",
+  "dc_action_open_url": "Avaa URL-osoite",
+  "dc_action_open_url_error": "Virhe avattaessa URL-osoitetta."
 }

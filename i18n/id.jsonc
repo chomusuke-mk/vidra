@@ -316,7 +316,7 @@
   "sd_changelog": "log perubahan",
   "ssi_bubble_title": "Pembaruan Tersedia",
   "ssi_bubble_button_dismiss": "Membubarkan",
-  "dc_action_play": "Bermain",
+  "dc_action_play": "Memainkan kembali",
   "sd_app_engine": "Mesin Aplikasi",
   "sd_app_engine_connected": "Mesin Aplikasi: Terhubung",
   "sd_all_working_normally": "Semuanya berjalan normal",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Menit",
   "s_cut_video_seconds": "Detik",
   "s_force_keyframes_at_cuts": "Paksa Bingkai Utama di Pemotongan",
-  "s_force_keyframes_at_cuts_desc": "Paksa bingkai utama saat dipotong saat mengunduh/memisahkan/menghapus bagian.\nProses ini lambat karena memerlukan pengkodean ulang, namun video yang dihasilkan mungkin memiliki lebih sedikit artefak di sekitar pemotongan"
+  "s_force_keyframes_at_cuts_desc": "Paksa bingkai utama saat dipotong saat mengunduh/memisahkan/menghapus bagian.\nProses ini lambat karena memerlukan pengkodean ulang, namun video yang dihasilkan mungkin memiliki lebih sedikit artefak di sekitar pemotongan",
+  "dc_action_open_url": "Buka URL",
+  "dc_action_open_url_error": "Terjadi kesalahan saat membuka URL."
 }

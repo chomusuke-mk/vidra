@@ -333,7 +333,7 @@
   "sd_state_initializing": "กำลังเริ่มต้น...",
   "sd_state_retrying": "กำลังเชื่อมต่อใหม่...",
   "sd_state_fatal_error": "ข้อผิดพลาดร้ายแรง",
-  "dc_action_play": "เล่น",
+  "dc_action_play": "เล่นกลับ",
   "dc_action_details": "รายละเอียด",
   "dc_action_resume": "ประวัติย่อ",
   "dc_action_retry": "ลองอีกครั้ง",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "นาที",
   "s_cut_video_seconds": "วินาที",
   "s_force_keyframes_at_cuts": "บังคับคีย์เฟรมที่ Cuts",
-  "s_force_keyframes_at_cuts_desc": "บังคับให้คีย์เฟรมตัดเมื่อดาวน์โหลด/แยก/ลบส่วนต่างๆ\nการดำเนินการนี้ช้าเนื่องจากต้องมีการเข้ารหัสใหม่ แต่วิดีโอที่ได้อาจมีส่วนที่ผิดปกติน้อยลงในการตัด"
+  "s_force_keyframes_at_cuts_desc": "บังคับให้คีย์เฟรมตัดเมื่อดาวน์โหลด/แยก/ลบส่วนต่างๆ\nการดำเนินการนี้ช้าเนื่องจากต้องมีการเข้ารหัสใหม่ แต่วิดีโอที่ได้อาจมีส่วนที่ผิดปกติน้อยลงในการตัด",
+  "dc_action_open_url": "เปิด URL",
+  "dc_action_open_url_error": "เกิดข้อผิดพลาดในการเปิด URL"
 }

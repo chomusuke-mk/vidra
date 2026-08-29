@@ -336,7 +336,7 @@
   "sd_state_missing_permissions": "Chýbajúce povolenia",
   "sd_state_missing_resources": "Chýbajúce komponenty",
   "sd_state_fatal_error": "Závažná chyba",
-  "dc_action_play": "Hrať",
+  "dc_action_play": "Prehrať",
   "dc_action_open_folder": "Otvorte priečinok",
   "dc_action_details": "Podrobnosti",
   "dc_action_resume": "Obnoviť",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minúty",
   "s_cut_video_seconds": "sekúnd",
   "s_force_keyframes_at_cuts": "Vynútiť kľúčové snímky pri rezoch",
-  "s_force_keyframes_at_cuts_desc": "Vynútiť kľúčové snímky pri strihoch pri sťahovaní/rozdeľovaní/odstraňovaní sekcií.\nJe to pomalé kvôli potrebe opätovného kódovania, ale výsledné video môže mať okolo strihov menej artefaktov"
+  "s_force_keyframes_at_cuts_desc": "Vynútiť kľúčové snímky pri strihoch pri sťahovaní/rozdeľovaní/odstraňovaní sekcií.\nJe to pomalé kvôli potrebe opätovného kódovania, ale výsledné video môže mať okolo strihov menej artefaktov",
+  "dc_action_open_url": "Otvoriť adresu URL",
+  "dc_action_open_url_error": "Chyba pri otváraní adresy URL."
 }

@@ -338,7 +338,7 @@
   "sd_state_missing_permissions": "Olukusa Olubulamu",
   "sd_state_missing_resources": "Ebitundu Ebibulamu",
   "sd_state_fatal_error": "Ensobi Etta",
-  "dc_action_play": "Okuzannya",
+  "dc_action_play": "Zannya emabega",
   "dc_action_open_folder": "Ggulawo Folda",
   "dc_action_pause": "Okuyimirizamu",
   "dc_action_cancel": "okusazaamu",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Dakikka",
   "s_cut_video_seconds": "Sikonda ntono",
   "s_force_keyframes_at_cuts": "Force Keyframes ku Cuts",
-  "s_force_keyframes_at_cuts_desc": "Force keyframes ku cuts nga owanula/ogabanya/okuggyawo ebitundu.\nKino kigenda mpola olw’okwetaaga okuddamu okukooda, naye vidiyo evuddemu eyinza okuba n’ebintu ebitono eby’edda okwetoloola ebisaliddwa"
+  "s_force_keyframes_at_cuts_desc": "Force keyframes ku cuts nga owanula/ogabanya/okuggyawo ebitundu.\nKino kigenda mpola olw’okwetaaga okuddamu okukooda, naye vidiyo evuddemu eyinza okuba n’ebintu ebitono eby’edda okwetoloola ebisaliddwa",
+  "dc_action_open_url": "Ggulawo URL",
+  "dc_action_open_url_error": "Ensobi mu kuggulawo URL."
 }

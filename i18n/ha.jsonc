@@ -340,7 +340,7 @@
   "sd_state_missing_permissions": "Bacewar Izini",
   "sd_state_missing_resources": "Abubuwan da suka ɓace",
   "sd_state_fatal_error": "Kuskure mai kisa",
-  "dc_action_play": "Wasa",
+  "dc_action_play": "Yi wasa",
   "dc_action_open_folder": "Buɗe Jaka",
   "dc_action_resume": "Ci gaba",
   "dc_action_cancel": "Soke",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Mintuna",
   "s_cut_video_seconds": "Dakika",
   "s_force_keyframes_at_cuts": "Tilasta Firam ɗin Maɓalli a Yanke",
-  "s_force_keyframes_at_cuts_desc": "Ƙaddamar da firam ɗin maɓalli a yanke lokacin saukewa/ragawa/cire sassan.\nWannan yana jinkirin saboda buƙatar sake yin rikodin, amma sakamakon bidiyon na iya samun ƙarancin kayan tarihi a kusa da yanke."
+  "s_force_keyframes_at_cuts_desc": "Ƙaddamar da firam ɗin maɓalli a yanke lokacin saukewa/ragawa/cire sassan.\nWannan yana jinkirin saboda buƙatar sake yin rikodin, amma sakamakon bidiyon na iya samun ƙarancin kayan tarihi a kusa da yanke.",
+  "dc_action_open_url": "Bude URL",
+  "dc_action_open_url_error": "Kuskuren buɗe URL."
 }

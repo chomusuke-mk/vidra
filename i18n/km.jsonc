@@ -317,7 +317,7 @@
   "ssi_bubble_message": "ការអាប់ដេតមានសម្រាប់សមាសធាតុ Vidra ។ ប៉ះ បង្ហាញ ដើម្បីពិនិត្យមើល និងដំឡើង។",
   "ssi_bubble_button_show": "បង្ហាញ",
   "ssi_bubble_button_dismiss": "ច្រានចោល",
-  "dc_action_play": "លេង",
+  "dc_action_play": "លេងឡើងវិញ",
   "sd_linux_deb_title": "អាប់ដេត Vidra (កញ្ចប់ DEB)",
   "sd_app_engine": "ម៉ាស៊ីនកម្មវិធី",
   "sd_app_engine_connected": "ម៉ាស៊ីនកម្មវិធី៖ បានភ្ជាប់",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "នាទី",
   "s_cut_video_seconds": "វិនាទី",
   "s_force_keyframes_at_cuts": "បង្ខំ Keyframes នៅ Cuts",
-  "s_force_keyframes_at_cuts_desc": "បង្ខំស៊ុមគន្លឹះនៅពេលកាត់នៅពេលទាញយក/បំបែក/ដកផ្នែក។\nនេះយឺត ដោយសារត្រូវការការអ៊ិនកូដឡើងវិញ ប៉ុន្តែវីដេអូលទ្ធផលអាចមានវត្ថុបុរាណតិចជាងមុនជុំវិញការកាត់"
+  "s_force_keyframes_at_cuts_desc": "បង្ខំស៊ុមគន្លឹះនៅពេលកាត់នៅពេលទាញយក/បំបែក/ដកផ្នែក។\nនេះយឺត ដោយសារត្រូវការការអ៊ិនកូដឡើងវិញ ប៉ុន្តែវីដេអូលទ្ធផលអាចមានវត្ថុបុរាណតិចជាងមុនជុំវិញការកាត់",
+  "dc_action_open_url": "បើក URL",
+  "dc_action_open_url_error": "កំហុសក្នុងការបើក URL ។"
 }

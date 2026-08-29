@@ -333,7 +333,7 @@
   "sd_state_missing_permissions": "Toestemmings ontbreek",
   "sd_state_missing_resources": "Ontbrekende komponente",
   "sd_state_fatal_error": "Noodlottige fout",
-  "dc_action_play": "Speel",
+  "dc_action_play": "Speel terug",
   "dc_action_open_folder": "Maak vouer oop",
   "dc_action_resume": "Hervat",
   "dc_action_retry": "Probeer weer",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minute",
   "s_cut_video_seconds": "Sekondes",
   "s_force_keyframes_at_cuts": "Dwing sleutelrame by Cuts",
-  "s_force_keyframes_at_cuts_desc": "Dwing sleutelrame by snitte wanneer afdelings afgelaai/verdeel/verwyder word.\nDit is stadig as gevolg van 'n her-enkodeer, maar die gevolglike video kan minder artefakte rondom die snitte hê"
+  "s_force_keyframes_at_cuts_desc": "Dwing sleutelrame by snitte wanneer afdelings afgelaai/verdeel/verwyder word.\nDit is stadig as gevolg van 'n her-enkodeer, maar die gevolglike video kan minder artefakte rondom die snitte hê",
+  "dc_action_open_url": "Maak URL oop",
+  "dc_action_open_url_error": "Kon nie URL oopmaak nie."
 }

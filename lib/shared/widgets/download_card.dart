@@ -75,7 +75,7 @@ class DownloadCard extends StatelessWidget {
               isDesktop &&
               (hasFile || isList));
 
-    // 3. Acciones prohibidas para sub-items (solo permitidas para items principales):
+    // 4. Acciones prohibidas para sub-items (solo permitidas para items principales):
     final showInfo = !isSubItem && !isDetailScreen;
     final showDelete =
         !isSubItem &&
@@ -90,6 +90,10 @@ class DownloadCard extends StatelessWidget {
     final showResume = !isSubItem && isPaused;
     final showRetry =
         !isSubItem && (isError || isCancelled || isCompletedWithErrors);
+    
+    // 5. Acciones solo visibles en pantalla de detalles.
+    final showOpenURL =
+        isDetailScreen && info?.url != null && info!.url!.isNotEmpty;
 
     int actionCount = 0;
     if (showPlay) actionCount += 1;
@@ -100,7 +104,7 @@ class DownloadCard extends StatelessWidget {
     if (showPause) actionCount += 1;
     if (showCancel) actionCount += 1;
     if (showDelete) actionCount += 1;
-
+    if (showOpenURL) actionCount += 1;
     Widget cardContent = Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -279,6 +283,25 @@ class DownloadCard extends StatelessWidget {
                   foregroundColor: Colors.white,
                   icon: Icons.folder,
                   tooltip: locale.dcActionOpenFolder,
+                ),
+              ],
+              if (showOpenURL) ...[
+                _buildSlidableAction(
+                  onPressed: (_) async {
+                    final url = info!.url!;
+                    if (await canLaunchUrl(Uri.parse(url))) {
+                      await launchUrl(
+                        Uri.parse(url),
+                        mode: LaunchMode.externalApplication,
+                      );
+                    } else {
+                      ToastUtils.showError(locale.dcActionOpenURLError);
+                    }
+                  },
+                  backgroundColor: Colors.blueGrey,
+                  foregroundColor: Colors.white,
+                  icon: Icons.open_in_new,
+                  tooltip: locale.dcActionOpenURL,
                 ),
               ],
               if (showInfo) ...[

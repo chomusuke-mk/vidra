@@ -318,7 +318,7 @@
   "ssi_bubble_button_show": "Displey",
   "ssi_bubble_button_dismiss": "Rad etish",
   "sd_state_retrying": "Qayta ulanmoqda...",
-  "dc_action_play": "O'ynang",
+  "dc_action_play": "Qayta o'ynang",
   "dc_action_pause": "Pauza",
   "dc_action_delete": "Oʻchirish",
   "sd_channel_stable": "Barqaror",
@@ -360,5 +360,7 @@
   "s_cut_video_start": "Boshlash",
   "s_cut_video_end": "Oxiri",
   "s_cut_video_minutes": "Daqiqalar",
-  "s_force_keyframes_at_cuts": "Asosiy kadrlarni kesishda majburlash"
+  "s_force_keyframes_at_cuts": "Asosiy kadrlarni kesishda majburlash",
+  "dc_action_open_url": "URL manzilini oching",
+  "dc_action_open_url_error": "URLni ochishda xatolik yuz berdi."
 }

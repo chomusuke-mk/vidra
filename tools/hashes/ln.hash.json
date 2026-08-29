@@ -325,7 +325,7 @@
   "sd_all_working_normally": "7285841992a291b667570cc24480163e626d653bfe108a519344bac3a3cfbed4",
   "sd_app_engine_starting": "656f5b3c9c1d512383d554f344ff67cf8a3922f7d3601b8cbe5677f678e5132e",
   "sd_app_engine_initializing": "c3a46318385e74237b15001ad8d130cbdc0291fd6c45603182c1fe33cbd0d3f0",
-  "dc_action_play": "436e61016e26fcb773b9725745cbbf0afe7f001ea26041a814a7712c2925c442",
+  "dc_action_play": "13d8bb61f3cd92f6de43317338e10f4e7927ef0df7f2cf4447dce2e8b2088607",
   "sd_app_engine_reconnecting": "d8cf18be29db50b5db1577e75e6a7673461995229d2266cf7ea1419cef635924",
   "sd_app_engine_missing_permissions": "3ba975dfbfe041af6de842aa3adc8be37b720bb77a206e409f07854a8a16ce8d",
   "sd_app_engine_missing_resources": "b2221e9e9dfa52bae06fbdc5380babeafe0d22df572da612b92a410deb34fe1a",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "4f846a84e7fc9ef6e68468c270c9153c20204641bd7b839ad4b8e5233e1c86d0",
   "s_cut_video_seconds": "381a8e9699052f3a958001510611a9634e7cef8aa6a1421cb7e7f6e119f91edc",
   "s_force_keyframes_at_cuts": "634be585a836bed56d324e274d4109b46364e0cc962411c958d4f722304a18f7",
-  "s_force_keyframes_at_cuts_desc": "cf7c380f65f28ae2da8c99b9da97dfce887491c51a413f0daa842d2a6e628142"
+  "s_force_keyframes_at_cuts_desc": "cf7c380f65f28ae2da8c99b9da97dfce887491c51a413f0daa842d2a6e628142",
+  "dc_action_open_url": "adec9c7ac0a07f99c37d87364828f4a4b294a57b05b8e41e758bea3a2c3a3910",
+  "dc_action_open_url_error": "83585f0c97f3f868846b6b7eafc8942413e5a8ba19dd1e4bb7325fc565d6bf84"
 }

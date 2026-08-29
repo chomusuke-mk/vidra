@@ -334,7 +334,7 @@
   "sd_state_missing_permissions": "Hayyama Bade",
   "sd_state_missing_resources": "Qaamolee Dhabaman",
   "sd_state_fatal_error": "Dogoggora Du'aa",
-  "dc_action_play": "Taphachuu",
+  "dc_action_play": "Taphadhu",
   "dc_action_open_folder": "Galmee Bani",
   "dc_action_resume": "Deebisanii jalqabuu",
   "dc_action_retry": "Irra deebi'ii yaali",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Daqiiqaawwan",
   "s_cut_video_seconds": "Sekondii",
   "s_force_keyframes_at_cuts": "Humna Keyframes Cuts irratti",
-  "s_force_keyframes_at_cuts_desc": "Yeroo kutaalee buufachuu/qoqqooduu/baasu furtuuwwan furtuuwwan kutaa irratti dirqisiisi.\nKun sababa irra deebiin koodii barbaachisu irraa kan ka'e suuta jedha, garuu viidiyoon bu'aa kanaa naannoo ciccitaa sanaatti artiifaaktii xiqqaa qabaachuu danda'a"
+  "s_force_keyframes_at_cuts_desc": "Yeroo kutaalee buufachuu/qoqqooduu/baasu furtuuwwan furtuuwwan kutaa irratti dirqisiisi.\nKun sababa irra deebiin koodii barbaachisu irraa kan ka'e suuta jedha, garuu viidiyoon bu'aa kanaa naannoo ciccitaa sanaatti artiifaaktii xiqqaa qabaachuu danda'a",
+  "dc_action_open_url": "URL banaa",
+  "dc_action_open_url_error": "Dogoggora URL banachuu."
 }

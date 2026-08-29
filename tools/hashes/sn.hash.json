@@ -313,7 +313,7 @@
   "ssi_bubble_button_dismiss": "48845bff334a50a59aaecf499f28a7a24c3b4b891b8b18a9f1169ad8e8a6b261",
   "sd_app_engine_missing_resources": "b2221e9e9dfa52bae06fbdc5380babeafe0d22df572da612b92a410deb34fe1a",
   "sd_state_ready": "22965568d22a14ee17af055d2870b50afcfe9fd94a83eec3196e266932297bb2",
-  "dc_action_play": "436e61016e26fcb773b9725745cbbf0afe7f001ea26041a814a7712c2925c442",
+  "dc_action_play": "13d8bb61f3cd92f6de43317338e10f4e7927ef0df7f2cf4447dce2e8b2088607",
   "sd_app_engine": "bd41dde90a053e66cf97b75e53354c795683126d565914bf00c5a3fd562a273b",
   "sd_app_engine_connected": "684a321438e5bb6f9c04a463e5ac19894b4f412b4bdec78feec603942af4ed2e",
   "sd_all_working_normally": "7285841992a291b667570cc24480163e626d653bfe108a519344bac3a3cfbed4",
@@ -360,5 +360,7 @@
   "s_cut_video_hours": "21e8492938abc179410c21f3598f141c4c59a8bf2d3b4e475b7d83e10adfc00f",
   "s_cut_video_seconds": "381a8e9699052f3a958001510611a9634e7cef8aa6a1421cb7e7f6e119f91edc",
   "s_force_keyframes_at_cuts": "634be585a836bed56d324e274d4109b46364e0cc962411c958d4f722304a18f7",
-  "s_force_keyframes_at_cuts_desc": "cf7c380f65f28ae2da8c99b9da97dfce887491c51a413f0daa842d2a6e628142"
+  "s_force_keyframes_at_cuts_desc": "cf7c380f65f28ae2da8c99b9da97dfce887491c51a413f0daa842d2a6e628142",
+  "dc_action_open_url": "adec9c7ac0a07f99c37d87364828f4a4b294a57b05b8e41e758bea3a2c3a3910",
+  "dc_action_open_url_error": "83585f0c97f3f868846b6b7eafc8942413e5a8ba19dd1e4bb7325fc565d6bf84"
 }

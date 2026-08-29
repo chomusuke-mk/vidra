@@ -333,7 +333,7 @@
   "sd_state_missing_permissions": "Manglende tilladelser",
   "sd_state_missing_resources": "Manglende komponenter",
   "sd_state_fatal_error": "Fatal fejl",
-  "dc_action_play": "Spil",
+  "dc_action_play": "Afspil",
   "dc_action_open_folder": "Åbn mappe",
   "dc_action_details": "Detaljer",
   "dc_action_resume": "Genoptage",
@@ -360,5 +360,7 @@
   "s_cut_video_seconds": "Sekunder",
   "s_force_keyframes_at_cuts": "Force Keyframes ved Cuts",
   "s_force_keyframes_at_cuts_desc": "Tving keyframes ved klip, når du downloader/opdeler/fjerner sektioner.\nDette er langsomt på grund af behovet for en omkodning, men den resulterende video kan have færre artefakter omkring snittene",
-  "d_cut_video": "Klip video"
+  "d_cut_video": "Klip video",
+  "dc_action_open_url": "Åbn URL",
+  "dc_action_open_url_error": "Fejl ved åbning af URL."
 }

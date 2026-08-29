@@ -334,7 +334,7 @@
   "sd_state_missing_permissions": "Litumello tse sieo",
   "sd_state_missing_resources": "Likaroloana Tse Sieo",
   "sd_state_fatal_error": "Phoso e bolaeang",
-  "dc_action_play": "Bapala",
+  "dc_action_play": "Bapala hape",
   "dc_action_open_folder": "Bula Sephutheli",
   "dc_action_details": "Lintlha",
   "dc_action_resume": "Lethathamo la tsebo tsa hau",
@@ -360,5 +360,7 @@
   "s_cut_video_hours": "Lihora",
   "s_cut_video_seconds": "Metsotsoana",
   "s_force_keyframes_at_cuts": "Qobella Keyframes ho Cuts",
-  "s_force_keyframes_at_cuts_desc": "Qobella li-keyframes ha u fokotsa likarolo ha u khoasolla/ho arola/ho tlosa likarolo.\nSena se lieha ka lebaka la ho hloka khouto hape, empa video e hlahang e kanna ea ba le li-artifact tse fokolang ho potoloha"
+  "s_force_keyframes_at_cuts_desc": "Qobella li-keyframes ha u fokotsa likarolo ha u khoasolla/ho arola/ho tlosa likarolo.\nSena se lieha ka lebaka la ho hloka khouto hape, empa video e hlahang e kanna ea ba le li-artifact tse fokolang ho potoloha",
+  "dc_action_open_url": "Bula URL",
+  "dc_action_open_url_error": "Phoso ea ho bula URL."
 }

@@ -333,7 +333,7 @@
   "sd_state_starting_backend": "Pokretanje motora...",
   "sd_state_missing_resources": "Nedostajuće komponente",
   "sd_state_fatal_error": "Fatal Error",
-  "dc_action_play": "Igraj",
+  "dc_action_play": "Reproduciraj",
   "dc_action_open_folder": "Otvorite folder",
   "dc_action_details": "Detalji",
   "dc_action_resume": "Nastavi",
@@ -360,5 +360,7 @@
   "s_cut_video_until_end": "Preuzmite do kraja",
   "s_cut_video_hours": "Sati",
   "s_cut_video_minutes": "Minute",
-  "s_cut_video_seconds": "Sekunde"
+  "s_cut_video_seconds": "Sekunde",
+  "dc_action_open_url": "Otvori URL",
+  "dc_action_open_url_error": "Greška pri otvaranju URL-a."
 }

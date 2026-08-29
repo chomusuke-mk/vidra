@@ -333,7 +333,7 @@
   "sd_state_missing_permissions": "Зөвшөөрөл дутуу байна",
   "sd_state_missing_resources": "Алга болсон бүрэлдэхүүн хэсгүүд",
   "sd_state_fatal_error": "Үхлийн алдаа",
-  "dc_action_play": "Тоглох",
+  "dc_action_play": "Дахин тоглуулах",
   "dc_action_open_folder": "Фолдер нээх",
   "dc_action_details": "Дэлгэрэнгүй мэдээлэл",
   "dc_action_resume": "Үргэлжлэл",
@@ -360,5 +360,7 @@
   "cv_description": "SponsorBlock ангилалаас сегментүүдийг устгана.",
   "s_cut_video_desc": "Заасан эхлэх ба дуусах цагийн хооронд видеог таслана.",
   "s_cut_video_start": "Эхлэх",
-  "s_cut_video_end": "Төгсгөл"
+  "s_cut_video_end": "Төгсгөл",
+  "dc_action_open_url": "URL нээх",
+  "dc_action_open_url_error": "URL нээхэд алдаа гарлаа."
 }

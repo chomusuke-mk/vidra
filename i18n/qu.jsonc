@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minutokuna",
   "s_cut_video_seconds": "Segundokuna",
   "s_force_keyframes_at_cuts": "Cuts nisqapi Keyframes nisqakunata kallpawan",
-  "s_force_keyframes_at_cuts_desc": "T'aqakunata uraykachispa/t'aqaspa/urquspa kuchusqakunapi llave-framekunata kallpachay.\nKayqa pisillam huk musuqmanta codificacionta necesitasqanrayku, ichaqa chaymanta lluqsiq videoqa aswan pisi artefactokunayuqmi kanman kuchusqakunapa muyuriqninpi"
+  "s_force_keyframes_at_cuts_desc": "T'aqakunata uraykachispa/t'aqaspa/urquspa kuchusqakunapi llave-framekunata kallpachay.\nKayqa pisillam huk musuqmanta codificacionta necesitasqanrayku, ichaqa chaymanta lluqsiq videoqa aswan pisi artefactokunayuqmi kanman kuchusqakunapa muyuriqninpi",
+  "dc_action_open_url": "URL nisqa kichay",
+  "dc_action_open_url_error": "URL kichaypi pantasqa."
 }

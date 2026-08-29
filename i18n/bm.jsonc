@@ -336,7 +336,7 @@
   "sd_state_missing_permissions": "Izini minnu tununna",
   "sd_state_missing_resources": "Yɔrɔ minnu tununna",
   "sd_state_fatal_error": "Misali min bɛ mɔgɔ faga",
-  "dc_action_play": "Tulon kɛ",
+  "dc_action_play": "Aw ye tulon kɛ ka segin a kan",
   "dc_action_open_folder": "Foli da wuli",
   "dc_action_details": "Ɲɛfɔli",
   "dc_action_resume": "Ka daminɛ ko kura ye",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Ɲɔgɔnyesɛbɛn",
   "s_cut_video_seconds": "Seginnkanni",
   "s_force_keyframes_at_cuts": "Force Keyframes ka Cuts",
-  "s_force_keyframes_at_cuts_desc": "Aw bɛ keyframes (keyframes) wajibiya tigɛyɔrɔw la ni aw bɛ yɔrɔw telesarse/tila/bɔ.\nO bɛ kɛ dɔɔnin dɔɔnin k’a sababu kɛ a mago bɛ segin-ka-bɔnye la, nka wideyo min bɛ sɔrɔ o la, o bɛ se ka kɛ ko fɛn dɔw bɛ sɔrɔ tigɛw lamini na"
+  "s_force_keyframes_at_cuts_desc": "Aw bɛ keyframes (keyframes) wajibiya tigɛyɔrɔw la ni aw bɛ yɔrɔw telesarse/tila/bɔ.\nO bɛ kɛ dɔɔnin dɔɔnin k’a sababu kɛ a mago bɛ segin-ka-bɔnye la, nka wideyo min bɛ sɔrɔ o la, o bɛ se ka kɛ ko fɛn dɔw bɛ sɔrɔ tigɛw lamini na",
+  "dc_action_open_url_error": "Fili kɛra URL dabɔli la.",
+  "dc_action_open_url": "URL da wuli"
 }

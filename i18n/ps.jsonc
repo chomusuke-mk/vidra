@@ -331,7 +331,7 @@
   "sd_state_missing_permissions": "د اجازې نشتوالی",
   "sd_state_missing_resources": "ورک شوي اجزا",
   "sd_state_fatal_error": "وژونکې تېروتنه",
-  "dc_action_play": "لوبه وکړئ",
+  "dc_action_play": "بیرته لوبه وکړئ",
   "dc_action_open_folder": "فولډر خلاص کړئ",
   "dc_action_details": "جزیات",
   "dc_action_resume": "بیا پیل کړئ",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "دقیقې",
   "s_cut_video_seconds": "ثانیې",
   "s_force_keyframes_at_cuts": "په کټ کې کلیدي چوکاټونه ځواک کړئ",
-  "s_force_keyframes_at_cuts_desc": "د برخو ډاونلوډ / ویشلو / لرې کولو پر مهال کلی فریمونه په کټ کې مجبور کړئ.\nدا د بیا کوډ کولو اړتیا له امله ورو دی، مګر پایله شوې ویډیو ممکن د کټ شاوخوا لږ آثار ولري"
+  "s_force_keyframes_at_cuts_desc": "د برخو ډاونلوډ / ویشلو / لرې کولو پر مهال کلی فریمونه په کټ کې مجبور کړئ.\nدا د بیا کوډ کولو اړتیا له امله ورو دی، مګر پایله شوې ویډیو ممکن د کټ شاوخوا لږ آثار ولري",
+  "dc_action_open_url": "URL خلاص کړئ",
+  "dc_action_open_url_error": "د URL پرانیستلو تېروتنه."
 }

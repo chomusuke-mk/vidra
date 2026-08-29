@@ -331,7 +331,7 @@
   "sd_state_missing_permissions": "Vantar heimildir",
   "sd_state_missing_resources": "Vantar íhluti",
   "sd_state_fatal_error": "Banvæn villa",
-  "dc_action_play": "Spila",
+  "dc_action_play": "Spila aftur",
   "dc_action_open_folder": "Opna möppu",
   "dc_action_details": "Upplýsingar",
   "dc_action_resume": "Halda áfram",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Fundargerðir",
   "s_cut_video_seconds": "Sekúndur",
   "s_force_keyframes_at_cuts": "Force Keyframes á Cuts",
-  "s_force_keyframes_at_cuts_desc": "Þvingaðu lykilramma við klippingar þegar þú hleður niður/skiptir/fjarlægir hluta.\nÞetta er hægt vegna þess að þörf er á endurkóðun, en myndbandið sem myndast gæti verið með færri gripum í kringum skurðina"
+  "s_force_keyframes_at_cuts_desc": "Þvingaðu lykilramma við klippingar þegar þú hleður niður/skiptir/fjarlægir hluta.\nÞetta er hægt vegna þess að þörf er á endurkóðun, en myndbandið sem myndast gæti verið með færri gripum í kringum skurðina",
+  "dc_action_open_url": "Opna vefslóð",
+  "dc_action_open_url_error": "Villa við að opna vefslóð."
 }

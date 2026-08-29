@@ -323,7 +323,7 @@
   "dc_download_cancelling": "Cancelando descarga...",
   "dc_download_cancelling_error": "Error al cancelar la descarga.",
   "dc_getting_download_info": "Obteniendo información de descarga...",
-  "dc_action_play": "Jugar",
+  "dc_action_play": "Escuchar",
   "dc_action_open_folder": "Abrir carpeta",
   "dc_action_details": "Detalles",
   "dc_action_resume": "Reanudar",
@@ -360,5 +360,7 @@
   "ssi_bubble_button_show": "Mostrar",
   "ssi_bubble_button_dismiss": "Descartar",
   "s_force_keyframes_at_cuts": "Forzar fotogramas clave en cortes",
-  "s_force_keyframes_at_cuts_desc": "Fuerce fotogramas clave en los cortes al descargar/dividir/eliminar secciones.\nEsto es lento debido a que es necesario volver a codificarlo, pero el video resultante puede tener menos artefactos alrededor de los cortes."
+  "s_force_keyframes_at_cuts_desc": "Fuerce fotogramas clave en los cortes al descargar/dividir/eliminar secciones.\nEsto es lento debido a que es necesario volver a codificarlo, pero el video resultante puede tener menos artefactos alrededor de los cortes.",
+  "dc_action_open_url_error": "Error al abrir la URL.",
+  "dc_action_open_url": "Abrir URL"
 }

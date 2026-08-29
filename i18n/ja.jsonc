@@ -335,7 +335,7 @@
   "sd_state_missing_permissions": "権限がありません",
   "sd_state_missing_resources": "不足しているコンポーネント",
   "sd_state_fatal_error": "致命的なエラー",
-  "dc_action_play": "遊ぶ",
+  "dc_action_play": "再生する",
   "dc_action_open_folder": "フォルダーを開く",
   "dc_action_resume": "再開する",
   "dc_action_pause": "一時停止",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "分",
   "s_cut_video_seconds": "秒",
   "s_force_keyframes_at_cuts": "カット時にキーフレームを強制する",
-  "s_force_keyframes_at_cuts_desc": "セクションをダウンロード/分割/削除するときにカットでキーフレームを強制します。\n再エンコードが必要なため速度は遅くなりますが、結果として得られるビデオにはカット付近のアーティファクトが少なくなる可能性があります。"
+  "s_force_keyframes_at_cuts_desc": "セクションをダウンロード/分割/削除するときにカットでキーフレームを強制します。\n再エンコードが必要なため速度は遅くなりますが、結果として得られるビデオにはカット付近のアーティファクトが少なくなる可能性があります。",
+  "dc_action_open_url": "URLを開く",
+  "dc_action_open_url_error": "URL を開く際にエラーが発生しました。"
 }

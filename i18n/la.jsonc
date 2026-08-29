@@ -335,7 +335,7 @@
   "sd_state_missing_permissions": "Absentis Permissionibus",
   "sd_state_missing_resources": "Absentis Components",
   "sd_state_fatal_error": "Exitiale Error",
-  "dc_action_play": "Play",
+  "dc_action_play": "Ludere retro",
   "dc_action_open_folder": "Open Folder",
   "dc_action_details": "Singula",
   "dc_action_resume": "Proin",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minuta",
   "s_cut_video_seconds": "Secundis",
   "s_force_keyframes_at_cuts": "Force Keyframes at Cuts",
-  "s_force_keyframes_at_cuts_desc": "Vis keyframes in secet cum sectiones downloading/scindendo/removendo.\nHoc lentum est propter re-encode egentem, sed video consequens fortasse habere artificia pauciora circa incisiones"
+  "s_force_keyframes_at_cuts_desc": "Vis keyframes in secet cum sectiones downloading/scindendo/removendo.\nHoc lentum est propter re-encode egentem, sed video consequens fortasse habere artificia pauciora circa incisiones",
+  "dc_action_open_url": "Open URL",
+  "dc_action_open_url_error": "Error aperiens URL."
 }

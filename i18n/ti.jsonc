@@ -333,7 +333,7 @@
   "sd_state_missing_permissions": "ዝጎደለ ፍቓድ",
   "sd_state_missing_resources": "ዝጎደሉ ኣካላት",
   "sd_state_fatal_error": "ቀታሊ ጌጋ",
-  "dc_action_play": "ተፃወት",
+  "dc_action_play": "ዳግማይ ምጽዋት",
   "dc_action_open_folder": "Folder ክፈት",
   "dc_action_details": "ዝርዝራት",
   "dc_action_resume": "ቀፅል",
@@ -360,5 +360,7 @@
   "s_cut_video_hours": "ሰዓታት",
   "s_cut_video_minutes": "ደቒቓታት",
   "s_force_keyframes_at_cuts": "ፎርስ ኪፍሬምስ ኣብ ምቑራጽ",
-  "s_force_keyframes_at_cuts_desc": "ክፍልታት ክትወርድ/ክትመቓቐል/ክትእለ ከለኻ ኣብ ምቑራጽ ቁልፊ ፍሬማት ኣገድድ።\nእዚ ብሰንኪ ዳግመ-ኢንኮድ ዘድልዮ ስሉጥ ኮይኑ፡ እቲ ውጽኢት ዝኾነ ቪድዮ ግን ኣብ ዙርያ እቲ ምቑራጽ ውሑድ ቅርስታት ክህልዎ ይኽእል እዩ።"
+  "s_force_keyframes_at_cuts_desc": "ክፍልታት ክትወርድ/ክትመቓቐል/ክትእለ ከለኻ ኣብ ምቑራጽ ቁልፊ ፍሬማት ኣገድድ።\nእዚ ብሰንኪ ዳግመ-ኢንኮድ ዘድልዮ ስሉጥ ኮይኑ፡ እቲ ውጽኢት ዝኾነ ቪድዮ ግን ኣብ ዙርያ እቲ ምቑራጽ ውሑድ ቅርስታት ክህልዎ ይኽእል እዩ።",
+  "dc_action_open_url": "URL ክፈት",
+  "dc_action_open_url_error": "URL ኣብ ምኽፋት ጌጋ።"
 }

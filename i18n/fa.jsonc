@@ -334,7 +334,7 @@
   "sd_state_missing_permissions": "مجوزهای از دست رفته",
   "sd_state_missing_resources": "اجزای گمشده",
   "sd_state_fatal_error": "خطای مرگبار",
-  "dc_action_play": "بازی کنید",
+  "dc_action_play": "پخش کنید",
   "dc_action_open_folder": "پوشه را باز کنید",
   "dc_action_details": "جزئیات",
   "dc_action_resume": "رزومه",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "دقیقه",
   "s_cut_video_seconds": "ثانیه ها",
   "s_force_keyframes_at_cuts": "اجباری فریم های کلیدی در برش ها",
-  "s_force_keyframes_at_cuts_desc": "هنگام دانلود/تقسیم/حذف بخش‌ها، فریم‌های کلیدی را مجبور به برش کنید.\nاین به دلیل نیاز به رمزگذاری مجدد کند است، اما ویدیوی حاصل ممکن است آثار کمتری در اطراف برش‌ها داشته باشد."
+  "s_force_keyframes_at_cuts_desc": "هنگام دانلود/تقسیم/حذف بخش‌ها، فریم‌های کلیدی را مجبور به برش کنید.\nاین به دلیل نیاز به رمزگذاری مجدد کند است، اما ویدیوی حاصل ممکن است آثار کمتری در اطراف برش‌ها داشته باشد.",
+  "dc_action_open_url": "URL را باز کنید",
+  "dc_action_open_url_error": "خطا در باز کردن URL."
 }

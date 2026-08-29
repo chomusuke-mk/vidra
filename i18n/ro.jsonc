@@ -335,7 +335,7 @@
   "sd_state_starting_backend": "Pornirea motorului...",
   "sd_state_missing_permissions": "Permisiuni lipsă",
   "sd_state_missing_resources": "Componente lipsă",
-  "dc_action_play": "Juca",
+  "dc_action_play": "Redați",
   "dc_action_open_folder": "Deschideți folderul",
   "dc_action_details": "Detalii",
   "dc_action_retry": "Reîncercați",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minute",
   "s_cut_video_seconds": "secunde",
   "s_force_keyframes_at_cuts": "Forțați cadrele cheie la tăieturi",
-  "s_force_keyframes_at_cuts_desc": "Forțați cadrele cheie la tăieturi atunci când descărcați/divizați/eliminați secțiuni.\nAcest lucru este lent din cauza necesității unei re-codări, dar videoclipul rezultat poate avea mai puține artefacte în jurul tăierilor"
+  "s_force_keyframes_at_cuts_desc": "Forțați cadrele cheie la tăieturi atunci când descărcați/divizați/eliminați secțiuni.\nAcest lucru este lent din cauza necesității unei re-codări, dar videoclipul rezultat poate avea mai puține artefacte în jurul tăierilor",
+  "dc_action_open_url": "Deschideți adresa URL",
+  "dc_action_open_url_error": "Eroare la deschiderea adresei URL."
 }

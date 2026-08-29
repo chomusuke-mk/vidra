@@ -327,7 +327,7 @@
   "sd_state_missing_permissions": "അനുമതികൾ നഷ്‌ടമായി",
   "sd_state_missing_resources": "നഷ്‌ടമായ ഘടകങ്ങൾ",
   "sd_state_fatal_error": "മാരകമായ പിശക്",
-  "dc_action_play": "കളിക്കുക",
+  "dc_action_play": "തിരികെ പ്ലേ ചെയ്യുക",
   "dc_action_open_folder": "ഫോൾഡർ തുറക്കുക",
   "dc_action_details": "വിശദാംശങ്ങൾ",
   "dc_action_resume": "പുനരാരംഭിക്കുക",
@@ -360,5 +360,7 @@
   "s_cut_video_until_end": "അവസാനം വരെ ഡൗൺലോഡ് ചെയ്യുക",
   "s_cut_video_minutes": "മിനിറ്റ്",
   "cv_close": "അടയ്ക്കുക",
-  "cv_description": "SponsorBlock വിഭാഗങ്ങളിൽ നിന്ന് സെഗ്‌മെൻ്റുകൾ നീക്കംചെയ്യുന്നു."
+  "cv_description": "SponsorBlock വിഭാഗങ്ങളിൽ നിന്ന് സെഗ്‌മെൻ്റുകൾ നീക്കംചെയ്യുന്നു.",
+  "dc_action_open_url": "URL തുറക്കുക",
+  "dc_action_open_url_error": "URL തുറക്കുന്നതിൽ പിശക്."
 }

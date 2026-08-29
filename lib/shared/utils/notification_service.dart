@@ -293,7 +293,6 @@ class NotificationService {
     Color? color,
     String? imagePath,
   }) async {
-    debugPrint(imagePath);
     final details = _buildPlatformDetails(
       notificationId: id,
       channelId: 'download_state_channel',

@@ -333,7 +333,7 @@
   "sd_state_retrying": "Yeniden bağlanılıyor...",
   "sd_state_missing_resources": "Eksik Bileşenler",
   "sd_state_fatal_error": "Önemli Hata",
-  "dc_action_play": "Oynamak",
+  "dc_action_play": "Oynat",
   "dc_action_open_folder": "Klasörü Aç",
   "dc_action_details": "Detaylar",
   "dc_action_resume": "Sürdürmek",
@@ -360,5 +360,7 @@
   "s_force_keyframes_at_cuts": "Kesimlerde Anahtar Kareleri Zorla",
   "s_cut_video_hours": "Saat",
   "s_cut_video_seconds": "Saniye",
-  "s_force_keyframes_at_cuts_desc": "Bölümleri indirirken/bölerken/kaldırırken kesmelerde anahtar kareleri zorlayın.\nYeniden kodlamaya ihtiyaç duyulduğundan bu işlem yavaştır ancak elde edilen videoda kesmelerin etrafında daha az bozulma olabilir"
+  "s_force_keyframes_at_cuts_desc": "Bölümleri indirirken/bölerken/kaldırırken kesmelerde anahtar kareleri zorlayın.\nYeniden kodlamaya ihtiyaç duyulduğundan bu işlem yavaştır ancak elde edilen videoda kesmelerin etrafında daha az bozulma olabilir",
+  "dc_action_open_url": "URL'yi aç",
+  "dc_action_open_url_error": "URL açılırken hata oluştu."
 }

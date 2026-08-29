@@ -334,7 +334,7 @@
   "sd_state_missing_permissions": "Chybějící oprávnění",
   "sd_state_missing_resources": "Chybějící komponenty",
   "sd_state_fatal_error": "Závažná chyba",
-  "dc_action_play": "Hrát",
+  "dc_action_play": "Přehrát",
   "dc_action_open_folder": "Otevřete složku",
   "dc_action_details": "Podrobnosti",
   "dc_action_resume": "Resumé",
@@ -360,5 +360,7 @@
   "s_force_keyframes_at_cuts": "Vynutit klíčové snímky při řezech",
   "s_force_keyframes_at_cuts_desc": "Vynutit klíčové snímky při řezech při stahování/rozdělování/odstraňování sekcí.\nJe to pomalé kvůli nutnosti překódování, ale výsledné video může mít kolem střihů méně artefaktů",
   "d_cut_video": "Střih videa",
-  "cv_title": "Střih videa"
+  "cv_title": "Střih videa",
+  "dc_action_open_url_error": "Chyba při otevírání adresy URL.",
+  "dc_action_open_url": "Otevřít adresu URL"
 }

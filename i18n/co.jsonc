@@ -335,7 +335,7 @@
   "sd_state_missing_permissions": "Permissioni mancanti",
   "sd_state_missing_resources": "Cumpunenti mancanti",
   "sd_state_fatal_error": "Errore fatale",
-  "dc_action_play": "Ghjucà",
+  "dc_action_play": "Riproduci",
   "dc_action_open_folder": "Open Folder",
   "dc_action_details": "Dettagli",
   "dc_action_resume": "Curriculum vitae",
@@ -360,5 +360,7 @@
   "d_cut_video": "Cut Video",
   "cv_title": "Cut Video",
   "cv_close": "Chiudi",
-  "cv_description": "Elimina i segmenti da e categurie SponsorBlock."
+  "cv_description": "Elimina i segmenti da e categurie SponsorBlock.",
+  "dc_action_open_url": "Open URL",
+  "dc_action_open_url_error": "Errore à apre l'URL."
 }

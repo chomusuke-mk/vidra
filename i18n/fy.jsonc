@@ -330,7 +330,7 @@
   "sd_state_missing_permissions": "Missing Permissions",
   "sd_state_missing_resources": "Untbrekkende komponinten",
   "sd_state_fatal_error": "Fatale flater",
-  "dc_action_play": "Toanielstik",
+  "dc_action_play": "Spielje werom",
   "dc_action_open_folder": "Iepenje map",
   "dc_action_details": "Details",
   "dc_action_resume": "Ferfetsje",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minuten",
   "s_cut_video_seconds": "Sekonden",
   "s_force_keyframes_at_cuts": "Force Keyframes by Cuts",
-  "s_force_keyframes_at_cuts_desc": "Tsjinje keyframes by besunigings by it ynladen / splitsen / fuortsmite fan seksjes.\nDit is traach fanwege it ferlet fan in opnij kodearring, mar de resultearjende fideo kin minder artefakten hawwe om de besunigings"
+  "s_force_keyframes_at_cuts_desc": "Tsjinje keyframes by besunigings by it ynladen / splitsen / fuortsmite fan seksjes.\nDit is traach fanwege it ferlet fan in opnij kodearring, mar de resultearjende fideo kin minder artefakten hawwe om de besunigings",
+  "dc_action_open_url": "Iepenje URL",
+  "dc_action_open_url_error": "Flater by it iepenjen fan URL."
 }

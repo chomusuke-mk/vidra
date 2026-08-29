@@ -3,6 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  flutter_inappwebview_windows
   openpgp
   permission_handler_windows
   serious_python_windows

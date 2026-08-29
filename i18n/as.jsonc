@@ -330,7 +330,7 @@
   "sd_state_missing_permissions": "অনুপস্থিত অনুমতিসমূহ",
   "sd_state_missing_resources": "অনুপস্থিত উপাদানসমূহ",
   "sd_state_fatal_error": "মাৰাত্মক ভুল",
-  "dc_action_play": "খেলা",
+  "dc_action_play": "প্লে বেক কৰক",
   "dc_action_open_folder": "ফোল্ডাৰ খোলক",
   "dc_action_details": "সবিশেষ",
   "dc_action_resume": "অব্যাহত ৰাখক",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "মিনিটবোৰ",
   "s_cut_video_seconds": "চেকেণ্ড",
   "s_force_keyframes_at_cuts": "কাটত কীফ্ৰেমসমূহ বলবৎ কৰক",
-  "s_force_keyframes_at_cuts_desc": "অংশসমূহ ডাউনলোড/বিভাজন/আঁতৰোৱাৰ সময়ত কাটসমূহত কিফ্ৰেমসমূহক বলবৎ কৰক।\nপুনৰ এনকোডৰ প্ৰয়োজন হোৱাৰ বাবে ই লেহেমীয়া, কিন্তু ফলস্বৰূপে হোৱা ভিডিঅ'টোত কাটি লোৱাৰ চাৰিওফালে কম আৰ্টিফেক্ট থাকিব পাৰে"
+  "s_force_keyframes_at_cuts_desc": "অংশসমূহ ডাউনলোড/বিভাজন/আঁতৰোৱাৰ সময়ত কাটসমূহত কিফ্ৰেমসমূহক বলবৎ কৰক।\nপুনৰ এনকোডৰ প্ৰয়োজন হোৱাৰ বাবে ই লেহেমীয়া, কিন্তু ফলস্বৰূপে হোৱা ভিডিঅ'টোত কাটি লোৱাৰ চাৰিওফালে কম আৰ্টিফেক্ট থাকিব পাৰে",
+  "dc_action_open_url_error": "URL খোলাৰ ত্ৰুটি।",
+  "dc_action_open_url": "URL খোলক"
 }

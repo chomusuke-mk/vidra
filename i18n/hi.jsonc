@@ -334,7 +334,7 @@
   "sd_state_missing_permissions": "अनुपलब्ध अनुमतियाँ",
   "sd_state_missing_resources": "गुम घटक",
   "sd_state_fatal_error": "घातक त्रुटि",
-  "dc_action_play": "खेल",
+  "dc_action_play": "वापस खेलें",
   "dc_action_open_folder": "फोल्डर खोलें",
   "dc_action_details": "विवरण",
   "dc_action_resume": "फिर शुरू करना",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "मिनट",
   "s_cut_video_seconds": "सेकंड",
   "s_force_keyframes_at_cuts": "कट्स पर कीफ़्रेम को बाध्य करें",
-  "s_force_keyframes_at_cuts_desc": "अनुभागों को डाउनलोड/विभाजित/हटाते समय मुख्य-फ़्रेमों को कट पर बाध्य करें।\nपुन:एनकोड की आवश्यकता के कारण यह धीमा है, लेकिन परिणामी वीडियो में कट के आसपास कम कलाकृतियाँ हो सकती हैं"
+  "s_force_keyframes_at_cuts_desc": "अनुभागों को डाउनलोड/विभाजित/हटाते समय मुख्य-फ़्रेमों को कट पर बाध्य करें।\nपुन:एनकोड की आवश्यकता के कारण यह धीमा है, लेकिन परिणामी वीडियो में कट के आसपास कम कलाकृतियाँ हो सकती हैं",
+  "dc_action_open_url": "यूआरएल खोलें",
+  "dc_action_open_url_error": "यूआरएल खोलने में त्रुटि."
 }

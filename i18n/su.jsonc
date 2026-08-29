@@ -336,7 +336,7 @@
   "sd_state_missing_permissions": "Leungit Idin",
   "sd_state_missing_resources": "Komponén leungit",
   "sd_state_fatal_error": "Kasalahan fatal",
-  "dc_action_play": "Maén",
+  "dc_action_play": "Maén deui",
   "dc_action_details": "Rincian",
   "dc_action_retry": "Coba deui",
   "dc_action_pause": "Reureuh",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Menit",
   "s_cut_video_seconds": "Detik-detik",
   "s_force_keyframes_at_cuts": "Angkatan Keyframes di motong",
-  "s_force_keyframes_at_cuts_desc": "Maksakeun keyframes dina motong nalika ngundeur / ngabagi / nyoplokkeun bagian.\nIeu lambat kusabab peryogi encode ulang, tapi video anu dihasilkeun tiasa gaduh artifak langkung sakedik di sekitar potongan."
+  "s_force_keyframes_at_cuts_desc": "Maksakeun keyframes dina motong nalika ngundeur / ngabagi / nyoplokkeun bagian.\nIeu lambat kusabab peryogi encode ulang, tapi video anu dihasilkeun tiasa gaduh artifak langkung sakedik di sekitar potongan.",
+  "dc_action_open_url": "Buka URL",
+  "dc_action_open_url_error": "Kasalahan muka URL."
 }

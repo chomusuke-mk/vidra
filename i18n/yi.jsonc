@@ -345,7 +345,7 @@
   "sd_state_starting_backend": "סטאַרטינג מאָטאָר ...",
   "sd_state_missing_resources": "פעלנדיק קאַמפּאָונאַנץ",
   "sd_state_fatal_error": "פאַטאַל טעות",
-  "dc_action_play": "שפּיל",
+  "dc_action_play": "שפּיל צוריק",
   "dc_action_open_folder": "עפֿן טעקע",
   "cv_description": "רימוווז סעגמאַנץ פון SponsorBlock קאַטעגאָריעס.",
   "s_cut_video": "שנייַדן ווידעא",
@@ -360,5 +360,7 @@
   "s_cut_video_seconds": "סעקונדעס",
   "s_force_keyframes_at_cuts": "קראַפט קייפראַמעס אין קאַץ",
   "s_force_keyframes_at_cuts_desc": "קראַפט קיפראַמעס ביי קאַץ ווען דאַונלאָודינג / ספּליטינג / רימוווינג סעקשאַנז.\nדאָס איז פּאַמעלעך ווייַל איר דאַרפֿן אַ שייַעך-ענקאָוד, אָבער די ריזאַלטינג ווידעא קען האָבן ווייניקערע אַרטאַפאַקץ אַרום די קאַץ",
-  "s_cut_video_minutes": "מינוטן"
+  "s_cut_video_minutes": "מינוטן",
+  "dc_action_open_url": "עפֿענען URL",
+  "dc_action_open_url_error": "טעות עפֿענען URL."
 }

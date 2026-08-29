@@ -346,7 +346,7 @@
   "sd_linux_snap_msg": "Vidra আপডেট করতে স্ন্যাপ স্টোর খোলা হচ্ছে...",
   "sd_copy_command": "কমান্ড অনুলিপি করুন",
   "ssi_bubble_button_show": "প্রদর্শন",
-  "dc_action_play": "খেলা",
+  "dc_action_play": "খেলা ফিরে",
   "d_cut_video": "ভিডিও কাটুন",
   "cv_title": "ভিডিও কাটুন",
   "cv_close": "বন্ধ",
@@ -360,5 +360,7 @@
   "s_cut_video_hours": "ঘন্টা",
   "s_cut_video_minutes": "মিনিট",
   "s_cut_video_seconds": "সেকেন্ড",
-  "s_force_keyframes_at_cuts": "কাটে কীফ্রেমগুলি জোর করে"
+  "s_force_keyframes_at_cuts": "কাটে কীফ্রেমগুলি জোর করে",
+  "dc_action_open_url": "URL খুলুন",
+  "dc_action_open_url_error": "URL খুলতে ত্রুটি৷"
 }

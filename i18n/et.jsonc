@@ -335,7 +335,7 @@
   "sd_state_missing_permissions": "Puuduvad load",
   "sd_state_missing_resources": "Puuduvad komponendid",
   "sd_state_fatal_error": "Saatuslik viga",
-  "dc_action_play": "Mängi",
+  "dc_action_play": "Esita",
   "dc_action_open_folder": "Ava kaust",
   "dc_action_details": "Üksikasjad",
   "dc_action_resume": "Jätka",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minutid",
   "s_cut_video_seconds": "Sekundid",
   "s_force_keyframes_at_cuts": "Sundige võtmekaadreid lõikes",
-  "s_force_keyframes_at_cuts_desc": "Sundige võtmekaadreid lõikude allalaadimisel/tükeldamisel/eemaldamisel kärpimisel.\nSee on aeglane, kuna on vaja uuesti kodeerida, kuid saadud videol võib lõigete ümber olla vähem artefakte"
+  "s_force_keyframes_at_cuts_desc": "Sundige võtmekaadreid lõikude allalaadimisel/tükeldamisel/eemaldamisel kärpimisel.\nSee on aeglane, kuna on vaja uuesti kodeerida, kuid saadud videol võib lõigete ümber olla vähem artefakte",
+  "dc_action_open_url": "Ava URL",
+  "dc_action_open_url_error": "Viga URL-i avamisel."
 }

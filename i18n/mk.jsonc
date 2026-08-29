@@ -327,7 +327,7 @@
   "sd_state_missing_permissions": "Недостасуваат дозволи",
   "sd_state_missing_resources": "Недостасуваат компоненти",
   "sd_state_fatal_error": "Фатална грешка",
-  "dc_action_play": "Играј",
+  "dc_action_play": "Репродуцирај",
   "dc_action_open_folder": "Отворете ја папката",
   "dc_action_details": "Детали",
   "dc_action_resume": "Продолжи",
@@ -360,5 +360,7 @@
   "s_cut_video_seconds": "Секунди",
   "s_force_keyframes_at_cuts_desc": "Присилете ги клучните кадри на сечења при преземање/делење/отстранување на делови.\nОва е бавно поради потребата од повторно кодирање, но добиеното видео може да има помалку артефакти околу исечоците",
   "s_cut_video_hours": "Часови",
-  "s_cut_video_until_end": "Преземете до крај"
+  "s_cut_video_until_end": "Преземете до крај",
+  "dc_action_open_url": "Отворете URL",
+  "dc_action_open_url_error": "Грешка при отворање на URL-адресата."
 }

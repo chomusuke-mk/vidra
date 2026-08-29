@@ -321,7 +321,7 @@
   "sd_app_engine_connected": "Injini Yohlelo Lokusebenza: Ixhunyiwe",
   "sd_all_working_normally": "Konke kuhamba ngokujwayelekile",
   "sd_state_fatal_error": "Iphutha Eliyingozi",
-  "dc_action_play": "Dlala",
+  "dc_action_play": "Dlala futhi",
   "dc_action_cancel": "Khansela",
   "dc_action_delete": "Susa",
   "d_engine_downloading": "Ilanda injini yokulanda...",
@@ -360,5 +360,7 @@
   "s_cut_video_until_end": "Landa kuze kube sekupheleni",
   "s_cut_video": "Sika Ividiyo",
   "s_cut_video_desc": "Isika ividiyo phakathi kwemingcele yesikhathi eshiwo yokuqala neyokuphela.",
-  "s_cut_video_end": "Qeda"
+  "s_cut_video_end": "Qeda",
+  "dc_action_open_url": "Vula i-URL",
+  "dc_action_open_url_error": "Iphutha lokuvula i-URL."
 }

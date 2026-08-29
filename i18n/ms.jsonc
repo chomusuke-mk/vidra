@@ -335,7 +335,7 @@
   "sd_state_missing_permissions": "Kebenaran Tiada",
   "sd_state_missing_resources": "Komponen yang Hilang",
   "sd_state_fatal_error": "Ralat Maut",
-  "dc_action_play": "Main",
+  "dc_action_play": "Main balik",
   "dc_action_open_folder": "Buka Folder",
   "dc_action_details": "Butiran",
   "dc_action_resume": "Sambung semula",
@@ -360,5 +360,7 @@
   "s_force_keyframes_at_cuts": "Paksa Kerangka Kunci di Potong",
   "s_force_keyframes_at_cuts_desc": "Paksa bingkai utama pada pemotongan apabila memuat turun/memisahkan/mengalih keluar bahagian.\nIni lambat kerana memerlukan pengekodan semula, tetapi video yang dihasilkan mungkin mempunyai lebih sedikit artifak di sekeliling potongan",
   "cv_title": "Potong Video",
-  "cv_close": "tutup"
+  "cv_close": "tutup",
+  "dc_action_open_url": "Buka URL",
+  "dc_action_open_url_error": "Ralat membuka URL."
 }

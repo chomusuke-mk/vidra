@@ -333,7 +333,7 @@
   "sd_state_missing_permissions": "Ontbrekende machtigingen",
   "sd_state_missing_resources": "Ontbrekende componenten",
   "sd_state_fatal_error": "Fatale fout",
-  "dc_action_play": "Toneelstuk",
+  "dc_action_play": "Afspelen",
   "dc_action_open_folder": "Map openen",
   "dc_action_details": "Details",
   "dc_action_resume": "Cv",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Notulen",
   "s_cut_video_seconds": "Seconden",
   "s_force_keyframes_at_cuts": "Forceer keyframes bij cuts",
-  "s_force_keyframes_at_cuts_desc": "Forceer keyframes bij het knippen bij het downloaden/splitsen/verwijderen van secties.\nDit is langzaam omdat opnieuw moet worden gecodeerd, maar de resulterende video bevat mogelijk minder artefacten rond de bezuinigingen"
+  "s_force_keyframes_at_cuts_desc": "Forceer keyframes bij het knippen bij het downloaden/splitsen/verwijderen van secties.\nDit is langzaam omdat opnieuw moet worden gecodeerd, maar de resulterende video bevat mogelijk minder artefacten rond de bezuinigingen",
+  "dc_action_open_url": "URL openen",
+  "dc_action_open_url_error": "Fout bij openen van URL."
 }

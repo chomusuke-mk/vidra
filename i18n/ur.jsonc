@@ -337,7 +337,7 @@
   "sd_state_starting_backend": "انجن شروع ہو رہا ہے...",
   "sd_state_retrying": "دوبارہ منسلک ہو رہا ہے...",
   "sd_state_fatal_error": "مہلک خرابی۔",
-  "dc_action_play": "کھیلیں",
+  "dc_action_play": "واپس کھیلیں",
   "dc_action_open_folder": "فولڈر کھولیں۔",
   "dc_action_details": "تفصیلات",
   "dc_action_resume": "دوبارہ شروع کریں۔",
@@ -360,5 +360,7 @@
   "s_cut_video_end": "ختم",
   "s_cut_video_minutes": "منٹس",
   "s_cut_video_seconds": "سیکنڈز",
-  "s_force_keyframes_at_cuts": "کی فریمز کو کٹس پر مجبور کریں۔"
+  "s_force_keyframes_at_cuts": "کی فریمز کو کٹس پر مجبور کریں۔",
+  "dc_action_open_url": "URL کھولیں۔",
+  "dc_action_open_url_error": "URL کھولنے میں خرابی۔"
 }

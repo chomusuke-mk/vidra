@@ -320,7 +320,7 @@
   "ssi_bubble_title": "Diweddariad ar Gael",
   "ssi_bubble_button_show": "Arddangos",
   "ssi_bubble_button_dismiss": "Diystyru",
-  "dc_action_play": "Chwarae",
+  "dc_action_play": "Chwarae yn ôl",
   "dc_action_details": "Manylion",
   "sd_app_engine": "Peiriant Ap",
   "sd_app_engine_connected": "Peiriant App: Wedi'i gysylltu",
@@ -360,5 +360,7 @@
   "d_cut_video": "Torri Fideo",
   "cv_title": "Torri Fideo",
   "cv_close": "Cau",
-  "s_cut_video": "Torri Fideo"
+  "s_cut_video": "Torri Fideo",
+  "dc_action_open_url": "Agor URL",
+  "dc_action_open_url_error": "Gwall wrth agor URL."
 }

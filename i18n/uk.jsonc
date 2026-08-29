@@ -337,7 +337,7 @@
   "sd_state_missing_permissions": "Відсутні дозволи",
   "sd_state_missing_resources": "Відсутні компоненти",
   "sd_state_fatal_error": "Фатальна помилка",
-  "dc_action_play": "грати",
+  "dc_action_play": "Відтворення",
   "dc_action_details": "Подробиці",
   "dc_action_resume": "Резюме",
   "dc_action_cancel": "Скасувати",
@@ -360,5 +360,7 @@
   "s_cut_video_hours": "години",
   "s_cut_video_minutes": "хвилин",
   "s_cut_video_seconds": "секунд",
-  "s_force_keyframes_at_cuts": "Примусове використання ключових кадрів у фрагментах"
+  "s_force_keyframes_at_cuts": "Примусове використання ключових кадрів у фрагментах",
+  "dc_action_open_url": "Відкрити URL",
+  "dc_action_open_url_error": "Помилка відкриття URL."
 }

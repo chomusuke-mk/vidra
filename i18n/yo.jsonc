@@ -342,7 +342,7 @@
   "sd_state_missing_permissions": "Awọn igbanilaaye ti o padanu",
   "sd_state_missing_resources": "Awọn eroja ti o padanu",
   "sd_state_fatal_error": "Aṣiṣe buburu",
-  "dc_action_play": "Ṣiṣẹ",
+  "dc_action_play": "Mu pada",
   "dc_action_open_folder": "Ṣii folda",
   "dc_action_details": "Awọn alaye",
   "dc_action_resume": "Tun bẹrẹ",
@@ -360,5 +360,7 @@
   "s_force_keyframes_at_cuts_desc": "Fi agbara mu awọn fireemu bọtini ni awọn gige nigba gbigba lati ayelujara / pipin / yiyọ awọn apakan kuro.\nEyi lọra nitori iwulo tun-koodu, ṣugbọn fidio ti o yọrisi le ni awọn ohun-ọṣọ diẹ ni ayika awọn gige.",
   "s_force_keyframes_at_cuts": "Fi agbara mu Keyframes ni Ge",
   "s_cut_video_minutes": "Iṣẹju",
-  "s_cut_video_seconds": "Aaya"
+  "s_cut_video_seconds": "Aaya",
+  "dc_action_open_url": "Ṣii URL",
+  "dc_action_open_url_error": "Aṣiṣe ṣiṣi URL."
 }

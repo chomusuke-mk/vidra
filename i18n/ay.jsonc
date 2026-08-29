@@ -336,7 +336,7 @@
   "sd_state_missing_permissions": "Permisos ukanakax chhaqhata",
   "sd_state_missing_resources": "Chhaqhat Componentes ukanaka",
   "sd_state_fatal_error": "Jiwayañ Pantjasiwi",
-  "dc_action_play": "Antaña",
+  "dc_action_play": "Uka anatt’aña",
   "dc_action_open_folder": "Carpeta jist’araña",
   "dc_action_details": "Qhananchanaka",
   "dc_action_resume": "Juk'aptayaña",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "K'athanaka",
   "s_cut_video_seconds": "Segundonaka",
   "s_force_keyframes_at_cuts": "Fuerza Keyframes ukax Cuts ukankiwa",
-  "s_force_keyframes_at_cuts_desc": "Frames clave ukanakax cuts ukan ch’amanchatawa kunawsatix t’aqanak apkatañ/jaljaña/apsuña.\nUkax mä juk’a pachakiw kunatix mä re-codificación ukax wakisiwa, ukampis ukat apsut video ukax juk’a artefactos ukanakaw cuts ukanakar muyuntat utjaspa"
+  "s_force_keyframes_at_cuts_desc": "Frames clave ukanakax cuts ukan ch’amanchatawa kunawsatix t’aqanak apkatañ/jaljaña/apsuña.\nUkax mä juk’a pachakiw kunatix mä re-codificación ukax wakisiwa, ukampis ukat apsut video ukax juk’a artefactos ukanakaw cuts ukanakar muyuntat utjaspa",
+  "dc_action_open_url": "URL jist’araña",
+  "dc_action_open_url_error": "URL jist’arañanx pantjasiwi."
 }

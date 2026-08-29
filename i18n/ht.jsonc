@@ -334,7 +334,7 @@
   "sd_state_missing_permissions": "Pèmisyon ki manke yo",
   "sd_state_missing_resources": "Eleman ki manke yo",
   "sd_state_fatal_error": "Erè Fatal",
-  "dc_action_play": "Jwe",
+  "dc_action_play": "Jwe tounen",
   "dc_action_open_folder": "Louvri Dosye",
   "dc_action_details": "Detay yo",
   "dc_action_resume": "Rezime",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minit",
   "s_cut_video_seconds": "Segond",
   "s_force_keyframes_at_cuts": "Force Keyframes nan koupe",
-  "s_force_keyframes_at_cuts_desc": "Fòse keyframes nan koupe lè w ap telechaje/divize/retire seksyon yo.\nSa a se ralanti akòz bezwen yon re-kode, men videyo a ki kapab lakòz ka gen mwens zafè alantou koupe yo."
+  "s_force_keyframes_at_cuts_desc": "Fòse keyframes nan koupe lè w ap telechaje/divize/retire seksyon yo.\nSa a se ralanti akòz bezwen yon re-kode, men videyo a ki kapab lakòz ka gen mwens zafè alantou koupe yo.",
+  "dc_action_open_url": "Louvri URL",
+  "dc_action_open_url_error": "Erè lè w ap louvri URL la."
 }

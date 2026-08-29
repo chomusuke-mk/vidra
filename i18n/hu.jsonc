@@ -333,7 +333,7 @@
   "sd_state_missing_permissions": "Hiányzó engedélyek",
   "sd_state_missing_resources": "Hiányzó komponensek",
   "sd_state_fatal_error": "Végzetes hiba",
-  "dc_action_play": "Játék",
+  "dc_action_play": "Lejátszás",
   "dc_action_open_folder": "Nyissa meg a mappát",
   "dc_action_details": "Részletek",
   "dc_action_resume": "Folytatás",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Jegyzőkönyv",
   "s_cut_video_seconds": "Másodpercek",
   "s_force_keyframes_at_cuts": "Kulcskockák kényszerítése a Cutsnál",
-  "s_force_keyframes_at_cuts_desc": "A szakaszok letöltése/felosztása/eltávolítása során kényszerítse ki a kulcskockákat a kivágásoknál.\nEz lassú, mert újra kell kódolni, de az eredményül kapott videón kevesebb műtermék lehet a kivágások körül"
+  "s_force_keyframes_at_cuts_desc": "A szakaszok letöltése/felosztása/eltávolítása során kényszerítse ki a kulcskockákat a kivágásoknál.\nEz lassú, mert újra kell kódolni, de az eredményül kapott videón kevesebb műtermék lehet a kivágások körül",
+  "dc_action_open_url": "Nyissa meg az URL-t",
+  "dc_action_open_url_error": "Hiba az URL megnyitásakor."
 }

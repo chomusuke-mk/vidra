@@ -336,7 +336,7 @@
   "sd_state_missing_resources": "Pêkhateyên winda",
   "dc_action_cancel": "Bişûndekirin",
   "sd_state_fatal_error": "Çewtiya kujer",
-  "dc_action_play": "Bazî",
+  "dc_action_play": "Play paş",
   "dc_action_open_folder": "Peldanka veke",
   "dc_action_details": "Details",
   "dc_action_resume": "Dîsa vekirin",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "Minutes",
   "s_cut_video_seconds": "Seconds",
   "s_force_keyframes_at_cuts": "Hêzên Keyframes li Cuts",
-  "s_force_keyframes_at_cuts_desc": "Dema ku beşan dakêşin/perçekirin/ rakirina beşan bi darê zorê birrîn.\nEv hêdî ye ji ber ku hewcedariya ji nû ve-kodkirinê heye, lê dibe ku vîdyoya encam li dora qutiyan kêmtir berhemên hunerî hebin."
+  "s_force_keyframes_at_cuts_desc": "Dema ku beşan dakêşin/perçekirin/ rakirina beşan bi darê zorê birrîn.\nEv hêdî ye ji ber ku hewcedariya ji nû ve-kodkirinê heye, lê dibe ku vîdyoya encam li dora qutiyan kêmtir berhemên hunerî hebin.",
+  "dc_action_open_url": "URL vekin",
+  "dc_action_open_url_error": "Çewtiya vekirina URL-ê."
 }

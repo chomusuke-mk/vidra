@@ -199,7 +199,7 @@
   "dc_download_cancelling": "Cancelling download...",
   "dc_download_cancelling_error": "Error cancelling download.",
   "dc_getting_download_info": "Getting download info...",
-  "dc_action_play": "Play",
+  "dc_action_play": "Play back",
   "dc_action_open_folder": "Open Folder",
   "dc_action_details": "Details",
   "dc_action_resume": "Resume",
@@ -207,6 +207,8 @@
   "dc_action_pause": "Pause",
   "dc_action_cancel": "Cancel",
   "dc_action_delete": "Delete",
+  "dc_action_open_url": "Open URL",
+  "dc_action_open_url_error": "Error opening URL.",
   // Pantalla Settings -------------------------------- s_
   "s_title": "Settings",
   "s_general": "General",

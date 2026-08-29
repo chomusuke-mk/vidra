@@ -337,7 +337,7 @@
   "sd_state_retrying": "ફરીથી કનેક્ટ કરી રહ્યું છે...",
   "sd_state_missing_permissions": "પરવાનગીઓ ખૂટે છે",
   "sd_state_fatal_error": "જીવલેણ ભૂલ",
-  "dc_action_play": "રમો",
+  "dc_action_play": "પાછા રમો",
   "dc_action_open_folder": "ફોલ્ડર ખોલો",
   "dc_action_details": "વિગતો",
   "dc_action_resume": "ફરી શરૂ કરો",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "મિનિટ",
   "s_cut_video_seconds": "સેકન્ડ",
   "s_force_keyframes_at_cuts": "કટ્સ પર કીફ્રેમને દબાણ કરો",
-  "s_force_keyframes_at_cuts_desc": "વિભાગોને ડાઉનલોડ/વિભાજન/દૂર કરતી વખતે કીફ્રેમને કટ પર દબાણ કરો.\nફરીથી એન્કોડની જરૂર હોવાને કારણે આ ધીમું છે, પરંતુ પરિણામી વિડિઓમાં કટની આસપાસ ઓછી આર્ટિફેક્ટ હોઈ શકે છે"
+  "s_force_keyframes_at_cuts_desc": "વિભાગોને ડાઉનલોડ/વિભાજન/દૂર કરતી વખતે કીફ્રેમને કટ પર દબાણ કરો.\nફરીથી એન્કોડની જરૂર હોવાને કારણે આ ધીમું છે, પરંતુ પરિણામી વિડિઓમાં કટની આસપાસ ઓછી આર્ટિફેક્ટ હોઈ શકે છે",
+  "dc_action_open_url": "URL ખોલો",
+  "dc_action_open_url_error": "URL ખોલવામાં ભૂલ."
 }

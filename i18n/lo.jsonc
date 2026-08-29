@@ -334,7 +334,7 @@
   "sd_state_missing_permissions": "ຂາດການອະນຸຍາດ",
   "sd_state_missing_resources": "ອົງປະກອບທີ່ຂາດຫາຍໄປ",
   "sd_state_fatal_error": "ຄວາມຜິດພາດຮ້າຍແຮງ",
-  "dc_action_play": "ຫຼິ້ນ",
+  "dc_action_play": "ຫຼິ້ນຄືນ",
   "dc_action_open_folder": "ເປີດ Folder",
   "dc_action_details": "ລາຍລະອຽດ",
   "dc_action_resume": "ປະຫວັດຫຍໍ້",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "ນາທີ",
   "s_cut_video_seconds": "ວິນາທີ",
   "s_force_keyframes_at_cuts": "ບັງຄັບຄີເຟຣມທີ່ຕັດ",
-  "s_force_keyframes_at_cuts_desc": "ບັງຄັບຄີເຟຣມຕັດເມື່ອດາວໂຫລດ/ແຍກ/ເອົາພາກສ່ວນອອກ.\nອັນນີ້ຊ້າເນື່ອງຈາກຕ້ອງການການເຂົ້າລະຫັດໃໝ່, ແຕ່ຜົນອອກມາຈາກວິດີໂອອາດມີສິ່ງປອມໜ້ອຍລົງ."
+  "s_force_keyframes_at_cuts_desc": "ບັງຄັບຄີເຟຣມຕັດເມື່ອດາວໂຫລດ/ແຍກ/ເອົາພາກສ່ວນອອກ.\nອັນນີ້ຊ້າເນື່ອງຈາກຕ້ອງການການເຂົ້າລະຫັດໃໝ່, ແຕ່ຜົນອອກມາຈາກວິດີໂອອາດມີສິ່ງປອມໜ້ອຍລົງ.",
+  "dc_action_open_url": "ເປີດ URL",
+  "dc_action_open_url_error": "ເກີດຄວາມຜິດພາດໃນການເປີດ URL."
 }

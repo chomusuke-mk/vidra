@@ -336,7 +336,7 @@
   "sd_state_missing_permissions": "Thiếu quyền",
   "sd_state_missing_resources": "Thiếu thành phần",
   "sd_state_fatal_error": "Lỗi nghiêm trọng",
-  "dc_action_play": "Chơi",
+  "dc_action_play": "Phát lại",
   "dc_action_open_folder": "Mở thư mục",
   "dc_action_resume": "Bản tóm tắt",
   "dc_action_retry": "Thử lại",
@@ -360,5 +360,7 @@
   "s_cut_video_start": "Bắt đầu",
   "s_cut_video_until_end": "Tải về cho đến khi kết thúc",
   "s_cut_video_seconds": "Giây",
-  "s_cut_video_end": "Kết thúc"
+  "s_cut_video_end": "Kết thúc",
+  "dc_action_open_url": "Mở URL",
+  "dc_action_open_url_error": "Lỗi mở URL."
 }

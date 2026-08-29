@@ -336,7 +336,7 @@
   "sd_state_missing_permissions": "أذونات مفقودة",
   "sd_state_missing_resources": "المكونات المفقودة",
   "sd_state_fatal_error": "خطأ فادح",
-  "dc_action_play": "يلعب",
+  "dc_action_play": "تشغيل مرة أخرى",
   "dc_action_open_folder": "افتح المجلد",
   "dc_action_details": "تفاصيل",
   "dc_action_resume": "سيرة ذاتية",
@@ -360,5 +360,7 @@
   "s_cut_video_minutes": "دقائق",
   "s_cut_video_seconds": "ثواني",
   "s_force_keyframes_at_cuts": "فرض الإطارات الرئيسية في التخفيضات",
-  "s_force_keyframes_at_cuts_desc": "فرض الإطارات الرئيسية عند القطع عند تنزيل/تقسيم/إزالة الأقسام.\nيعد هذا بطيئًا بسبب الحاجة إلى إعادة التشفير، ولكن قد يحتوي الفيديو الناتج على عدد أقل من العناصر حول القطع"
+  "s_force_keyframes_at_cuts_desc": "فرض الإطارات الرئيسية عند القطع عند تنزيل/تقسيم/إزالة الأقسام.\nيعد هذا بطيئًا بسبب الحاجة إلى إعادة التشفير، ولكن قد يحتوي الفيديو الناتج على عدد أقل من العناصر حول القطع",
+  "dc_action_open_url_error": "حدث خطأ أثناء فتح عنوان URL.",
+  "dc_action_open_url": "افتح عنوان URL"
 }
