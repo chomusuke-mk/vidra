@@ -24,3 +24,5 @@ plugins {
 }
 
 include(":app")
+
+apply(from = "patch_proguard.gradle")

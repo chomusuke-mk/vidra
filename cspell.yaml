@@ -56,6 +56,7 @@ words:
   - crasheos
   - createallsubdirs
   - cupertino
+  - dailymotion
   - DAPPLICATION
   - darwin
   - dblite
@@ -137,6 +138,7 @@ words:
   - inno
   - Inno
   - INNOSETUP
+  - Inspectable
   - instanciado
   - Instantitation
   - Intercepción
@@ -240,6 +242,7 @@ words:
   - precompilados
   - prefs
   - prgname
+  - println
   - procesable
   - PRODUCTVERSION
   - proguard
@@ -335,6 +338,7 @@ words:
   - VERYSILENT
   - vidra
   - viewports
+  - vimeo
   - vivaldi
   - volcándola
   - VSACL

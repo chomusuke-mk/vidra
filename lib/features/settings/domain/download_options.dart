@@ -133,6 +133,8 @@ class DownloadOptions {
   final bool disableCookies;
   final Browser? cookiesFromBrowser;
   final bool disableCookiesFromBrowser;
+  final String? cookiesFromWebview;
+  final bool disableCookiesFromWebview;
   final String username;
   final String password;
   final String twofactor;
@@ -225,6 +227,8 @@ class DownloadOptions {
     this.disableCookies = true, // Python: false
     this.cookiesFromBrowser,
     this.disableCookiesFromBrowser = true, // Python: false
+    this.cookiesFromWebview,
+    this.disableCookiesFromWebview = true, // Python: false
     this.username = '',
     this.password = '',
     this.twofactor = '',
@@ -317,6 +321,8 @@ class DownloadOptions {
     bool? disableCookies,
     Browser? cookiesFromBrowser,
     bool? disableCookiesFromBrowser,
+    String? cookiesFromWebview,
+    bool? disableCookiesFromWebview,
     String? username,
     String? password,
     String? twofactor,
@@ -403,6 +409,9 @@ class DownloadOptions {
       cookiesFromBrowser: cookiesFromBrowser ?? this.cookiesFromBrowser,
       disableCookiesFromBrowser:
           disableCookiesFromBrowser ?? this.disableCookiesFromBrowser,
+      cookiesFromWebview: cookiesFromWebview ?? this.cookiesFromWebview,
+      disableCookiesFromWebview:
+          disableCookiesFromWebview ?? this.disableCookiesFromWebview,
       username: username ?? this.username,
       password: password ?? this.password,
       twofactor: twofactor ?? this.twofactor,
@@ -539,6 +548,11 @@ class DownloadOptions {
       map['cookies_from_browser'] = false;
     else if (cookiesFromBrowser != null)
       map['cookies_from_browser'] = cookiesFromBrowser!.name;
+
+    if (disableCookiesFromWebview)
+      map['cookies_from_webview'] = false;
+    else if (cookiesFromWebview != null && cookiesFromWebview!.isNotEmpty)
+      map['cookies_from_webview'] = cookiesFromWebview;
 
     if (username.isNotEmpty) map['username'] = username;
     if (password.isNotEmpty) map['password'] = password;
@@ -794,6 +808,11 @@ class DownloadOptions {
             : null,
       ),
       disableCookiesFromBrowser: json['cookies_from_browser'] == false,
+      cookiesFromWebview:
+          json['cookies_from_webview'] is String
+              ? json['cookies_from_webview']
+              : null,
+      disableCookiesFromWebview: json['cookies_from_webview'] == false,
       username: json['username']?.toString() ?? '',
       password: json['password']?.toString() ?? '',
       twofactor: json['twofactor']?.toString() ?? '',
@@ -921,6 +940,8 @@ class DownloadOptions {
         other.disableCookies == disableCookies &&
         other.cookiesFromBrowser == cookiesFromBrowser &&
         other.disableCookiesFromBrowser == disableCookiesFromBrowser &&
+        other.cookiesFromWebview == cookiesFromWebview &&
+        other.disableCookiesFromWebview == disableCookiesFromWebview &&
         other.username == username &&
         other.password == password &&
         other.twofactor == twofactor &&
@@ -999,5 +1020,11 @@ class DownloadOptions {
         impersonate,
         forceIpv4,
         forceIpv6,
+        cookies,
+        disableCookies,
+        cookiesFromBrowser,
+        disableCookiesFromBrowser,
+        cookiesFromWebview,
+        disableCookiesFromWebview,
       ]);
 }

@@ -59,6 +59,9 @@ void main() {
         'sd_state_missing_permissions',
         'sd_state_missing_resources',
         'sd_state_fatal_error',
+        's_cookies_from_webview',
+        's_cookies_from_webview_desc',
+        's_open_webview',
       ];
 
       for (final key in requiredNewKeys) {
@@ -115,6 +118,14 @@ void main() {
       expect(enMap['sd_app_engine'], equals('App Engine'));
       expect(enMap['sd_app_engine_connected'], equals('App Engine: Connected'));
       expect(enMap['sd_all_working_normally'], equals('Everything is running normally'));
+      expect(enMap['s_cookies_from_webview'], equals('Cookies from WebView'));
+      expect(
+        enMap['s_cookies_from_webview_desc'],
+        equals(
+          'Enable this option to extract cookies from the WebView. This is useful for sites that require login or have region restrictions. This overrides the cookies file option.',
+        ),
+      );
+      expect(enMap['s_open_webview'], equals('Open WebView'));
 
       expect(esMap['d_quick_settings'], equals('Configuración rápida'));
       expect(esMap['qs_title'], equals('Configuración Rápida'));
@@ -135,6 +146,14 @@ void main() {
       expect(esMap['sd_app_engine'], equals('Motor de aplicaciones'));
       expect(esMap['sd_app_engine_connected'], equals('Motor de aplicaciones: conectado'));
       expect(esMap['sd_all_working_normally'], equals('Todo esta funcionando normalmente'));
+      expect(esMap['s_cookies_from_webview'], equals('Cookies del WebView'));
+      expect(
+        esMap['s_cookies_from_webview_desc'],
+        equals(
+          'Habilite esta opción para extraer cookies del WebView. Esto es útil para sitios que requieren inicio de sesión o tienen restricciones regionales. Esto anula la opción de archivo de cookies.',
+        ),
+      );
+      expect(esMap['s_open_webview'], equals('Abrir WebView'));
     });
 
     test('2. AppStringKey Getters resolve new keys accurately in English and Spanish', () async {
@@ -161,6 +180,14 @@ void main() {
       expect(enStrings.sdAppEngine, equals('App Engine'));
       expect(enStrings.sdAppEngineConnected, equals('App Engine: Connected'));
       expect(enStrings.sdAllWorkingNormally, equals('Everything is running normally'));
+      expect(enStrings.sCookiesFromWebview, equals('Cookies from WebView'));
+      expect(
+        enStrings.sCookiesFromWebviewDesc,
+        equals(
+          'Enable this option to extract cookies from the WebView. This is useful for sites that require login or have region restrictions. This overrides the cookies file option.',
+        ),
+      );
+      expect(enStrings.sOpenWebview, equals('Open WebView'));
 
       // Spanish resolution (overlaying on top of base or direct)
       final esStrings = AppStringKey();
@@ -186,6 +213,14 @@ void main() {
       expect(esStrings.sdAppEngine, equals('Motor de aplicaciones'));
       expect(esStrings.sdAppEngineConnected, equals('Motor de aplicaciones: conectado'));
       expect(esStrings.sdAllWorkingNormally, equals('Todo esta funcionando normalmente'));
+      expect(esStrings.sCookiesFromWebview, equals('Cookies del WebView'));
+      expect(
+        esStrings.sCookiesFromWebviewDesc,
+        equals(
+          'Habilite esta opción para extraer cookies del WebView. Esto es útil para sitios que requieren inicio de sesión o tienen restricciones regionales. Esto anula la opción de archivo de cookies.',
+        ),
+      );
+      expect(esStrings.sOpenWebview, equals('Abrir WebView'));
     });
 
     test('3. updateFromJson with assertAllKeysPresent: true passes cleanly on en.jsonc', () async {
@@ -206,6 +241,9 @@ void main() {
         'fe_title',
         'tu_quick_settings',
         'tu_quick_settings_desc',
+        's_cookies_from_webview',
+        's_cookies_from_webview_desc',
+        's_open_webview',
       ];
 
       for (final missingKey in keysToTest) {
@@ -237,6 +275,9 @@ void main() {
       expect(freshStrings.qsAudio, equals(''));
       expect(freshStrings.tuPPQuickSettings, equals(''));
       expect(freshStrings.tuPPQuickSettingsDesc, equals(''));
+      expect(freshStrings.sCookiesFromWebview, equals(''));
+      expect(freshStrings.sCookiesFromWebviewDesc, equals(''));
+      expect(freshStrings.sOpenWebview, equals(''));
     });
 
     test('6. Full Key Parity Verification across all keys and registry integrity', () {

@@ -51,6 +51,7 @@ dependencies:
   flutter_markdown_plus: ^1.0.12
   tutorial_coach_mark: ^1.3.4
   flutter_inappwebview: ^6.1.5
+  font_awesome_flutter: ^11.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

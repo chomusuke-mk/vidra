@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:vidra/features/settings/domain/download_options.dart';
 
@@ -102,13 +103,15 @@ void main() {
       expect(restoredExtreme.infiniteRetries, isFalse);
     });
 
-    test('2. Disabled booleans vs custom values / string paths (cookies, browser, remux, archive, wait, limitRate)', () {
+    test('2. Disabled booleans vs custom values / string paths (cookies, browser, webview, remux, archive, wait, limitRate)', () {
       // Case A: All disabled
       final allDisabled = DownloadOptions(
         disableCookies: true,
         cookies: '/some/path/cookies.txt', // Even if string exists, disableCookies should take precedence in toJson
         disableCookiesFromBrowser: true,
         cookiesFromBrowser: Browser.chrome,
+        disableCookiesFromWebview: true,
+        cookiesFromWebview: '/some/path/webview_cookies.txt',
         disableRemuxVideo: true,
         remuxVideo: RemuxVideoFormat.mp4,
         disableDownloadArchive: true,
@@ -122,6 +125,7 @@ void main() {
       final jsonDisabled = allDisabled.toJson();
       expect(jsonDisabled['cookies'], isFalse);
       expect(jsonDisabled['cookies_from_browser'], isFalse);
+      expect(jsonDisabled['cookies_from_webview'], isFalse);
       expect(jsonDisabled['remux_video'], isFalse);
       expect(jsonDisabled['download_archive'], isFalse);
       expect(jsonDisabled['wait_for_video'], isFalse);
@@ -132,6 +136,8 @@ void main() {
       expect(restoredDisabled.cookies, isNull);
       expect(restoredDisabled.disableCookiesFromBrowser, isTrue);
       expect(restoredDisabled.cookiesFromBrowser, isNull);
+      expect(restoredDisabled.disableCookiesFromWebview, isTrue);
+      expect(restoredDisabled.cookiesFromWebview, isNull);
       expect(restoredDisabled.disableRemuxVideo, isTrue);
       expect(restoredDisabled.remuxVideo, isNull);
       expect(restoredDisabled.disableDownloadArchive, isTrue);
@@ -147,6 +153,8 @@ void main() {
         cookies: '/custom/cookies.txt',
         disableCookiesFromBrowser: false,
         cookiesFromBrowser: Browser.brave,
+        disableCookiesFromWebview: false,
+        cookiesFromWebview: '/custom/webview_cookies.txt',
         disableRemuxVideo: false,
         remuxVideo: RemuxVideoFormat.mkv,
         disableDownloadArchive: false,
@@ -160,6 +168,7 @@ void main() {
       final jsonCustom = allCustom.toJson();
       expect(jsonCustom['cookies'], equals('/custom/cookies.txt'));
       expect(jsonCustom['cookies_from_browser'], equals('brave'));
+      expect(jsonCustom['cookies_from_webview'], equals('/custom/webview_cookies.txt'));
       expect(jsonCustom['remux_video'], equals('mkv'));
       expect(jsonCustom['download_archive'], equals('/custom/archive.txt'));
       expect(jsonCustom['wait_for_video'], equals(120));
@@ -170,6 +179,8 @@ void main() {
       expect(restoredCustom.cookies, equals('/custom/cookies.txt'));
       expect(restoredCustom.disableCookiesFromBrowser, isFalse);
       expect(restoredCustom.cookiesFromBrowser, equals(Browser.brave));
+      expect(restoredCustom.disableCookiesFromWebview, isFalse);
+      expect(restoredCustom.cookiesFromWebview, equals('/custom/webview_cookies.txt'));
       expect(restoredCustom.disableRemuxVideo, isFalse);
       expect(restoredCustom.remuxVideo, equals(RemuxVideoFormat.mkv));
       expect(restoredCustom.disableDownloadArchive, isFalse);
@@ -324,11 +335,13 @@ void main() {
       expect(opts.paths, isEmpty);
       expect(opts.jsRuntimes, isEmpty);
       expect(opts.addHeaders, isEmpty);
-      expect(opts.output, equals(["title", "-", "id", ".", "ext"]));
+      expect(opts.output, equals(["title", ".", "ext"]));
       expect(opts.mergeOutputFormat, equals(MergeOutputFormat.mkv));
       expect(opts.audioFormat, equals(AudioFormat.best));
       expect(opts.subFormat, equals(SubtitleFormat.srt));
       expect(opts.concurrentFragments, equals(1));
+      expect(opts.cookiesFromWebview, isNull);
+      expect(opts.disableCookiesFromWebview, isFalse);
     });
 
     test('6. Exhaustive copyWith preserves unmentioned fields and correctly overrides specified fields', () {
@@ -352,6 +365,151 @@ void main() {
       expect(updated.concurrentFragments, equals(2)); // Preserved
       expect(updated.windowsFilenames, isFalse);
       expect(updated.forceOverwrites, isTrue);
+    });
+
+    test('7. Adversarial Fuzzing: cookies_from_webview malformed & edge-case payloads', () {
+      final adversarialPayloads = <dynamic>[
+        null,
+        false,
+        true, // Boolean true should not crash fromJson and should not be treated as a string path
+        0,
+        1,
+        -100,
+        999999,
+        3.14159,
+        double.nan,
+        double.infinity,
+        '',
+        '   ',
+        '\t\n\r',
+        '/valid/unix/path/cookies.txt',
+        'C:\\Program Files\\Vidra\\cookies.txt',
+        'file:///storage/emulated/0/cookies.txt',
+        'https://example.com/cookies',
+        '🍪 special_unicode_emoji_path.txt',
+        'path_with_\x00_null_byte.txt',
+        'a' * 4096, // Long path payload
+        [],
+        ['/path/in/list.txt'],
+        [false],
+        [true],
+        [null],
+        {},
+        {'path': '/path/in/map.txt'},
+        {'cookies_from_webview': false},
+      ];
+
+      for (final payload in adversarialPayloads) {
+        final rawJson = {'cookies_from_webview': payload};
+
+        DownloadOptions? restored;
+        expect(() {
+          restored = DownloadOptions.fromJson(rawJson);
+        }, returnsNormally, reason: 'Failed to deserialize payload: $payload');
+
+        expect(restored, isNotNull);
+        expect(restored!.disableCookiesFromWebview, isA<bool>());
+        if (payload is String) {
+          expect(restored!.cookiesFromWebview, equals(payload));
+          expect(restored!.disableCookiesFromWebview, isFalse);
+        } else if (payload == false) {
+          expect(restored!.cookiesFromWebview, isNull);
+          expect(restored!.disableCookiesFromWebview, isTrue);
+        } else {
+          expect(restored!.cookiesFromWebview, isNull);
+          expect(restored!.disableCookiesFromWebview, isFalse);
+        }
+
+        // Invariant: toJson must serialize without exception
+        Map<String, dynamic>? serialized;
+        expect(() {
+          serialized = restored!.toJson();
+        }, returnsNormally);
+
+        expect(serialized, isNotNull);
+        if (restored!.disableCookiesFromWebview) {
+          expect(serialized!['cookies_from_webview'], isFalse);
+        } else if (restored!.cookiesFromWebview != null && restored!.cookiesFromWebview!.isNotEmpty) {
+          expect(serialized!['cookies_from_webview'], equals(restored!.cookiesFromWebview));
+        }
+      }
+    });
+
+    test('8. High-volume randomized fuzz matrix for cookies_from_webview', () {
+      final rand = Random(1337);
+      final pathGenerators = [
+        () => null,
+        () => false,
+        () => true,
+        () => rand.nextInt(10000) - 5000,
+        () => rand.nextDouble() * 1000.0,
+        () => '',
+        () => '   ',
+        () => '/app/storage/${rand.nextInt(1000)}/cookies.txt',
+        () => 'C:\\Data\\Vidra\\${rand.nextInt(1000)}\\cookies.txt',
+        () => 'path_${rand.nextInt(500)}_\u1F36A.txt',
+        () => <dynamic>[rand.nextBool()],
+        () => <String, dynamic>{'nested_${rand.nextInt(100)}': 'val'},
+      ];
+
+      for (int i = 0; i < 500; i++) {
+        final payload = pathGenerators[rand.nextInt(pathGenerators.length)]();
+        final json = <String, dynamic>{'cookies_from_webview': payload};
+
+        DownloadOptions? options;
+        expect(() {
+          options = DownloadOptions.fromJson(json);
+        }, returnsNormally);
+
+        expect(options, isNotNull);
+        expect(options!.disableCookiesFromWebview, isA<bool>());
+
+        final serialized = options!.toJson();
+        final reRestored = DownloadOptions.fromJson(serialized);
+        expect(reRestored.disableCookiesFromWebview, equals(options!.disableCookiesFromWebview));
+        if (options!.cookiesFromWebview != null &&
+            options!.cookiesFromWebview!.isNotEmpty &&
+            !options!.disableCookiesFromWebview) {
+          expect(reRestored.cookiesFromWebview, equals(options!.cookiesFromWebview));
+        } else {
+          expect(reRestored.cookiesFromWebview, isNull);
+        }
+      }
+    });
+
+    test('9. HashCode and Equality collision resistance with cookies_from_webview combinations', () {
+      final base = DownloadOptions(
+        disableCookiesFromWebview: false,
+        cookiesFromWebview: '/data/path/a.txt',
+      );
+
+      final identicalInstance = DownloadOptions(
+        disableCookiesFromWebview: false,
+        cookiesFromWebview: '/data/path/a.txt',
+      );
+
+      final diffDisabled = base.copyWith(disableCookiesFromWebview: true);
+      final diffPath = base.copyWith(cookiesFromWebview: '/data/path/b.txt');
+      final diffNullPath = DownloadOptions(
+        disableCookiesFromWebview: false,
+        cookiesFromWebview: null,
+      );
+
+      expect(base, equals(identicalInstance));
+      expect(base.hashCode, equals(identicalInstance.hashCode));
+
+      expect(base, isNot(equals(diffDisabled)));
+      expect(base, isNot(equals(diffPath)));
+      expect(base, isNot(equals(diffNullPath)));
+
+      final set = <DownloadOptions>{
+        base,
+        identicalInstance,
+        diffDisabled,
+        diffPath,
+        diffNullPath,
+      };
+      expect(set.length, equals(4)); // Base & identical collapse into 1, leaving 4 unique items
     });
   });
 }

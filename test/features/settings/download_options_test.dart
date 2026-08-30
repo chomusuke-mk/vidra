@@ -18,6 +18,8 @@ void main() {
       expect(options.concurrentFragments, equals(1));
       expect(options.retries, equals(10));
       expect(options.infiniteRetries, isFalse);
+      expect(options.cookiesFromWebview, isNull);
+      expect(options.disableCookiesFromWebview, isTrue);
     });
 
     test('toJson and fromJson preserve default DownloadOptions', () {
@@ -52,6 +54,8 @@ void main() {
         disableCookies: true,
         cookiesFromBrowser: Browser.firefox,
         disableCookiesFromBrowser: false,
+        cookiesFromWebview: '/tmp/test_cookies.txt',
+        disableCookiesFromWebview: false,
         mergeOutputFormat: MergeOutputFormat.mp4,
         audioFormat: AudioFormat.mp3,
         subFormat: SubtitleFormat.vtt,
@@ -82,6 +86,7 @@ void main() {
       expect(json['add_headers'], equals({'User-Agent': 'CustomAgent/1.0', 'Referer': 'https://example.com'}));
       expect(json['cookies'], isFalse);
       expect(json['cookies_from_browser'], equals('firefox'));
+      expect(json['cookies_from_webview'], equals('/tmp/test_cookies.txt'));
       expect(json['merge_output_format'], equals('mp4'));
       expect(json['audio_format'], equals('mp3'));
       expect(json['sub_format'], equals('vtt'));
@@ -109,6 +114,8 @@ void main() {
       expect(restored.addHeaders, equals({'User-Agent': 'CustomAgent/1.0', 'Referer': 'https://example.com'}));
       expect(restored.disableCookies, isTrue);
       expect(restored.cookiesFromBrowser, equals(Browser.firefox));
+      expect(restored.cookiesFromWebview, equals('/tmp/test_cookies.txt'));
+      expect(restored.disableCookiesFromWebview, isFalse);
       expect(restored.mergeOutputFormat, equals(MergeOutputFormat.mp4));
       expect(restored.audioFormat, equals(AudioFormat.mp3));
       expect(restored.subFormat, equals(SubtitleFormat.vtt));
@@ -338,6 +345,128 @@ void main() {
       expect(opt1, equals(opt2));
       expect(opt1.hashCode, equals(opt2.hashCode));
       expect(opt1, isNot(equals(opt3)));
+    });
+
+    test('cookies_from_webview serialization: disabled serializes to false', () {
+      final optDisabledNull = DownloadOptions(
+        disableCookiesFromWebview: true,
+        cookiesFromWebview: null,
+      );
+      final jsonNull = optDisabledNull.toJson();
+      expect(jsonNull['cookies_from_webview'], isFalse);
+
+      final optDisabledWithPath = DownloadOptions(
+        disableCookiesFromWebview: true,
+        cookiesFromWebview: '/data/user/0/vidra/app_flutter/cookies.txt',
+      );
+      final jsonWithPath = optDisabledWithPath.toJson();
+      expect(jsonWithPath['cookies_from_webview'], isFalse);
+    });
+
+    test('cookies_from_webview serialization: enabled serializes to file path', () {
+      const samplePath = '/data/user/0/vidra/app_flutter/cookies_webview.txt';
+      final options = DownloadOptions(
+        disableCookiesFromWebview: false,
+        cookiesFromWebview: samplePath,
+      );
+
+      final json = options.toJson();
+      expect(json['cookies_from_webview'], equals(samplePath));
+    });
+
+    test('cookies_from_webview serialization: enabled with empty string or null path omits key', () {
+      final optEmpty = DownloadOptions(
+        disableCookiesFromWebview: false,
+        cookiesFromWebview: '',
+      );
+      expect(optEmpty.toJson().containsKey('cookies_from_webview'), isFalse);
+
+      final optNull = DownloadOptions(
+        disableCookiesFromWebview: false,
+        cookiesFromWebview: null,
+      );
+      expect(optNull.toJson().containsKey('cookies_from_webview'), isFalse);
+    });
+
+    test('cookies_from_webview deserialization: from boolean false', () {
+      final json = {'cookies_from_webview': false};
+      final restored = DownloadOptions.fromJson(json);
+
+      expect(restored.disableCookiesFromWebview, isTrue);
+      expect(restored.cookiesFromWebview, isNull);
+    });
+
+    test('cookies_from_webview deserialization: from string path', () {
+      const samplePath = '/storage/emulated/0/Download/vidra_cookies.txt';
+      final json = {'cookies_from_webview': samplePath};
+      final restored = DownloadOptions.fromJson(json);
+
+      expect(restored.disableCookiesFromWebview, isFalse);
+      expect(restored.cookiesFromWebview, equals(samplePath));
+    });
+
+    test('cookies_from_webview round-trip serialization and deserialization preserves state', () {
+      final custom = DownloadOptions(
+        cookiesFromWebview: '/custom/storage/cookies.txt',
+        disableCookiesFromWebview: false,
+      );
+
+      final json = custom.toJson();
+      expect(json['cookies_from_webview'], equals('/custom/storage/cookies.txt'));
+
+      final restored = DownloadOptions.fromJson(json);
+      expect(restored.cookiesFromWebview, equals('/custom/storage/cookies.txt'));
+      expect(restored.disableCookiesFromWebview, isFalse);
+    });
+
+    test('cookies_from_webview copyWith updates fields correctly while preserving other fields', () {
+      final original = DownloadOptions(
+        proxy: 'http://127.0.0.1:8080',
+        concurrentFragments: 4,
+        disableCookiesFromWebview: true,
+        cookiesFromWebview: null,
+      );
+
+      final updated = original.copyWith(
+        disableCookiesFromWebview: false,
+        cookiesFromWebview: '/new/cookies/path.txt',
+      );
+
+      expect(updated.disableCookiesFromWebview, isFalse);
+      expect(updated.cookiesFromWebview, equals('/new/cookies/path.txt'));
+      expect(updated.proxy, equals('http://127.0.0.1:8080'));
+      expect(updated.concurrentFragments, equals(4));
+
+      final disabledAgain = updated.copyWith(
+        disableCookiesFromWebview: true,
+      );
+      expect(disabledAgain.disableCookiesFromWebview, isTrue);
+      expect(disabledAgain.cookiesFromWebview, equals('/new/cookies/path.txt'));
+    });
+
+    test('cookies_from_webview operator == and hashCode function correctly', () {
+      final opt1 = DownloadOptions(
+        disableCookiesFromWebview: false,
+        cookiesFromWebview: '/path/1.txt',
+      );
+      final opt2 = DownloadOptions(
+        disableCookiesFromWebview: false,
+        cookiesFromWebview: '/path/1.txt',
+      );
+      final optDiffPath = DownloadOptions(
+        disableCookiesFromWebview: false,
+        cookiesFromWebview: '/path/2.txt',
+      );
+      final optDiffDisable = DownloadOptions(
+        disableCookiesFromWebview: true,
+        cookiesFromWebview: '/path/1.txt',
+      );
+
+      expect(opt1, equals(opt2));
+      expect(opt1.hashCode, equals(opt2.hashCode));
+
+      expect(opt1, isNot(equals(optDiffPath)));
+      expect(opt1, isNot(equals(optDiffDisable)));
     });
   });
 }

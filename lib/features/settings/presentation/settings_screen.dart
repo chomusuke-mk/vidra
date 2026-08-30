@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vidra/core/constants/languages.dart';
 import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
+import 'package:vidra/shared/utils/toast_utils.dart';
 import 'package:vidra/shared/widgets/lazy_dropdown.dart';
 import 'package:vidra/shared/widgets/lazy_list.dart';
 import 'package:vidra/shared/widgets/lazy_map.dart';
@@ -12,6 +15,7 @@ import 'package:vidra/features/settings/domain/download_options.dart';
 import 'package:vidra/shared/widgets/settings_row.dart';
 import 'package:vidra/shared/utils/tutorial_utils.dart';
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
+import 'package:vidra/features/settings/presentation/widgets/in_app_webview_screen.dart';
 
 enum SettingCategory { general, network, video, download }
 
@@ -454,6 +458,69 @@ class _SettingsScreenState extends State<SettingsScreen> {
           onChanged: (newMap) =>
               s.updateDownloadOptions(opts.copyWith(addHeaders: newMap)),
         ),
+      ),
+      _SettingDef(
+        title: locale.sCookiesFromWebview,
+        description: locale.sCookiesFromWebviewDesc,
+        category: SettingCategory.network,
+        type: ControllerType.complex,
+        controlBuilder: (c, s) {
+          final isEnabled = !opts.disableCookiesFromWebview;
+          return Column(
+            children: [
+              Row(
+                children: [
+                  Switch(
+                    value: isEnabled,
+                    onChanged: (val) => s.updateDownloadOptions(
+                      opts.copyWith(disableCookiesFromWebview: !val),
+                    ),
+                  ),
+                  if (isEnabled) ...[
+                    const SizedBox(width: 16),
+                    FilledButton.tonalIcon(
+                      onPressed: () async {
+                        if (Platform.isLinux) {
+                          ToastUtils.showError(
+                            "Webview is not supported on Linux",
+                          );
+                          return;
+                        }
+                        final path = await InAppWebViewScreen.show(c);
+                        if (path != null && path.isNotEmpty) {
+                          s.updateDownloadOptions(
+                            opts.copyWith(
+                              cookiesFromWebview: path,
+                              disableCookiesFromWebview: false,
+                            ),
+                          );
+                          ToastUtils.showSuccess('Cookies saved successfully');
+                        }
+                      },
+                      icon: const Icon(Icons.open_in_browser),
+                      label: Text(locale.sOpenWebview),
+                    ),
+                  ],
+                ],
+              ),
+              if (isEnabled) ...[
+                const SizedBox(height: 16),
+                Row(
+                  children: [
+                    Expanded(
+                      child: LazyTextField(
+                        value: opts.cookiesFromWebview ?? '',
+                        hint: locale.sNotConfigured,
+                        readOnly: true,
+                        onChanged: (_) {},
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ],
+          );
+        },
       ),
       _SettingDef(
         title: locale.sCookies,

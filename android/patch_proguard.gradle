@@ -1,0 +1,32 @@
+import java.lang.reflect.Field
+import java.lang.reflect.Method
+
+// 1. Compatibility Patch for AGP 9.0+ getDefaultProguardFile in Gradle plugins
+gradle.beforeProject { proj ->
+    proj.plugins.withId("com.android.library") {
+        try {
+            def androidExt = proj.extensions.findByName("android")
+            if (androidExt != null) {
+                androidExt.metaClass.getDefaultProguardFile = { String name ->
+                    def target = (name == 'proguard-android.txt') ? 'proguard-android-optimize.txt' : name
+                    return delegate.getClass().getMethod("getDefaultProguardFile", String.class).invoke(delegate, target)
+                }
+            }
+        } catch (Throwable t) {
+            println("[Vidra] Error patching android extension in ${proj.name}: ${t}")
+        }
+    }
+    proj.plugins.withId("com.android.application") {
+        try {
+            def androidExt = proj.extensions.findByName("android")
+            if (androidExt != null) {
+                androidExt.metaClass.getDefaultProguardFile = { String name ->
+                    def target = (name == 'proguard-android.txt') ? 'proguard-android-optimize.txt' : name
+                    return delegate.getClass().getMethod("getDefaultProguardFile", String.class).invoke(delegate, target)
+                }
+            }
+        } catch (Throwable t) {
+            println("[Vidra] Error patching android extension in ${proj.name}: ${t}")
+        }
+    }
+}

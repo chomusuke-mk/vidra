@@ -95,6 +95,16 @@ void main() {
       expect(appStrings.sdStateMissingResources, equals('Missing Components'));
       expect(appStrings.sdStateFatalError, equals('Fatal Error'));
 
+      // Verify Cookies from WebView getters in English
+      expect(appStrings.sCookiesFromWebview, equals('Cookies from WebView'));
+      expect(
+        appStrings.sCookiesFromWebviewDesc,
+        equals(
+          'Enable this option to extract cookies from the WebView. This is useful for sites that require login or have region restrictions. This overrides the cookies file option.',
+        ),
+      );
+      expect(appStrings.sOpenWebview, equals('Open WebView'));
+
       // Verify es.jsonc
       final esFile = File('i18n/es.jsonc');
       expect(esFile.existsSync(), isTrue);
@@ -182,6 +192,16 @@ void main() {
       expect(esStrings.sdStateMissingPermissions, equals('Permisos faltantes'));
       expect(esStrings.sdStateMissingResources, equals('Componentes faltantes'));
       expect(esStrings.sdStateFatalError, equals('Error fatal'));
+
+      // Verify Cookies from WebView getters in Spanish
+      expect(esStrings.sCookiesFromWebview, equals('Cookies del WebView'));
+      expect(
+        esStrings.sCookiesFromWebviewDesc,
+        equals(
+          'Habilite esta opción para extraer cookies del WebView. Esto es útil para sitios que requieren inicio de sesión o tienen restricciones regionales. Esto anula la opción de archivo de cookies.',
+        ),
+      );
+      expect(esStrings.sOpenWebview, equals('Abrir WebView'));
     });
   });
 }

@@ -381,6 +381,11 @@ class AppStringKey {
       _cadenasLocalizadas['s_cookies_from_browser'] ?? '';
   String get sCookiesFromBrowserDesc =>
       _cadenasLocalizadas['s_cookies_from_browser_desc'] ?? '';
+  String get sCookiesFromWebview =>
+      _cadenasLocalizadas['s_cookies_from_webview'] ?? '';
+  String get sCookiesFromWebviewDesc =>
+      _cadenasLocalizadas['s_cookies_from_webview_desc'] ?? '';
+  String get sOpenWebview => _cadenasLocalizadas['s_open_webview'] ?? '';
   String get sUsername => _cadenasLocalizadas['s_username'] ?? '';
   String get sUsernameDesc => _cadenasLocalizadas['s_username_desc'] ?? '';
   String get sPassword => _cadenasLocalizadas['s_password'] ?? '';
@@ -853,6 +858,9 @@ class AppStringKey {
     's_cookies_desc',
     's_cookies_from_browser',
     's_cookies_from_browser_desc',
+    's_cookies_from_webview',
+    's_cookies_from_webview_desc',
+    's_open_webview',
     's_username',
     's_username_desc',
     's_password',
