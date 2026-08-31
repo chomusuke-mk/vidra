@@ -62,6 +62,17 @@ void main() {
         's_cookies_from_webview',
         's_cookies_from_webview_desc',
         's_open_webview',
+        's_view_current_cookies',
+        's_cookies_list_title',
+        's_no_cookies_found',
+        'wv_browse_to_generate_cookies',
+        'wv_not_supported_on_linux',
+        'wv_shortcuts',
+        'wv_go',
+        'wv_back',
+        'wv_forward',
+        'wv_refresh',
+        'dc_action_use_cookies',
       ];
 
       for (final key in requiredNewKeys) {
@@ -122,7 +133,7 @@ void main() {
       expect(
         enMap['s_cookies_from_webview_desc'],
         equals(
-          'Enable this option to extract cookies from the WebView. This is useful for sites that require login or have region restrictions. This overrides the cookies file option.',
+          'Enable this option to extract cookies from the WebView. This is useful for sites that require login or have region restrictions.',
         ),
       );
       expect(enMap['s_open_webview'], equals('Open WebView'));
@@ -150,7 +161,7 @@ void main() {
       expect(
         esMap['s_cookies_from_webview_desc'],
         equals(
-          'Habilite esta opción para extraer cookies del WebView. Esto es útil para sitios que requieren inicio de sesión o tienen restricciones regionales. Esto anula la opción de archivo de cookies.',
+          'Habilite esta opción para extraer cookies del WebView. Esto es útil para sitios que requieren inicio de sesión o tienen restricciones regionales.',
         ),
       );
       expect(esMap['s_open_webview'], equals('Abrir WebView'));
@@ -184,10 +195,21 @@ void main() {
       expect(
         enStrings.sCookiesFromWebviewDesc,
         equals(
-          'Enable this option to extract cookies from the WebView. This is useful for sites that require login or have region restrictions. This overrides the cookies file option.',
+          'Enable this option to extract cookies from the WebView. This is useful for sites that require login or have region restrictions.',
         ),
       );
       expect(enStrings.sOpenWebview, equals('Open WebView'));
+      expect(enStrings.sViewCurrentCookies, equals('View current cookies'));
+      expect(enStrings.sCookiesListTitle, equals('Current Cookies'));
+      expect(enStrings.sNoCookiesFound, equals('No cookie files found'));
+      expect(enStrings.wvBrowseToGenerateCookies, equals('Browse to generate cookies and bypass anti-bots'));
+      expect(enStrings.wvNotSupported, equals('Webview is not supported on this platform'));
+      expect(enStrings.wvShortcuts, equals('Shortcuts'));
+      expect(enStrings.wvGo, equals('Go'));
+      expect(enStrings.wvBack, equals('Back'));
+      expect(enStrings.wvForward, equals('Forward'));
+      expect(enStrings.wvRefresh, equals('Refresh'));
+      expect(enStrings.dcActionUseCookies, equals('Use cookies'));
 
       // Spanish resolution (overlaying on top of base or direct)
       final esStrings = AppStringKey();
@@ -217,10 +239,21 @@ void main() {
       expect(
         esStrings.sCookiesFromWebviewDesc,
         equals(
-          'Habilite esta opción para extraer cookies del WebView. Esto es útil para sitios que requieren inicio de sesión o tienen restricciones regionales. Esto anula la opción de archivo de cookies.',
+          'Habilite esta opción para extraer cookies del WebView. Esto es útil para sitios que requieren inicio de sesión o tienen restricciones regionales.',
         ),
       );
       expect(esStrings.sOpenWebview, equals('Abrir WebView'));
+      expect(esStrings.sViewCurrentCookies, equals('Ver cookies actuales'));
+      expect(esStrings.sCookiesListTitle, equals('Cookies actuales'));
+      expect(esStrings.sNoCookiesFound, equals('No se encontraron archivos de cookies'));
+      expect(esStrings.wvBrowseToGenerateCookies, equals('Navegue para generar cookies y eludir sistemas anti-bot'));
+      expect(esStrings.wvNotSupported, equals('Webview no es compatible con esta plataforma'));
+      expect(esStrings.wvShortcuts, equals('Accesos directos'));
+      expect(esStrings.wvGo, equals('Ir'));
+      expect(esStrings.wvBack, equals('Atrás'));
+      expect(esStrings.wvForward, equals('Adelante'));
+      expect(esStrings.wvRefresh, equals('Recargar'));
+      expect(esStrings.dcActionUseCookies, equals('Usar cookies'));
     });
 
     test('3. updateFromJson with assertAllKeysPresent: true passes cleanly on en.jsonc', () async {

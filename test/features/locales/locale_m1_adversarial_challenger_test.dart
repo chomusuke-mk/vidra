@@ -27,7 +27,7 @@ void main() {
         await locale.updateFromJson({
           's_cookies_from_webview': 'Cookies from WebView',
           's_cookies_from_webview_desc':
-              'Enable this option to extract cookies from the WebView. This is useful for sites that require login or have region restrictions. This overrides the cookies file option.',
+              'Enable this option to extract cookies from the WebView. This is useful for sites that require login or have region restrictions.',
           's_open_webview': 'Open WebView',
         });
 
@@ -44,7 +44,7 @@ void main() {
         await locale.updateFromJson({
           's_cookies_from_webview': 'Cookies del WebView',
           's_cookies_from_webview_desc':
-              'Habilite esta opción para extraer cookies del WebView. Esto es útil para sitios que requieren inicio de sesión o tienen restricciones regionales. Esto anula la opción de archivo de cookies.',
+              'Habilite esta opción para extraer cookies del WebView. Esto es útil para sitios que requieren inicio de sesión o tienen restricciones regionales.',
           's_open_webview': 'Abrir WebView',
         });
 

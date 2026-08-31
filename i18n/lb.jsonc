@@ -60,8 +60,8 @@
   "s_cookies_desc": "Netscape formatéiert Datei fir Cookien aus ze liesen a Cookie Jar an ze dumpen",
   "s_cookies_from_browser": "Cookies vum Browser",
   "s_cookies_from_browser_desc": "Importéiert Cookien aus dem spezifizéierte Browser.",
-  "s_cookies_from_webview": "Cookies from WebView",
-  "s_cookies_from_webview_desc": "Enable this option to extract cookies from the WebView. This is useful for sites that require login or have region restrictions. This overrides the cookies file option.",
+  "s_cookies_from_webview": "Cookien aus WebView",
+  "s_cookies_from_webview_desc": "Aktivéiert dës Optioun fir Cookien aus der WebView ze extrahieren. Dëst ass nëtzlech fir Siten déi Login erfuerderen oder Regioun Restriktiounen hunn.",
   "s_open_webview": "Open WebView",
   "s_username": "Benotzernumm",
   "s_username_desc": "Benotzernumm fir Authentifikatioun.",
@@ -365,5 +365,16 @@
   "s_force_keyframes_at_cuts": "Force Keyframes bei Cuts",
   "s_force_keyframes_at_cuts_desc": "Force Keyframes bei Schnëtt beim Download / Spaltung / Ewechhuele vun Sektiounen.\nDëst ass lues wéinst der Noutwendegkeet vun engem Neikodéierung, awer de resultéierende Video kann manner Artefakte ronderëm d'Schnëtt hunn",
   "dc_action_open_url": "Open URL",
-  "dc_action_open_url_error": "Feeler beim Ouverture vun der URL."
+  "dc_action_open_url_error": "Feeler beim Ouverture vun der URL.",
+  "dc_action_use_cookies": "Benotzt Cookien",
+  "s_view_current_cookies": "Kuckt aktuell Cookien",
+  "s_cookies_list_title": "Aktuell Cookien",
+  "s_no_cookies_found": "Keng Cookie Dateien fonnt",
+  "wv_browse_to_generate_cookies": "Browst fir Cookien ze generéieren an Anti-Bots ëmzegoen",
+  "wv_not_supported": "Webview gëtt net op dëser Plattform ënnerstëtzt",
+  "wv_shortcuts": "Ofkiirzungen",
+  "wv_go": "Gitt",
+  "wv_back": "Zréck",
+  "wv_forward": "Forward",
+  "wv_refresh": "Erfrëschen"
 }

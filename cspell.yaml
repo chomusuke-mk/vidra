@@ -37,6 +37,7 @@ words:
   - bestaudio
   - bestvideo
   - BITCODE
+  - Bokmål
   - bugtracker
   - Buildables
   - buildlog
@@ -140,6 +141,7 @@ words:
   - INNOSETUP
   - Inspectable
   - instanciado
+  - Instanciar
   - Instantitation
   - Intercepción
   - ipad
@@ -205,6 +207,7 @@ words:
   - muxing
   - NCCREATE
   - NDEBUG
+  - netscape
   - NOMINMAX
   - nonnull
   - NONNULL

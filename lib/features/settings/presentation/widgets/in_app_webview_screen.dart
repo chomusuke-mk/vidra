@@ -1,17 +1,19 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:provider/provider.dart';
+import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'dart:math' as math;
 
 import '../../data/cookie_exporter.dart';
 
 /// Full-screen in-app WebView screen / dialog that enables users to browse,
-/// log in to authenticated websites, and capture/export session and persistent
-/// cookies to a standard Netscape cookie file.
+/// log in to authenticated websites, and automatically capture/export session and
+/// persistent cookies per-domain into the save directory.
 
 const _defaultSearchEngineURL = 'https://search.brave.com/search?q=';
 const _defaultSearchEngineName = 'Brave';
@@ -21,26 +23,33 @@ const _defaultSearchEngineIcon = FaIcon(
 );
 
 class InAppWebViewScreen extends StatefulWidget {
-  final String initialUrl;
-  final Widget? webView;
+  final String url;
+  final String saveCookiesPath;
 
   const InAppWebViewScreen({
     super.key,
-    this.initialUrl = _defaultSearchEngineURL,
-    this.webView,
+    required this.url,
+    required this.saveCookiesPath,
   });
 
+  /// Returns `true` if the current platform supports the In-App WebView, `false` otherwise.
+  static bool get isWebViewSupported =>
+      InAppWebViewPlatform.instance != null &&
+      (Platform.isAndroid || Platform.isIOS || Platform.isMacOS || Platform.isWindows);
+
   /// Displays the [InAppWebViewScreen] as a full-screen dialog route and
-  /// returns the absolute path of the generated cookie file, or `null` if dismissed.
+  /// returns the absolute path of the generated cookie file or directory, or `null` if dismissed.
   static Future<String?> show(
-    BuildContext context, {
-    String initialUrl = _defaultSearchEngineURL,
-    Widget? webView,
+    BuildContext context,
+    String saveCookiesPath, {
+    String? url,
   }) {
     return Navigator.of(context).push<String>(
       MaterialPageRoute(
-        builder: (_) =>
-            InAppWebViewScreen(initialUrl: initialUrl, webView: webView),
+        builder: (_) => InAppWebViewScreen(
+          url: url ?? _defaultSearchEngineURL,
+          saveCookiesPath: saveCookiesPath,
+        ),
         fullscreenDialog: true,
       ),
     );
@@ -55,58 +64,71 @@ class InAppWebViewScreen extends StatefulWidget {
     if (RegExp(r'^[a-zA-Z][a-zA-Z0-9+.-]*://').hasMatch(trimmed)) {
       return trimmed;
     }
-    return _defaultSearchEngineURL + Uri.encodeComponent(trimmed);
+    if (trimmed.contains('.') ||
+        trimmed.contains(':') ||
+        trimmed == 'localhost') {
+      return 'https://$trimmed';
+    }
+    return 'https://google.com/search?q=${Uri.encodeComponent(trimmed)}';
   }
 
   @override
   State<InAppWebViewScreen> createState() => _InAppWebViewScreenState();
 }
 
-class _InAppWebViewScreenState extends State<InAppWebViewScreen>
-    with SingleTickerProviderStateMixin {
+class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
   InAppWebViewController? _webViewController;
   late final TextEditingController _urlController;
   final TextEditingController _shortcutController = TextEditingController();
   final FocusNode _focusNodeURL = FocusNode();
   bool _alreadyFocusedURL = false;
-  late AnimationController _shakeController;
-  Timer? _shakeTimer;
 
   bool _isLoading = false;
   int _progress = 0;
   bool _canGoBack = false;
   bool _canGoForward = false;
-  bool _isCapturing = false;
+  bool _isSavingCookies = false;
+  bool _pendingSave = false;
+  WebUri? _pendingSaveUri;
+  String? _lastExtractedHost;
+  Timer? _periodicCookieSaveTimer;
 
   @override
   void initState() {
     super.initState();
     _urlController = TextEditingController(
-      text: InAppWebViewScreen.normalizeUrl(widget.initialUrl),
+      text: InAppWebViewScreen.normalizeUrl(widget.url),
     );
     _focusNodeURL.addListener(() {
       if (!_focusNodeURL.hasFocus) {
         _alreadyFocusedURL = false;
       }
     });
-    _shakeController = AnimationController(
-      duration: const Duration(milliseconds: 450),
-      vsync: this,
-    );
-    _shakeTimer = Timer.periodic(const Duration(seconds: 4), (timer) {
-      if (mounted && !_isCapturing) {
-        _shakeController.forward(from: 0.0);
+
+    _periodicCookieSaveTimer = Timer.periodic(const Duration(seconds: 5), (_) {
+      if (mounted && _webViewController != null) {
+        _extractAndSaveCookiesForCurrentDomain();
+      }
+    });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        try {
+          final locale = context.read<LocaleController>().localeStrings;
+          final toastMessage = locale.wvBrowseToGenerateCookies;
+          ToastUtils.showInfo(toastMessage);
+        } catch (_) {}
       }
     });
   }
 
   @override
   void dispose() {
+    _periodicCookieSaveTimer?.cancel();
+    _periodicCookieSaveTimer = null;
     _focusNodeURL.dispose();
     _urlController.dispose();
     _shortcutController.dispose();
-    _shakeTimer?.cancel();
-    _shakeController.dispose();
     super.dispose();
   }
 
@@ -118,70 +140,69 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen>
     );
   }
 
-  Future<void> _captureCookies() async {
-    if (_isCapturing) return;
-    setState(() => _isCapturing = true);
-
+  /// Automatically extracts and persists Netscape cookies for the current domain.
+  Future<void> _extractAndSaveCookiesForCurrentDomain([
+    WebUri? currentUri,
+  ]) async {
+    if (_isSavingCookies) {
+      _pendingSave = true;
+      _pendingSaveUri = currentUri;
+      return;
+    }
+    _isSavingCookies = true;
     try {
-      final WebUri? currentWebUri = await _webViewController?.getUrl();
+      final WebUri? currentWebUri =
+          currentUri ?? await _webViewController?.getUrl();
       final String fallbackUrl = InAppWebViewScreen.normalizeUrl(
         _urlController.text,
       );
       final Uri effectiveUri =
-          currentWebUri?.uriValue ?? Uri.parse(fallbackUrl);
+          currentWebUri?.uriValue ?? Uri.tryParse(fallbackUrl) ?? Uri();
 
-      final cookieManager = CookieManager.instance();
-      final List<Cookie> cookies = await cookieManager.getCookies(
-        url: WebUri(effectiveUri.toString()),
-      );
-
-      if (!mounted) return;
-
-      if (cookies.isEmpty) {
-        final host = effectiveUri.host.isNotEmpty
-            ? effectiveUri.host
-            : effectiveUri.toString();
-        debugPrint('No cookies found for $host');
-        ToastUtils.showError('No cookies found for $host');
-        return;
-      }
-
-      final defaultDomain = effectiveUri.host.isNotEmpty
+      final String host = effectiveUri.host.isNotEmpty
           ? effectiveUri.host
-          : 'localhost';
-      debugPrint(
-        'Capturing ${cookies.length} cookies for domain: $defaultDomain',
-      );
-      final String savedFilePath = await CookieExporter.saveCookiesToFile(
-        cookies,
-        defaultDomain: defaultDomain,
-      );
+          : (currentWebUri?.host ?? '');
 
-      if (!mounted) return;
+      if (host.isNotEmpty && host != 'about:blank') {
+        _lastExtractedHost = host;
 
-      Navigator.of(context).pop(savedFilePath);
+        final cookieManager = CookieManager.instance();
+        final List<Cookie> cookies = await cookieManager.getCookies(
+          url: WebUri(effectiveUri.toString()),
+        );
+
+        if (cookies.isNotEmpty && widget.saveCookiesPath.trim().isNotEmpty) {
+          debugPrint('Auto-saving ${cookies.length} cookies for domain: $host');
+          await CookieExporter.saveDomainCookies(
+            cookies,
+            domain: host,
+            directory: Directory(widget.saveCookiesPath),
+          );
+        } else {
+          debugPrint('No cookies found for domain: $host');
+        }
+      }
     } catch (e) {
-      if (!mounted) return;
-      ToastUtils.showError('Error capturing cookies: $e');
+      debugPrint('Error in auto-saving cookies: $e');
     } finally {
-      if (mounted) {
-        setState(() => _isCapturing = false);
+      _isSavingCookies = false;
+      if (_pendingSave) {
+        final nextUri = _pendingSaveUri;
+        _pendingSave = false;
+        _pendingSaveUri = null;
+        unawaited(_extractAndSaveCookiesForCurrentDomain(nextUri));
       }
     }
   }
 
   Widget _buildWebViewBody(BuildContext context) {
-    if (widget.webView != null) {
-      return widget.webView!;
-    }
-
     if (InAppWebViewPlatform.instance == null) {
       return const SizedBox.shrink();
     }
 
     return InAppWebView(
       initialUrlRequest: URLRequest(
-        url: WebUri(InAppWebViewScreen.normalizeUrl(widget.initialUrl)),
+        url: WebUri(InAppWebViewScreen.normalizeUrl(widget.url)),
       ),
       initialSettings: InAppWebViewSettings(
         javaScriptEnabled: true,
@@ -229,6 +250,11 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen>
             }
           });
         }
+        if (url != null &&
+            url.host.isNotEmpty &&
+            url.host != _lastExtractedHost) {
+          unawaited(_extractAndSaveCookiesForCurrentDomain(url));
+        }
       },
       onProgressChanged: (controller, progress) {
         if (mounted) {
@@ -251,6 +277,7 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen>
             }
           });
         }
+        await _extractAndSaveCookiesForCurrentDomain(url);
       },
       onUpdateVisitedHistory: (controller, url, isReload) async {
         final canBack = await controller.canGoBack();
@@ -264,6 +291,11 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen>
             }
           });
         }
+        if (url != null &&
+            url.host.isNotEmpty &&
+            url.host != _lastExtractedHost) {
+          unawaited(_extractAndSaveCookiesForCurrentDomain(url));
+        }
       },
     );
   }
@@ -272,241 +304,237 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen>
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final locale = context.read<LocaleController>().localeStrings;
 
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          tooltip: 'Close',
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        titleSpacing: 0,
-        title: Padding(
-          padding: const EdgeInsets.only(right: 8.0),
-          child: Container(
-            height: 40,
-            decoration: BoxDecoration(
-              color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: TextField(
-              controller: _urlController,
-              focusNode: _focusNodeURL,
-              keyboardType: TextInputType.url,
-              textInputAction: TextInputAction.go,
-              style: theme.textTheme.bodyMedium,
-              onSubmitted: _loadUrl,
-              canRequestFocus: true,
-              selectAllOnFocus: true,
-              autocorrect: false,
-              enableSuggestions: false,
-              onTap: () {
-                if (!_alreadyFocusedURL) {
-                  _alreadyFocusedURL = true;
-                  if (_urlController.text.isNotEmpty) {
-                    _urlController.selection = TextSelection(
-                      baseOffset: 0,
-                      extentOffset: _urlController.text.length,
-                    );
+    return PopScope(
+      canPop: true,
+      onPopInvokedWithResult: (didPop, result) {
+        unawaited(_extractAndSaveCookiesForCurrentDomain());
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.close),
+            tooltip: locale.sdClose,
+            onPressed: () async {
+              await _extractAndSaveCookiesForCurrentDomain();
+              if (context.mounted) {
+                Navigator.of(context).pop();
+              }
+            },
+          ),
+          titleSpacing: 0,
+          title: Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: Container(
+              height: 40,
+              decoration: BoxDecoration(
+                color: colorScheme.surfaceContainerHighest.withValues(
+                  alpha: 0.5,
+                ),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: TextField(
+                controller: _urlController,
+                focusNode: _focusNodeURL,
+                keyboardType: TextInputType.url,
+                textInputAction: TextInputAction.go,
+                style: theme.textTheme.bodyMedium,
+                onSubmitted: _loadUrl,
+                canRequestFocus: true,
+                selectAllOnFocus: true,
+                autocorrect: false,
+                enableSuggestions: false,
+                onTap: () {
+                  if (!_alreadyFocusedURL) {
+                    _alreadyFocusedURL = true;
+                    if (_urlController.text.isNotEmpty) {
+                      _urlController.selection = TextSelection(
+                        baseOffset: 0,
+                        extentOffset: _urlController.text.length,
+                      );
+                    }
                   }
-                }
-              },
-              onTapOutside: (_) {
-                _alreadyFocusedURL = false;
-                FocusScope.of(context).unfocus();
-              },
-              decoration: InputDecoration(
-                isDense: true,
-                hintText: 'https://...',
-                prefixIcon: const Icon(Icons.lock_outline, size: 18),
-                suffixIcon: IconButton(
-                  icon: const Icon(Icons.arrow_forward, size: 18),
-                  tooltip: 'Go',
-                  onPressed: () => _loadUrl(_urlController.text),
+                },
+                onTapOutside: (_) {
+                  _alreadyFocusedURL = false;
+                  FocusScope.of(context).unfocus();
+                },
+                decoration: InputDecoration(
+                  isDense: true,
+                  hintText: 'https://...',
+                  prefixIcon: const Icon(Icons.lock_outline, size: 18),
+                  suffixIcon: IconButton(
+                    icon: const Icon(Icons.arrow_forward, size: 18),
+                    tooltip: locale.wvGo,
+                    onPressed: () => _loadUrl(_urlController.text),
+                  ),
+                  border: InputBorder.none,
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 10,
+                  ),
                 ),
-                border: InputBorder.none,
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 10,
+              ),
+            ),
+          ),
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(3.0),
+            child: (_isLoading && _progress < 100)
+                ? LinearProgressIndicator(
+                    value: _progress / 100.0,
+                    minHeight: 3.0,
+                  )
+                : const SizedBox(height: 3.0),
+          ),
+        ),
+        body: _buildWebViewBody(context),
+        persistentFooterButtons: [
+          DropdownMenu<String>(
+            width: 155,
+            menuHeight: 260,
+            initialSelection: _defaultSearchEngineURL,
+            label: Text(
+              locale.wvShortcuts,
+              style: const TextStyle(fontSize: 12),
+            ),
+            enableFilter: true,
+            enableSearch: true,
+            textStyle: theme.textTheme.bodySmall?.copyWith(fontSize: 12),
+            trailingIcon: const Icon(Icons.arrow_drop_down, size: 18),
+            selectedTrailingIcon: const Icon(Icons.arrow_drop_up, size: 18),
+            inputDecorationTheme: InputDecorationTheme(
+              filled: true,
+              isDense: true,
+              constraints: const BoxConstraints(maxHeight: 34, minHeight: 34),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(17),
+                borderSide: BorderSide.none,
+              ),
+            ),
+            dropdownMenuEntries: [
+              DropdownMenuEntry<String>(
+                label: _defaultSearchEngineName,
+                value: _defaultSearchEngineURL,
+                trailingIcon: _defaultSearchEngineIcon,
+                style: MenuItemButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 12),
+                  visualDensity: VisualDensity.compact,
                 ),
               ),
+              DropdownMenuEntry<String>(
+                label: 'Youtube',
+                value: 'https://youtube.com',
+                trailingIcon: const FaIcon(
+                  FontAwesomeIcons.youtube,
+                  color: Colors.red,
+                ),
+                style: MenuItemButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 12),
+                  visualDensity: VisualDensity.compact,
+                ),
+              ),
+              DropdownMenuEntry<String>(
+                label: 'TikTok',
+                value: 'https://tiktok.com',
+                trailingIcon: const FaIcon(
+                  FontAwesomeIcons.tiktok,
+                  color: Colors.black,
+                ),
+                style: MenuItemButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 12),
+                  visualDensity: VisualDensity.compact,
+                ),
+              ),
+              DropdownMenuEntry<String>(
+                label: 'Twitch',
+                value: 'https://twitch.tv',
+                trailingIcon: const FaIcon(
+                  FontAwesomeIcons.twitch,
+                  color: Colors.purple,
+                ),
+                style: MenuItemButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 12),
+                  visualDensity: VisualDensity.compact,
+                ),
+              ),
+              DropdownMenuEntry<String>(
+                label: 'DailyMotion',
+                value: 'https://dailymotion.com',
+                trailingIcon: const FaIcon(
+                  FontAwesomeIcons.dailymotion,
+                  color: Colors.orange,
+                ),
+                style: MenuItemButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 12),
+                  visualDensity: VisualDensity.compact,
+                ),
+              ),
+              DropdownMenuEntry<String>(
+                label: 'Vimeo',
+                value: 'https://vimeo.com',
+                trailingIcon: const FaIcon(
+                  FontAwesomeIcons.vimeo,
+                  color: Colors.blueAccent,
+                ),
+                style: MenuItemButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 12),
+                  visualDensity: VisualDensity.compact,
+                ),
+              ),
+            ],
+            onSelected: (value) {
+              if (value != null) {
+                _shortcutController.text = value;
+                _loadUrl(value);
+              }
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.arrow_back),
+            tooltip: locale.wvBack,
+            onPressed: _canGoBack ? () => _webViewController?.goBack() : null,
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            style: IconButton.styleFrom(
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              padding: EdgeInsets.zero,
+              minimumSize: const Size(10, 10),
+              fixedSize: const Size(28, 28),
             ),
           ),
-        ),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(3.0),
-          child: (_isLoading && _progress < 100)
-              ? LinearProgressIndicator(
-                  value: _progress / 100.0,
-                  minHeight: 3.0,
-                )
-              : const SizedBox(height: 3.0),
-        ),
+          IconButton(
+            icon: const Icon(Icons.arrow_forward),
+            tooltip: locale.wvForward,
+            onPressed: _canGoForward
+                ? () => _webViewController?.goForward()
+                : null,
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            style: IconButton.styleFrom(
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              padding: EdgeInsets.zero,
+              minimumSize: const Size(10, 10),
+              fixedSize: const Size(28, 28),
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            tooltip: locale.wvRefresh,
+            onPressed: () => _webViewController?.reload(),
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            style: IconButton.styleFrom(
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              padding: EdgeInsets.zero,
+              minimumSize: const Size(10, 10),
+              fixedSize: const Size(28, 28),
+            ),
+          ),
+          const SizedBox(width: 4),
+        ],
       ),
-      body: _buildWebViewBody(context),
-      floatingActionButton: AnimatedBuilder(
-        animation: _shakeController,
-        builder: (context, child) {
-          // Genera 3 oscilaciones completas de izquierda a derecha (amplitud de 6px)
-          final double offset =
-              math.sin(_shakeController.value * math.pi * 6) * 6;
-
-          return Transform.translate(offset: Offset(offset, 0), child: child);
-        },
-        child: FilledButton.tonalIcon(
-          onPressed: _isCapturing ? null : _captureCookies,
-          icon: _isCapturing
-              ? const SizedBox(
-                  width: 16,
-                  height: 16,
-                  child: CircularProgressIndicator(strokeWidth: 2),
-                )
-              : const Icon(Icons.cookie),
-          label: const Text('Save Cookies'),
-        ),
-      ),
-      persistentFooterButtons: [
-        DropdownMenu<String>(
-          width: 155,
-          menuHeight: 260,
-          initialSelection: _defaultSearchEngineURL,
-          label: const Text('Shortcuts', style: TextStyle(fontSize: 12)),
-          enableFilter: true,
-          enableSearch: true,
-          textStyle: theme.textTheme.bodySmall?.copyWith(fontSize: 12),
-          trailingIcon: const Icon(Icons.arrow_drop_down, size: 18),
-          selectedTrailingIcon: const Icon(Icons.arrow_drop_up, size: 18),
-          inputDecorationTheme: InputDecorationTheme(
-            filled: true,
-            isDense: true,
-            constraints: const BoxConstraints(maxHeight: 34, minHeight: 34),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(17),
-              borderSide: BorderSide.none,
-            ),
-          ),
-          dropdownMenuEntries: [
-            DropdownMenuEntry<String>(
-              label: _defaultSearchEngineName,
-              value: _defaultSearchEngineURL,
-              trailingIcon: _defaultSearchEngineIcon,
-              style: MenuItemButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 12),
-                visualDensity: VisualDensity.compact,
-              ),
-            ),
-            DropdownMenuEntry<String>(
-              label: 'Youtube',
-              value: 'https://youtube.com',
-              trailingIcon: const FaIcon(
-                FontAwesomeIcons.youtube,
-                color: Colors.red,
-              ),
-              style: MenuItemButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 12),
-                visualDensity: VisualDensity.compact,
-              ),
-            ),
-            DropdownMenuEntry<String>(
-              label: 'TikTok',
-              value: 'https://tiktok.com',
-              trailingIcon: const FaIcon(
-                FontAwesomeIcons.tiktok,
-                color: Colors.black,
-              ),
-              style: MenuItemButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 12),
-                visualDensity: VisualDensity.compact,
-              ),
-            ),
-            DropdownMenuEntry<String>(
-              label: 'Twitch',
-              value: 'https://twitch.tv',
-              trailingIcon: const FaIcon(
-                FontAwesomeIcons.twitch,
-                color: Colors.purple,
-              ),
-              style: MenuItemButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 12),
-                visualDensity: VisualDensity.compact,
-              ),
-            ),
-            DropdownMenuEntry<String>(
-              label: 'DailyMotion',
-              value: 'https://dailymotion.com',
-              trailingIcon: const FaIcon(
-                FontAwesomeIcons.dailymotion,
-                color: Colors.orange,
-              ),
-              style: MenuItemButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 12),
-                visualDensity: VisualDensity.compact,
-              ),
-            ),
-            DropdownMenuEntry<String>(
-              label: 'Vimeo',
-              value: 'https://vimeo.com',
-              trailingIcon: const FaIcon(
-                FontAwesomeIcons.vimeo,
-                color: Colors.blueAccent,
-              ),
-              style: MenuItemButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 12),
-                visualDensity: VisualDensity.compact,
-              ),
-            ),
-          ],
-          onSelected: (value) {
-            if (value != null) {
-              _shortcutController.text = value;
-              _loadUrl(value);
-            }
-          },
-        ),
-        IconButton(
-          icon: const Icon(Icons.arrow_back),
-          tooltip: 'Back',
-          onPressed: _canGoBack ? () => _webViewController?.goBack() : null,
-          padding: EdgeInsets.zero,
-          constraints: const BoxConstraints(),
-          style: IconButton.styleFrom(
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            padding: EdgeInsets.zero,
-            minimumSize: const Size(10, 10),
-            fixedSize: const Size(28, 28),
-          ),
-        ),
-        IconButton(
-          icon: const Icon(Icons.arrow_forward),
-          tooltip: 'Forward',
-          onPressed: _canGoForward
-              ? () => _webViewController?.goForward()
-              : null,
-          padding: EdgeInsets.zero,
-          constraints: const BoxConstraints(),
-          style: IconButton.styleFrom(
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            padding: EdgeInsets.zero,
-            minimumSize: const Size(10, 10),
-            fixedSize: const Size(28, 28),
-          ),
-        ),
-        IconButton(
-          icon: const Icon(Icons.refresh),
-          tooltip: 'Refresh',
-          onPressed: () => _webViewController?.reload(),
-          padding: EdgeInsets.zero,
-          constraints: const BoxConstraints(),
-          style: IconButton.styleFrom(
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            padding: EdgeInsets.zero,
-            minimumSize: const Size(10, 10),
-            fixedSize: const Size(28, 28),
-          ),
-        ),
-        const SizedBox(width: 4),
-      ],
     );
   }
 }

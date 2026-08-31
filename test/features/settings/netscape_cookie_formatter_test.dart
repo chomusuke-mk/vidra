@@ -204,7 +204,7 @@ void main() {
       expect(cols2[0], equals('.fallback.org'));
     });
 
-    test('defaults empty or null path to /', () {
+    test('defaults empty or null path to / and ensures leading slash', () {
       final cookies = [
         Cookie(
           name: 'null_path',
@@ -218,19 +218,28 @@ void main() {
           domain: 'test.com',
           path: '   ',
         ),
+        Cookie(
+          name: 'unslashed_path',
+          value: 'val',
+          domain: 'test.com',
+          path: 'custom/api',
+        ),
       ];
 
       final result = NetscapeCookieFormatter.format(
         cookies,
-        defaultDomain: 'test.com',
+        defaultDomain: 'https://test.com:8443/some/page?q=1',
       );
 
       final lines = result.trim().split('\n');
       final cols1 = lines[4].split('\t');
       final cols2 = lines[5].split('\t');
+      final cols3 = lines[6].split('\t');
 
+      expect(cols1[0], equals('.test.com'));
       expect(cols1[2], equals('/'));
       expect(cols2[2], equals('/'));
+      expect(cols3[2], equals('/custom/api'));
     });
 
     test('sanitizes tab, carriage return, and newline characters from name and value', () {

@@ -18,6 +18,7 @@ class LocaleParams(TypedDict):
     output_file_hash: Path
     locale: str
 
+
 CURRENT_DIR = Path(__file__).resolve().parent
 ROOT_DIR = Path(__file__).resolve().parents[1]
 BASE_LOCALE = "en"
@@ -25,6 +26,20 @@ LOCALES_DIR = ROOT_DIR / "i18n"
 HASHES_DIR = CURRENT_DIR / "hashes"
 BASE_LOCALE_FILE = LOCALES_DIR / f"{BASE_LOCALE}.jsonc"
 BASE_LOCALE_HASH = HASHES_DIR / f"{BASE_LOCALE}.hash.json"
+
+# --- NUEVO: Diccionario para corregir discrepancias con Google Translate ---
+# Google usa ciertas variantes BCP-47 específicas.
+# Si detectas otro idioma que falla, agrégalo aquí.
+GOOGLE_LANG_MAP = {
+    "zh": "zh-CN",  # Chino -> Chino Simplificado
+    "he": "iw",  # Hebreo -> Google históricamente usa 'iw'
+    "jv": "jw",  # Javanés -> Google usa 'jw'
+    "nb": "no",  # Noruego Bokmål -> Noruego
+    "nn": "no",  # Noruego Nynorsk -> Noruego
+    "tw": "ak",  # Twi -> Akan
+}
+# --------------------------------------------------------------------------
+
 LANGS = [
     "aa",
     "ab",
@@ -220,7 +235,7 @@ LOCALES: list[LocaleParams] = [
         "locale": code,
     }
     for code in LANGS
-    if code != BASE_LOCALE  # Excluir el idioma base de la lista de traducciones
+    if code != BASE_LOCALE
 ]
 
 os.makedirs(HASHES_DIR, exist_ok=True)
@@ -251,7 +266,6 @@ with (
 def translate_lang(
     locale_params: LocaleParams, stop_event: threading.Event, position: int
 ) -> None:
-    # Si ya se pidió parar antes de iniciar el hilo, abortar
     if stop_event.is_set():
         return
 
@@ -263,8 +277,10 @@ def translate_lang(
         )
         return
 
-    input_content = jsonc.load(locale_params["input_file"].open(encoding="utf-8"))
-    input_hash = json.load(locale_params["input_file_hash"].open(encoding="utf-8"))
+    with locale_params["input_file"].open(encoding="utf-8") as f:
+        input_content = jsonc.load(f)
+    with locale_params["input_file_hash"].open(encoding="utf-8") as f:
+        input_hash = json.load(f)
 
     if not isinstance(input_content, dict) or not isinstance(input_hash, dict):
         tqdm.write("Error: Input content or hash is not a dictionary.")
@@ -275,14 +291,14 @@ def translate_lang(
 
     # Leer output o inicializar
     if os.path.exists(locale_params["output_file"]):
-        output_content = jsonc.load(locale_params["output_file"].open(encoding="utf-8"))
+        with locale_params["output_file"].open(encoding="utf-8") as f:
+            output_content = jsonc.load(f)
     else:
         output_content = {}
 
     if os.path.exists(locale_params["output_file_hash"]):
-        output_hash = json.load(
-            locale_params["output_file_hash"].open(encoding="utf-8")
-        )
+        with locale_params["output_file_hash"].open(encoding="utf-8") as f:
+            output_hash = json.load(f)
     else:
         output_hash = {}
 
@@ -290,17 +306,27 @@ def translate_lang(
         tqdm.write("Error: Output content or hash is not a dictionary.")
         return
 
+    original_locale = locale_params["locale"]
+    target_lang = GOOGLE_LANG_MAP.get(original_locale, original_locale)
+
+    try:
+        # Si Google no soporta el idioma (ej. "ch" chamorro), esto falla antes de empezar.
+        translator = GoogleTranslator(source="en", target=target_lang)
+    except Exception as e:
+        tqdm.write(
+            f"⚠️ [{original_locale.upper()}] Omitido: Idioma '{target_lang}' no soportado o error de red ({e})"
+        )
+        return  # Regresamos aquí. NO fallará el hilo principal, solo omitirá este idioma.
+
     # Envolvemos el bucle en try-finally para que GUARDE ESTADO siempre al salir
     try:
-        translator = GoogleTranslator(source="en", target=locale_params["locale"])
         for key, value in tqdm(
             input_hash.items(),
-            desc=f"[{locale_params['locale'].upper()}]",
+            desc=f"[{original_locale.upper()}]",
             unit="key",
             position=position,
             leave=False,
         ):
-            # Comprobar señal de interrupción en cada iteración
             if stop_event.is_set():
                 break
 
@@ -311,13 +337,8 @@ def translate_lang(
                     output_content[key] = translated_value
                     output_hash[key] = value
                 except Exception as e:
-                    # Usar tqdm.write para no romper visualmente las barras
-                    tqdm.write(
-                        f"Error translating '{key}' to {locale_params['locale']}: {e}"
-                    )
+                    tqdm.write(f"Error translating '{key}' to {original_locale}: {e}")
     finally:
-        # ¡ESTE BLOQUE SE EJECUTA SIEMPRE!
-        # Garantiza que el progreso se guarde al salir, aunque sea por interrupción
         with locale_params["output_file_hash"].open("w", encoding="utf-8") as f_hash:
             json.dump(output_hash, f_hash, ensure_ascii=False, indent=2)
 
@@ -326,7 +347,6 @@ def translate_lang(
 
 
 if __name__ == "__main__":
-    # Evento seguro para todos los hilos
     stop_event = threading.Event()
     max_workers = 6
 
@@ -336,18 +356,16 @@ if __name__ == "__main__":
     try:
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = []
-
-            # Enviar todos los idiomas al pool de hilos
             for i, locale_param in enumerate(LOCALES):
-                # El parámetro "i % max_workers" le da a cada hilo una línea fija en la consola para tqdm
                 futures.append(
                     executor.submit(
                         translate_lang, locale_param, stop_event, i % max_workers
                     )
                 )
 
-            # Esperar a que todos terminen
             for future in as_completed(futures):
+                # Ahora future.result() no colapsará si un idioma falla,
+                # porque lo estamos atrapando y retornando de forma segura.
                 future.result()
 
     except KeyboardInterrupt:

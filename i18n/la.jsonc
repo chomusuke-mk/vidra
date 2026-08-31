@@ -60,8 +60,8 @@
   "s_cookies_desc": "File formatae Netscape crustulum e et TUBER crustulum hydria in legere",
   "s_cookies_from_browser": "Crustulae ex Pasco",
   "s_cookies_from_browser_desc": "Crustula ex certo navigatro importat.",
-  "s_cookies_from_webview": "Cookies from WebView",
-  "s_cookies_from_webview_desc": "Enable this option to extract cookies from the WebView. This is useful for sites that require login or have region restrictions. This overrides the cookies file option.",
+  "s_cookies_from_webview": "Crustulae ex WebView",
+  "s_cookies_from_webview_desc": "Hanc optionem da crustulas ex WebView extrahere. Hoc est utile pro sitis qui login vel requirunt restrictiones regionis.",
   "s_open_webview": "Open WebView",
   "s_username": "Username",
   "s_username_desc": "Usoris authenticas.",
@@ -365,5 +365,16 @@
   "s_force_keyframes_at_cuts": "Force Keyframes at Cuts",
   "s_force_keyframes_at_cuts_desc": "Vis keyframes in secet cum sectiones downloading/scindendo/removendo.\nHoc lentum est propter re-encode egentem, sed video consequens fortasse habere artificia pauciora circa incisiones",
   "dc_action_open_url": "Open URL",
-  "dc_action_open_url_error": "Error aperiens URL."
+  "dc_action_open_url_error": "Error aperiens URL.",
+  "dc_action_use_cookies": "Utere crustula",
+  "s_cookies_list_title": "Current Crustulae",
+  "s_no_cookies_found": "Nulla crustulum files found",
+  "wv_browse_to_generate_cookies": "Pasco generare crustula et bypass anti-bots",
+  "wv_not_supported": "Webview non valet in hoc platform",
+  "wv_shortcuts": "Compendia",
+  "wv_go": "Go",
+  "wv_back": "Retro",
+  "wv_forward": "Deinceps",
+  "wv_refresh": "Renovare",
+  "s_view_current_cookies": "View current crustula"
 }

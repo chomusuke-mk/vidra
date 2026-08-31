@@ -100,10 +100,21 @@ void main() {
       expect(
         appStrings.sCookiesFromWebviewDesc,
         equals(
-          'Enable this option to extract cookies from the WebView. This is useful for sites that require login or have region restrictions. This overrides the cookies file option.',
+          'Enable this option to extract cookies from the WebView. This is useful for sites that require login or have region restrictions.',
         ),
       );
       expect(appStrings.sOpenWebview, equals('Open WebView'));
+      expect(appStrings.sViewCurrentCookies, equals('View current cookies'));
+      expect(appStrings.sCookiesListTitle, equals('Current Cookies'));
+      expect(appStrings.sNoCookiesFound, equals('No cookie files found'));
+      expect(appStrings.wvBrowseToGenerateCookies, equals('Browse to generate cookies and bypass anti-bots'));
+      expect(appStrings.wvNotSupported, equals('Webview is not supported on this platform'));
+      expect(appStrings.wvShortcuts, equals('Shortcuts'));
+      expect(appStrings.wvGo, equals('Go'));
+      expect(appStrings.wvBack, equals('Back'));
+      expect(appStrings.wvForward, equals('Forward'));
+      expect(appStrings.wvRefresh, equals('Refresh'));
+      expect(appStrings.dcActionUseCookies, equals('Use cookies'));
 
       // Verify es.jsonc
       final esFile = File('i18n/es.jsonc');
@@ -198,10 +209,21 @@ void main() {
       expect(
         esStrings.sCookiesFromWebviewDesc,
         equals(
-          'Habilite esta opción para extraer cookies del WebView. Esto es útil para sitios que requieren inicio de sesión o tienen restricciones regionales. Esto anula la opción de archivo de cookies.',
+          'Habilite esta opción para extraer cookies del WebView. Esto es útil para sitios que requieren inicio de sesión o tienen restricciones regionales.',
         ),
       );
       expect(esStrings.sOpenWebview, equals('Abrir WebView'));
+      expect(esStrings.sViewCurrentCookies, equals('Ver cookies actuales'));
+      expect(esStrings.sCookiesListTitle, equals('Cookies actuales'));
+      expect(esStrings.sNoCookiesFound, equals('No se encontraron archivos de cookies'));
+      expect(esStrings.wvBrowseToGenerateCookies, equals('Navegue para generar cookies y eludir sistemas anti-bot'));
+      expect(esStrings.wvNotSupported, equals('Webview no es compatible con esta plataforma'));
+      expect(esStrings.wvShortcuts, equals('Accesos directos'));
+      expect(esStrings.wvGo, equals('Ir'));
+      expect(esStrings.wvBack, equals('Atrás'));
+      expect(esStrings.wvForward, equals('Adelante'));
+      expect(esStrings.wvRefresh, equals('Recargar'));
+      expect(esStrings.dcActionUseCookies, equals('Usar cookies'));
     });
   });
 }

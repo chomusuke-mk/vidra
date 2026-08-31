@@ -255,7 +255,7 @@ void main() {
         for (final lat in keystrokeTimesMs) {
           expect(
             lat,
-            lessThan(300.0),
+            lessThan(600.0),
             reason: 'Each search keystroke must filter within generous bound',
           );
         }

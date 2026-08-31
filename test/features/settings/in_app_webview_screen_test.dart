@@ -37,7 +37,7 @@ void main() {
   });
 
   group('InAppWebViewScreen UI Elements', () {
-    testWidgets('renders top bar with address bar, controls and capture button',
+    testWidgets('renders top bar with address bar, controls and shortcuts footer',
         (WidgetTester tester) async {
       await tester.pumpWidget(
         const MaterialApp(
@@ -51,8 +51,11 @@ void main() {
       // Verify Close button
       expect(find.byIcon(Icons.close), findsOneWidget);
 
-      // Verify TextField exists with normalized initial URL
-      final textFieldFinder = find.byType(TextField);
+      // Verify TextField exists with normalized initial URL in AppBar
+      final textFieldFinder = find.descendant(
+        of: find.byType(AppBar),
+        matching: find.byType(TextField),
+      );
       expect(textFieldFinder, findsOneWidget);
       final textField = tester.widget<TextField>(textFieldFinder);
       expect(textField.controller?.text, equals('https://youtube.com'));
@@ -62,9 +65,12 @@ void main() {
       expect(find.byIcon(Icons.arrow_forward), findsNWidgets(2)); // 1 in actions, 1 as Go button in address bar
       expect(find.byIcon(Icons.refresh), findsOneWidget);
 
-      // Verify Capture Cookies button
-      expect(find.text('Capture'), findsOneWidget);
-      expect(find.byIcon(Icons.cookie), findsOneWidget);
+      // Verify Shortcuts menu
+      expect(find.text('Shortcuts'), findsWidgets);
+
+      // Verify manual Save Cookies button is removed (automatic capture)
+      expect(find.text('Save Cookies'), findsNothing);
+      expect(find.text('Capture'), findsNothing);
 
       // Verify Body
       expect(find.byKey(const Key('mock_webview')), findsOneWidget);
@@ -81,7 +87,10 @@ void main() {
         ),
       );
 
-      final textFieldFinder = find.byType(TextField);
+      final textFieldFinder = find.descendant(
+        of: find.byType(AppBar),
+        matching: find.byType(TextField),
+      );
       await tester.enterText(textFieldFinder, 'vimeo.com/watch');
       await tester.pump();
 

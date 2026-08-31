@@ -134,5 +134,155 @@ void main() {
         ),
       );
     });
+
+    group('sanitizeDomainFileName', () {
+      test('sanitizes standard domains', () {
+        expect(
+          CookieExporter.sanitizeDomainFileName('youtube.com'),
+          equals('youtube.com_cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('.youtube.com'),
+          equals('youtube.com_cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('https://www.google.com/path'),
+          equals('www.google.com_cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('http://sub.domain.org:8080/foo'),
+          equals('sub.domain.org_cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('youtube.com/watch?v=123'),
+          equals('youtube.com_cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('m.tiktok.com/@creator/video/987'),
+          equals('m.tiktok.com_cookies.txt'),
+        );
+      });
+
+      test('sanitizes illegal file name characters and empty inputs', () {
+        expect(
+          CookieExporter.sanitizeDomainFileName(''),
+          equals('default_cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('   '),
+          equals('default_cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('domain*bad?chars<>|'),
+          equals('domain_bad_chars____cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('host:8080'),
+          equals('host_cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('https://example.com:8443/auth?user=1#hash'),
+          equals('example.com_cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('CON'),
+          equals('con_domain_cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('aux'),
+          equals('aux_domain_cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('NUL'),
+          equals('nul_domain_cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('COM1'),
+          equals('com1_domain_cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('../../etc/passwd'),
+          equals('etc_passwd_cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('xn--d1acj3b.ru'),
+          equals('xn--d1acj3b.ru_cookies.txt'),
+        );
+        expect(
+          CookieExporter.sanitizeDomainFileName('...'),
+          equals('default_cookies.txt'),
+        );
+      });
+    });
+
+    group('saveDomainCookies', () {
+      test('saves cookies per-domain into vidra_cookies directory', () async {
+        final cookies = [
+          Cookie(
+            name: 'LOGIN_INFO',
+            value: 'secret123',
+            domain: 'instagram.com',
+          ),
+        ];
+
+        final filePath = await CookieExporter.saveDomainCookies(
+          cookies,
+          domain: 'instagram.com',
+          targetDirectory: tempDir,
+        );
+
+        expect(p.basename(filePath), equals('instagram.com_cookies.txt'));
+        final savedFile = File(filePath);
+        expect(await savedFile.exists(), isTrue);
+
+        final content = await savedFile.readAsString();
+        expect(content, contains('instagram.com'));
+        expect(content, contains('LOGIN_INFO'));
+      });
+    });
+
+    group('getSavedCookieFiles', () {
+      test('returns saved .txt files sorted by last modified descending', () async {
+        // Create multiple cookie files with slight delay
+        final file1 = File(p.join(tempDir.path, 'a_cookies.txt'));
+        await file1.writeAsString('cookie A');
+
+        await Future.delayed(const Duration(milliseconds: 20));
+        final file2 = File(p.join(tempDir.path, 'b_cookies.txt'));
+        await file2.writeAsString('cookie B');
+
+        // Create a non-txt file that should be ignored
+        final fileIgnored = File(p.join(tempDir.path, 'ignored.dat'));
+        await fileIgnored.writeAsString('ignored');
+
+        final files = await CookieExporter.getSavedCookieFiles(
+          targetDirectory: tempDir,
+        );
+
+        expect(files.length, equals(2));
+        expect(files.first.path, equals(file2.path));
+        expect(files.last.path, equals(file1.path));
+      });
+
+      test('safely resolves parent directory when a legacy .txt file path is provided', () async {
+        final legacyFile = File(p.join(tempDir.path, 'legacy_cookies.txt'));
+        await legacyFile.writeAsString('legacy');
+
+        final files = CookieExporter.getSavedCookieFilesSync(
+          targetDirectory: Directory(legacyFile.path),
+        );
+
+        expect(files.isNotEmpty, isTrue);
+        expect(files.any((f) => f.path.endsWith('legacy_cookies.txt')), isTrue);
+      });
+
+      test('returns empty list if directory is empty or does not exist', () async {
+        final emptySubdir = Directory(p.join(tempDir.path, 'non_existent_dir'));
+        final files = await CookieExporter.getSavedCookieFiles(
+          targetDirectory: emptySubdir,
+        );
+        expect(files, isEmpty);
+      });
+    });
   });
 }

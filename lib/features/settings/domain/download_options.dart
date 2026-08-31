@@ -228,7 +228,7 @@ class DownloadOptions {
     this.cookiesFromBrowser,
     this.disableCookiesFromBrowser = true, // Python: false
     this.cookiesFromWebview,
-    this.disableCookiesFromWebview = true, // Python: false
+    this.disableCookiesFromWebview = false, // Python: true
     this.username = '',
     this.password = '',
     this.twofactor = '',

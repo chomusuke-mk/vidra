@@ -281,6 +281,8 @@ class AppStringKey {
   String get dcActionDelete => _cadenasLocalizadas['dc_action_delete'] ?? '';
   String get dcActionOpenURL => _cadenasLocalizadas['dc_action_open_url'] ?? '';
   String get dcActionOpenURLError => _cadenasLocalizadas['dc_action_open_url_error'] ?? '';
+  String get dcActionUseCookies =>
+      _cadenasLocalizadas['dc_action_use_cookies'] ?? '';
   // Strings de la pantalla de settings, prefijo s  ----------------
   String get sTitle => _cadenasLocalizadas['s_title'] ?? '';
   String get sGeneral => _cadenasLocalizadas['s_general'] ?? '';
@@ -386,6 +388,21 @@ class AppStringKey {
   String get sCookiesFromWebviewDesc =>
       _cadenasLocalizadas['s_cookies_from_webview_desc'] ?? '';
   String get sOpenWebview => _cadenasLocalizadas['s_open_webview'] ?? '';
+  String get sViewCurrentCookies =>
+      _cadenasLocalizadas['s_view_current_cookies'] ?? '';
+  String get sCookiesListTitle =>
+      _cadenasLocalizadas['s_cookies_list_title'] ?? '';
+  String get sNoCookiesFound =>
+      _cadenasLocalizadas['s_no_cookies_found'] ?? '';
+  String get wvBrowseToGenerateCookies =>
+      _cadenasLocalizadas['wv_browse_to_generate_cookies'] ?? '';
+  String get wvNotSupported =>
+      _cadenasLocalizadas['wv_not_supported'] ?? '';
+  String get wvShortcuts => _cadenasLocalizadas['wv_shortcuts'] ?? '';
+  String get wvGo => _cadenasLocalizadas['wv_go'] ?? '';
+  String get wvBack => _cadenasLocalizadas['wv_back'] ?? '';
+  String get wvForward => _cadenasLocalizadas['wv_forward'] ?? '';
+  String get wvRefresh => _cadenasLocalizadas['wv_refresh'] ?? '';
   String get sUsername => _cadenasLocalizadas['s_username'] ?? '';
   String get sUsernameDesc => _cadenasLocalizadas['s_username_desc'] ?? '';
   String get sPassword => _cadenasLocalizadas['s_password'] ?? '';
@@ -782,6 +799,7 @@ class AppStringKey {
     'dc_action_delete',
     'dc_action_open_url',
     'dc_action_open_url_error',
+    'dc_action_use_cookies',
     // Pantalla Settings -------------------------------- s_
     's_title',
     's_general',
@@ -861,6 +879,16 @@ class AppStringKey {
     's_cookies_from_webview',
     's_cookies_from_webview_desc',
     's_open_webview',
+    's_view_current_cookies',
+    's_cookies_list_title',
+    's_no_cookies_found',
+    'wv_browse_to_generate_cookies',
+    'wv_not_supported',
+    'wv_shortcuts',
+    'wv_go',
+    'wv_back',
+    'wv_forward',
+    'wv_refresh',
     's_username',
     's_username_desc',
     's_password',

@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:jsonc/jsonc.dart';
+import 'package:path/path.dart' as p;
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vidra/features/locales/data/locale_repository.dart';
@@ -9,7 +11,6 @@ import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/settings/data/settings_repository.dart';
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/features/settings/presentation/settings_screen.dart';
-import 'package:vidra/features/settings/presentation/widgets/in_app_webview_screen.dart';
 import 'package:vidra/shared/widgets/lazy_text_field.dart';
 import 'package:vidra/shared/widgets/settings_row.dart';
 
@@ -44,8 +45,18 @@ void main() {
   late SettingsController settingsController;
   late MockLocaleRepository mockLocaleRepo;
   late LocaleController localeController;
+  late Directory tempDir;
 
   setUp(() async {
+    tempDir = Directory.systemTemp.createTempSync('vidra_test_cookies_');
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(
+      const MethodChannel('plugins.flutter.io/path_provider'),
+      (MethodCall methodCall) async {
+        return tempDir.path;
+      },
+    );
+
     SharedPreferences.setMockInitialValues({'has_seen_settings_tutorial': true});
     prefs = await SharedPreferences.getInstance();
     await prefs.setBool('has_seen_settings_tutorial', true);
@@ -55,6 +66,12 @@ void main() {
     mockLocaleRepo = MockLocaleRepository();
     localeController = LocaleController(mockLocaleRepo, 'en');
     await localeController.whenReady;
+  });
+
+  tearDown(() {
+    if (tempDir.existsSync()) {
+      tempDir.deleteSync(recursive: true);
+    }
   });
 
   Widget createSettingsApp({Locale? locale}) {
@@ -163,7 +180,7 @@ void main() {
       );
     });
 
-    testWidgets('Toggling Switch ON sets disableCookiesFromWebview: false and renders action button and text field', (
+    testWidgets('Toggling Switch ON sets disableCookiesFromWebview: false and renders action buttons without LazyTextField', (
       WidgetTester tester,
     ) async {
       configureViewport(tester);
@@ -194,24 +211,26 @@ void main() {
       final updatedSwitch = tester.widget<Switch>(switchFinder);
       expect(updatedSwitch.value, isTrue);
 
-      // Verify Action Button with localized label and icon
+      // Verify Action Buttons with localized labels and icons
       final openButtonFinder = find.text(localeController.localeStrings.sOpenWebview);
       expect(openButtonFinder, findsOneWidget);
       expect(find.byIcon(Icons.open_in_browser), findsOneWidget);
 
-      // Verify LazyTextField is rendered with sNotConfigured hint and empty value
-      final lazyTextFieldFinder = find.descendant(
-        of: settingRowFinder,
-        matching: find.byType(LazyTextField),
+      final viewCookiesButtonFinder = find.text(localeController.localeStrings.sViewCurrentCookies);
+      expect(viewCookiesButtonFinder, findsOneWidget);
+      expect(find.byIcon(Icons.cookie_outlined), findsOneWidget);
+
+      // Verify LazyTextField is NOT rendered (replaced by View current cookies)
+      expect(
+        find.descendant(
+          of: settingRowFinder,
+          matching: find.byType(LazyTextField),
+        ),
+        findsNothing,
       );
-      expect(lazyTextFieldFinder, findsOneWidget);
-      final lazyTextField = tester.widget<LazyTextField>(lazyTextFieldFinder);
-      expect(lazyTextField.value, equals(''));
-      expect(lazyTextField.hint, equals(localeController.localeStrings.sNotConfigured));
-      expect(lazyTextField.readOnly, isTrue);
     });
 
-    testWidgets('Toggling Switch back OFF hides action button and text field and sets disableCookiesFromWebview: true', (
+    testWidgets('Toggling Switch back OFF hides action buttons and sets disableCookiesFromWebview: true', (
       WidgetTester tester,
     ) async {
       configureViewport(tester);
@@ -236,6 +255,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(settingsController.downloadOptions.disableCookiesFromWebview, isFalse);
       expect(find.text(localeController.localeStrings.sOpenWebview), findsOneWidget);
+      expect(find.text(localeController.localeStrings.sViewCurrentCookies), findsOneWidget);
 
       // Toggle OFF
       await tester.tap(switchFinder);
@@ -244,24 +264,22 @@ void main() {
 
       // Verify child widgets are hidden
       expect(find.text(localeController.localeStrings.sOpenWebview), findsNothing);
+      expect(find.text(localeController.localeStrings.sViewCurrentCookies), findsNothing);
       expect(find.byIcon(Icons.open_in_browser), findsNothing);
-      expect(
-        find.descendant(
-          of: settingRowFinder,
-          matching: find.byType(LazyTextField),
-        ),
-        findsNothing,
-      );
+      expect(find.byIcon(Icons.cookie_outlined), findsNothing);
     });
 
-    testWidgets('When cookiesFromWebview has a path value, LazyTextField displays that path', (
+    testWidgets('Tapping View current cookies button opens cookie viewer modal with empty state or cookie list', (
       WidgetTester tester,
     ) async {
       configureViewport(tester);
-      const sampleCookiePath = '/data/user/0/com.vidra/app_flutter/cookies.txt';
+      final vidraCookiesDir = Directory(p.join(tempDir.path, 'vidra_cookies'));
+      if (!vidraCookiesDir.existsSync()) {
+        vidraCookiesDir.createSync(recursive: true);
+      }
       settingsController.updateDownloadOptions(
         settingsController.downloadOptions.copyWith(
-          cookiesFromWebview: sampleCookiePath,
+          cookiesFromWebview: vidraCookiesDir.path,
           disableCookiesFromWebview: false,
         ),
       );
@@ -273,19 +291,17 @@ void main() {
       await tester.tap(find.byIcon(Icons.wifi).first);
       await tester.pumpAndSettle();
 
-      final settingRowFinder = find.ancestor(
-        of: find.text(localeController.localeStrings.sCookiesFromWebview),
-        matching: find.byType(SettingRow),
-      );
+      final viewCookiesButton = find.text(localeController.localeStrings.sViewCurrentCookies);
+      expect(viewCookiesButton, findsOneWidget);
 
-      final lazyTextFieldFinder = find.descendant(
-        of: settingRowFinder,
-        matching: find.byType(LazyTextField),
-      );
-      expect(lazyTextFieldFinder, findsOneWidget);
-      final lazyTextField = tester.widget<LazyTextField>(lazyTextFieldFinder);
-      expect(lazyTextField.value, equals(sampleCookiePath));
-      expect(find.text(sampleCookiePath), findsOneWidget);
+      // Tap View current cookies button
+      await tester.tap(viewCookiesButton);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      await tester.pumpAndSettle();
+
+      // Verify dialog is displayed with title
+      expect(find.text(localeController.localeStrings.sCookiesListTitle), findsOneWidget);
     });
 
     testWidgets('Zero hardcoded strings: Verify complete localization under Spanish (es)', (
@@ -314,11 +330,12 @@ void main() {
       expect(esStrings.sCookiesFromWebview.isNotEmpty, isTrue);
       expect(esStrings.sCookiesFromWebviewDesc.isNotEmpty, isTrue);
       expect(esStrings.sOpenWebview.isNotEmpty, isTrue);
-      expect(esStrings.sNotConfigured.isNotEmpty, isTrue);
+      expect(esStrings.sViewCurrentCookies.isNotEmpty, isTrue);
 
       expect(find.text(esStrings.sCookiesFromWebview), findsOneWidget);
       expect(find.text(esStrings.sCookiesFromWebviewDesc), findsOneWidget);
       expect(find.text(esStrings.sOpenWebview), findsOneWidget);
+      expect(find.text(esStrings.sViewCurrentCookies), findsOneWidget);
 
       // Verify no leftover uppercase hardcoded prototype string
       expect(find.text('COOKIES FROM WEBVIEW'), findsNothing);
@@ -354,54 +371,12 @@ void main() {
       expect(find.text(localeController.localeStrings.sNetwork), findsWidgets);
     });
 
-    testWidgets('Tapping Open WebView button pushes InAppWebViewScreen and updates path when popped with result', (
-      WidgetTester tester,
-    ) async {
-      configureViewport(tester);
-      settingsController.updateDownloadOptions(
-        settingsController.downloadOptions.copyWith(
-          disableCookiesFromWebview: false,
-        ),
-      );
-
-      await tester.pumpWidget(createSettingsApp());
-      await tester.pumpAndSettle();
-
-      // Navigate to Network tab
-      await tester.tap(find.byIcon(Icons.wifi).first);
-      await tester.pumpAndSettle();
-
-      final openButtonFinder = find.text(localeController.localeStrings.sOpenWebview);
-      expect(openButtonFinder, findsOneWidget);
-
-      // Tap Open WebView button
-      await tester.tap(openButtonFinder);
-      await tester.pumpAndSettle();
-
-      // Verify InAppWebViewScreen is shown
-      expect(find.byType(InAppWebViewScreen), findsOneWidget);
-
-      // Simulate capturing/returning a cookies file path by popping with result
-      const exportedPath = '/app/storage/youtube_cookies.txt';
-      final navContext = tester.element(find.byType(InAppWebViewScreen));
-      Navigator.of(navContext).pop(exportedPath);
-      await tester.pumpAndSettle();
-
-      // Verify returned to SettingsScreen and controller updated
-      expect(find.byType(InAppWebViewScreen), findsNothing);
-      expect(settingsController.downloadOptions.cookiesFromWebview, equals(exportedPath));
-      expect(settingsController.downloadOptions.disableCookiesFromWebview, isFalse);
-      expect(find.text(exportedPath), findsOneWidget);
-    });
-
     testWidgets('Category navigation preserves WebView cookies state across tab transitions', (
       WidgetTester tester,
     ) async {
       configureViewport(tester);
-      const customPath = '/tmp/persistent_session_cookies.txt';
       settingsController.updateDownloadOptions(
         settingsController.downloadOptions.copyWith(
-          cookiesFromWebview: customPath,
           disableCookiesFromWebview: false,
         ),
       );
@@ -413,26 +388,25 @@ void main() {
       await tester.tap(find.byIcon(Icons.wifi).first);
       await tester.pumpAndSettle();
 
-      expect(find.text(customPath), findsOneWidget);
+      expect(find.text(localeController.localeStrings.sOpenWebview), findsOneWidget);
 
       // Switch to General tab
       await tester.tap(find.byIcon(Icons.settings).last);
       await tester.pumpAndSettle();
-      expect(find.text(customPath), findsNothing);
+      expect(find.text(localeController.localeStrings.sOpenWebview), findsNothing);
 
       // Switch to Video tab
       await tester.tap(find.byIcon(Icons.movie).first);
       await tester.pumpAndSettle();
-      expect(find.text(customPath), findsNothing);
+      expect(find.text(localeController.localeStrings.sOpenWebview), findsNothing);
 
       // Switch back to Network tab
       await tester.tap(find.byIcon(Icons.wifi).first);
       await tester.pumpAndSettle();
 
       // Verify state is completely preserved
-      expect(find.text(customPath), findsOneWidget);
+      expect(find.text(localeController.localeStrings.sOpenWebview), findsOneWidget);
       expect(settingsController.downloadOptions.disableCookiesFromWebview, isFalse);
-      expect(settingsController.downloadOptions.cookiesFromWebview, equals(customPath));
     });
 
     testWidgets('Direct controller update reactively updates the UI', (
@@ -447,18 +421,18 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text(localeController.localeStrings.sOpenWebview), findsNothing);
+      expect(find.text(localeController.localeStrings.sViewCurrentCookies), findsNothing);
 
       // Externally update controller options
       settingsController.updateDownloadOptions(
         settingsController.downloadOptions.copyWith(
-          cookiesFromWebview: '/external/sync/cookies.txt',
           disableCookiesFromWebview: false,
         ),
       );
       await tester.pumpAndSettle();
 
       expect(find.text(localeController.localeStrings.sOpenWebview), findsOneWidget);
-      expect(find.text('/external/sync/cookies.txt'), findsOneWidget);
+      expect(find.text(localeController.localeStrings.sViewCurrentCookies), findsOneWidget);
     });
   });
 }

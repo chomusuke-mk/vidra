@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:jsonc/jsonc.dart';
@@ -328,8 +329,18 @@ void main() {
     late SettingsController settingsController;
     late MockLocaleRepo mockLocaleRepo;
     late LocaleController localeController;
+    late Directory tempDir;
 
     setUp(() async {
+      tempDir = Directory.systemTemp.createTempSync('vidra_challenger_ui_test_');
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(
+        const MethodChannel('plugins.flutter.io/path_provider'),
+        (MethodCall methodCall) async {
+          return tempDir.path;
+        },
+      );
+
       SharedPreferences.setMockInitialValues({'has_seen_settings_tutorial': true});
       prefs = await SharedPreferences.getInstance();
       await prefs.setBool('has_seen_settings_tutorial', true);
@@ -339,6 +350,12 @@ void main() {
       mockLocaleRepo = MockLocaleRepo();
       localeController = LocaleController(mockLocaleRepo, 'en');
       await localeController.whenReady;
+    });
+
+    tearDown(() {
+      if (tempDir.existsSync()) {
+        tempDir.deleteSync(recursive: true);
+      }
     });
 
     Widget createSettingsApp() {
@@ -386,7 +403,7 @@ void main() {
       expect(webviewDy, lessThan(cookiesDy));
     });
 
-    testWidgets('Full toggle cycle ON -> Capture Path -> toggle OFF -> toggle ON retains path', (
+    testWidgets('Full toggle cycle ON -> Action buttons appear -> toggle OFF -> buttons hidden', (
       WidgetTester tester,
     ) async {
       setupViewport(tester);
@@ -408,41 +425,32 @@ void main() {
       await tester.pumpAndSettle();
       expect(settingsController.downloadOptions.disableCookiesFromWebview, isFalse);
 
-      // 2. Open WebView and return path
-      await tester.tap(find.text(localeController.localeStrings.sOpenWebview));
-      await tester.pumpAndSettle();
-      expect(find.byType(InAppWebViewScreen), findsOneWidget);
+      // Verify Open Webview and View current cookies buttons appear
+      expect(find.text(localeController.localeStrings.sOpenWebview), findsOneWidget);
+      expect(find.text(localeController.localeStrings.sViewCurrentCookies), findsOneWidget);
 
-      const generatedPath = '/app/storage/captured_cookies.txt';
-      final navContext = tester.element(find.byType(InAppWebViewScreen));
-      Navigator.of(navContext).pop(generatedPath);
-      await tester.pumpAndSettle();
-
-      expect(settingsController.downloadOptions.cookiesFromWebview, equals(generatedPath));
-      expect(find.text(generatedPath), findsOneWidget);
-
-      // 3. Toggle OFF
+      // 2. Toggle OFF
       await tester.tap(switchFinder);
       await tester.pumpAndSettle();
       expect(settingsController.downloadOptions.disableCookiesFromWebview, isTrue);
       expect(settingsController.downloadOptions.toJson()['cookies_from_webview'], equals(false));
 
-      // 4. Toggle ON again
-      await tester.tap(switchFinder);
-      await tester.pumpAndSettle();
-      expect(settingsController.downloadOptions.disableCookiesFromWebview, isFalse);
-      expect(settingsController.downloadOptions.cookiesFromWebview, equals(generatedPath));
-      expect(find.text(generatedPath), findsOneWidget);
+      // Verify buttons are hidden
+      expect(find.text(localeController.localeStrings.sOpenWebview), findsNothing);
+      expect(find.text(localeController.localeStrings.sViewCurrentCookies), findsNothing);
     });
 
-    testWidgets('Dismissing WebView with null result preserves existing cookiesFromWebview', (
+    testWidgets('Tapping View current cookies button opens modal bottom sheet with cookie viewer', (
       WidgetTester tester,
     ) async {
       setupViewport(tester);
-      const initialCookiePath = '/initial/existing/cookies.txt';
+      final vidraCookiesDir = Directory(p.join(tempDir.path, 'vidra_cookies'));
+      if (!vidraCookiesDir.existsSync()) {
+        vidraCookiesDir.createSync(recursive: true);
+      }
       settingsController.updateDownloadOptions(
         settingsController.downloadOptions.copyWith(
-          cookiesFromWebview: initialCookiePath,
+          cookiesFromWebview: vidraCookiesDir.path,
           disableCookiesFromWebview: false,
         ),
       );
@@ -454,31 +462,25 @@ void main() {
       await tester.tap(find.byIcon(Icons.wifi).first);
       await tester.pumpAndSettle();
 
-      expect(find.text(initialCookiePath), findsOneWidget);
+      final viewCookiesBtn = find.text(localeController.localeStrings.sViewCurrentCookies);
+      expect(viewCookiesBtn, findsOneWidget);
 
-      // Tap Open WebView
-      await tester.tap(find.text(localeController.localeStrings.sOpenWebview));
-      await tester.pumpAndSettle();
-      expect(find.byType(InAppWebViewScreen), findsOneWidget);
-
-      // Dismiss without returning path (pop null)
-      final navContext = tester.element(find.byType(InAppWebViewScreen));
-      Navigator.of(navContext).pop(null);
+      // Tap View current cookies button
+      await tester.tap(viewCookiesBtn);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
       await tester.pumpAndSettle();
 
-      // Verify path was NOT cleared or overwritten
-      expect(settingsController.downloadOptions.cookiesFromWebview, equals(initialCookiePath));
-      expect(find.text(initialCookiePath), findsOneWidget);
+      // Verify modal sheet is displayed
+      expect(find.text(localeController.localeStrings.sCookiesListTitle), findsOneWidget);
     });
 
-    testWidgets('LazyTextField is non-editable and displays path with readOnly flag true', (
+    testWidgets('LazyTextField is not rendered when cookies_from_webview is enabled (replaced by button)', (
       WidgetTester tester,
     ) async {
       setupViewport(tester);
-      const testPath = '/path/to/vidra_netscape_cookies.txt';
       settingsController.updateDownloadOptions(
         settingsController.downloadOptions.copyWith(
-          cookiesFromWebview: testPath,
           disableCookiesFromWebview: false,
         ),
       );
@@ -498,10 +500,7 @@ void main() {
         matching: find.byType(LazyTextField),
       );
 
-      expect(lazyFieldFinder, findsOneWidget);
-      final lazyField = tester.widget<LazyTextField>(lazyFieldFinder);
-      expect(lazyField.readOnly, isTrue);
-      expect(lazyField.value, equals(testPath));
+      expect(lazyFieldFinder, findsNothing);
     });
   });
 }

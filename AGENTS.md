@@ -82,6 +82,42 @@ Antes de implementar modificaciones significativas, asegúrate de comprender la 
 
 ---
 
+## 🗺️ Guía de Archivos por Funcionalidad (Adición y Modificación)
+
+Cuando se te solicite implementar o alterar una funcionalidad en Vidra, consulta y actualiza rigurosamente este mapa de archivos:
+
+### 1. Nueva Opción o Parámetro de Descarga (`yt-dlp`)
+Se debe cubrir el ciclo completo entre Python y Flutter (7 archivos):
+1. `app/src/vidra_yt_dlp_parser_types.py`: Agregar al `VidraOptions` (`TypedDict`) y su regla en `is_valid_options`.
+2. `app/src/vidra_yt_dlp_parser.py`: Agregar valor default en `DEFAULT_OPTIONS`, assert en `options_parser` y mapear a flag CLI de `yt-dlp`.
+3. `lib/features/settings/domain/download_options.dart`: Agregar campo a `DownloadOptions` (con su enum si aplica), constructor, `copyWith`, `toJson` y `fromJson`.
+4. `lib/features/settings/presentation/settings_controller.dart`: Incluir en `_applyDynamicDefaults` si requiere rutas/ejecutables dinámicos.
+5. `lib/features/settings/presentation/settings_screen.dart`: Registrar el control en `_getAllSettings` (`LazyDropdown`, `LazyTextField`, `LazyList`, `LazyMap`, `Switch`).
+6. `i18n/en.jsonc`: Agregar claves `s_<clave>` y `s_<clave>_desc`.
+7. `lib/features/locales/domain/locale.dart`: Agregar getters en `AppStringKey` y registrar en `_allAppStrings`.
+
+### 2. Nuevo Endpoint o Acción en la API REST Local
+1. `app/src/main.py`: Declarar ruta `@server.route(...)` protegida con `@token_required`.
+2. `app/src/app.py`: Implementar la lógica del endpoint en la clase `App`.
+3. `app/src/descarga.py` *(si aplica)*: Si la acción afecta una descarga individual en progreso.
+4. `lib/core/network/vidra_http_client.dart`: Declarar el método cliente HTTP con `_headers` y timeout.
+5. `lib/features/downloads/data/download_repository.dart`: Exponer el método al controlador de la UI.
+6. `lib/features/downloads/presentation/downloads_controller.dart`: Agregar la acción y notificar cambios.
+
+### 3. Nueva Pantalla o Flujo en la UI
+1. `lib/features/<feature>/domain/<model>.dart`: Modelo inmutable con `fromJson`/`toJson`.
+2. `lib/features/<feature>/data/<feature>_repository.dart`: Acceso a datos/HTTP.
+3. `lib/features/<feature>/presentation/<feature>_controller.dart`: `ChangeNotifier` de la feature.
+4. `lib/features/<feature>/presentation/<feature>_screen.dart`: UI adaptativa usando widgets compartidos.
+5. `lib/main.dart`: Inyectar en `MultiProvider`.
+6. `i18n/en.jsonc` & `lib/features/locales/domain/locale.dart`: Textos localizados con prefijo único.
+
+### 4. Ajustes en Quick Share Overlay
+1. `lib/features/downloads/presentation/overlay_main.dart`: UI flotante (`overlayMain`), lectura de SharedPreferences con prefijo `ov_*`.
+2. `lib/core/isolate/backend_isolate.dart`: Escucha de comandos IPC en `vidra_backend_port`.
+
+---
+
 ## 🚀 Flujo y Comandos Clave (CLI)
 
 Como agente, puedes ejecutar scripts en bash si es necesario validar código (una vez el usuario haya aprobado tus cambios o si estás debugueando de forma segura).

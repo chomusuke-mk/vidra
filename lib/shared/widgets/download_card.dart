@@ -14,6 +14,8 @@ import 'package:vidra/core/theme/layout.dart';
 import 'package:vidra/features/downloads/domain/download.dart' as model;
 import 'package:vidra/features/downloads/presentation/downloads_controller.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
+import 'package:vidra/features/settings/presentation/settings_controller.dart';
+import 'package:vidra/features/settings/presentation/widgets/in_app_webview_screen.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -90,16 +92,39 @@ class DownloadCard extends StatelessWidget {
     final showResume = !isSubItem && isPaused;
     final showRetry =
         !isSubItem && (isError || isCancelled || isCompletedWithErrors);
-    
-    // 5. Acciones solo visibles en pantalla de detalles.
+
+    SettingsController? settingsController;
+    try {
+      settingsController = context.watch<SettingsController>();
+    } catch (_) {}
+
+    final isCookiesFromWebviewEnabled =
+        settingsController != null &&
+        !settingsController.downloadOptions.disableCookiesFromWebview;
+
+    final showUseCookies =
+        !isSubItem &&
+        isError &&
+        isCookiesFromWebviewEnabled &&
+        info?.url != null &&
+        info!.url!.isNotEmpty &&
+        settingsController.downloadOptions.cookiesFromWebview != null &&
+        settingsController.downloadOptions.cookiesFromWebview!.isNotEmpty &&
+        InAppWebViewScreen.isWebViewSupported;
+
+    // 5. Acciones solo visibles en pantalla de detalles (solo para el item maestro, no sub-items).
     final showOpenURL =
-        isDetailScreen && info?.url != null && info!.url!.isNotEmpty;
+        !isSubItem &&
+        isDetailScreen &&
+        info?.url != null &&
+        info!.url!.isNotEmpty;
 
     int actionCount = 0;
     if (showPlay) actionCount += 1;
     if (showFolder) actionCount += 1;
     if (showInfo) actionCount += 1;
     if (showResume) actionCount += 1;
+    if (showUseCookies) actionCount += 1;
     if (showRetry) actionCount += 1;
     if (showPause) actionCount += 1;
     if (showCancel) actionCount += 1;
@@ -329,6 +354,19 @@ class DownloadCard extends StatelessWidget {
                   foregroundColor: Colors.white,
                   icon: Icons.play_arrow,
                   tooltip: locale.dcActionResume,
+                ),
+              ],
+              if (showUseCookies) ...[
+                _buildSlidableAction(
+                  onPressed: (_) => InAppWebViewScreen.show(
+                    context,
+                    settingsController!.downloadOptions.cookiesFromWebview!,
+                    url: info!.url!,
+                  ),
+                  backgroundColor: const Color(0xFFD97706),
+                  foregroundColor: Colors.white,
+                  icon: Icons.cookie_outlined,
+                  tooltip: locale.dcActionUseCookies,
                 ),
               ],
               if (showRetry) ...[

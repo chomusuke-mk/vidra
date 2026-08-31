@@ -103,6 +103,16 @@ class _LazyMapState extends State<LazyMap> {
                           .map((k) => DropdownMenuEntry(value: k, label: k))
                           .toList(growable: false),
                       onSelected: (_) => _valFocus.requestFocus(),
+                      inputDecorationTheme: InputDecorationTheme(
+                        isDense: true,
+                        constraints: const BoxConstraints(
+                          maxHeight: 48,
+                          minHeight: 48,
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                        ),
+                      ),
                     ),
             ),
             const SizedBox(width: 8),

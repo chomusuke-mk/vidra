@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:path/path.dart' as p;
 import 'package:provider/provider.dart';
 import 'package:vidra/core/constants/languages.dart';
 import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
+import 'package:vidra/features/settings/data/cookie_exporter.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
 import 'package:vidra/shared/widgets/lazy_dropdown.dart';
 import 'package:vidra/shared/widgets/lazy_list.dart';
@@ -65,6 +67,94 @@ class _SettingsScreenState extends State<SettingsScreen> {
         if (mounted) TutorialUtils.showSettingsTutorial(context);
       });
     });
+  }
+
+  void _showCookiesViewer(BuildContext context, String cookiesDirPath) {
+    final files = cookiesDirPath.trim().isNotEmpty
+        ? CookieExporter.getSavedCookieFiles(
+            directory: Directory(cookiesDirPath.trim()),
+          )
+        : [];
+
+    final locale = context.read<LocaleController>().localeStrings;
+    showDialog(
+      context: context,
+      builder: (dialogContext) {
+        return AlertDialog(
+          title: Text(locale.sCookiesListTitle),
+          content: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 400, maxHeight: 400),
+            child: files.isEmpty
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 24.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.cookie_outlined,
+                          size: 48,
+                          color: Theme.of(
+                            dialogContext,
+                          ).colorScheme.onSurfaceVariant.withValues(alpha: 0.6),
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          locale.sNoCookiesFound,
+                          style: Theme.of(dialogContext).textTheme.bodyLarge
+                              ?.copyWith(
+                                color: Theme.of(
+                                  dialogContext,
+                                ).colorScheme.onSurfaceVariant,
+                              ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  )
+                : ListView.separated(
+                    shrinkWrap: true,
+                    itemCount: files.length,
+                    separatorBuilder: (context, index) =>
+                        const Divider(height: 1),
+                    itemBuilder: (context, index) {
+                      final file = files[index];
+                      final fileName = p.basename(file.path);
+                      int fileSize = 0;
+                      DateTime? lastMod;
+                      try {
+                        fileSize = file.lengthSync();
+                        lastMod = file.lastModifiedSync();
+                      } catch (_) {}
+
+                      final sizeStr = fileSize > 1024
+                          ? '${(fileSize / 1024).toStringAsFixed(1)} KB'
+                          : '$fileSize B';
+                      final subtitle = lastMod != null
+                          ? '$sizeStr • ${lastMod.toLocal().toString().split('.').first}'
+                          : sizeStr;
+
+                      return ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        leading: const Icon(Icons.cookie_outlined),
+                        title: Text(fileName),
+                        subtitle: Text(
+                          subtitle,
+                          style: Theme.of(dialogContext).textTheme.bodySmall,
+                        ),
+                      );
+                    },
+                  ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(),
+              child: Text(locale.qsClose),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   // ===========================================================================
@@ -466,56 +556,35 @@ class _SettingsScreenState extends State<SettingsScreen> {
         type: ControllerType.complex,
         controlBuilder: (c, s) {
           final isEnabled = !opts.disableCookiesFromWebview;
-          return Column(
+          return Wrap(
+            spacing: 12,
+            runSpacing: 8,
+            crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              Row(
-                children: [
-                  Switch(
-                    value: isEnabled,
-                    onChanged: (val) => s.updateDownloadOptions(
-                      opts.copyWith(disableCookiesFromWebview: !val),
-                    ),
-                  ),
-                  if (isEnabled) ...[
-                    const SizedBox(width: 16),
-                    FilledButton.tonalIcon(
-                      onPressed: () async {
-                        if (Platform.isLinux) {
-                          ToastUtils.showError(
-                            "Webview is not supported on Linux",
-                          );
-                          return;
-                        }
-                        final path = await InAppWebViewScreen.show(c);
-                        if (path != null && path.isNotEmpty) {
-                          s.updateDownloadOptions(
-                            opts.copyWith(
-                              cookiesFromWebview: path,
-                              disableCookiesFromWebview: false,
-                            ),
-                          );
-                          ToastUtils.showSuccess('Cookies saved successfully');
-                        }
-                      },
-                      icon: const Icon(Icons.open_in_browser),
-                      label: Text(locale.sOpenWebview),
-                    ),
-                  ],
-                ],
+              Switch(
+                value: isEnabled,
+                onChanged: (val) => s.updateDownloadOptions(
+                  opts.copyWith(disableCookiesFromWebview: !val),
+                ),
               ),
               if (isEnabled) ...[
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    Expanded(
-                      child: LazyTextField(
-                        value: opts.cookiesFromWebview ?? '',
-                        hint: locale.sNotConfigured,
-                        readOnly: true,
-                        onChanged: (_) {},
-                      ),
-                    ),
-                  ],
+                FilledButton.tonalIcon(
+                  onPressed: () async {
+                    if (!InAppWebViewScreen.isWebViewSupported) {
+                      ToastUtils.showError(locale.wvNotSupported);
+                      return;
+                    }
+                    await InAppWebViewScreen.show(c, opts.cookiesFromWebview!);
+                  },
+                  icon: const Icon(Icons.open_in_browser),
+                  label: Text(locale.sOpenWebview),
+                ),
+                FilledButton.tonalIcon(
+                  onPressed: () {
+                    _showCookiesViewer(c, opts.cookiesFromWebview!);
+                  },
+                  icon: const Icon(Icons.cookie_outlined),
+                  label: Text(locale.sViewCurrentCookies),
                 ),
               ],
             ],

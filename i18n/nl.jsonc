@@ -60,8 +60,8 @@
   "s_cookies_desc": "Netscape-geformatteerd bestand om cookies uit te lezen en de koekjestrommel in te dumpen",
   "s_cookies_from_browser": "Cookies van browser",
   "s_cookies_from_browser_desc": "Importeert cookies uit de opgegeven browser.",
-  "s_cookies_from_webview": "Cookies from WebView",
-  "s_cookies_from_webview_desc": "Enable this option to extract cookies from the WebView. This is useful for sites that require login or have region restrictions. This overrides the cookies file option.",
+  "s_cookies_from_webview": "Cookies van WebView",
+  "s_cookies_from_webview_desc": "Schakel deze optie in om cookies uit de WebView te extraheren. Dit is handig voor sites waarvoor inloggen vereist is of regiobeperkingen gelden.",
   "s_open_webview": "Open WebView",
   "s_username": "Gebruikersnaam",
   "s_username_desc": "Gebruikersnaam voor authenticatie.",
@@ -365,5 +365,16 @@
   "s_force_keyframes_at_cuts": "Forceer keyframes bij cuts",
   "s_force_keyframes_at_cuts_desc": "Forceer keyframes bij het knippen bij het downloaden/splitsen/verwijderen van secties.\nDit is langzaam omdat opnieuw moet worden gecodeerd, maar de resulterende video bevat mogelijk minder artefacten rond de bezuinigingen",
   "dc_action_open_url": "URL openen",
-  "dc_action_open_url_error": "Fout bij openen van URL."
+  "dc_action_open_url_error": "Fout bij openen van URL.",
+  "dc_action_use_cookies": "Gebruik cookies",
+  "s_view_current_cookies": "Bekijk huidige cookies",
+  "s_cookies_list_title": "Huidige cookies",
+  "s_no_cookies_found": "Geen cookiebestanden gevonden",
+  "wv_browse_to_generate_cookies": "Blader om cookies te genereren en anti-bots te omzeilen",
+  "wv_not_supported": "Webview wordt niet ondersteund op dit platform",
+  "wv_shortcuts": "Snelkoppelingen",
+  "wv_go": "Gaan",
+  "wv_back": "Rug",
+  "wv_forward": "Vooruit",
+  "wv_refresh": "Vernieuwen"
 }

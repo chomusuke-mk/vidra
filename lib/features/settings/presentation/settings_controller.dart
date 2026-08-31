@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:external_path/external_path.dart';
 import 'package:flutter/material.dart';
+import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:vidra/core/utils/platform_utils.dart';
 import 'package:vidra/features/settings/data/settings_repository.dart';
@@ -70,10 +71,26 @@ class SettingsController extends ChangeNotifier {
 
     newRuntimes[JsRuntime.quickjs] = resolvedQuickjs;
 
+    // --- REGLA 3: Directorio de Cookies de WebView (vidra_cookies) ---
+    String? resolvedCookiesFromWebview = opts.cookiesFromWebview;
+    try {
+      final appSupportDir = await getApplicationSupportDirectory();
+      final vidraCookiesDir = Directory(
+        p.join(appSupportDir.path, 'vidra_cookies'),
+      );
+      if (!await vidraCookiesDir.exists()) {
+        await vidraCookiesDir.create(recursive: true);
+      }
+      resolvedCookiesFromWebview = vidraCookiesDir.path;
+    } catch (e) {
+      debugPrint('Error asignando directorio vidra_cookies: $e');
+    }
+
     return opts.copyWith(
       paths: newPaths,
       jsRuntimes: newRuntimes,
       ffmpegLocation: resolvedFfmpeg,
+      cookiesFromWebview: resolvedCookiesFromWebview,
     );
   }
 

@@ -85,7 +85,10 @@ void main() {
       expect(closeButtonFinder, findsOneWidget);
 
       // Address bar TextField
-      final textFieldFinder = find.byType(TextField);
+      final textFieldFinder = find.descendant(
+        of: find.byType(AppBar),
+        matching: find.byType(TextField),
+      );
       expect(textFieldFinder, findsOneWidget);
       final textField = tester.widget<TextField>(textFieldFinder);
       expect(textField.controller?.text, equals('https://youtube.com'));
@@ -106,9 +109,12 @@ void main() {
       ));
       expect(forwardIconButton.onPressed, isNull);
 
-      // Capture Button
-      expect(find.text('Capture'), findsOneWidget);
-      expect(find.byIcon(Icons.cookie), findsOneWidget);
+      // Verify Shortcuts menu exists
+      expect(find.text('Shortcuts'), findsWidgets);
+
+      // Verify manual Save Cookies button is removed (automatic capture)
+      expect(find.text('Save Cookies'), findsNothing);
+      expect(find.text('Capture'), findsNothing);
 
       // Body
       expect(find.byKey(const Key('mock_webview')), findsOneWidget);
@@ -125,7 +131,10 @@ void main() {
         ),
       );
 
-      final textFieldFinder = find.byType(TextField);
+      final textFieldFinder = find.descendant(
+        of: find.byType(AppBar),
+        matching: find.byType(TextField),
+      );
       await tester.enterText(textFieldFinder, 'vimeo.com/categories');
       await tester.pump();
 
@@ -151,7 +160,10 @@ void main() {
         ),
       );
 
-      final textFieldFinder = find.byType(TextField);
+      final textFieldFinder = find.descendant(
+        of: find.byType(AppBar),
+        matching: find.byType(TextField),
+      );
       await tester.enterText(textFieldFinder, 'dailymotion.com');
       await tester.testTextInput.receiveAction(TextInputAction.go);
       await tester.pump();
@@ -186,7 +198,10 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(InAppWebViewScreen), findsOneWidget);
-      final textField = tester.widget<TextField>(find.byType(TextField));
+      final textField = tester.widget<TextField>(find.descendant(
+        of: find.byType(AppBar),
+        matching: find.byType(TextField),
+      ));
       expect(textField.controller?.text, equals('https://reddit.com'));
 
       // Tap close
