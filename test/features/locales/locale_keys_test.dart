@@ -205,25 +205,25 @@ void main() {
       expect(esStrings.sdStateFatalError, equals('Error fatal'));
 
       // Verify Cookies from WebView getters in Spanish
-      expect(esStrings.sCookiesFromWebview, equals('Cookies del WebView'));
+      expect(esStrings.sCookiesFromWebview, equals('Cookies de WebView'));
       expect(
         esStrings.sCookiesFromWebviewDesc,
         equals(
-          'Habilite esta opción para extraer cookies del WebView. Esto es útil para sitios que requieren inicio de sesión o tienen restricciones regionales.',
+          'Habilite esta opción para extraer cookies de WebView. Esto es útil para sitios que requieren iniciar sesión o tienen restricciones regionales.',
         ),
       );
-      expect(esStrings.sOpenWebview, equals('Abrir WebView'));
+      expect(esStrings.sOpenWebview, equals('Abrir vista web'));
       expect(esStrings.sViewCurrentCookies, equals('Ver cookies actuales'));
       expect(esStrings.sCookiesListTitle, equals('Cookies actuales'));
       expect(esStrings.sNoCookiesFound, equals('No se encontraron archivos de cookies'));
-      expect(esStrings.wvBrowseToGenerateCookies, equals('Navegue para generar cookies y eludir sistemas anti-bot'));
+      expect(esStrings.wvBrowseToGenerateCookies, equals('Navega para generar cookies y evitar los anti-bots'));
       expect(esStrings.wvNotSupported, equals('Webview no es compatible con esta plataforma'));
-      expect(esStrings.wvShortcuts, equals('Accesos directos'));
+      expect(esStrings.wvShortcuts, equals('Atajos'));
       expect(esStrings.wvGo, equals('Ir'));
       expect(esStrings.wvBack, equals('Atrás'));
       expect(esStrings.wvForward, equals('Adelante'));
-      expect(esStrings.wvRefresh, equals('Recargar'));
-      expect(esStrings.dcActionUseCookies, equals('Usar cookies'));
+      expect(esStrings.wvRefresh, equals('Refrescar'));
+      expect(esStrings.dcActionUseCookies, equals('Utilizar cookies'));
     });
   });
 }

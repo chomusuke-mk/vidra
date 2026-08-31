@@ -15,7 +15,7 @@ import '../../data/cookie_exporter.dart';
 /// log in to authenticated websites, and automatically capture/export session and
 /// persistent cookies per-domain into the save directory.
 
-const _defaultSearchEngineURL = 'https://search.brave.com/search?q=';
+const _defaultSearchEngineURL = 'https://search.brave.com';
 const _defaultSearchEngineName = 'Brave';
 const _defaultSearchEngineIcon = FaIcon(
   FontAwesomeIcons.brave,
@@ -69,7 +69,7 @@ class InAppWebViewScreen extends StatefulWidget {
         trimmed == 'localhost') {
       return 'https://$trimmed';
     }
-    return 'https://google.com/search?q=${Uri.encodeComponent(trimmed)}';
+    return '$_defaultSearchEngineURL/search?q=${Uri.encodeComponent(trimmed)}';
   }
 
   @override

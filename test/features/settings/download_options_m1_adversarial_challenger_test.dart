@@ -147,14 +147,14 @@ void main() {
     group('3. Round-Trip Invariants', () {
       test('Default DownloadOptions round-trips with exact state preservation', () {
         final initial = DownloadOptions();
-        expect(initial.disableCookiesFromWebview, isTrue);
+        expect(initial.disableCookiesFromWebview, isFalse);
         expect(initial.cookiesFromWebview, isNull);
 
         final json = initial.toJson();
-        expect(json['cookies_from_webview'], equals(false));
+        expect(json.containsKey('cookies_from_webview'), isFalse);
 
         final reconstructed = DownloadOptions.fromJson(json);
-        expect(reconstructed.disableCookiesFromWebview, isTrue);
+        expect(reconstructed.disableCookiesFromWebview, isFalse);
         expect(reconstructed.cookiesFromWebview, isNull);
         expect(reconstructed == initial, isTrue);
       });

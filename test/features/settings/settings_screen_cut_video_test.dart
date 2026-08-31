@@ -9,7 +9,7 @@ import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/settings/data/settings_repository.dart';
 import 'package:vidra/features/settings/presentation/settings_controller.dart';
 import 'package:vidra/features/settings/presentation/settings_screen.dart';
-import 'package:vidra/shared/widgets/inline_time_picker.dart';
+import 'package:vidra/shared/widgets/settings_row.dart';
 
 class MockLocaleRepository extends LocaleRepository {
   final Map<String, Map<String, String>> _storage = {};
@@ -29,7 +29,7 @@ class MockLocaleRepository extends LocaleRepository {
 
   @override
   Future<Map<String, String>> getLocaleStrings(String localeCode) async {
-    return _storage[localeCode] ?? _storage['en'] ?? {};
+    return _storage[localeCode] ?? {};
   }
 }
 
@@ -71,10 +71,20 @@ void main() {
     );
   }
 
-  group('SettingsScreen Video Cutter Setting Tests', () {
-    testWidgets('Cut Video setting row is visible under Download category with master switch', (
+  void configureViewport(WidgetTester tester) {
+    tester.view.physicalSize = const Size(1200, 2400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+  }
+
+  group('SettingsScreen Settings Tests', () {
+    testWidgets('Cut Video setting is not in SettingsScreen (moved to CutVideoBottomSheet in Downloads)', (
       WidgetTester tester,
     ) async {
+      configureViewport(tester);
       await tester.pumpWidget(createTestApp());
       await tester.pumpAndSettle();
 
@@ -84,74 +94,33 @@ void main() {
       await tester.tap(downloadTab);
       await tester.pumpAndSettle();
 
-      // Verify Cut Video setting title and description
-      expect(find.text(localeController.localeStrings.sCutVideo), findsWidgets);
-      expect(find.text(localeController.localeStrings.sCutVideoDesc), findsWidgets);
-
-      // Initially OFF -> InlineTimePicker is not rendered
-      expect(find.byType(InlineTimePicker), findsNothing);
+      // Verify Cut Video is not rendered in SettingsScreen
+      expect(find.text(localeController.localeStrings.sCutVideo), findsNothing);
     });
 
-    testWidgets('Toggling Cut Video ON inside SettingsScreen expands Start picker and UntilEnd switch', (
+    testWidgets('General category tab renders standard settings like extractAudio', (
       WidgetTester tester,
     ) async {
+      configureViewport(tester);
       await tester.pumpWidget(createTestApp());
       await tester.pumpAndSettle();
 
-      // Navigate to Download tab
-      await tester.tap(find.byIcon(Icons.download));
-      await tester.pumpAndSettle();
+      // Verify sExtractAudio setting is rendered
+      expect(find.text(localeController.localeStrings.sExtractAudio), findsOneWidget);
 
-      final masterSwitch = find.widgetWithText(
-        SwitchListTile,
-        localeController.localeStrings.sCutVideo,
+      final rowFinder = find.ancestor(
+        of: find.text(localeController.localeStrings.sExtractAudio),
+        matching: find.byType(SettingRow),
       );
-      expect(masterSwitch, findsOneWidget);
-
-      await tester.tap(masterSwitch);
-      await tester.pumpAndSettle();
-
-      expect(settingsController.downloadOptions.cutVideo, isTrue);
-      expect(find.byType(InlineTimePicker), findsOneWidget);
-      expect(find.text(localeController.localeStrings.sCutVideoStart), findsOneWidget);
-      expect(find.text(localeController.localeStrings.sCutVideoUntilEnd), findsOneWidget);
-    });
-
-    testWidgets('Toggling UntilEnd OFF expands End InlineTimePicker and updates state', (
-      WidgetTester tester,
-    ) async {
-      settingsController.updateDownloadOptions(
-        settingsController.downloadOptions.copyWith(
-          cutVideo: true,
-          cutVideoUntilEnd: true,
-          cutVideoStart: 120,
-          cutVideoEnd: 300,
-        ),
+      final switchFinder = find.descendant(
+        of: rowFinder,
+        matching: find.byType(Switch),
       );
 
-      await tester.pumpWidget(createTestApp());
+      expect(switchFinder, findsOneWidget);
+      await tester.tap(switchFinder);
       await tester.pumpAndSettle();
-
-      // Navigate to Download tab
-      await tester.tap(find.byIcon(Icons.download));
-      await tester.pumpAndSettle();
-
-      expect(find.byType(InlineTimePicker), findsOneWidget);
-
-      // Toggle UntilEnd switch OFF
-      final untilEndSwitch = find.widgetWithText(
-        SwitchListTile,
-        localeController.localeStrings.sCutVideoUntilEnd,
-      );
-      expect(untilEndSwitch, findsOneWidget);
-
-      await tester.tap(untilEndSwitch);
-      await tester.pumpAndSettle();
-
-      expect(settingsController.downloadOptions.cutVideoUntilEnd, isFalse);
-      expect(find.byType(InlineTimePicker), findsNWidgets(2));
-      expect(find.text(localeController.localeStrings.sCutVideoStart), findsOneWidget);
-      expect(find.text(localeController.localeStrings.sCutVideoEnd), findsOneWidget);
+      expect(settingsController.downloadOptions.extractAudio, isTrue);
     });
   });
 }

@@ -39,10 +39,7 @@ void main() {
         ),
       ];
 
-      final result = NetscapeCookieFormatter.format(
-        cookies,
-        defaultDomain: 'example.com',
-      );
+      final result = NetscapeCookieFormatter.format(cookies);
 
       final lines = result.trim().split('\n');
       expect(lines.length, equals(9)); // 4 header lines + 5 cookies
@@ -69,13 +66,10 @@ void main() {
         Cookie(name: 'c11', value: 'v', domain: null),
       ];
 
-      final result = NetscapeCookieFormatter.format(
-        cookies,
-        defaultDomain: 'fallback.org',
-      );
+      final result = NetscapeCookieFormatter.format(cookies);
 
       final lines = result.trim().split('\n');
-      expect(lines.length, equals(15)); // 4 header + 11 cookies
+      expect(lines.length, equals(13)); // 4 header + 9 valid cookies (c10 and c11 skipped)
 
       // IPv4 -> FALSE, no leading dot
       expect(lines[4].split('\t')[0], equals('192.168.1.1'));
@@ -101,11 +95,9 @@ void main() {
       expect(lines[12].split('\t')[0], equals('.sub.deep.domain.co.uk'));
       expect(lines[12].split('\t')[1], equals('TRUE'));
 
-      // Fallbacks -> .fallback.org, TRUE
-      expect(lines[13].split('\t')[0], equals('.fallback.org'));
-      expect(lines[13].split('\t')[1], equals('TRUE'));
-      expect(lines[14].split('\t')[0], equals('.fallback.org'));
-      expect(lines[14].split('\t')[1], equals('TRUE'));
+      // c10 and c11 skipped
+      expect(result, isNot(contains('c10')));
+      expect(result, isNot(contains('c11')));
     });
 
     test('Adversarial 3: Special characters, JSON, and complex payloads in values', () {
@@ -137,10 +129,7 @@ void main() {
         ),
       ];
 
-      final result = NetscapeCookieFormatter.format(
-        cookies,
-        defaultDomain: 'test.com',
-      );
+      final result = NetscapeCookieFormatter.format(cookies);
 
       final lines = result.trim().split('\n');
       expect(lines.length, equals(9)); // 4 header + 5 cookies
@@ -173,8 +162,6 @@ void main() {
         'localhost',
         '127.0.0.1',
         'twitch.tv',
-        '  ',
-        null,
       ];
 
       for (int i = 0; i < 2000; i++) {
@@ -197,10 +184,7 @@ void main() {
         );
       }
 
-      final result = NetscapeCookieFormatter.format(
-        cookies,
-        defaultDomain: 'vidra.default.org',
-      );
+      final result = NetscapeCookieFormatter.format(cookies);
 
       final lines = result.trim().split('\n');
       expect(lines.length, equals(2004)); // 4 header + 2000 cookies

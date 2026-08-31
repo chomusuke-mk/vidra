@@ -1,13 +1,76 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:jsonc/jsonc.dart';
+import 'package:provider/provider.dart';
+import 'package:vidra/features/locales/data/locale_repository.dart';
+import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/settings/presentation/widgets/in_app_webview_screen.dart';
 
+class MockLocaleRepository extends LocaleRepository {
+  final Map<String, Map<String, String>> _storage = {};
+
+  MockLocaleRepository() {
+    for (final code in ['en', 'es']) {
+      final f = File('i18n/$code.jsonc');
+      if (f.existsSync()) {
+        final raw = f.readAsStringSync();
+        final map = (jsonc.decode(raw) as Map).cast<String, dynamic>().map(
+          (k, v) => MapEntry(k, v.toString().trim()),
+        );
+        map.removeWhere((k, v) => v.trim().isEmpty);
+        _storage[code] = map;
+      }
+    }
+  }
+
+  @override
+  Future<Map<String, String>> getLocaleStrings(String localeCode) async {
+    return _storage[localeCode] ?? {};
+  }
+}
+
 void main() {
+  late MockLocaleRepository mockLocaleRepo;
+  late LocaleController localeController;
+  late Directory tempDir;
+
+  setUp(() async {
+    mockLocaleRepo = MockLocaleRepository();
+    localeController = LocaleController(mockLocaleRepo, 'en');
+    await localeController.whenReady;
+    tempDir = await Directory.systemTemp.createTemp('vidra_webview_adv_test_');
+  });
+
+  tearDown(() async {
+    if (await tempDir.exists()) {
+      await tempDir.delete(recursive: true);
+    }
+  });
+
+  Widget buildTestApp(Widget child) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<LocaleController>.value(value: localeController),
+      ],
+      child: MaterialApp(home: child),
+    );
+  }
+
   group('InAppWebViewScreen Adversarial URL Normalization', () {
-    test('Whitespace and newline inputs all resolve to fallback https://google.com', () {
-      expect(InAppWebViewScreen.normalizeUrl(''), equals('https://google.com'));
-      expect(InAppWebViewScreen.normalizeUrl('   '), equals('https://google.com'));
-      expect(InAppWebViewScreen.normalizeUrl('\t\r\n  '), equals('https://google.com'));
+    test('Whitespace and newline inputs all resolve to fallback Brave search URL', () {
+      expect(
+        InAppWebViewScreen.normalizeUrl(''),
+        equals('https://search.brave.com/search?q='),
+      );
+      expect(
+        InAppWebViewScreen.normalizeUrl('   '),
+        equals('https://search.brave.com/search?q='),
+      );
+      expect(
+        InAppWebViewScreen.normalizeUrl('\t\r\n  '),
+        equals('https://search.brave.com/search?q='),
+      );
     });
 
     test('Complex URLs without scheme are properly prefixed with https://', () {
@@ -72,10 +135,10 @@ void main() {
     testWidgets('Renders all controls with correct icons, tooltips, and default state',
         (WidgetTester tester) async {
       await tester.pumpWidget(
-        const MaterialApp(
-          home: InAppWebViewScreen(
-            initialUrl: 'https://youtube.com',
-            webView: SizedBox(key: Key('mock_webview')),
+        buildTestApp(
+          InAppWebViewScreen(
+            url: 'https://youtube.com',
+            saveCookiesPath: tempDir.path,
           ),
         ),
       );
@@ -100,12 +163,12 @@ void main() {
 
       // Back and forward should initially be disabled (null onPressed)
       final backIconButton = tester.widget<IconButton>(find.byWidgetPredicate(
-        (w) => w is IconButton && w.tooltip == 'Back',
+        (w) => w is IconButton && w.tooltip == localeController.localeStrings.wvBack,
       ));
       expect(backIconButton.onPressed, isNull);
 
       final forwardIconButton = tester.widget<IconButton>(find.byWidgetPredicate(
-        (w) => w is IconButton && w.tooltip == 'Forward',
+        (w) => w is IconButton && w.tooltip == localeController.localeStrings.wvForward,
       ));
       expect(forwardIconButton.onPressed, isNull);
 
@@ -115,18 +178,15 @@ void main() {
       // Verify manual Save Cookies button is removed (automatic capture)
       expect(find.text('Save Cookies'), findsNothing);
       expect(find.text('Capture'), findsNothing);
-
-      // Body
-      expect(find.byKey(const Key('mock_webview')), findsOneWidget);
     });
 
     testWidgets('Entering text and tapping Go button updates TextField with normalized URL',
         (WidgetTester tester) async {
       await tester.pumpWidget(
-        const MaterialApp(
-          home: InAppWebViewScreen(
-            initialUrl: 'https://google.com',
-            webView: SizedBox(key: Key('mock_webview')),
+        buildTestApp(
+          InAppWebViewScreen(
+            url: 'https://search.brave.com/search?q=',
+            saveCookiesPath: tempDir.path,
           ),
         ),
       );
@@ -140,7 +200,7 @@ void main() {
 
       // Tap the Go button
       final goButtonFinder = find.byWidgetPredicate(
-        (w) => w is IconButton && w.tooltip == 'Go',
+        (w) => w is IconButton && w.tooltip == localeController.localeStrings.wvGo,
       );
       await tester.tap(goButtonFinder);
       await tester.pump();
@@ -152,10 +212,10 @@ void main() {
     testWidgets('Submitting URL via keyboard onSubmitted updates TextField with normalized URL',
         (WidgetTester tester) async {
       await tester.pumpWidget(
-        const MaterialApp(
-          home: InAppWebViewScreen(
-            initialUrl: 'https://google.com',
-            webView: SizedBox(key: Key('mock_webview')),
+        buildTestApp(
+          InAppWebViewScreen(
+            url: 'https://search.brave.com/search?q=',
+            saveCookiesPath: tempDir.path,
           ),
         ),
       );
@@ -177,14 +237,14 @@ void main() {
       String? returnedResult = 'initial_non_null';
 
       await tester.pumpWidget(
-        MaterialApp(
-          home: Builder(
+        buildTestApp(
+          Builder(
             builder: (context) => ElevatedButton(
               onPressed: () async {
                 returnedResult = await InAppWebViewScreen.show(
                   context,
-                  initialUrl: 'https://reddit.com',
-                  webView: const SizedBox(key: Key('mock_webview')),
+                  tempDir.path,
+                  url: 'https://reddit.com',
                 );
               },
               child: const Text('Open Dialog'),

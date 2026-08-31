@@ -88,7 +88,7 @@ void main() {
         final result = NetscapeCookieFormatter.format(cookies);
 
         final lines = result.trim().split('\n');
-        expect(lines.length, equals(10)); // 4 headers + 6 cookies
+        expect(lines.length, equals(7)); // 4 headers + 3 valid cookies (domain-less skipped)
 
         final deepCols = lines[4].split('\t');
         expect(deepCols[0], equals('.a.b.c.d.example.co.uk'));
@@ -102,23 +102,14 @@ void main() {
         expect(spacesCols[0], equals('.sub.domain.org'));
         expect(spacesCols[1], equals('TRUE'));
 
-        // Fallbacks
-        final nullCols = lines[7].split('\t');
-        expect(nullCols[0], equals('.fallback-hub.com'));
-        expect(nullCols[1], equals('TRUE'));
-
-        final emptyCols = lines[8].split('\t');
-        expect(emptyCols[0], equals('.fallback-hub.com'));
-        expect(emptyCols[1], equals('TRUE'));
-
-        final whitespaceCols = lines[9].split('\t');
-        expect(whitespaceCols[0], equals('.fallback-hub.com'));
-        expect(whitespaceCols[1], equals('TRUE'));
+        expect(result, isNot(contains('c_null')));
+        expect(result, isNot(contains('c_empty')));
+        expect(result, isNot(contains('c_whitespace')));
       },
     );
 
     test(
-      'Domain Fallback when defaultDomain is also blank defaults to localhost',
+      'Domain-less cookies are skipped by NetscapeCookieFormatter',
       () {
         final cookies = [
           Cookie(name: 'c_blank_all', value: 'val', domain: '  '),
@@ -127,9 +118,8 @@ void main() {
         final result = NetscapeCookieFormatter.format(cookies);
 
         final lines = result.trim().split('\n');
-        final cols = lines[4].split('\t');
-        expect(cols[0], equals('localhost'));
-        expect(cols[1], equals('FALSE'));
+        expect(lines.length, equals(3)); // 3 header lines (empty list / no valid cookies)
+        expect(result, isNot(contains('c_blank_all')));
       },
     );
 
@@ -138,28 +128,30 @@ void main() {
       () {
         final cookies = [
           // Session / zero / negative
-          Cookie(name: 'c_null_exp', value: '1', expiresDate: null),
-          Cookie(name: 'c_zero_exp', value: '2', expiresDate: 0),
-          Cookie(name: 'c_neg_exp', value: '3', expiresDate: -1),
-          Cookie(name: 'c_large_neg', value: '4', expiresDate: -999999999),
+          Cookie(name: 'c_null_exp', value: '1', domain: 'example.com', expiresDate: null),
+          Cookie(name: 'c_zero_exp', value: '2', domain: 'example.com', expiresDate: 0),
+          Cookie(name: 'c_neg_exp', value: '3', domain: 'example.com', expiresDate: -1),
+          Cookie(name: 'c_large_neg', value: '4', domain: 'example.com', expiresDate: -999999999),
           // Normal seconds (< 100 billion)
-          Cookie(name: 'c_secs_normal', value: '5', expiresDate: 1780000000),
+          Cookie(name: 'c_secs_normal', value: '5', domain: 'example.com', expiresDate: 1780000000),
           // Year 2038 boundary (32-bit signed int overflow at 2147483647)
-          Cookie(name: 'c_y2038_boundary', value: '6', expiresDate: 2147483647),
-          Cookie(name: 'c_y2038_plus', value: '7', expiresDate: 2147483648),
+          Cookie(name: 'c_y2038_boundary', value: '6', domain: 'example.com', expiresDate: 2147483647),
+          Cookie(name: 'c_y2038_plus', value: '7', domain: 'example.com', expiresDate: 2147483648),
           // Normal milliseconds (> 100 billion)
-          Cookie(name: 'c_ms_normal', value: '8', expiresDate: 1780000000000),
+          Cookie(name: 'c_ms_normal', value: '8', domain: 'example.com', expiresDate: 1780000000000),
           // Year 9999 (253402300799 seconds / 253402300799000 ms)
-          Cookie(name: 'c_year_9999_sec', value: '9', expiresDate: 25340230079),
+          Cookie(name: 'c_year_9999_sec', value: '9', domain: 'example.com', expiresDate: 25340230079),
           Cookie(
             name: 'c_year_9999_ms',
             value: '10',
+            domain: 'example.com',
             expiresDate: 253402300799000,
           ),
           // Extreme 64-bit int max
           Cookie(
             name: 'c_int64_max_ms',
             value: '11',
+            domain: 'example.com',
             expiresDate: 9223372036854775807,
           ),
         ];
@@ -195,29 +187,35 @@ void main() {
         final cookies = [
           Cookie(
             name: 'auth_jwt',
+            domain: 'example.com',
             value:
                 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.doNotLeak',
           ),
           Cookie(
             name: 'base64_data',
+            domain: 'example.com',
             value: 'aHR0cHM6Ly95b3V0dWJlLmNvbS93YXRjaD92PWRRd3c0dzlXZ1hjUQ==',
           ),
           Cookie(
             name: 'json_payload',
+            domain: 'example.com',
             value:
                 '{"user_id": 9999, "session_active": true, "flags": ["premium", "beta"]}',
           ),
           Cookie(
             name: 'url_encoded_param',
+            domain: 'example.com',
             value:
                 'query=flutter+inappwebview&filter=%7B%22date%22%3A%22today%22%7D',
           ),
           Cookie(
             name: 'symbols_and_quotes',
+            domain: 'example.com',
             value: '!@#\$%^&*()-_=+[]{}|;:\'",.<>/?`~',
           ),
           Cookie(
             name: 'unicode_and_emoji',
+            domain: 'example.com',
             value: '🍪_cookies_delicieux_日本語_русский_español_🔥',
           ),
         ];

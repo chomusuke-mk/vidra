@@ -33,7 +33,7 @@ class MockLocaleRepository extends LocaleRepository {
 
   @override
   Future<Map<String, String>> getLocaleStrings(String localeCode) async {
-    return _storage[localeCode] ?? _storage['en'] ?? {};
+    return _storage[localeCode] ?? {};
   }
 }
 
@@ -138,7 +138,7 @@ void main() {
       );
     });
 
-    testWidgets('Initially disabled: Switch is OFF, button & text field are hidden', (
+    testWidgets('Initially enabled: Switch is ON, action buttons are present and text field is hidden', (
       WidgetTester tester,
     ) async {
       configureViewport(tester);
@@ -149,8 +149,8 @@ void main() {
       await tester.tap(find.byIcon(Icons.wifi).first);
       await tester.pumpAndSettle();
 
-      // Initial state is disableCookiesFromWebview == true
-      expect(settingsController.downloadOptions.disableCookiesFromWebview, isTrue);
+      // Initial state is disableCookiesFromWebview == false (enabled by default)
+      expect(settingsController.downloadOptions.disableCookiesFromWebview, isFalse);
 
       // Find the SettingRow for WebView Cookies
       final settingRowFinder = find.ancestor(
@@ -166,11 +166,12 @@ void main() {
       );
       expect(switchFinder, findsOneWidget);
       final switchWidget = tester.widget<Switch>(switchFinder);
-      expect(switchWidget.value, isFalse);
+      expect(switchWidget.value, isTrue);
 
-      // Open button and text field should NOT be present
-      expect(find.text(localeController.localeStrings.sOpenWebview), findsNothing);
-      expect(find.byIcon(Icons.open_in_browser), findsNothing);
+      // Open button and View current cookies should be present
+      expect(find.text(localeController.localeStrings.sOpenWebview), findsOneWidget);
+      expect(find.text(localeController.localeStrings.sViewCurrentCookies), findsOneWidget);
+      expect(find.byIcon(Icons.open_in_browser), findsOneWidget);
       expect(
         find.descendant(
           of: settingRowFinder,
@@ -180,7 +181,7 @@ void main() {
       );
     });
 
-    testWidgets('Toggling Switch ON sets disableCookiesFromWebview: false and renders action buttons without LazyTextField', (
+    testWidgets('Toggling Switch OFF sets disableCookiesFromWebview: true and hides action buttons', (
       WidgetTester tester,
     ) async {
       configureViewport(tester);
@@ -200,27 +201,24 @@ void main() {
         matching: find.byType(Switch),
       );
 
-      // Tap Switch ON
+      // Tap Switch OFF
       await tester.tap(switchFinder);
       await tester.pumpAndSettle();
 
       // Verify controller state
-      expect(settingsController.downloadOptions.disableCookiesFromWebview, isFalse);
+      expect(settingsController.downloadOptions.disableCookiesFromWebview, isTrue);
 
-      // Verify Switch value is now true
+      // Verify Switch value is now false
       final updatedSwitch = tester.widget<Switch>(switchFinder);
-      expect(updatedSwitch.value, isTrue);
+      expect(updatedSwitch.value, isFalse);
 
-      // Verify Action Buttons with localized labels and icons
-      final openButtonFinder = find.text(localeController.localeStrings.sOpenWebview);
-      expect(openButtonFinder, findsOneWidget);
-      expect(find.byIcon(Icons.open_in_browser), findsOneWidget);
+      // Verify Action Buttons are hidden
+      expect(find.text(localeController.localeStrings.sOpenWebview), findsNothing);
+      expect(find.text(localeController.localeStrings.sViewCurrentCookies), findsNothing);
+      expect(find.byIcon(Icons.open_in_browser), findsNothing);
+      expect(find.byIcon(Icons.cookie_outlined), findsNothing);
 
-      final viewCookiesButtonFinder = find.text(localeController.localeStrings.sViewCurrentCookies);
-      expect(viewCookiesButtonFinder, findsOneWidget);
-      expect(find.byIcon(Icons.cookie_outlined), findsOneWidget);
-
-      // Verify LazyTextField is NOT rendered (replaced by View current cookies)
+      // Verify LazyTextField is NOT rendered
       expect(
         find.descendant(
           of: settingRowFinder,
@@ -230,7 +228,7 @@ void main() {
       );
     });
 
-    testWidgets('Toggling Switch back OFF hides action buttons and sets disableCookiesFromWebview: true', (
+    testWidgets('Toggling Switch back ON shows action buttons and sets disableCookiesFromWebview: false', (
       WidgetTester tester,
     ) async {
       configureViewport(tester);
@@ -249,24 +247,24 @@ void main() {
         of: settingRowFinder,
         matching: find.byType(Switch),
       );
-
-      // Toggle ON
-      await tester.tap(switchFinder);
-      await tester.pumpAndSettle();
-      expect(settingsController.downloadOptions.disableCookiesFromWebview, isFalse);
-      expect(find.text(localeController.localeStrings.sOpenWebview), findsOneWidget);
-      expect(find.text(localeController.localeStrings.sViewCurrentCookies), findsOneWidget);
 
       // Toggle OFF
       await tester.tap(switchFinder);
       await tester.pumpAndSettle();
       expect(settingsController.downloadOptions.disableCookiesFromWebview, isTrue);
-
-      // Verify child widgets are hidden
       expect(find.text(localeController.localeStrings.sOpenWebview), findsNothing);
       expect(find.text(localeController.localeStrings.sViewCurrentCookies), findsNothing);
-      expect(find.byIcon(Icons.open_in_browser), findsNothing);
-      expect(find.byIcon(Icons.cookie_outlined), findsNothing);
+
+      // Toggle back ON
+      await tester.tap(switchFinder);
+      await tester.pumpAndSettle();
+      expect(settingsController.downloadOptions.disableCookiesFromWebview, isFalse);
+
+      // Verify child widgets are visible again
+      expect(find.text(localeController.localeStrings.sOpenWebview), findsOneWidget);
+      expect(find.text(localeController.localeStrings.sViewCurrentCookies), findsOneWidget);
+      expect(find.byIcon(Icons.open_in_browser), findsOneWidget);
+      expect(find.byIcon(Icons.cookie_outlined), findsOneWidget);
     });
 
     testWidgets('Tapping View current cookies button opens cookie viewer modal with empty state or cookie list', (
@@ -420,10 +418,22 @@ void main() {
       await tester.tap(find.byIcon(Icons.wifi).first);
       await tester.pumpAndSettle();
 
+      // Initially enabled
+      expect(find.text(localeController.localeStrings.sOpenWebview), findsOneWidget);
+      expect(find.text(localeController.localeStrings.sViewCurrentCookies), findsOneWidget);
+
+      // Externally update controller options to disabled
+      settingsController.updateDownloadOptions(
+        settingsController.downloadOptions.copyWith(
+          disableCookiesFromWebview: true,
+        ),
+      );
+      await tester.pumpAndSettle();
+
       expect(find.text(localeController.localeStrings.sOpenWebview), findsNothing);
       expect(find.text(localeController.localeStrings.sViewCurrentCookies), findsNothing);
 
-      // Externally update controller options
+      // Externally update controller options to enabled
       settingsController.updateDownloadOptions(
         settingsController.downloadOptions.copyWith(
           disableCookiesFromWebview: false,

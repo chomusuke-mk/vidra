@@ -19,7 +19,7 @@ void main() {
       expect(options.retries, equals(10));
       expect(options.infiniteRetries, isFalse);
       expect(options.cookiesFromWebview, isNull);
-      expect(options.disableCookiesFromWebview, isTrue);
+      expect(options.disableCookiesFromWebview, isFalse);
     });
 
     test('toJson and fromJson preserve default DownloadOptions', () {
