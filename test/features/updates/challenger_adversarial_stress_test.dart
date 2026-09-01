@@ -11,7 +11,6 @@ import 'package:vidra/features/system/presentation/system_controller.dart';
 import 'package:vidra/features/updates/domain/update_info.dart';
 import 'package:vidra/features/updates/presentation/update_controller.dart';
 
-//SUPERFIX - HERE APK IS OPENED
 class MockSystemController extends ChangeNotifier
     with WidgetsBindingObserver
     implements SystemController {
@@ -101,7 +100,7 @@ void main() {
       return tempDir.path;
     });
 
-    const MethodChannel openFileChannel = MethodChannel('open_filex');
+    const MethodChannel openFileChannel = MethodChannel('open_file');
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(openFileChannel, (MethodCall methodCall) async {
       return {'type': 0, 'message': 'done'};
@@ -117,7 +116,7 @@ void main() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(pathChannel, null);
 
-    const MethodChannel openFileChannel = MethodChannel('open_filex');
+    const MethodChannel openFileChannel = MethodChannel('open_file');
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(openFileChannel, null);
 

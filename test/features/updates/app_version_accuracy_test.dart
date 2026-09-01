@@ -85,7 +85,7 @@ void main() {
       return tempDir.path;
     });
 
-    const MethodChannel openFileChannel = MethodChannel('open_filex');
+    const MethodChannel openFileChannel = MethodChannel('open_file');
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(openFileChannel,
             (MethodCall methodCall) async {
@@ -105,7 +105,7 @@ void main() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(pathChannel, null);
 
-    const MethodChannel openFileChannel = MethodChannel('open_filex');
+    const MethodChannel openFileChannel = MethodChannel('open_file');
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(openFileChannel, null);
 
@@ -114,7 +114,7 @@ void main() {
     }
   });
 
-  group('App Version Accuracy Post-Install Attempt (R4)', () {//SUPERFIX - HERE APK IS OPENED
+  group('App Version Accuracy Post-Install Attempt (R4)', () {
     test(
         'Triggering app installer does NOT prematurely mutate local app version state',
         () async {

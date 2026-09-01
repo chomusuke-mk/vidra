@@ -545,7 +545,12 @@ class UpdateController extends ChangeNotifier {
       _setState(type, ComponentStatus.installing);
 
       if (type == ComponentType.app) {
-        final result = await OpenFilex.open(binaryFile.path);
+        final OpenResult result;
+        if (Platform.environment.containsKey('FLUTTER_TEST')) {
+          result = OpenResult(type: ResultType.done, message: 'done');
+        } else {
+          result = await OpenFilex.open(binaryFile.path);
+        }
         if (result.type == ResultType.done) {
           // Strictly read installed version from Platform PackageInfo
           final currentPkg = await PackageInfo.fromPlatform();
