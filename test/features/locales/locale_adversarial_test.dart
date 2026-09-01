@@ -72,6 +72,7 @@ void main() {
         'wv_back',
         'wv_forward',
         'wv_refresh',
+        'wv_manage_cookies',
         'dc_action_use_cookies',
       ];
 
@@ -209,6 +210,7 @@ void main() {
       expect(enStrings.wvBack, equals('Back'));
       expect(enStrings.wvForward, equals('Forward'));
       expect(enStrings.wvRefresh, equals('Refresh'));
+      expect(enStrings.wvManageCookies, equals('Manage cookies'));
       expect(enStrings.dcActionUseCookies, equals('Use cookies'));
 
       // Spanish resolution (overlaying on top of base or direct)
@@ -253,6 +255,7 @@ void main() {
       expect(esStrings.wvBack, equals('Atrás'));
       expect(esStrings.wvForward, equals('Adelante'));
       expect(esStrings.wvRefresh, equals('Refrescar'));
+      expect(esStrings.wvManageCookies, equals('Administrar cookies'));
       expect(esStrings.dcActionUseCookies, equals('Utilizar cookies'));
     });
 

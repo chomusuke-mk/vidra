@@ -376,5 +376,6 @@
   "wv_go": "Gå",
   "wv_back": "Tillbaka",
   "wv_forward": "Fram",
-  "wv_refresh": "Uppdatera"
+  "wv_refresh": "Uppdatera",
+  "wv_manage_cookies": "Hantera cookies"
 }

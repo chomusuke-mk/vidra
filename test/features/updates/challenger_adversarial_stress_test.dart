@@ -11,6 +11,7 @@ import 'package:vidra/features/system/presentation/system_controller.dart';
 import 'package:vidra/features/updates/domain/update_info.dart';
 import 'package:vidra/features/updates/presentation/update_controller.dart';
 
+//SUPERFIX - HERE APK IS OPENED
 class MockSystemController extends ChangeNotifier
     with WidgetsBindingObserver
     implements SystemController {

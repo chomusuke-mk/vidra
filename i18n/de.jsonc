@@ -370,5 +370,6 @@
   "wv_go": "Gehen",
   "wv_back": "Zurück",
   "wv_forward": "Nach vorne",
-  "wv_refresh": "Aktualisieren"
+  "wv_refresh": "Aktualisieren",
+  "wv_manage_cookies": "Cookies verwalten"
 }

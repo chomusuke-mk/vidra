@@ -375,5 +375,6 @@
   "s_file_access_retries_desc": "012c86ad55585b3148093215827581878ffb2db2abe294b3453c9a5a95a3f087",
   "s_fragment_retries": "3ad6411428ef94e1ec463c5d8f0d5e5a73506379e35cd2315915793d28e4c551",
   "s_extractor_retries_desc": "0ba92a3dca7362f1ccb4d42bcc7940f9cbd8037fa8f16a89bdafbe5417795f90",
-  "s_limit_rate": "f3b58943f53cf48a77734be7acc21ab7b001360b7a8fb2d011df2e550b866252"
+  "s_limit_rate": "f3b58943f53cf48a77734be7acc21ab7b001360b7a8fb2d011df2e550b866252",
+  "wv_manage_cookies": "2bff1102f9fb346122771cbd0bacdd8dc35d78a7e2dc38022c3f5980ee60dd89"
 }

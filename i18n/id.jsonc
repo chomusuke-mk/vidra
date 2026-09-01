@@ -376,5 +376,6 @@
   "wv_go": "Pergi",
   "wv_back": "Kembali",
   "wv_forward": "Maju",
-  "wv_refresh": "Menyegarkan"
+  "wv_refresh": "Menyegarkan",
+  "wv_manage_cookies": "Kelola cookie"
 }

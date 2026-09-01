@@ -375,5 +375,6 @@
   "s_embed_metadata": "Bygg inn metadata",
   "s_embed_metadata_desc": "Bygger inn metadata i den endelige filen.",
   "s_embed_chapters": "Bygg inn kapitler",
-  "s_embed_chapters_desc": "Bygger inn kapitler i den endelige filen."
+  "s_embed_chapters_desc": "Bygger inn kapitler i den endelige filen.",
+  "wv_manage_cookies": "Administrer informasjonskapsler"
 }

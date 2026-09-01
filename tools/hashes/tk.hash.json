@@ -376,5 +376,6 @@
   "wv_forward": "f1c65e14817efef2b77973a4f63446a7d462cd2636bbe721207107b7d126a001",
   "wv_refresh": "0e91610117029a62a478b7fa7df0b8598bebe3ab1e192d4b1882e310719c9671",
   "dc_action_use_cookies": "363ef6bb4fbe85f2272ebacb422ceb23a1b69aa11e80bb7ae72de479e620ac50",
-  "s_cookies_from_webview": "b67205553d4993ac646fb802fc41525c1924c6ff1864a5b13ddcf1ed5f1ef75b"
+  "s_cookies_from_webview": "b67205553d4993ac646fb802fc41525c1924c6ff1864a5b13ddcf1ed5f1ef75b",
+  "wv_manage_cookies": "2bff1102f9fb346122771cbd0bacdd8dc35d78a7e2dc38022c3f5980ee60dd89"
 }

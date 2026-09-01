@@ -376,5 +376,6 @@
   "wv_go": "Megy",
   "wv_back": "Vissza",
   "wv_forward": "Előre",
-  "wv_refresh": "Frissítés"
+  "wv_refresh": "Frissítés",
+  "wv_manage_cookies": "Cookie-k kezelése"
 }

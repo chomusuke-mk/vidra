@@ -375,5 +375,6 @@
   "s_merge_output_format": "פורמט וידאו",
   "s_audio_format": "פורמט אודיו",
   "s_audio_format_desc": "פורמט האודיו המומר (mp3, flac, אופוס וכו').",
-  "s_sub_format": "פורמט כתוביות"
+  "s_sub_format": "פורמט כתוביות",
+  "wv_manage_cookies": "נהל עוגיות"
 }

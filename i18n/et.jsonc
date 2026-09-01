@@ -376,5 +376,6 @@
   "wv_go": "Mine",
   "wv_back": "Tagasi",
   "wv_forward": "Edasi",
-  "wv_refresh": "Värskenda"
+  "wv_refresh": "Värskenda",
+  "wv_manage_cookies": "Küpsiste haldamine"
 }

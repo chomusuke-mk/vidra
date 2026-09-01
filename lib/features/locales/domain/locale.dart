@@ -403,6 +403,8 @@ class AppStringKey {
   String get wvBack => _cadenasLocalizadas['wv_back'] ?? '';
   String get wvForward => _cadenasLocalizadas['wv_forward'] ?? '';
   String get wvRefresh => _cadenasLocalizadas['wv_refresh'] ?? '';
+  String get wvManageCookies =>
+      _cadenasLocalizadas['wv_manage_cookies'] ?? '';
   String get sUsername => _cadenasLocalizadas['s_username'] ?? '';
   String get sUsernameDesc => _cadenasLocalizadas['s_username_desc'] ?? '';
   String get sPassword => _cadenasLocalizadas['s_password'] ?? '';
@@ -889,6 +891,7 @@ class AppStringKey {
     'wv_back',
     'wv_forward',
     'wv_refresh',
+    'wv_manage_cookies',
     's_username',
     's_username_desc',
     's_password',

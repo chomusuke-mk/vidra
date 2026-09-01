@@ -376,5 +376,6 @@
   "wv_go": "行く",
   "wv_back": "戻る",
   "wv_forward": "フォワード",
-  "wv_refresh": "リフレッシュ"
+  "wv_refresh": "リフレッシュ",
+  "wv_manage_cookies": "Cookieを管理する"
 }

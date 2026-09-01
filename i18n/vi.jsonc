@@ -376,5 +376,6 @@
   "wv_forward": "Phía trước",
   "wv_refresh": "Làm cho khỏe lại",
   "s_view_current_cookies": "Xem cookie hiện tại",
-  "s_cookies_list_title": "Cookie hiện tại"
+  "s_cookies_list_title": "Cookie hiện tại",
+  "wv_manage_cookies": "Quản lý cookie"
 }

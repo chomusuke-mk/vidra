@@ -136,7 +136,8 @@ void main() {
       expect(find.byIcon(Icons.arrow_forward), findsNWidgets(2)); // 1 in footer, 1 as Go button in address bar
       expect(find.byIcon(Icons.refresh), findsOneWidget);
 
-      // Verify Shortcuts menu
+      // Verify 3-dot menu and Shortcuts menu
+      expect(find.byIcon(Icons.more_vert), findsOneWidget);
       expect(find.text('Shortcuts'), findsWidgets);
 
       // Verify manual Save Cookies button is removed (automatic capture)

@@ -376,5 +376,6 @@
   "wv_forward": "ئالدىغا",
   "wv_refresh": "يېڭىلاش",
   "s_no_cookies_found": "ساقلانما ھۆججەتلىرى تېپىلمىدى",
-  "wv_not_supported": "بۇ سۇپىدا Webview نى قوللىمايدۇ"
+  "wv_not_supported": "بۇ سۇپىدا Webview نى قوللىمايدۇ",
+  "wv_manage_cookies": "ساقلانمىلارنى باشقۇرۇش"
 }

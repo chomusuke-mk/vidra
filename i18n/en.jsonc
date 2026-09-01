@@ -413,5 +413,6 @@
   "ssi_bubble_title": "Update Available",
   "ssi_bubble_message": "Updates are available for Vidra components. Tap Show to review and install.",
   "ssi_bubble_button_show": "Display",
-  "ssi_bubble_button_dismiss": "Dismiss"
+  "ssi_bubble_button_dismiss": "Dismiss",
+  "wv_manage_cookies": "Manage cookies"
 }

@@ -185,7 +185,7 @@ void main() {
       await tester.pumpWidget(
         buildTestApp(
           InAppWebViewScreen(
-            url: 'https://search.brave.com/search?q=',
+            url: 'https://search.brave.com',
             saveCookiesPath: tempDir.path,
           ),
         ),
@@ -214,7 +214,7 @@ void main() {
       await tester.pumpWidget(
         buildTestApp(
           InAppWebViewScreen(
-            url: 'https://search.brave.com/search?q=',
+            url: 'https://search.brave.com',
             saveCookiesPath: tempDir.path,
           ),
         ),

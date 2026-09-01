@@ -114,7 +114,7 @@ void main() {
     }
   });
 
-  group('App Version Accuracy Post-Install Attempt (R4)', () {
+  group('App Version Accuracy Post-Install Attempt (R4)', () {//SUPERFIX - HERE APK IS OPENED
     test(
         'Triggering app installer does NOT prematurely mutate local app version state',
         () async {

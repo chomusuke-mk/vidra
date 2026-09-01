@@ -376,5 +376,6 @@
   "wv_go": "Choď",
   "wv_back": "Späť",
   "wv_forward": "Vpred",
-  "wv_refresh": "Obnoviť"
+  "wv_refresh": "Obnoviť",
+  "wv_manage_cookies": "Spravovať súbory cookie"
 }

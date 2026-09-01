@@ -376,5 +376,6 @@
   "wv_go": "يذهب",
   "wv_back": "خلف",
   "wv_forward": "إلى الأمام",
-  "wv_refresh": "ينعش"
+  "wv_refresh": "ينعش",
+  "wv_manage_cookies": "إدارة ملفات تعريف الارتباط"
 }

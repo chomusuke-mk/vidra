@@ -376,5 +376,6 @@
   "s_cookies_list_title": "Joriy cookie fayllari",
   "s_no_cookies_found": "Cookie fayllari topilmadi",
   "wv_browse_to_generate_cookies": "Cookie-fayllarni yaratish va anti-botlarni chetlab o'tish uchun ko'rib chiqing",
-  "wv_forward": "Oldinga"
+  "wv_forward": "Oldinga",
+  "wv_manage_cookies": "Cookie-fayllarni boshqarish"
 }

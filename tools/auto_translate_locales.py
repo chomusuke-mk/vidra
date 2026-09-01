@@ -314,7 +314,7 @@ def translate_lang(
         translator = GoogleTranslator(source="en", target=target_lang)
     except Exception as e:
         tqdm.write(
-            f"⚠️ [{original_locale.upper()}] Omitido: Idioma '{target_lang}' no soportado o error de red ({e})"
+            f"⚠️ [{original_locale.upper()}] Omitido: Idioma '{target_lang}' no soportado o error de red (e)"
         )
         return  # Regresamos aquí. NO fallará el hilo principal, solo omitirá este idioma.
 

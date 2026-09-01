@@ -119,4 +119,66 @@ class CookieExporter {
       return [];
     }
   }
+
+  /// Extracts the domain directly from a cookie file's name
+  /// (e.g., extracting `youtube.com` from `youtube.com_cookies.txt` or `youtube.com.txt`).
+  static String extractDomainFromFileName(String fileName) {
+    var name = p.basename(fileName).trim();
+    final lower = name.toLowerCase();
+    if (lower.endsWith('_cookies.txt')) {
+      return name.substring(0, name.length - '_cookies.txt'.length);
+    }
+    if (lower.endsWith('.txt')) {
+      return name.substring(0, name.length - '.txt'.length);
+    }
+    return name;
+  }
+
+  /// Deletes cookies from the WebView's [CookieManager] associated with the given [domain].
+  static Future<void> deleteCookiesForDomain(String domain) async {
+    if (InAppWebViewPlatform.instance == null ||
+        (!Platform.isAndroid &&
+            !Platform.isIOS &&
+            !Platform.isMacOS &&
+            !Platform.isWindows)) {
+      return;
+    }
+    try {
+      final cookieManager = CookieManager.instance();
+      final cleanDomain = domain.replaceFirst(RegExp(r'^\.+'), '');
+      if (cleanDomain.isNotEmpty) {
+        await cookieManager
+            .deleteCookies(
+              url: WebUri('https://$cleanDomain'),
+              domain: domain,
+            )
+            .timeout(const Duration(seconds: 1), onTimeout: () => false);
+        await cookieManager
+            .deleteCookies(
+              url: WebUri('http://$cleanDomain'),
+              domain: domain,
+            )
+            .timeout(const Duration(seconds: 1), onTimeout: () => false);
+      }
+    } catch (_) {}
+  }
+
+  /// Deletes a cookie file from the filesystem and removes its associated cookies
+  /// from the WebView's [CookieManager].
+  static Future<void> deleteCookieFileAndAssociatedCookies(File file) async {
+    final fileName = p.basename(file.path);
+    final domain = extractDomainFromFileName(fileName);
+    await deleteCookiesForDomain(domain);
+    try {
+      if (file.existsSync()) {
+        file.deleteSync();
+      }
+    } catch (_) {
+      try {
+        if (await file.exists()) {
+          await file.delete();
+        }
+      } catch (_) {}
+    }
+  }
 }

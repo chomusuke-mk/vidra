@@ -376,5 +376,6 @@
   "wv_go": "Πάω",
   "wv_back": "Πίσω",
   "wv_forward": "Προς τα εμπρός",
-  "wv_refresh": "Φρεσκάρω"
+  "wv_refresh": "Φρεσκάρω",
+  "wv_manage_cookies": "Διαχείριση cookies"
 }

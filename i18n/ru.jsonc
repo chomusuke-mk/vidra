@@ -376,5 +376,6 @@
   "wv_go": "Идти",
   "wv_back": "Назад",
   "wv_forward": "Вперед",
-  "wv_refresh": "Обновить"
+  "wv_refresh": "Обновить",
+  "wv_manage_cookies": "Управление файлами cookie"
 }

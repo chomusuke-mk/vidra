@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:path/path.dart' as p;
 import 'package:provider/provider.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
@@ -59,7 +60,7 @@ class InAppWebViewScreen extends StatefulWidget {
   static String normalizeUrl(String input) {
     final trimmed = input.trim();
     if (trimmed.isEmpty) {
-      return _defaultSearchEngineURL;
+      return '$_defaultSearchEngineURL/search?q=';
     }
     if (RegExp(r'^[a-zA-Z][a-zA-Z0-9+.-]*://').hasMatch(trimmed)) {
       return trimmed;
@@ -105,14 +106,18 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
       }
     });
 
-    _periodicCookieSaveTimer = Timer.periodic(const Duration(seconds: 5), (_) {
-      if (mounted && _webViewController != null) {
-        _extractAndSaveCookiesForCurrentDomain();
-      }
-    });
+    if (InAppWebViewScreen.isWebViewSupported) {
+      _periodicCookieSaveTimer = Timer.periodic(const Duration(seconds: 5), (
+        _,
+      ) {
+        if (mounted && _webViewController != null) {
+          _extractAndSaveCookiesForCurrentDomain();
+        }
+      });
+    }
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) {
+      if (mounted && InAppWebViewScreen.isWebViewSupported) {
         try {
           final locale = context.read<LocaleController>().localeStrings;
           final toastMessage = locale.wvBrowseToGenerateCookies;
@@ -144,6 +149,9 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
   Future<void> _extractAndSaveCookiesForCurrentDomain([
     WebUri? currentUri,
   ]) async {
+    if (!InAppWebViewScreen.isWebViewSupported) {
+      return;
+    }
     if (_isSavingCookies) {
       _pendingSave = true;
       _pendingSaveUri = currentUri;
@@ -195,8 +203,145 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
     }
   }
 
+  void _showManageCookiesSheet(BuildContext context) {
+    final locale = context.read<LocaleController>().localeStrings;
+    showModalBottomSheet<void>(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (sheetContext) {
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setModalState) {
+            final directory = Directory(widget.saveCookiesPath.trim());
+            final List<File> files = widget.saveCookiesPath.trim().isNotEmpty
+                ? CookieExporter.getSavedCookieFiles(directory: directory)
+                : <File>[];
+
+            final theme = Theme.of(context);
+            return SafeArea(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: MediaQuery.of(context).size.height * 0.6,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Center(
+                        child: Container(
+                          width: 36,
+                          height: 4,
+                          margin: const EdgeInsets.only(bottom: 12),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.onSurfaceVariant
+                                .withValues(alpha: 0.4),
+                            borderRadius: BorderRadius.circular(2),
+                          ),
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            locale.wvManageCookies,
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.close),
+                            tooltip: locale.sdClose,
+                            onPressed: () => Navigator.of(sheetContext).pop(),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      if (files.isEmpty)
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 32.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.cookie_outlined,
+                                size: 48,
+                                color: theme.colorScheme.onSurfaceVariant
+                                    .withValues(alpha: 0.6),
+                              ),
+                              const SizedBox(height: 12),
+                              Text(
+                                locale.sNoCookiesFound,
+                                style: theme.textTheme.bodyMedium?.copyWith(
+                                  color: theme.colorScheme.onSurfaceVariant,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        )
+                      else
+                        for (int i = 0; i < files.length; i++) ...[
+                          if (i > 0) const Divider(height: 1),
+                          Builder(
+                            builder: (context) {
+                              final file = files[i];
+                              final fileName = p.basename(file.path);
+                              int fileSize = 0;
+                              try {
+                                fileSize = file.lengthSync();
+                              } catch (_) {}
+
+                              final sizeStr = fileSize >= 1024 * 1024
+                                  ? '${(fileSize / (1024 * 1024)).toStringAsFixed(1)} MB'
+                                  : (fileSize >= 1024
+                                        ? '${(fileSize / 1024).toStringAsFixed(1)} KB'
+                                        : '$fileSize B');
+
+                              return ListTile(
+                                dense: true,
+                                contentPadding: EdgeInsets.zero,
+                                leading: const Icon(Icons.cookie_outlined),
+                                title: Text(
+                                  fileName,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                subtitle: Text(
+                                  sizeStr,
+                                  style: theme.textTheme.bodySmall,
+                                ),
+                                trailing: IconButton(
+                                  icon: const Icon(Icons.delete_outline),
+                                  onPressed: () async {
+                                    await CookieExporter.deleteCookieFileAndAssociatedCookies(
+                                      file,
+                                    );
+                                    setModalState(() {});
+                                  },
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
   Widget _buildWebViewBody(BuildContext context) {
-    if (InAppWebViewPlatform.instance == null) {
+    if (!InAppWebViewScreen.isWebViewSupported) {
       return const SizedBox.shrink();
     }
 
@@ -390,6 +535,29 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
         ),
         body: _buildWebViewBody(context),
         persistentFooterButtons: [
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.more_vert),
+            tooltip: locale.wvManageCookies,
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            style: IconButton.styleFrom(
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              padding: EdgeInsets.zero,
+              minimumSize: const Size(10, 10),
+              fixedSize: const Size(28, 28),
+            ),
+            itemBuilder: (context) => [
+              PopupMenuItem<String>(
+                value: 'manage_cookies',
+                child: Text(locale.wvManageCookies),
+              ),
+            ],
+            onSelected: (value) {
+              if (value == 'manage_cookies') {
+                _showManageCookiesSheet(context);
+              }
+            },
+          ),
           DropdownMenu<String>(
             width: 155,
             menuHeight: 260,

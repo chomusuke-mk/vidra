@@ -375,5 +375,6 @@
   "s_output_desc": "输出文件名模板。",
   "s_paths": "保存路径",
   "s_paths_desc": "保存不同类型文件的目录。",
-  "s_download_archive_desc": "用于记录下载 ID 以避免重复的文件路径。"
+  "s_download_archive_desc": "用于记录下载 ID 以避免重复的文件路径。",
+  "wv_manage_cookies": "管理cookies"
 }

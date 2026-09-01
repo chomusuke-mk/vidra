@@ -376,5 +376,6 @@
   "wv_go": "Иди",
   "wv_back": "Назад",
   "wv_forward": "Напред",
-  "wv_refresh": "Освежи"
+  "wv_refresh": "Освежи",
+  "wv_manage_cookies": "Управљајте колачићима"
 }

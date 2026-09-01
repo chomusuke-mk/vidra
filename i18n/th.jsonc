@@ -376,5 +376,6 @@
   "s_no_cookies_found": "ไม่พบไฟล์คุกกี้",
   "wv_browse_to_generate_cookies": "เรียกดูเพื่อสร้างคุกกี้และเลี่ยงผ่านแอนตี้บอท",
   "wv_not_supported": "แพลตฟอร์มนี้ไม่รองรับ Webview",
-  "wv_go": "ไป"
+  "wv_go": "ไป",
+  "wv_manage_cookies": "จัดการคุกกี้"
 }

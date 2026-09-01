@@ -376,5 +376,6 @@
   "wv_go": "Бар",
   "wv_back": "Артқа",
   "wv_forward": "Алға",
-  "wv_refresh": "Жаңарту"
+  "wv_refresh": "Жаңарту",
+  "wv_manage_cookies": "Cookie файлдарын басқару"
 }

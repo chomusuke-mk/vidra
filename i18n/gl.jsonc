@@ -376,5 +376,6 @@
   "wv_go": "Vaia",
   "wv_back": "De volta",
   "wv_forward": "Adiante",
-  "wv_refresh": "Actualizar"
+  "wv_refresh": "Actualizar",
+  "wv_manage_cookies": "Xestionar cookies"
 }

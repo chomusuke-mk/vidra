@@ -376,5 +376,6 @@
   "wv_go": "pojdi",
   "wv_back": "Nazaj",
   "wv_forward": "Naprej",
-  "wv_refresh": "Osveži"
+  "wv_refresh": "Osveži",
+  "wv_manage_cookies": "Upravljanje piškotkov"
 }

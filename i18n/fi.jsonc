@@ -376,5 +376,6 @@
   "wv_go": "Mennä",
   "wv_back": "Takaisin",
   "wv_forward": "Eteenpäin",
-  "wv_refresh": "Päivitä"
+  "wv_refresh": "Päivitä",
+  "wv_manage_cookies": "Hallinnoi evästeitä"
 }

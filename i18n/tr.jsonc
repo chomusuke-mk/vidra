@@ -376,5 +376,6 @@
   "wv_forward": "İleri",
   "wv_refresh": "Yenile",
   "wv_not_supported": "Web görünümü bu platformda desteklenmiyor",
-  "wv_go": "Gitmek"
+  "wv_go": "Gitmek",
+  "wv_manage_cookies": "Çerezleri yönet"
 }

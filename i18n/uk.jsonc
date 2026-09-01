@@ -376,5 +376,6 @@
   "wv_not_supported": "Webview не підтримується на цій платформі",
   "wv_go": "Іди",
   "wv_forward": "вперед",
-  "dc_action_use_cookies": "Використовуйте файли cookie"
+  "dc_action_use_cookies": "Використовуйте файли cookie",
+  "wv_manage_cookies": "Керувати файлами cookie"
 }

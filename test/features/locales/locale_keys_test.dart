@@ -114,6 +114,7 @@ void main() {
       expect(appStrings.wvBack, equals('Back'));
       expect(appStrings.wvForward, equals('Forward'));
       expect(appStrings.wvRefresh, equals('Refresh'));
+      expect(appStrings.wvManageCookies, equals('Manage cookies'));
       expect(appStrings.dcActionUseCookies, equals('Use cookies'));
 
       // Verify es.jsonc
@@ -223,6 +224,7 @@ void main() {
       expect(esStrings.wvBack, equals('Atrás'));
       expect(esStrings.wvForward, equals('Adelante'));
       expect(esStrings.wvRefresh, equals('Refrescar'));
+      expect(esStrings.wvManageCookies, equals('Administrar cookies'));
       expect(esStrings.dcActionUseCookies, equals('Utilizar cookies'));
     });
   });

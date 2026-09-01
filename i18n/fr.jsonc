@@ -370,5 +370,6 @@
   "wv_go": "Aller",
   "wv_back": "Dos",
   "wv_forward": "Avant",
-  "wv_refresh": "Rafraîchir"
+  "wv_refresh": "Rafraîchir",
+  "wv_manage_cookies": "Gérer les cookies"
 }

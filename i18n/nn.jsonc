@@ -375,5 +375,6 @@
   "s_format": "Format",
   "s_format_desc": "Videoformatkode(r) for nedlasting.",
   "s_xattrs": "XAttrs",
-  "s_xattrs_desc": "Skriver metadata til filsystemet xattrs."
+  "s_xattrs_desc": "Skriver metadata til filsystemet xattrs.",
+  "wv_manage_cookies": "Administrer informasjonskapsler"
 }

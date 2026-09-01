@@ -377,5 +377,6 @@
   "dc_action_open_url_error": "Error al abrir la URL.",
   "dc_action_open_url": "Abrir URL",
   "dc_action_use_cookies": "Utilizar cookies",
-  "wv_not_supported": "Webview no es compatible con esta plataforma"
+  "wv_not_supported": "Webview no es compatible con esta plataforma",
+  "wv_manage_cookies": "Administrar cookies"
 }
