@@ -7,7 +7,6 @@ import 'package:vidra/core/constants/languages.dart';
 import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/features/settings/data/cookie_exporter.dart';
-import 'package:vidra/shared/utils/toast_utils.dart';
 import 'package:vidra/shared/widgets/lazy_dropdown.dart';
 import 'package:vidra/shared/widgets/lazy_list.dart';
 import 'package:vidra/shared/widgets/lazy_map.dart';
@@ -570,10 +569,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               if (isEnabled) ...[
                 FilledButton.tonalIcon(
                   onPressed: () async {
-                    if (!InAppWebViewScreen.isWebViewSupported) {
-                      ToastUtils.showError(locale.wvNotSupported);
-                      return;
-                    }
                     await InAppWebViewScreen.show(c, opts.cookiesFromWebview!);
                   },
                   icon: const Icon(Icons.open_in_browser),

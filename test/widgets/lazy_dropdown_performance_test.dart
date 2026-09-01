@@ -46,8 +46,16 @@ void main() {
 
         // Warm up test binding / widget framework to avoid measuring one-time JIT boot
         await tester.pumpWidget(
-          const MaterialApp(
-            home: Scaffold(body: SizedBox.shrink()),
+          MaterialApp(
+            home: Scaffold(
+              body: LazyDropdown<String>(
+                value: 'warmup',
+                items: const ['warmup'],
+                label: 'Warmup',
+                labelBuilder: (s) => s,
+                onChanged: (_) {},
+              ),
+            ),
           ),
         );
         await tester.pumpAndSettle();

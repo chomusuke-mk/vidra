@@ -542,6 +542,8 @@ void main() {
         // Recreate settings repository and controller
         final coldSettingsRepo = SettingsRepository(prefs);
         final coldSettingsController = SettingsController(coldSettingsRepo);
+        await tester.pumpAndSettle();
+        await coldSettingsController.initialized;
         final coldDownloadsController = DownloadsController(
           downloadRepo,
           systemController,

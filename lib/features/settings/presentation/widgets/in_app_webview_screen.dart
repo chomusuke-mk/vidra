@@ -3,9 +3,11 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:path/path.dart' as p;
 import 'package:provider/provider.dart';
+import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
 import 'package:vidra/shared/utils/toast_utils.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -36,7 +38,10 @@ class InAppWebViewScreen extends StatefulWidget {
   /// Returns `true` if the current platform supports the In-App WebView, `false` otherwise.
   static bool get isWebViewSupported =>
       InAppWebViewPlatform.instance != null &&
-      (Platform.isAndroid || Platform.isIOS || Platform.isMacOS || Platform.isWindows);
+      (Platform.isAndroid ||
+          Platform.isIOS ||
+          Platform.isMacOS ||
+          Platform.isWindows);
 
   /// Displays the [InAppWebViewScreen] as a full-screen dialog route and
   /// returns the absolute path of the generated cookie file or directory, or `null` if dismissed.
@@ -340,9 +345,29 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
     );
   }
 
-  Widget _buildWebViewBody(BuildContext context) {
+  Widget _buildWebViewBody(BuildContext context, AppStringKey locale) {
     if (!InAppWebViewScreen.isWebViewSupported) {
-      return const SizedBox.shrink();
+      //return const SizedBox.shrink();
+      return SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(locale.wvNotSupported),
+            SizedBox(height: 8),
+            Text(
+              '(╥﹏╥)',
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurfaceVariant.withAlpha(100),
+              ),
+            ),
+          ],
+        ),
+      );
     }
 
     return InAppWebView(
@@ -533,174 +558,192 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
                 : const SizedBox(height: 3.0),
           ),
         ),
-        body: _buildWebViewBody(context),
+        body: _buildWebViewBody(context, locale),
         persistentFooterButtons: [
-          PopupMenuButton<String>(
-            icon: const Icon(Icons.more_vert),
-            tooltip: locale.wvManageCookies,
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            style: IconButton.styleFrom(
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              padding: EdgeInsets.zero,
-              minimumSize: const Size(10, 10),
-              fixedSize: const Size(28, 28),
-            ),
-            itemBuilder: (context) => [
-              PopupMenuItem<String>(
-                value: 'manage_cookies',
-                child: Text(locale.wvManageCookies),
+          Wrap(
+            spacing: 4,
+            clipBehavior: Clip.none,
+            runSpacing: 0,
+            alignment: WrapAlignment.start,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              PopupMenuButton<String>(
+                icon: const Icon(Icons.more_vert),
+                tooltip: locale.wvManageCookies,
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
+                style: IconButton.styleFrom(
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  padding: EdgeInsets.zero,
+                  minimumSize: const Size(10, 10),
+                  fixedSize: const Size(28, 28),
+                ),
+                itemBuilder: (context) => [
+                  PopupMenuItem<String>(
+                    value: 'manage_cookies',
+                    child: Text(locale.wvManageCookies),
+                  ),
+                ],
+                onSelected: (value) {
+                  if (value == 'manage_cookies') {
+                    _showManageCookiesSheet(context);
+                  }
+                },
+              ),
+              DropdownMenu<String>(
+                width: 130,
+                menuHeight: 260,
+                initialSelection: _defaultSearchEngineURL,
+                label: Text(
+                  locale.wvShortcuts,
+                  style: const TextStyle(fontSize: 12),
+                ),
+                enableFilter: true,
+                enableSearch: true,
+                textStyle: theme.textTheme.bodySmall?.copyWith(fontSize: 12),
+                trailingIcon: const Icon(Icons.arrow_drop_down, size: 18),
+                selectedTrailingIcon: const Icon(Icons.arrow_drop_up, size: 18),
+                inputDecorationTheme: InputDecorationTheme(
+                  filled: true,
+                  isDense: true,
+                  constraints: const BoxConstraints(
+                    maxHeight: 34,
+                    minHeight: 34,
+                    maxWidth: 130,
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+                  suffixIconConstraints: const BoxConstraints(
+                    minWidth: 24,
+                    minHeight: 24,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(17),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+                dropdownMenuEntries: [
+                  DropdownMenuEntry<String>(
+                    label: _defaultSearchEngineName,
+                    value: _defaultSearchEngineURL,
+                    trailingIcon: _defaultSearchEngineIcon,
+                    style: MenuItemButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 12),
+                      visualDensity: VisualDensity.compact,
+                    ),
+                  ),
+                  DropdownMenuEntry<String>(
+                    label: 'Youtube',
+                    value: 'https://youtube.com',
+                    trailingIcon: const FaIcon(
+                      FontAwesomeIcons.youtube,
+                      color: Colors.red,
+                    ),
+                    style: MenuItemButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 12),
+                      visualDensity: VisualDensity.compact,
+                    ),
+                  ),
+                  DropdownMenuEntry<String>(
+                    label: 'TikTok',
+                    value: 'https://tiktok.com',
+                    trailingIcon: const FaIcon(
+                      FontAwesomeIcons.tiktok,
+                      color: Colors.black,
+                    ),
+                    style: MenuItemButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 12),
+                      visualDensity: VisualDensity.compact,
+                    ),
+                  ),
+                  DropdownMenuEntry<String>(
+                    label: 'Twitch',
+                    value: 'https://twitch.tv',
+                    trailingIcon: const FaIcon(
+                      FontAwesomeIcons.twitch,
+                      color: Colors.purple,
+                    ),
+                    style: MenuItemButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 12),
+                      visualDensity: VisualDensity.compact,
+                    ),
+                  ),
+                  DropdownMenuEntry<String>(
+                    label: 'DailyMotion',
+                    value: 'https://dailymotion.com',
+                    trailingIcon: const FaIcon(
+                      FontAwesomeIcons.dailymotion,
+                      color: Colors.orange,
+                    ),
+                    style: MenuItemButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 12),
+                      visualDensity: VisualDensity.compact,
+                    ),
+                  ),
+                  DropdownMenuEntry<String>(
+                    label: 'Vimeo',
+                    value: 'https://vimeo.com',
+                    trailingIcon: const FaIcon(
+                      FontAwesomeIcons.vimeo,
+                      color: Colors.blueAccent,
+                    ),
+                    style: MenuItemButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 12),
+                      visualDensity: VisualDensity.compact,
+                    ),
+                  ),
+                ],
+                onSelected: (value) {
+                  if (value != null) {
+                    _shortcutController.text = value;
+                    _loadUrl(value);
+                  }
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.arrow_back),
+                tooltip: locale.wvBack,
+                onPressed: _canGoBack
+                    ? () => _webViewController?.goBack()
+                    : null,
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
+                style: IconButton.styleFrom(
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  padding: EdgeInsets.zero,
+                  minimumSize: const Size(10, 10),
+                  fixedSize: const Size(28, 28),
+                ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.arrow_forward),
+                tooltip: locale.wvForward,
+                onPressed: _canGoForward
+                    ? () => _webViewController?.goForward()
+                    : null,
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
+                style: IconButton.styleFrom(
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  padding: EdgeInsets.zero,
+                  minimumSize: const Size(10, 10),
+                  fixedSize: const Size(28, 28),
+                ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.refresh),
+                tooltip: locale.wvRefresh,
+                onPressed: () => _webViewController?.reload(),
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
+                style: IconButton.styleFrom(
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  padding: EdgeInsets.zero,
+                  minimumSize: const Size(10, 10),
+                  fixedSize: const Size(28, 28),
+                ),
               ),
             ],
-            onSelected: (value) {
-              if (value == 'manage_cookies') {
-                _showManageCookiesSheet(context);
-              }
-            },
           ),
-          DropdownMenu<String>(
-            width: 155,
-            menuHeight: 260,
-            initialSelection: _defaultSearchEngineURL,
-            label: Text(
-              locale.wvShortcuts,
-              style: const TextStyle(fontSize: 12),
-            ),
-            enableFilter: true,
-            enableSearch: true,
-            textStyle: theme.textTheme.bodySmall?.copyWith(fontSize: 12),
-            trailingIcon: const Icon(Icons.arrow_drop_down, size: 18),
-            selectedTrailingIcon: const Icon(Icons.arrow_drop_up, size: 18),
-            inputDecorationTheme: InputDecorationTheme(
-              filled: true,
-              isDense: true,
-              constraints: const BoxConstraints(maxHeight: 34, minHeight: 34),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(17),
-                borderSide: BorderSide.none,
-              ),
-            ),
-            dropdownMenuEntries: [
-              DropdownMenuEntry<String>(
-                label: _defaultSearchEngineName,
-                value: _defaultSearchEngineURL,
-                trailingIcon: _defaultSearchEngineIcon,
-                style: MenuItemButton.styleFrom(
-                  textStyle: const TextStyle(fontSize: 12),
-                  visualDensity: VisualDensity.compact,
-                ),
-              ),
-              DropdownMenuEntry<String>(
-                label: 'Youtube',
-                value: 'https://youtube.com',
-                trailingIcon: const FaIcon(
-                  FontAwesomeIcons.youtube,
-                  color: Colors.red,
-                ),
-                style: MenuItemButton.styleFrom(
-                  textStyle: const TextStyle(fontSize: 12),
-                  visualDensity: VisualDensity.compact,
-                ),
-              ),
-              DropdownMenuEntry<String>(
-                label: 'TikTok',
-                value: 'https://tiktok.com',
-                trailingIcon: const FaIcon(
-                  FontAwesomeIcons.tiktok,
-                  color: Colors.black,
-                ),
-                style: MenuItemButton.styleFrom(
-                  textStyle: const TextStyle(fontSize: 12),
-                  visualDensity: VisualDensity.compact,
-                ),
-              ),
-              DropdownMenuEntry<String>(
-                label: 'Twitch',
-                value: 'https://twitch.tv',
-                trailingIcon: const FaIcon(
-                  FontAwesomeIcons.twitch,
-                  color: Colors.purple,
-                ),
-                style: MenuItemButton.styleFrom(
-                  textStyle: const TextStyle(fontSize: 12),
-                  visualDensity: VisualDensity.compact,
-                ),
-              ),
-              DropdownMenuEntry<String>(
-                label: 'DailyMotion',
-                value: 'https://dailymotion.com',
-                trailingIcon: const FaIcon(
-                  FontAwesomeIcons.dailymotion,
-                  color: Colors.orange,
-                ),
-                style: MenuItemButton.styleFrom(
-                  textStyle: const TextStyle(fontSize: 12),
-                  visualDensity: VisualDensity.compact,
-                ),
-              ),
-              DropdownMenuEntry<String>(
-                label: 'Vimeo',
-                value: 'https://vimeo.com',
-                trailingIcon: const FaIcon(
-                  FontAwesomeIcons.vimeo,
-                  color: Colors.blueAccent,
-                ),
-                style: MenuItemButton.styleFrom(
-                  textStyle: const TextStyle(fontSize: 12),
-                  visualDensity: VisualDensity.compact,
-                ),
-              ),
-            ],
-            onSelected: (value) {
-              if (value != null) {
-                _shortcutController.text = value;
-                _loadUrl(value);
-              }
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.arrow_back),
-            tooltip: locale.wvBack,
-            onPressed: _canGoBack ? () => _webViewController?.goBack() : null,
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            style: IconButton.styleFrom(
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              padding: EdgeInsets.zero,
-              minimumSize: const Size(10, 10),
-              fixedSize: const Size(28, 28),
-            ),
-          ),
-          IconButton(
-            icon: const Icon(Icons.arrow_forward),
-            tooltip: locale.wvForward,
-            onPressed: _canGoForward
-                ? () => _webViewController?.goForward()
-                : null,
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            style: IconButton.styleFrom(
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              padding: EdgeInsets.zero,
-              minimumSize: const Size(10, 10),
-              fixedSize: const Size(28, 28),
-            ),
-          ),
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            tooltip: locale.wvRefresh,
-            onPressed: () => _webViewController?.reload(),
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            style: IconButton.styleFrom(
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              padding: EdgeInsets.zero,
-              minimumSize: const Size(10, 10),
-              fixedSize: const Size(28, 28),
-            ),
-          ),
-          const SizedBox(width: 4),
         ],
       ),
     );

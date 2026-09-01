@@ -124,4 +124,59 @@ void main() {
 
     expect(customSubmitted, 'my_custom_resolution');
   });
+
+  testWidgets('LazyDropdown enableSearch filters items by query and selects matching entry', (
+    WidgetTester tester,
+  ) async {
+    String selectedValue = 'en';
+    final items = ['en', 'es', 'fr', 'de', 'ja'];
+    final labels = {
+      'en': 'English',
+      'es': 'Spanish',
+      'fr': 'French',
+      'de': 'German',
+      'ja': 'Japanese',
+    };
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: StatefulBuilder(
+            builder: (context, setState) {
+              return LazyDropdown<String>(
+                value: selectedValue,
+                items: items,
+                enableSearch: true,
+                label: 'Language',
+                labelBuilder: (item) => labels[item] ?? item,
+                onChanged: (val) => setState(() => selectedValue = val),
+              );
+            },
+          ),
+        ),
+      ),
+    );
+
+    final dropdownField = find.byType(TextField);
+    expect(tester.widget<TextField>(dropdownField).controller?.text, 'English');
+
+    // Open dropdown menu
+    await tester.tap(dropdownField);
+    await tester.pumpAndSettle();
+
+    // Type 'span' to filter
+    await tester.enterText(dropdownField, 'span');
+    await tester.pumpAndSettle();
+
+    // Spanish should be visible in filtered menu
+    final spanishEntry = find.text('Spanish').last;
+    expect(spanishEntry, findsOneWidget);
+
+    await tester.tap(spanishEntry);
+    await tester.pumpAndSettle();
+
+    expect(selectedValue, 'es');
+    expect(tester.widget<TextField>(dropdownField).controller?.text, 'Spanish');
+  });
 }
+

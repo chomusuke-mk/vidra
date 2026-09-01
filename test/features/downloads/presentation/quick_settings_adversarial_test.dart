@@ -565,9 +565,8 @@ void main() {
         final freshRepo = SettingsRepository(prefs);
         final freshController = SettingsController(freshRepo);
         // Wait for controller async init
-        await tester.runAsync(() async {
-          await Future.delayed(const Duration(milliseconds: 50));
-        });
+        await tester.pumpAndSettle();
+        await freshController.initialized;
 
         expect(freshController.downloadOptions.playlist, isTrue);
         expect(freshController.downloadOptions.extractAudio, isTrue);

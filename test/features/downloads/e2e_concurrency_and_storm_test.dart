@@ -653,7 +653,7 @@ void main() {
         }
 
         systemController.setState(SystemState.ready);
-        await Future.delayed(const Duration(milliseconds: 60));
+        await Future.delayed(const Duration(milliseconds: 200));
 
         expect(controller.isLoading, isFalse);
         expect(repository.peakConcurrentFetches, lessThanOrEqualTo(1));

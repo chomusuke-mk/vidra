@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:external_path/external_path.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'package:vidra/features/settings/domain/download_options.dart';
 
 class SettingsController extends ChangeNotifier {
   final SettingsRepository _repository;
+  final Completer<void> _initCompleter = Completer<void>();
 
   // Variables privadas inicializadas con valores por defecto seguros
   String _appLanguage = 'defaultOption';
@@ -17,6 +19,7 @@ class SettingsController extends ChangeNotifier {
 
   bool _isInitialized = false;
   bool get isInitialized => _isInitialized;
+  Future<void> get initialized => _initCompleter.future;
 
   // Getters públicos para acceder a las configuraciones
   String get appLanguage => _appLanguage;
@@ -28,13 +31,16 @@ class SettingsController extends ChangeNotifier {
   }
 
   void _loadSettings() async {
-    // Recuperamos todo desde el almacenamiento local
+    await Future.microtask(() {});
     _appLanguage = _repository.getAppLanguage();
     _appTheme = _repository.getAppTheme();
     var opts = _repository.getDownloadOptions();
     opts = await _applyDynamicDefaults(opts);
     _downloadOptions = opts;
     _isInitialized = true;
+    if (!_initCompleter.isCompleted) {
+      _initCompleter.complete();
+    }
     notifyListeners();
   }
 
@@ -45,23 +51,35 @@ class SettingsController extends ChangeNotifier {
     // --- REGLA 1: Directorio de Descargas (PathsKey.home) ---
     final currentHome = newPaths[PathsKey.home]?.trim();
     if (currentHome == null || currentHome.isEmpty) {
-      try {
-        Directory? dir;
-        if (Platform.isAndroid || Platform.isIOS) {
+      Directory? dir;
+      if (Platform.isAndroid || Platform.isIOS) {
+        try {
           dir = Directory(
             await ExternalPath.getExternalStoragePublicDirectory(
               ExternalPath.DIRECTORY_DOWNLOAD,
             ),
           );
-        } else {
+        } catch (_) {
+          // Fallback if external storage is inaccessible
+        }
+      } else if (Platform.isMacOS) {
+        try {
           dir = await getDownloadsDirectory();
+        } catch (_) {
+          // Path provider getDownloadsDirectory is only available on macOS
         }
+      }
 
-        if (dir != null) {
-          newPaths[PathsKey.home] = dir.path;
+      if (dir == null) {
+        final homeEnv =
+            Platform.environment['HOME'] ?? Platform.environment['USERPROFILE'];
+        if (homeEnv != null && homeEnv.isNotEmpty) {
+          dir = Directory(p.join(homeEnv, 'Downloads'));
         }
-      } catch (e) {
-        debugPrint('Error asignando directorio de descargas por defecto: $e');
+      }
+
+      if (dir != null) {
+        newPaths[PathsKey.home] = dir.path;
       }
     }
 
@@ -74,16 +92,45 @@ class SettingsController extends ChangeNotifier {
     // --- REGLA 3: Directorio de Cookies de WebView (vidra_cookies) ---
     String? resolvedCookiesFromWebview = opts.cookiesFromWebview;
     try {
-      final appSupportDir = await getApplicationSupportDirectory();
+      Directory? appSupportDir;
+      if (Platform.isAndroid || Platform.isIOS || Platform.isMacOS) {
+        try {
+          appSupportDir = await getApplicationSupportDirectory();
+        } catch (_) {
+          // Fallback if plugin fails
+        }
+      }
+      if (appSupportDir == null) {
+        final homeEnv =
+            Platform.environment['HOME'] ?? Platform.environment['USERPROFILE'];
+        if (homeEnv != null && homeEnv.isNotEmpty) {
+          appSupportDir = Directory(
+            p.join(homeEnv, '.local', 'share', 'vidra'),
+          );
+        } else {
+          appSupportDir = Directory.systemTemp;
+        }
+      }
+
       final vidraCookiesDir = Directory(
         p.join(appSupportDir.path, 'vidra_cookies'),
       );
-      if (!await vidraCookiesDir.exists()) {
-        await vidraCookiesDir.create(recursive: true);
+      if (!vidraCookiesDir.existsSync()) {
+        vidraCookiesDir.createSync(recursive: true);
       }
       resolvedCookiesFromWebview = vidraCookiesDir.path;
-    } catch (e) {
-      debugPrint('Error asignando directorio vidra_cookies: $e');
+    } catch (_) {
+      try {
+        final fallbackDir = Directory(
+          p.join(Directory.systemTemp.path, 'vidra', 'vidra_cookies'),
+        );
+        if (!fallbackDir.existsSync()) {
+          fallbackDir.createSync(recursive: true);
+        }
+        resolvedCookiesFromWebview = fallbackDir.path;
+      } catch (_) {
+        // Silent fallback in constrained/read-only test environments
+      }
     }
 
     return opts.copyWith(
