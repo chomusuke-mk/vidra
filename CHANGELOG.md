@@ -4,6 +4,13 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [4.1.7] - Web View
+
+- **Web View:** Added a web view feature, allowing users to load cookies from a web page. This feature enhances the application's functionality by enabling users to easily manage and utilize cookies for various web interactions, improving the overall user experience and compatibility with different websites.
+- **Performance Improvements:** More optimizations to the dropdown menu, resulting in faster and more responsive interactions when navigating through options and settings.
+Note: The web view feature is currently not supported on Linux. Use linux deb version to load cookies from your browser.
+- **Bug Fixes:** Fix some missing translations in the App, ensuring that users can view all text in their preferred language, enhancing accessibility and user experience across different regions.
+
 ## [4.1.6] - CURL-CFFI
 
 - **Add curl-cffi to android arm64-v8a:** Added the `curl-cffi` package to the Android arm64-v8a build, ensuring that users on this platform have access to the necessary dependencies for proper functionality and improved performance.

@@ -94,6 +94,7 @@ words:
   - Enrutador
   - ENRUTADOR
   - extractaudio
+  - facebook
   - fastforge
   - fdroid
   - ffmpegmerger
@@ -172,6 +173,7 @@ words:
   - libtcl
   - libtk
   - libva
+  - libwebkit
   - libx
   - libxau
   - libxcb

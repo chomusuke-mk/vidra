@@ -644,11 +644,35 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
                     ),
                   ),
                   DropdownMenuEntry<String>(
+                    label: 'Music',
+                    value: 'https://music.youtube.com',
+                    trailingIcon: const FaIcon(
+                      FontAwesomeIcons.solidCirclePlay,
+                      color: Colors.red,
+                    ),
+                    style: MenuItemButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 12),
+                      visualDensity: VisualDensity.compact,
+                    ),
+                  ),
+                  DropdownMenuEntry<String>(
                     label: 'TikTok',
                     value: 'https://tiktok.com',
                     trailingIcon: const FaIcon(
                       FontAwesomeIcons.tiktok,
                       color: Colors.black,
+                    ),
+                    style: MenuItemButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 12),
+                      visualDensity: VisualDensity.compact,
+                    ),
+                  ),
+                  DropdownMenuEntry<String>(
+                    label: 'Facebook',
+                    value: 'https://facebook.com',
+                    trailingIcon: const FaIcon(
+                      FontAwesomeIcons.facebook,
+                      color: Colors.blueAccent,
                     ),
                     style: MenuItemButton.styleFrom(
                       textStyle: const TextStyle(fontSize: 12),
