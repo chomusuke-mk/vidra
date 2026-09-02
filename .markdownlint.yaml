@@ -1,0 +1,14 @@
+MD033:
+  allowed_elements:
+    - br
+    - p
+    - img
+    - a
+    - h1
+    - details
+    - summary
+    - b
+MD013:
+  line_length: 1000
+MD041:
+  enabled: false

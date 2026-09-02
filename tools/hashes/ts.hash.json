@@ -377,5 +377,6 @@
   "s_open_webview": "b52d7c970508bac979fc6179667ae2802d926f9f4dfe5b3b37e7f3ad842b6811",
   "wv_not_supported": "9b9cfc6a7fd3bbfcb67e1593c112b68ce7c85bce29116e22840aaaeebac27e93",
   "wv_forward": "f1c65e14817efef2b77973a4f63446a7d462cd2636bbe721207107b7d126a001",
-  "wv_manage_cookies": "2bff1102f9fb346122771cbd0bacdd8dc35d78a7e2dc38022c3f5980ee60dd89"
+  "wv_manage_cookies": "2bff1102f9fb346122771cbd0bacdd8dc35d78a7e2dc38022c3f5980ee60dd89",
+  "d_webview": "649891a23a1c2f16bd1d4e051923188d9eafc52363f5f98df3bc8091766fdcc5"
 }

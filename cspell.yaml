@@ -61,6 +61,7 @@ words:
   - DAPPLICATION
   - darwin
   - dblite
+  - dbus
   - debugueando
   - decrementa
   - decrementar
@@ -106,6 +107,7 @@ words:
   - FILESUBTYPE
   - FILEVERSION
   - filex
+  - fixnum
   - flac
   - flutterlocalnotifications
   - FONTCHANGE
@@ -132,6 +134,7 @@ words:
   - ifdef
   - ifndef
   - ignoreversion
+  - inappwebview
   - includedeb
   - Inclusividad
   - Inclusivity
@@ -194,6 +197,7 @@ words:
   - LSTATUS
   - lzma
   - márcalo
+  - Menlo
   - mensajito
   - metainfo
   - Metaspace
@@ -201,6 +205,7 @@ words:
   - miniaturizable
   - molestoso
   - MSGSEND
+  - MSVC
   - MULTICONFIG
   - multilinea
   - multilínea
@@ -210,6 +215,7 @@ words:
   - NCCREATE
   - NDEBUG
   - netscape
+  - Neue
   - NOMINMAX
   - nonnull
   - NONNULL
@@ -222,6 +228,7 @@ words:
   - OBJC
   - obtainium
   - Obtainium
+  - octo
   - offtopic
   - Onone
   - opendesktop
@@ -237,10 +244,12 @@ words:
   - patreon
   - pbxuser
   - perspectivev
+  - petitparser
   - phantomjs
   - pinentry
   - pkcs
   - podspec
+  - posix
   - postuninstall
   - precargando
   - precompiladas
@@ -276,12 +285,15 @@ words:
   - reprepro
   - Reseteamos
   - Resolutor
+  - Roboto
   - RUNPATH
+  - rxdart
   - Sandboxed
   - SANDBOXING
   - sconsign
   - sdcard
   - SDKROOT
+  - Segoe
   - selfpromo
   - SERIALIZACIÓN
   - skipifsilent
@@ -337,6 +349,7 @@ words:
   - userdesktop
   - userosscache
   - USERPROFILE
+  - uuid
   - uvicorn
   - venv
   - VERSIONINFO
@@ -348,6 +361,7 @@ words:
   - volcándola
   - VSACL
   - wayland
+  - WCAG
   - Wconditional
   - webp
   - Werror

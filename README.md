@@ -106,6 +106,7 @@ Each release includes files to verify the integrity and authenticity of the bina
 
 - `SHA2-256SUMS`, `SHA2-512SUMS`: Checksums.
 - `SHA2-256SUMS.sig`, `SHA2-512SUMS.sig`: GPG signatures of the checksums.
+
 </details>
 
 ---

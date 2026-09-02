@@ -19,8 +19,8 @@ import 'package:vidra/features/updates/domain/update_info.dart';
 import 'package:vidra/features/updates/presentation/update_controller.dart';
 import 'package:vidra/shared/utils/changelog_utils.dart';
 import 'package:vidra/shared/utils/tutorial_utils.dart';
-import 'package:vidra/features/downloads/presentation/widgets/quick_settings_bottom_sheet.dart';
-import 'package:vidra/features/downloads/presentation/widgets/cut_video_bottom_sheet.dart';
+import 'package:vidra/features/downloads/presentation/widgets/download_action_buttons.dart';
+import 'package:vidra/features/settings/presentation/widgets/in_app_webview_screen.dart';
 import 'package:vidra/core/theme/colors.dart';
 import 'package:vidra/core/theme/layout.dart';
 
@@ -78,7 +78,6 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
   @override
   Widget build(BuildContext context) {
     final downloadsCtrl = context.watch<DownloadsController>();
-    final settingsCtrl = context.watch<SettingsController>();
     final locale = context.watch<LocaleController>().localeStrings;
     // 1. APLICAMOS EL FILTRADO MAESTRO AQUÍ
     final filteredAll = downloadsCtrl.downloads.where((d) {
@@ -200,6 +199,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
           actions: [
             IconButton(
               icon: const Icon(Icons.help_outline),
+              visualDensity: VisualDensity.compact,
               tooltip: locale.dShowTutorial,
               onPressed: () =>
                   TutorialUtils.showMainAppTutorial(context, force: true),
@@ -212,12 +212,29 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
                     ? Theme.of(context).colorScheme.primary
                     : null,
               ),
+              visualDensity: VisualDensity.compact,
               tooltip: locale.dFilters,
               onPressed: () => setState(() => _showFilters = !_showFilters),
             ),
+            if (InAppWebViewScreen.isWebViewSupported)
+              IconButton(
+                icon: const Icon(Icons.language),
+                visualDensity: VisualDensity.compact,
+                tooltip: locale.dWebView,
+                onPressed: () {
+                  final settingsCtrl = context.read<SettingsController>();
+                  final path = settingsCtrl.downloadOptions.cookiesFromWebview ?? '';
+                  InAppWebViewScreen.show(
+                    context,
+                    path,
+                    showActionButtons: true,
+                  );
+                },
+              ),
             IconButton(
               key: AppTutorialKeys.mainSettings,
               icon: const Icon(Icons.settings),
+              visualDensity: VisualDensity.compact,
               tooltip: locale.dSettings,
               onPressed: () => Navigator.push(
                 context,
@@ -227,55 +244,12 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
             const SizedBox(width: 4),
           ],
         ),
-        floatingActionButton: FittedBox(
-          fit: BoxFit.scaleDown,
-          child: MediaQuery.withClampedTextScaling(
-            maxScaleFactor: 1.3,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Badge(
-                  isLabelVisible:
-                      ((settingsCtrl
-                                  .downloadOptions
-                                  .sponsorblockRemove
-                                  .isNotEmpty
-                              ? 1
-                              : 0) +
-                          (settingsCtrl.downloadOptions.cutVideo ? 1 : 0)) >
-                      0,
-                  backgroundColor: Colors.red,
-                  label: Text(
-                    '${(settingsCtrl.downloadOptions.sponsorblockRemove.isNotEmpty ? 1 : 0) + (settingsCtrl.downloadOptions.cutVideo ? 1 : 0)}',
-                  ),
-                  child: FloatingActionButton(
-                    heroTag: 'cut_video_fab',
-                    tooltip: locale.dCutVideo,
-                    onPressed: () => CutVideoBottomSheet.show(context),
-                    child: const Icon(Icons.cut_outlined),
-                  ),
-                ),
-                const SizedBox(width: AppSpacing.space12),
-                FloatingActionButton(
-                  key: AppTutorialKeys.mainQuickSettings,
-                  heroTag: 'quick_settings_fab',
-                  tooltip: locale.dQuickSettings,
-                  onPressed: () => QuickSettingsBottomSheet.show(context),
-                  child: const Icon(Icons.construction_outlined),
-                ),
-                const SizedBox(width: AppSpacing.space12),
-                FloatingActionButton.extended(
-                  heroTag: 'download_fab',
-                  onPressed: _addDownload,
-                  icon: const Icon(Icons.download),
-                  label: Text(
-                    locale.dDownload,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
-          ),
+        floatingActionButton: DownloadActionButtons(
+          getUrl: () => _urlController.text,
+          onDownloadSuccess: () {
+            _urlController.clear();
+          },
+          isMainScreen: true,
         ),
         // --- CUERPO: Barra de Filtros + Lista de descargas ---
         body: Column(

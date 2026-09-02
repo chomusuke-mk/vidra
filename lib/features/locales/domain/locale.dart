@@ -21,6 +21,7 @@ class AppStringKey {
   String get dPaste => _cadenasLocalizadas['d_paste'] ?? '';
   String get dFilters => _cadenasLocalizadas['d_filters'] ?? '';
   String get dSettings => _cadenasLocalizadas['d_settings'] ?? '';
+  String get dWebView => _cadenasLocalizadas['d_webview'] ?? '';
   String get dQuickSettings => _cadenasLocalizadas['d_quick_settings'] ?? '';
   String get dCutVideo => _cadenasLocalizadas['d_cut_video'] ?? '';
   String get dShowTutorial => _cadenasLocalizadas['d_show_tutorial'] ?? '';
@@ -144,8 +145,7 @@ class AppStringKey {
       _cadenasLocalizadas['sd_state_initializing'] ?? '';
   String get sdStateStartingBackend =>
       _cadenasLocalizadas['sd_state_starting_backend'] ?? '';
-  String get sdStateRetrying =>
-      _cadenasLocalizadas['sd_state_retrying'] ?? '';
+  String get sdStateRetrying => _cadenasLocalizadas['sd_state_retrying'] ?? '';
   String get sdStateMissingPermissions =>
       _cadenasLocalizadas['sd_state_missing_permissions'] ?? '';
   String get sdStateMissingResources =>
@@ -181,7 +181,8 @@ class AppStringKey {
   String get sdClose => _cadenasLocalizadas['sd_close'] ?? '';
   // Strings de la pantalla Overlay, prefijo ov ----------------
   String get ovQuickDownload => _cadenasLocalizadas['ov_quick_download'] ?? '';
-  String get ovDownloadAddedDesc => _cadenasLocalizadas['ov_download_added_desc'] ?? '';
+  String get ovDownloadAddedDesc =>
+      _cadenasLocalizadas['ov_download_added_desc'] ?? '';
   // Strings de la modal Quick Settings, prefijo qs ----------------
   String get qsTitle => _cadenasLocalizadas['qs_title'] ?? '';
   String get qsClose => _cadenasLocalizadas['qs_close'] ?? '';
@@ -272,7 +273,8 @@ class AppStringKey {
   String get dcGettingDownloadInfo =>
       _cadenasLocalizadas['dc_getting_download_info'] ?? '';
   String get dcActionPlay => _cadenasLocalizadas['dc_action_play'] ?? '';
-  String get dcActionOpenFolder => _cadenasLocalizadas['dc_action_open_folder'] ?? '';
+  String get dcActionOpenFolder =>
+      _cadenasLocalizadas['dc_action_open_folder'] ?? '';
   String get dcActionDetails => _cadenasLocalizadas['dc_action_details'] ?? '';
   String get dcActionResume => _cadenasLocalizadas['dc_action_resume'] ?? '';
   String get dcActionRetry => _cadenasLocalizadas['dc_action_retry'] ?? '';
@@ -280,7 +282,8 @@ class AppStringKey {
   String get dcActionCancel => _cadenasLocalizadas['dc_action_cancel'] ?? '';
   String get dcActionDelete => _cadenasLocalizadas['dc_action_delete'] ?? '';
   String get dcActionOpenURL => _cadenasLocalizadas['dc_action_open_url'] ?? '';
-  String get dcActionOpenURLError => _cadenasLocalizadas['dc_action_open_url_error'] ?? '';
+  String get dcActionOpenURLError =>
+      _cadenasLocalizadas['dc_action_open_url_error'] ?? '';
   String get dcActionUseCookies =>
       _cadenasLocalizadas['dc_action_use_cookies'] ?? '';
   // Strings de la pantalla de settings, prefijo s  ----------------
@@ -392,19 +395,16 @@ class AppStringKey {
       _cadenasLocalizadas['s_view_current_cookies'] ?? '';
   String get sCookiesListTitle =>
       _cadenasLocalizadas['s_cookies_list_title'] ?? '';
-  String get sNoCookiesFound =>
-      _cadenasLocalizadas['s_no_cookies_found'] ?? '';
+  String get sNoCookiesFound => _cadenasLocalizadas['s_no_cookies_found'] ?? '';
   String get wvBrowseToGenerateCookies =>
       _cadenasLocalizadas['wv_browse_to_generate_cookies'] ?? '';
-  String get wvNotSupported =>
-      _cadenasLocalizadas['wv_not_supported'] ?? '';
+  String get wvNotSupported => _cadenasLocalizadas['wv_not_supported'] ?? '';
   String get wvShortcuts => _cadenasLocalizadas['wv_shortcuts'] ?? '';
   String get wvGo => _cadenasLocalizadas['wv_go'] ?? '';
   String get wvBack => _cadenasLocalizadas['wv_back'] ?? '';
   String get wvForward => _cadenasLocalizadas['wv_forward'] ?? '';
   String get wvRefresh => _cadenasLocalizadas['wv_refresh'] ?? '';
-  String get wvManageCookies =>
-      _cadenasLocalizadas['wv_manage_cookies'] ?? '';
+  String get wvManageCookies => _cadenasLocalizadas['wv_manage_cookies'] ?? '';
   String get sUsername => _cadenasLocalizadas['s_username'] ?? '';
   String get sUsernameDesc => _cadenasLocalizadas['s_username_desc'] ?? '';
   String get sPassword => _cadenasLocalizadas['s_password'] ?? '';
@@ -457,8 +457,10 @@ class AppStringKey {
   String get sXattrsDesc => _cadenasLocalizadas['s_xattrs_desc'] ?? '';
   String get sFixup => _cadenasLocalizadas['s_fixup'] ?? '';
   String get sFixupDesc => _cadenasLocalizadas['s_fixup_desc'] ?? '';
-  String get sForceKeyframesAtCuts => _cadenasLocalizadas['s_force_keyframes_at_cuts'] ?? '';
-  String get sForceKeyframesAtCutsDesc => _cadenasLocalizadas['s_force_keyframes_at_cuts_desc'] ?? '';
+  String get sForceKeyframesAtCuts =>
+      _cadenasLocalizadas['s_force_keyframes_at_cuts'] ?? '';
+  String get sForceKeyframesAtCutsDesc =>
+      _cadenasLocalizadas['s_force_keyframes_at_cuts_desc'] ?? '';
   String get sFFmpegLocation => _cadenasLocalizadas['s_ffmpeg_location'] ?? '';
   String get sFFmpegLocationDesc =>
       _cadenasLocalizadas['s_ffmpeg_location_desc'] ?? '';
@@ -553,42 +555,32 @@ class AppStringKey {
   String get dDownloadingEngineError =>
       _cadenasLocalizadas['d_downloading_engine_error'] ?? '';
   // Linux Updates (R3) ---------------------------------------
-  String get sdLinuxDebTitle =>
-      _cadenasLocalizadas['sd_linux_deb_title'] ?? '';
-  String get sdLinuxDebMsg =>
-      _cadenasLocalizadas['sd_linux_deb_msg'] ?? '';
+  String get sdLinuxDebTitle => _cadenasLocalizadas['sd_linux_deb_title'] ?? '';
+  String get sdLinuxDebMsg => _cadenasLocalizadas['sd_linux_deb_msg'] ?? '';
   String get sdLinuxAppImageTitle =>
       _cadenasLocalizadas['sd_linux_appimage_title'] ?? '';
   String get sdLinuxAppImageMsg =>
       _cadenasLocalizadas['sd_linux_appimage_msg'] ?? '';
   String get sdLinuxSnapTitle =>
       _cadenasLocalizadas['sd_linux_snap_title'] ?? '';
-  String get sdLinuxSnapMsg =>
-      _cadenasLocalizadas['sd_linux_snap_msg'] ?? '';
-  String get sdCopyCommand =>
-      _cadenasLocalizadas['sd_copy_command'] ?? '';
-  String get sdCommandCopied =>
-      _cadenasLocalizadas['sd_command_copied'] ?? '';
-  String get sdChannelStable =>
-      _cadenasLocalizadas['sd_channel_stable'] ?? '';
+  String get sdLinuxSnapMsg => _cadenasLocalizadas['sd_linux_snap_msg'] ?? '';
+  String get sdCopyCommand => _cadenasLocalizadas['sd_copy_command'] ?? '';
+  String get sdCommandCopied => _cadenasLocalizadas['sd_command_copied'] ?? '';
+  String get sdChannelStable => _cadenasLocalizadas['sd_channel_stable'] ?? '';
   String get sdChannelNightly =>
       _cadenasLocalizadas['sd_channel_nightly'] ?? '';
   String get sdAboutCreatedBy =>
       _cadenasLocalizadas['sd_about_created_by'] ?? '';
-  String get sdDonate =>
-      _cadenasLocalizadas['sd_donate'] ?? '';
-  String get sdChangelog =>
-      _cadenasLocalizadas['sd_changelog'] ?? '';
+  String get sdDonate => _cadenasLocalizadas['sd_donate'] ?? '';
+  String get sdChangelog => _cadenasLocalizadas['sd_changelog'] ?? '';
   // System Status Indicator Speech Bubble (R5) ---------------
-  String get ssiBubbleTitle =>
-      _cadenasLocalizadas['ssi_bubble_title'] ?? '';
+  String get ssiBubbleTitle => _cadenasLocalizadas['ssi_bubble_title'] ?? '';
   String get ssiBubbleMessage =>
       _cadenasLocalizadas['ssi_bubble_message'] ?? '';
   String get ssiBubbleButtonShow =>
       _cadenasLocalizadas['ssi_bubble_button_show'] ?? '';
   String get ssiBubbleButtonDismiss =>
       _cadenasLocalizadas['ssi_bubble_button_dismiss'] ?? '';
-
 
   final List<String> _allAppStrings = [
     // Pantalla Downloads -------------------------------- d_
@@ -607,6 +599,7 @@ class AppStringKey {
     'd_paste',
     'd_filters',
     'd_settings',
+    'd_webview',
     'd_quick_settings',
     'd_cut_video',
     'd_show_tutorial',

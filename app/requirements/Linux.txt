@@ -1,2 +1,1 @@
 xattr
-curl-cffi

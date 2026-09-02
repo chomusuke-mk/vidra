@@ -3,14 +3,13 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:path/path.dart' as p;
 import 'package:provider/provider.dart';
 import 'package:vidra/features/locales/domain/locale.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
-import 'package:vidra/shared/utils/toast_utils.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:vidra/features/downloads/presentation/widgets/download_action_buttons.dart';
 
 import '../../data/cookie_exporter.dart';
 
@@ -28,11 +27,13 @@ const _defaultSearchEngineIcon = FaIcon(
 class InAppWebViewScreen extends StatefulWidget {
   final String url;
   final String saveCookiesPath;
+  final bool showActionButtons;
 
   const InAppWebViewScreen({
     super.key,
     required this.url,
     required this.saveCookiesPath,
+    this.showActionButtons = false,
   });
 
   /// Returns `true` if the current platform supports the In-App WebView, `false` otherwise.
@@ -49,12 +50,14 @@ class InAppWebViewScreen extends StatefulWidget {
     BuildContext context,
     String saveCookiesPath, {
     String? url,
+    bool showActionButtons = false,
   }) {
     return Navigator.of(context).push<String>(
       MaterialPageRoute(
         builder: (_) => InAppWebViewScreen(
           url: url ?? _defaultSearchEngineURL,
           saveCookiesPath: saveCookiesPath,
+          showActionButtons: showActionButtons,
         ),
         fullscreenDialog: true,
       ),
@@ -120,16 +123,6 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
         }
       });
     }
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted && InAppWebViewScreen.isWebViewSupported) {
-        try {
-          final locale = context.read<LocaleController>().localeStrings;
-          final toastMessage = locale.wvBrowseToGenerateCookies;
-          ToastUtils.showInfo(toastMessage);
-        } catch (_) {}
-      }
-    });
   }
 
   @override
@@ -360,9 +353,8 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
             Text(
               '(╥﹏╥)',
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: Theme.of(
-                  context,
-                ).colorScheme.onSurfaceVariant.withAlpha(100),
+                color: Theme.of(context).colorScheme.onSurfaceVariant
+                    .withAlpha(100),
               ),
             ),
           ],
@@ -559,6 +551,13 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
           ),
         ),
         body: _buildWebViewBody(context, locale),
+        floatingActionButton: widget.showActionButtons
+            ? DownloadActionButtons(
+                getUrl: () => _urlController.text,
+                onDownloadSuccess: () {},
+                isMainScreen: false,
+              )
+            : null,
         persistentFooterButtons: [
           Wrap(
             spacing: 4,
