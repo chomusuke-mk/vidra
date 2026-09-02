@@ -524,7 +524,3 @@ jobs:
         run: |
           choco pack
           choco push --key $env:CHOCOLATEY_API_KEY --source https://push.chocolatey.org/
-          if ($LASTEXITCODE -ne 0) {
-            Write-Warning "Fallo al ejecutar choco push, ignorando error..."
-            $global:LASTEXITCODE = 0
-          }
