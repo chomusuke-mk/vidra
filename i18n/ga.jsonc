@@ -380,7 +380,7 @@
   "wv_refresh": "Athnuaigh",
   "wv_manage_cookies": "Bainistigh fianáin",
   "tu_browser": "Brabhsálaí Insuite",
-  "tu_browser_desc": "Oscail an brabhsálaí ionsuite chun comhaid a chuardach agus a íoslódáil go díreach ón ngréasán. Úsáideann an uirlis seo WebView dúchais an chórais chun leathanaigh a dhéanamh agus stórálann sé go háitiúil na fianáin ginte chun do sheisiúin íoslódála a choinneáil gníomhach.\n\n⚠️ Tábhachtach: Seachain do dhintiúir phearsanta a chur isteach ar sheirbhísí sruthú (cosúil le YouTube nó a leithéid). Má úsáideann tú uirlisí íoslódála tríú páirtí d’fhéadfadh sé go sárófaí a dtéarmaí seirbhíse, rud a d’fhéadfadh cosc ​​sealadach nó buan a chur ar do chuntas. Bain úsáid as cuntais shealadacha nó mhalartacha chun na críche seo i gcónaí.",
+  "tu_browser_desc": "Déan cuardach agus íoslódáil go díreach ag baint úsáide as WebView dúchais an chórais. Stórálann sé fianáin go háitiúil chun tacú le d’íoslódálacha.\n\n⚠️ Tábhachtach: D’fhéadfadh toirmeasc sealadach nó buan a bheith mar thoradh ar logáil isteach ar shuíomhanna mar YouTube le do chuntas pearsanta. Bain úsáid as cuntais mhalartacha nó cuntais shealadacha ina ionad i gcónaí.",
   "tu_cut": "Gearr",
   "tu_cut_desc": "Gearr an físeán nó an fhuaim roimh é a íoslódáil."
 }

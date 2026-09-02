@@ -380,7 +380,7 @@
   "wv_refresh": "Rifresko",
   "wv_manage_cookies": "Menaxho kukit",
   "tu_browser": "Shfletuesi i integruar",
-  "tu_browser_desc": "Hapni shfletuesin e integruar për të kërkuar dhe shkarkuar skedarë direkt nga uebi. Ky mjet përdor WebView-in vendas të sistemit për të shfaqur faqet dhe ruan në nivel lokal kukit e krijuara për të mbajtur aktive seancat e shkarkimit.\n\n⚠️ E rëndësishme: Shmangni futjen e kredencialeve tuaja personale në shërbimet e transmetimit (si YouTube ose të ngjashme). Përdorimi i mjeteve të shkarkimit të palëve të treta mund të shkelë kushtet e tyre të shërbimit, gjë që mund të rezultojë në një ndalim të përkohshëm ose të përhershëm të llogarisë suaj. Përdorni gjithmonë llogari të përkohshme ose alternative për këtë qëllim.",
+  "tu_browser_desc": "Kërkoni dhe shkarkoni drejtpërdrejt duke përdorur WebView amtare të sistemit. Ai ruan kuki në nivel lokal për të mbështetur shkarkimet tuaja.\n\n⚠️ E rëndësishme: Hyrja në sajte si YouTube me llogarinë tuaj personale mund të rezultojë në ndalime të përkohshme ose të përhershme. Përdorni gjithmonë llogari alternative ose të përkohshme në vend të tyre.",
   "tu_cut": "Prerë",
   "tu_cut_desc": "Pritini videon ose audion përpara se ta shkarkoni."
 }

@@ -380,7 +380,7 @@
   "wv_refresh": "Vuselela",
   "wv_manage_cookies": "Phatha amakhukhi",
   "tu_browser": "Isiphequluli Esakhelwe ngaphakathi",
-  "tu_browser_desc": "Vula isiphequluli esakhelwe ngaphakathi ukuze useshe futhi ulande amafayela ngokuqondile kuwebhu. Leli thuluzi lisebenzisa i-WebView yomdabu yesistimu ukuze linikeze amakhasi futhi ligcine endaweni amakhukhi akhiqiziwe ukugcina izikhathi zakho zokulanda zisebenza.\n\n⚠️ Okubalulekile: Gwema ukufaka imininingwane yakho yomuntu siqu ezinsizeni zokusakaza (njenge-YouTube noma ezifanayo). Ukusebenzisa amathuluzi okulanda ezinkampani zangaphandle kungase kwephule imigomo yesevisi, okungaholela ekuvinjweni kwesikhashana noma unomphela kwe-akhawunti yakho. Ngaso sonke isikhathi sebenzisa ama-akhawunti esikhashana noma amanye ngale njongo.",
+  "tu_browser_desc": "Sesha futhi ulande ngokuqondile usebenzisa i-WebView yomdabu yesistimu. Igcina amakhukhi endaweni ukuze isekele ukulanda kwakho.\n\n⚠️ Okubalulekile: Ukungena kumasayithi afana ne-YouTube nge-akhawunti yakho siqu kungase kuphumele ekuvinjweni kwesikhashana noma unomphela. Njalo sebenzisa ama-akhawunti ahlukile noma esikhashana esikhundleni salokho.",
   "tu_cut": "Sika",
   "tu_cut_desc": "Sika ividiyo noma umsindo ngaphambi kokulanda."
 }

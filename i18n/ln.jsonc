@@ -380,7 +380,7 @@
   "wv_refresh": "Bozongisa sika",
   "wv_manage_cookies": "Gérer ba cookies",
   "tu_browser": "Navigateur intégré na kati",
-  "tu_browser_desc": "Fungola navigateur oyo etongami mpo na koluka mpe kozwa ba fichiers mbala moko na web. Esaleli oyo esalela WebView native ya système mpo na kosala ba pages mpe ebombaka na localement ba cookies oyo esalemi mpo na kobatela ba sessions na yo ya téléchargement active.\n\n⚠️ Important: Bokima kokotisa ba credentiels personnels na yo na ba services ya streaming (lokola YouTube to ya ndenge wana). Kosalela bisaleli ya téléchargement ya bato mosusu ekoki kobuka mibeko na bango ya mosala, oyo ekoki kosala ete bápekisa kɔnti na yo mpo na mwa ntango to mpo na libela. Salelá ntango nyonso ba comptes temporaires to ya ndenge mosusu mpo na yango.",
+  "tu_browser_desc": "Luka mpe télécharger directement na nzela ya WebView native ya système. Ebombaka ba cookies na esika ofandi mpo na kosunga ba téléchargements na yo.\n\n⚠️ Important: Kokota na ba sites lokola YouTube na compte personnel na yo ekoki kosala ba interditions temporaires to permanentes. Salelá ntango nyonso ba comptes alternatifs to temporaires na esika na yango.",
   "tu_cut": "Kokata",
   "tu_cut_desc": "Kata video to audio liboso ya kozwa yango."
 }

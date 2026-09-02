@@ -379,7 +379,7 @@
   "s_limit_rate": "Anohyeto Rate",
   "wv_manage_cookies": "Hwɛ kukisi ahorow so",
   "tu_browser": "Browser a wɔde ahyɛ mu",
-  "tu_browser_desc": "Bue browser a ɛwɔ mu no na hwehwɛ na twe fael ahorow fi wɛbsaet no so tẽẽ. Saa adwinnade yi de system no ankasa WebView di dwuma de kyerɛ nkratafa na ɛde cookies a wɔayɛ no sie wɔ mpɔtam hɔ na ama wo download sessions no akɔ so ayɛ adwuma.\n\n⚠️ Nea ɛho hia: Kwati sɛ wode w’ankasa wo adansedi nkrataa bɛhyɛ streaming services (te sɛ YouTube anaa nea ɛtete saa) so. Sɛ wode nnwinnade a wɔde twetwe nneɛma a afoforo di dwuma a, ebetumi abu wɔn nhyehyɛe so, na ebetumi ama wɔabara wo akontaabu no bere tiaa bi anaa daa. Fa bere tiaa mu akontaabu anaa akontaabu foforo di dwuma ma eyi bere nyinaa.",
+  "tu_browser_desc": "Hwehwɛ na twe tẽẽ denam system no native WebView no so. Ɛkora cookies wɔ wo mpɔtam hɔ de boa wo downloads.\n\n⚠️ Nea ɛho hia: Sɛ wode w’ankasa akontaabu kɔ site ahorow te sɛ YouTube so a, ebetumi ama woabara wo bere tiaa bi anaa daa. Fa akontaabu foforo anaa bere tiaa mu akontaabu di dwuma mmom bere nyinaa.",
   "tu_cut": "Twa",
   "tu_cut_desc": "Twitwa video anaa ɔdio no mu ansa na woatwe."
 }

@@ -380,7 +380,7 @@
   "wv_refresh": "Obnoviť",
   "wv_manage_cookies": "Spravovať súbory cookie",
   "tu_browser": "Vstavaný prehliadač",
-  "tu_browser_desc": "Otvorte vstavaný prehliadač na vyhľadávanie a sťahovanie súborov priamo z webu. Tento nástroj používa natívne webové zobrazenie WebView systému na vykresľovanie stránok a lokálne ukladá vygenerované súbory cookie, aby boli vaše relácie sťahovania aktívne.\n\n⚠️ Dôležité: Vyhnite sa zadávaniu osobných údajov v streamovacích službách (ako je YouTube alebo podobné). Používanie nástrojov na sťahovanie tretích strán môže porušovať ich zmluvné podmienky, čo môže viesť k dočasnému alebo trvalému zablokovaniu vášho účtu. Na tento účel vždy používajte dočasné alebo alternatívne účty.",
+  "tu_browser_desc": "Vyhľadávajte a sťahujte priamo pomocou natívneho webového zobrazenia systému. Lokálne ukladá súbory cookie na podporu sťahovania.\n\n⚠️ Dôležité: Prihlásenie na stránky ako YouTube pomocou osobného účtu môže mať za následok dočasné alebo trvalé zákazy. Vždy namiesto toho používajte alternatívne alebo dočasné účty.",
   "tu_cut": "Vystrihnúť",
   "tu_cut_desc": "Pred stiahnutím orezajte video alebo zvuk."
 }

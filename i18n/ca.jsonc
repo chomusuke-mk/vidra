@@ -380,7 +380,7 @@
   "wv_refresh": "Actualitzar",
   "wv_manage_cookies": "Gestionar les galetes",
   "tu_browser": "Navegador integrat",
-  "tu_browser_desc": "Obriu el navegador integrat per cercar i descarregar fitxers directament des del web. Aquesta eina utilitza la WebView nativa del sistema per representar pàgines i emmagatzema localment les galetes generades per mantenir actives les vostres sessions de baixada.\n\n⚠️ Important: evita introduir les teves credencials personals als serveis de reproducció en temps real (com YouTube o similar). L'ús d'eines de baixada de tercers pot infringir les seves condicions del servei, cosa que podria provocar una prohibició temporal o permanent del vostre compte. Utilitzeu sempre comptes temporals o alternatius per a aquesta finalitat.",
+  "tu_browser_desc": "Cerqueu i descarregueu directament mitjançant el WebView natiu del sistema. Emmagatzema galetes localment per donar suport a les vostres descàrregues.\n\n⚠️ Important: iniciar sessió a llocs com YouTube amb el teu compte personal pot provocar prohibicions temporals o permanents. Feu servir sempre comptes alternatius o temporals.",
   "tu_cut": "Tallar",
   "tu_cut_desc": "Retalla el vídeo o l'àudio abans de descarregar-lo."
 }

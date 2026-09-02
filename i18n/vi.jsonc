@@ -380,7 +380,7 @@
   "s_cookies_list_title": "Cookie hiện tại",
   "wv_manage_cookies": "Quản lý cookie",
   "tu_browser": "Trình duyệt tích hợp",
-  "tu_browser_desc": "Mở trình duyệt tích hợp để tìm kiếm và tải xuống tệp trực tiếp từ web. Công cụ này sử dụng WebView gốc của hệ thống để hiển thị các trang và lưu trữ cục bộ các cookie đã tạo để duy trì hoạt động phiên tải xuống của bạn.\n\n⚠️ Quan trọng: Tránh nhập thông tin xác thực cá nhân của bạn trên các dịch vụ phát trực tuyến (như YouTube hoặc tương tự). Việc sử dụng các công cụ tải xuống của bên thứ ba có thể vi phạm điều khoản dịch vụ của họ, điều này có thể dẫn đến lệnh cấm tài khoản của bạn tạm thời hoặc vĩnh viễn. Luôn sử dụng các tài khoản tạm thời hoặc thay thế cho mục đích này.",
+  "tu_browser_desc": "Tìm kiếm và tải xuống trực tiếp bằng WebView gốc của hệ thống. Nó lưu trữ cookie cục bộ để hỗ trợ tải xuống của bạn.\n\n⚠️ Quan trọng: Đăng nhập vào các trang web như YouTube bằng tài khoản cá nhân của bạn có thể bị cấm tạm thời hoặc vĩnh viễn. Thay vào đó, hãy luôn sử dụng các tài khoản thay thế hoặc tạm thời.",
   "tu_cut": "Cắt",
   "tu_cut_desc": "Cắt video hoặc âm thanh trước khi tải xuống."
 }

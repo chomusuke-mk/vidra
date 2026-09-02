@@ -380,7 +380,7 @@
   "wv_refresh": "Aggiorna",
   "wv_manage_cookies": "Gestisci i cookie",
   "tu_browser": "Browser integrato",
-  "tu_browser_desc": "Apri il browser integrato per cercare e scaricare file direttamente dal web. Questo strumento utilizza WebView nativo del sistema per eseguire il rendering delle pagine e archivia localmente i cookie generati per mantenere attive le sessioni di download.\n\n⚠️ Importante: Evita di inserire le tue credenziali personali su servizi di streaming (come YouTube o simili). L'utilizzo di strumenti di download di terze parti potrebbe violare i loro termini di servizio, il che potrebbe comportare un divieto temporaneo o permanente del tuo account. Utilizza sempre account temporanei o alternativi a questo scopo.",
+  "tu_browser_desc": "Cerca e scarica direttamente utilizzando la WebView nativa del sistema. Memorizza i cookie localmente per supportare i tuoi download.\n\n⚠️ Importante: l'accesso a siti come YouTube con il tuo account personale può comportare ban temporanei o permanenti. Utilizza sempre invece account alternativi o temporanei.",
   "tu_cut": "Taglio",
   "tu_cut_desc": "Taglia il video o l'audio prima del download."
 }

@@ -290,25 +290,40 @@ class TutorialUtils {
     _showTutorial(context, targets, 'has_seen_system_tutorial');
   }
 
-  // --- Método privado para no repetir la lógica de inicialización del paquete ---
   static void _showTutorial(
     BuildContext context,
     List<TargetFocus> targets,
     String prefsKey,
   ) {
+    if (!context.mounted) return;
+    
+    // Filtramos targets que no tienen contexto o render object válido para evitar FormatException
+    final validTargets = targets.where((target) {
+      if (target.keyTarget != null) {
+        final ctx = target.keyTarget!.currentContext;
+        if (ctx == null) return false;
+        final ro = ctx.findRenderObject();
+        if (ro == null || !ro.attached) return false;
+      }
+      return true; // Si usa targetPosition en lugar de keyTarget, lo dejamos pasar
+    }).toList();
+
+    if (validTargets.isEmpty) return;
+
+    // Obtenemos prefs antes de mostrar el tutorial para evitar problemas de contexto desactivado
+    final prefs = context.read<SharedPreferences>();
+
     TutorialCoachMark(
-      targets: targets,
+      targets: validTargets,
       colorShadow: Colors.black,
       opacityShadow: 0.85,
       hideSkip: true,
       paddingFocus: 10,
       onClickOverlay: (target) {},
       onFinish: () async {
-        final prefs = context.read<SharedPreferences>();
         await prefs.setBool(prefsKey, true);
       },
       onSkip: () {
-        final prefs = context.read<SharedPreferences>();
         prefs.setBool(prefsKey, true);
         return true;
       },

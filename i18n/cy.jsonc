@@ -380,7 +380,7 @@
   "wv_refresh": "Adnewyddu",
   "wv_manage_cookies": "Rheoli cwcis",
   "tu_browser": "Porwr adeiledig",
-  "tu_browser_desc": "Agorwch y porwr adeiledig i chwilio a lawrlwytho ffeiliau yn uniongyrchol o'r we. Mae'r offeryn hwn yn defnyddio WebView brodorol y system i rendro tudalennau ac yn storio'r cwcis a gynhyrchir yn lleol i gadw'ch sesiynau lawrlwytho'n weithredol.\n\n⚠️ Pwysig: Ceisiwch osgoi rhoi eich manylion personol ar wasanaethau ffrydio (fel YouTube neu debyg). Gall defnyddio offer lawrlwytho trydydd parti dorri eu telerau gwasanaeth, a allai arwain at waharddiad dros dro neu barhaol o'ch cyfrif. Defnyddiwch gyfrifon dros dro neu gyfrifon amgen at y diben hwn bob amser.",
+  "tu_browser_desc": "Chwiliwch a dadlwythwch yn uniongyrchol gan ddefnyddio WebView brodorol y system. Mae'n storio cwcis yn lleol i gefnogi eich lawrlwythiadau.\n\n⚠️ Pwysig: Gall mewngofnodi i wefannau fel YouTube gyda'ch cyfrif personol arwain at waharddiadau dros dro neu barhaol. Defnyddiwch gyfrifon amgen neu dros dro yn lle hynny bob amser.",
   "tu_cut": "Torri",
   "tu_cut_desc": "Torrwch y fideo neu'r sain cyn ei lawrlwytho."
 }

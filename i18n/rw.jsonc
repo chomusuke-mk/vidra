@@ -380,7 +380,7 @@
   "wv_refresh": "Ongera",
   "wv_manage_cookies": "Gucunga kuki",
   "tu_browser": "Mucukumbuzi",
-  "tu_browser_desc": "Fungura mushakisha yubatswe kugirango ushakishe kandi ukuremo dosiye kurubuga. Iki gikoresho gikoresha sisitemu kavukire ya WebView kugirango itange paji kandi ubike ububiko bwa kuki bwakozwe kugirango ibikorwa byawe byo gukuramo bikore.\n\n⚠️ Icyangombwa: Irinde kwinjiza ibyangombwa byawe kuri serivisi zitemba (nka YouTube cyangwa bisa). Gukoresha ibikoresho byabandi byo gukuramo birashobora kurenga ku masezerano ya serivisi, bishobora kuvamo guhagarika by'agateganyo cyangwa burundu konti yawe. Buri gihe ukoreshe konti zigihe gito cyangwa ubundi buryo kubwiyi ntego.",
+  "tu_browser_desc": "Shakisha kandi ukuremo ukoresheje sisitemu ya kavukire ya WebView. Irabika kuki mugace kugirango ishyigikire ibyo ukuramo.\n\n⚠️ Icyangombwa: Kwinjira kurubuga nka YouTube hamwe na konte yawe bwite birashobora kuviramo guhagarika by'agateganyo cyangwa burundu. Buri gihe ukoreshe konti zindi cyangwa z'agateganyo aho.",
   "tu_cut": "Kata",
   "tu_cut_desc": "Gerageza amashusho cyangwa amajwi mbere yo gukuramo."
 }

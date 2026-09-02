@@ -380,7 +380,7 @@
   "wv_refresh": "Refresco luraña",
   "wv_manage_cookies": "Cookies ukanaka apnaqaña",
   "tu_browser": "Ukax mä Navegador ukankiwa",
-  "tu_browser_desc": "Navegador ukan utjki uka jist’arañamawa, ukhamat thaqhañataki ukat archivonakax chiqak web ukan apsuñataki. Aka herramienta ukaxa sistema nativo WebView ukampi luratawa pankanaka uñacht’ayañataki ukhamaraki localmente uñstayata cookies ukanaka imañataki sesiones de descarga activas ukanakaru.\n\n⚠️ Wali aski: Janiw credenciales personales ukanakax servicios de streaming (YouTube jan ukax ukar uñtasit) ukar mantañax wakiskiti. Kimsïr jaqinakan herramientas de descarga apnaqañax términos de servicio ukarux p’akintaspawa, ukat mä juk’a pachataki jan ukax wiñayatakiw cuentam jark’atäspa. Ukatakix sapa kutiw mä juk’a pachataki jan ukax yaqha cuentanakampi apnaqañama.",
+  "tu_browser_desc": "Sistema ukan WebView nativo ukamp chiqak thaqhaña ukat apsuña. Ukax cookies ukanakax local ukan imatäxiwa, ukhamat descargas ukanakar yanapt’añataki.\n\n⚠️ Wali wakiskiriwa: YouTube ukham sitios ukar cuenta personal ukamp mantañax mä juk’a pachataki jan ukax wiñayatakiw jark’atäspa. Uka lantix yaqha cuentanak jan ukax mä juk’a pachatak cuentanak apnaqapxapuniwa.",
   "tu_cut": "Khuchhuña",
   "tu_cut_desc": "Janïr apkatañkamax video jan ukax audio trim."
 }

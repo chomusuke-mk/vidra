@@ -380,7 +380,7 @@
   "dc_action_use_cookies": "Gutapjyklary ulanyň",
   "wv_manage_cookies": "Gutapjyklary dolandyryň",
   "tu_browser": "Gurlan brauzer",
-  "tu_browser_desc": "Faýllary göni internetden gözlemek we göçürip almak üçin gurlan brauzeri açyň. Bu gural, sahypalary görkezmek üçin ulgamyň ýerli WebView-den peýdalanýar we göçürip alýan sessiýalaryňyzy işjeň saklamak üçin döredilen gutapjyklary ýerli derejede saklaýar.\n\n⚠️ Möhüm: Akym hyzmatlaryna (YouTube ýa-da şuňa meňzeşler) şahsy maglumatlaryňyzy girizmekden gaça duruň. Üçünji tarap göçürip almak gurallaryny ulanmak, hasabyňyzyň wagtlaýyn ýa-da hemişelik gadagan edilmegine sebäp bolup biljek hyzmat şertlerini bozup biler. Munuň üçin elmydama wagtlaýyn ýa-da alternatiw hasaplary ulanyň.",
+  "tu_browser_desc": "Ulgamyň ýerli WebViewini gönüden-göni gözläň we göçürip alyň. Göçürip almalaryňyzy goldamak üçin gutapjyklary ýerli derejede saklaýar.\n\n⚠️ Möhüm: YouTube ýaly sahypalara şahsy hasabyňyz bilen girmek wagtlaýyn ýa-da hemişelik gadaganlyklara sebäp bolup biler. Munuň ýerine elmydama alternatiw ýa-da wagtlaýyn hasaplary ulanyň.",
   "tu_cut": "Kesiň",
   "tu_cut_desc": "Göçürip almazdan ozal wideo ýa-da ses kesiň."
 }

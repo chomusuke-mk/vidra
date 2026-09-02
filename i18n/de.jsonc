@@ -374,7 +374,7 @@
   "wv_refresh": "Aktualisieren",
   "wv_manage_cookies": "Cookies verwalten",
   "tu_browser": "Integrierter Browser",
-  "tu_browser_desc": "Öffnen Sie den integrierten Browser, um Dateien direkt aus dem Internet zu suchen und herunterzuladen. Dieses Tool verwendet die native WebView des Systems zum Rendern von Seiten und speichert die generierten Cookies lokal, um Ihre Download-Sitzungen aktiv zu halten.\n\n⚠️ Wichtig: Vermeiden Sie die Eingabe Ihrer persönlichen Zugangsdaten bei Streaming-Diensten (wie YouTube o.ä.). Die Verwendung von Download-Tools von Drittanbietern verstößt möglicherweise gegen deren Nutzungsbedingungen, was zu einer vorübergehenden oder dauerhaften Sperrung Ihres Kontos führen kann. Verwenden Sie zu diesem Zweck stets temporäre oder alternative Konten.",
+  "tu_browser_desc": "Suchen und laden Sie direkt mit dem systemeigenen WebView herunter. Es speichert Cookies lokal, um Ihre Downloads zu unterstützen.\n\n⚠️ Wichtig: Wenn Sie sich mit Ihrem persönlichen Konto bei Websites wie YouTube anmelden, kann dies zu vorübergehenden oder dauerhaften Sperren führen. Verwenden Sie stattdessen immer alternative oder temporäre Konten.",
   "tu_cut": "Schneiden",
   "tu_cut_desc": "Schneiden Sie das Video oder Audio vor dem Herunterladen zu."
 }

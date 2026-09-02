@@ -380,7 +380,7 @@
   "wv_refresh": "Päivitä",
   "wv_manage_cookies": "Hallinnoi evästeitä",
   "tu_browser": "Sisäänrakennettu selain",
-  "tu_browser_desc": "Avaa sisäänrakennettu selain etsiäksesi ja ladataksesi tiedostoja suoraan verkosta. Tämä työkalu käyttää järjestelmän alkuperäistä WebView'ta sivujen hahmontamiseen ja tallentaa luodut evästeet paikallisesti pitääkseen latausistunnot aktiivisina.\n\n⚠️ Tärkeää: Vältä antamasta henkilökohtaisia ​​tunnistetietojasi suoratoistopalveluihin (kuten YouTube tai vastaava). Kolmannen osapuolen lataustyökalujen käyttö saattaa rikkoa heidän käyttöehtojaan, mikä voi johtaa tilisi tilapäiseen tai pysyvään käyttökieltoon. Käytä tähän tarkoitukseen aina väliaikaisia ​​tai vaihtoehtoisia tilejä.",
+  "tu_browser_desc": "Hae ja lataa suoraan käyttämällä järjestelmän alkuperäistä WebView'ta. Se tallentaa evästeitä paikallisesti tukemaan latauksiasi.\n\n⚠️ Tärkeää: YouTuben kaltaisille sivustoille kirjautuminen henkilökohtaisella tilillä voi johtaa tilapäisiin tai pysyviin kieltoihin. Käytä aina vaihtoehtoisia tai väliaikaisia ​​tilejä.",
   "tu_cut": "Leikata",
   "tu_cut_desc": "Leikkaa video tai ääni ennen lataamista."
 }

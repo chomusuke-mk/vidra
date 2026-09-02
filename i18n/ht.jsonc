@@ -380,7 +380,7 @@
   "wv_refresh": "Rafrechi",
   "wv_manage_cookies": "Jere bonbon",
   "tu_browser": "Navigatè entegre",
-  "tu_browser_desc": "Louvri navigatè entegre a pou chèche epi telechaje fichye yo dirèkteman nan entènèt la. Zouti sa a sèvi ak WebView natif natal sistèm lan pou rann paj epi estoke lokalman bonbon yo pwodwi pou kenbe sesyon telechaje ou yo aktif.\n\n⚠️ Enpòtan: Evite antre kalifikasyon pèsonèl ou sou sèvis difizyon (tankou YouTube oswa menm jan). Sèvi ak zouti pou telechaje twazyèm pati yo ka vyole kondisyon sèvis yo, sa ki ka lakòz yon entèdiksyon tanporè oswa pèmanan nan kont ou. Toujou itilize kont tanporè oswa altènatif pou objektif sa a.",
+  "tu_browser_desc": "Chèche ak telechaje dirèkteman lè l sèvi avèk WebView natif natal sistèm lan. Li estoke bonbon lokalman pou sipòte telechajman ou yo.\n\n⚠️ Enpòtan: Konekte sou sit tankou YouTube ak kont pèsonèl ou ka lakòz entèdiksyon tanporè oswa pèmanan. Toujou itilize kont altènatif oswa kont tanporè pito.",
   "tu_cut": "Koupe",
   "tu_cut_desc": "Koupe videyo a oswa odyo anvan telechaje."
 }

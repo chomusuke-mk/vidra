@@ -380,7 +380,7 @@
   "wv_refresh": "Nyegerkeun",
   "wv_manage_cookies": "Atur cookies",
   "tu_browser": "Diwangun-di Browser",
-  "tu_browser_desc": "Buka browser anu diwangun pikeun milarian sareng ngaunduh file langsung tina wéb. Alat ieu nganggo WebView asli tina sistem pikeun ngajantenkeun halaman sareng nyimpen sacara lokal cookies anu dihasilkeun pikeun ngajaga sési unduh anjeun aktip.\n\n⚠️ Penting: Hindarkeun ngalebetkeun kredensial pribadi anjeun dina jasa streaming (sapertos YouTube atanapi anu sami). Nganggo alat unduh pihak katilu tiasa ngalanggar syarat jasana, anu tiasa nyababkeun larangan samentawis atanapi permanén tina akun anjeun. Salawasna nganggo akun samentara atawa alternatif pikeun tujuan ieu.",
+  "tu_browser_desc": "Pilarian sareng unduh langsung nganggo WebView asli sistem. Éta nyimpen cookies sacara lokal pikeun ngadukung undeuran anjeun.\n\n⚠️ Penting: Lebet kana situs sapertos YouTube nganggo akun pribadi anjeun tiasa nyababkeun larangan samentawis atanapi permanén. Sok nganggo akun alternatif atanapi samentawis.",
   "tu_cut": "Motong",
   "tu_cut_desc": "Potong video atanapi audio sateuacan diunduh."
 }

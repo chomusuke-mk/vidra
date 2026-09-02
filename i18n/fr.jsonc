@@ -374,7 +374,7 @@
   "wv_refresh": "Rafraîchir",
   "wv_manage_cookies": "Gérer les cookies",
   "tu_browser": "Navigateur intégré",
-  "tu_browser_desc": "Ouvrez le navigateur intégré pour rechercher et télécharger des fichiers directement depuis le Web. Cet outil utilise la WebView native du système pour afficher les pages et stocke localement les cookies générés pour maintenir vos sessions de téléchargement actives.\n\n⚠️ Important : évitez de saisir vos identifiants personnels sur les services de streaming (comme YouTube ou similaire). L'utilisation d'outils de téléchargement tiers peut enfreindre leurs conditions d'utilisation, ce qui pourrait entraîner une interdiction temporaire ou permanente de votre compte. Utilisez toujours des comptes temporaires ou alternatifs à cette fin.",
+  "tu_browser_desc": "Recherchez et téléchargez directement à l’aide de la WebView native du système. Il stocke les cookies localement pour prendre en charge vos téléchargements.\n\n⚠️ Important : La connexion à des sites comme YouTube avec votre compte personnel peut entraîner des interdictions temporaires ou permanentes. Utilisez toujours des comptes alternatifs ou temporaires à la place.",
   "tu_cut": "Couper",
   "tu_cut_desc": "Coupez la vidéo ou l'audio avant de télécharger."
 }

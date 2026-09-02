@@ -380,7 +380,7 @@
   "wv_refresh": "Refrescar",
   "wv_manage_cookies": "Cookies nisqakunata kamachiy",
   "tu_browser": "Navegador incorporado",
-  "tu_browser_desc": "Kichay ruwasqa maskaq maskanapaq chaymanta willakuykunata webmanta chiqalla uraykachinapaq. Kay yanapakuyqa sistemapa nativo WebView kaqninta llamk'achin p'anqakuna ruwanapaq chaymanta kitipi ruwasqa cookiekuna waqaychan uraykachiy tiyayniykikuna ruwaq kananpaq.\n\n⚠️ Importante: Ama sapalla credencialniykikunata churaychu streaming serviciokunapi (YouTube hina utaq chayman rikchakuq). Kimsa kaqpa uraykachina yanapakuyninkunata llamk'achiyninqa kamachiyninkuta p'akinman, chaymanta huk pachapaq utaq wiñaypaq yupayniyki harkasqa kanman. Chaypaqqa sapa kuti cuentakuna temporal utaq alternativa llamk'achiy.",
+  "tu_browser_desc": "Maskay chaymanta chiqalla uraykachiy sistemapa nativo WebView kaqwan. Chayqa cookiekuna kitipi waqaychan uraykachisqayki yanapanapaq.\n\n⚠️ Importante: YouTube hina sitiokunaman sapallaykipa cuentaykiwan yaykuyqa huk tiempollapaq utaq wiñaypaq harkakuykunatam apamunman. Chaypa rantinpi sapa kuti cuentakuna alternativa utaq temporal kaqwan llamk'achiy.",
   "tu_cut": "Kuchuy",
   "tu_cut_desc": "Videota otaq audiota manaraq uraykachispa k’utuy."
 }

@@ -380,7 +380,7 @@
   "wv_refresh": "Odświeżać",
   "wv_manage_cookies": "Zarządzaj plikami cookie",
   "tu_browser": "Wbudowana przeglądarka",
-  "tu_browser_desc": "Otwórz wbudowaną przeglądarkę, aby wyszukiwać i pobierać pliki bezpośrednio z Internetu. To narzędzie wykorzystuje natywną funkcję WebView systemu do renderowania stron i lokalnie przechowuje wygenerowane pliki cookie, aby zapewnić aktywność sesji pobierania.\n\n⚠️ Ważne: unikaj podawania swoich osobistych danych uwierzytelniających w usługach przesyłania strumieniowego (takich jak YouTube lub podobnych). Korzystanie z narzędzi do pobierania stron trzecich może naruszyć ich warunki korzystania z usług, co może skutkować tymczasowym lub trwałym zablokowaniem Twojego konta. Zawsze używaj w tym celu kont tymczasowych lub alternatywnych.",
+  "tu_browser_desc": "Wyszukuj i pobieraj bezpośrednio, korzystając z natywnego widoku WebView systemu. Przechowuje pliki cookie lokalnie w celu obsługi pobierania.\n\n⚠️ Ważne: logowanie się do witryn takich jak YouTube za pomocą konta osobistego może skutkować tymczasowymi lub trwałymi zakazami. Zamiast tego zawsze używaj kont alternatywnych lub tymczasowych.",
   "tu_cut": "Cięcie",
   "tu_cut_desc": "Przytnij wideo lub audio przed pobraniem."
 }

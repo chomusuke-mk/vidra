@@ -380,7 +380,7 @@
   "wv_refresh": "Uppdatera",
   "wv_manage_cookies": "Hantera cookies",
   "tu_browser": "Inbyggd webbläsare",
-  "tu_browser_desc": "Öppna den inbyggda webbläsaren för att söka och ladda ner filer direkt från webben. Det här verktyget använder systemets inbyggda WebView för att rendera sidor och lagrar de genererade cookies lokalt för att hålla dina nedladdningssessioner aktiva.\n\n⚠️ Viktigt: Undvik att ange dina personliga referenser på streamingtjänster (som YouTube eller liknande). Att använda tredjeparts nedladdningsverktyg kan bryta mot deras användarvillkor, vilket kan resultera i ett tillfälligt eller permanent blockering av ditt konto. Använd alltid tillfälliga eller alternativa konton för detta ändamål.",
+  "tu_browser_desc": "Sök och ladda ner direkt med hjälp av systemets inbyggda WebView. Den lagrar cookies lokalt för att stödja dina nedladdningar.\n\n⚠️ Viktigt: Att logga in på webbplatser som YouTube med ditt personliga konto kan leda till tillfälliga eller permanenta avstängningar. Använd alltid alternativa eller tillfälliga konton istället.",
   "tu_cut": "Skära",
   "tu_cut_desc": "Trimma videon eller ljudet innan du laddar ner."
 }

@@ -380,7 +380,7 @@
   "wv_refresh": "Endurnýja",
   "wv_manage_cookies": "Stjórna vafrakökum",
   "tu_browser": "Innbyggður vafri",
-  "tu_browser_desc": "Opnaðu innbyggða vafrann til að leita og hlaða niður skrám beint af vefnum. Þetta tól notar innfæddan WebView kerfisins til að birta síður og geymir þær smákökur sem myndaðar eru á staðnum til að halda niðurhalslotunum þínum virkum.\n\n⚠️ Mikilvægt: Forðastu að slá inn persónuleg skilríki þín á streymisþjónustum (eins og YouTube eða álíka). Notkun niðurhalsverkfæra frá þriðja aðila gæti brotið í bága við þjónustuskilmála þeirra, sem gæti leitt til tímabundins eða varanlegs banns á reikningnum þínum. Notaðu alltaf tímabundna eða aðra reikninga í þessum tilgangi.",
+  "tu_browser_desc": "Leitaðu og halaðu niður beint með því að nota innfæddan WebView kerfisins. Það geymir smákökur á staðnum til að styðja við niðurhal þitt.\n\n⚠️ Mikilvægt: Innskráning á síður eins og YouTube með persónulegum reikningi þínum getur leitt til tímabundinna eða varanlegra banna. Notaðu alltaf aðra eða tímabundna reikninga í staðinn.",
   "tu_cut": "Skerið",
   "tu_cut_desc": "Klipptu myndbandið eða hljóðið áður en þú hleður niður."
 }

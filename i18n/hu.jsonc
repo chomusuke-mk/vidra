@@ -380,7 +380,7 @@
   "wv_refresh": "Frissítés",
   "wv_manage_cookies": "Cookie-k kezelése",
   "tu_browser": "Beépített böngésző",
-  "tu_browser_desc": "Nyissa meg a beépített böngészőt a fájlok kereséséhez és letöltéséhez közvetlenül az internetről. Ez az eszköz a rendszer natív WebView-ját használja az oldalak megjelenítéséhez, és helyben tárolja a generált cookie-kat, hogy a letöltési munkamenetek aktívak maradjanak.\n\n⚠️ Fontos: Ne adja meg személyes hitelesítő adatait a streaming szolgáltatásokban (például YouTube vagy hasonló). Harmadik fél letöltési eszközeinek használata megsértheti a szolgáltatás feltételeit, ami a fiók ideiglenes vagy végleges kitiltását eredményezheti. Mindig használjon ideiglenes vagy alternatív fiókokat erre a célra.",
+  "tu_browser_desc": "Keressen és töltsön le közvetlenül a rendszer natív WebView segítségével. A letöltések támogatása érdekében helyben sütiket tárol.\n\n⚠️ Fontos: Ha személyes fiókoddal bejelentkezik olyan webhelyekre, mint a YouTube, ideiglenes vagy végleges kitiltást vonhat maga után. Mindig használjon alternatív vagy ideiglenes fiókokat.",
   "tu_cut": "Vágott",
   "tu_cut_desc": "Vágja le a videót vagy a hangot a letöltés előtt."
 }

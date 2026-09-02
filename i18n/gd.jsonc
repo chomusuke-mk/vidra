@@ -380,7 +380,7 @@
   "wv_refresh": "Ùraich",
   "wv_manage_cookies": "Stiùirich briosgaidean",
   "tu_browser": "Brabhsair a chaidh a thogail a-steach",
-  "tu_browser_desc": "Fosgail am brabhsair togte gus faidhlichean a lorg agus a luchdachadh sìos gu dìreach bhon lìon. Bidh an t-inneal seo a’ cleachdadh WebView dùthchasach an t-siostaim gus duilleagan a thoirt seachad agus a’ stòradh bhriosgaidean gineadh gu h-ionadail gus na seiseanan luchdachadh sìos agad a chumail gnìomhach.\n\n⚠️ Cudromach: Seachain a dhol a-steach do na teisteanasan pearsanta agad air seirbheisean sruthadh (leithid YouTube no a leithid). Le bhith a’ cleachdadh innealan luchdachadh sìos treas-phàrtaidh dh’ fhaodadh sin briseadh sìos air na cumhachan seirbheis aca, a dh’ fhaodadh casg sealach no maireannach a bhith air do chunntas. Cleachd cunntasan sealach no eile an-còmhnaidh airson an adhbhair seo.",
+  "tu_browser_desc": "Rannsaich agus luchdaich sìos gu dìreach a’ cleachdadh WebView dùthchasach an t-siostaim. Bidh e a’ stòradh bhriosgaidean gu h-ionadail gus taic a thoirt do luchdachadh sìos.\n\n⚠️ Cudromach: Le bhith a’ logadh a-steach gu làraich mar YouTube leis a’ chunntas pearsanta agad dh’ fhaodadh sin toirmeasg sealach no maireannach. Cleachd cunntasan eile no sealach an-còmhnaidh nan àite.",
   "tu_cut": "Gearr",
   "tu_cut_desc": "Trim a’ bhidio no an fhuaim mus luchdaich thu sìos e."
 }

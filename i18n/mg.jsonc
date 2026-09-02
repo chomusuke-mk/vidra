@@ -380,7 +380,7 @@
   "wv_refresh": "Havaozina",
   "wv_manage_cookies": "Mitantana cookies",
   "tu_browser": "Browser anatiny",
-  "tu_browser_desc": "Sokafy ny navigateur naorina mba hikaroka sy hisintona rakitra mivantana avy amin'ny tranonkala. Ity fitaovana ity dia mampiasa ny WebView teratany an'ny rafitra handikana pejy ary hitahiry ireo cookies voavolavola ao an-toerana mba hitazonana ny fotoam-pisintonanao ho mavitrika.\n\n⚠️ Zava-dehibe: Fadio ny mampiditra ny mombamomba anao manokana amin'ny serivisy streaming (toy ny YouTube na mitovitovy). Ny fampiasana fitaovana fampidinana avy amin'ny antoko fahatelo dia mety handika ny fepetram-panompoany, izay mety hiteraka fandrarana vonjimaika na maharitra ny kaontinao. Mampiasà kaonty vonjimaika na hafa ho an'io tanjona io.",
+  "tu_browser_desc": "Mikaroka sy misintona mivantana amin'ny alàlan'ny WebView teratany an'ny rafitra. Mitahiry cookies eo an-toerana izy io hanohanana ny fampidinanao.\n\n⚠️ Zava-dehibe: Ny fidirana amin'ny tranokala toy ny YouTube miaraka amin'ny kaontinao manokana dia mety hiteraka fandrarana vonjimaika na maharitra. Mampiasà kaonty hafa na vonjimaika foana.",
   "tu_cut": "Hetezo",
   "tu_cut_desc": "Tapaho ny horonan-tsary na feo alohan'ny hisintonana."
 }

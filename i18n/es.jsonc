@@ -381,7 +381,7 @@
   "wv_not_supported": "Webview no es compatible con esta plataforma",
   "wv_manage_cookies": "Administrar cookies",
   "tu_browser": "Navegador incorporado",
-  "tu_browser_desc": "Abra el navegador integrado para buscar y descargar archivos directamente desde la web. Esta herramienta utiliza el WebView nativo del sistema para representar páginas y almacena localmente las cookies generadas para mantener activas sus sesiones de descarga.\n\n⚠️ Importante: Evita ingresar tus credenciales personales en servicios de streaming (como YouTube o similares). El uso de herramientas de descarga de terceros puede violar sus términos de servicio, lo que podría resultar en una prohibición temporal o permanente de su cuenta. Utilice siempre cuentas temporales o alternativas para este fin.",
+  "tu_browser_desc": "Busque y descargue directamente utilizando el WebView nativo del sistema. Almacena cookies localmente para respaldar sus descargas.\n\n⚠️ Importante: Iniciar sesión en sitios como YouTube con su cuenta personal puede resultar en prohibiciones temporales o permanentes. Utilice siempre cuentas alternativas o temporales.",
   "tu_cut": "Cortar",
   "tu_cut_desc": "Recorte el video o audio antes de descargarlo."
 }

@@ -380,7 +380,7 @@
   "wv_refresh": "Reîmprospăta",
   "wv_manage_cookies": "Gestionați cookie-urile",
   "tu_browser": "Browser încorporat",
-  "tu_browser_desc": "Deschideți browserul încorporat pentru a căuta și descărca fișiere direct de pe web. Acest instrument folosește WebViewul nativ al sistemului pentru a reda paginile și stochează local cookie-urile generate pentru a vă menține sesiunile de descărcare active.\n\n⚠️ Important: evitați să vă introduceți acreditările personale pe serviciile de streaming (cum ar fi YouTube sau similar). Utilizarea instrumentelor de descărcare terță parte poate încălca termenii și condițiile acestora, ceea ce ar putea duce la interzicerea temporară sau permanentă a contului dvs. Utilizați întotdeauna conturi temporare sau alternative în acest scop.",
+  "tu_browser_desc": "Căutați și descărcați direct folosind WebView-ul nativ al sistemului. Stochează cookie-uri local pentru a vă sprijini descărcările.\n\n⚠️ Important: conectarea la site-uri precum YouTube cu contul tău personal poate duce la interzicerea temporară sau permanentă. Utilizați întotdeauna conturi alternative sau temporare.",
   "tu_cut": "Tăiați",
   "tu_cut_desc": "Tăiați videoclipul sau audio înainte de descărcare."
 }

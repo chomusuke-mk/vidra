@@ -380,7 +380,7 @@
   "wv_forward": "Oldinga",
   "wv_manage_cookies": "Cookie-fayllarni boshqarish",
   "tu_browser": "O'rnatilgan brauzer",
-  "tu_browser_desc": "Fayllarni to'g'ridan-to'g'ri internetdan qidirish va yuklab olish uchun o'rnatilgan brauzerni oching. Ushbu vosita sahifalarni ko'rsatish uchun tizimning mahalliy WebView-dan foydalanadi va yuklab olish seanslarini faol saqlash uchun yaratilgan cookie-fayllarni mahalliy darajada saqlaydi.\n\n⚠️ Muhim: Striming xizmatlarida (masalan, YouTube yoki shunga oʻxshash) shaxsiy hisob maʼlumotlaringizni kiritmang. Uchinchi tomon yuklab olish vositalaridan foydalanish ularning xizmat shartlarini buzishi mumkin, bu sizning hisobingiz vaqtinchalik yoki doimiy ravishda bloklanishiga olib kelishi mumkin. Buning uchun har doim vaqtinchalik yoki muqobil hisoblardan foydalaning.",
+  "tu_browser_desc": "Tizimning mahalliy WebView yordamida toʻgʻridan-toʻgʻri qidiring va yuklab oling. Yuklab olishlaringizni qo'llab-quvvatlash uchun u mahalliy cookie-fayllarni saqlaydi.\n\n⚠️ Muhim: YouTube kabi saytlarga shaxsiy hisobingiz bilan kirish vaqtinchalik yoki doimiy taqiqlarga olib kelishi mumkin. Buning o'rniga har doim muqobil yoki vaqtinchalik hisoblardan foydalaning.",
   "tu_cut": "Kesish",
   "tu_cut_desc": "Yuklab olishdan oldin video yoki audioni kesib oling."
 }

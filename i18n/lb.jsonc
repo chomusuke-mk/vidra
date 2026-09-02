@@ -380,7 +380,7 @@
   "wv_refresh": "Erfrëschen",
   "wv_manage_cookies": "Verwalte Cookien",
   "tu_browser": "Built-in Browser",
-  "tu_browser_desc": "Öffnen den agebaute Browser fir Dateien direkt vum Internet ze sichen an erofzelueden. Dëst Tool benotzt d'native WebView vum System fir Säiten ze renderen a lokal déi generéiert Cookien ze späicheren fir Är Downloadsessiounen aktiv ze halen.\n\n⚠️ Wichteg: Vermeit Är perséinlech Umeldungsinformatiounen op Streaming Servicer (wéi YouTube oder ähnlech) aginn. D'Benotzung vun Drëttubidder Download-Tools kann hir Konditioune vum Service verletzen, wat zu engem temporäre oder permanente Verbuet vun Ärem Kont resultéiere kann. Benotzt ëmmer temporär oder alternativ Konten fir dësen Zweck.",
+  "tu_browser_desc": "Sicht an eroflueden direkt mat der native WebView vum System. Et späichert Cookien lokal fir Är Downloads z'ënnerstëtzen.\n\n⚠️ Wichteg: Aloggen op Siten wéi YouTube mat Ärem perséinleche Kont kann zu temporäre oder permanente Verbuet féieren. Benotzt ëmmer alternativ oder temporär Konten amplaz.",
   "tu_cut": "Schnëtt",
   "tu_cut_desc": "Trimm de Video oder Audio virum Download."
 }

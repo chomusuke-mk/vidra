@@ -380,7 +380,7 @@
   "wv_refresh": "Atsvaidzināt",
   "wv_manage_cookies": "Pārvaldīt sīkfailus",
   "tu_browser": "Iebūvēta pārlūkprogramma",
-  "tu_browser_desc": "Atveriet iebūvēto pārlūkprogrammu, lai meklētu un lejupielādētu failus tieši no tīmekļa. Šis rīks izmanto sistēmas vietējo WebView, lai renderētu lapas, un lokāli saglabā ģenerētos sīkfailus, lai jūsu lejupielādes sesijas būtu aktīvas.\n\n⚠️ Svarīgi: straumēšanas pakalpojumos (piemēram, YouTube vai līdzīgos) neievadiet savus personīgos akreditācijas datus. Izmantojot trešās puses lejupielādes rīkus, var tikt pārkāpti to pakalpojumu sniegšanas noteikumi, kā rezultātā jūsu konts var tikt īslaicīgi vai pastāvīgi aizliegts. Šim nolūkam vienmēr izmantojiet pagaidu vai alternatīvus kontus.",
+  "tu_browser_desc": "Meklējiet un lejupielādējiet tieši, izmantojot sistēmas vietējo WebView. Tas lokāli saglabā sīkfailus, lai atbalstītu jūsu lejupielādes.\n\n⚠️ Svarīgi: piesakoties tādās vietnēs kā YouTube, izmantojot savu personīgo kontu, var tikt īslaicīgi vai pastāvīgi aizliegti. Tā vietā vienmēr izmantojiet alternatīvus vai pagaidu kontus.",
   "tu_cut": "Izgriezt",
   "tu_cut_desc": "Pirms lejupielādes apgrieziet video vai audio."
 }

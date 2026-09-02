@@ -380,7 +380,7 @@
   "wv_refresh": "Hlaziya",
   "wv_manage_cookies": "Lawula iikuki",
   "tu_browser": "Ibhrawuza eyakhelwe-ngaphakathi",
-  "tu_browser_desc": "Vula isikhangeli esakhelwe ngaphakathi ukukhangela kwaye ukhuphele iifayile ngqo kwiwebhu. Esi sixhobo sisebenzisa iWebView yendalo yenkqubo ukunika amaphepha kunye nokugcina iikuki ezenziweyo ukugcina iiseshoni zakho zokukhuphela zisebenza.\n\n⚠️ Kubalulekile: Kuphephe ukufaka iinkcukacha zakho kwiinkonzo zokusasaza (ezifana neYouTube okanye ezifanayo). Ukusebenzisa izixhobo zokukhuphela zomntu wesithathu kunokwaphula imiqathango yenkonzo, nto leyo enokukhokelela ekubeni uvalwe okwethutyana okanye ngokusisigxina kwiakhawunti yakho. Soloko usebenzisa ii-akhawunti zexeshana okanye ezizezinye ukulungiselela le njongo.",
+  "tu_browser_desc": "Khangela kwaye ukhuphele ngokuthe ngqo usebenzisa iWebView yendalo yenkqubo. Igcina iikuki ekuhlaleni ukuxhasa ukhuphelo lwakho.\n\n⚠️ Kubalulekile: Ukungena kwiisayithi ezinje ngeYouTube ngeakhawunti yakho yobuqu kunokubangela ukuvalwa kwethutyana okanye ngokusisigxina. Soloko usebenzisa ezinye okanye ii-akhawunti zexeshana endaweni yoko.",
   "tu_cut": "Sika",
   "tu_cut_desc": "Sika ividiyo okanye iaudio ngaphambi kokukhuphela."
 }

@@ -380,7 +380,7 @@
   "wv_refresh": "Osvježi",
   "wv_manage_cookies": "Upravljajte kolačićima",
   "tu_browser": "Ugrađeni pretraživač",
-  "tu_browser_desc": "Otvorite ugrađeni pretraživač za pretraživanje i preuzimanje datoteka direktno s weba. Ovaj alat koristi izvorni WebView sistema za prikazivanje stranica i lokalno pohranjuje generirane kolačiće kako bi vaše sesije preuzimanja bile aktivne.\n\n⚠️ Važno: Izbjegavajte unos vaših ličnih akreditiva na streaming servise (kao što je YouTube ili slično). Korištenje alata za preuzimanje trećih strana može narušiti njihove uvjete pružanja usluge, što može rezultirati privremenom ili trajnom zabranom vašeg računa. U tu svrhu uvijek koristite privremene ili alternativne račune.",
+  "tu_browser_desc": "Pretražujte i preuzimajte direktno koristeći izvorni WebView sistema. Lokalno pohranjuje kolačiće kako bi podržao vaša preuzimanja.\n\n⚠️ Važno: prijavljivanje na web stranice kao što je YouTube s vašim ličnim računom može rezultirati privremenim ili trajnim zabranama. Umjesto toga uvijek koristite alternativne ili privremene račune.",
   "tu_cut": "Cut",
   "tu_cut_desc": "Skratite video ili audio prije preuzimanja."
 }

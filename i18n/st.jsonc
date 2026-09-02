@@ -380,7 +380,7 @@
   "wv_refresh": "Hlasimolla",
   "wv_manage_cookies": "Laola cookies",
   "tu_browser": "Sebatli se Ahiloeng",
-  "tu_browser_desc": "Bula sebatli se hahelletsoeng kahare ho batla le ho khoasolla lifaele ka kotloloho ho tsoa tepong. Sesebediswa sena se sebedisa WebView ya sisteme ho fana ka maqephe le ho boloka dikhukhi tse hlahisitsweng sebakeng sa heno ho boloka dinako tsa ho taunelouta di ntse di sebetsa.\n\n⚠️ Bohlokoa: Qoba ho kenya lintlha tsa hau lits'ebeletso tsa ho phallela (joalo ka YouTube kapa tse ling). Ho sebelisa lithulusi tsa ho khoasolla batho ba bang ho ka tlola lipehelo tsa bona tsa ts'ebeletso, e leng se ka bakang thibelo ea nakoana kapa ea ruri ea akhaonto ea hau. Kamehla sebelisa liakhaonto tsa nakoana kapa tse ling molemong ona.",
+  "tu_browser_desc": "Batla 'me u khoasolle ka kotloloho u sebelisa WebView ea tlhaho ea sistimi. E boloka li-cookie sebakeng sa heno ho tšehetsa seo u se jarollotseng.\n\n⚠️ Bohlokoa: Ho kena liwebsaeteng tse kang YouTube ka ak'haonte ea hau ho ka baka lithibelo tsa nakoana kapa tsa ruri. Kamehla sebelisa li-account tse ling kapa tsa nakoana.",
   "tu_cut": "Khaola",
   "tu_cut_desc": "Fokotsa video kapa molumo pele u khoasolla."
 }

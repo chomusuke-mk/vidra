@@ -380,7 +380,7 @@
   "wv_refresh": "Embopyahu",
   "wv_manage_cookies": "Emohenda umi cookie",
   "tu_browser": "Navegador incorporado ipype",
-  "tu_browser_desc": "Eipe’a navegador incorporado eheka ha emboguejy hag̃ua archivo directamente web-gui. Ko tembipuru oipuru WebView sistema nativo ohechauka hag̃ua página ha oñongatu localmente umi cookie oñembohekopyréva eñongatu hag̃ua ne sesión descarga activa.\n\n⚠️ Iñimportánte: Ani reike nde credencial personal umi servicio de streaming-pe (YouTube térã ojoguáva). Eipurúvo tembipuru’i mbohapýha ñemboguejy rehegua ikatu omboyke umi término servicio rehegua, ikatúva osẽ peteĩ prohibición sapy’ami térã permanente nde cuenta rehegua. Akóinte eipuru cuenta temporal térã alternativa upevarã.",
+  "tu_browser_desc": "Eheka ha emboguejy directamente eipurúvo sistema WebView nativo. Oñongatu cookies localmente oipytyvõ hag̃ua ne ñemboguejy.\n\n⚠️ Iñimportánte: Reike ramo umi sitio YouTube-icha nde cuenta personal reheve ikatu reguereko prohibición temporal térã permanente. Akóinte eipuru umi cuenta alternativa térã temporal hendaguépe.",
   "tu_cut": "Kytĩ",
   "tu_cut_desc": "Eikytĩ pe vidéo térã audio remboguejy mboyve."
 }

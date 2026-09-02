@@ -380,7 +380,7 @@
   "wv_refresh": "Verfris",
   "wv_manage_cookies": "Bestuur koekies",
   "tu_browser": "Ingeboude blaaier",
-  "tu_browser_desc": "Maak die ingeboude blaaier oop om lêers direk vanaf die web te soek en af ​​te laai. Hierdie nutsding gebruik die stelsel se inheemse WebView om bladsye weer te gee en stoor die gegenereerde koekies plaaslik om jou aflaaisessies aktief te hou.\n\n⚠️ Belangrik: Vermy die invoer van jou persoonlike geloofsbriewe op stromingsdienste (soos YouTube of soortgelyke). Die gebruik van derdeparty-aflaainutsgoed kan hul diensbepalings oortree, wat kan lei tot 'n tydelike of permanente verbod op jou rekening. Gebruik altyd tydelike of alternatiewe rekeninge vir hierdie doel.",
+  "tu_browser_desc": "Soek en laai direk af met behulp van die stelsel se inheemse WebView. Dit stoor koekies plaaslik om jou aflaaie te ondersteun.\n\n⚠️ Belangrik: As jy met jou persoonlike rekening by werwe soos YouTube aanmeld, kan dit tydelike of permanente verbod tot gevolg hê. Gebruik altyd alternatiewe of tydelike rekeninge.",
   "tu_cut": "Sny",
   "tu_cut_desc": "Sny die video of oudio voor aflaai."
 }

@@ -380,7 +380,7 @@
   "wv_refresh": "Forfriske",
   "wv_manage_cookies": "Administrer informasjonskapsler",
   "tu_browser": "Innebygd nettleser",
-  "tu_browser_desc": "Åpne den innebygde nettleseren for å søke og laste ned filer direkte fra nettet. Dette verktøyet bruker systemets opprinnelige WebView for å gjengi sider og lagrer de genererte informasjonskapslene lokalt for å holde nedlastingsøktene dine aktive.\n\n⚠️ Viktig: Unngå å oppgi din personlige legitimasjon på strømmetjenester (som YouTube eller lignende). Bruk av tredjeparts nedlastingsverktøy kan bryte deres vilkår for bruk, noe som kan resultere i en midlertidig eller permanent utestengelse av kontoen din. Bruk alltid midlertidige eller alternative kontoer til dette formålet.",
+  "tu_browser_desc": "Søk og last ned direkte ved å bruke systemets opprinnelige WebView. Den lagrer informasjonskapsler lokalt for å støtte nedlastingene dine.\n\n⚠️ Viktig: Å logge på nettsteder som YouTube med din personlige konto kan føre til midlertidige eller permanente utestengelser. Bruk alltid alternative eller midlertidige kontoer i stedet.",
   "tu_cut": "Kutt",
   "tu_cut_desc": "Trim videoen eller lyden før du laster ned."
 }
