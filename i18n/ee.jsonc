@@ -378,5 +378,9 @@
   "wv_back": "Megbe",
   "wv_forward": "Ŋgᴐgbe",
   "wv_refresh": "Gbugbɔgadzɔ",
-  "wv_manage_cookies": "Dzra cookies dzi"
+  "wv_manage_cookies": "Dzra cookies dzi",
+  "tu_browser": "Browser si wotu ɖe eme",
+  "tu_browser_desc": "Ʋu browser si wotu ɖe eme la be nàdi faɛlwo ahaɖe wo tso nyatakakadzraɖoƒea tẽ. Dɔwɔnu sia zãa WebView si nye ɖoɖoa tɔ tsɔ ɖea axawo fiana eye wòdzraa cookies siwo wowɔ la ɖo ɖe teƒea be wò kɔpiwɔwɔ ƒe ɣeyiɣiwo nanɔ dɔ wɔm.\n\n⚠️ Vevietɔ: Ƒo asa na wò ŋutɔ wò ɖaseɖigbalẽwo ŋɔŋlɔ ɖe streaming services (abe YouTube alo esiawo tɔgbe ene). Dɔwɔnu bubuwo zazã ate ŋu ada le woƒe dɔwɔnawo dzi, si ate ŋu ana woaxe mɔ ɖe wò akɔntabubua nu hena ɣeyiɣi aɖe alo tegbee. Zã ɣeyiɣi kpui aɖe ƒe akɔntabubu alo akɔntabubu bubuwo ɣesiaɣi hena esia wɔwɔ.",
+  "tu_cut": "Lã",
+  "tu_cut_desc": "Trɔ video alo odio la hafi nàɖee."
 }

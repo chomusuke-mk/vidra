@@ -377,5 +377,9 @@
   "sd_copy_command": "Salin Command",
   "sd_channel_stable": "Stabil",
   "ssi_bubble_button_dismiss": "Ngilangi",
-  "wv_manage_cookies": "Ngatur cookie"
+  "wv_manage_cookies": "Ngatur cookie",
+  "tu_browser": "Browser sing dibangun",
+  "tu_browser_desc": "Bukak browser sing dibangun kanggo nggoleki lan ngundhuh file langsung saka web. Alat iki nggunakake WebView asli sistem kanggo nerjemahake kaca lan nyimpen cookie sing digawe sacara lokal supaya sesi download sampeyan aktif.\n\n⚠️ Penting: Aja nglebokake kredensial pribadi sampeyan ing layanan streaming (kayata YouTube utawa sing padha). Nggunakake alat download pihak katelu bisa nglanggar syarat layanan, sing bisa nyebabake larangan sementara utawa permanen akun sampeyan. Tansah nggunakake akun sauntara utawa alternatif kanggo maksud iki.",
+  "tu_cut": "Cut",
+  "tu_cut_desc": "Potong video utawa audio sadurunge ngundhuh."
 }

@@ -173,6 +173,10 @@
   "tu_settings_desc": "Enter here to configure default resolutions, inject metadata, use proxies, or add automatic subtitles.",
   "tu_quick_settings": "Quick Settings",
   "tu_quick_settings_desc": "Open this menu to quickly adjust download options on the fly without leaving the main screen.",
+  "tu_browser": "Built-in Browser",
+  "tu_browser_desc": "Open the built-in browser to search and download files directly from the web. This tool uses the system's native WebView to render pages and locally stores the generated cookies to keep your download sessions active.\n\n⚠️ Important: Avoid entering your personal credentials on streaming services (like YouTube or similar). Using third-party download tools may violate their terms of service, which could result in a temporary or permanent ban of your account. Always use temporary or alternative accounts for this purpose.",
+  "tu_cut": "Cut",
+  "tu_cut_desc": "Trim the video or audio before downloading.",
   // Pantalla Settings
   "tu_settings_categories": "Settings Categories",
   "tu_settings_categories_desc": "The settings are divided into General, Network (Proxies, Cookies), Video (Formats, Subtitles) and Download (Paths, Names).",

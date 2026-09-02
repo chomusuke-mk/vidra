@@ -63,6 +63,7 @@ class DownloadActionButtons extends StatelessWidget {
               backgroundColor: Colors.red,
               label: Text('$activeModifiers'),
               child: FloatingActionButton(
+                key: isMainScreen ? AppTutorialKeys.mainCut : null,
                 heroTag: isMainScreen ? 'cut_video_fab' : 'cut_video_fab_webview',
                 tooltip: locale.dCutVideo,
                 onPressed: () => CutVideoBottomSheet.show(context),

@@ -378,5 +378,9 @@
   "wv_back": "Kubwerera",
   "wv_forward": "Patsogolo",
   "wv_refresh": "Tsitsaninso",
-  "wv_manage_cookies": "Sinthani makeke"
+  "wv_manage_cookies": "Sinthani makeke",
+  "tu_browser": "Msakatuli Womangidwa",
+  "tu_browser_desc": "Tsegulani msakatuli womangidwa kuti mufufuze ndikutsitsa mafayilo mwachindunji kuchokera pa intaneti. Chidachi chimagwiritsa ntchito mawonekedwe a Webusayiti amtundu wapakompyuta kuti apereke masamba ndikusunga makeke opangidwa kwanuko kuti magawo anu otsitsa azikhala achangu.\n\n⚠️ Zofunika: Pewani kuyika mbiri yanu pamasewera otsatsira (monga YouTube kapena zina). Kugwiritsa ntchito zida zotsitsa za gulu lachitatu kumatha kuphwanya malamulo awo, zomwe zitha kuchititsa kuti akaunti yanu itsekedwe kwakanthawi kapena kosatha. Nthawi zonse gwiritsani ntchito maakaunti osakhalitsa kapena ena pazolinga izi.",
+  "tu_cut": "Dulani",
+  "tu_cut_desc": "Chepetsani kanema kapena zomvera musanatsitse."
 }

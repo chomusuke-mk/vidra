@@ -378,5 +378,9 @@
   "wv_back": "Whakamuri",
   "wv_forward": "Whakamua",
   "wv_refresh": "Tāmata",
-  "wv_manage_cookies": "Whakahaere pihikete"
+  "wv_manage_cookies": "Whakahaere pihikete",
+  "tu_browser": "Pūtirotiro Hanga-i roto",
+  "tu_browser_desc": "Whakatuwheratia te kaitirotiro hanga-i roto ki te rapu me te tango tika i nga konae mai i te paetukutuku. Ka whakamahia e tenei taputapu te Tirohanga Tukutuku taketake o te punaha ki te whakaputa i nga wharangi me te penapena i nga pihikete kua hangaia kia noho tonu ai o waahi tango.\n\n⚠️ He mea nui: Aukati i te whakauru i o taipitopito tuakiri i runga i nga ratonga roma (penei i a YouTube me etahi atu). Ma te whakamahi i nga taputapu tango-tuatoru ka takahi pea i a raatau tikanga o te ratonga, tera pea ka aukatihia to putea mo te wa poto, mo te pumau tonu ranei. Whakamahia i nga wa katoa nga kaute rangitahi, rereke ranei mo tenei kaupapa.",
+  "tu_cut": "Tapahia",
+  "tu_cut_desc": "Kuti te ataata, ororongo ranei i mua i te tango."
 }

@@ -378,5 +378,9 @@
   "wv_back": "Azu",
   "wv_forward": "Gawa n'ihu",
   "wv_refresh": "Weghachite ume",
-  "wv_manage_cookies": "Jikwaa kuki"
+  "wv_manage_cookies": "Jikwaa kuki",
+  "tu_browser": "Ihe Nchọgharị arụnyere n'ime ya",
+  "tu_browser_desc": "Mepee ihe nchọgharị wuru n'ime ka ịchọọ na budata faịlụ ozugbo na webụ. Ngwá ọrụ a na-eji WebView nke sistemu ahụ iji wepụta ibe yana chekwaa kuki ndị emepụtara ka oge nbudata gị na-arụ ọrụ.\n\n⚠️ Dị Mkpa: Zenarị itinye nzere nke gị na ọrụ nkwanye (dị ka YouTube ma ọ bụ ihe yiri ya). Iji ngwa nbudata ndị ọzọ nwere ike mebie usoro ọrụ ha, nke nwere ike ibute mmachibido akaụntụ gị nwa oge ma ọ bụ na-adịgide adịgide. Jiri akaụntụ nwa oge ma ọ bụ ọzọ maka ebumnuche a mgbe niile.",
+  "tu_cut": "Bee",
+  "tu_cut_desc": "Kpachapụta vidiyo ma ọ bụ ọdịyo tupu nbudata."
 }

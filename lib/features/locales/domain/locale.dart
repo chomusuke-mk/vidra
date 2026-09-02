@@ -231,7 +231,12 @@ class AppStringKey {
   String get tuPSSearch => _cadenasLocalizadas['tu_settings_search'] ?? '';
   String get tuPSSearchDesc =>
       _cadenasLocalizadas['tu_settings_search_desc'] ?? '';
-  // Pantalla System Details
+  String get tuPPBrowser => _cadenasLocalizadas['tu_browser'] ?? '';
+  String get tuPPBrowserDesc => _cadenasLocalizadas['tu_browser_desc'] ?? '';
+  String get tuPPCut => _cadenasLocalizadas['tu_cut'] ?? '';
+  String get tuPPCutDesc => _cadenasLocalizadas['tu_cut_desc'] ?? '';
+
+  // --- Pantalla System Details ---
   String get tuPSDPythonServer =>
       _cadenasLocalizadas['tu_system_details_python_server'] ?? '';
   String get tuPSDPythonServerDesc =>
@@ -762,7 +767,11 @@ class AppStringKey {
     'tu_settings_categories_desc',
     'tu_settings_search',
     'tu_settings_search_desc',
-    // Pantalla System Details
+    'tu_browser',
+    'tu_browser_desc',
+    'tu_cut',
+    'tu_cut_desc',
+    // System Details -------------------------------- tu_
     'tu_system_details_python_server',
     'tu_system_details_python_server_desc',
     'tu_system_details_modules_updates',

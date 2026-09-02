@@ -378,5 +378,9 @@
   "s_no_cookies_found": "Cookie fayllari topilmadi",
   "wv_browse_to_generate_cookies": "Cookie-fayllarni yaratish va anti-botlarni chetlab o'tish uchun ko'rib chiqing",
   "wv_forward": "Oldinga",
-  "wv_manage_cookies": "Cookie-fayllarni boshqarish"
+  "wv_manage_cookies": "Cookie-fayllarni boshqarish",
+  "tu_browser": "O'rnatilgan brauzer",
+  "tu_browser_desc": "Fayllarni to'g'ridan-to'g'ri internetdan qidirish va yuklab olish uchun o'rnatilgan brauzerni oching. Ushbu vosita sahifalarni ko'rsatish uchun tizimning mahalliy WebView-dan foydalanadi va yuklab olish seanslarini faol saqlash uchun yaratilgan cookie-fayllarni mahalliy darajada saqlaydi.\n\n⚠️ Muhim: Striming xizmatlarida (masalan, YouTube yoki shunga oʻxshash) shaxsiy hisob maʼlumotlaringizni kiritmang. Uchinchi tomon yuklab olish vositalaridan foydalanish ularning xizmat shartlarini buzishi mumkin, bu sizning hisobingiz vaqtinchalik yoki doimiy ravishda bloklanishiga olib kelishi mumkin. Buning uchun har doim vaqtinchalik yoki muqobil hisoblardan foydalaning.",
+  "tu_cut": "Kesish",
+  "tu_cut_desc": "Yuklab olishdan oldin video yoki audioni kesib oling."
 }

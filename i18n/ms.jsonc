@@ -378,5 +378,9 @@
   "wv_back": "belakang",
   "wv_forward": "ke hadapan",
   "wv_refresh": "Segarkan semula",
-  "wv_manage_cookies": "Uruskan kuki"
+  "wv_manage_cookies": "Uruskan kuki",
+  "tu_browser": "Pelayar Terbina dalam",
+  "tu_browser_desc": "Buka penyemak imbas terbina dalam untuk mencari dan memuat turun fail terus dari web. Alat ini menggunakan WebView asli sistem untuk memaparkan halaman dan menyimpan kuki yang dijana secara setempat untuk memastikan sesi muat turun anda aktif.\n\n⚠️ Penting: Elakkan memasukkan bukti kelayakan peribadi anda pada perkhidmatan penstriman (seperti YouTube atau yang serupa). Menggunakan alat muat turun pihak ketiga mungkin melanggar syarat perkhidmatan mereka, yang boleh mengakibatkan larangan sementara atau kekal akaun anda. Sentiasa gunakan akaun sementara atau alternatif untuk tujuan ini.",
+  "tu_cut": "potong",
+  "tu_cut_desc": "Potong video atau audio sebelum memuat turun."
 }

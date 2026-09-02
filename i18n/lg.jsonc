@@ -378,5 +378,9 @@
   "wv_back": "Mabega",
   "wv_forward": "Mu maaso",
   "wv_refresh": "Okuzza obuggya",
-  "wv_manage_cookies": "Dukanya kukisi"
+  "wv_manage_cookies": "Dukanya kukisi",
+  "tu_browser": "Browser ezimbiddwamu",
+  "tu_browser_desc": "Ggulawo browser ezimbiddwamu okunoonya n’okuwanula fayiro butereevu okuva ku mukutu. Ekintu kino kikozesa WebView enzaaliranwa y’enkola okulaga empapula era mu kitundu kitereka kukisi ezikoleddwa okukuuma entuula zo ez’okuwanula nga zikola.\n\n⚠️ Ekikulu: Weewale okuyingiza ebiwandiiko byo eby’obuntu ku mpeereza z’okutambuza (nga YouTube oba ezifaananako bwe zityo). Okukozesa ebikozesebwa eby’okuwanula eby’abantu ab’okusatu kiyinza okumenya ebiragiro byabwe eby’okuweereza, ekiyinza okuvaamu okuwera akawunti yo okumala akaseera oba okw’olubeerera. Bulijjo kozesa akawunti ez’ekiseera oba ez’enjawulo ku nsonga eno.",
+  "tu_cut": "Okusala",
+  "tu_cut_desc": "Salako vidiyo oba amaloboozi nga tonnaba kuwanula."
 }

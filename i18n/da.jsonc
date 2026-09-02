@@ -378,5 +378,9 @@
   "wv_back": "Tilbage",
   "wv_forward": "Forward",
   "wv_refresh": "Opfriske",
-  "wv_manage_cookies": "Administrer cookies"
+  "wv_manage_cookies": "Administrer cookies",
+  "tu_browser": "Indbygget browser",
+  "tu_browser_desc": "Åbn den indbyggede browser for at søge og downloade filer direkte fra internettet. Dette værktøj bruger systemets native WebView til at gengive sider og gemmer lokalt de genererede cookies for at holde dine downloadsessioner aktive.\n\n⚠️ Vigtigt: Undgå at indtaste dine personlige legitimationsoplysninger på streamingtjenester (som YouTube eller lignende). Brug af tredjeparts downloadværktøjer kan overtræde deres servicevilkår, hvilket kan resultere i et midlertidigt eller permanent forbud af din konto. Brug altid midlertidige eller alternative konti til dette formål.",
+  "tu_cut": "Skære",
+  "tu_cut_desc": "Trim videoen eller lyden før download."
 }

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
+import 'package:vidra/features/settings/presentation/widgets/in_app_webview_screen.dart';
 
 class AppTutorialKeys {
   // Llaves de la pantalla de Sistema (Ya existían)
@@ -15,6 +16,8 @@ class AppTutorialKeys {
   static final mainFilter = GlobalKey();
   static final mainSettings = GlobalKey();
   static final mainQuickSettings = GlobalKey();
+  static final mainBrowser = GlobalKey();
+  static final mainCut = GlobalKey();
 
   // Llaves de la pantalla de Configuración
   static final settingsTabs = GlobalKey();
@@ -84,11 +87,29 @@ class TutorialUtils {
               title: locale.tuPPFilters,
               description: locale.tuPPFiltersDesc,
               controller: controller,
-              nextKey: AppTutorialKeys.mainSettings,
+              nextKey: InAppWebViewScreen.isWebViewSupported ? AppTutorialKeys.mainBrowser : AppTutorialKeys.mainSettings,
             ),
           ),
         ],
       ),
+      if (InAppWebViewScreen.isWebViewSupported)
+        TargetFocus(
+          identify: "main_browser",
+          keyTarget: AppTutorialKeys.mainBrowser,
+          alignSkip: Alignment.bottomLeft,
+          shape: ShapeLightFocus.Circle,
+          contents: [
+            TargetContent(
+              align: ContentAlign.bottom,
+              builder: (context, controller) => _TutorialText(
+                title: locale.tuPPBrowser,
+                description: locale.tuPPBrowserDesc,
+                controller: controller,
+                nextKey: AppTutorialKeys.mainSettings,
+              ),
+            ),
+          ],
+        ),
       TargetFocus(
         identify: "main_settings",
         keyTarget: AppTutorialKeys.mainSettings,
@@ -117,6 +138,23 @@ class TutorialUtils {
             builder: (context, controller) => _TutorialText(
               title: locale.tuPPQuickSettings,
               description: locale.tuPPQuickSettingsDesc,
+              controller: controller,
+              nextKey: AppTutorialKeys.mainCut,
+            ),
+          ),
+        ],
+      ),
+      TargetFocus(
+        identify: "main_cut",
+        keyTarget: AppTutorialKeys.mainCut,
+        alignSkip: Alignment.topLeft,
+        shape: ShapeLightFocus.Circle,
+        contents: [
+          TargetContent(
+            align: ContentAlign.top,
+            builder: (context, controller) => _TutorialText(
+              title: locale.tuPPCut,
+              description: locale.tuPPCutDesc,
               controller: controller,
               isLast: true,
             ),

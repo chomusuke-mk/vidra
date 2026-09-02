@@ -378,5 +378,9 @@
   "wv_back": "Baya",
   "wv_forward": "Gaba",
   "wv_refresh": "Sake sabuntawa",
-  "wv_manage_cookies": "Sarrafa kukis"
+  "wv_manage_cookies": "Sarrafa kukis",
+  "tu_browser": "Mai Rarraba Wuta",
+  "tu_browser_desc": "Buɗe ginanniyar burauza don bincika da zazzage fayiloli kai tsaye daga gidan yanar gizo. Wannan kayan aikin yana amfani da WebView na asali na tsarin don samar da shafuka da adana kukis ɗin da aka samar a cikin gida don kiyaye zaman zazzagewar ku.\n\n⚠️ Muhimmi: Ka guji shigar da bayanan sirri naka akan ayyukan yawo (kamar YouTube ko makamancin haka). Amfani da kayan aikin zazzagewa na ɓangare na uku na iya keta sharuɗɗan sabis ɗin su, wanda zai iya haifar da dakatarwa na ɗan lokaci ko na dindindin na asusunku. Yi amfani da asusun wucin gadi ko da yaushe don wannan dalili.",
+  "tu_cut": "Yanke",
+  "tu_cut_desc": "Gyara bidiyo ko sauti kafin saukewa."
 }

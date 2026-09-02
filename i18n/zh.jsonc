@@ -377,5 +377,9 @@
   "s_paths": "保存路径",
   "s_paths_desc": "保存不同类型文件的目录。",
   "s_download_archive_desc": "用于记录下载 ID 以避免重复的文件路径。",
-  "wv_manage_cookies": "管理cookies"
+  "wv_manage_cookies": "管理cookies",
+  "tu_browser": "内置浏览器",
+  "tu_browser_desc": "打开内置浏览器直接从网络搜索和下载文件。该工具使用系统的本机 WebView 来呈现页面并在本地存储生成的 cookie 以保持下载会话处于活动状态。\n\n⚠️ 重要提示：避免在流媒体服务（例如 YouTube 或类似服务）上输入您的个人凭据。使用第三方下载工具可能会违反其服务条款，这可能会导致您的帐户被暂时或永久禁止。为此目的，请始终使用临时或替代帐户。",
+  "tu_cut": "切",
+  "tu_cut_desc": "下载前修剪视频或音频。"
 }

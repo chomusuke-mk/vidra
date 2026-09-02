@@ -378,5 +378,9 @@
   "wv_back": "Back",
   "wv_forward": "Pamberi",
   "wv_refresh": "Refresh",
-  "wv_manage_cookies": "Tonga makuki"
+  "wv_manage_cookies": "Tonga makuki",
+  "tu_browser": "Yakavakwa-mukati Browser",
+  "tu_browser_desc": "Vhura iyo yakavakirwa-mukati bhurawuza kutsvaga uye kudhawunirodha mafaera zvakananga kubva pawebhu. Chishandiso ichi chinoshandisa sisitimu yeWebView kupa mapeji uye nekuchengetedza makiki akagadzirwa kuti uchengetedze zvikamu zvako zvekudhawunirodha zvichishanda.\n\n⚠️ Yakakosha: Rega kuisa zvitupa zvako pakushambadzira masevhisi (seYouTube kana mamwewo). Kushandisa maturusi ekudhawunirodha echitatu kunogona kutyora mitemo yavo yebasa, izvo zvinogona kukonzera kurambidzwa kweakaundi yako kwenguva pfupi kana zvachose. Gara shandisa maakaundi enguva pfupi kana mamwe maakaundi pane izvi.",
+  "tu_cut": "Cheka",
+  "tu_cut_desc": "Cheka vhidhiyo kana odhiyo usati wadhaunirodha."
 }

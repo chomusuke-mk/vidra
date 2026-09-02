@@ -378,5 +378,9 @@
   "wv_back": "Atgal",
   "wv_forward": "Pirmyn",
   "wv_refresh": "Atnaujinti",
-  "wv_manage_cookies": "Tvarkyti slapukus"
+  "wv_manage_cookies": "Tvarkyti slapukus",
+  "tu_browser": "Integruota naršyklė",
+  "tu_browser_desc": "Atidarykite integruotą naršyklę, kad galėtumėte ieškoti ir atsisiųsti failus tiesiai iš žiniatinklio. Šis įrankis naudoja sistemos savąjį žiniatinklio rodinį puslapiams pateikti, o sugeneruotus slapukus saugo vietoje, kad atsisiuntimo seansai būtų aktyvūs.\n\n⚠️ Svarbu: Venkite įvesti savo asmeninius kredencialus srautinio perdavimo paslaugose (pvz., „YouTube“ ar panašiose). Naudodami trečiųjų šalių atsisiuntimo įrankius galite pažeisti jų paslaugų teikimo sąlygas, todėl jūsų paskyra gali būti laikinai arba visam laikui uždrausta. Šiuo tikslu visada naudokite laikinas arba alternatyvias paskyras.",
+  "tu_cut": "Iškirpti",
+  "tu_cut_desc": "Prieš atsisiųsdami apkarpykite vaizdo įrašą arba garsą."
 }

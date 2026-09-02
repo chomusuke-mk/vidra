@@ -378,5 +378,9 @@
   "wv_back": "Kembali",
   "wv_forward": "Maju",
   "wv_refresh": "Menyegarkan",
-  "wv_manage_cookies": "Kelola cookie"
+  "wv_manage_cookies": "Kelola cookie",
+  "tu_browser": "Peramban Bawaan",
+  "tu_browser_desc": "Buka browser bawaan untuk mencari dan mengunduh file langsung dari web. Alat ini menggunakan WebView asli sistem untuk merender halaman dan menyimpan cookie yang dihasilkan secara lokal agar sesi pengunduhan Anda tetap aktif.\n\n⚠️ Penting: Hindari memasukkan kredensial pribadi Anda pada layanan streaming (seperti YouTube atau sejenisnya). Menggunakan alat pengunduhan pihak ketiga mungkin melanggar persyaratan layanan mereka, yang dapat mengakibatkan pemblokiran sementara atau permanen pada akun Anda. Selalu gunakan akun sementara atau alternatif untuk tujuan ini.",
+  "tu_cut": "Memotong",
+  "tu_cut_desc": "Pangkas video atau audio sebelum mengunduh."
 }

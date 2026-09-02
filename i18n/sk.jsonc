@@ -378,5 +378,9 @@
   "wv_back": "Späť",
   "wv_forward": "Vpred",
   "wv_refresh": "Obnoviť",
-  "wv_manage_cookies": "Spravovať súbory cookie"
+  "wv_manage_cookies": "Spravovať súbory cookie",
+  "tu_browser": "Vstavaný prehliadač",
+  "tu_browser_desc": "Otvorte vstavaný prehliadač na vyhľadávanie a sťahovanie súborov priamo z webu. Tento nástroj používa natívne webové zobrazenie WebView systému na vykresľovanie stránok a lokálne ukladá vygenerované súbory cookie, aby boli vaše relácie sťahovania aktívne.\n\n⚠️ Dôležité: Vyhnite sa zadávaniu osobných údajov v streamovacích službách (ako je YouTube alebo podobné). Používanie nástrojov na sťahovanie tretích strán môže porušovať ich zmluvné podmienky, čo môže viesť k dočasnému alebo trvalému zablokovaniu vášho účtu. Na tento účel vždy používajte dočasné alebo alternatívne účty.",
+  "tu_cut": "Vystrihnúť",
+  "tu_cut_desc": "Pred stiahnutím orezajte video alebo zvuk."
 }

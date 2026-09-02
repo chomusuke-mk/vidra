@@ -378,5 +378,9 @@
   "wv_back": "Dib u noqo",
   "wv_forward": "Horey",
   "wv_refresh": "Dib u cusboonaysii",
-  "wv_manage_cookies": "Maamul cookies"
+  "wv_manage_cookies": "Maamul cookies",
+  "tu_browser": "Ku-dhismay Browser",
+  "tu_browser_desc": "Fur browserka ku dhex jira si aad uga baadho ugana soo dejiso faylasha si toos ah shabakada Qalabkani waxa uu adeegsadaa nidaamka WebView-ka asalka ah si uu u sameeyo bogag oo maxalli ahaan u kaydiyo cookies-ka la soo saaray si kalfadhiyada soo dejintaadu ay firfircoonaadaan.\n\n⚠️ Muhiim: Iska ilaali inaad geliso aqoonsigaaga shakhsi ahaaneed ee adeegyada baahinta (sida YouTube ama wax la mid ah). Isticmaalka aaladaha soo dejinta qolo saddexaad waxay ku xad-gudbi kartaa shuruudaha adeegga, taas oo keeni karta mamnuucid ku meel gaar ah ama joogto ah oo akoonkaaga ah. Had iyo jeer isticmaal xisaabaadka ku meel gaarka ah ama ka duwan ujeedadan.",
+  "tu_cut": "jar",
+  "tu_cut_desc": "Jar muuqaalka ama codka ka hor inta aanad soo dejin."
 }

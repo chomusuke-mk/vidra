@@ -378,5 +378,9 @@
   "wv_back": "Tagasi",
   "wv_forward": "Edasi",
   "wv_refresh": "Värskenda",
-  "wv_manage_cookies": "Küpsiste haldamine"
+  "wv_manage_cookies": "Küpsiste haldamine",
+  "tu_browser": "Sisseehitatud brauser",
+  "tu_browser_desc": "Failide otsimiseks ja allalaadimiseks otse veebist avage sisseehitatud brauser. See tööriist kasutab lehtede renderdamiseks süsteemi natiivset WebView't ja salvestab loodud küpsised kohapeal, et hoida teie allalaadimisseansid aktiivsena.\n\n⚠️ Tähtis: vältige oma isiklike mandaatide sisestamist voogedastusteenustesse (nt YouTube vms). Kolmandate osapoolte allalaadimistööriistade kasutamine võib rikkuda nende teenusetingimusi, mis võib kaasa tuua teie konto ajutise või püsiva keelu. Kasutage selleks alati ajutisi või alternatiivseid kontosid.",
+  "tu_cut": "Lõika",
+  "tu_cut_desc": "Enne allalaadimist lõigake video või heli."
 }

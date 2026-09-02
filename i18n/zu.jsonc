@@ -378,5 +378,9 @@
   "wv_back": "Emuva",
   "wv_forward": "Phambili",
   "wv_refresh": "Vuselela",
-  "wv_manage_cookies": "Phatha amakhukhi"
+  "wv_manage_cookies": "Phatha amakhukhi",
+  "tu_browser": "Isiphequluli Esakhelwe ngaphakathi",
+  "tu_browser_desc": "Vula isiphequluli esakhelwe ngaphakathi ukuze useshe futhi ulande amafayela ngokuqondile kuwebhu. Leli thuluzi lisebenzisa i-WebView yomdabu yesistimu ukuze linikeze amakhasi futhi ligcine endaweni amakhukhi akhiqiziwe ukugcina izikhathi zakho zokulanda zisebenza.\n\n⚠️ Okubalulekile: Gwema ukufaka imininingwane yakho yomuntu siqu ezinsizeni zokusakaza (njenge-YouTube noma ezifanayo). Ukusebenzisa amathuluzi okulanda ezinkampani zangaphandle kungase kwephule imigomo yesevisi, okungaholela ekuvinjweni kwesikhashana noma unomphela kwe-akhawunti yakho. Ngaso sonke isikhathi sebenzisa ama-akhawunti esikhashana noma amanye ngale njongo.",
+  "tu_cut": "Sika",
+  "tu_cut_desc": "Sika ividiyo noma umsindo ngaphambi kokulanda."
 }

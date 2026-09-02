@@ -378,5 +378,9 @@
   "dc_action_use_cookies": "Tirhisa swikhukhi",
   "wv_not_supported": "Webview a yi seketeriwi eka pulatifomo leyi",
   "wv_forward": "Emahlweni",
-  "wv_manage_cookies": "Lawula swikhukhi"
+  "wv_manage_cookies": "Lawula swikhukhi",
+  "tu_browser": "Xihlamusela-marito lexi akiweke endzeni",
+  "tu_browser_desc": "Pfula browser leyi akiweke endzeni ku lavisisa ni ku kopa tifayela hi ku kongoma eka webu. Xitirhisiwa lexi xi tirhisa WebView ya ntumbuluko ya sisiteme ku humesa matluka naswona laha tikweni xi hlayisa tikhukhi leti endliweke ku hlayisa tisexini ta wena to dawuniloda ti tirha.\n\n⚠️ Xa nkoka: Papalata ku nghenisa switifiketi swa wena swa munhu hi xiyexe eka vukorhokeri bya ku khuluka (ku fana na YouTube kumbe swo fana na swona). Ku tirhisa switirhisiwa swo dawuniloda swa vanhu van’wana swi nga ha tlula milawu ya vona ya vukorhokeri, leswi nga endlaka leswaku akhawunti ya wena yi yirisiwa swa xinkarhana kumbe hi laha ku nga heriki. Minkarhi hinkwayo tirhisa tiakhawunti ta nkarhinyana kumbe tin’wana eka xikongomelo lexi.",
+  "tu_cut": "Tsema",
+  "tu_cut_desc": "Tsema vhidiyo kumbe mpfumawulo u nga si yi kopa."
 }

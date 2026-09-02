@@ -378,5 +378,9 @@
   "wv_back": "Lura",
   "wv_forward": "Quddiem",
   "wv_refresh": "Aġġorna",
-  "wv_manage_cookies": "Immaniġġja l-cookies"
+  "wv_manage_cookies": "Immaniġġja l-cookies",
+  "tu_browser": "Browser inkorporat",
+  "tu_browser_desc": "Iftaħ il-browser integrat biex tfittex u tniżżel fajls direttament mill-web. Din l-għodda tuża l-WebView nattiva tas-sistema biex tirrendi paġni u taħżen lokalment il-cookies iġġenerati biex iżżomm is-sessjonijiet tat-tniżżil tiegħek attivi.\n\n⚠️ Importanti: Evita li ddaħħal il-kredenzjali personali tiegħek fuq servizzi ta' streaming (bħal YouTube jew simili). L-użu ta' għodod ta' tniżżil ta' partijiet terzi jista' jikser it-termini tas-servizz tagħhom, li jista' jirriżulta fi projbizzjoni temporanja jew permanenti tal-kont tiegħek. Dejjem uża kontijiet temporanji jew alternattivi għal dan il-għan.",
+  "tu_cut": "Aqta'",
+  "tu_cut_desc": "Ittrimmja l-vidjo jew awdjo qabel it-tniżżil."
 }

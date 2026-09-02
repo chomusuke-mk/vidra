@@ -378,5 +378,9 @@
   "wv_back": "Pada",
   "wv_forward": "Siwaju",
   "wv_refresh": "Tuntun",
-  "wv_manage_cookies": "Ṣakoso awọn kukisi"
+  "wv_manage_cookies": "Ṣakoso awọn kukisi",
+  "tu_browser": "Aṣàwákiri ti a ṣe sinu",
+  "tu_browser_desc": "Ṣii ẹrọ aṣawakiri ti a ṣe sinu rẹ lati wa ati ṣe igbasilẹ awọn faili taara lati oju opo wẹẹbu. Ọpa yii nlo WebView abinibi ti eto lati ṣe awọn oju-iwe ati tọju awọn kuki ti a ti ipilẹṣẹ lati jẹ ki awọn akoko igbasilẹ rẹ ṣiṣẹ.\n\n⚠️ Pataki: Yago fun titẹ awọn iwe-ẹri ti ara ẹni lori awọn iṣẹ ṣiṣanwọle (bii YouTube tabi iru). Lilo awọn irinṣẹ igbasilẹ ẹni-kẹta le rú awọn ofin iṣẹ wọn, eyiti o le ja si ni igba diẹ tabi wiwọle titilai ti akọọlẹ rẹ. Nigbagbogbo lo igba diẹ tabi awọn iroyin yiyan fun idi eyi.",
+  "tu_cut": "Ge",
+  "tu_cut_desc": "Ge fidio naa tabi ohun ohun ṣaaju igbasilẹ."
 }

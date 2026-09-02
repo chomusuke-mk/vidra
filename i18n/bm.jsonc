@@ -378,5 +378,9 @@
   "wv_back": "Kɔ",
   "wv_forward": "Ɲɛ",
   "wv_refresh": "Lakurayali",
-  "wv_manage_cookies": "Kukisɛw ɲɛnabɔ"
+  "wv_manage_cookies": "Kukisɛw ɲɛnabɔ",
+  "tu_browser": "Navigatɛri min bɛ a kɔnɔ",
+  "tu_browser_desc": "Navigatɛri min bɛ a kɔnɔ, o da wuli walasa ka dosiyew ɲini ani k’u telesarse ka bɔ ɛntɛrinɛti kan. Nin baarakɛminɛn in bɛ baara kɛ ni sistɛmu ka WebView yɛrɛma ye walasa ka ɲɛw jira ani ka cookie minnu dilanna, a bɛ olu mara sigida la walasa i ka telesarse waatiw ka to baara la.\n\n⚠️ Nafama: I yɛrɛ tanga i yɛrɛ ka seereyaw sɛbɛnni ma streaming services (i n’a fɔ YouTube walima o ɲɔgɔnnaw). Ni i bɛ baara kɛ ni mɔgɔ wɛrɛw ka telesarse baarakɛminɛnw ye, o bɛ se k’u ka baarakɛcogo sariyaw tiɲɛ, o bɛ se ka kɛ sababu ye ka i ka jatebɔsɛbɛn bali waati dɔɔnin kɔnɔ walima kudayi. Baara kɛ ni waati dɔɔnin jatebɔsɛbɛnw ye walima jatebɔsɛbɛn wɛrɛw ye o kama tuma bɛɛ.",
+  "tu_cut": "Ka tigɛ",
+  "tu_cut_desc": "Wideyo walima odio tigɛ ka sɔrɔ ka telesarse."
 }

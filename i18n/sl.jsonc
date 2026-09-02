@@ -378,5 +378,9 @@
   "wv_back": "Nazaj",
   "wv_forward": "Naprej",
   "wv_refresh": "Osveži",
-  "wv_manage_cookies": "Upravljanje piškotkov"
+  "wv_manage_cookies": "Upravljanje piškotkov",
+  "tu_browser": "Vgrajen brskalnik",
+  "tu_browser_desc": "Odprite vgrajeni brskalnik za iskanje in prenos datotek neposredno iz spleta. To orodje uporablja izvorni spletni pogled sistema za upodabljanje strani in lokalno shranjuje ustvarjene piškotke, da ohranja vaše seje prenosov aktivne.\n\n⚠️ Pomembno: Izogibajte se vnašanju osebnih poverilnic v storitve pretakanja (kot je YouTube ali podobno). Uporaba orodij za prenos tretjih oseb lahko krši njihove pogoje storitve, kar lahko povzroči začasno ali trajno prepoved vašega računa. V ta namen vedno uporabite začasne ali alternativne račune.",
+  "tu_cut": "Cut",
+  "tu_cut_desc": "Pred prenosom obrežite video ali zvok."
 }

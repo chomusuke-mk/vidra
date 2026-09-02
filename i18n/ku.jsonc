@@ -378,5 +378,9 @@
   "wv_back": "Paş",
   "wv_forward": "Pêşve",
   "wv_refresh": "Hênikkirin",
-  "wv_manage_cookies": "Cookies îdare bikin"
+  "wv_manage_cookies": "Cookies îdare bikin",
+  "tu_browser": "Browser-ê çêkirî",
+  "tu_browser_desc": "Geroka çêkirî vekin da ku pelan rasterast ji malperê bigerin û dakêşin. Vê amûrê WebView-a xwemalî ya pergalê bikar tîne da ku rûpelan bide pêşkêş kirin û çerezên çêkirî yên herêmî hilîne da ku danişînên dakêşana we çalak bihêle.\n\n⚠️ Girîng: Ji ketina pêbaweriyên xwe yên kesane li ser karûbarên streaming (wek YouTube an mîna wan) dûr bixin. Bikaranîna amûrên dakêşanê yên sêyemîn dikare şertên karûbarê wan binpê bike, ku dibe sedema qedexekirina demkî an daîmî ya hesabê we. Ji bo vê armancê her dem hesabên demkî an alternatîf bikar bînin.",
+  "tu_cut": "Birrîn",
+  "tu_cut_desc": "Berî dakêşandinê vîdyoyê an bihîstwerê bişkînin."
 }

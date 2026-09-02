@@ -378,5 +378,9 @@
   "wv_refresh": "Yenile",
   "wv_not_supported": "Web görünümü bu platformda desteklenmiyor",
   "wv_go": "Gitmek",
-  "wv_manage_cookies": "Çerezleri yönet"
+  "wv_manage_cookies": "Çerezleri yönet",
+  "tu_browser": "Dahili Tarayıcı",
+  "tu_browser_desc": "Dosyaları doğrudan web'den aramak ve indirmek için yerleşik tarayıcıyı açın. Bu araç, sayfaları oluşturmak için sistemin yerel Web Görünümünü kullanır ve indirme oturumlarınızı aktif tutmak için oluşturulan çerezleri yerel olarak saklar.\n\n⚠️ Önemli: Yayın hizmetlerine (YouTube veya benzeri gibi) kişisel kimlik bilgilerinizi girmekten kaçının. Üçüncü taraf indirme araçlarının kullanılması, hizmet şartlarını ihlal edebilir ve bu da hesabınızın geçici veya kalıcı olarak yasaklanmasıyla sonuçlanabilir. Bu amaçla daima geçici veya alternatif hesaplar kullanın.",
+  "tu_cut": "Kesmek",
+  "tu_cut_desc": "İndirmeden önce videoyu veya sesi kesin."
 }

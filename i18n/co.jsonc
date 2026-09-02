@@ -378,5 +378,9 @@
   "wv_back": "Torna",
   "wv_forward": "Avanti",
   "wv_refresh": "Refresh",
-  "wv_manage_cookies": "Gestisce i cookies"
+  "wv_manage_cookies": "Gestisce i cookies",
+  "tu_browser": "Navigatore integratu",
+  "tu_browser_desc": "Aprite u navigatore integratu per circà è scaricà i fugliali direttamente da u web. Questa strumentu usa u WebView nativu di u sistema per rende e pagine è almacena localmente i cookies generati per mantene e vostre sessioni di scaricamentu attive.\n\n⚠️ Impurtante: Evite di inserisce e vostre credenziali persunali nantu à i servizii di streaming (cum'è YouTube o simili). L'usu di l'arnesi di scaricamentu di terzu pò viultà i so termini di serviziu, chì puderanu risultatu in una pruibizione temporale o permanente di u vostru contu. Aduprate sempre cunti tempuranee o alternativu per questu scopu.",
+  "tu_cut": "Tagliate",
+  "tu_cut_desc": "Tagliate u video o l'audio prima di scaricà."
 }

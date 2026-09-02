@@ -378,5 +378,9 @@
   "wv_back": "De volta",
   "wv_forward": "Adiante",
   "wv_refresh": "Actualizar",
-  "wv_manage_cookies": "Xestionar cookies"
+  "wv_manage_cookies": "Xestionar cookies",
+  "tu_browser": "Navegador incorporado",
+  "tu_browser_desc": "Abre o navegador integrado para buscar e descargar ficheiros directamente da web. Esta ferramenta usa a WebView nativa do sistema para renderizar páxinas e almacena localmente as cookies xeradas para manter activas as súas sesións de descarga.\n\n⚠️ Importante: evita introducir as túas credenciais persoais en servizos de streaming (como YouTube ou similares). O uso de ferramentas de descarga de terceiros pode infrinxir as súas condicións de servizo, o que pode producir unha prohibición temporal ou permanente da túa conta. Use sempre contas temporais ou alternativas para este fin.",
+  "tu_cut": "Corte",
+  "tu_cut_desc": "Recorta o vídeo ou o audio antes de descargar."
 }

@@ -378,5 +378,9 @@
   "wv_back": "Rêch",
   "wv_forward": "Foarút",
   "wv_refresh": "Ferfarskje",
-  "wv_manage_cookies": "Koekjes beheare"
+  "wv_manage_cookies": "Koekjes beheare",
+  "tu_browser": "Ynboude browser",
+  "tu_browser_desc": "Iepenje de ynboude browser om bestannen direkt fan it web te sykjen en te downloaden. Dit ark brûkt de native WebView fan it systeem om siden te werjaan en slaat de oanmakke cookies lokaal op om jo downloadsesjes aktyf te hâlden.\n\n⚠️ Wichtich: Foarkom it ynfieren fan jo persoanlike bewiisbrieven op streamingtsjinsten (lykas YouTube of ferlykber). It brûken fan download-ark fan tredden kin har tsjinstbetingsten skeine, wat kin resultearje yn in tydlik of permanint ferbod fan jo akkount. Brûk altyd tydlike of alternative akkounts foar dit doel.",
+  "tu_cut": "Snije",
+  "tu_cut_desc": "Trim de fideo of audio foardat jo downloade."
 }

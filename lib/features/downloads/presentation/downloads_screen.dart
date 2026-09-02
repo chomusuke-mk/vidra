@@ -218,6 +218,7 @@ class _DownloadsScreenState extends State<DownloadsScreen> {
             ),
             if (InAppWebViewScreen.isWebViewSupported)
               IconButton(
+                key: AppTutorialKeys.mainBrowser,
                 icon: const Icon(Icons.language),
                 visualDensity: VisualDensity.compact,
                 tooltip: locale.dWebView,

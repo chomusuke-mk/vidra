@@ -378,5 +378,9 @@
   "wv_back": "Itzuli",
   "wv_forward": "Aurrera",
   "wv_refresh": "Freskatu",
-  "wv_manage_cookies": "Kudeatu cookieak"
+  "wv_manage_cookies": "Kudeatu cookieak",
+  "tu_browser": "Nabigatzailea integratua",
+  "tu_browser_desc": "Ireki integratutako arakatzailea fitxategiak zuzenean saretik bilatzeko eta deskargatzeko. Tresna honek sistemaren jatorrizko WebView erabiltzen du orriak errendatzeko eta lokalean gordetzen ditu sortutako cookieak zure deskarga saioak aktibo mantentzeko.\n\n⚠️ Garrantzitsua: saihestu zure kredentzial pertsonalak igortzea streaming zerbitzuetan (YouTube edo antzekoetan). Hirugarrenen deskarga-tresnak erabiltzeak haien zerbitzu-baldintzak urratu ditzake, eta horrek zure kontua behin-behineko edo behin betiko debekatzea eragin dezake. Erabili beti aldi baterako edo ordezko kontuak horretarako.",
+  "tu_cut": "Moztu",
+  "tu_cut_desc": "Moztu bideoa edo audioa deskargatu aurretik."
 }

@@ -378,5 +378,9 @@
   "wv_back": "Rug",
   "wv_forward": "Vooruit",
   "wv_refresh": "Vernieuwen",
-  "wv_manage_cookies": "Beheer cookies"
+  "wv_manage_cookies": "Beheer cookies",
+  "tu_browser": "Ingebouwde browser",
+  "tu_browser_desc": "Open de ingebouwde browser om bestanden rechtstreeks van internet te zoeken en te downloaden. Deze tool gebruikt de eigen WebView van het systeem om pagina's weer te geven en slaat de gegenereerde cookies lokaal op om uw downloadsessies actief te houden.\n\n⚠️ Belangrijk: vermijd het invoeren van uw persoonlijke inloggegevens op streamingdiensten (zoals YouTube of iets dergelijks). Het gebruik van downloadtools van derden kan in strijd zijn met hun servicevoorwaarden, wat kan resulteren in een tijdelijke of permanente verbanning van uw account. Gebruik hiervoor altijd tijdelijke of alternatieve accounts.",
+  "tu_cut": "Snee",
+  "tu_cut_desc": "Trim de video of audio voordat u deze downloadt."
 }

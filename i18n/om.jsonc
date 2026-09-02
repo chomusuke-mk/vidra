@@ -378,5 +378,9 @@
   "wv_back": "Dugda",
   "wv_forward": "Gara fuulduraatti",
   "wv_refresh": "Haaromsi",
-  "wv_manage_cookies": "Kukiiwwan bulchuu"
+  "wv_manage_cookies": "Kukiiwwan bulchuu",
+  "tu_browser": "Browser keessaa kan ijaarame",
+  "tu_browser_desc": "Faayilota kallattiin weeb irraa barbaaduu fi buufachuuf browser keessaa bani. Meeshaan kun fuula agarsiisuuf WebView dhalootaa sirnichaa fayyadama fi kukiiwwan uumaman naannootti kuusuudhaan turtii buufachuu kee sochii taasisa.\n\n⚠️ Barbaachisaa: Tajaajila streaming (kan akka YouTube ykn kan kana fakkaatan) irratti ragaa dhuunfaa keessanii galchuu irraa of qusadhaa. Meeshaalee buufachuu qaama sadaffaa fayyadamuun haala tajaajila isaanii cabsuu danda’a, kunis yeroodhaaf ykn dhaabbataadhaan akkaawuntii keessan ugguramuu danda’a. Yeroo hunda herrega yeroof ykn filannoo ta’e dhimma kanaaf fayyadami.",
+  "tu_cut": "Kutuu",
+  "tu_cut_desc": "Viidiyoo ykn sagalee sana buufachuu kee dura ciccirii."
 }

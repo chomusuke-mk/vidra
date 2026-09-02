@@ -378,5 +378,9 @@
   "wv_refresh": "I-refresh",
   "dc_action_use_cookies": "Gumamit ng cookies",
   "s_cookies_list_title": "Kasalukuyang Cookies",
-  "wv_manage_cookies": "Pamahalaan ang cookies"
+  "wv_manage_cookies": "Pamahalaan ang cookies",
+  "tu_browser": "Built-in na Browser",
+  "tu_browser_desc": "Buksan ang built-in na browser upang maghanap at mag-download ng mga file nang direkta mula sa web. Ginagamit ng tool na ito ang katutubong WebView ng system upang mag-render ng mga pahina at lokal na iniimbak ang nabuong cookies upang panatilihing aktibo ang iyong mga session sa pag-download.\n\n⚠️ Mahalaga: Iwasang ilagay ang iyong mga personal na kredensyal sa mga serbisyo ng streaming (tulad ng YouTube o katulad). Ang paggamit ng mga tool sa pag-download ng third-party ay maaaring lumabag sa kanilang mga tuntunin ng serbisyo, na maaaring magresulta sa pansamantala o permanenteng pagbabawal sa iyong account. Palaging gumamit ng pansamantala o alternatibong mga account para sa layuning ito.",
+  "tu_cut": "Putulin",
+  "tu_cut_desc": "I-trim ang video o audio bago i-download."
 }

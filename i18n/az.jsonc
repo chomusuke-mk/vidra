@@ -378,5 +378,9 @@
   "wv_back": "Geri",
   "wv_forward": "İrəli",
   "wv_refresh": "Yeniləyin",
-  "wv_manage_cookies": "Kukiləri idarə edin"
+  "wv_manage_cookies": "Kukiləri idarə edin",
+  "tu_browser": "Quraşdırılmış brauzer",
+  "tu_browser_desc": "Faylları birbaşa internetdən axtarmaq və yükləmək üçün daxili brauzeri açın. Bu alət səhifələri göstərmək üçün sistemin yerli WebView-dən istifadə edir və endirmə seanslarınızı aktiv saxlamaq üçün yaradılan kukiləri yerli olaraq saxlayır.\n\n⚠️ Vacib: Axın xidmətlərində (YouTube və ya oxşar) şəxsi etimadnaməsini daxil etməkdən çəkinin. Üçüncü tərəfin yükləmə alətlərindən istifadə onların xidmət şərtlərini poza bilər ki, bu da hesabınızın müvəqqəti və ya daimi qadağası ilə nəticələnə bilər. Bu məqsədlə həmişə müvəqqəti və ya alternativ hesablardan istifadə edin.",
+  "tu_cut": "kəsmək",
+  "tu_cut_desc": "Yükləməzdən əvvəl video və ya audionu kəsin."
 }

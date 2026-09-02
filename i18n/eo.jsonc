@@ -378,5 +378,9 @@
   "wv_back": "Reen",
   "wv_forward": "Antaŭen",
   "wv_refresh": "Refreŝigi",
-  "wv_manage_cookies": "Administri kuketojn"
+  "wv_manage_cookies": "Administri kuketojn",
+  "tu_browser": "Enkonstruita Retumilo",
+  "tu_browser_desc": "Malfermu la enkonstruitan retumilon por serĉi kaj elŝuti dosierojn rekte de la reto. Ĉi tiu ilo uzas la denaskan WebView de la sistemo por bildigi paĝojn kaj loke konservas la generitajn kuketojn por konservi viajn elŝutajn sesiojn aktivaj.\n\n⚠️ Grava: Evitu enigi viajn personajn akreditaĵojn ĉe streaming-servoj (kiel Jutubo aŭ simile). Uzado de triaj elŝutaj iloj povas malobservi iliajn servkondiĉojn, kio povus rezultigi provizoran aŭ konstantan malpermeson de via konto. Ĉiam uzu provizorajn aŭ alternativajn kontojn por ĉi tiu celo.",
+  "tu_cut": "Tranĉi",
+  "tu_cut_desc": "Tondi la video aŭ audio antaŭ elŝuti."
 }

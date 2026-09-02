@@ -378,5 +378,9 @@
   "wv_back": "Akyire",
   "wv_forward": "Kɔ anim",
   "wv_refresh": "Fa foforo hyɛ mu",
-  "wv_manage_cookies": "Hwɛ kukisi ahorow so"
+  "wv_manage_cookies": "Hwɛ kukisi ahorow so",
+  "tu_browser": "Browser a wɔde ahyɛ mu",
+  "tu_browser_desc": "Bue browser a ɛwɔ mu no na hwehwɛ na twe fael ahorow fi wɛbsaet no so tẽẽ. Saa adwinnade yi de system no ankasa WebView di dwuma de kyerɛ nkratafa na ɛde cookies a wɔayɛ no sie wɔ mpɔtam hɔ na ama wo download sessions no akɔ so ayɛ adwuma.\n\n⚠️ Nea ɛho hia: Kwati sɛ wode w’ankasa wo adansedi nkrataa bɛhyɛ streaming services (te sɛ YouTube anaa nea ɛtete saa) so. Sɛ wode nnwinnade a wɔde twetwe nneɛma a afoforo di dwuma a, ebetumi abu wɔn nhyehyɛe so, na ebetumi ama wɔabara wo akontaabu no bere tiaa bi anaa daa. Fa bere tiaa mu akontaabu anaa akontaabu foforo di dwuma ma eyi bere nyinaa.",
+  "tu_cut": "Twa",
+  "tu_cut_desc": "Twitwa video anaa ɔdio no mu ansa na woatwe."
 }

@@ -378,5 +378,9 @@
   "wv_back": "Z powrotem",
   "wv_forward": "Do przodu",
   "wv_refresh": "Odświeżać",
-  "wv_manage_cookies": "Zarządzaj plikami cookie"
+  "wv_manage_cookies": "Zarządzaj plikami cookie",
+  "tu_browser": "Wbudowana przeglądarka",
+  "tu_browser_desc": "Otwórz wbudowaną przeglądarkę, aby wyszukiwać i pobierać pliki bezpośrednio z Internetu. To narzędzie wykorzystuje natywną funkcję WebView systemu do renderowania stron i lokalnie przechowuje wygenerowane pliki cookie, aby zapewnić aktywność sesji pobierania.\n\n⚠️ Ważne: unikaj podawania swoich osobistych danych uwierzytelniających w usługach przesyłania strumieniowego (takich jak YouTube lub podobnych). Korzystanie z narzędzi do pobierania stron trzecich może naruszyć ich warunki korzystania z usług, co może skutkować tymczasowym lub trwałym zablokowaniem Twojego konta. Zawsze używaj w tym celu kont tymczasowych lub alternatywnych.",
+  "tu_cut": "Cięcie",
+  "tu_cut_desc": "Przytnij wideo lub audio przed pobraniem."
 }
