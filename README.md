@@ -1,3 +1,7 @@
+
+
+
+
 <p align="center">
  <img src="assets/icon/icon.png" alt="Vidra" width="256" />
 </p>
@@ -59,6 +63,10 @@
 - ⚙️ **High-Performance Integrated Backend:** Seamless communication via local RESTful APIs to reflect download progress in real-time using a Python isolate backend.
 
 ---
+## 🎥Video
+<video src="https://github.com/user-attachments/assets/9e12be9a-4961-4eb9-9072-916572db77ec" width="100%" controls autoplay loop muted>
+  Your browser doesn't support video element.
+</video>
 
 ## 📸 Screenshots
 
