@@ -14,7 +14,7 @@ enclosed in quotation marks, you should use an editor that supports UTF-8, not t
     <title>Vidra</title>
     <authors>Chomusuke</authors>
     <projectUrl>https://github.com/chomusuke-mk/vidra</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/chomusuke-mk/vidra/main/assets/icon/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/chomusuke-mk/vidra@latest/assets/icon/icon.png</iconUrl>
     <copyright>2026 Chomusuke</copyright>
     <licenseUrl>https://github.com/chomusuke-mk/vidra/blob/main/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

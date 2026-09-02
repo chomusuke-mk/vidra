@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:jsonc/jsonc.dart';
+import 'package:path/path.dart' as p;
 import 'package:provider/provider.dart';
 import 'package:vidra/features/locales/data/locale_repository.dart';
 import 'package:vidra/features/locales/presentation/locale_controller.dart';
@@ -194,6 +195,57 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(InAppWebViewScreen), findsNothing);
+    });
+
+    testWidgets('triggers cookie management modal and verifies no layout overflow exceptions',
+        (WidgetTester tester) async {
+      // Create cookie files
+      for (int i = 1; i <= 15; i++) {
+        final f = File(p.join(tempDir.path, 'site_$i.com_cookies.txt'));
+        f.writeAsStringSync('cookie_test_data_$i');
+      }
+
+      await tester.pumpWidget(
+        buildTestApp(
+          InAppWebViewScreen(
+            url: 'https://youtube.com',
+            saveCookiesPath: tempDir.path,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Open 3-dot menu and select Manage cookies
+      await tester.tap(find.byIcon(Icons.more_vert));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Manage cookies'));
+      await tester.pumpAndSettle();
+
+      // Explicitly check for layout exceptions
+      expect(tester.takeException(), isNull);
+
+      // Verify modal and scrollable list are open
+      expect(find.byType(BottomSheet), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byType(BottomSheet),
+          matching: find.byType(SingleChildScrollView),
+        ),
+        findsOneWidget,
+      );
+
+      // Scroll modal list
+      await tester.drag(
+        find.descendant(
+          of: find.byType(BottomSheet),
+          matching: find.byType(SingleChildScrollView),
+        ),
+        const Offset(0, -400),
+      );
+      await tester.pumpAndSettle();
+
+      expect(tester.takeException(), isNull);
     });
   });
 }

@@ -302,5 +302,154 @@ void main() {
       // Bottom sheet is dismissed
       expect(find.byType(BottomSheet), findsNothing);
     });
+
+    testWidgets(
+      'Overflow & Scrollability: Modal with many cookie files opens without RenderFlex overflow and scrolls smoothly',
+      (WidgetTester tester) async {
+        // Create 20 cookie files to exceed bottom sheet height (which previously caused 579px overflow)
+        for (int i = 1; i <= 20; i++) {
+          final prefix = i < 10 ? '0$i' : '$i';
+          final file = File(
+            p.join(tempDir.path, 'site$prefix.example.com_cookies.txt'),
+          );
+          file.writeAsStringSync('# Netscape HTTP Cookie File\nsample_cookie_data_$i\n');
+        }
+
+        await tester.pumpWidget(buildTestApp());
+        await tester.pumpAndSettle();
+
+        // Tap 3-dot menu and open Manage cookies
+        await tester.tap(find.byIcon(Icons.more_vert));
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.text('Manage cookies'));
+        await tester.pumpAndSettle();
+
+        // Explicitly check that no layout exception / RenderFlex overflow occurred
+        expect(tester.takeException(), isNull);
+
+        // Verify BottomSheet and SingleChildScrollView exist
+        final sheetFinder = find.byType(BottomSheet);
+        expect(sheetFinder, findsOneWidget);
+
+        final scrollableFinder = find.descendant(
+          of: sheetFinder,
+          matching: find.byType(SingleChildScrollView),
+        );
+        expect(scrollableFinder, findsOneWidget);
+
+        // First item is visible
+        expect(find.text('site01.example.com_cookies.txt'), findsOneWidget);
+
+        // Scroll down to the bottom
+        await tester.drag(scrollableFinder, const Offset(0, -800));
+        await tester.pumpAndSettle();
+
+        // Check no exception during or after scroll
+        expect(tester.takeException(), isNull);
+
+        // The 20th item is now visible
+        expect(find.text('site20.example.com_cookies.txt'), findsOneWidget);
+
+        // Dismiss sheet
+        final closeBtn = find.descendant(
+          of: sheetFinder,
+          matching: find.byIcon(Icons.close),
+        );
+        await tester.tap(closeBtn);
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+      },
+    );
+
+    testWidgets(
+      'Overflow & Scrollability: Modal renders without RenderFlex overflow on small/constrained viewports (320x480 & 400x300)',
+      (WidgetTester tester) async {
+        for (int i = 1; i <= 10; i++) {
+          final file = File(
+            p.join(tempDir.path, 'subdomain$i.test.org_cookies.txt'),
+          );
+          file.writeAsStringSync('cookie_content_$i');
+        }
+
+        final testViewports = [
+          const Size(320, 480),
+          const Size(360, 640),
+          const Size(400, 300),
+          const Size(800, 600),
+        ];
+
+        for (final vp in testViewports) {
+          tester.view.physicalSize = vp;
+          tester.view.devicePixelRatio = 1.0;
+          addTearDown(() {
+            tester.view.resetPhysicalSize();
+            tester.view.resetDevicePixelRatio();
+          });
+
+          await tester.pumpWidget(buildTestApp());
+          await tester.pumpAndSettle();
+
+          await tester.tap(find.byIcon(Icons.more_vert));
+          await tester.pumpAndSettle();
+
+          await tester.tap(find.text('Manage cookies'));
+          await tester.pumpAndSettle();
+
+          // Explicitly assert zero layout overflow exceptions
+          expect(tester.takeException(), isNull);
+
+          final sheetFinder = find.byType(BottomSheet);
+          expect(sheetFinder, findsOneWidget);
+
+          // Verify scroll action works without error
+          final scrollable = find.descendant(
+            of: sheetFinder,
+            matching: find.byType(SingleChildScrollView),
+          );
+          expect(scrollable, findsOneWidget);
+          await tester.drag(scrollable, const Offset(0, -300));
+          await tester.pumpAndSettle();
+          expect(tester.takeException(), isNull);
+
+          // Close modal before next iteration
+          final closeBtn = find.descendant(
+            of: sheetFinder,
+            matching: find.byIcon(Icons.close),
+          );
+          await tester.tap(closeBtn);
+          await tester.pumpAndSettle();
+          expect(tester.takeException(), isNull);
+        }
+      },
+    );
+
+    testWidgets(
+      'Overflow & Layout: Empty cookies state renders cleanly without overflow on ultra-small viewport (320x240)',
+      (WidgetTester tester) async {
+        tester.view.physicalSize = const Size(320, 240);
+        tester.view.devicePixelRatio = 1.0;
+        addTearDown(() {
+          tester.view.resetPhysicalSize();
+          tester.view.resetDevicePixelRatio();
+        });
+
+        await tester.pumpWidget(buildTestApp());
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byIcon(Icons.more_vert));
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.text('Manage cookies'));
+        await tester.pumpAndSettle();
+
+        expect(tester.takeException(), isNull);
+        expect(find.byType(BottomSheet), findsOneWidget);
+        expect(
+          find.text(localeController.localeStrings.sNoCookiesFound),
+          findsOneWidget,
+        );
+      },
+    );
   });
 }

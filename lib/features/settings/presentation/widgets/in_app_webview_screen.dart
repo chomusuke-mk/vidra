@@ -202,15 +202,17 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
   }
 
   void _showManageCookiesSheet(BuildContext context) {
-    final locale = context.read<LocaleController>().localeStrings;
     showModalBottomSheet<void>(
       context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
       builder: (sheetContext) {
         return StatefulBuilder(
           builder: (BuildContext context, StateSetter setModalState) {
+            final locale = context.watch<LocaleController>().localeStrings;
             final directory = Directory(widget.saveCookiesPath.trim());
             final List<File> files = widget.saveCookiesPath.trim().isNotEmpty
                 ? CookieExporter.getSavedCookieFiles(directory: directory)
@@ -219,9 +221,7 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
             final theme = Theme.of(context);
             return SafeArea(
               child: ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxHeight: MediaQuery.of(context).size.height * 0.6,
-                ),
+                constraints: const BoxConstraints(maxWidth: 640),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 16,
@@ -246,10 +246,13 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            locale.wvManageCookies,
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
+                          Expanded(
+                            child: Text(
+                              locale.wvManageCookies,
+                              style: theme.textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                           IconButton(
@@ -260,73 +263,84 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
                         ],
                       ),
                       const SizedBox(height: 8),
-                      if (files.isEmpty)
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 32.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.cookie_outlined,
-                                size: 48,
-                                color: theme.colorScheme.onSurfaceVariant
-                                    .withValues(alpha: 0.6),
-                              ),
-                              const SizedBox(height: 12),
-                              Text(
-                                locale.sNoCookiesFound,
-                                style: theme.textTheme.bodyMedium?.copyWith(
-                                  color: theme.colorScheme.onSurfaceVariant,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                        )
-                      else
-                        for (int i = 0; i < files.length; i++) ...[
-                          if (i > 0) const Divider(height: 1),
-                          Builder(
-                            builder: (context) {
-                              final file = files[i];
-                              final fileName = p.basename(file.path);
-                              int fileSize = 0;
-                              try {
-                                fileSize = file.lengthSync();
-                              } catch (_) {}
+                      Flexible(
+                        child: SingleChildScrollView(
+                          child: files.isEmpty
+                              ? Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 32.0,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.cookie_outlined,
+                                        size: 48,
+                                        color: theme.colorScheme.onSurfaceVariant
+                                            .withValues(alpha: 0.6),
+                                      ),
+                                      const SizedBox(height: 12),
+                                      Text(
+                                        locale.sNoCookiesFound,
+                                        style: theme.textTheme.bodyMedium?.copyWith(
+                                          color: theme.colorScheme.onSurfaceVariant,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              : Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    for (int i = 0; i < files.length; i++) ...[
+                                      if (i > 0) const Divider(height: 1),
+                                      Builder(
+                                        builder: (context) {
+                                          final file = files[i];
+                                          final fileName = p.basename(file.path);
+                                          int fileSize = 0;
+                                          try {
+                                            fileSize = file.lengthSync();
+                                          } catch (_) {}
 
-                              final sizeStr = fileSize >= 1024 * 1024
-                                  ? '${(fileSize / (1024 * 1024)).toStringAsFixed(1)} MB'
-                                  : (fileSize >= 1024
-                                        ? '${(fileSize / 1024).toStringAsFixed(1)} KB'
-                                        : '$fileSize B');
+                                          final sizeStr = fileSize >= 1024 * 1024
+                                              ? '${(fileSize / (1024 * 1024)).toStringAsFixed(1)} MB'
+                                              : (fileSize >= 1024
+                                                    ? '${(fileSize / 1024).toStringAsFixed(1)} KB'
+                                                    : '$fileSize B');
 
-                              return ListTile(
-                                dense: true,
-                                contentPadding: EdgeInsets.zero,
-                                leading: const Icon(Icons.cookie_outlined),
-                                title: Text(
-                                  fileName,
-                                  overflow: TextOverflow.ellipsis,
+                                          return ListTile(
+                                            dense: true,
+                                            contentPadding: EdgeInsets.zero,
+                                            leading: const Icon(Icons.cookie_outlined),
+                                            title: Text(
+                                              fileName,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                            subtitle: Text(
+                                              sizeStr,
+                                              style: theme.textTheme.bodySmall,
+                                            ),
+                                            trailing: IconButton(
+                                              icon: const Icon(Icons.delete_outline),
+                                              tooltip: locale.dcActionDelete,
+                                              onPressed: () async {
+                                                await CookieExporter.deleteCookieFileAndAssociatedCookies(
+                                                  file,
+                                                );
+                                                setModalState(() {});
+                                              },
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ],
+                                  ],
                                 ),
-                                subtitle: Text(
-                                  sizeStr,
-                                  style: theme.textTheme.bodySmall,
-                                ),
-                                trailing: IconButton(
-                                  icon: const Icon(Icons.delete_outline),
-                                  onPressed: () async {
-                                    await CookieExporter.deleteCookieFileAndAssociatedCookies(
-                                      file,
-                                    );
-                                    setModalState(() {});
-                                  },
-                                ),
-                              );
-                            },
-                          ),
-                        ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -340,24 +354,27 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
 
   Widget _buildWebViewBody(BuildContext context, AppStringKey locale) {
     if (!InAppWebViewScreen.isWebViewSupported) {
-      //return const SizedBox.shrink();
-      return SizedBox(
-        width: double.infinity,
-        height: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(locale.wvNotSupported),
-            SizedBox(height: 8),
-            Text(
-              '(╥﹏╥)',
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: Theme.of(context).colorScheme.onSurfaceVariant
-                    .withAlpha(100),
+      return Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                locale.wvNotSupported,
+                textAlign: TextAlign.center,
               ),
-            ),
-          ],
+              const SizedBox(height: 8),
+              Text(
+                '(╥﹏╥)',
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant
+                      .withAlpha(100),
+                ),
+              ),
+            ],
+          ),
         ),
       );
     }
