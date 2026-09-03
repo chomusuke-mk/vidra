@@ -38,6 +38,9 @@ fun CommonExtension.applyJavaCompatibility() {
 subprojects {
     val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
     project.layout.buildDirectory.value(newSubprojectBuildDir)
+}
+
+subprojects {
     project.evaluationDependsOn(":app")
     if (project.name != "app") {
         val configureCompilationTargets: Project.() -> Unit = {
