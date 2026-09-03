@@ -178,6 +178,8 @@ words:
   - libtk
   - libva
   - libwebkit
+  - libwpebackend
+  - libwpewebkit
   - libx
   - libxau
   - libxcb
