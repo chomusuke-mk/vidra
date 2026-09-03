@@ -3,6 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  flutter_inappwebview_linux
   openpgp
   serious_python_linux
   url_launcher_linux

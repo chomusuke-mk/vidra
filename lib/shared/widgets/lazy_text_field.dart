@@ -115,8 +115,8 @@ class _LazyTextFieldState extends State<LazyTextField> {
         if (widget.pickDirectory) {
           path = await FilePicker.getDirectoryPath(dialogTitle: widget.label);
         } else {
-          final result = await FilePicker.pickFiles(dialogTitle: widget.label);
-          path = result?.files.single.path;
+          final file = await FilePicker.pickFile(dialogTitle: widget.label);
+          path = file?.path;
         }
       }
 
