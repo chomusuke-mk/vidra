@@ -41,7 +41,7 @@ dependencies:
   mime: ^2.1.0
   receive_sharing_intent: ^1.9.0
   openpgp: ^3.10.7
-  dio: ^5.11.1
+  dio: ^5.11.0
   archive: ^4.2.0
   url_launcher: ^6.3.2
   open_filex: ^4.7.0
