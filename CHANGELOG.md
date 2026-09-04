@@ -4,12 +4,17 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [4.2.1] - Paths
+
+- **Paths (Linux & Windows):** Restored default system paths and cache directories.
+- **Note:** Affects Linux and Windows platforms only. If your first installed version was 4.2.0, you may need to manually reset the download directory in **Settings > Downloads > Paths**.
+
 ## [4.2.0] - Web View
 
 - **Web View:** Added a web view feature, allowing users to browse and interact with web content directly within the application. This feature enhances the user experience by providing a seamless way to access web resources without leaving the app.
 - **Cookie from Web View:** Implemented functionality to load cookies from the web view, enabling users to maintain their session and preferences when interacting with web content. This ensures a consistent and personalized browsing experience within the application.
 - **Performance Improvements:** More optimizations to the dropdown menu, resulting in faster and more responsive interactions when navigating through options and settings.
-Note: The web view feature is currently not supported on Linux. Use linux deb version to load cookies from your browser.
+  Note: The web view feature is currently not supported on Linux. Use linux deb version to load cookies from your browser.
 - **Bug Fixes:** Fix some missing translations in the App, ensuring that users can view all text in their preferred language, enhancing accessibility and user experience across different regions.
 
 ## [4.1.6] - CURL-CFFI

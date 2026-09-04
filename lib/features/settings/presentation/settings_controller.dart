@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+
 import 'package:external_path/external_path.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as p;
@@ -62,12 +63,10 @@ class SettingsController extends ChangeNotifier {
         } catch (_) {
           // Fallback if external storage is inaccessible
         }
-      } else if (Platform.isMacOS) {
+      } else {
         try {
           dir = await getDownloadsDirectory();
-        } catch (_) {
-          // Path provider getDownloadsDirectory is only available on macOS
-        }
+        } catch (_) {}
       }
 
       if (dir == null) {
@@ -91,47 +90,13 @@ class SettingsController extends ChangeNotifier {
 
     // --- REGLA 3: Directorio de Cookies de WebView (vidra_cookies) ---
     String? resolvedCookiesFromWebview = opts.cookiesFromWebview;
-    try {
-      Directory? appSupportDir;
-      if (Platform.isAndroid || Platform.isIOS || Platform.isMacOS) {
-        try {
-          appSupportDir = await getApplicationSupportDirectory();
-        } catch (_) {
-          // Fallback if plugin fails
-        }
-      }
-      if (appSupportDir == null) {
-        final homeEnv =
-            Platform.environment['HOME'] ?? Platform.environment['USERPROFILE'];
-        if (homeEnv != null && homeEnv.isNotEmpty) {
-          appSupportDir = Directory(
-            p.join(homeEnv, '.local', 'share', 'vidra'),
-          );
-        } else {
-          appSupportDir = Directory.systemTemp;
-        }
-      }
+    final supportDir = await getApplicationSupportDirectory();
 
-      final vidraCookiesDir = Directory(
-        p.join(appSupportDir.path, 'vidra_cookies'),
-      );
-      if (!vidraCookiesDir.existsSync()) {
-        vidraCookiesDir.createSync(recursive: true);
-      }
-      resolvedCookiesFromWebview = vidraCookiesDir.path;
-    } catch (_) {
-      try {
-        final fallbackDir = Directory(
-          p.join(Directory.systemTemp.path, 'vidra', 'vidra_cookies'),
-        );
-        if (!fallbackDir.existsSync()) {
-          fallbackDir.createSync(recursive: true);
-        }
-        resolvedCookiesFromWebview = fallbackDir.path;
-      } catch (_) {
-        // Silent fallback in constrained/read-only test environments
-      }
+    final vidraCookiesDir = Directory(p.join(supportDir.path, 'vidra_cookies'));
+    if (!vidraCookiesDir.existsSync()) {
+      vidraCookiesDir.createSync(recursive: true);
     }
+    resolvedCookiesFromWebview = vidraCookiesDir.path;
 
     return opts.copyWith(
       paths: newPaths,
