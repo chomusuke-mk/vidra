@@ -88,6 +88,21 @@ Vidra is officially distributed through the **[GitHub Releases (Latest Assets)](
 | **macOS**   | _Coming soon_                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 <details>
+<summary><b>🍫 Install via Chocolatey (Windows)</b></summary>
+
+For Windows users, Vidra can be installed using our official Chocolatey package. Run the following commands in your terminal:
+
+```bash
+# Download and install Chocolatey:
+powershell -c "irm https://community.chocolatey.org/install.ps1|iex"
+
+# Download and install Vidra:
+choco install vidra
+```
+
+</details>
+
+<details>
 <summary><b>🐧 Install via APT Repository (Debian/Ubuntu)</b></summary>
 
 For Linux users on Debian or Ubuntu-based distributions, Vidra can be installed and kept up-to-date automatically using our official APT repository. Run the following commands in your terminal:
