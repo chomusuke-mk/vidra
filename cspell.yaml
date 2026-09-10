@@ -251,6 +251,7 @@ words:
   - phantomjs
   - pinentry
   - pkcs
+  - pkgs
   - podspec
   - posix
   - postuninstall
@@ -372,6 +373,7 @@ words:
   - wholemodule
   - winget
   - Winget
+  - wingetcreate
   - winres
   - Wmissing
   - WNDCLASS

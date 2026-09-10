@@ -11,20 +11,35 @@ on:
 jobs:
   publish-winget:
     name: Publish to WinGet
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Format Version
         id: format_version
+        shell: bash
         run: |
           VERSION="${{ inputs.version }}"
           CLEAN_VERSION="${VERSION#v}"
           echo "version=$CLEAN_VERSION" >> $GITHUB_OUTPUT
 
-      - name: Publish to WinGet
-        uses: vedantmgoyal9/winget-releaser@v2
-        with:
-          identifier: Chomusuke.Vidra
-          version: ${{ steps.format_version.outputs.version }}
-          release-tag: ${{ steps.format_version.outputs.version }}
-          installers-regex: 'vidra-windows\.exe$'
-          token: ${{ secrets.WINGET_TOKEN }}
+      - name: Download wingetcreate
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "https://aka.ms/wingetcreate/latest" -OutFile "wingetcreate.exe"
+
+      - name: Sync Fork with Upstream
+        shell: pwsh
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.WINGET_TOKEN }}
+        run: |
+          gh repo sync "${{ github.repository_owner }}/winget-pkgs" -b master
+
+      - name: Update and Submit Manifest to WinGet
+        shell: pwsh
+        run: |
+          .\wingetcreate.exe update Chomusuke.Vidra `
+            --urls "https://github.com/${{ github.repository }}/releases/download/${{ steps.format_version.outputs.version }}/vidra-windows.exe|x64|machine" `
+            --version "${{ steps.format_version.outputs.version }}" `
+            --token "${{ secrets.WINGET_TOKEN }}" `
+            --no-open `
+            --submit
