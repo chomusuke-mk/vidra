@@ -36,6 +36,8 @@ jobs:
 
       - name: Update and Submit Manifest to WinGet
         shell: pwsh
+        env:
+          WINGET_CREATE_GITHUB_TOKEN: ${{ secrets.WINGET_TOKEN }}
         run: |
           .\wingetcreate.exe update Chomusuke.Vidra `
             --urls "https://github.com/${{ github.repository }}/releases/download/${{ steps.format_version.outputs.version }}/vidra-windows.exe|x64|machine" `
