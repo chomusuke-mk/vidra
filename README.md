@@ -103,6 +103,17 @@ choco install vidra
 </details>
 
 <details>
+<summary><b>📦 Install via Winget (Windows)</b></summary>
+
+For Windows users, Vidra can be installed using Winget package manager. Run the following commands in your terminal:
+
+```bash
+winget install -e --id Chomusuke.Vidra
+```
+
+</details>
+
+<details>
 <summary><b>🐧 Install via APT Repository (Debian/Ubuntu)</b></summary>
 
 For Linux users on Debian or Ubuntu-based distributions, Vidra can be installed and kept up-to-date automatically using our official APT repository. Run the following commands in your terminal:

@@ -369,6 +369,8 @@ words:
   - webp
   - Werror
   - wholemodule
+  - winget
+  - Winget
   - winres
   - Wmissing
   - WNDCLASS
