@@ -4,8 +4,24 @@ on:
   workflow_dispatch:
 
 jobs:
+  get-version:
+    name: Calculate App Version
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+
+      - name: Extract Version
+        id: version
+        run: |
+          VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //' | cut -d'+' -f1 | xargs)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
   build-android:
     name: Build Android APKs
+    needs: get-version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -110,6 +126,7 @@ jobs:
 
   build-linux:
     name: Build Linux Packages
+    needs: get-version
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout Repository
@@ -215,6 +232,7 @@ jobs:
 
   build-windows:
     name: Build Windows Exe
+    needs: get-version
     runs-on: windows-latest
     steps:
       - name: Checkout Repository
@@ -262,9 +280,7 @@ jobs:
 
       - name: Package with Inno Setup
         run: |
-          $content = Get-Content pubspec.yaml | Select-String "^version: "
-          $version = ($content -replace "version: ", "").Split("+")[0].Trim()
-          iscc /DAppVer="$version" installer.iss
+          iscc /DAppVer="${{ needs.get-version.outputs.version }}" installer.iss
           Copy-Item "dist\vidra-windows.exe" -Destination "vidra-windows.exe"
 
       - name: Upload Artifacts
@@ -276,6 +292,7 @@ jobs:
 
   build-snap:
     name: Build Snap Package
+    needs: get-version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -336,20 +353,11 @@ jobs:
 
   publish-release:
     name: Publish Release
-    needs: [build-android, build-linux, build-windows, build-snap]
+    needs: [get-version, build-android, build-linux, build-windows, build-snap]
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v7
-
-      - name: Extract Version for Release
-        id: get_version
-        run: |
-          VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //' | cut -d'+' -f1 | xargs)
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-
       - name: Download All Artifacts
         uses: actions/download-artifact@v8
         with:
@@ -375,7 +383,7 @@ jobs:
       - name: Generate Release Notes
         working-directory: artifacts
         env:
-          VERSION: ${{ steps.get_version.outputs.version }}
+          VERSION: ${{ needs.get-version.outputs.version }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           BACKEND_TAG=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" https://api.github.com/repos/chomusuke-mk/vidra-backend/releases/latest | jq -r .tag_name)
@@ -419,8 +427,8 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: ${{ steps.get_version.outputs.version }}
-          name: "Vidra v${{ steps.get_version.outputs.version }}"
+          tag_name: ${{ needs.get-version.outputs.version }}
+          name: "Vidra v${{ needs.get-version.outputs.version }}"
           body_path: artifacts/RELEASE_NOTES.md
           files: |
             artifacts/vidra-windows.exe
@@ -484,22 +492,15 @@ jobs:
 
   publish-choco:
     name: Publish to Chocolatey
-    needs: publish-release
+    needs: [get-version, publish-release]
     runs-on: windows-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v7
 
-      - name: Extract Version
-        id: get_version
-        run: |
-          $content = Get-Content pubspec.yaml | Select-String "^version: "
-          $version = ($content -replace "version: ", "").Split("+")[0].Trim()
-          echo "version=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
-
       - name: Prepare Chocolatey Package
         env:
-          VERSION: ${{ steps.get_version.outputs.version }}
+          VERSION: ${{ needs.get-version.outputs.version }}
         run: |
           # 1. Download the exe to calculate the hash
           $url = "https://github.com/chomusuke-mk/vidra/releases/download/$env:VERSION/vidra-windows.exe"
@@ -524,3 +525,17 @@ jobs:
         run: |
           choco pack
           choco push --key $env:CHOCOLATEY_API_KEY --source https://push.chocolatey.org/
+
+  publish-winget:
+    name: Publish to WinGet
+    needs: [get-version, publish-release]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish to WinGet
+        uses: vedantmgoyal9/winget-releaser@v2
+        with:
+          identifier: Chomusuke.Vidra
+          version: ${{ needs.get-version.outputs.version }}
+          release-tag: ${{ needs.get-version.outputs.version }}
+          installers-regex: 'vidra-windows\.exe$'
+          token: ${{ secrets.WINGET_TOKEN }}
