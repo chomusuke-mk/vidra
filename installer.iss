@@ -3,7 +3,7 @@
 #endif
 
 [Setup]
-AppId={{f64fa50b-b4ea-45d9-92f9-c4a54ee64213}}
+AppId={{f64fa50b-b4ea-45d9-92f9-c4a54ee64213}
 AppName=Vidra
 AppVersion={#AppVer}
 AppVerName=Vidra {#AppVer}
