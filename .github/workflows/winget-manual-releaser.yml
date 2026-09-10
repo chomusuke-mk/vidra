@@ -1,0 +1,30 @@
+name: WinGet Manual Releaser
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Versión a publicar en WinGet (ej. 4.2.1)"
+        required: true
+        type: string
+
+jobs:
+  publish-winget:
+    name: Publish to WinGet
+    runs-on: ubuntu-latest
+    steps:
+      - name: Format Version
+        id: format_version
+        run: |
+          VERSION="${{ inputs.version }}"
+          CLEAN_VERSION="${VERSION#v}"
+          echo "version=$CLEAN_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Publish to WinGet
+        uses: vedantmgoyal9/winget-releaser@v2
+        with:
+          identifier: Chomusuke.Vidra
+          version: ${{ steps.format_version.outputs.version }}
+          release-tag: ${{ steps.format_version.outputs.version }}
+          installers-regex: 'vidra-windows\.exe$'
+          token: ${{ secrets.WINGET_TOKEN }}
