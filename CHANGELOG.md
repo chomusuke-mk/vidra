@@ -4,6 +4,12 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [4.2.2] - Windows ID
+
+- **Windows Installer ID:** Fixed extra `}` in the Windows installer ID, ensuring that following the correct format for the installer ID and preventing potential issues during installation on Windows platforms.
+- **Note:** This fix is specific to the Windows platform and this could affect users who are updating the application on Windows. Really sorry for the inconvenience. If you are affected, please uninstall the current version and install the new version from the official website.
+- **Bug Fixes:** Fixed error message getter when retry getting download information.
+
 ## [4.2.1] - Paths
 
 - **Paths (Linux & Windows):** Restored default system paths and cache directories.
