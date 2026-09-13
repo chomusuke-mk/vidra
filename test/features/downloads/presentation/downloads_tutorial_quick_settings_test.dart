@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:jsonc/jsonc.dart';
@@ -111,7 +112,9 @@ class FakeUpdateController extends ChangeNotifier implements UpdateController {
 
 class FakeDownloadRepository extends DownloadRepository {
   FakeDownloadRepository()
-      : super(VidraHttpClient(baseUrl: 'http://127.0.0.1:5000', defaultHeaders: {}));
+    : super(
+        VidraHttpClient(baseUrl: 'http://127.0.0.1:5000', defaultHeaders: {}),
+      );
 
   @override
   Future<List<Download>> getAllDownloads() async => [];
@@ -167,9 +170,7 @@ Widget createTutorialTestApp({
         value: downloadsController,
       ),
     ],
-    child: const MaterialApp(
-      home: DownloadsScreen(),
-    ),
+    child: const MaterialApp(home: DownloadsScreen()),
   );
 }
 
@@ -250,12 +251,20 @@ void main() {
           ),
         );
 
-        final quickSettingsFinder = find.byKey(AppTutorialKeys.mainQuickSettings);
+        final quickSettingsFinder = find.byKey(
+          AppTutorialKeys.mainQuickSettings,
+        );
         expect(quickSettingsFinder, findsOneWidget);
 
         final fab = tester.widget<FloatingActionButton>(quickSettingsFinder);
         expect(fab.heroTag, equals('quick_settings_fab'));
-        expect(find.descendant(of: quickSettingsFinder, matching: find.byIcon(Icons.construction_outlined)), findsOneWidget);
+        expect(
+          find.descendant(
+            of: quickSettingsFinder,
+            matching: find.byIcon(Icons.construction_outlined),
+          ),
+          findsOneWidget,
+        );
 
         await tester.pumpWidget(const SizedBox.shrink());
       },
@@ -281,10 +290,18 @@ void main() {
         final helpIconFinder = find.byIcon(Icons.help_outline);
         expect(helpIconFinder, findsOneWidget);
         await tester.tap(helpIconFinder);
-        await tester.pump(const Duration(milliseconds: 10)); // Runs postFrame Future.delayed -> inserts OverlayEntry
-        await tester.pump(const Duration(milliseconds: 10)); // Builds OverlayEntry -> runs initState Future.delayed
-        await tester.pump(const Duration(milliseconds: 650)); // Runs forward animation -> calls focus()
-        await tester.pump(const Duration(milliseconds: 350)); // Completes AnimatedOpacity fade-in
+        await tester.pump(
+          const Duration(milliseconds: 10),
+        ); // Runs postFrame Future.delayed -> inserts OverlayEntry
+        await tester.pump(
+          const Duration(milliseconds: 10),
+        ); // Builds OverlayEntry -> runs initState Future.delayed
+        await tester.pump(
+          const Duration(milliseconds: 650),
+        ); // Runs forward animation -> calls focus()
+        await tester.pump(
+          const Duration(milliseconds: 350),
+        ); // Completes AnimatedOpacity fade-in
 
         // 1. First step: Engine State
         expect(find.text('Engine State'), findsOneWidget);
@@ -312,6 +329,15 @@ void main() {
           find.text(
             'Open this menu to quickly adjust download options on the fly without leaving the main screen.',
           ),
+          findsOneWidget,
+        );
+        expect(find.text('Next'), findsOneWidget);
+        await advanceTutorialStep(tester, 'Next');
+
+        // 6. Cut
+        expect(find.text('Cut'), findsOneWidget);
+        expect(
+          find.text('Trim the video or audio before downloading.'),
           findsOneWidget,
         );
         expect(find.text('Understood'), findsOneWidget);
@@ -380,6 +406,14 @@ void main() {
           ),
           findsOneWidget,
         );
+        await advanceTutorialStep(tester, 'Próximo');
+
+        // Step 6: Cut
+        expect(find.text('Cortar'), findsWidgets);
+        expect(
+          find.text('Recorte el video o audio antes de descargarlo.'),
+          findsOneWidget,
+        );
         expect(find.text('Comprendido'), findsOneWidget);
 
         await tester.tap(find.text('Comprendido'));
@@ -441,6 +475,10 @@ void main() {
           ),
           findsOneWidget,
         );
+        await advanceTutorialStep(tester, 'Nächste');
+
+        // Step 6: Cut Settings in German
+        expect(find.text('Schneiden'), findsWidgets);
         expect(find.text('Verstanden'), findsOneWidget);
 
         await tester.tap(find.text('Verstanden'));
@@ -451,66 +489,69 @@ void main() {
       },
     );
 
-    testWidgets(
-      'Tutorial renders French localized steps for Quick Settings',
-      (WidgetTester tester) async {
-        final frLocaleController = LocaleController(mockLocaleRepo, 'fr');
-        await frLocaleController.whenReady;
+    testWidgets('Tutorial renders French localized steps for Quick Settings', (
+      WidgetTester tester,
+    ) async {
+      final frLocaleController = LocaleController(mockLocaleRepo, 'fr');
+      await frLocaleController.whenReady;
 
-        await pumpScreen(
-          tester,
-          createTutorialTestApp(
-            downloadsController: downloadsController,
-            settingsController: settingsController,
-            localeController: frLocaleController,
-            systemController: systemController,
-            updateController: updateController,
-            downloadRepository: downloadRepo,
-            sharedPreferences: prefs,
-          ),
-        );
+      await pumpScreen(
+        tester,
+        createTutorialTestApp(
+          downloadsController: downloadsController,
+          settingsController: settingsController,
+          localeController: frLocaleController,
+          systemController: systemController,
+          updateController: updateController,
+          downloadRepository: downloadRepo,
+          sharedPreferences: prefs,
+        ),
+      );
 
-        final helpIconFinder = find.byIcon(Icons.help_outline);
-        expect(helpIconFinder, findsOneWidget);
-        await tester.tap(helpIconFinder);
-        await tester.pump(const Duration(milliseconds: 10));
-        await tester.pump(const Duration(milliseconds: 10));
-        await tester.pump(const Duration(milliseconds: 650));
-        await tester.pump(const Duration(milliseconds: 350));
+      final helpIconFinder = find.byIcon(Icons.help_outline);
+      expect(helpIconFinder, findsOneWidget);
+      await tester.tap(helpIconFinder);
+      await tester.pump(const Duration(milliseconds: 10));
+      await tester.pump(const Duration(milliseconds: 10));
+      await tester.pump(const Duration(milliseconds: 650));
+      await tester.pump(const Duration(milliseconds: 350));
 
-        // Step 1: Engine state
-        expect(find.text('État du moteur'), findsOneWidget);
-        await advanceTutorialStep(tester, 'Suivant');
+      // Step 1: Engine state
+      expect(find.text('État du moteur'), findsOneWidget);
+      await advanceTutorialStep(tester, 'Suivant');
 
-        // Step 2: Download content
-        expect(find.text('Télécharger du contenu'), findsOneWidget);
-        await advanceTutorialStep(tester, 'Suivant');
+      // Step 2: Download content
+      expect(find.text('Télécharger du contenu'), findsOneWidget);
+      await advanceTutorialStep(tester, 'Suivant');
 
-        // Step 3: Filters
-        expect(find.text('Filtres et recherche'), findsOneWidget);
-        await advanceTutorialStep(tester, 'Suivant');
+      // Step 3: Filters
+      expect(find.text('Filtres et recherche'), findsOneWidget);
+      await advanceTutorialStep(tester, 'Suivant');
 
-        // Step 4: Settings
-        expect(find.text('Paramètres'), findsOneWidget);
-        await advanceTutorialStep(tester, 'Suivant');
+      // Step 4: Settings
+      expect(find.text('Paramètres'), findsOneWidget);
+      await advanceTutorialStep(tester, 'Suivant');
 
-        // Step 5: Quick Settings in French
-        expect(find.text('Paramètres rapides'), findsWidgets);
-        expect(
-          find.text(
-            "Ouvrez ce menu pour ajuster rapidement les options de téléchargement à la volée sans quitter l'écran principal.",
-          ),
-          findsOneWidget,
-        );
-        expect(find.text('Compris'), findsOneWidget);
+      // Step 5: Quick Settings in French
+      expect(find.text('Paramètres rapides'), findsWidgets);
+      expect(
+        find.text(
+          "Ouvrez ce menu pour ajuster rapidement les options de téléchargement à la volée sans quitter l'écran principal.",
+        ),
+        findsOneWidget,
+      );
+      await advanceTutorialStep(tester, 'Suivant');
 
-        await tester.tap(find.text('Compris'));
-        await tester.pump(const Duration(milliseconds: 500));
-        await tester.pumpAndSettle();
+      // Step 6: Cut Settings in French
+      expect(find.text('Couper'), findsWidgets);
+      expect(find.text('Compris'), findsOneWidget);
 
-        await tester.pumpWidget(const SizedBox.shrink());
-      },
-    );
+      await tester.tap(find.text('Compris'));
+      await tester.pump(const Duration(milliseconds: 500));
+      await tester.pumpAndSettle();
+
+      await tester.pumpWidget(const SizedBox.shrink());
+    });
 
     testWidgets(
       'Skipping tutorial marks has_seen_main_tutorial in SharedPreferences and dismisses overlay',
@@ -615,6 +656,8 @@ void main() {
         await advanceTutorialStep(tester, 'Next');
 
         expect(find.text('Quick Settings'), findsOneWidget);
+        await advanceTutorialStep(tester, 'Next');
+        expect(find.text('Cut'), findsOneWidget);
         expect(find.text('Understood'), findsOneWidget);
         expect(tester.takeException(), isNull);
 

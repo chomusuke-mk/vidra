@@ -90,7 +90,21 @@ class SettingsController extends ChangeNotifier {
 
     // --- REGLA 3: Directorio de Cookies de WebView (vidra_cookies) ---
     String? resolvedCookiesFromWebview = opts.cookiesFromWebview;
-    final supportDir = await getApplicationSupportDirectory();
+
+    Directory? supportDir;
+    try {
+      supportDir = await getApplicationSupportDirectory();
+    } catch (_) {}
+
+    if (supportDir == null) {
+      final homeEnv =
+          Platform.environment['HOME'] ?? Platform.environment['USERPROFILE'];
+      if (homeEnv != null && homeEnv.isNotEmpty) {
+        supportDir = Directory(p.join(homeEnv, '.vidra'));
+      } else {
+        supportDir = Directory.systemTemp;
+      }
+    }
 
     final vidraCookiesDir = Directory(p.join(supportDir.path, 'vidra_cookies'));
     if (!vidraCookiesDir.existsSync()) {
