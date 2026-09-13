@@ -178,10 +178,13 @@ words:
   - libnuma
   - libpython
   - libquickjs
+  - libsecret
+  - libsoup
   - libtcl
   - libtk
   - libva
   - libwebkit
+  - libwpe
   - libwpebackend
   - libwpewebkit
   - libx

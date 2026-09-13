@@ -1,0 +1,104 @@
+name: vidra
+description: "The ultimate, lightning-fast video download manager"
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 4.2.2+63
+
+environment:
+  sdk: ^3.13.2
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.9
+  path_provider: ^2.1.6
+  package_info_plus: ^10.2.1
+  shared_preferences: ^2.5.5
+  provider: ^6.1.5+1
+  http: ^1.6.0
+  cached_network_image: ^4.0.0
+  flutter_cache_manager: ^3.4.2
+  serious_python: ^4.7.0
+  permission_handler: ^13.0.2
+  filesystem_picker: ^4.1.0
+  external_path: ^3.0.0
+  flutter_local_notifications: ^22.3.1
+  jsonc: ^0.0.3
+  device_info_plus: ^13.2.0
+  path: ^1.9.1
+  crypto: ^3.0.7
+  convert: ^3.1.2
+  mime: ^2.1.0
+  receive_sharing_intent: ^1.9.0
+  openpgp: ^3.10.7
+  dio: ^5.11.1
+  archive: ^4.3.0
+  url_launcher: ^6.3.2
+  open_filex: ^4.7.0
+  flutter_slidable: ^4.0.3
+  file_picker: ^12.3.0
+  flutter_screen_overlay: ^1.0.7
+  flutter_markdown_plus: ^1.0.12
+  tutorial_coach_mark: ^1.3.4
+  flutter_inappwebview: ^6.2.0-beta.3
+  font_awesome_flutter: ^11.0.0
+
+dependency_overrides: 
+  petitparser: ^7.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - LICENSE
+    - CHANGELOG.md
+    - third_party_licenses/
+    - assets/icon/icon.ico
+    - assets/icon/icon.png
+    - assets/icon/yt-dlp.png
+    - assets/icon/javascript.png
+    - i18n/
+
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+
+flutter_launcher_icons:
+  image_path: "assets/icon/icon.png"
+  android: true
+  ios:
+    generate: true
+    remove_alpha_ios: true
+  windows:
+    generate: true
+  macos:
+    generate: true
+  linux:
+    generate: true
+    image_path: "assets/icon/icon.png"
