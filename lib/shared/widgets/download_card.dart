@@ -139,9 +139,8 @@ class DownloadCard extends StatelessWidget {
         if (actionCount > 0)
           Icon(
             Icons.chevron_left,
-            color: Theme.of(
-              context,
-            ).colorScheme.onSurfaceVariant.withValues(alpha: 0.4),
+            color: Theme.of(context).colorScheme.onSurfaceVariant
+                .withValues(alpha: 0.4),
             size: 16,
           ), // Pista visual de gesto
       ],
@@ -529,21 +528,21 @@ class DownloadCard extends StatelessWidget {
                     memCacheWidth: 192,
                     fit: BoxFit.contain,
                     placeholder: (_, _) => Container(
-                      color: Theme.of(
-                        context,
-                      ).colorScheme.surfaceContainerHighest,
+                      color: Theme.of(context)
+                          .colorScheme
+                          .surfaceContainerHighest,
                     ),
                     errorWidget: (_, _, _) => Container(
-                      color: Theme.of(
-                        context,
-                      ).colorScheme.surfaceContainerHighest,
+                      color: Theme.of(context)
+                          .colorScheme
+                          .surfaceContainerHighest,
                       child: const Icon(Icons.broken_image, size: 24),
                     ),
                   )
                 : Container(
-                    color: Theme.of(
-                      context,
-                    ).colorScheme.surfaceContainerHighest,
+                    color: Theme.of(context)
+                        .colorScheme
+                        .surfaceContainerHighest,
                     child: const Center(
                       child: Icon(Icons.video_file, size: 24),
                     ),
@@ -697,9 +696,9 @@ class DownloadCard extends StatelessWidget {
                       color:
                           state?.progressColor?.color ??
                           Theme.of(context).colorScheme.primary,
-                      backgroundColor: Theme.of(
-                        context,
-                      ).colorScheme.surfaceContainerHighest,
+                      backgroundColor: Theme.of(context)
+                          .colorScheme
+                          .surfaceContainerHighest,
                     ),
                   ),
                 ),
