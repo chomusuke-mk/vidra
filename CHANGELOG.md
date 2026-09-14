@@ -7,6 +7,7 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 ## [4.2.3] - Linux Snap
 
 - **Linux Snap:** Add support for removable media in Linux Snap version. This update allows users to access and manage files on external storage devices, enhancing the application's functionality and user experience on Linux platforms.
+- **Note:** This snap feature need user to run `sudo snap connect vidra:removable-media` to enable access to removable media. This command grants the application permission to interact with external storage devices, ensuring that users can fully utilize the new feature.
 
 ## [4.2.2] - Windows ID
 
