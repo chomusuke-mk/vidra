@@ -4,7 +4,7 @@ adopt-info: vidra
 summary: The ultimate, lightning-fast video download manager
 description: |
   Meet Vidra, the ultimate open-source video download manager designed for power users who demand speed, reliability, and a beautiful interface. Built with a modern Flutter frontend and a robust Python backend (powered by yt-dlp and FFmpeg), Vidra brings a premium downloading experience right to your desktop!
-  
+
   Features:
   - Lightning-Fast & Reliable: Leverages the uncompromised power of yt-dlp to support downloading from hundreds of sites.
   - Advanced Processing: Integrated FFmpeg handles complex media processing tasks effortlessly in the background.
@@ -35,6 +35,7 @@ apps:
       - network
       - network-bind
       - home
+      - removable-media
       - opengl
       - wayland
       - audio-playback
@@ -54,8 +55,6 @@ parts:
       # 0. Set dynamic version from pubspec.yaml
       VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //' | cut -d'+' -f1 | xargs)
       craftctl set version="$VERSION"
-
-      # Build the Flutter app
       craftctl default
 
   ffmpeg-dependencies:

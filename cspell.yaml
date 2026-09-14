@@ -101,6 +101,7 @@ words:
   - facebook
   - fastforge
   - fdroid
+  - FETCHCONTENT
   - ffmpegmerger
   - ffmpegmetadata
   - ffmpegvideoconvertor
@@ -174,14 +175,20 @@ words:
   - libffprobe
   - libflutter
   - libfuse
+  - libglib
   - libgomp
+  - libnotify
   - libnuma
   - libpython
   - libquickjs
+  - libsecret
+  - libsoup
+  - libsqlite
   - libtcl
   - libtk
   - libva
   - libwebkit
+  - libwpe
   - libwpebackend
   - libwpewebkit
   - libx
@@ -226,6 +233,7 @@ words:
   - NDEBUG
   - netscape
   - Neue
+  - nlohmann
   - NOMINMAX
   - nonnull
   - NONNULL

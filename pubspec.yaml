@@ -4,7 +4,7 @@ description: "The ultimate, lightning-fast video download manager"
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 4.2.2+63
+version: 4.2.3+64
 
 environment:
   sdk: ^3.13.2
@@ -32,7 +32,7 @@ dependencies:
   permission_handler: ^13.0.2
   filesystem_picker: ^4.1.0
   external_path: ^3.0.0
-  flutter_local_notifications: ^22.3.0
+  flutter_local_notifications: ^22.3.1
   jsonc: ^0.0.3
   device_info_plus: ^13.2.0
   path: ^1.9.1
@@ -42,7 +42,7 @@ dependencies:
   receive_sharing_intent: ^1.9.0
   openpgp: ^3.10.7
   dio: ^5.11.1
-  archive: ^4.2.0
+  archive: ^4.3.0
   url_launcher: ^6.3.2
   open_filex: ^4.7.0
   flutter_slidable: ^4.0.3

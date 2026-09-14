@@ -32,17 +32,23 @@ class SettingsController extends ChangeNotifier {
   }
 
   void _loadSettings() async {
-    await Future.microtask(() {});
-    _appLanguage = _repository.getAppLanguage();
-    _appTheme = _repository.getAppTheme();
-    var opts = _repository.getDownloadOptions();
-    opts = await _applyDynamicDefaults(opts);
-    _downloadOptions = opts;
-    _isInitialized = true;
-    if (!_initCompleter.isCompleted) {
-      _initCompleter.complete();
+    try {
+      await Future.microtask(() {});
+      _appLanguage = _repository.getAppLanguage();
+      _appTheme = _repository.getAppTheme();
+      var opts = _repository.getDownloadOptions();
+      opts = await _applyDynamicDefaults(opts);
+      _downloadOptions = opts;
+      _isInitialized = true;
+      if (!_initCompleter.isCompleted) {
+        _initCompleter.complete();
+      }
+      notifyListeners();
+    } catch (e, st) {
+      if (!_initCompleter.isCompleted) {
+        _initCompleter.completeError(e, st);
+      }
     }
-    notifyListeners();
   }
 
   Future<DownloadOptions> _applyDynamicDefaults(DownloadOptions opts) async {

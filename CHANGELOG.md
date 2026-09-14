@@ -4,6 +4,10 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [4.2.3] - Linux Snap
+
+- **Linux Snap:** Add support for removable media in Linux Snap version. This update allows users to access and manage files on external storage devices, enhancing the application's functionality and user experience on Linux platforms.
+
 ## [4.2.2] - Windows ID
 
 - **Windows Installer ID:** Fixed extra `}` in the Windows installer ID, ensuring that following the correct format for the installer ID and preventing potential issues during installation on Windows platforms.

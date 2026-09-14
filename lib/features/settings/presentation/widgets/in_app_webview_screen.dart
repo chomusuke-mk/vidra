@@ -37,12 +37,7 @@ class InAppWebViewScreen extends StatefulWidget {
   });
 
   /// Returns `true` if the current platform supports the In-App WebView, `false` otherwise.
-  static bool get isWebViewSupported =>
-      InAppWebViewPlatform.instance != null &&
-      (Platform.isAndroid ||
-          Platform.isIOS ||
-          Platform.isMacOS ||
-          Platform.isWindows);
+  static bool get isWebViewSupported => InAppWebViewPlatform.instance != null;
 
   /// Displays the [InAppWebViewScreen] as a full-screen dialog route and
   /// returns the absolute path of the generated cookie file or directory, or `null` if dismissed.
@@ -277,15 +272,20 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
                                       Icon(
                                         Icons.cookie_outlined,
                                         size: 48,
-                                        color: theme.colorScheme.onSurfaceVariant
+                                        color: theme
+                                            .colorScheme
+                                            .onSurfaceVariant
                                             .withValues(alpha: 0.6),
                                       ),
                                       const SizedBox(height: 12),
                                       Text(
                                         locale.sNoCookiesFound,
-                                        style: theme.textTheme.bodyMedium?.copyWith(
-                                          color: theme.colorScheme.onSurfaceVariant,
-                                        ),
+                                        style: theme.textTheme.bodyMedium
+                                            ?.copyWith(
+                                              color: theme
+                                                  .colorScheme
+                                                  .onSurfaceVariant,
+                                            ),
                                         textAlign: TextAlign.center,
                                       ),
                                     ],
@@ -299,13 +299,16 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
                                       Builder(
                                         builder: (context) {
                                           final file = files[i];
-                                          final fileName = p.basename(file.path);
+                                          final fileName = p.basename(
+                                            file.path,
+                                          );
                                           int fileSize = 0;
                                           try {
                                             fileSize = file.lengthSync();
                                           } catch (_) {}
 
-                                          final sizeStr = fileSize >= 1024 * 1024
+                                          final sizeStr =
+                                              fileSize >= 1024 * 1024
                                               ? '${(fileSize / (1024 * 1024)).toStringAsFixed(1)} MB'
                                               : (fileSize >= 1024
                                                     ? '${(fileSize / 1024).toStringAsFixed(1)} KB'
@@ -314,7 +317,9 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
                                           return ListTile(
                                             dense: true,
                                             contentPadding: EdgeInsets.zero,
-                                            leading: const Icon(Icons.cookie_outlined),
+                                            leading: const Icon(
+                                              Icons.cookie_outlined,
+                                            ),
                                             title: Text(
                                               fileName,
                                               overflow: TextOverflow.ellipsis,
@@ -324,7 +329,9 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
                                               style: theme.textTheme.bodySmall,
                                             ),
                                             trailing: IconButton(
-                                              icon: const Icon(Icons.delete_outline),
+                                              icon: const Icon(
+                                                Icons.delete_outline,
+                                              ),
                                               tooltip: locale.dcActionDelete,
                                               onPressed: () async {
                                                 await CookieExporter.deleteCookieFileAndAssociatedCookies(
@@ -361,10 +368,7 @@ class _InAppWebViewScreenState extends State<InAppWebViewScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                locale.wvNotSupported,
-                textAlign: TextAlign.center,
-              ),
+              Text(locale.wvNotSupported, textAlign: TextAlign.center),
               const SizedBox(height: 8),
               Text(
                 '(╥﹏╥)',
