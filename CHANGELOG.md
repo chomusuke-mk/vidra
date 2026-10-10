@@ -6,6 +6,8 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ## [4.2.4] - Logging enhancements
 
+- **Android Media Store:** Added support for Android Media Store, allowing users to save and manage downloaded media files directly within the device's media library. This feature enhances the organization and accessibility of downloaded content on Android devices.
+
 - **Backend Logging:** Improved logging capabilities in the backend, providing more detailed and structured logs for better monitoring and debugging. This enhancement allows developers to gain deeper insights into the application's behavior and performance, facilitating quicker identification and resolution of issues.
 - **Note:** This update is primarily focused on backend improvements and may not directly impact end-users. However, it contributes to the overall stability and reliability of the application by enabling more effective troubleshooting and maintenance.
 - **Bug Fixes:** Minor bug fixes and optimizations to enhance the overall performance and user experience of the application.

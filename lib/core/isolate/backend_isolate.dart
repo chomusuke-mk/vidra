@@ -149,6 +149,12 @@ void backendIsolateMain(Map<String, dynamic> config) async {
   Future<String> resolveExecutable(String baseName) =>
       PlatformUtils.resolveExecutable(baseName);
 
+  // --- Escaneo de archivos en MediaStore de Android ---
+  Future<void> scanFiles(Download download) => PlatformUtils.scanFiles(
+    download,
+    fetchDownloadDetails: (id) => httpClient.getDownloads(id: id),
+  );
+
   // --- Reactividad SSE, Caché de Imágenes y Merging de Deltas ---
   void triggerImageCache(String id, String url) async {
     if (url.isEmpty || imageCache.containsKey(id)) return;
@@ -256,6 +262,13 @@ void backendIsolateMain(Map<String, dynamic> config) async {
               progressSpeed: progressSpeed,
             );
           } else if (oldState != newState) {
+            if (newState == DownloadStateEnum.completed ||
+                newState == DownloadStateEnum.completedWithErrors ||
+                (newState == DownloadStateEnum.paused &&
+                    download.info?.type == DownloadType.list)) {
+              scanFiles(download);
+            }
+
             if (newState == DownloadStateEnum.awaitingSelection ||
                 newState == DownloadStateEnum.paused) {
               NotificationService.showState(
