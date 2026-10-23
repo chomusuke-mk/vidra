@@ -4,6 +4,11 @@ All notable changes to the **[Vidra](https://github.com/chomusuke-mk/vidra)** pr
 
 ---
 
+## [4.2.5] - Dependency Updates
+
+- **Dependency Updates:** Updated various dependencies to their latest versions, ensuring compatibility with the latest features and security patches. This update helps maintain the stability and performance of the application by leveraging improvements made in the underlying libraries and frameworks.
+- **Fixes:** Fix ota-update for yt-dlp.
+
 ## [4.2.4] - Logging enhancements
 
 - **Android Media Store:** Added support for Android Media Store, allowing users to save and manage downloaded media files directly within the device's media library. This feature enhances the organization and accessibility of downloaded content on Android devices.
